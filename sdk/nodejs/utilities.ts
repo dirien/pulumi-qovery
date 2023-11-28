@@ -50,7 +50,7 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "ithub://api.github.com/dirien/pulumi-qovery" };
+    return { version: getVersion(), pluginDownloadURL: "github://api.github.com/dirien/pulumi-qovery" };
 }
 
 /** @internal */

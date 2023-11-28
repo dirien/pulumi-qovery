@@ -11,7 +11,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`qovery` Terraform Provider](https://github.com/qovery/terraform-provider-qovery).",
     "repository": "https://github.com/dirien/pulumi-qovery",
-    "pluginDownloadURL": "ithub://api.github.com/dirien/pulumi-qovery",
+    "pluginDownloadURL": "github://api.github.com/dirien/pulumi-qovery",
     "publisher": "dirien",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
