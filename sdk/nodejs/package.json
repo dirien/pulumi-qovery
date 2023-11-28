@@ -24,6 +24,6 @@
     "pulumi": {
         "resource": true,
         "name": "qovery",
-        "server": "ithub://api.github.com/dirien/pulumi-qovery"
+        "server": "github://api.github.com/dirien/pulumi-qovery"
     }
 }

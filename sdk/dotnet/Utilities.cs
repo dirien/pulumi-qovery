@@ -53,7 +53,7 @@ namespace ediri.Qovery
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "ithub://api.github.com/dirien/pulumi-qovery";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/dirien/pulumi-qovery";
             return dst;
         }
 

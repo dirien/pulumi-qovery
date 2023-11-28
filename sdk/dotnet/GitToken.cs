@@ -77,7 +77,7 @@ namespace ediri.Qovery
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "ithub://api.github.com/dirien/pulumi-qovery",
+                PluginDownloadURL = "github://api.github.com/dirien/pulumi-qovery",
                 AdditionalSecretOutputs =
                 {
                     "token",
