@@ -1,4 +1,4 @@
-module github.com/pulumiverse/pulumi-qovery/sdk
+module github.com/dirien/pulumi-qovery/sdk
 
 go 1.20
 
