@@ -1,0 +1,529 @@
+{
+    "renames": {
+        "resources": {
+            "qovery:index/application:Application": "qovery_application",
+            "qovery:index/awsCredentials:AwsCredentials": "qovery_aws_credentials",
+            "qovery:index/cluster:Cluster": "qovery_cluster",
+            "qovery:index/container:Container": "qovery_container",
+            "qovery:index/containerRegistry:ContainerRegistry": "qovery_container_registry",
+            "qovery:index/database:Database": "qovery_database",
+            "qovery:index/deployment:Deployment": "qovery_deployment",
+            "qovery:index/deploymentStage:DeploymentStage": "qovery_deployment_stage",
+            "qovery:index/environment:Environment": "qovery_environment",
+            "qovery:index/gitToken:GitToken": "qovery_git_token",
+            "qovery:index/job:Job": "qovery_job",
+            "qovery:index/organization:Organization": "qovery_organization",
+            "qovery:index/project:Project": "qovery_project",
+            "qovery:index/scalewayCredentials:ScalewayCredentials": "qovery_scaleway_credentials"
+        },
+        "functions": {
+            "qovery:index/getApplication:getApplication": "qovery_application",
+            "qovery:index/getAwsCredentials:getAwsCredentials": "qovery_aws_credentials",
+            "qovery:index/getCluster:getCluster": "qovery_cluster",
+            "qovery:index/getContainer:getContainer": "qovery_container",
+            "qovery:index/getContainerRegistry:getContainerRegistry": "qovery_container_registry",
+            "qovery:index/getDatabase:getDatabase": "qovery_database",
+            "qovery:index/getDeployment:getDeployment": "qovery_deployment",
+            "qovery:index/getDeploymentStage:getDeploymentStage": "qovery_deployment_stage",
+            "qovery:index/getEnvironment:getEnvironment": "qovery_environment",
+            "qovery:index/getGitToken:getGitToken": "qovery_git_token",
+            "qovery:index/getJob:getJob": "qovery_job",
+            "qovery:index/getOrganization:getOrganization": "qovery_organization",
+            "qovery:index/getProject:getProject": "qovery_project",
+            "qovery:index/getScalewayCredentials:getScalewayCredentials": "qovery_scaleway_credentials"
+        },
+        "renamedProperties": {
+            "qovery:index/ApplicationCustomDomain:ApplicationCustomDomain": {
+                "validationDomain": "validation_domain"
+            },
+            "qovery:index/ApplicationGitRepository:ApplicationGitRepository": {
+                "gitTokenId": "git_token_id",
+                "rootPath": "root_path"
+            },
+            "qovery:index/ApplicationHealthchecks:ApplicationHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/ApplicationHealthchecksLivenessProbe:ApplicationHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/ApplicationHealthchecksLivenessProbeTypeExec:ApplicationHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/ApplicationHealthchecksReadinessProbe:ApplicationHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/ApplicationHealthchecksReadinessProbeTypeExec:ApplicationHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/ApplicationPort:ApplicationPort": {
+                "externalPort": "external_port",
+                "internalPort": "internal_port",
+                "isDefault": "is_default",
+                "publiclyAccessible": "publicly_accessible"
+            },
+            "qovery:index/ApplicationStorage:ApplicationStorage": {
+                "mountPoint": "mount_point"
+            },
+            "qovery:index/ClusterFeatures:ClusterFeatures": {
+                "staticIp": "static_ip",
+                "vpcSubnet": "vpc_subnet"
+            },
+            "qovery:index/ContainerCustomDomain:ContainerCustomDomain": {
+                "validationDomain": "validation_domain"
+            },
+            "qovery:index/ContainerHealthchecks:ContainerHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/ContainerHealthchecksLivenessProbe:ContainerHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/ContainerHealthchecksLivenessProbeTypeExec:ContainerHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/ContainerHealthchecksReadinessProbe:ContainerHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/ContainerHealthchecksReadinessProbeTypeExec:ContainerHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/ContainerPort:ContainerPort": {
+                "externalPort": "external_port",
+                "internalPort": "internal_port",
+                "isDefault": "is_default",
+                "publiclyAccessible": "publicly_accessible"
+            },
+            "qovery:index/ContainerRegistryConfig:ContainerRegistryConfig": {
+                "accessKeyId": "access_key_id",
+                "scalewayAccessKey": "scaleway_access_key",
+                "scalewaySecretKey": "scaleway_secret_key",
+                "secretAccessKey": "secret_access_key"
+            },
+            "qovery:index/ContainerStorage:ContainerStorage": {
+                "mountPoint": "mount_point"
+            },
+            "qovery:index/JobHealthchecks:JobHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/JobHealthchecksLivenessProbe:JobHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/JobHealthchecksLivenessProbeTypeExec:JobHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/JobHealthchecksReadinessProbe:JobHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/JobHealthchecksReadinessProbeTypeExec:JobHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/JobSchedule:JobSchedule": {
+                "onDelete": "on_delete",
+                "onStart": "on_start",
+                "onStop": "on_stop"
+            },
+            "qovery:index/JobSourceDocker:JobSourceDocker": {
+                "dockerfilePath": "dockerfile_path",
+                "gitRepository": "git_repository"
+            },
+            "qovery:index/JobSourceDockerGitRepository:JobSourceDockerGitRepository": {
+                "gitTokenId": "git_token_id",
+                "rootPath": "root_path"
+            },
+            "qovery:index/JobSourceImage:JobSourceImage": {
+                "registryId": "registry_id"
+            },
+            "qovery:index/application:Application": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "buildMode": "build_mode",
+                "buildpackLanguage": "buildpack_language",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "customDomains": "custom_domains",
+                "deploymentStageId": "deployment_stage_id",
+                "dockerfilePath": "dockerfile_path",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "gitRepository": "git_repository",
+                "internalHost": "internal_host",
+                "maxRunningInstances": "max_running_instances",
+                "minRunningInstances": "min_running_instances",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides",
+                "storages": "storage"
+            },
+            "qovery:index/awsCredentials:AwsCredentials": {
+                "accessKeyId": "access_key_id",
+                "organizationId": "organization_id",
+                "secretAccessKey": "secret_access_key"
+            },
+            "qovery:index/cluster:Cluster": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "cloudProvider": "cloud_provider",
+                "credentialsId": "credentials_id",
+                "instanceType": "instance_type",
+                "kubernetesMode": "kubernetes_mode",
+                "maxRunningNodes": "max_running_nodes",
+                "minRunningNodes": "min_running_nodes",
+                "organizationId": "organization_id",
+                "routingTables": "routing_table"
+            },
+            "qovery:index/container:Container": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "customDomains": "custom_domains",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "imageName": "image_name",
+                "internalHost": "internal_host",
+                "maxRunningInstances": "max_running_instances",
+                "minRunningInstances": "min_running_instances",
+                "registryId": "registry_id",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides",
+                "storages": "storage"
+            },
+            "qovery:index/containerRegistry:ContainerRegistry": {
+                "organizationId": "organization_id"
+            },
+            "qovery:index/database:Database": {
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "externalHost": "external_host",
+                "instanceType": "instance_type",
+                "internalHost": "internal_host"
+            },
+            "qovery:index/deployment:Deployment": {
+                "desiredState": "desired_state",
+                "environmentId": "environment_id"
+            },
+            "qovery:index/deploymentStage:DeploymentStage": {
+                "environmentId": "environment_id",
+                "isAfter": "is_after",
+                "isBefore": "is_before"
+            },
+            "qovery:index/environment:Environment": {
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "clusterId": "cluster_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "projectId": "project_id",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides"
+            },
+            "qovery:index/getApplication:getApplication": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "buildMode": "build_mode",
+                "buildpackLanguage": "buildpack_language",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "customDomains": "custom_domains",
+                "deploymentStageId": "deployment_stage_id",
+                "dockerfilePath": "dockerfile_path",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "gitRepository": "git_repository",
+                "internalHost": "internal_host",
+                "maxRunningInstances": "max_running_instances",
+                "minRunningInstances": "min_running_instances",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides",
+                "storages": "storage"
+            },
+            "qovery:index/getApplicationCustomDomain:getApplicationCustomDomain": {
+                "validationDomain": "validation_domain"
+            },
+            "qovery:index/getApplicationGitRepository:getApplicationGitRepository": {
+                "gitTokenId": "git_token_id",
+                "rootPath": "root_path"
+            },
+            "qovery:index/getApplicationHealthchecks:getApplicationHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/getApplicationHealthchecksLivenessProbe:getApplicationHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getApplicationHealthchecksLivenessProbeTypeExec:getApplicationHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getApplicationHealthchecksReadinessProbe:getApplicationHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getApplicationHealthchecksReadinessProbeTypeExec:getApplicationHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getApplicationPort:getApplicationPort": {
+                "externalPort": "external_port",
+                "internalPort": "internal_port",
+                "isDefault": "is_default",
+                "publiclyAccessible": "publicly_accessible"
+            },
+            "qovery:index/getApplicationStorage:getApplicationStorage": {
+                "mountPoint": "mount_point"
+            },
+            "qovery:index/getAwsCredentials:getAwsCredentials": {
+                "organizationId": "organization_id"
+            },
+            "qovery:index/getCluster:getCluster": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "cloudProvider": "cloud_provider",
+                "credentialsId": "credentials_id",
+                "instanceType": "instance_type",
+                "kubernetesMode": "kubernetes_mode",
+                "maxRunningNodes": "max_running_nodes",
+                "minRunningNodes": "min_running_nodes",
+                "routingTables": "routing_table"
+            },
+            "qovery:index/getClusterFeature:getClusterFeature": {
+                "staticIp": "static_ip",
+                "vpcSubnet": "vpc_subnet"
+            },
+            "qovery:index/getContainer:getContainer": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "customDomains": "custom_domains",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "imageName": "image_name",
+                "internalHost": "internal_host",
+                "maxRunningInstances": "max_running_instances",
+                "minRunningInstances": "min_running_instances",
+                "registryId": "registry_id",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides",
+                "storages": "storage"
+            },
+            "qovery:index/getContainerCustomDomain:getContainerCustomDomain": {
+                "validationDomain": "validation_domain"
+            },
+            "qovery:index/getContainerHealthchecks:getContainerHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/getContainerHealthchecksLivenessProbe:getContainerHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getContainerHealthchecksLivenessProbeTypeExec:getContainerHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getContainerHealthchecksReadinessProbe:getContainerHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getContainerHealthchecksReadinessProbeTypeExec:getContainerHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getContainerPort:getContainerPort": {
+                "externalPort": "external_port",
+                "internalPort": "internal_port",
+                "isDefault": "is_default",
+                "publiclyAccessible": "publicly_accessible"
+            },
+            "qovery:index/getContainerRegistry:getContainerRegistry": {
+                "organizationId": "organization_id"
+            },
+            "qovery:index/getContainerStorage:getContainerStorage": {
+                "mountPoint": "mount_point"
+            },
+            "qovery:index/getDatabase:getDatabase": {
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "externalHost": "external_host",
+                "instanceType": "instance_type",
+                "internalHost": "internal_host"
+            },
+            "qovery:index/getDeployment:getDeployment": {
+                "desiredState": "desired_state",
+                "environmentId": "environment_id"
+            },
+            "qovery:index/getDeploymentStage:getDeploymentStage": {
+                "environmentId": "environment_id",
+                "isAfter": "is_after",
+                "isBefore": "is_before"
+            },
+            "qovery:index/getEnvironment:getEnvironment": {
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "clusterId": "cluster_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "projectId": "project_id",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides"
+            },
+            "qovery:index/getGitToken:getGitToken": {
+                "bitbucketWorkspace": "bitbucket_workspace",
+                "organizationId": "organization_id"
+            },
+            "qovery:index/getJob:getJob": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "internalHost": "internal_host",
+                "maxDurationSeconds": "max_duration_seconds",
+                "maxNbRestart": "max_nb_restart",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides"
+            },
+            "qovery:index/getJobHealthchecks:getJobHealthchecks": {
+                "livenessProbe": "liveness_probe",
+                "readinessProbe": "readiness_probe"
+            },
+            "qovery:index/getJobHealthchecksLivenessProbe:getJobHealthchecksLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getJobHealthchecksLivenessProbeTypeExec:getJobHealthchecksLivenessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getJobHealthchecksReadinessProbe:getJobHealthchecksReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "qovery:index/getJobHealthchecksReadinessProbeTypeExec:getJobHealthchecksReadinessProbeTypeExec": {
+                "commands": "command"
+            },
+            "qovery:index/getJobSchedule:getJobSchedule": {
+                "onDelete": "on_delete",
+                "onStart": "on_start",
+                "onStop": "on_stop"
+            },
+            "qovery:index/getJobSourceDocker:getJobSourceDocker": {
+                "dockerfilePath": "dockerfile_path",
+                "gitRepository": "git_repository"
+            },
+            "qovery:index/getJobSourceDockerGitRepository:getJobSourceDockerGitRepository": {
+                "gitTokenId": "git_token_id",
+                "rootPath": "root_path"
+            },
+            "qovery:index/getJobSourceImage:getJobSourceImage": {
+                "registryId": "registry_id"
+            },
+            "qovery:index/getProject:getProject": {
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariables": "environment_variables",
+                "organizationId": "organization_id",
+                "secretAliases": "secret_aliases"
+            },
+            "qovery:index/getScalewayCredentials:getScalewayCredentials": {
+                "organizationId": "organization_id"
+            },
+            "qovery:index/gitToken:GitToken": {
+                "bitbucketWorkspace": "bitbucket_workspace",
+                "organizationId": "organization_id"
+            },
+            "qovery:index/job:Job": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "internalHost": "internal_host",
+                "maxDurationSeconds": "max_duration_seconds",
+                "maxNbRestart": "max_nb_restart",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides"
+            },
+            "qovery:index/project:Project": {
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariables": "environment_variables",
+                "organizationId": "organization_id",
+                "secretAliases": "secret_aliases"
+            },
+            "qovery:index/scalewayCredentials:ScalewayCredentials": {
+                "organizationId": "organization_id",
+                "scalewayAccessKey": "scaleway_access_key",
+                "scalewayProjectId": "scaleway_project_id",
+                "scalewaySecretKey": "scaleway_secret_key"
+            }
+        }
+    },
+    "resources": {
+        "port:index/action:Action": "port_action",
+        "port:index/blueprint:Blueprint": "port_blueprint",
+        "port:index/entity:Entity": "port_entity"
+    }
+}
