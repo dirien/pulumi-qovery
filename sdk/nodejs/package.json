@@ -8,7 +8,7 @@
         "category/cloud"
     ],
     "homepage": "https://www.pulumi.com",
-    "repository": "https://github.com/pulumiverse/pulumi-qovery",
+    "repository": "https://github.com/dirien/pulumi-qovery",
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"

@@ -97,7 +97,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:     []string{"pulumi", "qovery", "category/cloud"},
 		License:      "Apache-2.0",
 		Homepage:     "https://www.pulumi.com",
-		Repository:   "https://github.com/pulumiverse/pulumi-qovery",
+		Repository:   "https://github.com/dirien/pulumi-qovery",
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.
