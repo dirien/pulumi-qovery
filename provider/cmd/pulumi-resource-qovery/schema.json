@@ -10,7 +10,7 @@
     "homepage": "https://www.pulumi.com",
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`qovery` Terraform Provider](https://github.com/qovery/terraform-provider-qovery).",
-    "repository": "https://github.com/pulumiverse/pulumi-qovery",
+    "repository": "https://github.com/dirien/pulumi-qovery",
     "pluginDownloadURL": "ithub://api.github.com/dirien/pulumi-qovery",
     "publisher": "dirien",
     "meta": {
@@ -38,7 +38,7 @@
         "nodejs": {
             "packageName": "@ediri/qovery",
             "packageDescription": "A Pulumi package for creating and managing qovery cloud resources.",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/qovery/terraform-provider-qovery)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-qovery` repo](https://github.com/pulumiverse/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-qovery` repo](https://github.com/qovery/terraform-provider-qovery/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/qovery/terraform-provider-qovery)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-qovery` repo](https://github.com/dirien/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-qovery` repo](https://github.com/qovery/terraform-provider-qovery/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -54,7 +54,7 @@
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             },
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/qovery/terraform-provider-qovery)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-qovery` repo](https://github.com/pulumiverse/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-qovery` repo](https://github.com/qovery/terraform-provider-qovery/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/qovery/terraform-provider-qovery)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-qovery` repo](https://github.com/dirien/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-qovery` repo](https://github.com/qovery/terraform-provider-qovery/issues).",
             "compatibility": "tfbridge20",
             "pyproject": {}
         }
