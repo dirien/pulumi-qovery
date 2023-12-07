@@ -17,6 +17,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("qovery:index/getCluster:getCluster", {
         "advancedSettingsJson": args.advancedSettingsJson,
         "description": args.description,
+        "diskSize": args.diskSize,
         "features": args.features,
         "id": args.id,
         "kubernetesMode": args.kubernetesMode,
@@ -33,6 +34,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
 export interface GetClusterArgs {
     advancedSettingsJson?: string;
     description?: string;
+    diskSize?: number;
     features?: inputs.GetClusterFeature[];
     id: string;
     kubernetesMode?: string;
@@ -50,6 +52,7 @@ export interface GetClusterResult {
     readonly cloudProvider: string;
     readonly credentialsId: string;
     readonly description: string;
+    readonly diskSize: number;
     readonly features: outputs.GetClusterFeature[];
     readonly id: string;
     readonly instanceType: string;
@@ -76,6 +79,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
 export interface GetClusterOutputArgs {
     advancedSettingsJson?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    diskSize?: pulumi.Input<number>;
     features?: pulumi.Input<pulumi.Input<inputs.GetClusterFeatureArgs>[]>;
     id: pulumi.Input<string>;
     kubernetesMode?: pulumi.Input<string>;

@@ -65,8 +65,8 @@ type ContainerRegistry struct {
 	Config ContainerRegistryConfigPtrOutput `pulumi:"config"`
 	// Description of the container registry.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-	// `PUBLIC_ECR`, `SCALEWAY_CR`.
+	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+	// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Name of the container registry.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -119,8 +119,8 @@ type containerRegistryState struct {
 	Config *ContainerRegistryConfig `pulumi:"config"`
 	// Description of the container registry.
 	Description *string `pulumi:"description"`
-	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-	// `PUBLIC_ECR`, `SCALEWAY_CR`.
+	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+	// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 	Kind *string `pulumi:"kind"`
 	// Name of the container registry.
 	Name *string `pulumi:"name"`
@@ -135,8 +135,8 @@ type ContainerRegistryState struct {
 	Config ContainerRegistryConfigPtrInput
 	// Description of the container registry.
 	Description pulumi.StringPtrInput
-	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-	// `PUBLIC_ECR`, `SCALEWAY_CR`.
+	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+	// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 	Kind pulumi.StringPtrInput
 	// Name of the container registry.
 	Name pulumi.StringPtrInput
@@ -155,8 +155,8 @@ type containerRegistryArgs struct {
 	Config *ContainerRegistryConfig `pulumi:"config"`
 	// Description of the container registry.
 	Description *string `pulumi:"description"`
-	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-	// `PUBLIC_ECR`, `SCALEWAY_CR`.
+	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+	// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 	Kind string `pulumi:"kind"`
 	// Name of the container registry.
 	Name *string `pulumi:"name"`
@@ -172,8 +172,8 @@ type ContainerRegistryArgs struct {
 	Config ContainerRegistryConfigPtrInput
 	// Description of the container registry.
 	Description pulumi.StringPtrInput
-	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-	// `PUBLIC_ECR`, `SCALEWAY_CR`.
+	// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+	// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 	Kind pulumi.StringInput
 	// Name of the container registry.
 	Name pulumi.StringPtrInput
@@ -280,8 +280,8 @@ func (o ContainerRegistryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRegistry) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-// `PUBLIC_ECR`, `SCALEWAY_CR`.
+// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
 func (o ContainerRegistryOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRegistry) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }

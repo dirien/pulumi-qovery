@@ -38,6 +38,9 @@ namespace ediri.Qovery
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("diskSize")]
+        public int? DiskSize { get; set; }
+
         [Input("features")]
         private List<Inputs.GetClusterFeatureArgs>? _features;
         public List<Inputs.GetClusterFeatureArgs> Features
@@ -82,6 +85,9 @@ namespace ediri.Qovery
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("diskSize")]
+        public Input<int>? DiskSize { get; set; }
 
         [Input("features")]
         private InputList<Inputs.GetClusterFeatureInputArgs>? _features;
@@ -128,6 +134,7 @@ namespace ediri.Qovery
         public readonly string CloudProvider;
         public readonly string CredentialsId;
         public readonly string Description;
+        public readonly int DiskSize;
         public readonly ImmutableArray<Outputs.GetClusterFeatureResult> Features;
         public readonly string Id;
         public readonly string InstanceType;
@@ -148,6 +155,8 @@ namespace ediri.Qovery
             string credentialsId,
 
             string description,
+
+            int diskSize,
 
             ImmutableArray<Outputs.GetClusterFeatureResult> features,
 
@@ -173,6 +182,7 @@ namespace ediri.Qovery
             CloudProvider = cloudProvider;
             CredentialsId = credentialsId;
             Description = description;
+            DiskSize = diskSize;
             Features = features;
             Id = id;
             InstanceType = instanceType;

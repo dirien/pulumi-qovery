@@ -69,8 +69,8 @@ namespace ediri.Qovery
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        /// `PUBLIC_ECR`, `SCALEWAY_CR`.
+        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        /// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -153,8 +153,8 @@ namespace ediri.Qovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        /// `PUBLIC_ECR`, `SCALEWAY_CR`.
+        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        /// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
@@ -198,8 +198,8 @@ namespace ediri.Qovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        /// `PUBLIC_ECR`, `SCALEWAY_CR`.
+        /// Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        /// `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

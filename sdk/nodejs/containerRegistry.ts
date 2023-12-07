@@ -74,8 +74,8 @@ export class ContainerRegistry extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-     * `PUBLIC_ECR`, `SCALEWAY_CR`.
+     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+     * `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -146,8 +146,8 @@ export interface ContainerRegistryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-     * `PUBLIC_ECR`, `SCALEWAY_CR`.
+     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+     * `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -177,8 +177,8 @@ export interface ContainerRegistryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-     * `PUBLIC_ECR`, `SCALEWAY_CR`.
+     * Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+     * `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
      */
     kind: pulumi.Input<string>;
     /**

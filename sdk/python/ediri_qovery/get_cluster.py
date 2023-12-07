@@ -23,7 +23,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, region=None, routing_tables=None, state=None):
+    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, disk_size=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, region=None, routing_tables=None, state=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -36,6 +36,9 @@ class GetClusterResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disk_size and not isinstance(disk_size, int):
+            raise TypeError("Expected argument 'disk_size' to be a int")
+        pulumi.set(__self__, "disk_size", disk_size)
         if features and not isinstance(features, list):
             raise TypeError("Expected argument 'features' to be a list")
         pulumi.set(__self__, "features", features)
@@ -86,6 +89,11 @@ class GetClusterResult:
     @pulumi.getter
     def description(self) -> str:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskSize")
+    def disk_size(self) -> int:
+        return pulumi.get(self, "disk_size")
 
     @property
     @pulumi.getter
@@ -148,6 +156,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cloud_provider=self.cloud_provider,
             credentials_id=self.credentials_id,
             description=self.description,
+            disk_size=self.disk_size,
             features=self.features,
             id=self.id,
             instance_type=self.instance_type,
@@ -162,6 +171,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 def get_cluster(advanced_settings_json: Optional[str] = None,
                 description: Optional[str] = None,
+                disk_size: Optional[int] = None,
                 features: Optional[Sequence[pulumi.InputType['GetClusterFeatureArgs']]] = None,
                 id: Optional[str] = None,
                 kubernetes_mode: Optional[str] = None,
@@ -178,6 +188,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
     __args__ = dict()
     __args__['advancedSettingsJson'] = advanced_settings_json
     __args__['description'] = description
+    __args__['diskSize'] = disk_size
     __args__['features'] = features
     __args__['id'] = id
     __args__['kubernetesMode'] = kubernetes_mode
@@ -193,6 +204,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
         cloud_provider=pulumi.get(__ret__, 'cloud_provider'),
         credentials_id=pulumi.get(__ret__, 'credentials_id'),
         description=pulumi.get(__ret__, 'description'),
+        disk_size=pulumi.get(__ret__, 'disk_size'),
         features=pulumi.get(__ret__, 'features'),
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
@@ -208,6 +220,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
 @_utilities.lift_output_func(get_cluster)
 def get_cluster_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
                        description: Optional[pulumi.Input[Optional[str]]] = None,
+                       disk_size: Optional[pulumi.Input[Optional[int]]] = None,
                        features: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClusterFeatureArgs']]]]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        kubernetes_mode: Optional[pulumi.Input[Optional[str]]] = None,

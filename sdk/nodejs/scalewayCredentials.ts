@@ -72,6 +72,10 @@ export class ScalewayCredentials extends pulumi.CustomResource {
      */
     public readonly scalewayAccessKey!: pulumi.Output<string>;
     /**
+     * Your SCALEWAY organization ID.
+     */
+    public readonly scalewayOrganizationId!: pulumi.Output<string>;
+    /**
      * Your SCALEWAY project ID.
      */
     public readonly scalewayProjectId!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class ScalewayCredentials extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationId"] = state ? state.organizationId : undefined;
             resourceInputs["scalewayAccessKey"] = state ? state.scalewayAccessKey : undefined;
+            resourceInputs["scalewayOrganizationId"] = state ? state.scalewayOrganizationId : undefined;
             resourceInputs["scalewayProjectId"] = state ? state.scalewayProjectId : undefined;
             resourceInputs["scalewaySecretKey"] = state ? state.scalewaySecretKey : undefined;
         } else {
@@ -106,6 +111,9 @@ export class ScalewayCredentials extends pulumi.CustomResource {
             if ((!args || args.scalewayAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalewayAccessKey'");
             }
+            if ((!args || args.scalewayOrganizationId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scalewayOrganizationId'");
+            }
             if ((!args || args.scalewayProjectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalewayProjectId'");
             }
@@ -114,12 +122,13 @@ export class ScalewayCredentials extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationId"] = args ? args.organizationId : undefined;
-            resourceInputs["scalewayAccessKey"] = args?.scalewayAccessKey ? pulumi.secret(args.scalewayAccessKey) : undefined;
-            resourceInputs["scalewayProjectId"] = args?.scalewayProjectId ? pulumi.secret(args.scalewayProjectId) : undefined;
+            resourceInputs["scalewayAccessKey"] = args ? args.scalewayAccessKey : undefined;
+            resourceInputs["scalewayOrganizationId"] = args ? args.scalewayOrganizationId : undefined;
+            resourceInputs["scalewayProjectId"] = args ? args.scalewayProjectId : undefined;
             resourceInputs["scalewaySecretKey"] = args?.scalewaySecretKey ? pulumi.secret(args.scalewaySecretKey) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["scalewayAccessKey", "scalewayProjectId", "scalewaySecretKey"] };
+        const secretOpts = { additionalSecretOutputs: ["scalewaySecretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ScalewayCredentials.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,6 +150,10 @@ export interface ScalewayCredentialsState {
      * Your SCALEWAY access key id.
      */
     scalewayAccessKey?: pulumi.Input<string>;
+    /**
+     * Your SCALEWAY organization ID.
+     */
+    scalewayOrganizationId?: pulumi.Input<string>;
     /**
      * Your SCALEWAY project ID.
      */
@@ -167,6 +180,10 @@ export interface ScalewayCredentialsArgs {
      * Your SCALEWAY access key id.
      */
     scalewayAccessKey: pulumi.Input<string>;
+    /**
+     * Your SCALEWAY organization ID.
+     */
+    scalewayOrganizationId: pulumi.Input<string>;
     /**
      * Your SCALEWAY project ID.
      */
