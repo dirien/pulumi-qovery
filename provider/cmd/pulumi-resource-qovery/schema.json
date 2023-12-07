@@ -4919,6 +4919,9 @@
                     "type": "string",
                     "description": "Description of the cluster. - Default: ``.\n"
                 },
+                "diskSize": {
+                    "type": "integer"
+                },
                 "features": {
                     "$ref": "#/types/qovery:index/ClusterFeatures:ClusterFeatures",
                     "description": "Features of the cluster.\n"
@@ -4968,6 +4971,7 @@
                 "cloudProvider",
                 "credentialsId",
                 "description",
+                "diskSize",
                 "features",
                 "instanceType",
                 "kubernetesMode",
@@ -4995,6 +4999,9 @@
                 "description": {
                     "type": "string",
                     "description": "Description of the cluster. - Default: ``.\n"
+                },
+                "diskSize": {
+                    "type": "integer"
                 },
                 "features": {
                     "$ref": "#/types/qovery:index/ClusterFeatures:ClusterFeatures",
@@ -5065,6 +5072,9 @@
                     "description": {
                         "type": "string",
                         "description": "Description of the cluster. - Default: ``.\n"
+                    },
+                    "diskSize": {
+                        "type": "integer"
                     },
                     "features": {
                         "$ref": "#/types/qovery:index/ClusterFeatures:ClusterFeatures",
@@ -5585,7 +5595,7 @@
                 },
                 "kind": {
                     "type": "string",
-                    "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,\n`PUBLIC_ECR`, `SCALEWAY_CR`.\n"
+                    "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,\n`GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5618,7 +5628,7 @@
                 },
                 "kind": {
                     "type": "string",
-                    "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,\n`PUBLIC_ECR`, `SCALEWAY_CR`.\n"
+                    "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,\n`GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5651,7 +5661,7 @@
                     },
                     "kind": {
                         "type": "string",
-                        "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,\n`PUBLIC_ECR`, `SCALEWAY_CR`.\n"
+                        "description": "Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,\n`GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.\n"
                     },
                     "name": {
                         "type": "string",
@@ -6913,13 +6923,15 @@
                 },
                 "scalewayAccessKey": {
                     "type": "string",
-                    "description": "Your SCALEWAY access key id.\n",
-                    "secret": true
+                    "description": "Your SCALEWAY access key id.\n"
+                },
+                "scalewayOrganizationId": {
+                    "type": "string",
+                    "description": "Your SCALEWAY organization ID.\n"
                 },
                 "scalewayProjectId": {
                     "type": "string",
-                    "description": "Your SCALEWAY project ID.\n",
-                    "secret": true
+                    "description": "Your SCALEWAY project ID.\n"
                 },
                 "scalewaySecretKey": {
                     "type": "string",
@@ -6931,6 +6943,7 @@
                 "name",
                 "organizationId",
                 "scalewayAccessKey",
+                "scalewayOrganizationId",
                 "scalewayProjectId",
                 "scalewaySecretKey"
             ],
@@ -6945,13 +6958,15 @@
                 },
                 "scalewayAccessKey": {
                     "type": "string",
-                    "description": "Your SCALEWAY access key id.\n",
-                    "secret": true
+                    "description": "Your SCALEWAY access key id.\n"
+                },
+                "scalewayOrganizationId": {
+                    "type": "string",
+                    "description": "Your SCALEWAY organization ID.\n"
                 },
                 "scalewayProjectId": {
                     "type": "string",
-                    "description": "Your SCALEWAY project ID.\n",
-                    "secret": true
+                    "description": "Your SCALEWAY project ID.\n"
                 },
                 "scalewaySecretKey": {
                     "type": "string",
@@ -6962,6 +6977,7 @@
             "requiredInputs": [
                 "organizationId",
                 "scalewayAccessKey",
+                "scalewayOrganizationId",
                 "scalewayProjectId",
                 "scalewaySecretKey"
             ],
@@ -6978,13 +6994,15 @@
                     },
                     "scalewayAccessKey": {
                         "type": "string",
-                        "description": "Your SCALEWAY access key id.\n",
-                        "secret": true
+                        "description": "Your SCALEWAY access key id.\n"
+                    },
+                    "scalewayOrganizationId": {
+                        "type": "string",
+                        "description": "Your SCALEWAY organization ID.\n"
                     },
                     "scalewayProjectId": {
                         "type": "string",
-                        "description": "Your SCALEWAY project ID.\n",
-                        "secret": true
+                        "description": "Your SCALEWAY project ID.\n"
                     },
                     "scalewaySecretKey": {
                         "type": "string",
@@ -7310,6 +7328,9 @@
                     "description": {
                         "type": "string"
                     },
+                    "diskSize": {
+                        "type": "integer"
+                    },
                     "features": {
                         "type": "array",
                         "items": {
@@ -7358,6 +7379,9 @@
                     "description": {
                         "type": "string"
                     },
+                    "diskSize": {
+                        "type": "integer"
+                    },
                     "features": {
                         "type": "array",
                         "items": {
@@ -7401,6 +7425,7 @@
                     "cloudProvider",
                     "credentialsId",
                     "description",
+                    "diskSize",
                     "features",
                     "id",
                     "instanceType",
