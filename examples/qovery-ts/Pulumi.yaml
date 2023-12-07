@@ -1,0 +1,5 @@
+name: qovery-ts
+runtime: nodejs
+description: A minimal Pulumi TS program
+config:
+  organizationId: changeme

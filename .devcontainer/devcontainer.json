@@ -5,7 +5,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "golang.go"
+        "golang.go",
+        "ms-python.python"
       ]
     }
   }

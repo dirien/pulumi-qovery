@@ -8,10 +8,10 @@ layout: package
 
 The Pulumi Qovery provider is available as a package in all Pulumi languages:
 
-* JavaScript/TypeScript: [`@ediri/qovery`](https://www.npmjs.com/package/@ediri/azapi)
-* Python: [`ediri_aqovery`](https://pypi.org/project/ediri_azapi/)
-* Go: [`github.com/dirien/pulumi-qovery/sdk/go/qovery`](https://github.com/dirien/pulumi-azapi)
-* .NET: [`ediri.Qovery`](https://www.nuget.org/packages/ediri.Azapi)
+* JavaScript/TypeScript: [`@ediri/qovery`](https://www.npmjs.com/package/@ediri/qovery)
+* Python: [`ediri_aqovery`](https://pypi.org/project/ediri_qovery/)
+* Go: [`github.com/dirien/pulumi-qovery/sdk/go/qovery`](https://github.com/dirien/pulumi-qovery)
+* .NET: [`ediri.Qovery`](https://www.nuget.org/packages/ediri.Qovery)
 
 ## Configuration Options
 
