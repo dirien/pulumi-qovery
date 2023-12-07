@@ -16,6 +16,7 @@ class ScalewayCredentialsArgs:
     def __init__(__self__, *,
                  organization_id: pulumi.Input[str],
                  scaleway_access_key: pulumi.Input[str],
+                 scaleway_organization_id: pulumi.Input[str],
                  scaleway_project_id: pulumi.Input[str],
                  scaleway_secret_key: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -23,12 +24,14 @@ class ScalewayCredentialsArgs:
         The set of arguments for constructing a ScalewayCredentials resource.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] scaleway_access_key: Your SCALEWAY access key id.
+        :param pulumi.Input[str] scaleway_organization_id: Your SCALEWAY organization ID.
         :param pulumi.Input[str] scaleway_project_id: Your SCALEWAY project ID.
         :param pulumi.Input[str] scaleway_secret_key: Your SCALEWAY secret key.
         :param pulumi.Input[str] name: Name of the scaleway credentials.
         """
         pulumi.set(__self__, "organization_id", organization_id)
         pulumi.set(__self__, "scaleway_access_key", scaleway_access_key)
+        pulumi.set(__self__, "scaleway_organization_id", scaleway_organization_id)
         pulumi.set(__self__, "scaleway_project_id", scaleway_project_id)
         pulumi.set(__self__, "scaleway_secret_key", scaleway_secret_key)
         if name is not None:
@@ -57,6 +60,18 @@ class ScalewayCredentialsArgs:
     @scaleway_access_key.setter
     def scaleway_access_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "scaleway_access_key", value)
+
+    @property
+    @pulumi.getter(name="scalewayOrganizationId")
+    def scaleway_organization_id(self) -> pulumi.Input[str]:
+        """
+        Your SCALEWAY organization ID.
+        """
+        return pulumi.get(self, "scaleway_organization_id")
+
+    @scaleway_organization_id.setter
+    def scaleway_organization_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scaleway_organization_id", value)
 
     @property
     @pulumi.getter(name="scalewayProjectId")
@@ -101,6 +116,7 @@ class _ScalewayCredentialsState:
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_access_key: Optional[pulumi.Input[str]] = None,
+                 scaleway_organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_project_id: Optional[pulumi.Input[str]] = None,
                  scaleway_secret_key: Optional[pulumi.Input[str]] = None):
         """
@@ -108,6 +124,7 @@ class _ScalewayCredentialsState:
         :param pulumi.Input[str] name: Name of the scaleway credentials.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] scaleway_access_key: Your SCALEWAY access key id.
+        :param pulumi.Input[str] scaleway_organization_id: Your SCALEWAY organization ID.
         :param pulumi.Input[str] scaleway_project_id: Your SCALEWAY project ID.
         :param pulumi.Input[str] scaleway_secret_key: Your SCALEWAY secret key.
         """
@@ -117,6 +134,8 @@ class _ScalewayCredentialsState:
             pulumi.set(__self__, "organization_id", organization_id)
         if scaleway_access_key is not None:
             pulumi.set(__self__, "scaleway_access_key", scaleway_access_key)
+        if scaleway_organization_id is not None:
+            pulumi.set(__self__, "scaleway_organization_id", scaleway_organization_id)
         if scaleway_project_id is not None:
             pulumi.set(__self__, "scaleway_project_id", scaleway_project_id)
         if scaleway_secret_key is not None:
@@ -159,6 +178,18 @@ class _ScalewayCredentialsState:
         pulumi.set(self, "scaleway_access_key", value)
 
     @property
+    @pulumi.getter(name="scalewayOrganizationId")
+    def scaleway_organization_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your SCALEWAY organization ID.
+        """
+        return pulumi.get(self, "scaleway_organization_id")
+
+    @scaleway_organization_id.setter
+    def scaleway_organization_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaleway_organization_id", value)
+
+    @property
     @pulumi.getter(name="scalewayProjectId")
     def scaleway_project_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -191,6 +222,7 @@ class ScalewayCredentials(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_access_key: Optional[pulumi.Input[str]] = None,
+                 scaleway_organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_project_id: Optional[pulumi.Input[str]] = None,
                  scaleway_secret_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -224,6 +256,7 @@ class ScalewayCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the scaleway credentials.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] scaleway_access_key: Your SCALEWAY access key id.
+        :param pulumi.Input[str] scaleway_organization_id: Your SCALEWAY organization ID.
         :param pulumi.Input[str] scaleway_project_id: Your SCALEWAY project ID.
         :param pulumi.Input[str] scaleway_secret_key: Your SCALEWAY secret key.
         """
@@ -276,6 +309,7 @@ class ScalewayCredentials(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_access_key: Optional[pulumi.Input[str]] = None,
+                 scaleway_organization_id: Optional[pulumi.Input[str]] = None,
                  scaleway_project_id: Optional[pulumi.Input[str]] = None,
                  scaleway_secret_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -293,14 +327,17 @@ class ScalewayCredentials(pulumi.CustomResource):
             __props__.__dict__["organization_id"] = organization_id
             if scaleway_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'scaleway_access_key'")
-            __props__.__dict__["scaleway_access_key"] = None if scaleway_access_key is None else pulumi.Output.secret(scaleway_access_key)
+            __props__.__dict__["scaleway_access_key"] = scaleway_access_key
+            if scaleway_organization_id is None and not opts.urn:
+                raise TypeError("Missing required property 'scaleway_organization_id'")
+            __props__.__dict__["scaleway_organization_id"] = scaleway_organization_id
             if scaleway_project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'scaleway_project_id'")
-            __props__.__dict__["scaleway_project_id"] = None if scaleway_project_id is None else pulumi.Output.secret(scaleway_project_id)
+            __props__.__dict__["scaleway_project_id"] = scaleway_project_id
             if scaleway_secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'scaleway_secret_key'")
             __props__.__dict__["scaleway_secret_key"] = None if scaleway_secret_key is None else pulumi.Output.secret(scaleway_secret_key)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["scalewayAccessKey", "scalewayProjectId", "scalewaySecretKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["scalewaySecretKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ScalewayCredentials, __self__).__init__(
             'qovery:index/scalewayCredentials:ScalewayCredentials',
@@ -315,6 +352,7 @@ class ScalewayCredentials(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None,
             scaleway_access_key: Optional[pulumi.Input[str]] = None,
+            scaleway_organization_id: Optional[pulumi.Input[str]] = None,
             scaleway_project_id: Optional[pulumi.Input[str]] = None,
             scaleway_secret_key: Optional[pulumi.Input[str]] = None) -> 'ScalewayCredentials':
         """
@@ -327,6 +365,7 @@ class ScalewayCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the scaleway credentials.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] scaleway_access_key: Your SCALEWAY access key id.
+        :param pulumi.Input[str] scaleway_organization_id: Your SCALEWAY organization ID.
         :param pulumi.Input[str] scaleway_project_id: Your SCALEWAY project ID.
         :param pulumi.Input[str] scaleway_secret_key: Your SCALEWAY secret key.
         """
@@ -337,6 +376,7 @@ class ScalewayCredentials(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["organization_id"] = organization_id
         __props__.__dict__["scaleway_access_key"] = scaleway_access_key
+        __props__.__dict__["scaleway_organization_id"] = scaleway_organization_id
         __props__.__dict__["scaleway_project_id"] = scaleway_project_id
         __props__.__dict__["scaleway_secret_key"] = scaleway_secret_key
         return ScalewayCredentials(resource_name, opts=opts, __props__=__props__)
@@ -364,6 +404,14 @@ class ScalewayCredentials(pulumi.CustomResource):
         Your SCALEWAY access key id.
         """
         return pulumi.get(self, "scaleway_access_key")
+
+    @property
+    @pulumi.getter(name="scalewayOrganizationId")
+    def scaleway_organization_id(self) -> pulumi.Output[str]:
+        """
+        Your SCALEWAY organization ID.
+        """
+        return pulumi.get(self, "scaleway_organization_id")
 
     @property
     @pulumi.getter(name="scalewayProjectId")

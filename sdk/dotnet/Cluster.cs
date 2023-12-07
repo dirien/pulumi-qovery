@@ -44,6 +44,9 @@ namespace ediri.Qovery
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        [Output("diskSize")]
+        public Output<int> DiskSize { get; private set; } = null!;
+
         /// <summary>
         /// Features of the cluster.
         /// </summary>
@@ -177,6 +180,9 @@ namespace ediri.Qovery
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("diskSize")]
+        public Input<int>? DiskSize { get; set; }
+
         /// <summary>
         /// Features of the cluster.
         /// </summary>
@@ -276,6 +282,9 @@ namespace ediri.Qovery
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("diskSize")]
+        public Input<int>? DiskSize { get; set; }
 
         /// <summary>
         /// Features of the cluster.

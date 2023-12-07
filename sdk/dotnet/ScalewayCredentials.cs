@@ -70,6 +70,12 @@ namespace ediri.Qovery
         public Output<string> ScalewayAccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// Your SCALEWAY organization ID.
+        /// </summary>
+        [Output("scalewayOrganizationId")]
+        public Output<string> ScalewayOrganizationId { get; private set; } = null!;
+
+        /// <summary>
         /// Your SCALEWAY project ID.
         /// </summary>
         [Output("scalewayProjectId")]
@@ -107,8 +113,6 @@ namespace ediri.Qovery
                 PluginDownloadURL = "github://api.github.com/dirien/pulumi-qovery",
                 AdditionalSecretOutputs =
                 {
-                    "scalewayAccessKey",
-                    "scalewayProjectId",
                     "scalewaySecretKey",
                 },
             };
@@ -146,37 +150,23 @@ namespace ediri.Qovery
         [Input("organizationId", required: true)]
         public Input<string> OrganizationId { get; set; } = null!;
 
-        [Input("scalewayAccessKey", required: true)]
-        private Input<string>? _scalewayAccessKey;
-
         /// <summary>
         /// Your SCALEWAY access key id.
         /// </summary>
-        public Input<string>? ScalewayAccessKey
-        {
-            get => _scalewayAccessKey;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _scalewayAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("scalewayAccessKey", required: true)]
+        public Input<string> ScalewayAccessKey { get; set; } = null!;
 
-        [Input("scalewayProjectId", required: true)]
-        private Input<string>? _scalewayProjectId;
+        /// <summary>
+        /// Your SCALEWAY organization ID.
+        /// </summary>
+        [Input("scalewayOrganizationId", required: true)]
+        public Input<string> ScalewayOrganizationId { get; set; } = null!;
 
         /// <summary>
         /// Your SCALEWAY project ID.
         /// </summary>
-        public Input<string>? ScalewayProjectId
-        {
-            get => _scalewayProjectId;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _scalewayProjectId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("scalewayProjectId", required: true)]
+        public Input<string> ScalewayProjectId { get; set; } = null!;
 
         [Input("scalewaySecretKey", required: true)]
         private Input<string>? _scalewaySecretKey;
@@ -214,37 +204,23 @@ namespace ediri.Qovery
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
-        [Input("scalewayAccessKey")]
-        private Input<string>? _scalewayAccessKey;
-
         /// <summary>
         /// Your SCALEWAY access key id.
         /// </summary>
-        public Input<string>? ScalewayAccessKey
-        {
-            get => _scalewayAccessKey;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _scalewayAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("scalewayAccessKey")]
+        public Input<string>? ScalewayAccessKey { get; set; }
 
-        [Input("scalewayProjectId")]
-        private Input<string>? _scalewayProjectId;
+        /// <summary>
+        /// Your SCALEWAY organization ID.
+        /// </summary>
+        [Input("scalewayOrganizationId")]
+        public Input<string>? ScalewayOrganizationId { get; set; }
 
         /// <summary>
         /// Your SCALEWAY project ID.
         /// </summary>
-        public Input<string>? ScalewayProjectId
-        {
-            get => _scalewayProjectId;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _scalewayProjectId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("scalewayProjectId")]
+        public Input<string>? ScalewayProjectId { get; set; }
 
         [Input("scalewaySecretKey")]
         private Input<string>? _scalewaySecretKey;

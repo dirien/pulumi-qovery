@@ -23,6 +23,7 @@ class ClusterArgs:
                  region: pulumi.Input[str],
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  features: Optional[pulumi.Input['ClusterFeaturesArgs']] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
@@ -58,6 +59,8 @@ class ClusterArgs:
             pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_size is not None:
+            pulumi.set(__self__, "disk_size", disk_size)
         if features is not None:
             pulumi.set(__self__, "features", features)
         if kubernetes_mode is not None:
@@ -158,6 +161,15 @@ class ClusterArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="diskSize")
+    def disk_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "disk_size")
+
+    @disk_size.setter
+    def disk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size", value)
+
+    @property
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input['ClusterFeaturesArgs']]:
         """
@@ -251,6 +263,7 @@ class _ClusterState:
                  cloud_provider: Optional[pulumi.Input[str]] = None,
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  features: Optional[pulumi.Input['ClusterFeaturesArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
@@ -288,6 +301,8 @@ class _ClusterState:
             pulumi.set(__self__, "credentials_id", credentials_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_size is not None:
+            pulumi.set(__self__, "disk_size", disk_size)
         if features is not None:
             pulumi.set(__self__, "features", features)
         if instance_type is not None:
@@ -356,6 +371,15 @@ class _ClusterState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="diskSize")
+    def disk_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "disk_size")
+
+    @disk_size.setter
+    def disk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size", value)
 
     @property
     @pulumi.getter
@@ -489,6 +513,7 @@ class Cluster(pulumi.CustomResource):
                  cloud_provider: Optional[pulumi.Input[str]] = None,
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
@@ -558,6 +583,7 @@ class Cluster(pulumi.CustomResource):
                  cloud_provider: Optional[pulumi.Input[str]] = None,
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
@@ -585,6 +611,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'credentials_id'")
             __props__.__dict__["credentials_id"] = credentials_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["disk_size"] = disk_size
             __props__.__dict__["features"] = features
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
@@ -615,6 +642,7 @@ class Cluster(pulumi.CustomResource):
             cloud_provider: Optional[pulumi.Input[str]] = None,
             credentials_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disk_size: Optional[pulumi.Input[int]] = None,
             features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kubernetes_mode: Optional[pulumi.Input[str]] = None,
@@ -657,6 +685,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cloud_provider"] = cloud_provider
         __props__.__dict__["credentials_id"] = credentials_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["disk_size"] = disk_size
         __props__.__dict__["features"] = features
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["kubernetes_mode"] = kubernetes_mode
@@ -700,6 +729,11 @@ class Cluster(pulumi.CustomResource):
         Description of the cluster. - Default: ``.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskSize")
+    def disk_size(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "disk_size")
 
     @property
     @pulumi.getter

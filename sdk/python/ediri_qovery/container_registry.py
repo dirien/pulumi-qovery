@@ -24,8 +24,8 @@ class ContainerRegistryArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerRegistry resource.
-        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-               `PUBLIC_ECR`, `SCALEWAY_CR`.
+        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+               `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] url: URL of the container registry.
         :param pulumi.Input['ContainerRegistryConfigArgs'] config: Configuration needed to authenticate the container registry.
@@ -46,8 +46,8 @@ class ContainerRegistryArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        `PUBLIC_ECR`, `SCALEWAY_CR`.
+        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         """
         return pulumi.get(self, "kind")
 
@@ -129,8 +129,8 @@ class _ContainerRegistryState:
         Input properties used for looking up and filtering ContainerRegistry resources.
         :param pulumi.Input['ContainerRegistryConfigArgs'] config: Configuration needed to authenticate the container registry.
         :param pulumi.Input[str] description: Description of the container registry.
-        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-               `PUBLIC_ECR`, `SCALEWAY_CR`.
+        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+               `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         :param pulumi.Input[str] name: Name of the container registry.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] url: URL of the container registry.
@@ -176,8 +176,8 @@ class _ContainerRegistryState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        `PUBLIC_ECR`, `SCALEWAY_CR`.
+        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         """
         return pulumi.get(self, "kind")
 
@@ -267,8 +267,8 @@ class ContainerRegistry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']] config: Configuration needed to authenticate the container registry.
         :param pulumi.Input[str] description: Description of the container registry.
-        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-               `PUBLIC_ECR`, `SCALEWAY_CR`.
+        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+               `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         :param pulumi.Input[str] name: Name of the container registry.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] url: URL of the container registry.
@@ -375,8 +375,8 @@ class ContainerRegistry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']] config: Configuration needed to authenticate the container registry.
         :param pulumi.Input[str] description: Description of the container registry.
-        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-               `PUBLIC_ECR`, `SCALEWAY_CR`.
+        :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+               `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         :param pulumi.Input[str] name: Name of the container registry.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] url: URL of the container registry.
@@ -413,8 +413,8 @@ class ContainerRegistry(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GENERIC_CR`, `GITHUB_CR`, `GITLAB_CR`,
-        `PUBLIC_ECR`, `SCALEWAY_CR`.
+        Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
+        `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
         """
         return pulumi.get(self, "kind")
 

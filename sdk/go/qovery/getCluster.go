@@ -28,6 +28,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	AdvancedSettingsJson *string                  `pulumi:"advancedSettingsJson"`
 	Description          *string                  `pulumi:"description"`
+	DiskSize             *int                     `pulumi:"diskSize"`
 	Features             []GetClusterFeature      `pulumi:"features"`
 	Id                   string                   `pulumi:"id"`
 	KubernetesMode       *string                  `pulumi:"kubernetesMode"`
@@ -43,6 +44,7 @@ type LookupClusterResult struct {
 	CloudProvider        string                   `pulumi:"cloudProvider"`
 	CredentialsId        string                   `pulumi:"credentialsId"`
 	Description          string                   `pulumi:"description"`
+	DiskSize             int                      `pulumi:"diskSize"`
 	Features             []GetClusterFeature      `pulumi:"features"`
 	Id                   string                   `pulumi:"id"`
 	InstanceType         string                   `pulumi:"instanceType"`
@@ -72,6 +74,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	AdvancedSettingsJson pulumi.StringPtrInput            `pulumi:"advancedSettingsJson"`
 	Description          pulumi.StringPtrInput            `pulumi:"description"`
+	DiskSize             pulumi.IntPtrInput               `pulumi:"diskSize"`
 	Features             GetClusterFeatureArrayInput      `pulumi:"features"`
 	Id                   pulumi.StringInput               `pulumi:"id"`
 	KubernetesMode       pulumi.StringPtrInput            `pulumi:"kubernetesMode"`
@@ -114,6 +117,10 @@ func (o LookupClusterResultOutput) CredentialsId() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) DiskSize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.DiskSize }).(pulumi.IntOutput)
 }
 
 func (o LookupClusterResultOutput) Features() GetClusterFeatureArrayOutput {

@@ -191,6 +191,7 @@
                 "advancedSettingsJson": "advanced_settings_json",
                 "cloudProvider": "cloud_provider",
                 "credentialsId": "credentials_id",
+                "diskSize": "disk_size",
                 "instanceType": "instance_type",
                 "kubernetesMode": "kubernetes_mode",
                 "maxRunningNodes": "max_running_nodes",
@@ -318,6 +319,7 @@
                 "advancedSettingsJson": "advanced_settings_json",
                 "cloudProvider": "cloud_provider",
                 "credentialsId": "credentials_id",
+                "diskSize": "disk_size",
                 "instanceType": "instance_type",
                 "kubernetesMode": "kubernetes_mode",
                 "maxRunningNodes": "max_running_nodes",
@@ -516,6 +518,7 @@
             "qovery:index/scalewayCredentials:ScalewayCredentials": {
                 "organizationId": "organization_id",
                 "scalewayAccessKey": "scaleway_access_key",
+                "scalewayOrganizationId": "scaleway_organization_id",
                 "scalewayProjectId": "scaleway_project_id",
                 "scalewaySecretKey": "scaleway_secret_key"
             }

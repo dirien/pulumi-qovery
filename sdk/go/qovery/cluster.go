@@ -30,6 +30,7 @@ type Cluster struct {
 	CredentialsId pulumi.StringOutput `pulumi:"credentialsId"`
 	// Description of the cluster. - Default: ``.
 	Description pulumi.StringOutput `pulumi:"description"`
+	DiskSize    pulumi.IntOutput    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features ClusterFeaturesOutput `pulumi:"features"`
 	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
@@ -107,6 +108,7 @@ type clusterState struct {
 	CredentialsId *string `pulumi:"credentialsId"`
 	// Description of the cluster. - Default: ``.
 	Description *string `pulumi:"description"`
+	DiskSize    *int    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features *ClusterFeatures `pulumi:"features"`
 	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
@@ -140,6 +142,7 @@ type ClusterState struct {
 	CredentialsId pulumi.StringPtrInput
 	// Description of the cluster. - Default: ``.
 	Description pulumi.StringPtrInput
+	DiskSize    pulumi.IntPtrInput
 	// Features of the cluster.
 	Features ClusterFeaturesPtrInput
 	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
@@ -177,6 +180,7 @@ type clusterArgs struct {
 	CredentialsId string `pulumi:"credentialsId"`
 	// Description of the cluster. - Default: ``.
 	Description *string `pulumi:"description"`
+	DiskSize    *int    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features *ClusterFeatures `pulumi:"features"`
 	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
@@ -211,6 +215,7 @@ type ClusterArgs struct {
 	CredentialsId pulumi.StringInput
 	// Description of the cluster. - Default: ``.
 	Description pulumi.StringPtrInput
+	DiskSize    pulumi.IntPtrInput
 	// Features of the cluster.
 	Features ClusterFeaturesPtrInput
 	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
@@ -340,6 +345,10 @@ func (o ClusterOutput) CredentialsId() pulumi.StringOutput {
 // Description of the cluster. - Default: “.
 func (o ClusterOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) DiskSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.DiskSize }).(pulumi.IntOutput)
 }
 
 // Features of the cluster.

@@ -57,6 +57,7 @@ export class Cluster extends pulumi.CustomResource {
      * Description of the cluster. - Default: ``.
      */
     public readonly description!: pulumi.Output<string>;
+    public readonly diskSize!: pulumi.Output<number>;
     /**
      * Features of the cluster.
      */
@@ -117,6 +118,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["cloudProvider"] = state ? state.cloudProvider : undefined;
             resourceInputs["credentialsId"] = state ? state.credentialsId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["diskSize"] = state ? state.diskSize : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["kubernetesMode"] = state ? state.kubernetesMode : undefined;
@@ -148,6 +150,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["cloudProvider"] = args ? args.cloudProvider : undefined;
             resourceInputs["credentialsId"] = args ? args.credentialsId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diskSize"] = args ? args.diskSize : undefined;
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["kubernetesMode"] = args ? args.kubernetesMode : undefined;
@@ -184,6 +187,7 @@ export interface ClusterState {
      * Description of the cluster. - Default: ``.
      */
     description?: pulumi.Input<string>;
+    diskSize?: pulumi.Input<number>;
     /**
      * Features of the cluster.
      */
@@ -248,6 +252,7 @@ export interface ClusterArgs {
      * Description of the cluster. - Default: ``.
      */
     description?: pulumi.Input<string>;
+    diskSize?: pulumi.Input<number>;
     /**
      * Features of the cluster.
      */

@@ -63,6 +63,8 @@ type ScalewayCredentials struct {
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Your SCALEWAY access key id.
 	ScalewayAccessKey pulumi.StringOutput `pulumi:"scalewayAccessKey"`
+	// Your SCALEWAY organization ID.
+	ScalewayOrganizationId pulumi.StringOutput `pulumi:"scalewayOrganizationId"`
 	// Your SCALEWAY project ID.
 	ScalewayProjectId pulumi.StringOutput `pulumi:"scalewayProjectId"`
 	// Your SCALEWAY secret key.
@@ -82,24 +84,19 @@ func NewScalewayCredentials(ctx *pulumi.Context,
 	if args.ScalewayAccessKey == nil {
 		return nil, errors.New("invalid value for required argument 'ScalewayAccessKey'")
 	}
+	if args.ScalewayOrganizationId == nil {
+		return nil, errors.New("invalid value for required argument 'ScalewayOrganizationId'")
+	}
 	if args.ScalewayProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ScalewayProjectId'")
 	}
 	if args.ScalewaySecretKey == nil {
 		return nil, errors.New("invalid value for required argument 'ScalewaySecretKey'")
 	}
-	if args.ScalewayAccessKey != nil {
-		args.ScalewayAccessKey = pulumi.ToSecret(args.ScalewayAccessKey).(pulumi.StringInput)
-	}
-	if args.ScalewayProjectId != nil {
-		args.ScalewayProjectId = pulumi.ToSecret(args.ScalewayProjectId).(pulumi.StringInput)
-	}
 	if args.ScalewaySecretKey != nil {
 		args.ScalewaySecretKey = pulumi.ToSecret(args.ScalewaySecretKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"scalewayAccessKey",
-		"scalewayProjectId",
 		"scalewaySecretKey",
 	})
 	opts = append(opts, secrets)
@@ -132,6 +129,8 @@ type scalewayCredentialsState struct {
 	OrganizationId *string `pulumi:"organizationId"`
 	// Your SCALEWAY access key id.
 	ScalewayAccessKey *string `pulumi:"scalewayAccessKey"`
+	// Your SCALEWAY organization ID.
+	ScalewayOrganizationId *string `pulumi:"scalewayOrganizationId"`
 	// Your SCALEWAY project ID.
 	ScalewayProjectId *string `pulumi:"scalewayProjectId"`
 	// Your SCALEWAY secret key.
@@ -145,6 +144,8 @@ type ScalewayCredentialsState struct {
 	OrganizationId pulumi.StringPtrInput
 	// Your SCALEWAY access key id.
 	ScalewayAccessKey pulumi.StringPtrInput
+	// Your SCALEWAY organization ID.
+	ScalewayOrganizationId pulumi.StringPtrInput
 	// Your SCALEWAY project ID.
 	ScalewayProjectId pulumi.StringPtrInput
 	// Your SCALEWAY secret key.
@@ -162,6 +163,8 @@ type scalewayCredentialsArgs struct {
 	OrganizationId string `pulumi:"organizationId"`
 	// Your SCALEWAY access key id.
 	ScalewayAccessKey string `pulumi:"scalewayAccessKey"`
+	// Your SCALEWAY organization ID.
+	ScalewayOrganizationId string `pulumi:"scalewayOrganizationId"`
 	// Your SCALEWAY project ID.
 	ScalewayProjectId string `pulumi:"scalewayProjectId"`
 	// Your SCALEWAY secret key.
@@ -176,6 +179,8 @@ type ScalewayCredentialsArgs struct {
 	OrganizationId pulumi.StringInput
 	// Your SCALEWAY access key id.
 	ScalewayAccessKey pulumi.StringInput
+	// Your SCALEWAY organization ID.
+	ScalewayOrganizationId pulumi.StringInput
 	// Your SCALEWAY project ID.
 	ScalewayProjectId pulumi.StringInput
 	// Your SCALEWAY secret key.
@@ -282,6 +287,11 @@ func (o ScalewayCredentialsOutput) OrganizationId() pulumi.StringOutput {
 // Your SCALEWAY access key id.
 func (o ScalewayCredentialsOutput) ScalewayAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalewayCredentials) pulumi.StringOutput { return v.ScalewayAccessKey }).(pulumi.StringOutput)
+}
+
+// Your SCALEWAY organization ID.
+func (o ScalewayCredentialsOutput) ScalewayOrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalewayCredentials) pulumi.StringOutput { return v.ScalewayOrganizationId }).(pulumi.StringOutput)
 }
 
 // Your SCALEWAY project ID.
