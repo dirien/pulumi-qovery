@@ -1,0 +1,7 @@
+name: qovery-python
+runtime: python
+description: A minimal Pulumi python program
+config:
+  organizationId:
+    type: string
+    default: fff

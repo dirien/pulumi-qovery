@@ -1,0 +1,11 @@
+{
+	"name": "qovery-yaml",
+	"devDependencies": {
+		"@types/node": "^14"
+	},
+	"dependencies": {
+		"typescript": "^4.0.0",
+		"@pulumi/pulumi": "^3.0.0",
+		"@ediri/qovery": "0.24.2"
+	}
+}

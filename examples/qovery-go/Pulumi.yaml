@@ -1,0 +1,7 @@
+name: qovery-go
+runtime: go
+description: A minimal Pulumi go program
+config:
+  organizationId:
+    type: string
+    default: fff

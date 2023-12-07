@@ -1,0 +1,82 @@
+name: qovery-yaml
+runtime: yaml
+description: A minimal Pulumi YAML program
+config:
+  organizationId:
+    type: string
+    default: e53e1c45-7449-4f44-8c59-ee0b2d3305de
+resources: 
+  awsCredentials:
+    type: qovery:AwsCredentials
+    properties:
+      organizationId: ${organizationId}
+      accessKeyId: ${accessKeyId}
+      secretAccessKey: ${secretAccessKey}
+  myCluster:
+    type: qovery:Cluster
+    properties:
+      organizationId: ${organizationId}
+      name: "YAML Demo Cluster"
+      description: "Pulumi YAML Demo Cluster"
+      cloudProvider: "AWS"
+      region: "eu-central-1"
+      instanceType: "t3a.medium"
+      minRunningNodes: 3
+      maxRunningNodes: 4
+      credentialsId: ${awsCredentials.id}
+      state: "DEPLOYED"  
+  myProject:
+    type: qovery:Project
+    properties:
+      organizationId: ${organizationId}
+      name: "Demo Project"
+      description: "Pulumi Demo Project"
+  prodEnvironment:
+    type: qovery:Environment   
+    properties:  
+      name: "Production"
+      mode: "PRODUCTION"
+      projectId: ${myProject.id}
+      clusterId: ${myCluster.id} 
+  helloServerDemoApp:
+    type: qovery:Application
+    properties:
+      name: "hello-server-demo-app"
+      environmentId: ${prodEnvironment.id}
+      gitRepository:
+        url: "https://github.com/dirien/hello-server.git"
+        branch: "main"
+        rootPath: "/golang"
+      cpu: 500
+      memory: 256
+      buildMode: "DOCKER"
+      healthchecks:
+        livenessProbe:
+            type:
+              http:
+                  port: 8080
+                  path: "/"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+      dockerfilePath: "Dockerfile"
+      minRunningInstances: 1
+      maxRunningInstances: 1
+      ports: 
+        - internalPort: 8080
+          externalPort: 443
+          protocol: "HTTP"
+          publiclyAccessible: true
+          isDefault: true
+  helloServerDemoAppDeployment:
+    type: qovery:Deployment
+    properties:
+      environmentId: ${prodEnvironment.id}
+      desiredState: "RUNNING"
+    options:
+      dependsOn:
+      - ${helloServerDemoApp}  
+
+variables: {}
