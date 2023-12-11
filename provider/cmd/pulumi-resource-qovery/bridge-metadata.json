@@ -324,9 +324,10 @@
                 "kubernetesMode": "kubernetes_mode",
                 "maxRunningNodes": "max_running_nodes",
                 "minRunningNodes": "min_running_nodes",
+                "organizationId": "organization_id",
                 "routingTables": "routing_table"
             },
-            "qovery:index/getClusterFeature:getClusterFeature": {
+            "qovery:index/getClusterFeatures:getClusterFeatures": {
                 "staticIp": "static_ip",
                 "vpcSubnet": "vpc_subnet"
             },

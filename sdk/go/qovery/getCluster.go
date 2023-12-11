@@ -14,6 +14,32 @@ import (
 // ## # Cluster (Data Source)
 //
 // Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.LookupCluster(ctx, &qovery.LookupClusterArgs{
+//				Id:             "<cluster_id>",
+//				OrganizationId: "<organization_id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult
@@ -29,11 +55,12 @@ type LookupClusterArgs struct {
 	AdvancedSettingsJson *string                  `pulumi:"advancedSettingsJson"`
 	Description          *string                  `pulumi:"description"`
 	DiskSize             *int                     `pulumi:"diskSize"`
-	Features             []GetClusterFeature      `pulumi:"features"`
+	Features             *GetClusterFeatures      `pulumi:"features"`
 	Id                   string                   `pulumi:"id"`
 	KubernetesMode       *string                  `pulumi:"kubernetesMode"`
 	MaxRunningNodes      *int                     `pulumi:"maxRunningNodes"`
 	MinRunningNodes      *int                     `pulumi:"minRunningNodes"`
+	OrganizationId       string                   `pulumi:"organizationId"`
 	RoutingTables        []GetClusterRoutingTable `pulumi:"routingTables"`
 	State                *string                  `pulumi:"state"`
 }
@@ -45,13 +72,14 @@ type LookupClusterResult struct {
 	CredentialsId        string                   `pulumi:"credentialsId"`
 	Description          string                   `pulumi:"description"`
 	DiskSize             int                      `pulumi:"diskSize"`
-	Features             []GetClusterFeature      `pulumi:"features"`
+	Features             GetClusterFeatures       `pulumi:"features"`
 	Id                   string                   `pulumi:"id"`
 	InstanceType         string                   `pulumi:"instanceType"`
 	KubernetesMode       string                   `pulumi:"kubernetesMode"`
 	MaxRunningNodes      int                      `pulumi:"maxRunningNodes"`
 	MinRunningNodes      int                      `pulumi:"minRunningNodes"`
 	Name                 string                   `pulumi:"name"`
+	OrganizationId       string                   `pulumi:"organizationId"`
 	Region               string                   `pulumi:"region"`
 	RoutingTables        []GetClusterRoutingTable `pulumi:"routingTables"`
 	State                string                   `pulumi:"state"`
@@ -75,11 +103,12 @@ type LookupClusterOutputArgs struct {
 	AdvancedSettingsJson pulumi.StringPtrInput            `pulumi:"advancedSettingsJson"`
 	Description          pulumi.StringPtrInput            `pulumi:"description"`
 	DiskSize             pulumi.IntPtrInput               `pulumi:"diskSize"`
-	Features             GetClusterFeatureArrayInput      `pulumi:"features"`
+	Features             GetClusterFeaturesPtrInput       `pulumi:"features"`
 	Id                   pulumi.StringInput               `pulumi:"id"`
 	KubernetesMode       pulumi.StringPtrInput            `pulumi:"kubernetesMode"`
 	MaxRunningNodes      pulumi.IntPtrInput               `pulumi:"maxRunningNodes"`
 	MinRunningNodes      pulumi.IntPtrInput               `pulumi:"minRunningNodes"`
+	OrganizationId       pulumi.StringInput               `pulumi:"organizationId"`
 	RoutingTables        GetClusterRoutingTableArrayInput `pulumi:"routingTables"`
 	State                pulumi.StringPtrInput            `pulumi:"state"`
 }
@@ -123,8 +152,8 @@ func (o LookupClusterResultOutput) DiskSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.DiskSize }).(pulumi.IntOutput)
 }
 
-func (o LookupClusterResultOutput) Features() GetClusterFeatureArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []GetClusterFeature { return v.Features }).(GetClusterFeatureArrayOutput)
+func (o LookupClusterResultOutput) Features() GetClusterFeaturesOutput {
+	return o.ApplyT(func(v LookupClusterResult) GetClusterFeatures { return v.Features }).(GetClusterFeaturesOutput)
 }
 
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
@@ -149,6 +178,10 @@ func (o LookupClusterResultOutput) MinRunningNodes() pulumi.IntOutput {
 
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) Region() pulumi.StringOutput {

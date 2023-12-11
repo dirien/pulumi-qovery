@@ -123,7 +123,7 @@ __all__ = [
     'GetApplicationSecretAliasArgs',
     'GetApplicationSecretOverrideArgs',
     'GetApplicationStorageArgs',
-    'GetClusterFeatureArgs',
+    'GetClusterFeaturesArgs',
     'GetClusterRoutingTableArgs',
     'GetContainerCustomDomainArgs',
     'GetContainerEnvironmentVariableArgs',
@@ -4800,7 +4800,7 @@ class GetApplicationStorageArgs:
 
 
 @pulumi.input_type
-class GetClusterFeatureArgs:
+class GetClusterFeaturesArgs:
     def __init__(__self__, *,
                  static_ip: bool,
                  vpc_subnet: str):

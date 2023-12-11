@@ -104,7 +104,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * Configuration for the healthchecks that are going to be executed against your service
      */
-    public readonly healthchecks!: pulumi.Output<outputs.ContainerHealthchecks | undefined>;
+    public readonly healthchecks!: pulumi.Output<outputs.ContainerHealthchecks>;
     /**
      * Name of the container image.
      */
@@ -203,6 +203,9 @@ export class Container extends pulumi.CustomResource {
             const args = argsOrState as ContainerArgs | undefined;
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
+            }
+            if ((!args || args.healthchecks === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'healthchecks'");
             }
             if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
@@ -420,7 +423,7 @@ export interface ContainerArgs {
     /**
      * Configuration for the healthchecks that are going to be executed against your service
      */
-    healthchecks?: pulumi.Input<inputs.ContainerHealthchecks>;
+    healthchecks: pulumi.Input<inputs.ContainerHealthchecks>;
     /**
      * Name of the container image.
      */

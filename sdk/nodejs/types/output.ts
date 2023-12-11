@@ -511,7 +511,7 @@ export interface GetApplicationStorage {
     type: string;
 }
 
-export interface GetClusterFeature {
+export interface GetClusterFeatures {
     staticIp: boolean;
     vpcSubnet: string;
 }

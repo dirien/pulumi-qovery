@@ -233,6 +233,26 @@ class GitToken(pulumi.CustomResource):
 
         Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
 
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_git_token = qovery.GitToken("myGitToken",
+            organization_id=qovery_organization["my_organization"]["id"],
+            type="GITHUB",
+            token="my-git-provider-token",
+            description="Github token",
+            bitbucket_workspace="workspace-bitbucket")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bitbucket_workspace: (Mandatory only for Bitbucket git token) Workspace where the token has permissions .
@@ -252,6 +272,26 @@ class GitToken(pulumi.CustomResource):
         ## # GitToken (Resource)
 
         Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_git_token = qovery.GitToken("myGitToken",
+            organization_id=qovery_organization["my_organization"]["id"],
+            type="GITHUB",
+            token="my-git-provider-token",
+            description="Github token",
+            bitbucket_workspace="workspace-bitbucket")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+        ```
 
         :param str resource_name: The name of the resource.
         :param GitTokenArgs args: The arguments to use to populate this resource's properties.

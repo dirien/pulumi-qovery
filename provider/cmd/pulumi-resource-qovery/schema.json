@@ -2796,7 +2796,7 @@
                 }
             }
         },
-        "qovery:index/getClusterFeature:getClusterFeature": {
+        "qovery:index/getClusterFeatures:getClusterFeatures": {
             "properties": {
                 "staticIp": {
                     "type": "boolean"
@@ -5283,6 +5283,7 @@
                 "entrypoint",
                 "environmentId",
                 "externalHost",
+                "healthchecks",
                 "imageName",
                 "internalHost",
                 "maxRunningInstances",
@@ -5426,6 +5427,7 @@
             },
             "requiredInputs": [
                 "environmentId",
+                "healthchecks",
                 "imageName",
                 "registryId",
                 "tag"
@@ -6238,7 +6240,7 @@
             }
         },
         "qovery:index/gitToken:GitToken": {
-            "description": "## # qovery.GitToken (Resource)\n\nProvides a Qovery git token resource. This can be used to create and manage Qovery git token.\n",
+            "description": "## # qovery.GitToken (Resource)\n\nProvides a Qovery git token resource. This can be used to create and manage Qovery git token.\n\n\n## Example\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myGitToken = new qovery.GitToken(\"myGitToken\", {\n    organizationId: qovery_organization.my_organization.id,\n    type: \"GITHUB\",\n    token: \"my-git-provider-token\",\n    description: \"Github token\",\n    bitbucketWorkspace: \"workspace-bitbucket\",\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_git_token = qovery.GitToken(\"myGitToken\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    type=\"GITHUB\",\n    token=\"my-git-provider-token\",\n    description=\"Github token\",\n    bitbucket_workspace=\"workspace-bitbucket\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myGitToken = new Qovery.GitToken(\"myGitToken\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Type = \"GITHUB\",\n        Token = \"my-git-provider-token\",\n        Description = \"Github token\",\n        BitbucketWorkspace = \"workspace-bitbucket\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewGitToken(ctx, \"myGitToken\", \u0026qovery.GitTokenArgs{\n\t\t\tOrganizationId:     pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tType:               pulumi.String(\"GITHUB\"),\n\t\t\tToken:              pulumi.String(\"my-git-provider-token\"),\n\t\t\tDescription:        pulumi.String(\"Github token\"),\n\t\t\tBitbucketWorkspace: pulumi.String(\"workspace-bitbucket\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.GitToken;\nimport com.pulumi.qovery.GitTokenArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myGitToken = new GitToken(\"myGitToken\", GitTokenArgs.builder()        \n            .organizationId(qovery_organization.my_organization().id())\n            .type(\"GITHUB\")\n            .token(\"my-git-provider-token\")\n            .description(\"Github token\")\n            .bitbucketWorkspace(\"workspace-bitbucket\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myGitToken:\n    type: qovery:GitToken\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      type: GITHUB\n      token: my-git-provider-token\n      # Optional\n      description: Github token\n      # Only necessary for BITBUCKET git tokens\n      bitbucketWorkspace: workspace-bitbucket\n```\n\n\n## Import\n\n\n\n```sh\n $ pulumi import qovery:index/gitToken:GitToken my_git_token \"\u003corganization_id\u003e,\u003cgit_token_id\u003e\"\n```\n\n ",
             "properties": {
                 "bitbucketWorkspace": {
                     "type": "string",
@@ -7318,7 +7320,7 @@
             }
         },
         "qovery:index/getCluster:getCluster": {
-            "description": "## # qovery.Cluster (Data Source)\n\nProvides a Qovery cluster resource. This can be used to create and manage Qovery cluster.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.QoveryFunctions;\nimport com.pulumi.qovery.inputs.GetClusterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myCluster = QoveryFunctions.getCluster(GetClusterArgs.builder()\n            .id(\"\u003ccluster_id\u003e\")\n            .organizationId(\"\u003corganization_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myCluster:\n    fn::invoke:\n      Function: qovery:getCluster\n      Arguments:\n        id: \u003ccluster_id\u003e\n        organizationId: \u003corganization_id\u003e\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## # qovery.Cluster (Data Source)\n\nProvides a Qovery cluster resource. This can be used to create and manage Qovery cluster.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@pulumi/qovery\";\n\nconst myCluster = qovery.getCluster({\n    id: \"\u003ccluster_id\u003e\",\n    organizationId: \"\u003corganization_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_qovery as qovery\n\nmy_cluster = qovery.get_cluster(id=\"\u003ccluster_id\u003e\",\n    organization_id=\"\u003corganization_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = Pulumi.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myCluster = Qovery.GetCluster.Invoke(new()\n    {\n        Id = \"\u003ccluster_id\u003e\",\n        OrganizationId = \"\u003corganization_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.LookupCluster(ctx, \u0026qovery.LookupClusterArgs{\n\t\t\tId:             \"\u003ccluster_id\u003e\",\n\t\t\tOrganizationId: \"\u003corganization_id\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.QoveryFunctions;\nimport com.pulumi.qovery.inputs.GetClusterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myCluster = QoveryFunctions.getCluster(GetClusterArgs.builder()\n            .id(\"\u003ccluster_id\u003e\")\n            .organizationId(\"\u003corganization_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myCluster:\n    fn::invoke:\n      Function: qovery:getCluster\n      Arguments:\n        id: \u003ccluster_id\u003e\n        organizationId: \u003corganization_id\u003e\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getCluster.\n",
                 "properties": {
@@ -7332,10 +7334,7 @@
                         "type": "integer"
                     },
                     "features": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/qovery:index/getClusterFeature:getClusterFeature"
-                        }
+                        "$ref": "#/types/qovery:index/getClusterFeatures:getClusterFeatures"
                     },
                     "id": {
                         "type": "string"
@@ -7349,6 +7348,9 @@
                     "minRunningNodes": {
                         "type": "integer"
                     },
+                    "organizationId": {
+                        "type": "string"
+                    },
                     "routingTables": {
                         "type": "array",
                         "items": {
@@ -7361,7 +7363,8 @@
                 },
                 "type": "object",
                 "required": [
-                    "id"
+                    "id",
+                    "organizationId"
                 ]
             },
             "outputs": {
@@ -7383,10 +7386,7 @@
                         "type": "integer"
                     },
                     "features": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/qovery:index/getClusterFeature:getClusterFeature"
-                        }
+                        "$ref": "#/types/qovery:index/getClusterFeatures:getClusterFeatures"
                     },
                     "id": {
                         "type": "string"
@@ -7404,6 +7404,9 @@
                         "type": "integer"
                     },
                     "name": {
+                        "type": "string"
+                    },
+                    "organizationId": {
                         "type": "string"
                     },
                     "region": {
@@ -7433,6 +7436,7 @@
                     "maxRunningNodes",
                     "minRunningNodes",
                     "name",
+                    "organizationId",
                     "region",
                     "routingTables",
                     "state"

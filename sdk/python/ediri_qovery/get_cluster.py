@@ -23,7 +23,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, disk_size=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, region=None, routing_tables=None, state=None):
+    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, disk_size=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, organization_id=None, region=None, routing_tables=None, state=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -39,8 +39,8 @@ class GetClusterResult:
         if disk_size and not isinstance(disk_size, int):
             raise TypeError("Expected argument 'disk_size' to be a int")
         pulumi.set(__self__, "disk_size", disk_size)
-        if features and not isinstance(features, list):
-            raise TypeError("Expected argument 'features' to be a list")
+        if features and not isinstance(features, dict):
+            raise TypeError("Expected argument 'features' to be a dict")
         pulumi.set(__self__, "features", features)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -60,6 +60,9 @@ class GetClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if organization_id and not isinstance(organization_id, str):
+            raise TypeError("Expected argument 'organization_id' to be a str")
+        pulumi.set(__self__, "organization_id", organization_id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -97,7 +100,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Sequence['outputs.GetClusterFeatureResult']:
+    def features(self) -> 'outputs.GetClusterFeaturesResult':
         return pulumi.get(self, "features")
 
     @property
@@ -129,6 +132,11 @@ class GetClusterResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> str:
+        return pulumi.get(self, "organization_id")
 
     @property
     @pulumi.getter
@@ -164,6 +172,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             max_running_nodes=self.max_running_nodes,
             min_running_nodes=self.min_running_nodes,
             name=self.name,
+            organization_id=self.organization_id,
             region=self.region,
             routing_tables=self.routing_tables,
             state=self.state)
@@ -172,11 +181,12 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(advanced_settings_json: Optional[str] = None,
                 description: Optional[str] = None,
                 disk_size: Optional[int] = None,
-                features: Optional[Sequence[pulumi.InputType['GetClusterFeatureArgs']]] = None,
+                features: Optional[pulumi.InputType['GetClusterFeaturesArgs']] = None,
                 id: Optional[str] = None,
                 kubernetes_mode: Optional[str] = None,
                 max_running_nodes: Optional[int] = None,
                 min_running_nodes: Optional[int] = None,
+                organization_id: Optional[str] = None,
                 routing_tables: Optional[Sequence[pulumi.InputType['GetClusterRoutingTableArgs']]] = None,
                 state: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
@@ -184,6 +194,15 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
     ## # Cluster (Data Source)
 
     Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_cluster = qovery.get_cluster(id="<cluster_id>",
+        organization_id="<organization_id>")
+    ```
     """
     __args__ = dict()
     __args__['advancedSettingsJson'] = advanced_settings_json
@@ -194,6 +213,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
     __args__['kubernetesMode'] = kubernetes_mode
     __args__['maxRunningNodes'] = max_running_nodes
     __args__['minRunningNodes'] = min_running_nodes
+    __args__['organizationId'] = organization_id
     __args__['routingTables'] = routing_tables
     __args__['state'] = state
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -212,6 +232,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
         max_running_nodes=pulumi.get(__ret__, 'max_running_nodes'),
         min_running_nodes=pulumi.get(__ret__, 'min_running_nodes'),
         name=pulumi.get(__ret__, 'name'),
+        organization_id=pulumi.get(__ret__, 'organization_id'),
         region=pulumi.get(__ret__, 'region'),
         routing_tables=pulumi.get(__ret__, 'routing_tables'),
         state=pulumi.get(__ret__, 'state'))
@@ -221,11 +242,12 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
 def get_cluster_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
                        description: Optional[pulumi.Input[Optional[str]]] = None,
                        disk_size: Optional[pulumi.Input[Optional[int]]] = None,
-                       features: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClusterFeatureArgs']]]]] = None,
+                       features: Optional[pulumi.Input[Optional[pulumi.InputType['GetClusterFeaturesArgs']]]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        kubernetes_mode: Optional[pulumi.Input[Optional[str]]] = None,
                        max_running_nodes: Optional[pulumi.Input[Optional[int]]] = None,
                        min_running_nodes: Optional[pulumi.Input[Optional[int]]] = None,
+                       organization_id: Optional[pulumi.Input[str]] = None,
                        routing_tables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClusterRoutingTableArgs']]]]] = None,
                        state: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -233,5 +255,14 @@ def get_cluster_output(advanced_settings_json: Optional[pulumi.Input[Optional[st
     ## # Cluster (Data Source)
 
     Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_cluster = qovery.get_cluster(id="<cluster_id>",
+        organization_id="<organization_id>")
+    ```
     """
     ...
