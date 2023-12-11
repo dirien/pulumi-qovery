@@ -16105,104 +16105,152 @@ func (o GetApplicationStorageArrayOutput) Index(i pulumi.IntInput) GetApplicatio
 	}).(GetApplicationStorageOutput)
 }
 
-type GetClusterFeature struct {
+type GetClusterFeatures struct {
 	StaticIp  bool   `pulumi:"staticIp"`
 	VpcSubnet string `pulumi:"vpcSubnet"`
 }
 
-// GetClusterFeatureInput is an input type that accepts GetClusterFeatureArgs and GetClusterFeatureOutput values.
-// You can construct a concrete instance of `GetClusterFeatureInput` via:
+// GetClusterFeaturesInput is an input type that accepts GetClusterFeaturesArgs and GetClusterFeaturesOutput values.
+// You can construct a concrete instance of `GetClusterFeaturesInput` via:
 //
-//	GetClusterFeatureArgs{...}
-type GetClusterFeatureInput interface {
+//	GetClusterFeaturesArgs{...}
+type GetClusterFeaturesInput interface {
 	pulumi.Input
 
-	ToGetClusterFeatureOutput() GetClusterFeatureOutput
-	ToGetClusterFeatureOutputWithContext(context.Context) GetClusterFeatureOutput
+	ToGetClusterFeaturesOutput() GetClusterFeaturesOutput
+	ToGetClusterFeaturesOutputWithContext(context.Context) GetClusterFeaturesOutput
 }
 
-type GetClusterFeatureArgs struct {
+type GetClusterFeaturesArgs struct {
 	StaticIp  pulumi.BoolInput   `pulumi:"staticIp"`
 	VpcSubnet pulumi.StringInput `pulumi:"vpcSubnet"`
 }
 
-func (GetClusterFeatureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterFeature)(nil)).Elem()
+func (GetClusterFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterFeatures)(nil)).Elem()
 }
 
-func (i GetClusterFeatureArgs) ToGetClusterFeatureOutput() GetClusterFeatureOutput {
-	return i.ToGetClusterFeatureOutputWithContext(context.Background())
+func (i GetClusterFeaturesArgs) ToGetClusterFeaturesOutput() GetClusterFeaturesOutput {
+	return i.ToGetClusterFeaturesOutputWithContext(context.Background())
 }
 
-func (i GetClusterFeatureArgs) ToGetClusterFeatureOutputWithContext(ctx context.Context) GetClusterFeatureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeatureOutput)
+func (i GetClusterFeaturesArgs) ToGetClusterFeaturesOutputWithContext(ctx context.Context) GetClusterFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesOutput)
 }
 
-// GetClusterFeatureArrayInput is an input type that accepts GetClusterFeatureArray and GetClusterFeatureArrayOutput values.
-// You can construct a concrete instance of `GetClusterFeatureArrayInput` via:
+func (i GetClusterFeaturesArgs) ToGetClusterFeaturesPtrOutput() GetClusterFeaturesPtrOutput {
+	return i.ToGetClusterFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i GetClusterFeaturesArgs) ToGetClusterFeaturesPtrOutputWithContext(ctx context.Context) GetClusterFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesOutput).ToGetClusterFeaturesPtrOutputWithContext(ctx)
+}
+
+// GetClusterFeaturesPtrInput is an input type that accepts GetClusterFeaturesArgs, GetClusterFeaturesPtr and GetClusterFeaturesPtrOutput values.
+// You can construct a concrete instance of `GetClusterFeaturesPtrInput` via:
 //
-//	GetClusterFeatureArray{ GetClusterFeatureArgs{...} }
-type GetClusterFeatureArrayInput interface {
+//	        GetClusterFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetClusterFeaturesPtrInput interface {
 	pulumi.Input
 
-	ToGetClusterFeatureArrayOutput() GetClusterFeatureArrayOutput
-	ToGetClusterFeatureArrayOutputWithContext(context.Context) GetClusterFeatureArrayOutput
+	ToGetClusterFeaturesPtrOutput() GetClusterFeaturesPtrOutput
+	ToGetClusterFeaturesPtrOutputWithContext(context.Context) GetClusterFeaturesPtrOutput
 }
 
-type GetClusterFeatureArray []GetClusterFeatureInput
+type getClusterFeaturesPtrType GetClusterFeaturesArgs
 
-func (GetClusterFeatureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterFeature)(nil)).Elem()
+func GetClusterFeaturesPtr(v *GetClusterFeaturesArgs) GetClusterFeaturesPtrInput {
+	return (*getClusterFeaturesPtrType)(v)
 }
 
-func (i GetClusterFeatureArray) ToGetClusterFeatureArrayOutput() GetClusterFeatureArrayOutput {
-	return i.ToGetClusterFeatureArrayOutputWithContext(context.Background())
+func (*getClusterFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterFeatures)(nil)).Elem()
 }
 
-func (i GetClusterFeatureArray) ToGetClusterFeatureArrayOutputWithContext(ctx context.Context) GetClusterFeatureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeatureArrayOutput)
+func (i *getClusterFeaturesPtrType) ToGetClusterFeaturesPtrOutput() GetClusterFeaturesPtrOutput {
+	return i.ToGetClusterFeaturesPtrOutputWithContext(context.Background())
 }
 
-type GetClusterFeatureOutput struct{ *pulumi.OutputState }
-
-func (GetClusterFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterFeature)(nil)).Elem()
+func (i *getClusterFeaturesPtrType) ToGetClusterFeaturesPtrOutputWithContext(ctx context.Context) GetClusterFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesPtrOutput)
 }
 
-func (o GetClusterFeatureOutput) ToGetClusterFeatureOutput() GetClusterFeatureOutput {
+type GetClusterFeaturesOutput struct{ *pulumi.OutputState }
+
+func (GetClusterFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterFeatures)(nil)).Elem()
+}
+
+func (o GetClusterFeaturesOutput) ToGetClusterFeaturesOutput() GetClusterFeaturesOutput {
 	return o
 }
 
-func (o GetClusterFeatureOutput) ToGetClusterFeatureOutputWithContext(ctx context.Context) GetClusterFeatureOutput {
+func (o GetClusterFeaturesOutput) ToGetClusterFeaturesOutputWithContext(ctx context.Context) GetClusterFeaturesOutput {
 	return o
 }
 
-func (o GetClusterFeatureOutput) StaticIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetClusterFeature) bool { return v.StaticIp }).(pulumi.BoolOutput)
+func (o GetClusterFeaturesOutput) ToGetClusterFeaturesPtrOutput() GetClusterFeaturesPtrOutput {
+	return o.ToGetClusterFeaturesPtrOutputWithContext(context.Background())
 }
 
-func (o GetClusterFeatureOutput) VpcSubnet() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterFeature) string { return v.VpcSubnet }).(pulumi.StringOutput)
+func (o GetClusterFeaturesOutput) ToGetClusterFeaturesPtrOutputWithContext(ctx context.Context) GetClusterFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetClusterFeatures) *GetClusterFeatures {
+		return &v
+	}).(GetClusterFeaturesPtrOutput)
 }
 
-type GetClusterFeatureArrayOutput struct{ *pulumi.OutputState }
-
-func (GetClusterFeatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterFeature)(nil)).Elem()
+func (o GetClusterFeaturesOutput) StaticIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterFeatures) bool { return v.StaticIp }).(pulumi.BoolOutput)
 }
 
-func (o GetClusterFeatureArrayOutput) ToGetClusterFeatureArrayOutput() GetClusterFeatureArrayOutput {
+func (o GetClusterFeaturesOutput) VpcSubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterFeatures) string { return v.VpcSubnet }).(pulumi.StringOutput)
+}
+
+type GetClusterFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetClusterFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterFeatures)(nil)).Elem()
+}
+
+func (o GetClusterFeaturesPtrOutput) ToGetClusterFeaturesPtrOutput() GetClusterFeaturesPtrOutput {
 	return o
 }
 
-func (o GetClusterFeatureArrayOutput) ToGetClusterFeatureArrayOutputWithContext(ctx context.Context) GetClusterFeatureArrayOutput {
+func (o GetClusterFeaturesPtrOutput) ToGetClusterFeaturesPtrOutputWithContext(ctx context.Context) GetClusterFeaturesPtrOutput {
 	return o
 }
 
-func (o GetClusterFeatureArrayOutput) Index(i pulumi.IntInput) GetClusterFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterFeature {
-		return vs[0].([]GetClusterFeature)[vs[1].(int)]
-	}).(GetClusterFeatureOutput)
+func (o GetClusterFeaturesPtrOutput) Elem() GetClusterFeaturesOutput {
+	return o.ApplyT(func(v *GetClusterFeatures) GetClusterFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret GetClusterFeatures
+		return ret
+	}).(GetClusterFeaturesOutput)
+}
+
+func (o GetClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.StaticIp
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeatures) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcSubnet
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetClusterRoutingTable struct {
@@ -24903,8 +24951,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSecretOverrideArrayInput)(nil)).Elem(), GetApplicationSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStorageInput)(nil)).Elem(), GetApplicationStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStorageArrayInput)(nil)).Elem(), GetApplicationStorageArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeatureInput)(nil)).Elem(), GetClusterFeatureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeatureArrayInput)(nil)).Elem(), GetClusterFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesInput)(nil)).Elem(), GetClusterFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesPtrInput)(nil)).Elem(), GetClusterFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRoutingTableInput)(nil)).Elem(), GetClusterRoutingTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRoutingTableArrayInput)(nil)).Elem(), GetClusterRoutingTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerBuiltInEnvironmentVariableInput)(nil)).Elem(), GetContainerBuiltInEnvironmentVariableArgs{})
@@ -25262,8 +25310,8 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationStorageOutput{})
 	pulumi.RegisterOutputType(GetApplicationStorageArrayOutput{})
-	pulumi.RegisterOutputType(GetClusterFeatureOutput{})
-	pulumi.RegisterOutputType(GetClusterFeatureArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterFeaturesOutput{})
+	pulumi.RegisterOutputType(GetClusterFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterRoutingTableOutput{})
 	pulumi.RegisterOutputType(GetClusterRoutingTableArrayOutput{})
 	pulumi.RegisterOutputType(GetContainerBuiltInEnvironmentVariableOutput{})

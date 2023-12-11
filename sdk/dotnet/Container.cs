@@ -112,7 +112,7 @@ namespace ediri.Qovery
         /// Configuration for the healthchecks that are going to be executed against your service
         /// </summary>
         [Output("healthchecks")]
-        public Output<Outputs.ContainerHealthchecks?> Healthchecks { get; private set; } = null!;
+        public Output<Outputs.ContainerHealthchecks> Healthchecks { get; private set; } = null!;
 
         /// <summary>
         /// Name of the container image.
@@ -344,8 +344,8 @@ namespace ediri.Qovery
         /// <summary>
         /// Configuration for the healthchecks that are going to be executed against your service
         /// </summary>
-        [Input("healthchecks")]
-        public Input<Inputs.ContainerHealthchecksArgs>? Healthchecks { get; set; }
+        [Input("healthchecks", required: true)]
+        public Input<Inputs.ContainerHealthchecksArgs> Healthchecks { get; set; } = null!;
 
         /// <summary>
         /// Name of the container image.

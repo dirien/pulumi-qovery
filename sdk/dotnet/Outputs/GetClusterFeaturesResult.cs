@@ -12,13 +12,13 @@ namespace ediri.Qovery.Outputs
 {
 
     [OutputType]
-    public sealed class GetClusterFeatureResult
+    public sealed class GetClusterFeaturesResult
     {
         public readonly bool StaticIp;
         public readonly string VpcSubnet;
 
         [OutputConstructor]
-        private GetClusterFeatureResult(
+        private GetClusterFeaturesResult(
             bool staticIp,
 
             string vpcSubnet)

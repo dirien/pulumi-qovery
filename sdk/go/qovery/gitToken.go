@@ -15,6 +15,44 @@ import (
 // ## # GitToken (Resource)
 //
 // Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
+//
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.NewGitToken(ctx, "myGitToken", &qovery.GitTokenArgs{
+//				OrganizationId:     pulumi.Any(qovery_organization.My_organization.Id),
+//				Type:               pulumi.String("GITHUB"),
+//				Token:              pulumi.String("my-git-provider-token"),
+//				Description:        pulumi.String("Github token"),
+//				BitbucketWorkspace: pulumi.String("workspace-bitbucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+//
+// ```
 type GitToken struct {
 	pulumi.CustomResourceState
 

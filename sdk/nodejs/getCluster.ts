@@ -10,6 +10,17 @@ import * as utilities from "./utilities";
  * ## # qovery.Cluster (Data Source)
  *
  * Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@pulumi/qovery";
+ *
+ * const myCluster = qovery.getCluster({
+ *     id: "<cluster_id>",
+ *     organizationId: "<organization_id>",
+ * });
+ * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -23,6 +34,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         "kubernetesMode": args.kubernetesMode,
         "maxRunningNodes": args.maxRunningNodes,
         "minRunningNodes": args.minRunningNodes,
+        "organizationId": args.organizationId,
         "routingTables": args.routingTables,
         "state": args.state,
     }, opts);
@@ -35,11 +47,12 @@ export interface GetClusterArgs {
     advancedSettingsJson?: string;
     description?: string;
     diskSize?: number;
-    features?: inputs.GetClusterFeature[];
+    features?: inputs.GetClusterFeatures;
     id: string;
     kubernetesMode?: string;
     maxRunningNodes?: number;
     minRunningNodes?: number;
+    organizationId: string;
     routingTables?: inputs.GetClusterRoutingTable[];
     state?: string;
 }
@@ -53,13 +66,14 @@ export interface GetClusterResult {
     readonly credentialsId: string;
     readonly description: string;
     readonly diskSize: number;
-    readonly features: outputs.GetClusterFeature[];
+    readonly features: outputs.GetClusterFeatures;
     readonly id: string;
     readonly instanceType: string;
     readonly kubernetesMode: string;
     readonly maxRunningNodes: number;
     readonly minRunningNodes: number;
     readonly name: string;
+    readonly organizationId: string;
     readonly region: string;
     readonly routingTables: outputs.GetClusterRoutingTable[];
     readonly state: string;
@@ -68,6 +82,17 @@ export interface GetClusterResult {
  * ## # qovery.Cluster (Data Source)
  *
  * Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@pulumi/qovery";
+ *
+ * const myCluster = qovery.getCluster({
+ *     id: "<cluster_id>",
+ *     organizationId: "<organization_id>",
+ * });
+ * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
@@ -80,11 +105,12 @@ export interface GetClusterOutputArgs {
     advancedSettingsJson?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     diskSize?: pulumi.Input<number>;
-    features?: pulumi.Input<pulumi.Input<inputs.GetClusterFeatureArgs>[]>;
+    features?: pulumi.Input<inputs.GetClusterFeaturesArgs>;
     id: pulumi.Input<string>;
     kubernetesMode?: pulumi.Input<string>;
     maxRunningNodes?: pulumi.Input<number>;
     minRunningNodes?: pulumi.Input<number>;
+    organizationId: pulumi.Input<string>;
     routingTables?: pulumi.Input<pulumi.Input<inputs.GetClusterRoutingTableArgs>[]>;
     state?: pulumi.Input<string>;
 }

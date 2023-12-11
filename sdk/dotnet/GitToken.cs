@@ -14,6 +14,34 @@ namespace ediri.Qovery
     /// ## # qovery.GitToken (Resource)
     /// 
     /// Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
+    /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Qovery = ediri.Qovery;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myGitToken = new Qovery.GitToken("myGitToken", new()
+    ///     {
+    ///         OrganizationId = qovery_organization.My_organization.Id,
+    ///         Type = "GITHUB",
+    ///         Token = "my-git-provider-token",
+    ///         Description = "Github token",
+    ///         BitbucketWorkspace = "workspace-bitbucket",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import qovery:index/gitToken:GitToken my_git_token "&lt;organization_id&gt;,&lt;git_token_id&gt;"
+    /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/gitToken:GitToken")]
     public partial class GitToken : global::Pulumi.CustomResource

@@ -8,6 +8,27 @@ import * as utilities from "./utilities";
  * ## # qovery.GitToken (Resource)
  *
  * Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
+ *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@ediri/qovery";
+ *
+ * const myGitToken = new qovery.GitToken("myGitToken", {
+ *     organizationId: qovery_organization.my_organization.id,
+ *     type: "GITHUB",
+ *     token: "my-git-provider-token",
+ *     description: "Github token",
+ *     bitbucketWorkspace: "workspace-bitbucket",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+ * ```
  */
 export class GitToken extends pulumi.CustomResource {
     /**

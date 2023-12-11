@@ -615,12 +615,12 @@ export interface GetApplicationStorageArgs {
     type?: pulumi.Input<string>;
 }
 
-export interface GetClusterFeature {
+export interface GetClusterFeatures {
     staticIp?: boolean;
     vpcSubnet?: string;
 }
 
-export interface GetClusterFeatureArgs {
+export interface GetClusterFeaturesArgs {
     staticIp?: pulumi.Input<boolean>;
     vpcSubnet?: pulumi.Input<string>;
 }

@@ -16,6 +16,28 @@ namespace ediri.Qovery
         /// ## # qovery.Cluster (Data Source)
         /// 
         /// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Qovery = Pulumi.Qovery;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myCluster = Qovery.GetCluster.Invoke(new()
+        ///     {
+        ///         Id = "&lt;cluster_id&gt;",
+        ///         OrganizationId = "&lt;organization_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("qovery:index/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,6 +46,28 @@ namespace ediri.Qovery
         /// ## # qovery.Cluster (Data Source)
         /// 
         /// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Qovery = Pulumi.Qovery;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myCluster = Qovery.GetCluster.Invoke(new()
+        ///     {
+        ///         Id = "&lt;cluster_id&gt;",
+        ///         OrganizationId = "&lt;organization_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("qovery:index/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -42,12 +86,7 @@ namespace ediri.Qovery
         public int? DiskSize { get; set; }
 
         [Input("features")]
-        private List<Inputs.GetClusterFeatureArgs>? _features;
-        public List<Inputs.GetClusterFeatureArgs> Features
-        {
-            get => _features ?? (_features = new List<Inputs.GetClusterFeatureArgs>());
-            set => _features = value;
-        }
+        public Inputs.GetClusterFeaturesArgs? Features { get; set; }
 
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -60,6 +99,9 @@ namespace ediri.Qovery
 
         [Input("minRunningNodes")]
         public int? MinRunningNodes { get; set; }
+
+        [Input("organizationId", required: true)]
+        public string OrganizationId { get; set; } = null!;
 
         [Input("routingTables")]
         private List<Inputs.GetClusterRoutingTableArgs>? _routingTables;
@@ -90,12 +132,7 @@ namespace ediri.Qovery
         public Input<int>? DiskSize { get; set; }
 
         [Input("features")]
-        private InputList<Inputs.GetClusterFeatureInputArgs>? _features;
-        public InputList<Inputs.GetClusterFeatureInputArgs> Features
-        {
-            get => _features ?? (_features = new InputList<Inputs.GetClusterFeatureInputArgs>());
-            set => _features = value;
-        }
+        public Input<Inputs.GetClusterFeaturesInputArgs>? Features { get; set; }
 
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -108,6 +145,9 @@ namespace ediri.Qovery
 
         [Input("minRunningNodes")]
         public Input<int>? MinRunningNodes { get; set; }
+
+        [Input("organizationId", required: true)]
+        public Input<string> OrganizationId { get; set; } = null!;
 
         [Input("routingTables")]
         private InputList<Inputs.GetClusterRoutingTableInputArgs>? _routingTables;
@@ -135,13 +175,14 @@ namespace ediri.Qovery
         public readonly string CredentialsId;
         public readonly string Description;
         public readonly int DiskSize;
-        public readonly ImmutableArray<Outputs.GetClusterFeatureResult> Features;
+        public readonly Outputs.GetClusterFeaturesResult Features;
         public readonly string Id;
         public readonly string InstanceType;
         public readonly string KubernetesMode;
         public readonly int MaxRunningNodes;
         public readonly int MinRunningNodes;
         public readonly string Name;
+        public readonly string OrganizationId;
         public readonly string Region;
         public readonly ImmutableArray<Outputs.GetClusterRoutingTableResult> RoutingTables;
         public readonly string State;
@@ -158,7 +199,7 @@ namespace ediri.Qovery
 
             int diskSize,
 
-            ImmutableArray<Outputs.GetClusterFeatureResult> features,
+            Outputs.GetClusterFeaturesResult features,
 
             string id,
 
@@ -171,6 +212,8 @@ namespace ediri.Qovery
             int minRunningNodes,
 
             string name,
+
+            string organizationId,
 
             string region,
 
@@ -190,6 +233,7 @@ namespace ediri.Qovery
             MaxRunningNodes = maxRunningNodes;
             MinRunningNodes = minRunningNodes;
             Name = name;
+            OrganizationId = organizationId;
             Region = region;
             RoutingTables = routingTables;
             State = state;

@@ -17,6 +17,7 @@ __all__ = ['ContainerArgs', 'Container']
 class ContainerArgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[str],
+                 healthchecks: pulumi.Input['ContainerHealthchecksArgs'],
                  image_name: pulumi.Input[str],
                  registry_id: pulumi.Input[str],
                  tag: pulumi.Input[str],
@@ -31,7 +32,6 @@ class ContainerArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]] = None,
-                 healthchecks: Optional[pulumi.Input['ContainerHealthchecksArgs']] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -44,6 +44,7 @@ class ContainerArgs:
         """
         The set of arguments for constructing a Container resource.
         :param pulumi.Input[str] environment_id: Id of the environment.
+        :param pulumi.Input['ContainerHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] image_name: Name of the container image.
         :param pulumi.Input[str] registry_id: Id of the registry.
         :param pulumi.Input[str] tag: Tag of the container image.
@@ -58,7 +59,6 @@ class ContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this container.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this container.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this container.
-        :param pulumi.Input['ContainerHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the container. - Must be: `>= 1`. - Default: `1`.
@@ -70,6 +70,7 @@ class ContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerStorageArgs']]] storages: List of storages linked to this container.
         """
         pulumi.set(__self__, "environment_id", environment_id)
+        pulumi.set(__self__, "healthchecks", healthchecks)
         pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "registry_id", registry_id)
         pulumi.set(__self__, "tag", tag)
@@ -95,8 +96,6 @@ class ContainerArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
-        if healthchecks is not None:
-            pulumi.set(__self__, "healthchecks", healthchecks)
         if max_running_instances is not None:
             pulumi.set(__self__, "max_running_instances", max_running_instances)
         if memory is not None:
@@ -127,6 +126,18 @@ class ContainerArgs:
     @environment_id.setter
     def environment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter
+    def healthchecks(self) -> pulumi.Input['ContainerHealthchecksArgs']:
+        """
+        Configuration for the healthchecks that are going to be executed against your service
+        """
+        return pulumi.get(self, "healthchecks")
+
+    @healthchecks.setter
+    def healthchecks(self, value: pulumi.Input['ContainerHealthchecksArgs']):
+        pulumi.set(self, "healthchecks", value)
 
     @property
     @pulumi.getter(name="imageName")
@@ -295,18 +306,6 @@ class ContainerArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
-
-    @property
-    @pulumi.getter
-    def healthchecks(self) -> Optional[pulumi.Input['ContainerHealthchecksArgs']]:
-        """
-        Configuration for the healthchecks that are going to be executed against your service
-        """
-        return pulumi.get(self, "healthchecks")
-
-    @healthchecks.setter
-    def healthchecks(self, value: Optional[pulumi.Input['ContainerHealthchecksArgs']]):
-        pulumi.set(self, "healthchecks", value)
 
     @property
     @pulumi.getter(name="maxRunningInstances")
@@ -1023,6 +1022,8 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["environment_variable_aliases"] = environment_variable_aliases
             __props__.__dict__["environment_variable_overrides"] = environment_variable_overrides
             __props__.__dict__["environment_variables"] = environment_variables
+            if healthchecks is None and not opts.urn:
+                raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
             if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
@@ -1267,7 +1268,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def healthchecks(self) -> pulumi.Output[Optional['outputs.ContainerHealthchecks']]:
+    def healthchecks(self) -> pulumi.Output['outputs.ContainerHealthchecks']:
         """
         Configuration for the healthchecks that are going to be executed against your service
         """

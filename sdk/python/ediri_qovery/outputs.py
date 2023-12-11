@@ -127,7 +127,7 @@ __all__ = [
     'GetApplicationSecretAliasResult',
     'GetApplicationSecretOverrideResult',
     'GetApplicationStorageResult',
-    'GetClusterFeatureResult',
+    'GetClusterFeaturesResult',
     'GetClusterRoutingTableResult',
     'GetContainerBuiltInEnvironmentVariableResult',
     'GetContainerCustomDomainResult',
@@ -4095,7 +4095,7 @@ class GetApplicationStorageResult(dict):
 
 
 @pulumi.output_type
-class GetClusterFeatureResult(dict):
+class GetClusterFeaturesResult(dict):
     def __init__(__self__, *,
                  static_ip: bool,
                  vpc_subnet: str):

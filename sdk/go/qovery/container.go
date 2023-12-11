@@ -55,7 +55,7 @@ type Container struct {
 	// The container external FQDN host [NOTE: only if your container is using a publicly accessible port].
 	ExternalHost pulumi.StringOutput `pulumi:"externalHost"`
 	// Configuration for the healthchecks that are going to be executed against your service
-	Healthchecks ContainerHealthchecksPtrOutput `pulumi:"healthchecks"`
+	Healthchecks ContainerHealthchecksOutput `pulumi:"healthchecks"`
 	// Name of the container image.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// The container internal host.
@@ -93,6 +93,9 @@ func NewContainer(ctx *pulumi.Context,
 
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
+	}
+	if args.Healthchecks == nil {
+		return nil, errors.New("invalid value for required argument 'Healthchecks'")
 	}
 	if args.ImageName == nil {
 		return nil, errors.New("invalid value for required argument 'ImageName'")
@@ -273,7 +276,7 @@ type containerArgs struct {
 	// List of environment variables linked to this container.
 	EnvironmentVariables []ContainerEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration for the healthchecks that are going to be executed against your service
-	Healthchecks *ContainerHealthchecks `pulumi:"healthchecks"`
+	Healthchecks ContainerHealthchecks `pulumi:"healthchecks"`
 	// Name of the container image.
 	ImageName string `pulumi:"imageName"`
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
@@ -327,7 +330,7 @@ type ContainerArgs struct {
 	// List of environment variables linked to this container.
 	EnvironmentVariables ContainerEnvironmentVariableArrayInput
 	// Configuration for the healthchecks that are going to be executed against your service
-	Healthchecks ContainerHealthchecksPtrInput
+	Healthchecks ContainerHealthchecksInput
 	// Name of the container image.
 	ImageName pulumi.StringInput
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
@@ -516,8 +519,8 @@ func (o ContainerOutput) ExternalHost() pulumi.StringOutput {
 }
 
 // Configuration for the healthchecks that are going to be executed against your service
-func (o ContainerOutput) Healthchecks() ContainerHealthchecksPtrOutput {
-	return o.ApplyT(func(v *Container) ContainerHealthchecksPtrOutput { return v.Healthchecks }).(ContainerHealthchecksPtrOutput)
+func (o ContainerOutput) Healthchecks() ContainerHealthchecksOutput {
+	return o.ApplyT(func(v *Container) ContainerHealthchecksOutput { return v.Healthchecks }).(ContainerHealthchecksOutput)
 }
 
 // Name of the container image.

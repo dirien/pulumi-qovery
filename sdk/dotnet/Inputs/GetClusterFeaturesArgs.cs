@@ -11,17 +11,17 @@ using Pulumi;
 namespace ediri.Qovery.Inputs
 {
 
-    public sealed class GetClusterFeatureArgs : global::Pulumi.InvokeArgs
+    public sealed class GetClusterFeaturesInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("staticIp", required: true)]
-        public bool StaticIp { get; set; }
+        public Input<bool> StaticIp { get; set; } = null!;
 
         [Input("vpcSubnet", required: true)]
-        public string VpcSubnet { get; set; } = null!;
+        public Input<string> VpcSubnet { get; set; } = null!;
 
-        public GetClusterFeatureArgs()
+        public GetClusterFeaturesInputArgs()
         {
         }
-        public static new GetClusterFeatureArgs Empty => new GetClusterFeatureArgs();
+        public static new GetClusterFeaturesInputArgs Empty => new GetClusterFeaturesInputArgs();
     }
 }
