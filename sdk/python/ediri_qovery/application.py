@@ -1280,7 +1280,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entrypoint(self) -> pulumi.Output[str]:
+    def entrypoint(self) -> pulumi.Output[Optional[str]]:
         """
         Entrypoint of the application.
         """

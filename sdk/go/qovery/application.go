@@ -46,7 +46,7 @@ type Application struct {
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
 	DockerfilePath pulumi.StringPtrOutput `pulumi:"dockerfilePath"`
 	// Entrypoint of the application.
-	Entrypoint pulumi.StringOutput `pulumi:"entrypoint"`
+	Entrypoint pulumi.StringPtrOutput `pulumi:"entrypoint"`
 	// Id of the environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// List of environment variable aliases linked to this application.
@@ -508,8 +508,8 @@ func (o ApplicationOutput) DockerfilePath() pulumi.StringPtrOutput {
 }
 
 // Entrypoint of the application.
-func (o ApplicationOutput) Entrypoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Entrypoint }).(pulumi.StringOutput)
+func (o ApplicationOutput) Entrypoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment.

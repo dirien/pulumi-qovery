@@ -43,7 +43,7 @@ type Container struct {
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringOutput `pulumi:"deploymentStageId"`
 	// Entrypoint of the container.
-	Entrypoint pulumi.StringOutput `pulumi:"entrypoint"`
+	Entrypoint pulumi.StringPtrOutput `pulumi:"entrypoint"`
 	// Id of the environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// List of environment variable aliases linked to this container.
@@ -487,8 +487,8 @@ func (o ContainerOutput) DeploymentStageId() pulumi.StringOutput {
 }
 
 // Entrypoint of the container.
-func (o ContainerOutput) Entrypoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Entrypoint }).(pulumi.StringOutput)
+func (o ContainerOutput) Entrypoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment.

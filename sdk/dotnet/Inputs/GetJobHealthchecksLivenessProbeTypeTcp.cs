@@ -13,8 +13,8 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetJobHealthchecksLivenessProbeTypeTcpArgs : global::Pulumi.InvokeArgs
     {
-        [Input("host", required: true)]
-        public string Host { get; set; } = null!;
+        [Input("host")]
+        public string? Host { get; set; }
 
         [Input("port", required: true)]
         public int Port { get; set; }

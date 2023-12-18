@@ -13,8 +13,8 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetApplicationHealthchecksReadinessProbeTypeTcpInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("host", required: true)]
-        public Input<string> Host { get; set; } = null!;
+        [Input("host")]
+        public Input<string>? Host { get; set; }
 
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;

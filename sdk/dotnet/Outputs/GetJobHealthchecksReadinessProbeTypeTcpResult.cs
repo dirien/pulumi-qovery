@@ -14,12 +14,12 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobHealthchecksReadinessProbeTypeTcpResult
     {
-        public readonly string Host;
+        public readonly string? Host;
         public readonly int Port;
 
         [OutputConstructor]
         private GetJobHealthchecksReadinessProbeTypeTcpResult(
-            string host,
+            string? host,
 
             int port)
         {
