@@ -91,7 +91,7 @@ namespace ediri.Qovery
         /// Entrypoint of the application.
         /// </summary>
         [Output("entrypoint")]
-        public Output<string> Entrypoint { get; private set; } = null!;
+        public Output<string?> Entrypoint { get; private set; } = null!;
 
         /// <summary>
         /// Id of the environment.

@@ -13,14 +13,14 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetApplicationHealthchecksLivenessProbeTypeHttpArgs : global::Pulumi.InvokeArgs
     {
-        [Input("path", required: true)]
-        public string Path { get; set; } = null!;
+        [Input("path")]
+        public string? Path { get; set; }
 
         [Input("port", required: true)]
         public int Port { get; set; }
 
-        [Input("scheme", required: true)]
-        public string Scheme { get; set; } = null!;
+        [Input("scheme")]
+        public string? Scheme { get; set; }
 
         public GetApplicationHealthchecksLivenessProbeTypeHttpArgs()
         {

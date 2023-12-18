@@ -14247,9 +14247,9 @@ func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulu
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetApplicationHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetApplicationHealthchecksLivenessProbeTypeHttpArgs and GetApplicationHealthchecksLivenessProbeTypeHttpOutput values.
@@ -14264,9 +14264,9 @@ type GetApplicationHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -14346,16 +14346,16 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
-func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -14387,7 +14387,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14405,13 +14405,13 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulum
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetApplicationHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetApplicationHealthchecksLivenessProbeTypeTcpArgs and GetApplicationHealthchecksLivenessProbeTypeTcpOutput values.
@@ -14426,8 +14426,8 @@ type GetApplicationHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -14507,8 +14507,8 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) ToGetApplicationHe
 	}).(GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
-func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -14544,7 +14544,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15235,9 +15235,9 @@ func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pul
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetApplicationHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetApplicationHealthchecksReadinessProbeTypeHttpArgs and GetApplicationHealthchecksReadinessProbeTypeHttpOutput values.
@@ -15252,9 +15252,9 @@ type GetApplicationHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -15334,16 +15334,16 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) ToGetApplication
 	}).(GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
-func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -15375,7 +15375,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15393,13 +15393,13 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulu
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetApplicationHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetApplicationHealthchecksReadinessProbeTypeTcpArgs and GetApplicationHealthchecksReadinessProbeTypeTcpOutput values.
@@ -15414,8 +15414,8 @@ type GetApplicationHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -15495,8 +15495,8 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
-func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -15532,7 +15532,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17719,9 +17719,9 @@ func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetContainerHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetContainerHealthchecksLivenessProbeTypeHttpArgs and GetContainerHealthchecksLivenessProbeTypeHttpOutput values.
@@ -17736,9 +17736,9 @@ type GetContainerHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetContainerHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -17818,16 +17818,16 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
-func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -17859,7 +17859,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17877,13 +17877,13 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksLivenessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetContainerHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetContainerHealthchecksLivenessProbeTypeTcpArgs and GetContainerHealthchecksLivenessProbeTypeTcpOutput values.
@@ -17898,8 +17898,8 @@ type GetContainerHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetContainerHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -17979,8 +17979,8 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) ToGetContainerHealth
 	}).(GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
-func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -18016,7 +18016,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18707,9 +18707,9 @@ func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulum
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetContainerHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetContainerHealthchecksReadinessProbeTypeHttpArgs and GetContainerHealthchecksReadinessProbeTypeHttpOutput values.
@@ -18724,9 +18724,9 @@ type GetContainerHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetContainerHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -18806,16 +18806,16 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) ToGetContainerHeal
 	}).(GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
-func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -18847,7 +18847,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18865,13 +18865,13 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksReadinessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetContainerHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetContainerHealthchecksReadinessProbeTypeTcpArgs and GetContainerHealthchecksReadinessProbeTypeTcpOutput values.
@@ -18886,8 +18886,8 @@ type GetContainerHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetContainerHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -18967,8 +18967,8 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
-func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -19004,7 +19004,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21559,9 +21559,9 @@ func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.Strin
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetJobHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetJobHealthchecksLivenessProbeTypeHttpArgs and GetJobHealthchecksLivenessProbeTypeHttpOutput values.
@@ -21576,9 +21576,9 @@ type GetJobHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetJobHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -21658,16 +21658,16 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) ToGetJobHealthchecksLiven
 	}).(GetJobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
-func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -21699,7 +21699,7 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21717,13 +21717,13 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksLivenessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetJobHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetJobHealthchecksLivenessProbeTypeTcpArgs and GetJobHealthchecksLivenessProbeTypeTcpOutput values.
@@ -21738,8 +21738,8 @@ type GetJobHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetJobHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -21819,8 +21819,8 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) ToGetJobHealthchecksLivene
 	}).(GetJobHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
-func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -21856,7 +21856,7 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22537,9 +22537,9 @@ func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.Stri
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttp struct {
-	Path   string `pulumi:"path"`
-	Port   int    `pulumi:"port"`
-	Scheme string `pulumi:"scheme"`
+	Path   *string `pulumi:"path"`
+	Port   int     `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
 }
 
 // GetJobHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetJobHealthchecksReadinessProbeTypeHttpArgs and GetJobHealthchecksReadinessProbeTypeHttpOutput values.
@@ -22554,9 +22554,9 @@ type GetJobHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringInput `pulumi:"path"`
-	Port   pulumi.IntInput    `pulumi:"port"`
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntInput       `pulumi:"port"`
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (GetJobHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -22636,16 +22636,16 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) ToGetJobHealthchecksRead
 	}).(GetJobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
-func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) string { return v.Path }).(pulumi.StringOutput)
+func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -22677,7 +22677,7 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22695,13 +22695,13 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.Scheme
+		return v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksReadinessProbeTypeTcp struct {
-	Host string `pulumi:"host"`
-	Port int    `pulumi:"port"`
+	Host *string `pulumi:"host"`
+	Port int     `pulumi:"port"`
 }
 
 // GetJobHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetJobHealthchecksReadinessProbeTypeTcpArgs and GetJobHealthchecksReadinessProbeTypeTcpOutput values.
@@ -22716,8 +22716,8 @@ type GetJobHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeTcpArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	Port pulumi.IntInput       `pulumi:"port"`
 }
 
 func (GetJobHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -22797,8 +22797,8 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) ToGetJobHealthchecksReadi
 	}).(GetJobHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
-func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeTcp) string { return v.Host }).(pulumi.StringOutput)
+func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
@@ -22834,7 +22834,7 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return &v.Host
+		return v.Host
 	}).(pulumi.StringPtrOutput)
 }
 

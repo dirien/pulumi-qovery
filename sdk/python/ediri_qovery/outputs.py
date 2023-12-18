@@ -3726,17 +3726,14 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetApplicationHealthchecksLivenessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -3745,27 +3742,33 @@ class GetApplicationHealthchecksLivenessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetApplicationHealthchecksLivenessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type
@@ -3887,17 +3890,14 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetApplicationHealthchecksReadinessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -3906,27 +3906,33 @@ class GetApplicationHealthchecksReadinessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetApplicationHealthchecksReadinessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type
@@ -4416,17 +4422,14 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetContainerHealthchecksLivenessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4435,27 +4438,33 @@ class GetContainerHealthchecksLivenessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetContainerHealthchecksLivenessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type
@@ -4577,17 +4586,14 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetContainerHealthchecksReadinessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4596,27 +4602,33 @@ class GetContainerHealthchecksReadinessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetContainerHealthchecksReadinessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type
@@ -5210,17 +5222,14 @@ class GetJobHealthchecksLivenessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetJobHealthchecksLivenessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -5229,27 +5238,33 @@ class GetJobHealthchecksLivenessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetJobHealthchecksLivenessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type
@@ -5371,17 +5386,14 @@ class GetJobHealthchecksReadinessProbeTypeGrpcResult(dict):
 @pulumi.output_type
 class GetJobHealthchecksReadinessProbeTypeHttpResult(dict):
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -5390,27 +5402,33 @@ class GetJobHealthchecksReadinessProbeTypeHttpResult(dict):
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
 
 @pulumi.output_type
 class GetJobHealthchecksReadinessProbeTypeTcpResult(dict):
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
 
 
 @pulumi.output_type

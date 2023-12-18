@@ -74,13 +74,13 @@ export interface ApplicationHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -110,13 +110,13 @@ export interface ApplicationHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -228,13 +228,13 @@ export interface ContainerHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -264,13 +264,13 @@ export interface ContainerHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -430,13 +430,13 @@ export interface GetApplicationHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -466,13 +466,13 @@ export interface GetApplicationHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -584,13 +584,13 @@ export interface GetContainerHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -620,13 +620,13 @@ export interface GetContainerHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -762,13 +762,13 @@ export interface GetJobHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -798,13 +798,13 @@ export interface GetJobHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -1011,13 +1011,13 @@ export interface JobHealthchecksLivenessProbeTypeGrpc {
 }
 
 export interface JobHealthchecksLivenessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface JobHealthchecksLivenessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 
@@ -1047,13 +1047,13 @@ export interface JobHealthchecksReadinessProbeTypeGrpc {
 }
 
 export interface JobHealthchecksReadinessProbeTypeHttp {
-    path: string;
+    path?: string;
     port: number;
-    scheme: string;
+    scheme?: string;
 }
 
 export interface JobHealthchecksReadinessProbeTypeTcp {
-    host: string;
+    host?: string;
     port: number;
 }
 

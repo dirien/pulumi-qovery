@@ -14,17 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobHealthchecksReadinessProbeTypeHttpResult
     {
-        public readonly string Path;
+        public readonly string? Path;
         public readonly int Port;
-        public readonly string Scheme;
+        public readonly string? Scheme;
 
         [OutputConstructor]
         private GetJobHealthchecksReadinessProbeTypeHttpResult(
-            string path,
+            string? path,
 
             int port,
 
-            string scheme)
+            string? scheme)
         {
             Path = path;
             Port = port;

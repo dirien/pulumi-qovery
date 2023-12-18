@@ -4341,21 +4341,14 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetApplicationHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4368,30 +4361,31 @@ class GetApplicationHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetApplicationHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -4401,6 +4395,15 @@ class GetApplicationHealthchecksLivenessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type
@@ -4574,21 +4577,14 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetApplicationHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4601,30 +4597,31 @@ class GetApplicationHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -4634,6 +4631,15 @@ class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type
@@ -5227,21 +5233,14 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetContainerHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -5254,30 +5253,31 @@ class GetContainerHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetContainerHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -5287,6 +5287,15 @@ class GetContainerHealthchecksLivenessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type
@@ -5460,21 +5469,14 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetContainerHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -5487,30 +5489,31 @@ class GetContainerHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetContainerHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -5520,6 +5523,15 @@ class GetContainerHealthchecksReadinessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type
@@ -6309,21 +6321,14 @@ class GetJobHealthchecksLivenessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetJobHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -6336,30 +6341,31 @@ class GetJobHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetJobHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -6369,6 +6375,15 @@ class GetJobHealthchecksLivenessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type
@@ -6542,21 +6557,14 @@ class GetJobHealthchecksReadinessProbeTypeGrpcArgs:
 @pulumi.input_type
 class GetJobHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
-                 path: str,
                  port: int,
-                 scheme: str):
-        pulumi.set(__self__, "path", path)
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "scheme", scheme)
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: str):
-        pulumi.set(self, "path", value)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -6569,30 +6577,31 @@ class GetJobHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> str:
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: str):
+    def scheme(self, value: Optional[str]):
         pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
 class GetJobHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
-                 host: str,
-                 port: int):
-        pulumi.set(__self__, "host", host)
+                 port: int,
+                 host: Optional[str] = None):
         pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: str):
-        pulumi.set(self, "host", value)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
 
     @property
     @pulumi.getter
@@ -6602,6 +6611,15 @@ class GetJobHealthchecksReadinessProbeTypeTcpArgs:
     @port.setter
     def port(self, value: int):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[str]):
+        pulumi.set(self, "host", value)
 
 
 @pulumi.input_type

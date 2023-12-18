@@ -80,7 +80,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * Entrypoint of the container.
      */
-    public readonly entrypoint!: pulumi.Output<string>;
+    public readonly entrypoint!: pulumi.Output<string | undefined>;
     /**
      * Id of the environment.
      */
