@@ -339,16 +339,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ApplicationHealthchecksLivenessProbeTypeTcp:ApplicationHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -362,15 +353,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ApplicationHealthchecksReadinessProbe:ApplicationHealthchecksReadinessProbe": {
             "properties": {
@@ -463,16 +446,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ApplicationHealthchecksReadinessProbeTypeTcp:ApplicationHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -486,15 +460,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ApplicationPort:ApplicationPort": {
             "properties": {
@@ -928,16 +894,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ContainerHealthchecksLivenessProbeTypeTcp:ContainerHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -951,15 +908,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ContainerHealthchecksReadinessProbe:ContainerHealthchecksReadinessProbe": {
             "properties": {
@@ -1052,16 +1001,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ContainerHealthchecksReadinessProbeTypeTcp:ContainerHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -1075,15 +1015,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/ContainerPort:ContainerPort": {
             "properties": {
@@ -1662,16 +1594,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/JobHealthchecksLivenessProbeTypeTcp:JobHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -1685,15 +1608,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/JobHealthchecksReadinessProbe:JobHealthchecksReadinessProbe": {
             "properties": {
@@ -1786,16 +1701,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "path",
-                        "port",
-                        "scheme"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/JobHealthchecksReadinessProbeTypeTcp:JobHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -1809,15 +1715,7 @@
             "type": "object",
             "required": [
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "host",
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/JobSchedule:JobSchedule": {
             "properties": {
@@ -2496,17 +2394,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getApplicationHealthchecksLivenessProbeTypeTcp:getApplicationHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -2519,16 +2408,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getApplicationHealthchecksReadinessProbe:getApplicationHealthchecksReadinessProbe": {
             "properties": {
@@ -2620,17 +2501,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getApplicationHealthchecksReadinessProbeTypeTcp:getApplicationHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -2643,16 +2515,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getApplicationPort:getApplicationPort": {
             "properties": {
@@ -3065,17 +2929,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getContainerHealthchecksLivenessProbeTypeTcp:getContainerHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -3088,16 +2943,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getContainerHealthchecksReadinessProbe:getContainerHealthchecksReadinessProbe": {
             "properties": {
@@ -3189,17 +3036,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getContainerHealthchecksReadinessProbeTypeTcp:getContainerHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -3212,16 +3050,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getContainerPort:getContainerPort": {
             "properties": {
@@ -3732,17 +3562,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getJobHealthchecksLivenessProbeTypeTcp:getJobHealthchecksLivenessProbeTypeTcp": {
             "properties": {
@@ -3755,16 +3576,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getJobHealthchecksReadinessProbe:getJobHealthchecksReadinessProbe": {
             "properties": {
@@ -3856,17 +3669,8 @@
             },
             "type": "object",
             "required": [
-                "path",
-                "port",
-                "scheme"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+                "port"
+            ]
         },
         "qovery:index/getJobHealthchecksReadinessProbeTypeTcp:getJobHealthchecksReadinessProbeTypeTcp": {
             "properties": {
@@ -3879,16 +3683,8 @@
             },
             "type": "object",
             "required": [
-                "host",
                 "port"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": [
-                        "port"
-                    ]
-                }
-            }
+            ]
         },
         "qovery:index/getJobSchedule:getJobSchedule": {
             "properties": {
@@ -4514,7 +4310,6 @@
                 "builtInEnvironmentVariables",
                 "cpu",
                 "deploymentStageId",
-                "entrypoint",
                 "environmentId",
                 "externalHost",
                 "gitRepository",
@@ -5280,7 +5075,6 @@
                 "builtInEnvironmentVariables",
                 "cpu",
                 "deploymentStageId",
-                "entrypoint",
                 "environmentId",
                 "externalHost",
                 "healthchecks",
