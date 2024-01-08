@@ -1,2 +1,3 @@
 upstream-provider-name: terraform-provider-qovery
+upstream-provider-org: qovery
 allow-missing-docs: true
