@@ -12,5 +12,9 @@ jobs:
         email: botdirien.de
         username: dirien-bot
 name: Upgrade provider
+
+permissions:
+  contents: write
+
 on:
   workflow_dispatch: {}
