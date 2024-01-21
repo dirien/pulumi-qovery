@@ -67,6 +67,22 @@ __all__ = [
     'EnvironmentSecretArgs',
     'EnvironmentSecretAliasArgs',
     'EnvironmentSecretOverrideArgs',
+    'HelmBuiltInEnvironmentVariableArgs',
+    'HelmEnvironmentVariableArgs',
+    'HelmEnvironmentVariableAliasArgs',
+    'HelmEnvironmentVariableOverrideArgs',
+    'HelmPortsArgs',
+    'HelmRepositoryConfigArgs',
+    'HelmSecretArgs',
+    'HelmSecretAliasArgs',
+    'HelmSecretOverrideArgs',
+    'HelmSourceArgs',
+    'HelmSourceGitRepositoryArgs',
+    'HelmSourceHelmRepositoryArgs',
+    'HelmValuesOverrideArgs',
+    'HelmValuesOverrideFileArgs',
+    'HelmValuesOverrideFileGitRepositoryArgs',
+    'HelmValuesOverrideFileRawArgs',
     'JobBuiltInEnvironmentVariableArgs',
     'JobEnvironmentVariableArgs',
     'JobEnvironmentVariableAliasArgs',
@@ -153,6 +169,12 @@ __all__ = [
     'GetEnvironmentSecretArgs',
     'GetEnvironmentSecretAliasArgs',
     'GetEnvironmentSecretOverrideArgs',
+    'GetHelmEnvironmentVariableArgs',
+    'GetHelmEnvironmentVariableAliasArgs',
+    'GetHelmEnvironmentVariableOverrideArgs',
+    'GetHelmSecretArgs',
+    'GetHelmSecretAliasArgs',
+    'GetHelmSecretOverrideArgs',
     'GetJobEnvironmentVariableArgs',
     'GetJobEnvironmentVariableAliasArgs',
     'GetJobEnvironmentVariableOverrideArgs',
@@ -2591,6 +2613,707 @@ class EnvironmentSecretOverrideArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmBuiltInEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class HelmEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmEnvironmentVariableAliasArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmEnvironmentVariableOverrideArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmPortsArgs:
+    def __init__(__self__, *,
+                 external_port: pulumi.Input[int],
+                 internal_port: pulumi.Input[int],
+                 is_default: pulumi.Input[bool],
+                 service_name: pulumi.Input[str],
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "external_port", external_port)
+        pulumi.set(__self__, "internal_port", internal_port)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "service_name", service_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="externalPort")
+    def external_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "external_port")
+
+    @external_port.setter
+    def external_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "external_port", value)
+
+    @property
+    @pulumi.getter(name="internalPort")
+    def internal_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "internal_port")
+
+    @internal_port.setter
+    def internal_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "internal_port", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_default", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class HelmRepositoryConfigArgs:
+    def __init__(__self__, *,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 scaleway_access_key: Optional[pulumi.Input[str]] = None,
+                 scaleway_secret_key: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if scaleway_access_key is not None:
+            pulumi.set(__self__, "scaleway_access_key", scaleway_access_key)
+        if scaleway_secret_key is not None:
+            pulumi.set(__self__, "scaleway_secret_key", scaleway_secret_key)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="scalewayAccessKey")
+    def scaleway_access_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scaleway_access_key")
+
+    @scaleway_access_key.setter
+    def scaleway_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaleway_access_key", value)
+
+    @property
+    @pulumi.getter(name="scalewaySecretKey")
+    def scaleway_secret_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scaleway_secret_key")
+
+    @scaleway_secret_key.setter
+    def scaleway_secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaleway_secret_key", value)
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_access_key", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class HelmSecretArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmSecretAliasArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmSecretOverrideArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class HelmSourceArgs:
+    def __init__(__self__, *,
+                 git_repository: Optional[pulumi.Input['HelmSourceGitRepositoryArgs']] = None,
+                 helm_repository: Optional[pulumi.Input['HelmSourceHelmRepositoryArgs']] = None):
+        if git_repository is not None:
+            pulumi.set(__self__, "git_repository", git_repository)
+        if helm_repository is not None:
+            pulumi.set(__self__, "helm_repository", helm_repository)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> Optional[pulumi.Input['HelmSourceGitRepositoryArgs']]:
+        return pulumi.get(self, "git_repository")
+
+    @git_repository.setter
+    def git_repository(self, value: Optional[pulumi.Input['HelmSourceGitRepositoryArgs']]):
+        pulumi.set(self, "git_repository", value)
+
+    @property
+    @pulumi.getter(name="helmRepository")
+    def helm_repository(self) -> Optional[pulumi.Input['HelmSourceHelmRepositoryArgs']]:
+        return pulumi.get(self, "helm_repository")
+
+    @helm_repository.setter
+    def helm_repository(self, value: Optional[pulumi.Input['HelmSourceHelmRepositoryArgs']]):
+        pulumi.set(self, "helm_repository", value)
+
+
+@pulumi.input_type
+class HelmSourceGitRepositoryArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 git_token_id: Optional[pulumi.Input[str]] = None,
+                 root_path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "url", url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if git_token_id is not None:
+            pulumi.set(__self__, "git_token_id", git_token_id)
+        if root_path is not None:
+            pulumi.set(__self__, "root_path", root_path)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="gitTokenId")
+    def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "git_token_id")
+
+    @git_token_id.setter
+    def git_token_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "git_token_id", value)
+
+    @property
+    @pulumi.getter(name="rootPath")
+    def root_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "root_path")
+
+    @root_path.setter
+    def root_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_path", value)
+
+
+@pulumi.input_type
+class HelmSourceHelmRepositoryArgs:
+    def __init__(__self__, *,
+                 chart_name: pulumi.Input[str],
+                 chart_version: pulumi.Input[str],
+                 helm_repository_id: pulumi.Input[str]):
+        pulumi.set(__self__, "chart_name", chart_name)
+        pulumi.set(__self__, "chart_version", chart_version)
+        pulumi.set(__self__, "helm_repository_id", helm_repository_id)
+
+    @property
+    @pulumi.getter(name="chartName")
+    def chart_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "chart_name")
+
+    @chart_name.setter
+    def chart_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "chart_name", value)
+
+    @property
+    @pulumi.getter(name="chartVersion")
+    def chart_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "chart_version")
+
+    @chart_version.setter
+    def chart_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "chart_version", value)
+
+    @property
+    @pulumi.getter(name="helmRepositoryId")
+    def helm_repository_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "helm_repository_id")
+
+    @helm_repository_id.setter
+    def helm_repository_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "helm_repository_id", value)
+
+
+@pulumi.input_type
+class HelmValuesOverrideArgs:
+    def __init__(__self__, *,
+                 set: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 set_json: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 set_string: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 file: Optional[pulumi.Input['HelmValuesOverrideFileArgs']] = None):
+        pulumi.set(__self__, "set", set)
+        pulumi.set(__self__, "set_json", set_json)
+        pulumi.set(__self__, "set_string", set_string)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def set(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        return pulumi.get(self, "set")
+
+    @set.setter
+    def set(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "set", value)
+
+    @property
+    @pulumi.getter(name="setJson")
+    def set_json(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        return pulumi.get(self, "set_json")
+
+    @set_json.setter
+    def set_json(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "set_json", value)
+
+    @property
+    @pulumi.getter(name="setString")
+    def set_string(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        return pulumi.get(self, "set_string")
+
+    @set_string.setter
+    def set_string(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "set_string", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input['HelmValuesOverrideFileArgs']]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input['HelmValuesOverrideFileArgs']]):
+        pulumi.set(self, "file", value)
+
+
+@pulumi.input_type
+class HelmValuesOverrideFileArgs:
+    def __init__(__self__, *,
+                 git_repository: Optional[pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs']] = None,
+                 raw: Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]]] = None):
+        if git_repository is not None:
+            pulumi.set(__self__, "git_repository", git_repository)
+        if raw is not None:
+            pulumi.set(__self__, "raw", raw)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> Optional[pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs']]:
+        return pulumi.get(self, "git_repository")
+
+    @git_repository.setter
+    def git_repository(self, value: Optional[pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs']]):
+        pulumi.set(self, "git_repository", value)
+
+    @property
+    @pulumi.getter
+    def raw(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]]]:
+        return pulumi.get(self, "raw")
+
+    @raw.setter
+    def raw(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]]]):
+        pulumi.set(self, "raw", value)
+
+
+@pulumi.input_type
+class HelmValuesOverrideFileGitRepositoryArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[str],
+                 paths: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 url: pulumi.Input[str],
+                 git_token_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "url", url)
+        if git_token_id is not None:
+            pulumi.set(__self__, "git_token_id", git_token_id)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "paths", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="gitTokenId")
+    def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "git_token_id")
+
+    @git_token_id.setter
+    def git_token_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "git_token_id", value)
+
+
+@pulumi.input_type
+class HelmValuesOverrideFileRawArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str]):
+        pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
 
 
 @pulumi.input_type
@@ -5971,6 +6694,234 @@ class GetEnvironmentSecretAliasArgs:
 
 @pulumi.input_type
 class GetEnvironmentSecretOverrideArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmEnvironmentVariableAliasArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmEnvironmentVariableOverrideArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmSecretArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmSecretAliasArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmSecretOverrideArgs:
     def __init__(__self__, *,
                  id: str,
                  key: str,

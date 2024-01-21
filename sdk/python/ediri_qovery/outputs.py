@@ -68,6 +68,22 @@ __all__ = [
     'EnvironmentSecret',
     'EnvironmentSecretAlias',
     'EnvironmentSecretOverride',
+    'HelmBuiltInEnvironmentVariable',
+    'HelmEnvironmentVariable',
+    'HelmEnvironmentVariableAlias',
+    'HelmEnvironmentVariableOverride',
+    'HelmPorts',
+    'HelmRepositoryConfig',
+    'HelmSecret',
+    'HelmSecretAlias',
+    'HelmSecretOverride',
+    'HelmSource',
+    'HelmSourceGitRepository',
+    'HelmSourceHelmRepository',
+    'HelmValuesOverride',
+    'HelmValuesOverrideFile',
+    'HelmValuesOverrideFileGitRepository',
+    'HelmValuesOverrideFileRaw',
     'JobBuiltInEnvironmentVariable',
     'JobEnvironmentVariable',
     'JobEnvironmentVariableAlias',
@@ -159,6 +175,13 @@ __all__ = [
     'GetEnvironmentSecretResult',
     'GetEnvironmentSecretAliasResult',
     'GetEnvironmentSecretOverrideResult',
+    'GetHelmBuiltInEnvironmentVariableResult',
+    'GetHelmEnvironmentVariableResult',
+    'GetHelmEnvironmentVariableAliasResult',
+    'GetHelmEnvironmentVariableOverrideResult',
+    'GetHelmSecretResult',
+    'GetHelmSecretAliasResult',
+    'GetHelmSecretOverrideResult',
     'GetJobBuiltInEnvironmentVariableResult',
     'GetJobEnvironmentVariableResult',
     'GetJobEnvironmentVariableAliasResult',
@@ -2246,6 +2269,649 @@ class EnvironmentSecretOverride(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmBuiltInEnvironmentVariable(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class HelmEnvironmentVariable(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmEnvironmentVariableAlias(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmEnvironmentVariableOverride(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmPorts(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalPort":
+            suggest = "external_port"
+        elif key == "internalPort":
+            suggest = "internal_port"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmPorts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmPorts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmPorts.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_port: int,
+                 internal_port: int,
+                 is_default: bool,
+                 service_name: str,
+                 namespace: Optional[str] = None,
+                 protocol: Optional[str] = None):
+        pulumi.set(__self__, "external_port", external_port)
+        pulumi.set(__self__, "internal_port", internal_port)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "service_name", service_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="externalPort")
+    def external_port(self) -> int:
+        return pulumi.get(self, "external_port")
+
+    @property
+    @pulumi.getter(name="internalPort")
+    def internal_port(self) -> int:
+        return pulumi.get(self, "internal_port")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class HelmRepositoryConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "scalewayAccessKey":
+            suggest = "scaleway_access_key"
+        elif key == "scalewaySecretKey":
+            suggest = "scaleway_secret_key"
+        elif key == "secretAccessKey":
+            suggest = "secret_access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmRepositoryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmRepositoryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmRepositoryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key_id: Optional[str] = None,
+                 password: Optional[str] = None,
+                 region: Optional[str] = None,
+                 scaleway_access_key: Optional[str] = None,
+                 scaleway_secret_key: Optional[str] = None,
+                 secret_access_key: Optional[str] = None,
+                 username: Optional[str] = None):
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if scaleway_access_key is not None:
+            pulumi.set(__self__, "scaleway_access_key", scaleway_access_key)
+        if scaleway_secret_key is not None:
+            pulumi.set(__self__, "scaleway_secret_key", scaleway_secret_key)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="scalewayAccessKey")
+    def scaleway_access_key(self) -> Optional[str]:
+        return pulumi.get(self, "scaleway_access_key")
+
+    @property
+    @pulumi.getter(name="scalewaySecretKey")
+    def scaleway_secret_key(self) -> Optional[str]:
+        return pulumi.get(self, "scaleway_secret_key")
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[str]:
+        return pulumi.get(self, "secret_access_key")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class HelmSecret(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmSecretAlias(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmSecretOverride(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 id: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HelmSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitRepository":
+            suggest = "git_repository"
+        elif key == "helmRepository":
+            suggest = "helm_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 git_repository: Optional['outputs.HelmSourceGitRepository'] = None,
+                 helm_repository: Optional['outputs.HelmSourceHelmRepository'] = None):
+        if git_repository is not None:
+            pulumi.set(__self__, "git_repository", git_repository)
+        if helm_repository is not None:
+            pulumi.set(__self__, "helm_repository", helm_repository)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> Optional['outputs.HelmSourceGitRepository']:
+        return pulumi.get(self, "git_repository")
+
+    @property
+    @pulumi.getter(name="helmRepository")
+    def helm_repository(self) -> Optional['outputs.HelmSourceHelmRepository']:
+        return pulumi.get(self, "helm_repository")
+
+
+@pulumi.output_type
+class HelmSourceGitRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitTokenId":
+            suggest = "git_token_id"
+        elif key == "rootPath":
+            suggest = "root_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmSourceGitRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmSourceGitRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmSourceGitRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 branch: Optional[str] = None,
+                 git_token_id: Optional[str] = None,
+                 root_path: Optional[str] = None):
+        pulumi.set(__self__, "url", url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if git_token_id is not None:
+            pulumi.set(__self__, "git_token_id", git_token_id)
+        if root_path is not None:
+            pulumi.set(__self__, "root_path", root_path)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="gitTokenId")
+    def git_token_id(self) -> Optional[str]:
+        return pulumi.get(self, "git_token_id")
+
+    @property
+    @pulumi.getter(name="rootPath")
+    def root_path(self) -> Optional[str]:
+        return pulumi.get(self, "root_path")
+
+
+@pulumi.output_type
+class HelmSourceHelmRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chartName":
+            suggest = "chart_name"
+        elif key == "chartVersion":
+            suggest = "chart_version"
+        elif key == "helmRepositoryId":
+            suggest = "helm_repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmSourceHelmRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmSourceHelmRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmSourceHelmRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart_name: str,
+                 chart_version: str,
+                 helm_repository_id: str):
+        pulumi.set(__self__, "chart_name", chart_name)
+        pulumi.set(__self__, "chart_version", chart_version)
+        pulumi.set(__self__, "helm_repository_id", helm_repository_id)
+
+    @property
+    @pulumi.getter(name="chartName")
+    def chart_name(self) -> str:
+        return pulumi.get(self, "chart_name")
+
+    @property
+    @pulumi.getter(name="chartVersion")
+    def chart_version(self) -> str:
+        return pulumi.get(self, "chart_version")
+
+    @property
+    @pulumi.getter(name="helmRepositoryId")
+    def helm_repository_id(self) -> str:
+        return pulumi.get(self, "helm_repository_id")
+
+
+@pulumi.output_type
+class HelmValuesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "setJson":
+            suggest = "set_json"
+        elif key == "setString":
+            suggest = "set_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmValuesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmValuesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmValuesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 set: Mapping[str, str],
+                 set_json: Mapping[str, str],
+                 set_string: Mapping[str, str],
+                 file: Optional['outputs.HelmValuesOverrideFile'] = None):
+        pulumi.set(__self__, "set", set)
+        pulumi.set(__self__, "set_json", set_json)
+        pulumi.set(__self__, "set_string", set_string)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def set(self) -> Mapping[str, str]:
+        return pulumi.get(self, "set")
+
+    @property
+    @pulumi.getter(name="setJson")
+    def set_json(self) -> Mapping[str, str]:
+        return pulumi.get(self, "set_json")
+
+    @property
+    @pulumi.getter(name="setString")
+    def set_string(self) -> Mapping[str, str]:
+        return pulumi.get(self, "set_string")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.HelmValuesOverrideFile']:
+        return pulumi.get(self, "file")
+
+
+@pulumi.output_type
+class HelmValuesOverrideFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitRepository":
+            suggest = "git_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmValuesOverrideFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmValuesOverrideFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmValuesOverrideFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 git_repository: Optional['outputs.HelmValuesOverrideFileGitRepository'] = None,
+                 raw: Optional[Mapping[str, 'outputs.HelmValuesOverrideFileRaw']] = None):
+        if git_repository is not None:
+            pulumi.set(__self__, "git_repository", git_repository)
+        if raw is not None:
+            pulumi.set(__self__, "raw", raw)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> Optional['outputs.HelmValuesOverrideFileGitRepository']:
+        return pulumi.get(self, "git_repository")
+
+    @property
+    @pulumi.getter
+    def raw(self) -> Optional[Mapping[str, 'outputs.HelmValuesOverrideFileRaw']]:
+        return pulumi.get(self, "raw")
+
+
+@pulumi.output_type
+class HelmValuesOverrideFileGitRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitTokenId":
+            suggest = "git_token_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmValuesOverrideFileGitRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmValuesOverrideFileGitRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmValuesOverrideFileGitRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: str,
+                 paths: Sequence[str],
+                 url: str,
+                 git_token_id: Optional[str] = None):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "url", url)
+        if git_token_id is not None:
+            pulumi.set(__self__, "git_token_id", git_token_id)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Sequence[str]:
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="gitTokenId")
+    def git_token_id(self) -> Optional[str]:
+        return pulumi.get(self, "git_token_id")
+
+
+@pulumi.output_type
+class HelmValuesOverrideFileRaw(dict):
+    def __init__(__self__, *,
+                 content: str):
+        pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
 
 
 @pulumi.output_type
@@ -4954,6 +5620,188 @@ class GetEnvironmentSecretAliasResult(dict):
 
 @pulumi.output_type
 class GetEnvironmentSecretOverrideResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmBuiltInEnvironmentVariableResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmEnvironmentVariableResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmEnvironmentVariableAliasResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmEnvironmentVariableOverrideResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmSecretResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmSecretAliasResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetHelmSecretOverrideResult(dict):
     def __init__(__self__, *,
                  id: str,
                  key: str,

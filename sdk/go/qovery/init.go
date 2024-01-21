@@ -41,6 +41,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Environment{}
 	case "qovery:index/gitToken:GitToken":
 		r = &GitToken{}
+	case "qovery:index/helm:Helm":
+		r = &Helm{}
+	case "qovery:index/helmRepository:HelmRepository":
+		r = &HelmRepository{}
 	case "qovery:index/job:Job":
 		r = &Job{}
 	case "qovery:index/organization:Organization":
@@ -128,6 +132,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"qovery",
 		"index/gitToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"qovery",
+		"index/helm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"qovery",
+		"index/helmRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

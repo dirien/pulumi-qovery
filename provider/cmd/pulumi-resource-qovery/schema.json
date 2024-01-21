@@ -1388,6 +1388,410 @@
                 }
             }
         },
+        "qovery:index/HelmBuiltInEnvironmentVariable:HelmBuiltInEnvironmentVariable": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmEnvironmentVariableAlias:HelmEnvironmentVariableAlias": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmEnvironmentVariableOverride:HelmEnvironmentVariableOverride": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmPorts:HelmPorts": {
+            "properties": {
+                "externalPort": {
+                    "type": "integer"
+                },
+                "internalPort": {
+                    "type": "integer"
+                },
+                "isDefault": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "externalPort",
+                "internalPort",
+                "isDefault",
+                "serviceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "externalPort",
+                        "internalPort",
+                        "isDefault",
+                        "protocol",
+                        "serviceName"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmRepositoryConfig:HelmRepositoryConfig": {
+            "properties": {
+                "accessKeyId": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "scalewayAccessKey": {
+                    "type": "string"
+                },
+                "scalewaySecretKey": {
+                    "type": "string"
+                },
+                "secretAccessKey": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "qovery:index/HelmSecret:HelmSecret": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmSecretAlias:HelmSecretAlias": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmSecretOverride:HelmSecretOverride": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmSource:HelmSource": {
+            "properties": {
+                "gitRepository": {
+                    "$ref": "#/types/qovery:index/HelmSourceGitRepository:HelmSourceGitRepository"
+                },
+                "helmRepository": {
+                    "$ref": "#/types/qovery:index/HelmSourceHelmRepository:HelmSourceHelmRepository"
+                }
+            },
+            "type": "object"
+        },
+        "qovery:index/HelmSourceGitRepository:HelmSourceGitRepository": {
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "gitTokenId": {
+                    "type": "string"
+                },
+                "rootPath": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "branch",
+                        "gitTokenId",
+                        "rootPath",
+                        "url"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmSourceHelmRepository:HelmSourceHelmRepository": {
+            "properties": {
+                "chartName": {
+                    "type": "string"
+                },
+                "chartVersion": {
+                    "type": "string"
+                },
+                "helmRepositoryId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "chartName",
+                "chartVersion",
+                "helmRepositoryId"
+            ]
+        },
+        "qovery:index/HelmValuesOverride:HelmValuesOverride": {
+            "properties": {
+                "file": {
+                    "$ref": "#/types/qovery:index/HelmValuesOverrideFile:HelmValuesOverrideFile"
+                },
+                "set": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "setJson": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "setString": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "set",
+                "setJson",
+                "setString"
+            ]
+        },
+        "qovery:index/HelmValuesOverrideFile:HelmValuesOverrideFile": {
+            "properties": {
+                "gitRepository": {
+                    "$ref": "#/types/qovery:index/HelmValuesOverrideFileGitRepository:HelmValuesOverrideFileGitRepository"
+                },
+                "raw": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/types/qovery:index/HelmValuesOverrideFileRaw:HelmValuesOverrideFileRaw"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "qovery:index/HelmValuesOverrideFileGitRepository:HelmValuesOverrideFileGitRepository": {
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "gitTokenId": {
+                    "type": "string"
+                },
+                "paths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "branch",
+                "paths",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "branch",
+                        "gitTokenId",
+                        "paths",
+                        "url"
+                    ]
+                }
+            }
+        },
+        "qovery:index/HelmValuesOverrideFileRaw:HelmValuesOverrideFileRaw": {
+            "properties": {
+                "content": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "content"
+            ]
+        },
         "qovery:index/JobBuiltInEnvironmentVariable:JobBuiltInEnvironmentVariable": {
             "properties": {
                 "id": {
@@ -3365,6 +3769,176 @@
                 }
             }
         },
+        "qovery:index/getHelmBuiltInEnvironmentVariable:getHelmBuiltInEnvironmentVariable": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmEnvironmentVariableAlias:getHelmEnvironmentVariableAlias": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmEnvironmentVariableOverride:getHelmEnvironmentVariableOverride": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmSecret:getHelmSecret": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmSecretAlias:getHelmSecretAlias": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getHelmSecretOverride:getHelmSecretOverride": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "qovery:index/getJobBuiltInEnvironmentVariable:getJobBuiltInEnvironmentVariable": {
             "properties": {
                 "id": {
@@ -4704,7 +5278,7 @@
                 },
                 "cloudProvider": {
                     "type": "string",
-                    "description": "Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.\n"
+                    "description": "Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.\n"
                 },
                 "credentialsId": {
                     "type": "string",
@@ -4785,7 +5359,7 @@
                 },
                 "cloudProvider": {
                     "type": "string",
-                    "description": "Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.\n"
+                    "description": "Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.\n"
                 },
                 "credentialsId": {
                     "type": "string",
@@ -4858,7 +5432,7 @@
                     },
                     "cloudProvider": {
                         "type": "string",
-                        "description": "Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.\n"
+                        "description": "Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.\n"
                     },
                     "credentialsId": {
                         "type": "string",
@@ -6129,6 +6703,470 @@
                     "type": {
                         "type": "string",
                         "description": "Type of the git token. - Can be: `BITBUCKET`, `GITHUB`, `GITLAB`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "qovery:index/helm:Helm": {
+            "description": "## # qovery.Helm (Resource)\n\nProvides a Qovery helm resource. This can be used to create and manage Qovery helm registry.\n\n\n## Example\n\n```yaml\nresources:\n  myHelm:\n    type: qovery:Helm\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      allowClusterWideResources: false\n      source:\n        helm_repository:\n          helmRepositoryId: 5a4a2dd6-02e1-4e3a-a3cc-8ebb97e135a9\n          chartName: httpbin\n          chartVersion: 1.0.0\n      valuesOverride:\n        set:\n          key1: 6600\n          key2: values1\n        set_string:\n          s-key1: value1\n          s-key2: value2\n        set_json:\n          j-key1: '{}'\n          j-key2: '{}'\n        file:\n          raw:\n            file1:\n              content: \"--- \\n ssss\"\n            file2:\n              content: \"a \\n eee\"\n      # Optional\n      autoPreview: 'true'\n      environmentVariables:\n        - key: MY_TERRAFORM_HELM_VARIABLE\n          value: MY_TERRAFORM_HELM_VARIABLE_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: MY_TERRAFORM_HELM_SECRET\n          value: MY_TERRAFORM_HELM_SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      advancedSettingsJson:\n        fn::toJSON: {}\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\n\n## Import\n\n\n\n```sh\n $ pulumi import qovery:index/helm:Helm my_helm \"\u003chelm_id\u003e\"\n```\n\n ",
+            "properties": {
+                "advancedSettingsJson": {
+                    "type": "string",
+                    "description": "Advanced settings.\n"
+                },
+                "allowClusterWideResources": {
+                    "type": "boolean",
+                    "description": "Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)\n"
+                },
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Helm arguments\n"
+                },
+                "autoDeploy": {
+                    "type": "boolean",
+                    "description": "Specify if the service will be automatically updated on every new commit on the branch.\n"
+                },
+                "autoPreview": {
+                    "type": "boolean",
+                    "description": "Specify if the environment preview option is activated or not for this helm.\n"
+                },
+                "builtInEnvironmentVariables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmBuiltInEnvironmentVariable:HelmBuiltInEnvironmentVariable"
+                    },
+                    "description": "List of built-in environment variables linked to this helm.\n"
+                },
+                "deploymentStageId": {
+                    "type": "string",
+                    "description": "Id of the deployment stage.\n"
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "Id of the environment.\n"
+                },
+                "environmentVariableAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariableAlias:HelmEnvironmentVariableAlias"
+                    },
+                    "description": "List of environment variable aliases linked to this helm.\n"
+                },
+                "environmentVariableOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariableOverride:HelmEnvironmentVariableOverride"
+                    },
+                    "description": "List of environment variable overrides linked to this helm.\n"
+                },
+                "environmentVariables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable"
+                    },
+                    "description": "List of environment variables linked to this helm.\n"
+                },
+                "externalHost": {
+                    "type": "string",
+                    "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
+                },
+                "internalHost": {
+                    "type": "string",
+                    "description": "The helm internal host.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the helm.\n"
+                },
+                "ports": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/types/qovery:index/HelmPorts:HelmPorts"
+                    },
+                    "description": "List of ports linked to this helm.\n"
+                },
+                "secretAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecretAlias:HelmSecretAlias"
+                    },
+                    "description": "List of secret aliases linked to this helm.\n"
+                },
+                "secretOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecretOverride:HelmSecretOverride"
+                    },
+                    "description": "List of secret overrides linked to this helm.\n"
+                },
+                "secrets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecret:HelmSecret"
+                    },
+                    "description": "List of secrets linked to this helm.\n"
+                },
+                "source": {
+                    "$ref": "#/types/qovery:index/HelmSource:HelmSource",
+                    "description": "Helm chart from a Helm repository or from a git repository\n"
+                },
+                "timeoutSec": {
+                    "type": "integer",
+                    "description": "Helm timeout in second\n"
+                },
+                "valuesOverride": {
+                    "$ref": "#/types/qovery:index/HelmValuesOverride:HelmValuesOverride",
+                    "description": "Define your own overrides to customize the helm chart behaviour.\n"
+                }
+            },
+            "required": [
+                "advancedSettingsJson",
+                "allowClusterWideResources",
+                "arguments",
+                "autoDeploy",
+                "autoPreview",
+                "builtInEnvironmentVariables",
+                "deploymentStageId",
+                "environmentId",
+                "externalHost",
+                "internalHost",
+                "name",
+                "source",
+                "timeoutSec",
+                "valuesOverride"
+            ],
+            "inputProperties": {
+                "advancedSettingsJson": {
+                    "type": "string",
+                    "description": "Advanced settings.\n"
+                },
+                "allowClusterWideResources": {
+                    "type": "boolean",
+                    "description": "Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)\n"
+                },
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Helm arguments\n"
+                },
+                "autoDeploy": {
+                    "type": "boolean",
+                    "description": "Specify if the service will be automatically updated on every new commit on the branch.\n"
+                },
+                "autoPreview": {
+                    "type": "boolean",
+                    "description": "Specify if the environment preview option is activated or not for this helm.\n"
+                },
+                "deploymentStageId": {
+                    "type": "string",
+                    "description": "Id of the deployment stage.\n"
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "Id of the environment.\n"
+                },
+                "environmentVariableAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariableAlias:HelmEnvironmentVariableAlias"
+                    },
+                    "description": "List of environment variable aliases linked to this helm.\n"
+                },
+                "environmentVariableOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariableOverride:HelmEnvironmentVariableOverride"
+                    },
+                    "description": "List of environment variable overrides linked to this helm.\n"
+                },
+                "environmentVariables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable"
+                    },
+                    "description": "List of environment variables linked to this helm.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the helm.\n"
+                },
+                "ports": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/types/qovery:index/HelmPorts:HelmPorts"
+                    },
+                    "description": "List of ports linked to this helm.\n"
+                },
+                "secretAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecretAlias:HelmSecretAlias"
+                    },
+                    "description": "List of secret aliases linked to this helm.\n"
+                },
+                "secretOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecretOverride:HelmSecretOverride"
+                    },
+                    "description": "List of secret overrides linked to this helm.\n"
+                },
+                "secrets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmSecret:HelmSecret"
+                    },
+                    "description": "List of secrets linked to this helm.\n"
+                },
+                "source": {
+                    "$ref": "#/types/qovery:index/HelmSource:HelmSource",
+                    "description": "Helm chart from a Helm repository or from a git repository\n"
+                },
+                "timeoutSec": {
+                    "type": "integer",
+                    "description": "Helm timeout in second\n"
+                },
+                "valuesOverride": {
+                    "$ref": "#/types/qovery:index/HelmValuesOverride:HelmValuesOverride",
+                    "description": "Define your own overrides to customize the helm chart behaviour.\n"
+                }
+            },
+            "requiredInputs": [
+                "allowClusterWideResources",
+                "environmentId",
+                "source",
+                "valuesOverride"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Helm resources.\n",
+                "properties": {
+                    "advancedSettingsJson": {
+                        "type": "string",
+                        "description": "Advanced settings.\n"
+                    },
+                    "allowClusterWideResources": {
+                        "type": "boolean",
+                        "description": "Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)\n"
+                    },
+                    "arguments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Helm arguments\n"
+                    },
+                    "autoDeploy": {
+                        "type": "boolean",
+                        "description": "Specify if the service will be automatically updated on every new commit on the branch.\n"
+                    },
+                    "autoPreview": {
+                        "type": "boolean",
+                        "description": "Specify if the environment preview option is activated or not for this helm.\n"
+                    },
+                    "builtInEnvironmentVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmBuiltInEnvironmentVariable:HelmBuiltInEnvironmentVariable"
+                        },
+                        "description": "List of built-in environment variables linked to this helm.\n"
+                    },
+                    "deploymentStageId": {
+                        "type": "string",
+                        "description": "Id of the deployment stage.\n"
+                    },
+                    "environmentId": {
+                        "type": "string",
+                        "description": "Id of the environment.\n"
+                    },
+                    "environmentVariableAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmEnvironmentVariableAlias:HelmEnvironmentVariableAlias"
+                        },
+                        "description": "List of environment variable aliases linked to this helm.\n"
+                    },
+                    "environmentVariableOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmEnvironmentVariableOverride:HelmEnvironmentVariableOverride"
+                        },
+                        "description": "List of environment variable overrides linked to this helm.\n"
+                    },
+                    "environmentVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable"
+                        },
+                        "description": "List of environment variables linked to this helm.\n"
+                    },
+                    "externalHost": {
+                        "type": "string",
+                        "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
+                    },
+                    "internalHost": {
+                        "type": "string",
+                        "description": "The helm internal host.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the helm.\n"
+                    },
+                    "ports": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/types/qovery:index/HelmPorts:HelmPorts"
+                        },
+                        "description": "List of ports linked to this helm.\n"
+                    },
+                    "secretAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmSecretAlias:HelmSecretAlias"
+                        },
+                        "description": "List of secret aliases linked to this helm.\n"
+                    },
+                    "secretOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmSecretOverride:HelmSecretOverride"
+                        },
+                        "description": "List of secret overrides linked to this helm.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmSecret:HelmSecret"
+                        },
+                        "description": "List of secrets linked to this helm.\n"
+                    },
+                    "source": {
+                        "$ref": "#/types/qovery:index/HelmSource:HelmSource",
+                        "description": "Helm chart from a Helm repository or from a git repository\n"
+                    },
+                    "timeoutSec": {
+                        "type": "integer",
+                        "description": "Helm timeout in second\n"
+                    },
+                    "valuesOverride": {
+                        "$ref": "#/types/qovery:index/HelmValuesOverride:HelmValuesOverride",
+                        "description": "Define your own overrides to customize the helm chart behaviour.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "qovery:index/helmRepository:HelmRepository": {
+            "description": "## # qovery.HelmRepository (Resource)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n\n\n## Example\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.HelmRepository;\nimport com.pulumi.qovery.HelmRepositoryArgs;\nimport com.pulumi.qovery.inputs.HelmRepositoryConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myHelmRepository = new HelmRepository(\"myHelmRepository\", HelmRepositoryArgs.builder()        \n            .organizationId(qovery_organization.my_organization().id())\n            .kind(\"OCI_DOCKER_HUB\")\n            .url(\"https://docker.io\")\n            .skipTlsCertificate(false)\n            .description(\"My Helm repository\")\n            .config(HelmRepositoryConfigArgs.builder()\n                .username(\"\u003cmy_username\u003e\")\n                .password(\"\u003cmy_password\u003e\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myHelmRepository:\n    type: qovery:HelmRepository\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: OCI_DOCKER_HUB\n      url: https://docker.io\n      skipTlsCertificate: false\n      # Optional\n      description: My Helm repository\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\n\n## Import\n\n\n\n```sh\n $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository \"\u003corganization_id\u003e,\u003chelm_repository_id\u003e\"\n```\n\n ",
+            "properties": {
+                "config": {
+                    "$ref": "#/types/qovery:index/HelmRepositoryConfig:HelmRepositoryConfig",
+                    "description": "Configuration needed to authenticate the helm repository.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the helm repository.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "Kind of the helm repository. - Can be: `HTTPS`, `OCI_DOCKER_HUB`, `OCI_DOCR`, `OCI_ECR`, `OCI_GENERIC_CR`,\n`OCI_GITHUB_CR`, `OCI_GITLAB_CR`, `OCI_PUBLIC_ECR`, `OCI_SCALEWAY_CR`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the helm repository.\n"
+                },
+                "organizationId": {
+                    "type": "string",
+                    "description": "Id of the organization.\n"
+                },
+                "skipTlsVerification": {
+                    "type": "boolean",
+                    "description": "Bypass tls certificate verification when connecting to repository\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the helm repository.\n"
+                }
+            },
+            "required": [
+                "description",
+                "kind",
+                "name",
+                "organizationId",
+                "skipTlsVerification",
+                "url"
+            ],
+            "inputProperties": {
+                "config": {
+                    "$ref": "#/types/qovery:index/HelmRepositoryConfig:HelmRepositoryConfig",
+                    "description": "Configuration needed to authenticate the helm repository.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the helm repository.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "Kind of the helm repository. - Can be: `HTTPS`, `OCI_DOCKER_HUB`, `OCI_DOCR`, `OCI_ECR`, `OCI_GENERIC_CR`,\n`OCI_GITHUB_CR`, `OCI_GITLAB_CR`, `OCI_PUBLIC_ECR`, `OCI_SCALEWAY_CR`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the helm repository.\n"
+                },
+                "organizationId": {
+                    "type": "string",
+                    "description": "Id of the organization.\n"
+                },
+                "skipTlsVerification": {
+                    "type": "boolean",
+                    "description": "Bypass tls certificate verification when connecting to repository\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the helm repository.\n"
+                }
+            },
+            "requiredInputs": [
+                "kind",
+                "organizationId",
+                "skipTlsVerification",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering HelmRepository resources.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/qovery:index/HelmRepositoryConfig:HelmRepositoryConfig",
+                        "description": "Configuration needed to authenticate the helm repository.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the helm repository.\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "Kind of the helm repository. - Can be: `HTTPS`, `OCI_DOCKER_HUB`, `OCI_DOCR`, `OCI_ECR`, `OCI_GENERIC_CR`,\n`OCI_GITHUB_CR`, `OCI_GITLAB_CR`, `OCI_PUBLIC_ECR`, `OCI_SCALEWAY_CR`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the helm repository.\n"
+                    },
+                    "organizationId": {
+                        "type": "string",
+                        "description": "Id of the organization.\n"
+                    },
+                    "skipTlsVerification": {
+                        "type": "boolean",
+                        "description": "Bypass tls certificate verification when connecting to repository\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the helm repository.\n"
                     }
                 },
                 "type": "object"
@@ -7931,6 +8969,197 @@
                     "organizationId",
                     "token",
                     "type"
+                ]
+            }
+        },
+        "qovery:index/getHelm:getHelm": {
+            "description": "## # qovery.Helm (Data Source)\n\nProvides a Qovery helm resource.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getHelm.\n",
+                "properties": {
+                    "advancedSettingsJson": {
+                        "type": "string"
+                    },
+                    "deploymentStageId": {
+                        "type": "string"
+                    },
+                    "environmentVariableAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariableAlias:getHelmEnvironmentVariableAlias"
+                        }
+                    },
+                    "environmentVariableOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariableOverride:getHelmEnvironmentVariableOverride"
+                        }
+                    },
+                    "environmentVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "secretAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecretAlias:getHelmSecretAlias"
+                        }
+                    },
+                    "secretOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecretOverride:getHelmSecretOverride"
+                        }
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecret:getHelmSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getHelm.\n",
+                "properties": {
+                    "advancedSettingsJson": {
+                        "type": "string"
+                    },
+                    "builtInEnvironmentVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmBuiltInEnvironmentVariable:getHelmBuiltInEnvironmentVariable"
+                        }
+                    },
+                    "deploymentStageId": {
+                        "type": "string"
+                    },
+                    "environmentId": {
+                        "type": "string"
+                    },
+                    "environmentVariableAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariableAlias:getHelmEnvironmentVariableAlias"
+                        }
+                    },
+                    "environmentVariableOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariableOverride:getHelmEnvironmentVariableOverride"
+                        }
+                    },
+                    "environmentVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
+                        }
+                    },
+                    "externalHost": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "internalHost": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "secretAliases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecretAlias:getHelmSecretAlias"
+                        }
+                    },
+                    "secretOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecretOverride:getHelmSecretOverride"
+                        }
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmSecret:getHelmSecret"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "advancedSettingsJson",
+                    "builtInEnvironmentVariables",
+                    "deploymentStageId",
+                    "environmentId",
+                    "environmentVariableAliases",
+                    "externalHost",
+                    "id",
+                    "internalHost",
+                    "name"
+                ]
+            }
+        },
+        "qovery:index/getHelmRepository:getHelmRepository": {
+            "description": "## # qovery.HelmRepository (Data Source)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getHelmRepository.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "organizationId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "organizationId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getHelmRepository.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "organizationId": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "id",
+                    "kind",
+                    "name",
+                    "organizationId",
+                    "url"
                 ]
             }
         },

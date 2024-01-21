@@ -197,6 +197,53 @@
             "qovery_git_token": {
                 "current": "qovery:index/gitToken:GitToken"
             },
+            "qovery_helm": {
+                "current": "qovery:index/helm:Helm",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "values_override": {
+                        "fields": {
+                            "file": {
+                                "fields": {
+                                    "git_repository": {
+                                        "fields": {
+                                            "paths": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "qovery_helm_repository": {
+                "current": "qovery:index/helmRepository:HelmRepository"
+            },
             "qovery_job": {
                 "current": "qovery:index/job:Job",
                 "fields": {
@@ -517,6 +564,35 @@
             "qovery_git_token": {
                 "current": "qovery:index/getGitToken:getGitToken"
             },
+            "qovery_helm": {
+                "current": "qovery:index/getHelm:getHelm",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_helm_repository": {
+                "current": "qovery:index/getHelmRepository:getHelmRepository"
+            },
             "qovery_job": {
                 "current": "qovery:index/getJob:getJob",
                 "fields": {
@@ -654,6 +730,8 @@
             "qovery:index/deploymentStage:DeploymentStage": "qovery_deployment_stage",
             "qovery:index/environment:Environment": "qovery_environment",
             "qovery:index/gitToken:GitToken": "qovery_git_token",
+            "qovery:index/helm:Helm": "qovery_helm",
+            "qovery:index/helmRepository:HelmRepository": "qovery_helm_repository",
             "qovery:index/job:Job": "qovery_job",
             "qovery:index/organization:Organization": "qovery_organization",
             "qovery:index/project:Project": "qovery_project",
@@ -670,6 +748,8 @@
             "qovery:index/getDeploymentStage:getDeploymentStage": "qovery_deployment_stage",
             "qovery:index/getEnvironment:getEnvironment": "qovery_environment",
             "qovery:index/getGitToken:getGitToken": "qovery_git_token",
+            "qovery:index/getHelm:getHelm": "qovery_helm",
+            "qovery:index/getHelmRepository:getHelmRepository": "qovery_helm_repository",
             "qovery:index/getJob:getJob": "qovery_job",
             "qovery:index/getOrganization:getOrganization": "qovery_organization",
             "qovery:index/getProject:getProject": "qovery_project",
@@ -761,6 +841,41 @@
             },
             "qovery:index/ContainerStorage:ContainerStorage": {
                 "mountPoint": "mount_point"
+            },
+            "qovery:index/HelmPorts:HelmPorts": {
+                "externalPort": "external_port",
+                "internalPort": "internal_port",
+                "isDefault": "is_default",
+                "serviceName": "service_name"
+            },
+            "qovery:index/HelmRepositoryConfig:HelmRepositoryConfig": {
+                "accessKeyId": "access_key_id",
+                "scalewayAccessKey": "scaleway_access_key",
+                "scalewaySecretKey": "scaleway_secret_key",
+                "secretAccessKey": "secret_access_key"
+            },
+            "qovery:index/HelmSource:HelmSource": {
+                "gitRepository": "git_repository",
+                "helmRepository": "helm_repository"
+            },
+            "qovery:index/HelmSourceGitRepository:HelmSourceGitRepository": {
+                "gitTokenId": "git_token_id",
+                "rootPath": "root_path"
+            },
+            "qovery:index/HelmSourceHelmRepository:HelmSourceHelmRepository": {
+                "chartName": "chart_name",
+                "chartVersion": "chart_version",
+                "helmRepositoryId": "helm_repository_id"
+            },
+            "qovery:index/HelmValuesOverride:HelmValuesOverride": {
+                "setJson": "set_json",
+                "setString": "set_string"
+            },
+            "qovery:index/HelmValuesOverrideFile:HelmValuesOverrideFile": {
+                "gitRepository": "git_repository"
+            },
+            "qovery:index/HelmValuesOverrideFileGitRepository:HelmValuesOverrideFileGitRepository": {
+                "gitTokenId": "git_token_id"
             },
             "qovery:index/JobHealthchecks:JobHealthchecks": {
                 "livenessProbe": "liveness_probe",
@@ -1064,6 +1179,22 @@
                 "bitbucketWorkspace": "bitbucket_workspace",
                 "organizationId": "organization_id"
             },
+            "qovery:index/getHelm:getHelm": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "internalHost": "internal_host",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides"
+            },
+            "qovery:index/getHelmRepository:getHelmRepository": {
+                "organizationId": "organization_id"
+            },
             "qovery:index/getJob:getJob": {
                 "advancedSettingsJson": "advanced_settings_json",
                 "autoDeploy": "auto_deploy",
@@ -1134,6 +1265,28 @@
             "qovery:index/gitToken:GitToken": {
                 "bitbucketWorkspace": "bitbucket_workspace",
                 "organizationId": "organization_id"
+            },
+            "qovery:index/helm:Helm": {
+                "advancedSettingsJson": "advanced_settings_json",
+                "allowClusterWideResources": "allow_cluster_wide_resources",
+                "autoDeploy": "auto_deploy",
+                "autoPreview": "auto_preview",
+                "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentStageId": "deployment_stage_id",
+                "environmentId": "environment_id",
+                "environmentVariableAliases": "environment_variable_aliases",
+                "environmentVariableOverrides": "environment_variable_overrides",
+                "environmentVariables": "environment_variables",
+                "externalHost": "external_host",
+                "internalHost": "internal_host",
+                "secretAliases": "secret_aliases",
+                "secretOverrides": "secret_overrides",
+                "timeoutSec": "timeout_sec",
+                "valuesOverride": "values_override"
+            },
+            "qovery:index/helmRepository:HelmRepository": {
+                "organizationId": "organization_id",
+                "skipTlsVerification": "skip_tls_verification"
             },
             "qovery:index/job:Job": {
                 "advancedSettingsJson": "advanced_settings_json",
