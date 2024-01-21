@@ -46,7 +46,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly advancedSettingsJson!: pulumi.Output<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
      */
     public readonly cloudProvider!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface ClusterState {
      */
     advancedSettingsJson?: pulumi.Input<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
      */
     cloudProvider?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface ClusterArgs {
      */
     advancedSettingsJson?: pulumi.Input<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
      */
     cloudProvider: pulumi.Input<string>;
     /**

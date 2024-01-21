@@ -24,11 +24,15 @@ from .get_deployment import *
 from .get_deployment_stage import *
 from .get_environment import *
 from .get_git_token import *
+from .get_helm import *
+from .get_helm_repository import *
 from .get_job import *
 from .get_organization import *
 from .get_project import *
 from .get_scaleway_credentials import *
 from .git_token import *
+from .helm import *
+from .helm_repository import *
 from .job import *
 from .organization import *
 from .project import *
@@ -125,6 +129,22 @@ _utilities.register(
   "fqn": "ediri_qovery",
   "classes": {
    "qovery:index/gitToken:GitToken": "GitToken"
+  }
+ },
+ {
+  "pkg": "qovery",
+  "mod": "index/helm",
+  "fqn": "ediri_qovery",
+  "classes": {
+   "qovery:index/helm:Helm": "Helm"
+  }
+ },
+ {
+  "pkg": "qovery",
+  "mod": "index/helmRepository",
+  "fqn": "ediri_qovery",
+  "classes": {
+   "qovery:index/helmRepository:HelmRepository": "HelmRepository"
   }
  },
  {

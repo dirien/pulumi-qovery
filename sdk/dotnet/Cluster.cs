@@ -27,7 +27,7 @@ namespace ediri.Qovery
         public Output<string> AdvancedSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
         /// </summary>
         [Output("cloudProvider")]
         public Output<string> CloudProvider { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace ediri.Qovery
         public Input<string>? AdvancedSettingsJson { get; set; }
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
         /// </summary>
         [Input("cloudProvider", required: true)]
         public Input<string> CloudProvider { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace ediri.Qovery
         public Input<string>? AdvancedSettingsJson { get; set; }
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `DO`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
         /// </summary>
         [Input("cloudProvider")]
         public Input<string>? CloudProvider { get; set; }

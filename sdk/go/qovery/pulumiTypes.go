@@ -7842,6 +7842,2182 @@ func (o EnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) Environme
 	}).(EnvironmentSecretOverrideOutput)
 }
 
+type HelmBuiltInEnvironmentVariable struct {
+	Id    *string `pulumi:"id"`
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// HelmBuiltInEnvironmentVariableInput is an input type that accepts HelmBuiltInEnvironmentVariableArgs and HelmBuiltInEnvironmentVariableOutput values.
+// You can construct a concrete instance of `HelmBuiltInEnvironmentVariableInput` via:
+//
+//	HelmBuiltInEnvironmentVariableArgs{...}
+type HelmBuiltInEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToHelmBuiltInEnvironmentVariableOutput() HelmBuiltInEnvironmentVariableOutput
+	ToHelmBuiltInEnvironmentVariableOutputWithContext(context.Context) HelmBuiltInEnvironmentVariableOutput
+}
+
+type HelmBuiltInEnvironmentVariableArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (HelmBuiltInEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (i HelmBuiltInEnvironmentVariableArgs) ToHelmBuiltInEnvironmentVariableOutput() HelmBuiltInEnvironmentVariableOutput {
+	return i.ToHelmBuiltInEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i HelmBuiltInEnvironmentVariableArgs) ToHelmBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) HelmBuiltInEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmBuiltInEnvironmentVariableOutput)
+}
+
+// HelmBuiltInEnvironmentVariableArrayInput is an input type that accepts HelmBuiltInEnvironmentVariableArray and HelmBuiltInEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `HelmBuiltInEnvironmentVariableArrayInput` via:
+//
+//	HelmBuiltInEnvironmentVariableArray{ HelmBuiltInEnvironmentVariableArgs{...} }
+type HelmBuiltInEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToHelmBuiltInEnvironmentVariableArrayOutput() HelmBuiltInEnvironmentVariableArrayOutput
+	ToHelmBuiltInEnvironmentVariableArrayOutputWithContext(context.Context) HelmBuiltInEnvironmentVariableArrayOutput
+}
+
+type HelmBuiltInEnvironmentVariableArray []HelmBuiltInEnvironmentVariableInput
+
+func (HelmBuiltInEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (i HelmBuiltInEnvironmentVariableArray) ToHelmBuiltInEnvironmentVariableArrayOutput() HelmBuiltInEnvironmentVariableArrayOutput {
+	return i.ToHelmBuiltInEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i HelmBuiltInEnvironmentVariableArray) ToHelmBuiltInEnvironmentVariableArrayOutputWithContext(ctx context.Context) HelmBuiltInEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmBuiltInEnvironmentVariableArrayOutput)
+}
+
+type HelmBuiltInEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (HelmBuiltInEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (o HelmBuiltInEnvironmentVariableOutput) ToHelmBuiltInEnvironmentVariableOutput() HelmBuiltInEnvironmentVariableOutput {
+	return o
+}
+
+func (o HelmBuiltInEnvironmentVariableOutput) ToHelmBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) HelmBuiltInEnvironmentVariableOutput {
+	return o
+}
+
+func (o HelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type HelmBuiltInEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmBuiltInEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (o HelmBuiltInEnvironmentVariableArrayOutput) ToHelmBuiltInEnvironmentVariableArrayOutput() HelmBuiltInEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o HelmBuiltInEnvironmentVariableArrayOutput) ToHelmBuiltInEnvironmentVariableArrayOutputWithContext(ctx context.Context) HelmBuiltInEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o HelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) HelmBuiltInEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmBuiltInEnvironmentVariable {
+		return vs[0].([]HelmBuiltInEnvironmentVariable)[vs[1].(int)]
+	}).(HelmBuiltInEnvironmentVariableOutput)
+}
+
+type HelmEnvironmentVariable struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmEnvironmentVariableInput is an input type that accepts HelmEnvironmentVariableArgs and HelmEnvironmentVariableOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableInput` via:
+//
+//	HelmEnvironmentVariableArgs{...}
+type HelmEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableOutput() HelmEnvironmentVariableOutput
+	ToHelmEnvironmentVariableOutputWithContext(context.Context) HelmEnvironmentVariableOutput
+}
+
+type HelmEnvironmentVariableArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableArgs) ToHelmEnvironmentVariableOutput() HelmEnvironmentVariableOutput {
+	return i.ToHelmEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableArgs) ToHelmEnvironmentVariableOutputWithContext(ctx context.Context) HelmEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableOutput)
+}
+
+// HelmEnvironmentVariableArrayInput is an input type that accepts HelmEnvironmentVariableArray and HelmEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableArrayInput` via:
+//
+//	HelmEnvironmentVariableArray{ HelmEnvironmentVariableArgs{...} }
+type HelmEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableArrayOutput() HelmEnvironmentVariableArrayOutput
+	ToHelmEnvironmentVariableArrayOutputWithContext(context.Context) HelmEnvironmentVariableArrayOutput
+}
+
+type HelmEnvironmentVariableArray []HelmEnvironmentVariableInput
+
+func (HelmEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableArray) ToHelmEnvironmentVariableArrayOutput() HelmEnvironmentVariableArrayOutput {
+	return i.ToHelmEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableArray) ToHelmEnvironmentVariableArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableArrayOutput)
+}
+
+type HelmEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableOutput) ToHelmEnvironmentVariableOutput() HelmEnvironmentVariableOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOutput) ToHelmEnvironmentVariableOutputWithContext(ctx context.Context) HelmEnvironmentVariableOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmEnvironmentVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableArrayOutput) ToHelmEnvironmentVariableArrayOutput() HelmEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableArrayOutput) ToHelmEnvironmentVariableArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) HelmEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmEnvironmentVariable {
+		return vs[0].([]HelmEnvironmentVariable)[vs[1].(int)]
+	}).(HelmEnvironmentVariableOutput)
+}
+
+type HelmEnvironmentVariableAlias struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmEnvironmentVariableAliasInput is an input type that accepts HelmEnvironmentVariableAliasArgs and HelmEnvironmentVariableAliasOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableAliasInput` via:
+//
+//	HelmEnvironmentVariableAliasArgs{...}
+type HelmEnvironmentVariableAliasInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableAliasOutput() HelmEnvironmentVariableAliasOutput
+	ToHelmEnvironmentVariableAliasOutputWithContext(context.Context) HelmEnvironmentVariableAliasOutput
+}
+
+type HelmEnvironmentVariableAliasArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmEnvironmentVariableAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableAliasArgs) ToHelmEnvironmentVariableAliasOutput() HelmEnvironmentVariableAliasOutput {
+	return i.ToHelmEnvironmentVariableAliasOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableAliasArgs) ToHelmEnvironmentVariableAliasOutputWithContext(ctx context.Context) HelmEnvironmentVariableAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableAliasOutput)
+}
+
+// HelmEnvironmentVariableAliasArrayInput is an input type that accepts HelmEnvironmentVariableAliasArray and HelmEnvironmentVariableAliasArrayOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableAliasArrayInput` via:
+//
+//	HelmEnvironmentVariableAliasArray{ HelmEnvironmentVariableAliasArgs{...} }
+type HelmEnvironmentVariableAliasArrayInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableAliasArrayOutput() HelmEnvironmentVariableAliasArrayOutput
+	ToHelmEnvironmentVariableAliasArrayOutputWithContext(context.Context) HelmEnvironmentVariableAliasArrayOutput
+}
+
+type HelmEnvironmentVariableAliasArray []HelmEnvironmentVariableAliasInput
+
+func (HelmEnvironmentVariableAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableAliasArray) ToHelmEnvironmentVariableAliasArrayOutput() HelmEnvironmentVariableAliasArrayOutput {
+	return i.ToHelmEnvironmentVariableAliasArrayOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableAliasArray) ToHelmEnvironmentVariableAliasArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableAliasArrayOutput)
+}
+
+type HelmEnvironmentVariableAliasOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableAliasOutput) ToHelmEnvironmentVariableAliasOutput() HelmEnvironmentVariableAliasOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableAliasOutput) ToHelmEnvironmentVariableAliasOutputWithContext(ctx context.Context) HelmEnvironmentVariableAliasOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmEnvironmentVariableAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableAliasArrayOutput) ToHelmEnvironmentVariableAliasArrayOutput() HelmEnvironmentVariableAliasArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableAliasArrayOutput) ToHelmEnvironmentVariableAliasArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableAliasArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) HelmEnvironmentVariableAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmEnvironmentVariableAlias {
+		return vs[0].([]HelmEnvironmentVariableAlias)[vs[1].(int)]
+	}).(HelmEnvironmentVariableAliasOutput)
+}
+
+type HelmEnvironmentVariableOverride struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmEnvironmentVariableOverrideInput is an input type that accepts HelmEnvironmentVariableOverrideArgs and HelmEnvironmentVariableOverrideOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableOverrideInput` via:
+//
+//	HelmEnvironmentVariableOverrideArgs{...}
+type HelmEnvironmentVariableOverrideInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableOverrideOutput() HelmEnvironmentVariableOverrideOutput
+	ToHelmEnvironmentVariableOverrideOutputWithContext(context.Context) HelmEnvironmentVariableOverrideOutput
+}
+
+type HelmEnvironmentVariableOverrideArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableOverrideArgs) ToHelmEnvironmentVariableOverrideOutput() HelmEnvironmentVariableOverrideOutput {
+	return i.ToHelmEnvironmentVariableOverrideOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableOverrideArgs) ToHelmEnvironmentVariableOverrideOutputWithContext(ctx context.Context) HelmEnvironmentVariableOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableOverrideOutput)
+}
+
+// HelmEnvironmentVariableOverrideArrayInput is an input type that accepts HelmEnvironmentVariableOverrideArray and HelmEnvironmentVariableOverrideArrayOutput values.
+// You can construct a concrete instance of `HelmEnvironmentVariableOverrideArrayInput` via:
+//
+//	HelmEnvironmentVariableOverrideArray{ HelmEnvironmentVariableOverrideArgs{...} }
+type HelmEnvironmentVariableOverrideArrayInput interface {
+	pulumi.Input
+
+	ToHelmEnvironmentVariableOverrideArrayOutput() HelmEnvironmentVariableOverrideArrayOutput
+	ToHelmEnvironmentVariableOverrideArrayOutputWithContext(context.Context) HelmEnvironmentVariableOverrideArrayOutput
+}
+
+type HelmEnvironmentVariableOverrideArray []HelmEnvironmentVariableOverrideInput
+
+func (HelmEnvironmentVariableOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (i HelmEnvironmentVariableOverrideArray) ToHelmEnvironmentVariableOverrideArrayOutput() HelmEnvironmentVariableOverrideArrayOutput {
+	return i.ToHelmEnvironmentVariableOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i HelmEnvironmentVariableOverrideArray) ToHelmEnvironmentVariableOverrideArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmEnvironmentVariableOverrideArrayOutput)
+}
+
+type HelmEnvironmentVariableOverrideOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableOverrideOutput) ToHelmEnvironmentVariableOverrideOutput() HelmEnvironmentVariableOverrideOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOverrideOutput) ToHelmEnvironmentVariableOverrideOutputWithContext(ctx context.Context) HelmEnvironmentVariableOverrideOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmEnvironmentVariableOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmEnvironmentVariableOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (o HelmEnvironmentVariableOverrideArrayOutput) ToHelmEnvironmentVariableOverrideArrayOutput() HelmEnvironmentVariableOverrideArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOverrideArrayOutput) ToHelmEnvironmentVariableOverrideArrayOutputWithContext(ctx context.Context) HelmEnvironmentVariableOverrideArrayOutput {
+	return o
+}
+
+func (o HelmEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) HelmEnvironmentVariableOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmEnvironmentVariableOverride {
+		return vs[0].([]HelmEnvironmentVariableOverride)[vs[1].(int)]
+	}).(HelmEnvironmentVariableOverrideOutput)
+}
+
+type HelmPorts struct {
+	ExternalPort int     `pulumi:"externalPort"`
+	InternalPort int     `pulumi:"internalPort"`
+	IsDefault    bool    `pulumi:"isDefault"`
+	Namespace    *string `pulumi:"namespace"`
+	Protocol     *string `pulumi:"protocol"`
+	ServiceName  string  `pulumi:"serviceName"`
+}
+
+// HelmPortsInput is an input type that accepts HelmPortsArgs and HelmPortsOutput values.
+// You can construct a concrete instance of `HelmPortsInput` via:
+//
+//	HelmPortsArgs{...}
+type HelmPortsInput interface {
+	pulumi.Input
+
+	ToHelmPortsOutput() HelmPortsOutput
+	ToHelmPortsOutputWithContext(context.Context) HelmPortsOutput
+}
+
+type HelmPortsArgs struct {
+	ExternalPort pulumi.IntInput       `pulumi:"externalPort"`
+	InternalPort pulumi.IntInput       `pulumi:"internalPort"`
+	IsDefault    pulumi.BoolInput      `pulumi:"isDefault"`
+	Namespace    pulumi.StringPtrInput `pulumi:"namespace"`
+	Protocol     pulumi.StringPtrInput `pulumi:"protocol"`
+	ServiceName  pulumi.StringInput    `pulumi:"serviceName"`
+}
+
+func (HelmPortsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmPorts)(nil)).Elem()
+}
+
+func (i HelmPortsArgs) ToHelmPortsOutput() HelmPortsOutput {
+	return i.ToHelmPortsOutputWithContext(context.Background())
+}
+
+func (i HelmPortsArgs) ToHelmPortsOutputWithContext(ctx context.Context) HelmPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmPortsOutput)
+}
+
+// HelmPortsMapInput is an input type that accepts HelmPortsMap and HelmPortsMapOutput values.
+// You can construct a concrete instance of `HelmPortsMapInput` via:
+//
+//	HelmPortsMap{ "key": HelmPortsArgs{...} }
+type HelmPortsMapInput interface {
+	pulumi.Input
+
+	ToHelmPortsMapOutput() HelmPortsMapOutput
+	ToHelmPortsMapOutputWithContext(context.Context) HelmPortsMapOutput
+}
+
+type HelmPortsMap map[string]HelmPortsInput
+
+func (HelmPortsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HelmPorts)(nil)).Elem()
+}
+
+func (i HelmPortsMap) ToHelmPortsMapOutput() HelmPortsMapOutput {
+	return i.ToHelmPortsMapOutputWithContext(context.Background())
+}
+
+func (i HelmPortsMap) ToHelmPortsMapOutputWithContext(ctx context.Context) HelmPortsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmPortsMapOutput)
+}
+
+type HelmPortsOutput struct{ *pulumi.OutputState }
+
+func (HelmPortsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmPorts)(nil)).Elem()
+}
+
+func (o HelmPortsOutput) ToHelmPortsOutput() HelmPortsOutput {
+	return o
+}
+
+func (o HelmPortsOutput) ToHelmPortsOutputWithContext(ctx context.Context) HelmPortsOutput {
+	return o
+}
+
+func (o HelmPortsOutput) ExternalPort() pulumi.IntOutput {
+	return o.ApplyT(func(v HelmPorts) int { return v.ExternalPort }).(pulumi.IntOutput)
+}
+
+func (o HelmPortsOutput) InternalPort() pulumi.IntOutput {
+	return o.ApplyT(func(v HelmPorts) int { return v.InternalPort }).(pulumi.IntOutput)
+}
+
+func (o HelmPortsOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v HelmPorts) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o HelmPortsOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmPorts) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmPortsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmPorts) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmPortsOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmPorts) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type HelmPortsMapOutput struct{ *pulumi.OutputState }
+
+func (HelmPortsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HelmPorts)(nil)).Elem()
+}
+
+func (o HelmPortsMapOutput) ToHelmPortsMapOutput() HelmPortsMapOutput {
+	return o
+}
+
+func (o HelmPortsMapOutput) ToHelmPortsMapOutputWithContext(ctx context.Context) HelmPortsMapOutput {
+	return o
+}
+
+func (o HelmPortsMapOutput) MapIndex(k pulumi.StringInput) HelmPortsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HelmPorts {
+		return vs[0].(map[string]HelmPorts)[vs[1].(string)]
+	}).(HelmPortsOutput)
+}
+
+type HelmRepositoryConfig struct {
+	AccessKeyId       *string `pulumi:"accessKeyId"`
+	Password          *string `pulumi:"password"`
+	Region            *string `pulumi:"region"`
+	ScalewayAccessKey *string `pulumi:"scalewayAccessKey"`
+	ScalewaySecretKey *string `pulumi:"scalewaySecretKey"`
+	SecretAccessKey   *string `pulumi:"secretAccessKey"`
+	Username          *string `pulumi:"username"`
+}
+
+// HelmRepositoryConfigInput is an input type that accepts HelmRepositoryConfigArgs and HelmRepositoryConfigOutput values.
+// You can construct a concrete instance of `HelmRepositoryConfigInput` via:
+//
+//	HelmRepositoryConfigArgs{...}
+type HelmRepositoryConfigInput interface {
+	pulumi.Input
+
+	ToHelmRepositoryConfigOutput() HelmRepositoryConfigOutput
+	ToHelmRepositoryConfigOutputWithContext(context.Context) HelmRepositoryConfigOutput
+}
+
+type HelmRepositoryConfigArgs struct {
+	AccessKeyId       pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	Password          pulumi.StringPtrInput `pulumi:"password"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	ScalewayAccessKey pulumi.StringPtrInput `pulumi:"scalewayAccessKey"`
+	ScalewaySecretKey pulumi.StringPtrInput `pulumi:"scalewaySecretKey"`
+	SecretAccessKey   pulumi.StringPtrInput `pulumi:"secretAccessKey"`
+	Username          pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (HelmRepositoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmRepositoryConfig)(nil)).Elem()
+}
+
+func (i HelmRepositoryConfigArgs) ToHelmRepositoryConfigOutput() HelmRepositoryConfigOutput {
+	return i.ToHelmRepositoryConfigOutputWithContext(context.Background())
+}
+
+func (i HelmRepositoryConfigArgs) ToHelmRepositoryConfigOutputWithContext(ctx context.Context) HelmRepositoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmRepositoryConfigOutput)
+}
+
+func (i HelmRepositoryConfigArgs) ToHelmRepositoryConfigPtrOutput() HelmRepositoryConfigPtrOutput {
+	return i.ToHelmRepositoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HelmRepositoryConfigArgs) ToHelmRepositoryConfigPtrOutputWithContext(ctx context.Context) HelmRepositoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmRepositoryConfigOutput).ToHelmRepositoryConfigPtrOutputWithContext(ctx)
+}
+
+// HelmRepositoryConfigPtrInput is an input type that accepts HelmRepositoryConfigArgs, HelmRepositoryConfigPtr and HelmRepositoryConfigPtrOutput values.
+// You can construct a concrete instance of `HelmRepositoryConfigPtrInput` via:
+//
+//	        HelmRepositoryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmRepositoryConfigPtrInput interface {
+	pulumi.Input
+
+	ToHelmRepositoryConfigPtrOutput() HelmRepositoryConfigPtrOutput
+	ToHelmRepositoryConfigPtrOutputWithContext(context.Context) HelmRepositoryConfigPtrOutput
+}
+
+type helmRepositoryConfigPtrType HelmRepositoryConfigArgs
+
+func HelmRepositoryConfigPtr(v *HelmRepositoryConfigArgs) HelmRepositoryConfigPtrInput {
+	return (*helmRepositoryConfigPtrType)(v)
+}
+
+func (*helmRepositoryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmRepositoryConfig)(nil)).Elem()
+}
+
+func (i *helmRepositoryConfigPtrType) ToHelmRepositoryConfigPtrOutput() HelmRepositoryConfigPtrOutput {
+	return i.ToHelmRepositoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *helmRepositoryConfigPtrType) ToHelmRepositoryConfigPtrOutputWithContext(ctx context.Context) HelmRepositoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmRepositoryConfigPtrOutput)
+}
+
+type HelmRepositoryConfigOutput struct{ *pulumi.OutputState }
+
+func (HelmRepositoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmRepositoryConfig)(nil)).Elem()
+}
+
+func (o HelmRepositoryConfigOutput) ToHelmRepositoryConfigOutput() HelmRepositoryConfigOutput {
+	return o
+}
+
+func (o HelmRepositoryConfigOutput) ToHelmRepositoryConfigOutputWithContext(ctx context.Context) HelmRepositoryConfigOutput {
+	return o
+}
+
+func (o HelmRepositoryConfigOutput) ToHelmRepositoryConfigPtrOutput() HelmRepositoryConfigPtrOutput {
+	return o.ToHelmRepositoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HelmRepositoryConfigOutput) ToHelmRepositoryConfigPtrOutputWithContext(ctx context.Context) HelmRepositoryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmRepositoryConfig) *HelmRepositoryConfig {
+		return &v
+	}).(HelmRepositoryConfigPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.ScalewayAccessKey }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.ScalewaySecretKey }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type HelmRepositoryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HelmRepositoryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmRepositoryConfig)(nil)).Elem()
+}
+
+func (o HelmRepositoryConfigPtrOutput) ToHelmRepositoryConfigPtrOutput() HelmRepositoryConfigPtrOutput {
+	return o
+}
+
+func (o HelmRepositoryConfigPtrOutput) ToHelmRepositoryConfigPtrOutputWithContext(ctx context.Context) HelmRepositoryConfigPtrOutput {
+	return o
+}
+
+func (o HelmRepositoryConfigPtrOutput) Elem() HelmRepositoryConfigOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) HelmRepositoryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HelmRepositoryConfig
+		return ret
+	}).(HelmRepositoryConfigOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScalewayAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScalewaySecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmRepositoryConfigPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type HelmSecret struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmSecretInput is an input type that accepts HelmSecretArgs and HelmSecretOutput values.
+// You can construct a concrete instance of `HelmSecretInput` via:
+//
+//	HelmSecretArgs{...}
+type HelmSecretInput interface {
+	pulumi.Input
+
+	ToHelmSecretOutput() HelmSecretOutput
+	ToHelmSecretOutputWithContext(context.Context) HelmSecretOutput
+}
+
+type HelmSecretArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecret)(nil)).Elem()
+}
+
+func (i HelmSecretArgs) ToHelmSecretOutput() HelmSecretOutput {
+	return i.ToHelmSecretOutputWithContext(context.Background())
+}
+
+func (i HelmSecretArgs) ToHelmSecretOutputWithContext(ctx context.Context) HelmSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretOutput)
+}
+
+// HelmSecretArrayInput is an input type that accepts HelmSecretArray and HelmSecretArrayOutput values.
+// You can construct a concrete instance of `HelmSecretArrayInput` via:
+//
+//	HelmSecretArray{ HelmSecretArgs{...} }
+type HelmSecretArrayInput interface {
+	pulumi.Input
+
+	ToHelmSecretArrayOutput() HelmSecretArrayOutput
+	ToHelmSecretArrayOutputWithContext(context.Context) HelmSecretArrayOutput
+}
+
+type HelmSecretArray []HelmSecretInput
+
+func (HelmSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecret)(nil)).Elem()
+}
+
+func (i HelmSecretArray) ToHelmSecretArrayOutput() HelmSecretArrayOutput {
+	return i.ToHelmSecretArrayOutputWithContext(context.Background())
+}
+
+func (i HelmSecretArray) ToHelmSecretArrayOutputWithContext(ctx context.Context) HelmSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretArrayOutput)
+}
+
+type HelmSecretOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecret)(nil)).Elem()
+}
+
+func (o HelmSecretOutput) ToHelmSecretOutput() HelmSecretOutput {
+	return o
+}
+
+func (o HelmSecretOutput) ToHelmSecretOutputWithContext(ctx context.Context) HelmSecretOutput {
+	return o
+}
+
+func (o HelmSecretOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSecretOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecret) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmSecretOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecret) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecret)(nil)).Elem()
+}
+
+func (o HelmSecretArrayOutput) ToHelmSecretArrayOutput() HelmSecretArrayOutput {
+	return o
+}
+
+func (o HelmSecretArrayOutput) ToHelmSecretArrayOutputWithContext(ctx context.Context) HelmSecretArrayOutput {
+	return o
+}
+
+func (o HelmSecretArrayOutput) Index(i pulumi.IntInput) HelmSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmSecret {
+		return vs[0].([]HelmSecret)[vs[1].(int)]
+	}).(HelmSecretOutput)
+}
+
+type HelmSecretAlias struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmSecretAliasInput is an input type that accepts HelmSecretAliasArgs and HelmSecretAliasOutput values.
+// You can construct a concrete instance of `HelmSecretAliasInput` via:
+//
+//	HelmSecretAliasArgs{...}
+type HelmSecretAliasInput interface {
+	pulumi.Input
+
+	ToHelmSecretAliasOutput() HelmSecretAliasOutput
+	ToHelmSecretAliasOutputWithContext(context.Context) HelmSecretAliasOutput
+}
+
+type HelmSecretAliasArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmSecretAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecretAlias)(nil)).Elem()
+}
+
+func (i HelmSecretAliasArgs) ToHelmSecretAliasOutput() HelmSecretAliasOutput {
+	return i.ToHelmSecretAliasOutputWithContext(context.Background())
+}
+
+func (i HelmSecretAliasArgs) ToHelmSecretAliasOutputWithContext(ctx context.Context) HelmSecretAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretAliasOutput)
+}
+
+// HelmSecretAliasArrayInput is an input type that accepts HelmSecretAliasArray and HelmSecretAliasArrayOutput values.
+// You can construct a concrete instance of `HelmSecretAliasArrayInput` via:
+//
+//	HelmSecretAliasArray{ HelmSecretAliasArgs{...} }
+type HelmSecretAliasArrayInput interface {
+	pulumi.Input
+
+	ToHelmSecretAliasArrayOutput() HelmSecretAliasArrayOutput
+	ToHelmSecretAliasArrayOutputWithContext(context.Context) HelmSecretAliasArrayOutput
+}
+
+type HelmSecretAliasArray []HelmSecretAliasInput
+
+func (HelmSecretAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecretAlias)(nil)).Elem()
+}
+
+func (i HelmSecretAliasArray) ToHelmSecretAliasArrayOutput() HelmSecretAliasArrayOutput {
+	return i.ToHelmSecretAliasArrayOutputWithContext(context.Background())
+}
+
+func (i HelmSecretAliasArray) ToHelmSecretAliasArrayOutputWithContext(ctx context.Context) HelmSecretAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretAliasArrayOutput)
+}
+
+type HelmSecretAliasOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecretAlias)(nil)).Elem()
+}
+
+func (o HelmSecretAliasOutput) ToHelmSecretAliasOutput() HelmSecretAliasOutput {
+	return o
+}
+
+func (o HelmSecretAliasOutput) ToHelmSecretAliasOutputWithContext(ctx context.Context) HelmSecretAliasOutput {
+	return o
+}
+
+func (o HelmSecretAliasOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSecretAliasOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecretAlias) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmSecretAliasOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecretAlias) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmSecretAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecretAlias)(nil)).Elem()
+}
+
+func (o HelmSecretAliasArrayOutput) ToHelmSecretAliasArrayOutput() HelmSecretAliasArrayOutput {
+	return o
+}
+
+func (o HelmSecretAliasArrayOutput) ToHelmSecretAliasArrayOutputWithContext(ctx context.Context) HelmSecretAliasArrayOutput {
+	return o
+}
+
+func (o HelmSecretAliasArrayOutput) Index(i pulumi.IntInput) HelmSecretAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmSecretAlias {
+		return vs[0].([]HelmSecretAlias)[vs[1].(int)]
+	}).(HelmSecretAliasOutput)
+}
+
+type HelmSecretOverride struct {
+	Id    *string `pulumi:"id"`
+	Key   string  `pulumi:"key"`
+	Value string  `pulumi:"value"`
+}
+
+// HelmSecretOverrideInput is an input type that accepts HelmSecretOverrideArgs and HelmSecretOverrideOutput values.
+// You can construct a concrete instance of `HelmSecretOverrideInput` via:
+//
+//	HelmSecretOverrideArgs{...}
+type HelmSecretOverrideInput interface {
+	pulumi.Input
+
+	ToHelmSecretOverrideOutput() HelmSecretOverrideOutput
+	ToHelmSecretOverrideOutputWithContext(context.Context) HelmSecretOverrideOutput
+}
+
+type HelmSecretOverrideArgs struct {
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (HelmSecretOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecretOverride)(nil)).Elem()
+}
+
+func (i HelmSecretOverrideArgs) ToHelmSecretOverrideOutput() HelmSecretOverrideOutput {
+	return i.ToHelmSecretOverrideOutputWithContext(context.Background())
+}
+
+func (i HelmSecretOverrideArgs) ToHelmSecretOverrideOutputWithContext(ctx context.Context) HelmSecretOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretOverrideOutput)
+}
+
+// HelmSecretOverrideArrayInput is an input type that accepts HelmSecretOverrideArray and HelmSecretOverrideArrayOutput values.
+// You can construct a concrete instance of `HelmSecretOverrideArrayInput` via:
+//
+//	HelmSecretOverrideArray{ HelmSecretOverrideArgs{...} }
+type HelmSecretOverrideArrayInput interface {
+	pulumi.Input
+
+	ToHelmSecretOverrideArrayOutput() HelmSecretOverrideArrayOutput
+	ToHelmSecretOverrideArrayOutputWithContext(context.Context) HelmSecretOverrideArrayOutput
+}
+
+type HelmSecretOverrideArray []HelmSecretOverrideInput
+
+func (HelmSecretOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecretOverride)(nil)).Elem()
+}
+
+func (i HelmSecretOverrideArray) ToHelmSecretOverrideArrayOutput() HelmSecretOverrideArrayOutput {
+	return i.ToHelmSecretOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i HelmSecretOverrideArray) ToHelmSecretOverrideArrayOutputWithContext(ctx context.Context) HelmSecretOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSecretOverrideArrayOutput)
+}
+
+type HelmSecretOverrideOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSecretOverride)(nil)).Elem()
+}
+
+func (o HelmSecretOverrideOutput) ToHelmSecretOverrideOutput() HelmSecretOverrideOutput {
+	return o
+}
+
+func (o HelmSecretOverrideOutput) ToHelmSecretOverrideOutputWithContext(ctx context.Context) HelmSecretOverrideOutput {
+	return o
+}
+
+func (o HelmSecretOverrideOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSecretOverrideOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecretOverride) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o HelmSecretOverrideOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSecretOverride) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmSecretOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmSecretOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmSecretOverride)(nil)).Elem()
+}
+
+func (o HelmSecretOverrideArrayOutput) ToHelmSecretOverrideArrayOutput() HelmSecretOverrideArrayOutput {
+	return o
+}
+
+func (o HelmSecretOverrideArrayOutput) ToHelmSecretOverrideArrayOutputWithContext(ctx context.Context) HelmSecretOverrideArrayOutput {
+	return o
+}
+
+func (o HelmSecretOverrideArrayOutput) Index(i pulumi.IntInput) HelmSecretOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmSecretOverride {
+		return vs[0].([]HelmSecretOverride)[vs[1].(int)]
+	}).(HelmSecretOverrideOutput)
+}
+
+type HelmSource struct {
+	GitRepository  *HelmSourceGitRepository  `pulumi:"gitRepository"`
+	HelmRepository *HelmSourceHelmRepository `pulumi:"helmRepository"`
+}
+
+// HelmSourceInput is an input type that accepts HelmSourceArgs and HelmSourceOutput values.
+// You can construct a concrete instance of `HelmSourceInput` via:
+//
+//	HelmSourceArgs{...}
+type HelmSourceInput interface {
+	pulumi.Input
+
+	ToHelmSourceOutput() HelmSourceOutput
+	ToHelmSourceOutputWithContext(context.Context) HelmSourceOutput
+}
+
+type HelmSourceArgs struct {
+	GitRepository  HelmSourceGitRepositoryPtrInput  `pulumi:"gitRepository"`
+	HelmRepository HelmSourceHelmRepositoryPtrInput `pulumi:"helmRepository"`
+}
+
+func (HelmSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSource)(nil)).Elem()
+}
+
+func (i HelmSourceArgs) ToHelmSourceOutput() HelmSourceOutput {
+	return i.ToHelmSourceOutputWithContext(context.Background())
+}
+
+func (i HelmSourceArgs) ToHelmSourceOutputWithContext(ctx context.Context) HelmSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceOutput)
+}
+
+func (i HelmSourceArgs) ToHelmSourcePtrOutput() HelmSourcePtrOutput {
+	return i.ToHelmSourcePtrOutputWithContext(context.Background())
+}
+
+func (i HelmSourceArgs) ToHelmSourcePtrOutputWithContext(ctx context.Context) HelmSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceOutput).ToHelmSourcePtrOutputWithContext(ctx)
+}
+
+// HelmSourcePtrInput is an input type that accepts HelmSourceArgs, HelmSourcePtr and HelmSourcePtrOutput values.
+// You can construct a concrete instance of `HelmSourcePtrInput` via:
+//
+//	        HelmSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmSourcePtrInput interface {
+	pulumi.Input
+
+	ToHelmSourcePtrOutput() HelmSourcePtrOutput
+	ToHelmSourcePtrOutputWithContext(context.Context) HelmSourcePtrOutput
+}
+
+type helmSourcePtrType HelmSourceArgs
+
+func HelmSourcePtr(v *HelmSourceArgs) HelmSourcePtrInput {
+	return (*helmSourcePtrType)(v)
+}
+
+func (*helmSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSource)(nil)).Elem()
+}
+
+func (i *helmSourcePtrType) ToHelmSourcePtrOutput() HelmSourcePtrOutput {
+	return i.ToHelmSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *helmSourcePtrType) ToHelmSourcePtrOutputWithContext(ctx context.Context) HelmSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourcePtrOutput)
+}
+
+type HelmSourceOutput struct{ *pulumi.OutputState }
+
+func (HelmSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSource)(nil)).Elem()
+}
+
+func (o HelmSourceOutput) ToHelmSourceOutput() HelmSourceOutput {
+	return o
+}
+
+func (o HelmSourceOutput) ToHelmSourceOutputWithContext(ctx context.Context) HelmSourceOutput {
+	return o
+}
+
+func (o HelmSourceOutput) ToHelmSourcePtrOutput() HelmSourcePtrOutput {
+	return o.ToHelmSourcePtrOutputWithContext(context.Background())
+}
+
+func (o HelmSourceOutput) ToHelmSourcePtrOutputWithContext(ctx context.Context) HelmSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmSource) *HelmSource {
+		return &v
+	}).(HelmSourcePtrOutput)
+}
+
+func (o HelmSourceOutput) GitRepository() HelmSourceGitRepositoryPtrOutput {
+	return o.ApplyT(func(v HelmSource) *HelmSourceGitRepository { return v.GitRepository }).(HelmSourceGitRepositoryPtrOutput)
+}
+
+func (o HelmSourceOutput) HelmRepository() HelmSourceHelmRepositoryPtrOutput {
+	return o.ApplyT(func(v HelmSource) *HelmSourceHelmRepository { return v.HelmRepository }).(HelmSourceHelmRepositoryPtrOutput)
+}
+
+type HelmSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HelmSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSource)(nil)).Elem()
+}
+
+func (o HelmSourcePtrOutput) ToHelmSourcePtrOutput() HelmSourcePtrOutput {
+	return o
+}
+
+func (o HelmSourcePtrOutput) ToHelmSourcePtrOutputWithContext(ctx context.Context) HelmSourcePtrOutput {
+	return o
+}
+
+func (o HelmSourcePtrOutput) Elem() HelmSourceOutput {
+	return o.ApplyT(func(v *HelmSource) HelmSource {
+		if v != nil {
+			return *v
+		}
+		var ret HelmSource
+		return ret
+	}).(HelmSourceOutput)
+}
+
+func (o HelmSourcePtrOutput) GitRepository() HelmSourceGitRepositoryPtrOutput {
+	return o.ApplyT(func(v *HelmSource) *HelmSourceGitRepository {
+		if v == nil {
+			return nil
+		}
+		return v.GitRepository
+	}).(HelmSourceGitRepositoryPtrOutput)
+}
+
+func (o HelmSourcePtrOutput) HelmRepository() HelmSourceHelmRepositoryPtrOutput {
+	return o.ApplyT(func(v *HelmSource) *HelmSourceHelmRepository {
+		if v == nil {
+			return nil
+		}
+		return v.HelmRepository
+	}).(HelmSourceHelmRepositoryPtrOutput)
+}
+
+type HelmSourceGitRepository struct {
+	Branch     *string `pulumi:"branch"`
+	GitTokenId *string `pulumi:"gitTokenId"`
+	RootPath   *string `pulumi:"rootPath"`
+	Url        string  `pulumi:"url"`
+}
+
+// HelmSourceGitRepositoryInput is an input type that accepts HelmSourceGitRepositoryArgs and HelmSourceGitRepositoryOutput values.
+// You can construct a concrete instance of `HelmSourceGitRepositoryInput` via:
+//
+//	HelmSourceGitRepositoryArgs{...}
+type HelmSourceGitRepositoryInput interface {
+	pulumi.Input
+
+	ToHelmSourceGitRepositoryOutput() HelmSourceGitRepositoryOutput
+	ToHelmSourceGitRepositoryOutputWithContext(context.Context) HelmSourceGitRepositoryOutput
+}
+
+type HelmSourceGitRepositoryArgs struct {
+	Branch     pulumi.StringPtrInput `pulumi:"branch"`
+	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
+	RootPath   pulumi.StringPtrInput `pulumi:"rootPath"`
+	Url        pulumi.StringInput    `pulumi:"url"`
+}
+
+func (HelmSourceGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSourceGitRepository)(nil)).Elem()
+}
+
+func (i HelmSourceGitRepositoryArgs) ToHelmSourceGitRepositoryOutput() HelmSourceGitRepositoryOutput {
+	return i.ToHelmSourceGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i HelmSourceGitRepositoryArgs) ToHelmSourceGitRepositoryOutputWithContext(ctx context.Context) HelmSourceGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceGitRepositoryOutput)
+}
+
+func (i HelmSourceGitRepositoryArgs) ToHelmSourceGitRepositoryPtrOutput() HelmSourceGitRepositoryPtrOutput {
+	return i.ToHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i HelmSourceGitRepositoryArgs) ToHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceGitRepositoryOutput).ToHelmSourceGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// HelmSourceGitRepositoryPtrInput is an input type that accepts HelmSourceGitRepositoryArgs, HelmSourceGitRepositoryPtr and HelmSourceGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `HelmSourceGitRepositoryPtrInput` via:
+//
+//	        HelmSourceGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmSourceGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToHelmSourceGitRepositoryPtrOutput() HelmSourceGitRepositoryPtrOutput
+	ToHelmSourceGitRepositoryPtrOutputWithContext(context.Context) HelmSourceGitRepositoryPtrOutput
+}
+
+type helmSourceGitRepositoryPtrType HelmSourceGitRepositoryArgs
+
+func HelmSourceGitRepositoryPtr(v *HelmSourceGitRepositoryArgs) HelmSourceGitRepositoryPtrInput {
+	return (*helmSourceGitRepositoryPtrType)(v)
+}
+
+func (*helmSourceGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSourceGitRepository)(nil)).Elem()
+}
+
+func (i *helmSourceGitRepositoryPtrType) ToHelmSourceGitRepositoryPtrOutput() HelmSourceGitRepositoryPtrOutput {
+	return i.ToHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *helmSourceGitRepositoryPtrType) ToHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceGitRepositoryPtrOutput)
+}
+
+type HelmSourceGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (HelmSourceGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSourceGitRepository)(nil)).Elem()
+}
+
+func (o HelmSourceGitRepositoryOutput) ToHelmSourceGitRepositoryOutput() HelmSourceGitRepositoryOutput {
+	return o
+}
+
+func (o HelmSourceGitRepositoryOutput) ToHelmSourceGitRepositoryOutputWithContext(ctx context.Context) HelmSourceGitRepositoryOutput {
+	return o
+}
+
+func (o HelmSourceGitRepositoryOutput) ToHelmSourceGitRepositoryPtrOutput() HelmSourceGitRepositoryPtrOutput {
+	return o.ToHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o HelmSourceGitRepositoryOutput) ToHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmSourceGitRepository) *HelmSourceGitRepository {
+		return &v
+	}).(HelmSourceGitRepositoryPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryOutput) RootPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.RootPath }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSourceGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type HelmSourceGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (HelmSourceGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSourceGitRepository)(nil)).Elem()
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) ToHelmSourceGitRepositoryPtrOutput() HelmSourceGitRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) ToHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceGitRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) Elem() HelmSourceGitRepositoryOutput {
+	return o.ApplyT(func(v *HelmSourceGitRepository) HelmSourceGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret HelmSourceGitRepository
+		return ret
+	}).(HelmSourceGitRepositoryOutput)
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GitTokenId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type HelmSourceHelmRepository struct {
+	ChartName        string `pulumi:"chartName"`
+	ChartVersion     string `pulumi:"chartVersion"`
+	HelmRepositoryId string `pulumi:"helmRepositoryId"`
+}
+
+// HelmSourceHelmRepositoryInput is an input type that accepts HelmSourceHelmRepositoryArgs and HelmSourceHelmRepositoryOutput values.
+// You can construct a concrete instance of `HelmSourceHelmRepositoryInput` via:
+//
+//	HelmSourceHelmRepositoryArgs{...}
+type HelmSourceHelmRepositoryInput interface {
+	pulumi.Input
+
+	ToHelmSourceHelmRepositoryOutput() HelmSourceHelmRepositoryOutput
+	ToHelmSourceHelmRepositoryOutputWithContext(context.Context) HelmSourceHelmRepositoryOutput
+}
+
+type HelmSourceHelmRepositoryArgs struct {
+	ChartName        pulumi.StringInput `pulumi:"chartName"`
+	ChartVersion     pulumi.StringInput `pulumi:"chartVersion"`
+	HelmRepositoryId pulumi.StringInput `pulumi:"helmRepositoryId"`
+}
+
+func (HelmSourceHelmRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (i HelmSourceHelmRepositoryArgs) ToHelmSourceHelmRepositoryOutput() HelmSourceHelmRepositoryOutput {
+	return i.ToHelmSourceHelmRepositoryOutputWithContext(context.Background())
+}
+
+func (i HelmSourceHelmRepositoryArgs) ToHelmSourceHelmRepositoryOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceHelmRepositoryOutput)
+}
+
+func (i HelmSourceHelmRepositoryArgs) ToHelmSourceHelmRepositoryPtrOutput() HelmSourceHelmRepositoryPtrOutput {
+	return i.ToHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i HelmSourceHelmRepositoryArgs) ToHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceHelmRepositoryOutput).ToHelmSourceHelmRepositoryPtrOutputWithContext(ctx)
+}
+
+// HelmSourceHelmRepositoryPtrInput is an input type that accepts HelmSourceHelmRepositoryArgs, HelmSourceHelmRepositoryPtr and HelmSourceHelmRepositoryPtrOutput values.
+// You can construct a concrete instance of `HelmSourceHelmRepositoryPtrInput` via:
+//
+//	        HelmSourceHelmRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmSourceHelmRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToHelmSourceHelmRepositoryPtrOutput() HelmSourceHelmRepositoryPtrOutput
+	ToHelmSourceHelmRepositoryPtrOutputWithContext(context.Context) HelmSourceHelmRepositoryPtrOutput
+}
+
+type helmSourceHelmRepositoryPtrType HelmSourceHelmRepositoryArgs
+
+func HelmSourceHelmRepositoryPtr(v *HelmSourceHelmRepositoryArgs) HelmSourceHelmRepositoryPtrInput {
+	return (*helmSourceHelmRepositoryPtrType)(v)
+}
+
+func (*helmSourceHelmRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (i *helmSourceHelmRepositoryPtrType) ToHelmSourceHelmRepositoryPtrOutput() HelmSourceHelmRepositoryPtrOutput {
+	return i.ToHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *helmSourceHelmRepositoryPtrType) ToHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmSourceHelmRepositoryPtrOutput)
+}
+
+type HelmSourceHelmRepositoryOutput struct{ *pulumi.OutputState }
+
+func (HelmSourceHelmRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (o HelmSourceHelmRepositoryOutput) ToHelmSourceHelmRepositoryOutput() HelmSourceHelmRepositoryOutput {
+	return o
+}
+
+func (o HelmSourceHelmRepositoryOutput) ToHelmSourceHelmRepositoryOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryOutput {
+	return o
+}
+
+func (o HelmSourceHelmRepositoryOutput) ToHelmSourceHelmRepositoryPtrOutput() HelmSourceHelmRepositoryPtrOutput {
+	return o.ToHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o HelmSourceHelmRepositoryOutput) ToHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmSourceHelmRepository) *HelmSourceHelmRepository {
+		return &v
+	}).(HelmSourceHelmRepositoryPtrOutput)
+}
+
+func (o HelmSourceHelmRepositoryOutput) ChartName() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.ChartName }).(pulumi.StringOutput)
+}
+
+func (o HelmSourceHelmRepositoryOutput) ChartVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.ChartVersion }).(pulumi.StringOutput)
+}
+
+func (o HelmSourceHelmRepositoryOutput) HelmRepositoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.HelmRepositoryId }).(pulumi.StringOutput)
+}
+
+type HelmSourceHelmRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (HelmSourceHelmRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) ToHelmSourceHelmRepositoryPtrOutput() HelmSourceHelmRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) ToHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) HelmSourceHelmRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) Elem() HelmSourceHelmRepositoryOutput {
+	return o.ApplyT(func(v *HelmSourceHelmRepository) HelmSourceHelmRepository {
+		if v != nil {
+			return *v
+		}
+		var ret HelmSourceHelmRepository
+		return ret
+	}).(HelmSourceHelmRepositoryOutput)
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) ChartName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ChartName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) ChartVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ChartVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmSourceHelmRepositoryPtrOutput) HelmRepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HelmRepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type HelmValuesOverride struct {
+	File      *HelmValuesOverrideFile `pulumi:"file"`
+	Set       map[string]string       `pulumi:"set"`
+	SetJson   map[string]string       `pulumi:"setJson"`
+	SetString map[string]string       `pulumi:"setString"`
+}
+
+// HelmValuesOverrideInput is an input type that accepts HelmValuesOverrideArgs and HelmValuesOverrideOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideInput` via:
+//
+//	HelmValuesOverrideArgs{...}
+type HelmValuesOverrideInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideOutput() HelmValuesOverrideOutput
+	ToHelmValuesOverrideOutputWithContext(context.Context) HelmValuesOverrideOutput
+}
+
+type HelmValuesOverrideArgs struct {
+	File      HelmValuesOverrideFilePtrInput `pulumi:"file"`
+	Set       pulumi.StringMapInput          `pulumi:"set"`
+	SetJson   pulumi.StringMapInput          `pulumi:"setJson"`
+	SetString pulumi.StringMapInput          `pulumi:"setString"`
+}
+
+func (HelmValuesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverride)(nil)).Elem()
+}
+
+func (i HelmValuesOverrideArgs) ToHelmValuesOverrideOutput() HelmValuesOverrideOutput {
+	return i.ToHelmValuesOverrideOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideArgs) ToHelmValuesOverrideOutputWithContext(ctx context.Context) HelmValuesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideOutput)
+}
+
+func (i HelmValuesOverrideArgs) ToHelmValuesOverridePtrOutput() HelmValuesOverridePtrOutput {
+	return i.ToHelmValuesOverridePtrOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideArgs) ToHelmValuesOverridePtrOutputWithContext(ctx context.Context) HelmValuesOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideOutput).ToHelmValuesOverridePtrOutputWithContext(ctx)
+}
+
+// HelmValuesOverridePtrInput is an input type that accepts HelmValuesOverrideArgs, HelmValuesOverridePtr and HelmValuesOverridePtrOutput values.
+// You can construct a concrete instance of `HelmValuesOverridePtrInput` via:
+//
+//	        HelmValuesOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmValuesOverridePtrInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverridePtrOutput() HelmValuesOverridePtrOutput
+	ToHelmValuesOverridePtrOutputWithContext(context.Context) HelmValuesOverridePtrOutput
+}
+
+type helmValuesOverridePtrType HelmValuesOverrideArgs
+
+func HelmValuesOverridePtr(v *HelmValuesOverrideArgs) HelmValuesOverridePtrInput {
+	return (*helmValuesOverridePtrType)(v)
+}
+
+func (*helmValuesOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverride)(nil)).Elem()
+}
+
+func (i *helmValuesOverridePtrType) ToHelmValuesOverridePtrOutput() HelmValuesOverridePtrOutput {
+	return i.ToHelmValuesOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *helmValuesOverridePtrType) ToHelmValuesOverridePtrOutputWithContext(ctx context.Context) HelmValuesOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverridePtrOutput)
+}
+
+type HelmValuesOverrideOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverride)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideOutput) ToHelmValuesOverrideOutput() HelmValuesOverrideOutput {
+	return o
+}
+
+func (o HelmValuesOverrideOutput) ToHelmValuesOverrideOutputWithContext(ctx context.Context) HelmValuesOverrideOutput {
+	return o
+}
+
+func (o HelmValuesOverrideOutput) ToHelmValuesOverridePtrOutput() HelmValuesOverridePtrOutput {
+	return o.ToHelmValuesOverridePtrOutputWithContext(context.Background())
+}
+
+func (o HelmValuesOverrideOutput) ToHelmValuesOverridePtrOutputWithContext(ctx context.Context) HelmValuesOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmValuesOverride) *HelmValuesOverride {
+		return &v
+	}).(HelmValuesOverridePtrOutput)
+}
+
+func (o HelmValuesOverrideOutput) File() HelmValuesOverrideFilePtrOutput {
+	return o.ApplyT(func(v HelmValuesOverride) *HelmValuesOverrideFile { return v.File }).(HelmValuesOverrideFilePtrOutput)
+}
+
+func (o HelmValuesOverrideOutput) Set() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HelmValuesOverride) map[string]string { return v.Set }).(pulumi.StringMapOutput)
+}
+
+func (o HelmValuesOverrideOutput) SetJson() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HelmValuesOverride) map[string]string { return v.SetJson }).(pulumi.StringMapOutput)
+}
+
+func (o HelmValuesOverrideOutput) SetString() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HelmValuesOverride) map[string]string { return v.SetString }).(pulumi.StringMapOutput)
+}
+
+type HelmValuesOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverride)(nil)).Elem()
+}
+
+func (o HelmValuesOverridePtrOutput) ToHelmValuesOverridePtrOutput() HelmValuesOverridePtrOutput {
+	return o
+}
+
+func (o HelmValuesOverridePtrOutput) ToHelmValuesOverridePtrOutputWithContext(ctx context.Context) HelmValuesOverridePtrOutput {
+	return o
+}
+
+func (o HelmValuesOverridePtrOutput) Elem() HelmValuesOverrideOutput {
+	return o.ApplyT(func(v *HelmValuesOverride) HelmValuesOverride {
+		if v != nil {
+			return *v
+		}
+		var ret HelmValuesOverride
+		return ret
+	}).(HelmValuesOverrideOutput)
+}
+
+func (o HelmValuesOverridePtrOutput) File() HelmValuesOverrideFilePtrOutput {
+	return o.ApplyT(func(v *HelmValuesOverride) *HelmValuesOverrideFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(HelmValuesOverrideFilePtrOutput)
+}
+
+func (o HelmValuesOverridePtrOutput) Set() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HelmValuesOverride) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Set
+	}).(pulumi.StringMapOutput)
+}
+
+func (o HelmValuesOverridePtrOutput) SetJson() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HelmValuesOverride) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SetJson
+	}).(pulumi.StringMapOutput)
+}
+
+func (o HelmValuesOverridePtrOutput) SetString() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HelmValuesOverride) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SetString
+	}).(pulumi.StringMapOutput)
+}
+
+type HelmValuesOverrideFile struct {
+	GitRepository *HelmValuesOverrideFileGitRepository `pulumi:"gitRepository"`
+	Raw           map[string]HelmValuesOverrideFileRaw `pulumi:"raw"`
+}
+
+// HelmValuesOverrideFileInput is an input type that accepts HelmValuesOverrideFileArgs and HelmValuesOverrideFileOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFileInput` via:
+//
+//	HelmValuesOverrideFileArgs{...}
+type HelmValuesOverrideFileInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFileOutput() HelmValuesOverrideFileOutput
+	ToHelmValuesOverrideFileOutputWithContext(context.Context) HelmValuesOverrideFileOutput
+}
+
+type HelmValuesOverrideFileArgs struct {
+	GitRepository HelmValuesOverrideFileGitRepositoryPtrInput `pulumi:"gitRepository"`
+	Raw           HelmValuesOverrideFileRawMapInput           `pulumi:"raw"`
+}
+
+func (HelmValuesOverrideFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (i HelmValuesOverrideFileArgs) ToHelmValuesOverrideFileOutput() HelmValuesOverrideFileOutput {
+	return i.ToHelmValuesOverrideFileOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileArgs) ToHelmValuesOverrideFileOutputWithContext(ctx context.Context) HelmValuesOverrideFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileOutput)
+}
+
+func (i HelmValuesOverrideFileArgs) ToHelmValuesOverrideFilePtrOutput() HelmValuesOverrideFilePtrOutput {
+	return i.ToHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileArgs) ToHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) HelmValuesOverrideFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileOutput).ToHelmValuesOverrideFilePtrOutputWithContext(ctx)
+}
+
+// HelmValuesOverrideFilePtrInput is an input type that accepts HelmValuesOverrideFileArgs, HelmValuesOverrideFilePtr and HelmValuesOverrideFilePtrOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFilePtrInput` via:
+//
+//	        HelmValuesOverrideFileArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmValuesOverrideFilePtrInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFilePtrOutput() HelmValuesOverrideFilePtrOutput
+	ToHelmValuesOverrideFilePtrOutputWithContext(context.Context) HelmValuesOverrideFilePtrOutput
+}
+
+type helmValuesOverrideFilePtrType HelmValuesOverrideFileArgs
+
+func HelmValuesOverrideFilePtr(v *HelmValuesOverrideFileArgs) HelmValuesOverrideFilePtrInput {
+	return (*helmValuesOverrideFilePtrType)(v)
+}
+
+func (*helmValuesOverrideFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (i *helmValuesOverrideFilePtrType) ToHelmValuesOverrideFilePtrOutput() HelmValuesOverrideFilePtrOutput {
+	return i.ToHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (i *helmValuesOverrideFilePtrType) ToHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) HelmValuesOverrideFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFilePtrOutput)
+}
+
+type HelmValuesOverrideFileOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFileOutput) ToHelmValuesOverrideFileOutput() HelmValuesOverrideFileOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileOutput) ToHelmValuesOverrideFileOutputWithContext(ctx context.Context) HelmValuesOverrideFileOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileOutput) ToHelmValuesOverrideFilePtrOutput() HelmValuesOverrideFilePtrOutput {
+	return o.ToHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (o HelmValuesOverrideFileOutput) ToHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) HelmValuesOverrideFilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmValuesOverrideFile) *HelmValuesOverrideFile {
+		return &v
+	}).(HelmValuesOverrideFilePtrOutput)
+}
+
+func (o HelmValuesOverrideFileOutput) GitRepository() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFile) *HelmValuesOverrideFileGitRepository { return v.GitRepository }).(HelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+func (o HelmValuesOverrideFileOutput) Raw() HelmValuesOverrideFileRawMapOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFile) map[string]HelmValuesOverrideFileRaw { return v.Raw }).(HelmValuesOverrideFileRawMapOutput)
+}
+
+type HelmValuesOverrideFilePtrOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFilePtrOutput) ToHelmValuesOverrideFilePtrOutput() HelmValuesOverrideFilePtrOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFilePtrOutput) ToHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) HelmValuesOverrideFilePtrOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFilePtrOutput) Elem() HelmValuesOverrideFileOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFile) HelmValuesOverrideFile {
+		if v != nil {
+			return *v
+		}
+		var ret HelmValuesOverrideFile
+		return ret
+	}).(HelmValuesOverrideFileOutput)
+}
+
+func (o HelmValuesOverrideFilePtrOutput) GitRepository() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFile) *HelmValuesOverrideFileGitRepository {
+		if v == nil {
+			return nil
+		}
+		return v.GitRepository
+	}).(HelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+func (o HelmValuesOverrideFilePtrOutput) Raw() HelmValuesOverrideFileRawMapOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFile) map[string]HelmValuesOverrideFileRaw {
+		if v == nil {
+			return nil
+		}
+		return v.Raw
+	}).(HelmValuesOverrideFileRawMapOutput)
+}
+
+type HelmValuesOverrideFileGitRepository struct {
+	Branch     string   `pulumi:"branch"`
+	GitTokenId *string  `pulumi:"gitTokenId"`
+	Paths      []string `pulumi:"paths"`
+	Url        string   `pulumi:"url"`
+}
+
+// HelmValuesOverrideFileGitRepositoryInput is an input type that accepts HelmValuesOverrideFileGitRepositoryArgs and HelmValuesOverrideFileGitRepositoryOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFileGitRepositoryInput` via:
+//
+//	HelmValuesOverrideFileGitRepositoryArgs{...}
+type HelmValuesOverrideFileGitRepositoryInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFileGitRepositoryOutput() HelmValuesOverrideFileGitRepositoryOutput
+	ToHelmValuesOverrideFileGitRepositoryOutputWithContext(context.Context) HelmValuesOverrideFileGitRepositoryOutput
+}
+
+type HelmValuesOverrideFileGitRepositoryArgs struct {
+	Branch     pulumi.StringInput      `pulumi:"branch"`
+	GitTokenId pulumi.StringPtrInput   `pulumi:"gitTokenId"`
+	Paths      pulumi.StringArrayInput `pulumi:"paths"`
+	Url        pulumi.StringInput      `pulumi:"url"`
+}
+
+func (HelmValuesOverrideFileGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (i HelmValuesOverrideFileGitRepositoryArgs) ToHelmValuesOverrideFileGitRepositoryOutput() HelmValuesOverrideFileGitRepositoryOutput {
+	return i.ToHelmValuesOverrideFileGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileGitRepositoryArgs) ToHelmValuesOverrideFileGitRepositoryOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileGitRepositoryOutput)
+}
+
+func (i HelmValuesOverrideFileGitRepositoryArgs) ToHelmValuesOverrideFileGitRepositoryPtrOutput() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return i.ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileGitRepositoryArgs) ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileGitRepositoryOutput).ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// HelmValuesOverrideFileGitRepositoryPtrInput is an input type that accepts HelmValuesOverrideFileGitRepositoryArgs, HelmValuesOverrideFileGitRepositoryPtr and HelmValuesOverrideFileGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFileGitRepositoryPtrInput` via:
+//
+//	        HelmValuesOverrideFileGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type HelmValuesOverrideFileGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFileGitRepositoryPtrOutput() HelmValuesOverrideFileGitRepositoryPtrOutput
+	ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Context) HelmValuesOverrideFileGitRepositoryPtrOutput
+}
+
+type helmValuesOverrideFileGitRepositoryPtrType HelmValuesOverrideFileGitRepositoryArgs
+
+func HelmValuesOverrideFileGitRepositoryPtr(v *HelmValuesOverrideFileGitRepositoryArgs) HelmValuesOverrideFileGitRepositoryPtrInput {
+	return (*helmValuesOverrideFileGitRepositoryPtrType)(v)
+}
+
+func (*helmValuesOverrideFileGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (i *helmValuesOverrideFileGitRepositoryPtrType) ToHelmValuesOverrideFileGitRepositoryPtrOutput() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return i.ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *helmValuesOverrideFileGitRepositoryPtrType) ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+type HelmValuesOverrideFileGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFileGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) ToHelmValuesOverrideFileGitRepositoryOutput() HelmValuesOverrideFileGitRepositoryOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) ToHelmValuesOverrideFileGitRepositoryOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) ToHelmValuesOverrideFileGitRepositoryPtrOutput() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmValuesOverrideFileGitRepository) *HelmValuesOverrideFileGitRepository {
+		return &v
+	}).(HelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type HelmValuesOverrideFileGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFileGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) ToHelmValuesOverrideFileGitRepositoryPtrOutput() HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) ToHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) HelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Elem() HelmValuesOverrideFileGitRepositoryOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) HelmValuesOverrideFileGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret HelmValuesOverrideFileGitRepository
+		return ret
+	}).(HelmValuesOverrideFileGitRepositoryOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GitTokenId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type HelmValuesOverrideFileRaw struct {
+	Content string `pulumi:"content"`
+}
+
+// HelmValuesOverrideFileRawInput is an input type that accepts HelmValuesOverrideFileRawArgs and HelmValuesOverrideFileRawOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFileRawInput` via:
+//
+//	HelmValuesOverrideFileRawArgs{...}
+type HelmValuesOverrideFileRawInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFileRawOutput() HelmValuesOverrideFileRawOutput
+	ToHelmValuesOverrideFileRawOutputWithContext(context.Context) HelmValuesOverrideFileRawOutput
+}
+
+type HelmValuesOverrideFileRawArgs struct {
+	Content pulumi.StringInput `pulumi:"content"`
+}
+
+func (HelmValuesOverrideFileRawArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (i HelmValuesOverrideFileRawArgs) ToHelmValuesOverrideFileRawOutput() HelmValuesOverrideFileRawOutput {
+	return i.ToHelmValuesOverrideFileRawOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileRawArgs) ToHelmValuesOverrideFileRawOutputWithContext(ctx context.Context) HelmValuesOverrideFileRawOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileRawOutput)
+}
+
+// HelmValuesOverrideFileRawMapInput is an input type that accepts HelmValuesOverrideFileRawMap and HelmValuesOverrideFileRawMapOutput values.
+// You can construct a concrete instance of `HelmValuesOverrideFileRawMapInput` via:
+//
+//	HelmValuesOverrideFileRawMap{ "key": HelmValuesOverrideFileRawArgs{...} }
+type HelmValuesOverrideFileRawMapInput interface {
+	pulumi.Input
+
+	ToHelmValuesOverrideFileRawMapOutput() HelmValuesOverrideFileRawMapOutput
+	ToHelmValuesOverrideFileRawMapOutputWithContext(context.Context) HelmValuesOverrideFileRawMapOutput
+}
+
+type HelmValuesOverrideFileRawMap map[string]HelmValuesOverrideFileRawInput
+
+func (HelmValuesOverrideFileRawMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (i HelmValuesOverrideFileRawMap) ToHelmValuesOverrideFileRawMapOutput() HelmValuesOverrideFileRawMapOutput {
+	return i.ToHelmValuesOverrideFileRawMapOutputWithContext(context.Background())
+}
+
+func (i HelmValuesOverrideFileRawMap) ToHelmValuesOverrideFileRawMapOutputWithContext(ctx context.Context) HelmValuesOverrideFileRawMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmValuesOverrideFileRawMapOutput)
+}
+
+type HelmValuesOverrideFileRawOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFileRawOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFileRawOutput) ToHelmValuesOverrideFileRawOutput() HelmValuesOverrideFileRawOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileRawOutput) ToHelmValuesOverrideFileRawOutputWithContext(ctx context.Context) HelmValuesOverrideFileRawOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileRawOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmValuesOverrideFileRaw) string { return v.Content }).(pulumi.StringOutput)
+}
+
+type HelmValuesOverrideFileRawMapOutput struct{ *pulumi.OutputState }
+
+func (HelmValuesOverrideFileRawMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (o HelmValuesOverrideFileRawMapOutput) ToHelmValuesOverrideFileRawMapOutput() HelmValuesOverrideFileRawMapOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileRawMapOutput) ToHelmValuesOverrideFileRawMapOutputWithContext(ctx context.Context) HelmValuesOverrideFileRawMapOutput {
+	return o
+}
+
+func (o HelmValuesOverrideFileRawMapOutput) MapIndex(k pulumi.StringInput) HelmValuesOverrideFileRawOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HelmValuesOverrideFileRaw {
+		return vs[0].(map[string]HelmValuesOverrideFileRaw)[vs[1].(string)]
+	}).(HelmValuesOverrideFileRawOutput)
+}
+
 type JobBuiltInEnvironmentVariable struct {
 	Id    *string `pulumi:"id"`
 	Key   *string `pulumi:"key"`
@@ -20319,6 +22495,748 @@ func (o GetEnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetEnv
 	}).(GetEnvironmentSecretOverrideOutput)
 }
 
+type GetHelmBuiltInEnvironmentVariable struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmBuiltInEnvironmentVariableInput is an input type that accepts GetHelmBuiltInEnvironmentVariableArgs and GetHelmBuiltInEnvironmentVariableOutput values.
+// You can construct a concrete instance of `GetHelmBuiltInEnvironmentVariableInput` via:
+//
+//	GetHelmBuiltInEnvironmentVariableArgs{...}
+type GetHelmBuiltInEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToGetHelmBuiltInEnvironmentVariableOutput() GetHelmBuiltInEnvironmentVariableOutput
+	ToGetHelmBuiltInEnvironmentVariableOutputWithContext(context.Context) GetHelmBuiltInEnvironmentVariableOutput
+}
+
+type GetHelmBuiltInEnvironmentVariableArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmBuiltInEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (i GetHelmBuiltInEnvironmentVariableArgs) ToGetHelmBuiltInEnvironmentVariableOutput() GetHelmBuiltInEnvironmentVariableOutput {
+	return i.ToGetHelmBuiltInEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i GetHelmBuiltInEnvironmentVariableArgs) ToGetHelmBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) GetHelmBuiltInEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmBuiltInEnvironmentVariableOutput)
+}
+
+// GetHelmBuiltInEnvironmentVariableArrayInput is an input type that accepts GetHelmBuiltInEnvironmentVariableArray and GetHelmBuiltInEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `GetHelmBuiltInEnvironmentVariableArrayInput` via:
+//
+//	GetHelmBuiltInEnvironmentVariableArray{ GetHelmBuiltInEnvironmentVariableArgs{...} }
+type GetHelmBuiltInEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmBuiltInEnvironmentVariableArrayOutput() GetHelmBuiltInEnvironmentVariableArrayOutput
+	ToGetHelmBuiltInEnvironmentVariableArrayOutputWithContext(context.Context) GetHelmBuiltInEnvironmentVariableArrayOutput
+}
+
+type GetHelmBuiltInEnvironmentVariableArray []GetHelmBuiltInEnvironmentVariableInput
+
+func (GetHelmBuiltInEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (i GetHelmBuiltInEnvironmentVariableArray) ToGetHelmBuiltInEnvironmentVariableArrayOutput() GetHelmBuiltInEnvironmentVariableArrayOutput {
+	return i.ToGetHelmBuiltInEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmBuiltInEnvironmentVariableArray) ToGetHelmBuiltInEnvironmentVariableArrayOutputWithContext(ctx context.Context) GetHelmBuiltInEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmBuiltInEnvironmentVariableArrayOutput)
+}
+
+type GetHelmBuiltInEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (GetHelmBuiltInEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (o GetHelmBuiltInEnvironmentVariableOutput) ToGetHelmBuiltInEnvironmentVariableOutput() GetHelmBuiltInEnvironmentVariableOutput {
+	return o
+}
+
+func (o GetHelmBuiltInEnvironmentVariableOutput) ToGetHelmBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) GetHelmBuiltInEnvironmentVariableOutput {
+	return o
+}
+
+func (o GetHelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmBuiltInEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmBuiltInEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmBuiltInEnvironmentVariable)(nil)).Elem()
+}
+
+func (o GetHelmBuiltInEnvironmentVariableArrayOutput) ToGetHelmBuiltInEnvironmentVariableArrayOutput() GetHelmBuiltInEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o GetHelmBuiltInEnvironmentVariableArrayOutput) ToGetHelmBuiltInEnvironmentVariableArrayOutputWithContext(ctx context.Context) GetHelmBuiltInEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o GetHelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetHelmBuiltInEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmBuiltInEnvironmentVariable {
+		return vs[0].([]GetHelmBuiltInEnvironmentVariable)[vs[1].(int)]
+	}).(GetHelmBuiltInEnvironmentVariableOutput)
+}
+
+type GetHelmEnvironmentVariable struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmEnvironmentVariableInput is an input type that accepts GetHelmEnvironmentVariableArgs and GetHelmEnvironmentVariableOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableInput` via:
+//
+//	GetHelmEnvironmentVariableArgs{...}
+type GetHelmEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableOutput() GetHelmEnvironmentVariableOutput
+	ToGetHelmEnvironmentVariableOutputWithContext(context.Context) GetHelmEnvironmentVariableOutput
+}
+
+type GetHelmEnvironmentVariableArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableArgs) ToGetHelmEnvironmentVariableOutput() GetHelmEnvironmentVariableOutput {
+	return i.ToGetHelmEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableArgs) ToGetHelmEnvironmentVariableOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableOutput)
+}
+
+// GetHelmEnvironmentVariableArrayInput is an input type that accepts GetHelmEnvironmentVariableArray and GetHelmEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableArrayInput` via:
+//
+//	GetHelmEnvironmentVariableArray{ GetHelmEnvironmentVariableArgs{...} }
+type GetHelmEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableArrayOutput() GetHelmEnvironmentVariableArrayOutput
+	ToGetHelmEnvironmentVariableArrayOutputWithContext(context.Context) GetHelmEnvironmentVariableArrayOutput
+}
+
+type GetHelmEnvironmentVariableArray []GetHelmEnvironmentVariableInput
+
+func (GetHelmEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableArray) ToGetHelmEnvironmentVariableArrayOutput() GetHelmEnvironmentVariableArrayOutput {
+	return i.ToGetHelmEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableArray) ToGetHelmEnvironmentVariableArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableArrayOutput)
+}
+
+type GetHelmEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableOutput) ToGetHelmEnvironmentVariableOutput() GetHelmEnvironmentVariableOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOutput) ToGetHelmEnvironmentVariableOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariable)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableArrayOutput) ToGetHelmEnvironmentVariableArrayOutput() GetHelmEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableArrayOutput) ToGetHelmEnvironmentVariableArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetHelmEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmEnvironmentVariable {
+		return vs[0].([]GetHelmEnvironmentVariable)[vs[1].(int)]
+	}).(GetHelmEnvironmentVariableOutput)
+}
+
+type GetHelmEnvironmentVariableAlias struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmEnvironmentVariableAliasInput is an input type that accepts GetHelmEnvironmentVariableAliasArgs and GetHelmEnvironmentVariableAliasOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableAliasInput` via:
+//
+//	GetHelmEnvironmentVariableAliasArgs{...}
+type GetHelmEnvironmentVariableAliasInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableAliasOutput() GetHelmEnvironmentVariableAliasOutput
+	ToGetHelmEnvironmentVariableAliasOutputWithContext(context.Context) GetHelmEnvironmentVariableAliasOutput
+}
+
+type GetHelmEnvironmentVariableAliasArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmEnvironmentVariableAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableAliasArgs) ToGetHelmEnvironmentVariableAliasOutput() GetHelmEnvironmentVariableAliasOutput {
+	return i.ToGetHelmEnvironmentVariableAliasOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableAliasArgs) ToGetHelmEnvironmentVariableAliasOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableAliasOutput)
+}
+
+// GetHelmEnvironmentVariableAliasArrayInput is an input type that accepts GetHelmEnvironmentVariableAliasArray and GetHelmEnvironmentVariableAliasArrayOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableAliasArrayInput` via:
+//
+//	GetHelmEnvironmentVariableAliasArray{ GetHelmEnvironmentVariableAliasArgs{...} }
+type GetHelmEnvironmentVariableAliasArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableAliasArrayOutput() GetHelmEnvironmentVariableAliasArrayOutput
+	ToGetHelmEnvironmentVariableAliasArrayOutputWithContext(context.Context) GetHelmEnvironmentVariableAliasArrayOutput
+}
+
+type GetHelmEnvironmentVariableAliasArray []GetHelmEnvironmentVariableAliasInput
+
+func (GetHelmEnvironmentVariableAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableAliasArray) ToGetHelmEnvironmentVariableAliasArrayOutput() GetHelmEnvironmentVariableAliasArrayOutput {
+	return i.ToGetHelmEnvironmentVariableAliasArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableAliasArray) ToGetHelmEnvironmentVariableAliasArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableAliasArrayOutput)
+}
+
+type GetHelmEnvironmentVariableAliasOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableAliasOutput) ToGetHelmEnvironmentVariableAliasOutput() GetHelmEnvironmentVariableAliasOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableAliasOutput) ToGetHelmEnvironmentVariableAliasOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableAliasOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmEnvironmentVariableAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariableAlias)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableAliasArrayOutput) ToGetHelmEnvironmentVariableAliasArrayOutput() GetHelmEnvironmentVariableAliasArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableAliasArrayOutput) ToGetHelmEnvironmentVariableAliasArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableAliasArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) GetHelmEnvironmentVariableAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmEnvironmentVariableAlias {
+		return vs[0].([]GetHelmEnvironmentVariableAlias)[vs[1].(int)]
+	}).(GetHelmEnvironmentVariableAliasOutput)
+}
+
+type GetHelmEnvironmentVariableOverride struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmEnvironmentVariableOverrideInput is an input type that accepts GetHelmEnvironmentVariableOverrideArgs and GetHelmEnvironmentVariableOverrideOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableOverrideInput` via:
+//
+//	GetHelmEnvironmentVariableOverrideArgs{...}
+type GetHelmEnvironmentVariableOverrideInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableOverrideOutput() GetHelmEnvironmentVariableOverrideOutput
+	ToGetHelmEnvironmentVariableOverrideOutputWithContext(context.Context) GetHelmEnvironmentVariableOverrideOutput
+}
+
+type GetHelmEnvironmentVariableOverrideArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableOverrideArgs) ToGetHelmEnvironmentVariableOverrideOutput() GetHelmEnvironmentVariableOverrideOutput {
+	return i.ToGetHelmEnvironmentVariableOverrideOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableOverrideArgs) ToGetHelmEnvironmentVariableOverrideOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableOverrideOutput)
+}
+
+// GetHelmEnvironmentVariableOverrideArrayInput is an input type that accepts GetHelmEnvironmentVariableOverrideArray and GetHelmEnvironmentVariableOverrideArrayOutput values.
+// You can construct a concrete instance of `GetHelmEnvironmentVariableOverrideArrayInput` via:
+//
+//	GetHelmEnvironmentVariableOverrideArray{ GetHelmEnvironmentVariableOverrideArgs{...} }
+type GetHelmEnvironmentVariableOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmEnvironmentVariableOverrideArrayOutput() GetHelmEnvironmentVariableOverrideArrayOutput
+	ToGetHelmEnvironmentVariableOverrideArrayOutputWithContext(context.Context) GetHelmEnvironmentVariableOverrideArrayOutput
+}
+
+type GetHelmEnvironmentVariableOverrideArray []GetHelmEnvironmentVariableOverrideInput
+
+func (GetHelmEnvironmentVariableOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (i GetHelmEnvironmentVariableOverrideArray) ToGetHelmEnvironmentVariableOverrideArrayOutput() GetHelmEnvironmentVariableOverrideArrayOutput {
+	return i.ToGetHelmEnvironmentVariableOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmEnvironmentVariableOverrideArray) ToGetHelmEnvironmentVariableOverrideArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmEnvironmentVariableOverrideArrayOutput)
+}
+
+type GetHelmEnvironmentVariableOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableOverrideOutput) ToGetHelmEnvironmentVariableOverrideOutput() GetHelmEnvironmentVariableOverrideOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOverrideOutput) ToGetHelmEnvironmentVariableOverrideOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOverrideOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmEnvironmentVariableOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmEnvironmentVariableOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmEnvironmentVariableOverride)(nil)).Elem()
+}
+
+func (o GetHelmEnvironmentVariableOverrideArrayOutput) ToGetHelmEnvironmentVariableOverrideArrayOutput() GetHelmEnvironmentVariableOverrideArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOverrideArrayOutput) ToGetHelmEnvironmentVariableOverrideArrayOutputWithContext(ctx context.Context) GetHelmEnvironmentVariableOverrideArrayOutput {
+	return o
+}
+
+func (o GetHelmEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) GetHelmEnvironmentVariableOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmEnvironmentVariableOverride {
+		return vs[0].([]GetHelmEnvironmentVariableOverride)[vs[1].(int)]
+	}).(GetHelmEnvironmentVariableOverrideOutput)
+}
+
+type GetHelmSecret struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmSecretInput is an input type that accepts GetHelmSecretArgs and GetHelmSecretOutput values.
+// You can construct a concrete instance of `GetHelmSecretInput` via:
+//
+//	GetHelmSecretArgs{...}
+type GetHelmSecretInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretOutput() GetHelmSecretOutput
+	ToGetHelmSecretOutputWithContext(context.Context) GetHelmSecretOutput
+}
+
+type GetHelmSecretArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecret)(nil)).Elem()
+}
+
+func (i GetHelmSecretArgs) ToGetHelmSecretOutput() GetHelmSecretOutput {
+	return i.ToGetHelmSecretOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretArgs) ToGetHelmSecretOutputWithContext(ctx context.Context) GetHelmSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretOutput)
+}
+
+// GetHelmSecretArrayInput is an input type that accepts GetHelmSecretArray and GetHelmSecretArrayOutput values.
+// You can construct a concrete instance of `GetHelmSecretArrayInput` via:
+//
+//	GetHelmSecretArray{ GetHelmSecretArgs{...} }
+type GetHelmSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretArrayOutput() GetHelmSecretArrayOutput
+	ToGetHelmSecretArrayOutputWithContext(context.Context) GetHelmSecretArrayOutput
+}
+
+type GetHelmSecretArray []GetHelmSecretInput
+
+func (GetHelmSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecret)(nil)).Elem()
+}
+
+func (i GetHelmSecretArray) ToGetHelmSecretArrayOutput() GetHelmSecretArrayOutput {
+	return i.ToGetHelmSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretArray) ToGetHelmSecretArrayOutputWithContext(ctx context.Context) GetHelmSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretArrayOutput)
+}
+
+type GetHelmSecretOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecret)(nil)).Elem()
+}
+
+func (o GetHelmSecretOutput) ToGetHelmSecretOutput() GetHelmSecretOutput {
+	return o
+}
+
+func (o GetHelmSecretOutput) ToGetHelmSecretOutputWithContext(ctx context.Context) GetHelmSecretOutput {
+	return o
+}
+
+func (o GetHelmSecretOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecret) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecret) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecret) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecret)(nil)).Elem()
+}
+
+func (o GetHelmSecretArrayOutput) ToGetHelmSecretArrayOutput() GetHelmSecretArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretArrayOutput) ToGetHelmSecretArrayOutputWithContext(ctx context.Context) GetHelmSecretArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretArrayOutput) Index(i pulumi.IntInput) GetHelmSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmSecret {
+		return vs[0].([]GetHelmSecret)[vs[1].(int)]
+	}).(GetHelmSecretOutput)
+}
+
+type GetHelmSecretAlias struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmSecretAliasInput is an input type that accepts GetHelmSecretAliasArgs and GetHelmSecretAliasOutput values.
+// You can construct a concrete instance of `GetHelmSecretAliasInput` via:
+//
+//	GetHelmSecretAliasArgs{...}
+type GetHelmSecretAliasInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretAliasOutput() GetHelmSecretAliasOutput
+	ToGetHelmSecretAliasOutputWithContext(context.Context) GetHelmSecretAliasOutput
+}
+
+type GetHelmSecretAliasArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmSecretAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecretAlias)(nil)).Elem()
+}
+
+func (i GetHelmSecretAliasArgs) ToGetHelmSecretAliasOutput() GetHelmSecretAliasOutput {
+	return i.ToGetHelmSecretAliasOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretAliasArgs) ToGetHelmSecretAliasOutputWithContext(ctx context.Context) GetHelmSecretAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretAliasOutput)
+}
+
+// GetHelmSecretAliasArrayInput is an input type that accepts GetHelmSecretAliasArray and GetHelmSecretAliasArrayOutput values.
+// You can construct a concrete instance of `GetHelmSecretAliasArrayInput` via:
+//
+//	GetHelmSecretAliasArray{ GetHelmSecretAliasArgs{...} }
+type GetHelmSecretAliasArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretAliasArrayOutput() GetHelmSecretAliasArrayOutput
+	ToGetHelmSecretAliasArrayOutputWithContext(context.Context) GetHelmSecretAliasArrayOutput
+}
+
+type GetHelmSecretAliasArray []GetHelmSecretAliasInput
+
+func (GetHelmSecretAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecretAlias)(nil)).Elem()
+}
+
+func (i GetHelmSecretAliasArray) ToGetHelmSecretAliasArrayOutput() GetHelmSecretAliasArrayOutput {
+	return i.ToGetHelmSecretAliasArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretAliasArray) ToGetHelmSecretAliasArrayOutputWithContext(ctx context.Context) GetHelmSecretAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretAliasArrayOutput)
+}
+
+type GetHelmSecretAliasOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecretAlias)(nil)).Elem()
+}
+
+func (o GetHelmSecretAliasOutput) ToGetHelmSecretAliasOutput() GetHelmSecretAliasOutput {
+	return o
+}
+
+func (o GetHelmSecretAliasOutput) ToGetHelmSecretAliasOutputWithContext(ctx context.Context) GetHelmSecretAliasOutput {
+	return o
+}
+
+func (o GetHelmSecretAliasOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretAliasOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretAliasOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmSecretAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecretAlias)(nil)).Elem()
+}
+
+func (o GetHelmSecretAliasArrayOutput) ToGetHelmSecretAliasArrayOutput() GetHelmSecretAliasArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretAliasArrayOutput) ToGetHelmSecretAliasArrayOutputWithContext(ctx context.Context) GetHelmSecretAliasArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretAliasArrayOutput) Index(i pulumi.IntInput) GetHelmSecretAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmSecretAlias {
+		return vs[0].([]GetHelmSecretAlias)[vs[1].(int)]
+	}).(GetHelmSecretAliasOutput)
+}
+
+type GetHelmSecretOverride struct {
+	Id    string `pulumi:"id"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetHelmSecretOverrideInput is an input type that accepts GetHelmSecretOverrideArgs and GetHelmSecretOverrideOutput values.
+// You can construct a concrete instance of `GetHelmSecretOverrideInput` via:
+//
+//	GetHelmSecretOverrideArgs{...}
+type GetHelmSecretOverrideInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretOverrideOutput() GetHelmSecretOverrideOutput
+	ToGetHelmSecretOverrideOutputWithContext(context.Context) GetHelmSecretOverrideOutput
+}
+
+type GetHelmSecretOverrideArgs struct {
+	Id    pulumi.StringInput `pulumi:"id"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmSecretOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecretOverride)(nil)).Elem()
+}
+
+func (i GetHelmSecretOverrideArgs) ToGetHelmSecretOverrideOutput() GetHelmSecretOverrideOutput {
+	return i.ToGetHelmSecretOverrideOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretOverrideArgs) ToGetHelmSecretOverrideOutputWithContext(ctx context.Context) GetHelmSecretOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretOverrideOutput)
+}
+
+// GetHelmSecretOverrideArrayInput is an input type that accepts GetHelmSecretOverrideArray and GetHelmSecretOverrideArrayOutput values.
+// You can construct a concrete instance of `GetHelmSecretOverrideArrayInput` via:
+//
+//	GetHelmSecretOverrideArray{ GetHelmSecretOverrideArgs{...} }
+type GetHelmSecretOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmSecretOverrideArrayOutput() GetHelmSecretOverrideArrayOutput
+	ToGetHelmSecretOverrideArrayOutputWithContext(context.Context) GetHelmSecretOverrideArrayOutput
+}
+
+type GetHelmSecretOverrideArray []GetHelmSecretOverrideInput
+
+func (GetHelmSecretOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecretOverride)(nil)).Elem()
+}
+
+func (i GetHelmSecretOverrideArray) ToGetHelmSecretOverrideArrayOutput() GetHelmSecretOverrideArrayOutput {
+	return i.ToGetHelmSecretOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmSecretOverrideArray) ToGetHelmSecretOverrideArrayOutputWithContext(ctx context.Context) GetHelmSecretOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSecretOverrideArrayOutput)
+}
+
+type GetHelmSecretOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSecretOverride)(nil)).Elem()
+}
+
+func (o GetHelmSecretOverrideOutput) ToGetHelmSecretOverrideOutput() GetHelmSecretOverrideOutput {
+	return o
+}
+
+func (o GetHelmSecretOverrideOutput) ToGetHelmSecretOverrideOutputWithContext(ctx context.Context) GetHelmSecretOverrideOutput {
+	return o
+}
+
+func (o GetHelmSecretOverrideOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretOverrideOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHelmSecretOverrideOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmSecretOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSecretOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmSecretOverride)(nil)).Elem()
+}
+
+func (o GetHelmSecretOverrideArrayOutput) ToGetHelmSecretOverrideArrayOutput() GetHelmSecretOverrideArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretOverrideArrayOutput) ToGetHelmSecretOverrideArrayOutputWithContext(ctx context.Context) GetHelmSecretOverrideArrayOutput {
+	return o
+}
+
+func (o GetHelmSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetHelmSecretOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmSecretOverride {
+		return vs[0].([]GetHelmSecretOverride)[vs[1].(int)]
+	}).(GetHelmSecretOverrideOutput)
+}
+
 type GetJobBuiltInEnvironmentVariable struct {
 	Id    string `pulumi:"id"`
 	Key   string `pulumi:"key"`
@@ -24834,6 +27752,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSecretAliasArrayInput)(nil)).Elem(), EnvironmentSecretAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSecretOverrideInput)(nil)).Elem(), EnvironmentSecretOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSecretOverrideArrayInput)(nil)).Elem(), EnvironmentSecretOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableInput)(nil)).Elem(), HelmEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableArrayInput)(nil)).Elem(), HelmEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableAliasInput)(nil)).Elem(), HelmEnvironmentVariableAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableAliasArrayInput)(nil)).Elem(), HelmEnvironmentVariableAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableOverrideInput)(nil)).Elem(), HelmEnvironmentVariableOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableOverrideArrayInput)(nil)).Elem(), HelmEnvironmentVariableOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmPortsInput)(nil)).Elem(), HelmPortsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmPortsMapInput)(nil)).Elem(), HelmPortsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmRepositoryConfigInput)(nil)).Elem(), HelmRepositoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmRepositoryConfigPtrInput)(nil)).Elem(), HelmRepositoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretInput)(nil)).Elem(), HelmSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretArrayInput)(nil)).Elem(), HelmSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretAliasInput)(nil)).Elem(), HelmSecretAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretAliasArrayInput)(nil)).Elem(), HelmSecretAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretOverrideInput)(nil)).Elem(), HelmSecretOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSecretOverrideArrayInput)(nil)).Elem(), HelmSecretOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourceInput)(nil)).Elem(), HelmSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourcePtrInput)(nil)).Elem(), HelmSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourceGitRepositoryInput)(nil)).Elem(), HelmSourceGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourceGitRepositoryPtrInput)(nil)).Elem(), HelmSourceGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourceHelmRepositoryInput)(nil)).Elem(), HelmSourceHelmRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmSourceHelmRepositoryPtrInput)(nil)).Elem(), HelmSourceHelmRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideInput)(nil)).Elem(), HelmValuesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverridePtrInput)(nil)).Elem(), HelmValuesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileInput)(nil)).Elem(), HelmValuesOverrideFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFilePtrInput)(nil)).Elem(), HelmValuesOverrideFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileGitRepositoryInput)(nil)).Elem(), HelmValuesOverrideFileGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileGitRepositoryPtrInput)(nil)).Elem(), HelmValuesOverrideFileGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileRawInput)(nil)).Elem(), HelmValuesOverrideFileRawArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileRawMapInput)(nil)).Elem(), HelmValuesOverrideFileRawMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobBuiltInEnvironmentVariableInput)(nil)).Elem(), JobBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), JobBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobEnvironmentVariableInput)(nil)).Elem(), JobEnvironmentVariableArgs{})
@@ -25015,6 +27965,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentSecretAliasArrayInput)(nil)).Elem(), GetEnvironmentSecretAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentSecretOverrideInput)(nil)).Elem(), GetEnvironmentSecretOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentSecretOverrideArrayInput)(nil)).Elem(), GetEnvironmentSecretOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableInput)(nil)).Elem(), GetHelmEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableAliasInput)(nil)).Elem(), GetHelmEnvironmentVariableAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableAliasArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableOverrideInput)(nil)).Elem(), GetHelmEnvironmentVariableOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableOverrideArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretInput)(nil)).Elem(), GetHelmSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretArrayInput)(nil)).Elem(), GetHelmSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretAliasInput)(nil)).Elem(), GetHelmSecretAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretAliasArrayInput)(nil)).Elem(), GetHelmSecretAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretOverrideInput)(nil)).Elem(), GetHelmSecretOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretOverrideArrayInput)(nil)).Elem(), GetHelmSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobEnvironmentVariableInput)(nil)).Elem(), GetJobEnvironmentVariableArgs{})
@@ -25193,6 +28157,38 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSecretAliasArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSecretOverrideOutput{})
 	pulumi.RegisterOutputType(EnvironmentSecretOverrideArrayOutput{})
+	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableAliasOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableAliasArrayOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableOverrideOutput{})
+	pulumi.RegisterOutputType(HelmEnvironmentVariableOverrideArrayOutput{})
+	pulumi.RegisterOutputType(HelmPortsOutput{})
+	pulumi.RegisterOutputType(HelmPortsMapOutput{})
+	pulumi.RegisterOutputType(HelmRepositoryConfigOutput{})
+	pulumi.RegisterOutputType(HelmRepositoryConfigPtrOutput{})
+	pulumi.RegisterOutputType(HelmSecretOutput{})
+	pulumi.RegisterOutputType(HelmSecretArrayOutput{})
+	pulumi.RegisterOutputType(HelmSecretAliasOutput{})
+	pulumi.RegisterOutputType(HelmSecretAliasArrayOutput{})
+	pulumi.RegisterOutputType(HelmSecretOverrideOutput{})
+	pulumi.RegisterOutputType(HelmSecretOverrideArrayOutput{})
+	pulumi.RegisterOutputType(HelmSourceOutput{})
+	pulumi.RegisterOutputType(HelmSourcePtrOutput{})
+	pulumi.RegisterOutputType(HelmSourceGitRepositoryOutput{})
+	pulumi.RegisterOutputType(HelmSourceGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(HelmSourceHelmRepositoryOutput{})
+	pulumi.RegisterOutputType(HelmSourceHelmRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverridePtrOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFileOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFilePtrOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFileGitRepositoryOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFileGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFileRawOutput{})
+	pulumi.RegisterOutputType(HelmValuesOverrideFileRawMapOutput{})
 	pulumi.RegisterOutputType(JobBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(JobBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(JobEnvironmentVariableOutput{})
@@ -25374,6 +28370,20 @@ func init() {
 	pulumi.RegisterOutputType(GetEnvironmentSecretAliasArrayOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentSecretOverrideOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentSecretOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableAliasOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableAliasArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOverrideOutput{})
+	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretAliasOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretAliasArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretOverrideOutput{})
+	pulumi.RegisterOutputType(GetHelmSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetJobEnvironmentVariableOutput{})

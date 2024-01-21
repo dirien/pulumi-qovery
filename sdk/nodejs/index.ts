@@ -100,6 +100,16 @@ export const getGitToken: typeof import("./getGitToken").getGitToken = null as a
 export const getGitTokenOutput: typeof import("./getGitToken").getGitTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getGitToken","getGitTokenOutput"], () => require("./getGitToken"));
 
+export { GetHelmArgs, GetHelmResult, GetHelmOutputArgs } from "./getHelm";
+export const getHelm: typeof import("./getHelm").getHelm = null as any;
+export const getHelmOutput: typeof import("./getHelm").getHelmOutput = null as any;
+utilities.lazyLoad(exports, ["getHelm","getHelmOutput"], () => require("./getHelm"));
+
+export { GetHelmRepositoryArgs, GetHelmRepositoryResult, GetHelmRepositoryOutputArgs } from "./getHelmRepository";
+export const getHelmRepository: typeof import("./getHelmRepository").getHelmRepository = null as any;
+export const getHelmRepositoryOutput: typeof import("./getHelmRepository").getHelmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getHelmRepository","getHelmRepositoryOutput"], () => require("./getHelmRepository"));
+
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
@@ -124,6 +134,16 @@ export { GitTokenArgs, GitTokenState } from "./gitToken";
 export type GitToken = import("./gitToken").GitToken;
 export const GitToken: typeof import("./gitToken").GitToken = null as any;
 utilities.lazyLoad(exports, ["GitToken"], () => require("./gitToken"));
+
+export { HelmArgs, HelmState } from "./helm";
+export type Helm = import("./helm").Helm;
+export const Helm: typeof import("./helm").Helm = null as any;
+utilities.lazyLoad(exports, ["Helm"], () => require("./helm"));
+
+export { HelmRepositoryArgs, HelmRepositoryState } from "./helmRepository";
+export type HelmRepository = import("./helmRepository").HelmRepository;
+export const HelmRepository: typeof import("./helmRepository").HelmRepository = null as any;
+utilities.lazyLoad(exports, ["HelmRepository"], () => require("./helmRepository"));
 
 export { JobArgs, JobState } from "./job";
 export type Job = import("./job").Job;
@@ -184,6 +204,10 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "qovery:index/gitToken:GitToken":
                 return new GitToken(name, <any>undefined, { urn })
+            case "qovery:index/helm:Helm":
+                return new Helm(name, <any>undefined, { urn })
+            case "qovery:index/helmRepository:HelmRepository":
+                return new HelmRepository(name, <any>undefined, { urn })
             case "qovery:index/job:Job":
                 return new Job(name, <any>undefined, { urn })
             case "qovery:index/organization:Organization":
@@ -207,6 +231,8 @@ pulumi.runtime.registerResourceModule("qovery", "index/deployment", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/deploymentStage", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/environment", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/gitToken", _module)
+pulumi.runtime.registerResourceModule("qovery", "index/helm", _module)
+pulumi.runtime.registerResourceModule("qovery", "index/helmRepository", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/job", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/organization", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/project", _module)

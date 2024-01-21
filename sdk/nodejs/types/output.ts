@@ -707,6 +707,48 @@ export interface GetEnvironmentSecretOverride {
     value: string;
 }
 
+export interface GetHelmBuiltInEnvironmentVariable {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmEnvironmentVariable {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmEnvironmentVariableAlias {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmEnvironmentVariableOverride {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmSecret {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmSecretAlias {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface GetHelmSecretOverride {
+    id: string;
+    key: string;
+    value: string;
+}
+
 export interface GetJobBuiltInEnvironmentVariable {
     id: string;
     key: string;
@@ -954,6 +996,108 @@ export interface GetProjectSecretAlias {
      * Name of the secret to alias.
      */
     value: string;
+}
+
+export interface HelmBuiltInEnvironmentVariable {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmEnvironmentVariable {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmEnvironmentVariableAlias {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmEnvironmentVariableOverride {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmPorts {
+    externalPort: number;
+    internalPort: number;
+    isDefault: boolean;
+    namespace?: string;
+    protocol: string;
+    serviceName: string;
+}
+
+export interface HelmRepositoryConfig {
+    accessKeyId?: string;
+    password?: string;
+    region?: string;
+    scalewayAccessKey?: string;
+    scalewaySecretKey?: string;
+    secretAccessKey?: string;
+    username?: string;
+}
+
+export interface HelmSecret {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmSecretAlias {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmSecretOverride {
+    id: string;
+    key: string;
+    value: string;
+}
+
+export interface HelmSource {
+    gitRepository?: outputs.HelmSourceGitRepository;
+    helmRepository?: outputs.HelmSourceHelmRepository;
+}
+
+export interface HelmSourceGitRepository {
+    branch: string;
+    gitTokenId: string;
+    rootPath: string;
+    url: string;
+}
+
+export interface HelmSourceHelmRepository {
+    chartName: string;
+    chartVersion: string;
+    helmRepositoryId: string;
+}
+
+export interface HelmValuesOverride {
+    file?: outputs.HelmValuesOverrideFile;
+    set: {[key: string]: string};
+    setJson: {[key: string]: string};
+    setString: {[key: string]: string};
+}
+
+export interface HelmValuesOverrideFile {
+    gitRepository?: outputs.HelmValuesOverrideFileGitRepository;
+    raw?: {[key: string]: outputs.HelmValuesOverrideFileRaw};
+}
+
+export interface HelmValuesOverrideFileGitRepository {
+    branch: string;
+    gitTokenId: string;
+    paths: string[];
+    url: string;
+}
+
+export interface HelmValuesOverrideFileRaw {
+    content: string;
 }
 
 export interface JobBuiltInEnvironmentVariable {

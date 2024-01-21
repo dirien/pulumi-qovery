@@ -983,6 +983,78 @@ export interface GetEnvironmentSecretOverrideArgs {
     value?: pulumi.Input<string>;
 }
 
+export interface GetHelmEnvironmentVariable {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmEnvironmentVariableArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetHelmEnvironmentVariableAlias {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmEnvironmentVariableAliasArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetHelmEnvironmentVariableOverride {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmEnvironmentVariableOverrideArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetHelmSecret {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmSecretArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetHelmSecretAlias {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmSecretAliasArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetHelmSecretOverride {
+    id?: string;
+    key?: string;
+    value?: string;
+}
+
+export interface GetHelmSecretOverrideArgs {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
 export interface GetJobEnvironmentVariable {
     id?: string;
     key?: string;
@@ -1373,6 +1445,108 @@ export interface GetProjectSecretAliasArgs {
      * Name of the secret to alias.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface HelmBuiltInEnvironmentVariable {
+    id?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface HelmEnvironmentVariable {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmEnvironmentVariableAlias {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmEnvironmentVariableOverride {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmPorts {
+    externalPort: pulumi.Input<number>;
+    internalPort: pulumi.Input<number>;
+    isDefault: pulumi.Input<boolean>;
+    namespace?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
+}
+
+export interface HelmRepositoryConfig {
+    accessKeyId?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    scalewayAccessKey?: pulumi.Input<string>;
+    scalewaySecretKey?: pulumi.Input<string>;
+    secretAccessKey?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface HelmSecret {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmSecretAlias {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmSecretOverride {
+    id?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface HelmSource {
+    gitRepository?: pulumi.Input<inputs.HelmSourceGitRepository>;
+    helmRepository?: pulumi.Input<inputs.HelmSourceHelmRepository>;
+}
+
+export interface HelmSourceGitRepository {
+    branch?: pulumi.Input<string>;
+    gitTokenId?: pulumi.Input<string>;
+    rootPath?: pulumi.Input<string>;
+    url: pulumi.Input<string>;
+}
+
+export interface HelmSourceHelmRepository {
+    chartName: pulumi.Input<string>;
+    chartVersion: pulumi.Input<string>;
+    helmRepositoryId: pulumi.Input<string>;
+}
+
+export interface HelmValuesOverride {
+    file?: pulumi.Input<inputs.HelmValuesOverrideFile>;
+    set: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    setJson: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    setString: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface HelmValuesOverrideFile {
+    gitRepository?: pulumi.Input<inputs.HelmValuesOverrideFileGitRepository>;
+    raw?: pulumi.Input<{[key: string]: pulumi.Input<inputs.HelmValuesOverrideFileRaw>}>;
+}
+
+export interface HelmValuesOverrideFileGitRepository {
+    branch: pulumi.Input<string>;
+    gitTokenId?: pulumi.Input<string>;
+    paths: pulumi.Input<pulumi.Input<string>[]>;
+    url: pulumi.Input<string>;
+}
+
+export interface HelmValuesOverrideFileRaw {
+    content: pulumi.Input<string>;
 }
 
 export interface JobBuiltInEnvironmentVariable {
