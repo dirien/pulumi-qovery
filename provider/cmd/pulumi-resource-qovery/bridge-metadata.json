@@ -1167,5 +1167,5 @@
                 "scalewaySecretKey": "scaleway_secret_key"
             }
         }
-    },
+    }
 }
