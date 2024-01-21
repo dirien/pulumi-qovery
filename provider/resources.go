@@ -24,6 +24,7 @@ import (
 
 	"github.com/dirien/pulumi-qovery/provider/pkg/version"
 	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
@@ -206,6 +207,11 @@ func Provider() tfbridge.ProviderInfo {
 			BasePackage: "io.dirien",
 		},
 	}
+
+	prov.MustComputeTokens(tfbridgetokens.SingleModule("qovery_", mainMod,
+		tfbridgetokens.MakeStandard(mainPkg)))
+
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
 

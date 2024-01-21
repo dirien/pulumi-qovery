@@ -1,4 +1,647 @@
 {
+    "auto-aliasing": {
+        "resources": {
+            "qovery_application": {
+                "current": "qovery:index/application:Application",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ports": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_aws_credentials": {
+                "current": "qovery:index/awsCredentials:AwsCredentials"
+            },
+            "qovery_cluster": {
+                "current": "qovery:index/cluster:Cluster",
+                "fields": {
+                    "routing_table": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_container": {
+                "current": "qovery:index/container:Container",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ports": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_container_registry": {
+                "current": "qovery:index/containerRegistry:ContainerRegistry"
+            },
+            "qovery_database": {
+                "current": "qovery:index/database:Database"
+            },
+            "qovery_deployment": {
+                "current": "qovery:index/deployment:Deployment"
+            },
+            "qovery_deployment_stage": {
+                "current": "qovery:index/deploymentStage:DeploymentStage"
+            },
+            "qovery_environment": {
+                "current": "qovery:index/environment:Environment",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_git_token": {
+                "current": "qovery:index/gitToken:GitToken"
+            },
+            "qovery_job": {
+                "current": "qovery:index/job:Job",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schedule": {
+                        "fields": {
+                            "cronjob": {
+                                "fields": {
+                                    "command": {
+                                        "fields": {
+                                            "arguments": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "on_delete": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "on_start": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "on_stop": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_organization": {
+                "current": "qovery:index/organization:Organization"
+            },
+            "qovery_project": {
+                "current": "qovery:index/project:Project",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_scaleway_credentials": {
+                "current": "qovery:index/scalewayCredentials:ScalewayCredentials"
+            }
+        },
+        "datasources": {
+            "qovery_application": {
+                "current": "qovery:index/getApplication:getApplication",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ports": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_aws_credentials": {
+                "current": "qovery:index/getAwsCredentials:getAwsCredentials"
+            },
+            "qovery_cluster": {
+                "current": "qovery:index/getCluster:getCluster",
+                "fields": {
+                    "routing_table": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_container": {
+                "current": "qovery:index/getContainer:getContainer",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ports": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_container_registry": {
+                "current": "qovery:index/getContainerRegistry:getContainerRegistry"
+            },
+            "qovery_database": {
+                "current": "qovery:index/getDatabase:getDatabase"
+            },
+            "qovery_deployment": {
+                "current": "qovery:index/getDeployment:getDeployment"
+            },
+            "qovery_deployment_stage": {
+                "current": "qovery:index/getDeploymentStage:getDeploymentStage"
+            },
+            "qovery_environment": {
+                "current": "qovery:index/getEnvironment:getEnvironment",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_git_token": {
+                "current": "qovery:index/getGitToken:getGitToken"
+            },
+            "qovery_job": {
+                "current": "qovery:index/getJob:getJob",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "healthchecks": {
+                        "fields": {
+                            "liveness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "readiness_probe": {
+                                "fields": {
+                                    "type": {
+                                        "fields": {
+                                            "exec": {
+                                                "fields": {
+                                                    "command": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schedule": {
+                        "fields": {
+                            "cronjob": {
+                                "fields": {
+                                    "command": {
+                                        "fields": {
+                                            "arguments": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "on_delete": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "on_start": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "on_stop": {
+                                "fields": {
+                                    "arguments": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secret_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_organization": {
+                "current": "qovery:index/getOrganization:getOrganization"
+            },
+            "qovery_project": {
+                "current": "qovery:index/getProject:getProject",
+                "fields": {
+                    "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variable_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "secret_aliases": {
+                        "maxItemsOne": false
+                    },
+                    "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_scaleway_credentials": {
+                "current": "qovery:index/getScalewayCredentials:getScalewayCredentials"
+            }
+        }
+    },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "qovery:index/application:Application": "qovery_application",
@@ -525,9 +1168,4 @@
             }
         }
     },
-    "resources": {
-        "port:index/action:Action": "port_action",
-        "port:index/blueprint:Blueprint": "port_blueprint",
-        "port:index/entity:Entity": "port_entity"
-    }
 }
