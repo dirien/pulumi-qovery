@@ -7,6 +7,53 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## # qovery.Environment (Resource)
+ *
+ * Provides a Qovery environment resource. This can be used to create and manage Qovery environments.
+ *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@ediri/qovery";
+ *
+ * const myEnvironment = new qovery.Environment("myEnvironment", {
+ *     projectId: qovery_project.my_project.id,
+ *     clusterId: qovery_cluster.my_cluster.id,
+ *     mode: "DEVELOPMENT",
+ *     environmentVariables: [{
+ *         key: "ENV_VAR_KEY",
+ *         value: "ENV_VAR_VALUE",
+ *     }],
+ *     environmentVariableAliases: [{
+ *         key: "ENV_VAR_KEY_ALIAS",
+ *         value: "ENV_VAR_KEY",
+ *     }],
+ *     environmentVariableOverrides: [{
+ *         key: "SOME_PROJECT_VARIABLE",
+ *         value: "OVERRIDDEN_VALUE",
+ *     }],
+ *     secrets: [{
+ *         key: "SECRET_KEY",
+ *         value: "SECRET_VALUE",
+ *     }],
+ *     secretAliases: [{
+ *         key: "SECRET_KEY_ALIAS",
+ *         value: "SECRET_KEY",
+ *     }],
+ *     secretOverrides: [{
+ *         key: "SOME_PROJECT_SECRET",
+ *         value: "OVERRIDDEN_VALUE",
+ *     }],
+ * }, {
+ *     dependsOn: [qovery_project.my_project],
+ * });
+ * ```
+ *
+ * You can find complete examples within these repositories:
+ *
+ * * Deploy an Application and Database within 3 environments
+ *
  * ## Import
  *
  * ```sh

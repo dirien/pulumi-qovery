@@ -15,7 +15,7 @@ namespace ediri.Qovery
         /// <summary>
         /// ## # qovery.Deployment (Data Source)
         /// 
-        /// Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+        /// Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("qovery:index/getDeployment:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
@@ -23,7 +23,7 @@ namespace ediri.Qovery
         /// <summary>
         /// ## # qovery.Deployment (Data Source)
         /// 
-        /// Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+        /// Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("qovery:index/getDeployment:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

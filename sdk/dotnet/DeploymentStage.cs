@@ -11,6 +11,41 @@ using Pulumi;
 namespace ediri.Qovery
 {
     /// <summary>
+    /// ## # qovery.DeploymentStage (Resource)
+    /// 
+    /// Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+    /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Qovery = ediri.Qovery;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myDeploymentStage = new Qovery.DeploymentStage("myDeploymentStage", new()
+    ///     {
+    ///         EnvironmentId = qovery_environment.My_environment.Id,
+    ///         Description = "",
+    ///         IsAfter = qovery_deployment_stage.First_deployment_stage.Id,
+    ///         IsBefore = qovery_deployment_stage.Third_deployment_stage.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             qovery_environment.My_environment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// You can find complete examples within these repositories:
+    /// 
+    /// * Deploy services with a specific order
+    /// 
     /// ## Import
     /// 
     /// ```sh

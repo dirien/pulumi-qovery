@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## # qovery.Application (Resource)
+ *
+ * Provides a Qovery application resource. This can be used to create and manage Qovery applications.
+ *
  * ## Import
  *
  * ```sh

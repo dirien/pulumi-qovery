@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Job (Resource)
+//
+// Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
+//
 // ## Import
 //
 // ```sh

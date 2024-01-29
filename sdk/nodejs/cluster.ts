@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## # qovery.Cluster (Resource)
+ *
+ * Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+ *
  * ## Import
  *
  * ```sh

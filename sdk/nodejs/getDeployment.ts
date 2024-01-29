@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # qovery.Deployment (Data Source)
  *
- * Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+ * Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
 
@@ -38,7 +38,7 @@ export interface GetDeploymentResult {
 /**
  * ## # qovery.Deployment (Data Source)
  *
- * Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+ * Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))

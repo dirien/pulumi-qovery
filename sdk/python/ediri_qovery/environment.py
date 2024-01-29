@@ -384,6 +384,51 @@ class Environment(pulumi.CustomResource):
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]]] = None,
                  __props__=None):
         """
+        ## # Environment (Resource)
+
+        Provides a Qovery environment resource. This can be used to create and manage Qovery environments.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_environment = qovery.Environment("myEnvironment",
+            project_id=qovery_project["my_project"]["id"],
+            cluster_id=qovery_cluster["my_cluster"]["id"],
+            mode="DEVELOPMENT",
+            environment_variables=[qovery.EnvironmentEnvironmentVariableArgs(
+                key="ENV_VAR_KEY",
+                value="ENV_VAR_VALUE",
+            )],
+            environment_variable_aliases=[qovery.EnvironmentEnvironmentVariableAliasArgs(
+                key="ENV_VAR_KEY_ALIAS",
+                value="ENV_VAR_KEY",
+            )],
+            environment_variable_overrides=[qovery.EnvironmentEnvironmentVariableOverrideArgs(
+                key="SOME_PROJECT_VARIABLE",
+                value="OVERRIDDEN_VALUE",
+            )],
+            secrets=[qovery.EnvironmentSecretArgs(
+                key="SECRET_KEY",
+                value="SECRET_VALUE",
+            )],
+            secret_aliases=[qovery.EnvironmentSecretAliasArgs(
+                key="SECRET_KEY_ALIAS",
+                value="SECRET_KEY",
+            )],
+            secret_overrides=[qovery.EnvironmentSecretOverrideArgs(
+                key="SOME_PROJECT_SECRET",
+                value="OVERRIDDEN_VALUE",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
+        ```
+
+        You can find complete examples within these repositories:
+
+        * Deploy an Application and Database within 3 environments
+
         ## Import
 
         ```sh
@@ -411,6 +456,51 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # Environment (Resource)
+
+        Provides a Qovery environment resource. This can be used to create and manage Qovery environments.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_environment = qovery.Environment("myEnvironment",
+            project_id=qovery_project["my_project"]["id"],
+            cluster_id=qovery_cluster["my_cluster"]["id"],
+            mode="DEVELOPMENT",
+            environment_variables=[qovery.EnvironmentEnvironmentVariableArgs(
+                key="ENV_VAR_KEY",
+                value="ENV_VAR_VALUE",
+            )],
+            environment_variable_aliases=[qovery.EnvironmentEnvironmentVariableAliasArgs(
+                key="ENV_VAR_KEY_ALIAS",
+                value="ENV_VAR_KEY",
+            )],
+            environment_variable_overrides=[qovery.EnvironmentEnvironmentVariableOverrideArgs(
+                key="SOME_PROJECT_VARIABLE",
+                value="OVERRIDDEN_VALUE",
+            )],
+            secrets=[qovery.EnvironmentSecretArgs(
+                key="SECRET_KEY",
+                value="SECRET_VALUE",
+            )],
+            secret_aliases=[qovery.EnvironmentSecretAliasArgs(
+                key="SECRET_KEY_ALIAS",
+                value="SECRET_KEY",
+            )],
+            secret_overrides=[qovery.EnvironmentSecretOverrideArgs(
+                key="SOME_PROJECT_SECRET",
+                value="OVERRIDDEN_VALUE",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
+        ```
+
+        You can find complete examples within these repositories:
+
+        * Deploy an Application and Database within 3 environments
+
         ## Import
 
         ```sh

@@ -13,7 +13,7 @@ import (
 
 // ## # Deployment (Data Source)
 //
-// Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+// Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentResult

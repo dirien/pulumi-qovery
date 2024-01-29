@@ -11,6 +11,10 @@ using Pulumi;
 namespace ediri.Qovery
 {
     /// <summary>
+    /// ## # qovery.Application (Resource)
+    /// 
+    /// Provides a Qovery application resource. This can be used to create and manage Qovery applications.
+    /// 
     /// ## Import
     /// 
     /// ```sh

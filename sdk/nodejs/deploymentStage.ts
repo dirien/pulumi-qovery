@@ -5,6 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## # qovery.DeploymentStage (Resource)
+ *
+ * Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+ *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@ediri/qovery";
+ *
+ * const myDeploymentStage = new qovery.DeploymentStage("myDeploymentStage", {
+ *     environmentId: qovery_environment.my_environment.id,
+ *     description: "",
+ *     isAfter: qovery_deployment_stage.first_deployment_stage.id,
+ *     isBefore: qovery_deployment_stage.third_deployment_stage.id,
+ * }, {
+ *     dependsOn: [qovery_environment.my_environment],
+ * });
+ * ```
+ *
+ * You can find complete examples within these repositories:
+ *
+ * * Deploy services with a specific order
+ *
  * ## Import
  *
  * ```sh
