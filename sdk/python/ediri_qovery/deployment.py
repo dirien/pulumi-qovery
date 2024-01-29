@@ -137,7 +137,7 @@ class Deployment(pulumi.CustomResource):
         """
         ## # Deployment (Resource)
 
-        Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+        Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
 
         ## Example
 
@@ -172,7 +172,7 @@ class Deployment(pulumi.CustomResource):
         """
         ## # Deployment (Resource)
 
-        Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+        Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
 
         ## Example
 

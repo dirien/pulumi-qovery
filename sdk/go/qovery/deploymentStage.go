@@ -12,6 +12,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # DeploymentStage (Resource)
+//
+// Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+//
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.NewDeploymentStage(ctx, "myDeploymentStage", &qovery.DeploymentStageArgs{
+//				EnvironmentId: pulumi.Any(qovery_environment.My_environment.Id),
+//				Description:   pulumi.String(""),
+//				IsAfter:       pulumi.Any(qovery_deployment_stage.First_deployment_stage.Id),
+//				IsBefore:      pulumi.Any(qovery_deployment_stage.Third_deployment_stage.Id),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				qovery_environment.My_environment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// You can find complete examples within these repositories:
+//
+// * Deploy services with a specific order
+//
 // ## Import
 //
 // ```sh

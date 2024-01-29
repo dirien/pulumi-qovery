@@ -741,6 +741,10 @@ class Job(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['JobSourceArgs']]] = None,
                  __props__=None):
         """
+        ## # Job (Resource)
+
+        Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
+
         ## Import
 
         ```sh
@@ -777,6 +781,10 @@ class Job(pulumi.CustomResource):
                  args: JobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # Job (Resource)
+
+        Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
+
         ## Import
 
         ```sh

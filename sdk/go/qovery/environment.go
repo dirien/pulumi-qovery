@@ -12,6 +12,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Environment (Resource)
+//
+// Provides a Qovery environment resource. This can be used to create and manage Qovery environments.
+//
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.NewEnvironment(ctx, "myEnvironment", &qovery.EnvironmentArgs{
+//				ProjectId: pulumi.Any(qovery_project.My_project.Id),
+//				ClusterId: pulumi.Any(qovery_cluster.My_cluster.Id),
+//				Mode:      pulumi.String("DEVELOPMENT"),
+//				EnvironmentVariables: qovery.EnvironmentEnvironmentVariableArray{
+//					&qovery.EnvironmentEnvironmentVariableArgs{
+//						Key:   pulumi.String("ENV_VAR_KEY"),
+//						Value: pulumi.String("ENV_VAR_VALUE"),
+//					},
+//				},
+//				EnvironmentVariableAliases: qovery.EnvironmentEnvironmentVariableAliasArray{
+//					&qovery.EnvironmentEnvironmentVariableAliasArgs{
+//						Key:   pulumi.String("ENV_VAR_KEY_ALIAS"),
+//						Value: pulumi.String("ENV_VAR_KEY"),
+//					},
+//				},
+//				EnvironmentVariableOverrides: qovery.EnvironmentEnvironmentVariableOverrideArray{
+//					&qovery.EnvironmentEnvironmentVariableOverrideArgs{
+//						Key:   pulumi.String("SOME_PROJECT_VARIABLE"),
+//						Value: pulumi.String("OVERRIDDEN_VALUE"),
+//					},
+//				},
+//				Secrets: qovery.EnvironmentSecretArray{
+//					&qovery.EnvironmentSecretArgs{
+//						Key:   pulumi.String("SECRET_KEY"),
+//						Value: pulumi.String("SECRET_VALUE"),
+//					},
+//				},
+//				SecretAliases: qovery.EnvironmentSecretAliasArray{
+//					&qovery.EnvironmentSecretAliasArgs{
+//						Key:   pulumi.String("SECRET_KEY_ALIAS"),
+//						Value: pulumi.String("SECRET_KEY"),
+//					},
+//				},
+//				SecretOverrides: qovery.EnvironmentSecretOverrideArray{
+//					&qovery.EnvironmentSecretOverrideArgs{
+//						Key:   pulumi.String("SOME_PROJECT_SECRET"),
+//						Value: pulumi.String("OVERRIDDEN_VALUE"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				qovery_project.My_project,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// You can find complete examples within these repositories:
+//
+// * Deploy an Application and Database within 3 environments
+//
 // ## Import
 //
 // ```sh

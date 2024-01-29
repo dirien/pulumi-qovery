@@ -11,6 +11,10 @@ using Pulumi;
 namespace ediri.Qovery
 {
     /// <summary>
+    /// ## # qovery.Cluster (Resource)
+    /// 
+    /// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -198,6 +198,28 @@ class DeploymentStage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## # DeploymentStage (Resource)
+
+        Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_deployment_stage = qovery.DeploymentStage("myDeploymentStage",
+            environment_id=qovery_environment["my_environment"]["id"],
+            description="",
+            is_after=qovery_deployment_stage["first_deployment_stage"]["id"],
+            is_before=qovery_deployment_stage["third_deployment_stage"]["id"],
+            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+        ```
+
+        You can find complete examples within these repositories:
+
+        * Deploy services with a specific order
+
         ## Import
 
         ```sh
@@ -219,6 +241,28 @@ class DeploymentStage(pulumi.CustomResource):
                  args: DeploymentStageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # DeploymentStage (Resource)
+
+        Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_deployment_stage = qovery.DeploymentStage("myDeploymentStage",
+            environment_id=qovery_environment["my_environment"]["id"],
+            description="",
+            is_after=qovery_deployment_stage["first_deployment_stage"]["id"],
+            is_before=qovery_deployment_stage["third_deployment_stage"]["id"],
+            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+        ```
+
+        You can find complete examples within these repositories:
+
+        * Deploy services with a specific order
+
         ## Import
 
         ```sh

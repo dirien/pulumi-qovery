@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## # qovery.Job (Resource)
+ *
+ * Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
+ *
  * ## Import
  *
  * ```sh

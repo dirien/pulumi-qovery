@@ -526,6 +526,10 @@ class Cluster(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## # Cluster (Resource)
+
+        Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+
         ## Import
 
         ```sh
@@ -558,6 +562,10 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # Cluster (Resource)
+
+        Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+
         ## Import
 
         ```sh

@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Cluster (Resource)
+//
+// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
+//
 // ## Import
 //
 // ```sh

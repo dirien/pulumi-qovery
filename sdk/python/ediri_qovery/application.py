@@ -943,6 +943,10 @@ class Application(pulumi.CustomResource):
                  storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]]] = None,
                  __props__=None):
         """
+        ## # Application (Resource)
+
+        Provides a Qovery application resource. This can be used to create and manage Qovery applications.
+
         ## Import
 
         ```sh
@@ -986,6 +990,10 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # Application (Resource)
+
+        Provides a Qovery application resource. This can be used to create and manage Qovery applications.
+
         ## Import
 
         ```sh

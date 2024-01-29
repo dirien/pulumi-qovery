@@ -11,6 +11,88 @@ using Pulumi;
 namespace ediri.Qovery
 {
     /// <summary>
+    /// ## # qovery.Environment (Resource)
+    /// 
+    /// Provides a Qovery environment resource. This can be used to create and manage Qovery environments.
+    /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Qovery = ediri.Qovery;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myEnvironment = new Qovery.Environment("myEnvironment", new()
+    ///     {
+    ///         ProjectId = qovery_project.My_project.Id,
+    ///         ClusterId = qovery_cluster.My_cluster.Id,
+    ///         Mode = "DEVELOPMENT",
+    ///         EnvironmentVariables = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentEnvironmentVariableArgs
+    ///             {
+    ///                 Key = "ENV_VAR_KEY",
+    ///                 Value = "ENV_VAR_VALUE",
+    ///             },
+    ///         },
+    ///         EnvironmentVariableAliases = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentEnvironmentVariableAliasArgs
+    ///             {
+    ///                 Key = "ENV_VAR_KEY_ALIAS",
+    ///                 Value = "ENV_VAR_KEY",
+    ///             },
+    ///         },
+    ///         EnvironmentVariableOverrides = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentEnvironmentVariableOverrideArgs
+    ///             {
+    ///                 Key = "SOME_PROJECT_VARIABLE",
+    ///                 Value = "OVERRIDDEN_VALUE",
+    ///             },
+    ///         },
+    ///         Secrets = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentSecretArgs
+    ///             {
+    ///                 Key = "SECRET_KEY",
+    ///                 Value = "SECRET_VALUE",
+    ///             },
+    ///         },
+    ///         SecretAliases = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentSecretAliasArgs
+    ///             {
+    ///                 Key = "SECRET_KEY_ALIAS",
+    ///                 Value = "SECRET_KEY",
+    ///             },
+    ///         },
+    ///         SecretOverrides = new[]
+    ///         {
+    ///             new Qovery.Inputs.EnvironmentSecretOverrideArgs
+    ///             {
+    ///                 Key = "SOME_PROJECT_SECRET",
+    ///                 Value = "OVERRIDDEN_VALUE",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             qovery_project.My_project,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// You can find complete examples within these repositories:
+    /// 
+    /// * Deploy an Application and Database within 3 environments
+    /// 
     /// ## Import
     /// 
     /// ```sh

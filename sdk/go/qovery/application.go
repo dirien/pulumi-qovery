@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Application (Resource)
+//
+// Provides a Qovery application resource. This can be used to create and manage Qovery applications.
+//
 // ## Import
 //
 // ```sh
