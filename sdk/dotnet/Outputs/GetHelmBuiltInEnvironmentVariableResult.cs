@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetHelmBuiltInEnvironmentVariableResult
     {
+        /// <summary>
+        /// Id of the environment variable.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Key of the environment variable.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of the environment variable.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

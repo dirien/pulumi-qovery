@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetApplicationSecretResult
     {
+        /// <summary>
+        /// Id of the secret.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Key of the secret.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of the secret.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

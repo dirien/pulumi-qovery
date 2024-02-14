@@ -14,8 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationBuiltInEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   *string `pulumi:"key"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key *string `pulumi:"key"`
+	// Value of the environment variable.
 	Value *string `pulumi:"value"`
 }
 
@@ -31,8 +34,11 @@ type ApplicationBuiltInEnvironmentVariableInput interface {
 }
 
 type ApplicationBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -87,14 +93,17 @@ func (o ApplicationBuiltInEnvironmentVariableOutput) ToApplicationBuiltInEnviron
 	return o
 }
 
+// Id of the environment variable.
 func (o ApplicationBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o ApplicationBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Value of the environment variable.
 func (o ApplicationBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -120,9 +129,13 @@ func (o ApplicationBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ApplicationCustomDomain struct {
-	Domain           string  `pulumi:"domain"`
-	Id               *string `pulumi:"id"`
-	Status           *string `pulumi:"status"`
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Id of the custom domain.
+	Id *string `pulumi:"id"`
+	// Status of the custom domain.
+	Status *string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain *string `pulumi:"validationDomain"`
 }
 
@@ -138,9 +151,13 @@ type ApplicationCustomDomainInput interface {
 }
 
 type ApplicationCustomDomainArgs struct {
-	Domain           pulumi.StringInput    `pulumi:"domain"`
-	Id               pulumi.StringPtrInput `pulumi:"id"`
-	Status           pulumi.StringPtrInput `pulumi:"status"`
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Id of the custom domain.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
 }
 
@@ -195,18 +212,22 @@ func (o ApplicationCustomDomainOutput) ToApplicationCustomDomainOutputWithContex
 	return o
 }
 
+// Your custom domain.
 func (o ApplicationCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Id of the custom domain.
 func (o ApplicationCustomDomainOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Status of the custom domain.
 func (o ApplicationCustomDomainOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 func (o ApplicationCustomDomainOutput) ValidationDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) *string { return v.ValidationDomain }).(pulumi.StringPtrOutput)
 }
@@ -232,9 +253,12 @@ func (o ApplicationCustomDomainArrayOutput) Index(i pulumi.IntInput) Application
 }
 
 type ApplicationEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationEnvironmentVariableInput is an input type that accepts ApplicationEnvironmentVariableArgs and ApplicationEnvironmentVariableOutput values.
@@ -249,9 +273,12 @@ type ApplicationEnvironmentVariableInput interface {
 }
 
 type ApplicationEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationEnvironmentVariableArgs) ElementType() reflect.Type {
@@ -305,14 +332,17 @@ func (o ApplicationEnvironmentVariableOutput) ToApplicationEnvironmentVariableOu
 	return o
 }
 
+// Id of the environment variable.
 func (o ApplicationEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o ApplicationEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o ApplicationEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -338,9 +368,12 @@ func (o ApplicationEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Appl
 }
 
 type ApplicationEnvironmentVariableAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationEnvironmentVariableAliasInput is an input type that accepts ApplicationEnvironmentVariableAliasArgs and ApplicationEnvironmentVariableAliasOutput values.
@@ -355,9 +388,12 @@ type ApplicationEnvironmentVariableAliasInput interface {
 }
 
 type ApplicationEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationEnvironmentVariableAliasArgs) ElementType() reflect.Type {
@@ -411,14 +447,17 @@ func (o ApplicationEnvironmentVariableAliasOutput) ToApplicationEnvironmentVaria
 	return o
 }
 
+// Id of the environment variable alias.
 func (o ApplicationEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable alias.
 func (o ApplicationEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o ApplicationEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -444,9 +483,12 @@ func (o ApplicationEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ApplicationEnvironmentVariableOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable override.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationEnvironmentVariableOverrideInput is an input type that accepts ApplicationEnvironmentVariableOverrideArgs and ApplicationEnvironmentVariableOverrideOutput values.
@@ -461,9 +503,12 @@ type ApplicationEnvironmentVariableOverrideInput interface {
 }
 
 type ApplicationEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
@@ -517,14 +562,17 @@ func (o ApplicationEnvironmentVariableOverrideOutput) ToApplicationEnvironmentVa
 	return o
 }
 
+// Id of the environment variable override.
 func (o ApplicationEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable override.
 func (o ApplicationEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o ApplicationEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -550,10 +598,16 @@ func (o ApplicationEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInp
 }
 
 type ApplicationGitRepository struct {
-	Branch     *string `pulumi:"branch"`
+	// Branch of the git repository.
+	// 	- Default: `main or master (depending on repository)`.
+	Branch *string `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId *string `pulumi:"gitTokenId"`
-	RootPath   *string `pulumi:"rootPath"`
-	Url        string  `pulumi:"url"`
+	// Root path of the application.
+	// 	- Default: `/`.
+	RootPath *string `pulumi:"rootPath"`
+	// URL of the git repository.
+	Url string `pulumi:"url"`
 }
 
 // ApplicationGitRepositoryInput is an input type that accepts ApplicationGitRepositoryArgs and ApplicationGitRepositoryOutput values.
@@ -568,10 +622,16 @@ type ApplicationGitRepositoryInput interface {
 }
 
 type ApplicationGitRepositoryArgs struct {
-	Branch     pulumi.StringPtrInput `pulumi:"branch"`
+	// Branch of the git repository.
+	// 	- Default: `main or master (depending on repository)`.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
-	RootPath   pulumi.StringPtrInput `pulumi:"rootPath"`
-	Url        pulumi.StringInput    `pulumi:"url"`
+	// Root path of the application.
+	// 	- Default: `/`.
+	RootPath pulumi.StringPtrInput `pulumi:"rootPath"`
+	// URL of the git repository.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (ApplicationGitRepositoryArgs) ElementType() reflect.Type {
@@ -651,18 +711,24 @@ func (o ApplicationGitRepositoryOutput) ToApplicationGitRepositoryPtrOutputWithC
 	}).(ApplicationGitRepositoryPtrOutput)
 }
 
+// Branch of the git repository.
+//   - Default: `main or master (depending on repository)`.
 func (o ApplicationGitRepositoryOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGitRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o ApplicationGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
 }
 
+// Root path of the application.
+//   - Default: `/`.
 func (o ApplicationGitRepositoryOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGitRepository) *string { return v.RootPath }).(pulumi.StringPtrOutput)
 }
 
+// URL of the git repository.
 func (o ApplicationGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -691,6 +757,8 @@ func (o ApplicationGitRepositoryPtrOutput) Elem() ApplicationGitRepositoryOutput
 	}).(ApplicationGitRepositoryOutput)
 }
 
+// Branch of the git repository.
+//   - Default: `main or master (depending on repository)`.
 func (o ApplicationGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGitRepository) *string {
 		if v == nil {
@@ -700,6 +768,7 @@ func (o ApplicationGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o ApplicationGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGitRepository) *string {
 		if v == nil {
@@ -709,6 +778,8 @@ func (o ApplicationGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Root path of the application.
+//   - Default: `/`.
 func (o ApplicationGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGitRepository) *string {
 		if v == nil {
@@ -718,6 +789,7 @@ func (o ApplicationGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// URL of the git repository.
 func (o ApplicationGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGitRepository) *string {
 		if v == nil {
@@ -728,7 +800,9 @@ func (o ApplicationGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type ApplicationHealthchecks struct {
-	LivenessProbe  *ApplicationHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *ApplicationHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *ApplicationHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -744,7 +818,9 @@ type ApplicationHealthchecksInput interface {
 }
 
 type ApplicationHealthchecksArgs struct {
-	LivenessProbe  ApplicationHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe ApplicationHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe ApplicationHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -825,10 +901,12 @@ func (o ApplicationHealthchecksOutput) ToApplicationHealthchecksPtrOutputWithCon
 	}).(ApplicationHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o ApplicationHealthchecksOutput) LivenessProbe() ApplicationHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecks) *ApplicationHealthchecksLivenessProbe { return v.LivenessProbe }).(ApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o ApplicationHealthchecksOutput) ReadinessProbe() ApplicationHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecks) *ApplicationHealthchecksReadinessProbe { return v.ReadinessProbe }).(ApplicationHealthchecksReadinessProbePtrOutput)
 }
@@ -857,6 +935,7 @@ func (o ApplicationHealthchecksPtrOutput) Elem() ApplicationHealthchecksOutput {
 	}).(ApplicationHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o ApplicationHealthchecksPtrOutput) LivenessProbe() ApplicationHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecks) *ApplicationHealthchecksLivenessProbe {
 		if v == nil {
@@ -866,6 +945,7 @@ func (o ApplicationHealthchecksPtrOutput) LivenessProbe() ApplicationHealthcheck
 	}).(ApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o ApplicationHealthchecksPtrOutput) ReadinessProbe() ApplicationHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecks) *ApplicationHealthchecksReadinessProbe {
 		if v == nil {
@@ -876,12 +956,18 @@ func (o ApplicationHealthchecksPtrOutput) ReadinessProbe() ApplicationHealthchec
 }
 
 type ApplicationHealthchecksLivenessProbe struct {
-	FailureThreshold    int                                      `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                      `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                      `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                      `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                      `pulumi:"timeoutSeconds"`
-	Type                ApplicationHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ApplicationHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // ApplicationHealthchecksLivenessProbeInput is an input type that accepts ApplicationHealthchecksLivenessProbeArgs and ApplicationHealthchecksLivenessProbeOutput values.
@@ -896,12 +982,18 @@ type ApplicationHealthchecksLivenessProbeInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                               `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                               `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                               `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                               `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                               `pulumi:"timeoutSeconds"`
-	Type                ApplicationHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ApplicationHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (ApplicationHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -981,26 +1073,32 @@ func (o ApplicationHealthchecksLivenessProbeOutput) ToApplicationHealthchecksLiv
 	}).(ApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ApplicationHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ApplicationHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ApplicationHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ApplicationHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ApplicationHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ApplicationHealthchecksLivenessProbeOutput) Type() ApplicationHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbe) ApplicationHealthchecksLivenessProbeType { return v.Type }).(ApplicationHealthchecksLivenessProbeTypeOutput)
 }
@@ -1029,6 +1127,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) Elem() ApplicationHealthc
 	}).(ApplicationHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ApplicationHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -1038,6 +1137,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ApplicationHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -1047,6 +1147,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ApplicationHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -1056,6 +1157,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ApplicationHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -1065,6 +1167,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ApplicationHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -1074,6 +1177,7 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ApplicationHealthchecksLivenessProbePtrOutput) Type() ApplicationHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbe) *ApplicationHealthchecksLivenessProbeType {
 		if v == nil {
@@ -1084,10 +1188,14 @@ func (o ApplicationHealthchecksLivenessProbePtrOutput) Type() ApplicationHealthc
 }
 
 type ApplicationHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *ApplicationHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *ApplicationHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *ApplicationHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *ApplicationHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *ApplicationHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // ApplicationHealthchecksLivenessProbeTypeInput is an input type that accepts ApplicationHealthchecksLivenessProbeTypeArgs and ApplicationHealthchecksLivenessProbeTypeOutput values.
@@ -1102,10 +1210,14 @@ type ApplicationHealthchecksLivenessProbeTypeInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec ApplicationHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc ApplicationHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http ApplicationHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  ApplicationHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp ApplicationHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (ApplicationHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -1185,24 +1297,28 @@ func (o ApplicationHealthchecksLivenessProbeTypeOutput) ToApplicationHealthcheck
 	}).(ApplicationHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ApplicationHealthchecksLivenessProbeTypeOutput) Exec() ApplicationHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeExec {
 		return v.Exec
 	}).(ApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ApplicationHealthchecksLivenessProbeTypeOutput) Grpc() ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeGrpc {
 		return v.Grpc
 	}).(ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ApplicationHealthchecksLivenessProbeTypeOutput) Http() ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeHttp {
 		return v.Http
 	}).(ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ApplicationHealthchecksLivenessProbeTypeOutput) Tcp() ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeTcp {
 		return v.Tcp
@@ -1233,6 +1349,7 @@ func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Elem() ApplicationHea
 	}).(ApplicationHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Exec() ApplicationHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -1242,6 +1359,7 @@ func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Exec() ApplicationHea
 	}).(ApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Grpc() ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -1251,6 +1369,7 @@ func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Grpc() ApplicationHea
 	}).(ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Http() ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -1260,6 +1379,7 @@ func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Http() ApplicationHea
 	}).(ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Tcp() ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeType) *ApplicationHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -1270,6 +1390,7 @@ func (o ApplicationHealthchecksLivenessProbeTypePtrOutput) Tcp() ApplicationHeal
 }
 
 type ApplicationHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -1285,6 +1406,7 @@ type ApplicationHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -1365,6 +1487,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeExecOutput) ToApplicationHealthc
 	}).(ApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o ApplicationHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -1393,6 +1516,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Elem() Applicatio
 	}).(ApplicationHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o ApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -1403,7 +1527,9 @@ func (o ApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi
 }
 
 type ApplicationHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -1419,7 +1545,9 @@ type ApplicationHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -1500,10 +1628,12 @@ func (o ApplicationHealthchecksLivenessProbeTypeGrpcOutput) ToApplicationHealthc
 	}).(ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ApplicationHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -1532,6 +1662,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() Applicatio
 	}).(ApplicationHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -1541,6 +1672,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -1551,9 +1683,12 @@ func (o ApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.
 }
 
 type ApplicationHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // ApplicationHealthchecksLivenessProbeTypeHttpInput is an input type that accepts ApplicationHealthchecksLivenessProbeTypeHttpArgs and ApplicationHealthchecksLivenessProbeTypeHttpOutput values.
@@ -1568,9 +1703,12 @@ type ApplicationHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (ApplicationHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -1650,16 +1788,19 @@ func (o ApplicationHealthchecksLivenessProbeTypeHttpOutput) ToApplicationHealthc
 	}).(ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ApplicationHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o ApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o ApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -1686,6 +1827,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() Applicatio
 	}).(ApplicationHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -1695,6 +1837,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -1704,18 +1847,21 @@ func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o ApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // ApplicationHealthchecksLivenessProbeTypeTcpInput is an input type that accepts ApplicationHealthchecksLivenessProbeTypeTcpArgs and ApplicationHealthchecksLivenessProbeTypeTcpOutput values.
@@ -1730,8 +1876,10 @@ type ApplicationHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type ApplicationHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (ApplicationHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -1811,10 +1959,12 @@ func (o ApplicationHealthchecksLivenessProbeTypeTcpOutput) ToApplicationHealthch
 	}).(ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ApplicationHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1843,6 +1993,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() Application
 	}).(ApplicationHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -1852,6 +2003,7 @@ func (o ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -1862,12 +2014,18 @@ func (o ApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntP
 }
 
 type ApplicationHealthchecksReadinessProbe struct {
-	FailureThreshold    int                                       `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                       `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                       `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                       `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                       `pulumi:"timeoutSeconds"`
-	Type                ApplicationHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ApplicationHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // ApplicationHealthchecksReadinessProbeInput is an input type that accepts ApplicationHealthchecksReadinessProbeArgs and ApplicationHealthchecksReadinessProbeOutput values.
@@ -1882,12 +2040,18 @@ type ApplicationHealthchecksReadinessProbeInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                                `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                                `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                                `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                                `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                                `pulumi:"timeoutSeconds"`
-	Type                ApplicationHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ApplicationHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (ApplicationHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -1967,26 +2131,32 @@ func (o ApplicationHealthchecksReadinessProbeOutput) ToApplicationHealthchecksRe
 	}).(ApplicationHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ApplicationHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ApplicationHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ApplicationHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ApplicationHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ApplicationHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ApplicationHealthchecksReadinessProbeOutput) Type() ApplicationHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbe) ApplicationHealthchecksReadinessProbeType { return v.Type }).(ApplicationHealthchecksReadinessProbeTypeOutput)
 }
@@ -2015,6 +2185,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) Elem() ApplicationHealth
 	}).(ApplicationHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ApplicationHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -2024,6 +2195,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) FailureThreshold() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ApplicationHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -2033,6 +2205,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ApplicationHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -2042,6 +2215,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ApplicationHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -2051,6 +2225,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ApplicationHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -2060,6 +2235,7 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ApplicationHealthchecksReadinessProbePtrOutput) Type() ApplicationHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbe) *ApplicationHealthchecksReadinessProbeType {
 		if v == nil {
@@ -2070,10 +2246,14 @@ func (o ApplicationHealthchecksReadinessProbePtrOutput) Type() ApplicationHealth
 }
 
 type ApplicationHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *ApplicationHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *ApplicationHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *ApplicationHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *ApplicationHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *ApplicationHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // ApplicationHealthchecksReadinessProbeTypeInput is an input type that accepts ApplicationHealthchecksReadinessProbeTypeArgs and ApplicationHealthchecksReadinessProbeTypeOutput values.
@@ -2088,10 +2268,14 @@ type ApplicationHealthchecksReadinessProbeTypeInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec ApplicationHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc ApplicationHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http ApplicationHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  ApplicationHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp ApplicationHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (ApplicationHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -2171,24 +2355,28 @@ func (o ApplicationHealthchecksReadinessProbeTypeOutput) ToApplicationHealthchec
 	}).(ApplicationHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ApplicationHealthchecksReadinessProbeTypeOutput) Exec() ApplicationHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeExec {
 		return v.Exec
 	}).(ApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ApplicationHealthchecksReadinessProbeTypeOutput) Grpc() ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeGrpc {
 		return v.Grpc
 	}).(ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ApplicationHealthchecksReadinessProbeTypeOutput) Http() ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeHttp {
 		return v.Http
 	}).(ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ApplicationHealthchecksReadinessProbeTypeOutput) Tcp() ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeTcp {
 		return v.Tcp
@@ -2219,6 +2407,7 @@ func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Elem() ApplicationHe
 	}).(ApplicationHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Exec() ApplicationHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -2228,6 +2417,7 @@ func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Exec() ApplicationHe
 	}).(ApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Grpc() ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -2237,6 +2427,7 @@ func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Grpc() ApplicationHe
 	}).(ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Http() ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -2246,6 +2437,7 @@ func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Http() ApplicationHe
 	}).(ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Tcp() ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeType) *ApplicationHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -2256,6 +2448,7 @@ func (o ApplicationHealthchecksReadinessProbeTypePtrOutput) Tcp() ApplicationHea
 }
 
 type ApplicationHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -2271,6 +2464,7 @@ type ApplicationHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -2351,6 +2545,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeExecOutput) ToApplicationHealth
 	}).(ApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o ApplicationHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -2379,6 +2574,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Elem() Applicati
 	}).(ApplicationHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o ApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -2389,7 +2585,9 @@ func (o ApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulum
 }
 
 type ApplicationHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -2405,7 +2603,9 @@ type ApplicationHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -2486,10 +2686,12 @@ func (o ApplicationHealthchecksReadinessProbeTypeGrpcOutput) ToApplicationHealth
 	}).(ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ApplicationHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -2518,6 +2720,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() Applicati
 	}).(ApplicationHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -2527,6 +2730,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -2537,9 +2741,12 @@ func (o ApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi
 }
 
 type ApplicationHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // ApplicationHealthchecksReadinessProbeTypeHttpInput is an input type that accepts ApplicationHealthchecksReadinessProbeTypeHttpArgs and ApplicationHealthchecksReadinessProbeTypeHttpOutput values.
@@ -2554,9 +2761,12 @@ type ApplicationHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (ApplicationHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -2636,16 +2846,19 @@ func (o ApplicationHealthchecksReadinessProbeTypeHttpOutput) ToApplicationHealth
 	}).(ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ApplicationHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o ApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o ApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -2672,6 +2885,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() Applicati
 	}).(ApplicationHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -2681,6 +2895,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -2690,18 +2905,21 @@ func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o ApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // ApplicationHealthchecksReadinessProbeTypeTcpInput is an input type that accepts ApplicationHealthchecksReadinessProbeTypeTcpArgs and ApplicationHealthchecksReadinessProbeTypeTcpOutput values.
@@ -2716,8 +2934,10 @@ type ApplicationHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type ApplicationHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (ApplicationHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -2797,10 +3017,12 @@ func (o ApplicationHealthchecksReadinessProbeTypeTcpOutput) ToApplicationHealthc
 	}).(ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ApplicationHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2829,6 +3051,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() Applicatio
 	}).(ApplicationHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -2838,6 +3061,7 @@ func (o ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -2848,13 +3072,25 @@ func (o ApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.Int
 }
 
 type ApplicationPort struct {
-	ExternalPort       *int    `pulumi:"externalPort"`
-	Id                 *string `pulumi:"id"`
-	InternalPort       int     `pulumi:"internalPort"`
-	IsDefault          bool    `pulumi:"isDefault"`
-	Name               *string `pulumi:"name"`
-	Protocol           *string `pulumi:"protocol"`
-	PubliclyAccessible bool    `pulumi:"publiclyAccessible"`
+	// External port of the application.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort *int `pulumi:"externalPort"`
+	// Id of the port.
+	Id *string `pulumi:"id"`
+	// Internal port of the application.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool `pulumi:"isDefault"`
+	// Name of the port.
+	Name *string `pulumi:"name"`
+	// Protocol used for the port of the application.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol *string `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this application.
+	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
 }
 
 // ApplicationPortInput is an input type that accepts ApplicationPortArgs and ApplicationPortOutput values.
@@ -2869,13 +3105,25 @@ type ApplicationPortInput interface {
 }
 
 type ApplicationPortArgs struct {
-	ExternalPort       pulumi.IntPtrInput    `pulumi:"externalPort"`
-	Id                 pulumi.StringPtrInput `pulumi:"id"`
-	InternalPort       pulumi.IntInput       `pulumi:"internalPort"`
-	IsDefault          pulumi.BoolInput      `pulumi:"isDefault"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
-	PubliclyAccessible pulumi.BoolInput      `pulumi:"publiclyAccessible"`
+	// External port of the application.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntPtrInput `pulumi:"externalPort"`
+	// Id of the port.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Internal port of the application.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// Name of the port.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Protocol used for the port of the application.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this application.
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 }
 
 func (ApplicationPortArgs) ElementType() reflect.Type {
@@ -2929,30 +3177,42 @@ func (o ApplicationPortOutput) ToApplicationPortOutputWithContext(ctx context.Co
 	return o
 }
 
+// External port of the application.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o ApplicationPortOutput) ExternalPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationPort) *int { return v.ExternalPort }).(pulumi.IntPtrOutput)
 }
 
+// Id of the port.
 func (o ApplicationPortOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPort) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Internal port of the application.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o ApplicationPortOutput) InternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationPort) int { return v.InternalPort }).(pulumi.IntOutput)
 }
 
+// If this port will be used for the root domain
 func (o ApplicationPortOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationPort) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// Name of the port.
 func (o ApplicationPortOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPort) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Protocol used for the port of the application.
+//   - Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+//   - Default: `HTTP`.
 func (o ApplicationPortOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// Specify if the port is exposed to the world or not for this application.
 func (o ApplicationPortOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationPort) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -2978,9 +3238,12 @@ func (o ApplicationPortArrayOutput) Index(i pulumi.IntInput) ApplicationPortOutp
 }
 
 type ApplicationSecret struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret.
+	Id *string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationSecretInput is an input type that accepts ApplicationSecretArgs and ApplicationSecretOutput values.
@@ -2995,9 +3258,12 @@ type ApplicationSecretInput interface {
 }
 
 type ApplicationSecretArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationSecretArgs) ElementType() reflect.Type {
@@ -3051,14 +3317,17 @@ func (o ApplicationSecretOutput) ToApplicationSecretOutputWithContext(ctx contex
 	return o
 }
 
+// Id of the secret.
 func (o ApplicationSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the secret.
 func (o ApplicationSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o ApplicationSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3084,9 +3353,12 @@ func (o ApplicationSecretArrayOutput) Index(i pulumi.IntInput) ApplicationSecret
 }
 
 type ApplicationSecretAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret alias.
+	Id *string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationSecretAliasInput is an input type that accepts ApplicationSecretAliasArgs and ApplicationSecretAliasOutput values.
@@ -3101,9 +3373,12 @@ type ApplicationSecretAliasInput interface {
 }
 
 type ApplicationSecretAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationSecretAliasArgs) ElementType() reflect.Type {
@@ -3157,14 +3432,17 @@ func (o ApplicationSecretAliasOutput) ToApplicationSecretAliasOutputWithContext(
 	return o
 }
 
+// Id of the secret alias.
 func (o ApplicationSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret alias.
 func (o ApplicationSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o ApplicationSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3190,9 +3468,12 @@ func (o ApplicationSecretAliasArrayOutput) Index(i pulumi.IntInput) ApplicationS
 }
 
 type ApplicationSecretOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret override.
+	Id *string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationSecretOverrideInput is an input type that accepts ApplicationSecretOverrideArgs and ApplicationSecretOverrideOutput values.
@@ -3207,9 +3488,12 @@ type ApplicationSecretOverrideInput interface {
 }
 
 type ApplicationSecretOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationSecretOverrideArgs) ElementType() reflect.Type {
@@ -3263,14 +3547,17 @@ func (o ApplicationSecretOverrideOutput) ToApplicationSecretOverrideOutputWithCo
 	return o
 }
 
+// Id of the secret override.
 func (o ApplicationSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret override.
 func (o ApplicationSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o ApplicationSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3296,10 +3583,16 @@ func (o ApplicationSecretOverrideArrayOutput) Index(i pulumi.IntInput) Applicati
 }
 
 type ApplicationStorage struct {
-	Id         *string `pulumi:"id"`
-	MountPoint string  `pulumi:"mountPoint"`
-	Size       int     `pulumi:"size"`
-	Type       string  `pulumi:"type"`
+	// Id of the storage.
+	Id *string `pulumi:"id"`
+	// Mount point of the storage for the application.
+	MountPoint string `pulumi:"mountPoint"`
+	// Size of the storage for the application in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size int `pulumi:"size"`
+	// Type of the storage for the application.
+	// 	- Can be: `FAST_SSD`.
+	Type string `pulumi:"type"`
 }
 
 // ApplicationStorageInput is an input type that accepts ApplicationStorageArgs and ApplicationStorageOutput values.
@@ -3314,10 +3607,16 @@ type ApplicationStorageInput interface {
 }
 
 type ApplicationStorageArgs struct {
-	Id         pulumi.StringPtrInput `pulumi:"id"`
-	MountPoint pulumi.StringInput    `pulumi:"mountPoint"`
-	Size       pulumi.IntInput       `pulumi:"size"`
-	Type       pulumi.StringInput    `pulumi:"type"`
+	// Id of the storage.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Mount point of the storage for the application.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// Size of the storage for the application in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the storage for the application.
+	// 	- Can be: `FAST_SSD`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ApplicationStorageArgs) ElementType() reflect.Type {
@@ -3371,18 +3670,24 @@ func (o ApplicationStorageOutput) ToApplicationStorageOutputWithContext(ctx cont
 	return o
 }
 
+// Id of the storage.
 func (o ApplicationStorageOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationStorage) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Mount point of the storage for the application.
 func (o ApplicationStorageOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationStorage) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
+// Size of the storage for the application in GB [1024MB = 1GB].
+//   - Must be: `>= 1`.
 func (o ApplicationStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationStorage) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Type of the storage for the application.
+//   - Can be: `FAST_SSD`.
 func (o ApplicationStorageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationStorage) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3408,7 +3713,11 @@ func (o ApplicationStorageArrayOutput) Index(i pulumi.IntInput) ApplicationStora
 }
 
 type ClusterFeatures struct {
-	StaticIp  *bool   `pulumi:"staticIp"`
+	// Static IP (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `false`.
+	StaticIp *bool `pulumi:"staticIp"`
+	// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `10.0.0.0/16`.
 	VpcSubnet *string `pulumi:"vpcSubnet"`
 }
 
@@ -3424,7 +3733,11 @@ type ClusterFeaturesInput interface {
 }
 
 type ClusterFeaturesArgs struct {
-	StaticIp  pulumi.BoolPtrInput   `pulumi:"staticIp"`
+	// Static IP (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `false`.
+	StaticIp pulumi.BoolPtrInput `pulumi:"staticIp"`
+	// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `10.0.0.0/16`.
 	VpcSubnet pulumi.StringPtrInput `pulumi:"vpcSubnet"`
 }
 
@@ -3505,10 +3818,14 @@ func (o ClusterFeaturesOutput) ToClusterFeaturesPtrOutputWithContext(ctx context
 	}).(ClusterFeaturesPtrOutput)
 }
 
+// Static IP (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `false`.
 func (o ClusterFeaturesOutput) StaticIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterFeatures) *bool { return v.StaticIp }).(pulumi.BoolPtrOutput)
 }
 
+// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `10.0.0.0/16`.
 func (o ClusterFeaturesOutput) VpcSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterFeatures) *string { return v.VpcSubnet }).(pulumi.StringPtrOutput)
 }
@@ -3537,6 +3854,8 @@ func (o ClusterFeaturesPtrOutput) Elem() ClusterFeaturesOutput {
 	}).(ClusterFeaturesOutput)
 }
 
+// Static IP (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `false`.
 func (o ClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterFeatures) *bool {
 		if v == nil {
@@ -3546,6 +3865,8 @@ func (o ClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `10.0.0.0/16`.
 func (o ClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterFeatures) *string {
 		if v == nil {
@@ -3556,9 +3877,12 @@ func (o ClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
 }
 
 type ClusterRoutingTable struct {
+	// Description of the route.
 	Description string `pulumi:"description"`
+	// Destination of the route.
 	Destination string `pulumi:"destination"`
-	Target      string `pulumi:"target"`
+	// Target of the route.
+	Target string `pulumi:"target"`
 }
 
 // ClusterRoutingTableInput is an input type that accepts ClusterRoutingTableArgs and ClusterRoutingTableOutput values.
@@ -3573,9 +3897,12 @@ type ClusterRoutingTableInput interface {
 }
 
 type ClusterRoutingTableArgs struct {
+	// Description of the route.
 	Description pulumi.StringInput `pulumi:"description"`
+	// Destination of the route.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	Target      pulumi.StringInput `pulumi:"target"`
+	// Target of the route.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (ClusterRoutingTableArgs) ElementType() reflect.Type {
@@ -3629,14 +3956,17 @@ func (o ClusterRoutingTableOutput) ToClusterRoutingTableOutputWithContext(ctx co
 	return o
 }
 
+// Description of the route.
 func (o ClusterRoutingTableOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRoutingTable) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Destination of the route.
 func (o ClusterRoutingTableOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRoutingTable) string { return v.Destination }).(pulumi.StringOutput)
 }
 
+// Target of the route.
 func (o ClusterRoutingTableOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRoutingTable) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -3662,8 +3992,11 @@ func (o ClusterRoutingTableArrayOutput) Index(i pulumi.IntInput) ClusterRoutingT
 }
 
 type ContainerBuiltInEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   *string `pulumi:"key"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key *string `pulumi:"key"`
+	// Value of the environment variable.
 	Value *string `pulumi:"value"`
 }
 
@@ -3679,8 +4012,11 @@ type ContainerBuiltInEnvironmentVariableInput interface {
 }
 
 type ContainerBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3735,14 +4071,17 @@ func (o ContainerBuiltInEnvironmentVariableOutput) ToContainerBuiltInEnvironment
 	return o
 }
 
+// Id of the environment variable.
 func (o ContainerBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o ContainerBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Value of the environment variable.
 func (o ContainerBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3768,9 +4107,13 @@ func (o ContainerBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ContainerCustomDomain struct {
-	Domain           string  `pulumi:"domain"`
-	Id               *string `pulumi:"id"`
-	Status           *string `pulumi:"status"`
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Id of the custom domain.
+	Id *string `pulumi:"id"`
+	// Status of the custom domain.
+	Status *string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain *string `pulumi:"validationDomain"`
 }
 
@@ -3786,9 +4129,13 @@ type ContainerCustomDomainInput interface {
 }
 
 type ContainerCustomDomainArgs struct {
-	Domain           pulumi.StringInput    `pulumi:"domain"`
-	Id               pulumi.StringPtrInput `pulumi:"id"`
-	Status           pulumi.StringPtrInput `pulumi:"status"`
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Id of the custom domain.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
 }
 
@@ -3843,18 +4190,22 @@ func (o ContainerCustomDomainOutput) ToContainerCustomDomainOutputWithContext(ct
 	return o
 }
 
+// Your custom domain.
 func (o ContainerCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Id of the custom domain.
 func (o ContainerCustomDomainOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Status of the custom domain.
 func (o ContainerCustomDomainOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 func (o ContainerCustomDomainOutput) ValidationDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) *string { return v.ValidationDomain }).(pulumi.StringPtrOutput)
 }
@@ -3880,9 +4231,12 @@ func (o ContainerCustomDomainArrayOutput) Index(i pulumi.IntInput) ContainerCust
 }
 
 type ContainerEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
 }
 
 // ContainerEnvironmentVariableInput is an input type that accepts ContainerEnvironmentVariableArgs and ContainerEnvironmentVariableOutput values.
@@ -3897,9 +4251,12 @@ type ContainerEnvironmentVariableInput interface {
 }
 
 type ContainerEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerEnvironmentVariableArgs) ElementType() reflect.Type {
@@ -3953,14 +4310,17 @@ func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutput
 	return o
 }
 
+// Id of the environment variable.
 func (o ContainerEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o ContainerEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o ContainerEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3986,9 +4346,12 @@ func (o ContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Contai
 }
 
 type ContainerEnvironmentVariableAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
+	Value string `pulumi:"value"`
 }
 
 // ContainerEnvironmentVariableAliasInput is an input type that accepts ContainerEnvironmentVariableAliasArgs and ContainerEnvironmentVariableAliasOutput values.
@@ -4003,9 +4366,12 @@ type ContainerEnvironmentVariableAliasInput interface {
 }
 
 type ContainerEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerEnvironmentVariableAliasArgs) ElementType() reflect.Type {
@@ -4059,14 +4425,17 @@ func (o ContainerEnvironmentVariableAliasOutput) ToContainerEnvironmentVariableA
 	return o
 }
 
+// Id of the environment variable alias.
 func (o ContainerEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable alias.
 func (o ContainerEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o ContainerEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4092,9 +4461,12 @@ func (o ContainerEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerEnvironmentVariableOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable override.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
+	Value string `pulumi:"value"`
 }
 
 // ContainerEnvironmentVariableOverrideInput is an input type that accepts ContainerEnvironmentVariableOverrideArgs and ContainerEnvironmentVariableOverrideOutput values.
@@ -4109,9 +4481,12 @@ type ContainerEnvironmentVariableOverrideInput interface {
 }
 
 type ContainerEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
@@ -4165,14 +4540,17 @@ func (o ContainerEnvironmentVariableOverrideOutput) ToContainerEnvironmentVariab
 	return o
 }
 
+// Id of the environment variable override.
 func (o ContainerEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable override.
 func (o ContainerEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o ContainerEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4198,7 +4576,9 @@ func (o ContainerEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput
 }
 
 type ContainerHealthchecks struct {
-	LivenessProbe  *ContainerHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *ContainerHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *ContainerHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -4214,7 +4594,9 @@ type ContainerHealthchecksInput interface {
 }
 
 type ContainerHealthchecksArgs struct {
-	LivenessProbe  ContainerHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe ContainerHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe ContainerHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -4295,10 +4677,12 @@ func (o ContainerHealthchecksOutput) ToContainerHealthchecksPtrOutputWithContext
 	}).(ContainerHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o ContainerHealthchecksOutput) LivenessProbe() ContainerHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecks) *ContainerHealthchecksLivenessProbe { return v.LivenessProbe }).(ContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o ContainerHealthchecksOutput) ReadinessProbe() ContainerHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecks) *ContainerHealthchecksReadinessProbe { return v.ReadinessProbe }).(ContainerHealthchecksReadinessProbePtrOutput)
 }
@@ -4327,6 +4711,7 @@ func (o ContainerHealthchecksPtrOutput) Elem() ContainerHealthchecksOutput {
 	}).(ContainerHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o ContainerHealthchecksPtrOutput) LivenessProbe() ContainerHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecks) *ContainerHealthchecksLivenessProbe {
 		if v == nil {
@@ -4336,6 +4721,7 @@ func (o ContainerHealthchecksPtrOutput) LivenessProbe() ContainerHealthchecksLiv
 	}).(ContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o ContainerHealthchecksPtrOutput) ReadinessProbe() ContainerHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecks) *ContainerHealthchecksReadinessProbe {
 		if v == nil {
@@ -4346,12 +4732,18 @@ func (o ContainerHealthchecksPtrOutput) ReadinessProbe() ContainerHealthchecksRe
 }
 
 type ContainerHealthchecksLivenessProbe struct {
-	FailureThreshold    int                                    `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                    `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                    `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                    `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                    `pulumi:"timeoutSeconds"`
-	Type                ContainerHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ContainerHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // ContainerHealthchecksLivenessProbeInput is an input type that accepts ContainerHealthchecksLivenessProbeArgs and ContainerHealthchecksLivenessProbeOutput values.
@@ -4366,12 +4758,18 @@ type ContainerHealthchecksLivenessProbeInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                             `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                             `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                             `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                             `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                             `pulumi:"timeoutSeconds"`
-	Type                ContainerHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ContainerHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (ContainerHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -4451,26 +4849,32 @@ func (o ContainerHealthchecksLivenessProbeOutput) ToContainerHealthchecksLivenes
 	}).(ContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ContainerHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ContainerHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ContainerHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ContainerHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ContainerHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ContainerHealthchecksLivenessProbeOutput) Type() ContainerHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbe) ContainerHealthchecksLivenessProbeType { return v.Type }).(ContainerHealthchecksLivenessProbeTypeOutput)
 }
@@ -4499,6 +4903,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) Elem() ContainerHealthcheck
 	}).(ContainerHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ContainerHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -4508,6 +4913,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ContainerHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -4517,6 +4923,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ContainerHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -4526,6 +4933,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ContainerHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -4535,6 +4943,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ContainerHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -4544,6 +4953,7 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ContainerHealthchecksLivenessProbePtrOutput) Type() ContainerHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbe) *ContainerHealthchecksLivenessProbeType {
 		if v == nil {
@@ -4554,10 +4964,14 @@ func (o ContainerHealthchecksLivenessProbePtrOutput) Type() ContainerHealthcheck
 }
 
 type ContainerHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *ContainerHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *ContainerHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *ContainerHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *ContainerHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *ContainerHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // ContainerHealthchecksLivenessProbeTypeInput is an input type that accepts ContainerHealthchecksLivenessProbeTypeArgs and ContainerHealthchecksLivenessProbeTypeOutput values.
@@ -4572,10 +4986,14 @@ type ContainerHealthchecksLivenessProbeTypeInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec ContainerHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc ContainerHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http ContainerHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  ContainerHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp ContainerHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (ContainerHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -4655,24 +5073,28 @@ func (o ContainerHealthchecksLivenessProbeTypeOutput) ToContainerHealthchecksLiv
 	}).(ContainerHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ContainerHealthchecksLivenessProbeTypeOutput) Exec() ContainerHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeExec {
 		return v.Exec
 	}).(ContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ContainerHealthchecksLivenessProbeTypeOutput) Grpc() ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeGrpc {
 		return v.Grpc
 	}).(ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ContainerHealthchecksLivenessProbeTypeOutput) Http() ContainerHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeHttp {
 		return v.Http
 	}).(ContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ContainerHealthchecksLivenessProbeTypeOutput) Tcp() ContainerHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeTcp {
 		return v.Tcp
@@ -4703,6 +5125,7 @@ func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Elem() ContainerHealthc
 	}).(ContainerHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Exec() ContainerHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -4712,6 +5135,7 @@ func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Exec() ContainerHealthc
 	}).(ContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Grpc() ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -4721,6 +5145,7 @@ func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Grpc() ContainerHealthc
 	}).(ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Http() ContainerHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -4730,6 +5155,7 @@ func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Http() ContainerHealthc
 	}).(ContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Tcp() ContainerHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeType) *ContainerHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -4740,6 +5166,7 @@ func (o ContainerHealthchecksLivenessProbeTypePtrOutput) Tcp() ContainerHealthch
 }
 
 type ContainerHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -4755,6 +5182,7 @@ type ContainerHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -4835,6 +5263,7 @@ func (o ContainerHealthchecksLivenessProbeTypeExecOutput) ToContainerHealthcheck
 	}).(ContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o ContainerHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -4863,6 +5292,7 @@ func (o ContainerHealthchecksLivenessProbeTypeExecPtrOutput) Elem() ContainerHea
 	}).(ContainerHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o ContainerHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -4873,7 +5303,9 @@ func (o ContainerHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.S
 }
 
 type ContainerHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -4889,7 +5321,9 @@ type ContainerHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -4970,10 +5404,12 @@ func (o ContainerHealthchecksLivenessProbeTypeGrpcOutput) ToContainerHealthcheck
 	}).(ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ContainerHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -5002,6 +5438,7 @@ func (o ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() ContainerHea
 	}).(ContainerHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -5011,6 +5448,7 @@ func (o ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -5021,9 +5459,12 @@ func (o ContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.St
 }
 
 type ContainerHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // ContainerHealthchecksLivenessProbeTypeHttpInput is an input type that accepts ContainerHealthchecksLivenessProbeTypeHttpArgs and ContainerHealthchecksLivenessProbeTypeHttpOutput values.
@@ -5038,9 +5479,12 @@ type ContainerHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (ContainerHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -5120,16 +5564,19 @@ func (o ContainerHealthchecksLivenessProbeTypeHttpOutput) ToContainerHealthcheck
 	}).(ContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ContainerHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o ContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o ContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type ContainerHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -5156,6 +5603,7 @@ func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() ContainerHea
 	}).(ContainerHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -5165,6 +5613,7 @@ func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -5174,18 +5623,21 @@ func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o ContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // ContainerHealthchecksLivenessProbeTypeTcpInput is an input type that accepts ContainerHealthchecksLivenessProbeTypeTcpArgs and ContainerHealthchecksLivenessProbeTypeTcpOutput values.
@@ -5200,8 +5652,10 @@ type ContainerHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type ContainerHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (ContainerHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -5281,10 +5735,12 @@ func (o ContainerHealthchecksLivenessProbeTypeTcpOutput) ToContainerHealthchecks
 	}).(ContainerHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ContainerHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -5313,6 +5769,7 @@ func (o ContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() ContainerHeal
 	}).(ContainerHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -5322,6 +5779,7 @@ func (o ContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -5332,12 +5790,18 @@ func (o ContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtr
 }
 
 type ContainerHealthchecksReadinessProbe struct {
-	FailureThreshold    int                                     `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                     `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                     `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                     `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                     `pulumi:"timeoutSeconds"`
-	Type                ContainerHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ContainerHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // ContainerHealthchecksReadinessProbeInput is an input type that accepts ContainerHealthchecksReadinessProbeArgs and ContainerHealthchecksReadinessProbeOutput values.
@@ -5352,12 +5816,18 @@ type ContainerHealthchecksReadinessProbeInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                              `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                              `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                              `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                              `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                              `pulumi:"timeoutSeconds"`
-	Type                ContainerHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type ContainerHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (ContainerHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -5437,26 +5907,32 @@ func (o ContainerHealthchecksReadinessProbeOutput) ToContainerHealthchecksReadin
 	}).(ContainerHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ContainerHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ContainerHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ContainerHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ContainerHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ContainerHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ContainerHealthchecksReadinessProbeOutput) Type() ContainerHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbe) ContainerHealthchecksReadinessProbeType { return v.Type }).(ContainerHealthchecksReadinessProbeTypeOutput)
 }
@@ -5485,6 +5961,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) Elem() ContainerHealthchec
 	}).(ContainerHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o ContainerHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -5494,6 +5971,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o ContainerHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -5503,6 +5981,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o ContainerHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -5512,6 +5991,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o ContainerHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -5521,6 +6001,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o ContainerHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -5530,6 +6011,7 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o ContainerHealthchecksReadinessProbePtrOutput) Type() ContainerHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbe) *ContainerHealthchecksReadinessProbeType {
 		if v == nil {
@@ -5540,10 +6022,14 @@ func (o ContainerHealthchecksReadinessProbePtrOutput) Type() ContainerHealthchec
 }
 
 type ContainerHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *ContainerHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *ContainerHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *ContainerHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *ContainerHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *ContainerHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // ContainerHealthchecksReadinessProbeTypeInput is an input type that accepts ContainerHealthchecksReadinessProbeTypeArgs and ContainerHealthchecksReadinessProbeTypeOutput values.
@@ -5558,10 +6044,14 @@ type ContainerHealthchecksReadinessProbeTypeInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec ContainerHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc ContainerHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http ContainerHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  ContainerHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp ContainerHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (ContainerHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -5641,24 +6131,28 @@ func (o ContainerHealthchecksReadinessProbeTypeOutput) ToContainerHealthchecksRe
 	}).(ContainerHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ContainerHealthchecksReadinessProbeTypeOutput) Exec() ContainerHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeExec {
 		return v.Exec
 	}).(ContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ContainerHealthchecksReadinessProbeTypeOutput) Grpc() ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeGrpc {
 		return v.Grpc
 	}).(ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ContainerHealthchecksReadinessProbeTypeOutput) Http() ContainerHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeHttp {
 		return v.Http
 	}).(ContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ContainerHealthchecksReadinessProbeTypeOutput) Tcp() ContainerHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeTcp {
 		return v.Tcp
@@ -5689,6 +6183,7 @@ func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Elem() ContainerHealth
 	}).(ContainerHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Exec() ContainerHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -5698,6 +6193,7 @@ func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Exec() ContainerHealth
 	}).(ContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Grpc() ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -5707,6 +6203,7 @@ func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Grpc() ContainerHealth
 	}).(ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Http() ContainerHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -5716,6 +6213,7 @@ func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Http() ContainerHealth
 	}).(ContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Tcp() ContainerHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeType) *ContainerHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -5726,6 +6224,7 @@ func (o ContainerHealthchecksReadinessProbeTypePtrOutput) Tcp() ContainerHealthc
 }
 
 type ContainerHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -5741,6 +6240,7 @@ type ContainerHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -5821,6 +6321,7 @@ func (o ContainerHealthchecksReadinessProbeTypeExecOutput) ToContainerHealthchec
 	}).(ContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o ContainerHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -5849,6 +6350,7 @@ func (o ContainerHealthchecksReadinessProbeTypeExecPtrOutput) Elem() ContainerHe
 	}).(ContainerHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o ContainerHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -5859,7 +6361,9 @@ func (o ContainerHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.
 }
 
 type ContainerHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -5875,7 +6379,9 @@ type ContainerHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -5956,10 +6462,12 @@ func (o ContainerHealthchecksReadinessProbeTypeGrpcOutput) ToContainerHealthchec
 	}).(ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ContainerHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -5988,6 +6496,7 @@ func (o ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() ContainerHe
 	}).(ContainerHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -5997,6 +6506,7 @@ func (o ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -6007,9 +6517,12 @@ func (o ContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.S
 }
 
 type ContainerHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // ContainerHealthchecksReadinessProbeTypeHttpInput is an input type that accepts ContainerHealthchecksReadinessProbeTypeHttpArgs and ContainerHealthchecksReadinessProbeTypeHttpOutput values.
@@ -6024,9 +6537,12 @@ type ContainerHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (ContainerHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -6106,16 +6622,19 @@ func (o ContainerHealthchecksReadinessProbeTypeHttpOutput) ToContainerHealthchec
 	}).(ContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ContainerHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o ContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o ContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type ContainerHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -6142,6 +6661,7 @@ func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() ContainerHe
 	}).(ContainerHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -6151,6 +6671,7 @@ func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -6160,18 +6681,21 @@ func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o ContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // ContainerHealthchecksReadinessProbeTypeTcpInput is an input type that accepts ContainerHealthchecksReadinessProbeTypeTcpArgs and ContainerHealthchecksReadinessProbeTypeTcpOutput values.
@@ -6186,8 +6710,10 @@ type ContainerHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type ContainerHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (ContainerHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -6267,10 +6793,12 @@ func (o ContainerHealthchecksReadinessProbeTypeTcpOutput) ToContainerHealthcheck
 	}).(ContainerHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ContainerHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -6299,6 +6827,7 @@ func (o ContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() ContainerHea
 	}).(ContainerHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o ContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -6308,6 +6837,7 @@ func (o ContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o ContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -6318,13 +6848,25 @@ func (o ContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPt
 }
 
 type ContainerPort struct {
-	ExternalPort       *int    `pulumi:"externalPort"`
-	Id                 *string `pulumi:"id"`
-	InternalPort       int     `pulumi:"internalPort"`
-	IsDefault          bool    `pulumi:"isDefault"`
-	Name               *string `pulumi:"name"`
-	Protocol           *string `pulumi:"protocol"`
-	PubliclyAccessible bool    `pulumi:"publiclyAccessible"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort *int `pulumi:"externalPort"`
+	// Id of the port.
+	Id *string `pulumi:"id"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool `pulumi:"isDefault"`
+	// Name of the port.
+	Name *string `pulumi:"name"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol *string `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this container.
+	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
 }
 
 // ContainerPortInput is an input type that accepts ContainerPortArgs and ContainerPortOutput values.
@@ -6339,13 +6881,25 @@ type ContainerPortInput interface {
 }
 
 type ContainerPortArgs struct {
-	ExternalPort       pulumi.IntPtrInput    `pulumi:"externalPort"`
-	Id                 pulumi.StringPtrInput `pulumi:"id"`
-	InternalPort       pulumi.IntInput       `pulumi:"internalPort"`
-	IsDefault          pulumi.BoolInput      `pulumi:"isDefault"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
-	PubliclyAccessible pulumi.BoolInput      `pulumi:"publiclyAccessible"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntPtrInput `pulumi:"externalPort"`
+	// Id of the port.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// Name of the port.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this container.
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 }
 
 func (ContainerPortArgs) ElementType() reflect.Type {
@@ -6399,30 +6953,42 @@ func (o ContainerPortOutput) ToContainerPortOutputWithContext(ctx context.Contex
 	return o
 }
 
+// External port of the container.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o ContainerPortOutput) ExternalPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerPort) *int { return v.ExternalPort }).(pulumi.IntPtrOutput)
 }
 
+// Id of the port.
 func (o ContainerPortOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPort) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Internal port of the container.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o ContainerPortOutput) InternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerPort) int { return v.InternalPort }).(pulumi.IntOutput)
 }
 
+// If this port will be used for the root domain
 func (o ContainerPortOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContainerPort) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// Name of the port.
 func (o ContainerPortOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPort) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Protocol used for the port of the container.
+//   - Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+//   - Default: `HTTP`.
 func (o ContainerPortOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// Specify if the port is exposed to the world or not for this container.
 func (o ContainerPortOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContainerPort) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -6448,13 +7014,20 @@ func (o ContainerPortArrayOutput) Index(i pulumi.IntInput) ContainerPortOutput {
 }
 
 type ContainerRegistryConfig struct {
-	AccessKeyId       *string `pulumi:"accessKeyId"`
-	Password          *string `pulumi:"password"`
-	Region            *string `pulumi:"region"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Password *string `pulumi:"password"`
+	// Required if kind is `ECR` or `SCALEWAY_CR`.
+	Region *string `pulumi:"region"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewayAccessKey *string `pulumi:"scalewayAccessKey"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewaySecretKey *string `pulumi:"scalewaySecretKey"`
-	SecretAccessKey   *string `pulumi:"secretAccessKey"`
-	Username          *string `pulumi:"username"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Username *string `pulumi:"username"`
 }
 
 // ContainerRegistryConfigInput is an input type that accepts ContainerRegistryConfigArgs and ContainerRegistryConfigOutput values.
@@ -6469,13 +7042,20 @@ type ContainerRegistryConfigInput interface {
 }
 
 type ContainerRegistryConfigArgs struct {
-	AccessKeyId       pulumi.StringPtrInput `pulumi:"accessKeyId"`
-	Password          pulumi.StringPtrInput `pulumi:"password"`
-	Region            pulumi.StringPtrInput `pulumi:"region"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Required if kind is `ECR` or `SCALEWAY_CR`.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewayAccessKey pulumi.StringPtrInput `pulumi:"scalewayAccessKey"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewaySecretKey pulumi.StringPtrInput `pulumi:"scalewaySecretKey"`
-	SecretAccessKey   pulumi.StringPtrInput `pulumi:"secretAccessKey"`
-	Username          pulumi.StringPtrInput `pulumi:"username"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	SecretAccessKey pulumi.StringPtrInput `pulumi:"secretAccessKey"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ContainerRegistryConfigArgs) ElementType() reflect.Type {
@@ -6555,30 +7135,37 @@ func (o ContainerRegistryConfigOutput) ToContainerRegistryConfigPtrOutputWithCon
 	}).(ContainerRegistryConfigPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o ContainerRegistryConfigOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o ContainerRegistryConfigOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `SCALEWAY_CR`.
 func (o ContainerRegistryConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o ContainerRegistryConfigOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.ScalewayAccessKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o ContainerRegistryConfigOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.ScalewaySecretKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o ContainerRegistryConfigOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o ContainerRegistryConfigOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistryConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -6607,6 +7194,7 @@ func (o ContainerRegistryConfigPtrOutput) Elem() ContainerRegistryConfigOutput {
 	}).(ContainerRegistryConfigOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o ContainerRegistryConfigPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6616,6 +7204,7 @@ func (o ContainerRegistryConfigPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o ContainerRegistryConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6625,6 +7214,7 @@ func (o ContainerRegistryConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `SCALEWAY_CR`.
 func (o ContainerRegistryConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6634,6 +7224,7 @@ func (o ContainerRegistryConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o ContainerRegistryConfigPtrOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6643,6 +7234,7 @@ func (o ContainerRegistryConfigPtrOutput) ScalewayAccessKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o ContainerRegistryConfigPtrOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6652,6 +7244,7 @@ func (o ContainerRegistryConfigPtrOutput) ScalewaySecretKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o ContainerRegistryConfigPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6661,6 +7254,7 @@ func (o ContainerRegistryConfigPtrOutput) SecretAccessKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o ContainerRegistryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryConfig) *string {
 		if v == nil {
@@ -6671,9 +7265,12 @@ func (o ContainerRegistryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type ContainerSecret struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret.
+	Id *string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
+	Value string `pulumi:"value"`
 }
 
 // ContainerSecretInput is an input type that accepts ContainerSecretArgs and ContainerSecretOutput values.
@@ -6688,9 +7285,12 @@ type ContainerSecretInput interface {
 }
 
 type ContainerSecretArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerSecretArgs) ElementType() reflect.Type {
@@ -6744,14 +7344,17 @@ func (o ContainerSecretOutput) ToContainerSecretOutputWithContext(ctx context.Co
 	return o
 }
 
+// Id of the secret.
 func (o ContainerSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the secret.
 func (o ContainerSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o ContainerSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6777,9 +7380,12 @@ func (o ContainerSecretArrayOutput) Index(i pulumi.IntInput) ContainerSecretOutp
 }
 
 type ContainerSecretAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret alias.
+	Id *string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
+	Value string `pulumi:"value"`
 }
 
 // ContainerSecretAliasInput is an input type that accepts ContainerSecretAliasArgs and ContainerSecretAliasOutput values.
@@ -6794,9 +7400,12 @@ type ContainerSecretAliasInput interface {
 }
 
 type ContainerSecretAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerSecretAliasArgs) ElementType() reflect.Type {
@@ -6850,14 +7459,17 @@ func (o ContainerSecretAliasOutput) ToContainerSecretAliasOutputWithContext(ctx 
 	return o
 }
 
+// Id of the secret alias.
 func (o ContainerSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret alias.
 func (o ContainerSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o ContainerSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6883,9 +7495,12 @@ func (o ContainerSecretAliasArrayOutput) Index(i pulumi.IntInput) ContainerSecre
 }
 
 type ContainerSecretOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret override.
+	Id *string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
+	Value string `pulumi:"value"`
 }
 
 // ContainerSecretOverrideInput is an input type that accepts ContainerSecretOverrideArgs and ContainerSecretOverrideOutput values.
@@ -6900,9 +7515,12 @@ type ContainerSecretOverrideInput interface {
 }
 
 type ContainerSecretOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContainerSecretOverrideArgs) ElementType() reflect.Type {
@@ -6956,14 +7574,17 @@ func (o ContainerSecretOverrideOutput) ToContainerSecretOverrideOutputWithContex
 	return o
 }
 
+// Id of the secret override.
 func (o ContainerSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret override.
 func (o ContainerSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o ContainerSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6989,10 +7610,16 @@ func (o ContainerSecretOverrideArrayOutput) Index(i pulumi.IntInput) ContainerSe
 }
 
 type ContainerStorage struct {
-	Id         *string `pulumi:"id"`
-	MountPoint string  `pulumi:"mountPoint"`
-	Size       int     `pulumi:"size"`
-	Type       string  `pulumi:"type"`
+	// Id of the storage.
+	Id *string `pulumi:"id"`
+	// Mount point of the storage for the container.
+	MountPoint string `pulumi:"mountPoint"`
+	// Size of the storage for the container in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size int `pulumi:"size"`
+	// Type of the storage for the container.
+	// 	- Can be: `FAST_SSD`.
+	Type string `pulumi:"type"`
 }
 
 // ContainerStorageInput is an input type that accepts ContainerStorageArgs and ContainerStorageOutput values.
@@ -7007,10 +7634,16 @@ type ContainerStorageInput interface {
 }
 
 type ContainerStorageArgs struct {
-	Id         pulumi.StringPtrInput `pulumi:"id"`
-	MountPoint pulumi.StringInput    `pulumi:"mountPoint"`
-	Size       pulumi.IntInput       `pulumi:"size"`
-	Type       pulumi.StringInput    `pulumi:"type"`
+	// Id of the storage.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Mount point of the storage for the container.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// Size of the storage for the container in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the storage for the container.
+	// 	- Can be: `FAST_SSD`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ContainerStorageArgs) ElementType() reflect.Type {
@@ -7064,18 +7697,24 @@ func (o ContainerStorageOutput) ToContainerStorageOutputWithContext(ctx context.
 	return o
 }
 
+// Id of the storage.
 func (o ContainerStorageOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStorage) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Mount point of the storage for the container.
 func (o ContainerStorageOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerStorage) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
+// Size of the storage for the container in GB [1024MB = 1GB].
+//   - Must be: `>= 1`.
 func (o ContainerStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerStorage) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Type of the storage for the container.
+//   - Can be: `FAST_SSD`.
 func (o ContainerStorageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerStorage) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7101,8 +7740,11 @@ func (o ContainerStorageArrayOutput) Index(i pulumi.IntInput) ContainerStorageOu
 }
 
 type EnvironmentBuiltInEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   *string `pulumi:"key"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key *string `pulumi:"key"`
+	// Value of the environment variable.
 	Value *string `pulumi:"value"`
 }
 
@@ -7118,8 +7760,11 @@ type EnvironmentBuiltInEnvironmentVariableInput interface {
 }
 
 type EnvironmentBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7174,14 +7819,17 @@ func (o EnvironmentBuiltInEnvironmentVariableOutput) ToEnvironmentBuiltInEnviron
 	return o
 }
 
+// Id of the environment variable.
 func (o EnvironmentBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o EnvironmentBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Value of the environment variable.
 func (o EnvironmentBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7207,9 +7855,12 @@ func (o EnvironmentBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInpu
 }
 
 type EnvironmentEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentEnvironmentVariableInput is an input type that accepts EnvironmentEnvironmentVariableArgs and EnvironmentEnvironmentVariableOutput values.
@@ -7224,9 +7875,12 @@ type EnvironmentEnvironmentVariableInput interface {
 }
 
 type EnvironmentEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentEnvironmentVariableArgs) ElementType() reflect.Type {
@@ -7280,14 +7934,17 @@ func (o EnvironmentEnvironmentVariableOutput) ToEnvironmentEnvironmentVariableOu
 	return o
 }
 
+// Id of the environment variable.
 func (o EnvironmentEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o EnvironmentEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o EnvironmentEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7313,9 +7970,12 @@ func (o EnvironmentEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Envi
 }
 
 type EnvironmentEnvironmentVariableAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentEnvironmentVariableAliasInput is an input type that accepts EnvironmentEnvironmentVariableAliasArgs and EnvironmentEnvironmentVariableAliasOutput values.
@@ -7330,9 +7990,12 @@ type EnvironmentEnvironmentVariableAliasInput interface {
 }
 
 type EnvironmentEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentEnvironmentVariableAliasArgs) ElementType() reflect.Type {
@@ -7386,14 +8049,17 @@ func (o EnvironmentEnvironmentVariableAliasOutput) ToEnvironmentEnvironmentVaria
 	return o
 }
 
+// Id of the environment variable alias.
 func (o EnvironmentEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable alias.
 func (o EnvironmentEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o EnvironmentEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7419,9 +8085,12 @@ func (o EnvironmentEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput)
 }
 
 type EnvironmentEnvironmentVariableOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable override.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentEnvironmentVariableOverrideInput is an input type that accepts EnvironmentEnvironmentVariableOverrideArgs and EnvironmentEnvironmentVariableOverrideOutput values.
@@ -7436,9 +8105,12 @@ type EnvironmentEnvironmentVariableOverrideInput interface {
 }
 
 type EnvironmentEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
@@ -7492,14 +8164,17 @@ func (o EnvironmentEnvironmentVariableOverrideOutput) ToEnvironmentEnvironmentVa
 	return o
 }
 
+// Id of the environment variable override.
 func (o EnvironmentEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable override.
 func (o EnvironmentEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o EnvironmentEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7525,9 +8200,12 @@ func (o EnvironmentEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInp
 }
 
 type EnvironmentSecret struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret.
+	Id *string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentSecretInput is an input type that accepts EnvironmentSecretArgs and EnvironmentSecretOutput values.
@@ -7542,9 +8220,12 @@ type EnvironmentSecretInput interface {
 }
 
 type EnvironmentSecretArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentSecretArgs) ElementType() reflect.Type {
@@ -7598,14 +8279,17 @@ func (o EnvironmentSecretOutput) ToEnvironmentSecretOutputWithContext(ctx contex
 	return o
 }
 
+// Id of the secret.
 func (o EnvironmentSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the secret.
 func (o EnvironmentSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o EnvironmentSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7631,9 +8315,12 @@ func (o EnvironmentSecretArrayOutput) Index(i pulumi.IntInput) EnvironmentSecret
 }
 
 type EnvironmentSecretAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret alias.
+	Id *string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentSecretAliasInput is an input type that accepts EnvironmentSecretAliasArgs and EnvironmentSecretAliasOutput values.
@@ -7648,9 +8335,12 @@ type EnvironmentSecretAliasInput interface {
 }
 
 type EnvironmentSecretAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentSecretAliasArgs) ElementType() reflect.Type {
@@ -7704,14 +8394,17 @@ func (o EnvironmentSecretAliasOutput) ToEnvironmentSecretAliasOutputWithContext(
 	return o
 }
 
+// Id of the secret alias.
 func (o EnvironmentSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret alias.
 func (o EnvironmentSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o EnvironmentSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7737,9 +8430,12 @@ func (o EnvironmentSecretAliasArrayOutput) Index(i pulumi.IntInput) EnvironmentS
 }
 
 type EnvironmentSecretOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret override.
+	Id *string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentSecretOverrideInput is an input type that accepts EnvironmentSecretOverrideArgs and EnvironmentSecretOverrideOutput values.
@@ -7754,9 +8450,12 @@ type EnvironmentSecretOverrideInput interface {
 }
 
 type EnvironmentSecretOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentSecretOverrideArgs) ElementType() reflect.Type {
@@ -7810,14 +8509,17 @@ func (o EnvironmentSecretOverrideOutput) ToEnvironmentSecretOverrideOutputWithCo
 	return o
 }
 
+// Id of the secret override.
 func (o EnvironmentSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret override.
 func (o EnvironmentSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o EnvironmentSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7843,8 +8545,11 @@ func (o EnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) Environme
 }
 
 type HelmBuiltInEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   *string `pulumi:"key"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key *string `pulumi:"key"`
+	// Value of the environment variable.
 	Value *string `pulumi:"value"`
 }
 
@@ -7860,8 +8565,11 @@ type HelmBuiltInEnvironmentVariableInput interface {
 }
 
 type HelmBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7916,14 +8624,17 @@ func (o HelmBuiltInEnvironmentVariableOutput) ToHelmBuiltInEnvironmentVariableOu
 	return o
 }
 
+// Id of the environment variable.
 func (o HelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o HelmBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Value of the environment variable.
 func (o HelmBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7949,9 +8660,12 @@ func (o HelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Helm
 }
 
 type HelmEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
 }
 
 // HelmEnvironmentVariableInput is an input type that accepts HelmEnvironmentVariableArgs and HelmEnvironmentVariableOutput values.
@@ -7966,9 +8680,12 @@ type HelmEnvironmentVariableInput interface {
 }
 
 type HelmEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmEnvironmentVariableArgs) ElementType() reflect.Type {
@@ -8022,14 +8739,17 @@ func (o HelmEnvironmentVariableOutput) ToHelmEnvironmentVariableOutputWithContex
 	return o
 }
 
+// Id of the environment variable.
 func (o HelmEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o HelmEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o HelmEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8055,9 +8775,12 @@ func (o HelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) HelmEnviron
 }
 
 type HelmEnvironmentVariableAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
+	Value string `pulumi:"value"`
 }
 
 // HelmEnvironmentVariableAliasInput is an input type that accepts HelmEnvironmentVariableAliasArgs and HelmEnvironmentVariableAliasOutput values.
@@ -8072,9 +8795,12 @@ type HelmEnvironmentVariableAliasInput interface {
 }
 
 type HelmEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmEnvironmentVariableAliasArgs) ElementType() reflect.Type {
@@ -8128,14 +8854,17 @@ func (o HelmEnvironmentVariableAliasOutput) ToHelmEnvironmentVariableAliasOutput
 	return o
 }
 
+// Id of the environment variable alias.
 func (o HelmEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable alias.
 func (o HelmEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o HelmEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8161,9 +8890,12 @@ func (o HelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) HelmEn
 }
 
 type HelmEnvironmentVariableOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable override.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
+	Value string `pulumi:"value"`
 }
 
 // HelmEnvironmentVariableOverrideInput is an input type that accepts HelmEnvironmentVariableOverrideArgs and HelmEnvironmentVariableOverrideOutput values.
@@ -8178,9 +8910,12 @@ type HelmEnvironmentVariableOverrideInput interface {
 }
 
 type HelmEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
@@ -8234,14 +8969,17 @@ func (o HelmEnvironmentVariableOverrideOutput) ToHelmEnvironmentVariableOverride
 	return o
 }
 
+// Id of the environment variable override.
 func (o HelmEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable override.
 func (o HelmEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o HelmEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8267,12 +9005,21 @@ func (o HelmEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) Hel
 }
 
 type HelmPorts struct {
-	ExternalPort int     `pulumi:"externalPort"`
-	InternalPort int     `pulumi:"internalPort"`
-	IsDefault    bool    `pulumi:"isDefault"`
-	Namespace    *string `pulumi:"namespace"`
-	Protocol     *string `pulumi:"protocol"`
-	ServiceName  string  `pulumi:"serviceName"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort int `pulumi:"externalPort"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool    `pulumi:"isDefault"`
+	Namespace *string `pulumi:"namespace"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`.
+	// 	- Default: `HTTP`.
+	Protocol    *string `pulumi:"protocol"`
+	ServiceName string  `pulumi:"serviceName"`
 }
 
 // HelmPortsInput is an input type that accepts HelmPortsArgs and HelmPortsOutput values.
@@ -8287,12 +9034,21 @@ type HelmPortsInput interface {
 }
 
 type HelmPortsArgs struct {
-	ExternalPort pulumi.IntInput       `pulumi:"externalPort"`
-	InternalPort pulumi.IntInput       `pulumi:"internalPort"`
-	IsDefault    pulumi.BoolInput      `pulumi:"isDefault"`
-	Namespace    pulumi.StringPtrInput `pulumi:"namespace"`
-	Protocol     pulumi.StringPtrInput `pulumi:"protocol"`
-	ServiceName  pulumi.StringInput    `pulumi:"serviceName"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntInput `pulumi:"externalPort"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput      `pulumi:"isDefault"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`.
+	// 	- Default: `HTTP`.
+	Protocol    pulumi.StringPtrInput `pulumi:"protocol"`
+	ServiceName pulumi.StringInput    `pulumi:"serviceName"`
 }
 
 func (HelmPortsArgs) ElementType() reflect.Type {
@@ -8346,14 +9102,20 @@ func (o HelmPortsOutput) ToHelmPortsOutputWithContext(ctx context.Context) HelmP
 	return o
 }
 
+// External port of the container.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o HelmPortsOutput) ExternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v HelmPorts) int { return v.ExternalPort }).(pulumi.IntOutput)
 }
 
+// Internal port of the container.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o HelmPortsOutput) InternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v HelmPorts) int { return v.InternalPort }).(pulumi.IntOutput)
 }
 
+// If this port will be used for the root domain
 func (o HelmPortsOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HelmPorts) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -8362,6 +9124,9 @@ func (o HelmPortsOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmPorts) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// Protocol used for the port of the container.
+//   - Can be: `GRPC`, `HTTP`.
+//   - Default: `HTTP`.
 func (o HelmPortsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmPorts) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -8391,13 +9156,20 @@ func (o HelmPortsMapOutput) MapIndex(k pulumi.StringInput) HelmPortsOutput {
 }
 
 type HelmRepositoryConfig struct {
-	AccessKeyId       *string `pulumi:"accessKeyId"`
-	Password          *string `pulumi:"password"`
-	Region            *string `pulumi:"region"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Password *string `pulumi:"password"`
+	// Required if kind is `ECR` or `SCALEWAY_CR`.
+	Region *string `pulumi:"region"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewayAccessKey *string `pulumi:"scalewayAccessKey"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewaySecretKey *string `pulumi:"scalewaySecretKey"`
-	SecretAccessKey   *string `pulumi:"secretAccessKey"`
-	Username          *string `pulumi:"username"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Username *string `pulumi:"username"`
 }
 
 // HelmRepositoryConfigInput is an input type that accepts HelmRepositoryConfigArgs and HelmRepositoryConfigOutput values.
@@ -8412,13 +9184,20 @@ type HelmRepositoryConfigInput interface {
 }
 
 type HelmRepositoryConfigArgs struct {
-	AccessKeyId       pulumi.StringPtrInput `pulumi:"accessKeyId"`
-	Password          pulumi.StringPtrInput `pulumi:"password"`
-	Region            pulumi.StringPtrInput `pulumi:"region"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Required if kind is `ECR` or `SCALEWAY_CR`.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewayAccessKey pulumi.StringPtrInput `pulumi:"scalewayAccessKey"`
+	// Required if kind is `SCALEWAY_CR`.
 	ScalewaySecretKey pulumi.StringPtrInput `pulumi:"scalewaySecretKey"`
-	SecretAccessKey   pulumi.StringPtrInput `pulumi:"secretAccessKey"`
-	Username          pulumi.StringPtrInput `pulumi:"username"`
+	// Required if kind is `ECR` or `PUBLIC_ECR`.
+	SecretAccessKey pulumi.StringPtrInput `pulumi:"secretAccessKey"`
+	// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (HelmRepositoryConfigArgs) ElementType() reflect.Type {
@@ -8498,30 +9277,37 @@ func (o HelmRepositoryConfigOutput) ToHelmRepositoryConfigPtrOutputWithContext(c
 	}).(HelmRepositoryConfigPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o HelmRepositoryConfigOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o HelmRepositoryConfigOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `SCALEWAY_CR`.
 func (o HelmRepositoryConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o HelmRepositoryConfigOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.ScalewayAccessKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o HelmRepositoryConfigOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.ScalewaySecretKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o HelmRepositoryConfigOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o HelmRepositoryConfigOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmRepositoryConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -8550,6 +9336,7 @@ func (o HelmRepositoryConfigPtrOutput) Elem() HelmRepositoryConfigOutput {
 	}).(HelmRepositoryConfigOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o HelmRepositoryConfigPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8559,6 +9346,7 @@ func (o HelmRepositoryConfigPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o HelmRepositoryConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8568,6 +9356,7 @@ func (o HelmRepositoryConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `SCALEWAY_CR`.
 func (o HelmRepositoryConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8577,6 +9366,7 @@ func (o HelmRepositoryConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o HelmRepositoryConfigPtrOutput) ScalewayAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8586,6 +9376,7 @@ func (o HelmRepositoryConfigPtrOutput) ScalewayAccessKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `SCALEWAY_CR`.
 func (o HelmRepositoryConfigPtrOutput) ScalewaySecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8595,6 +9386,7 @@ func (o HelmRepositoryConfigPtrOutput) ScalewaySecretKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kind is `ECR` or `PUBLIC_ECR`.
 func (o HelmRepositoryConfigPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8604,6 +9396,7 @@ func (o HelmRepositoryConfigPtrOutput) SecretAccessKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR` ,  `GENERIC_CR`.
 func (o HelmRepositoryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmRepositoryConfig) *string {
 		if v == nil {
@@ -8614,9 +9407,12 @@ func (o HelmRepositoryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type HelmSecret struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret.
+	Id *string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
+	Value string `pulumi:"value"`
 }
 
 // HelmSecretInput is an input type that accepts HelmSecretArgs and HelmSecretOutput values.
@@ -8631,9 +9427,12 @@ type HelmSecretInput interface {
 }
 
 type HelmSecretArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmSecretArgs) ElementType() reflect.Type {
@@ -8687,14 +9486,17 @@ func (o HelmSecretOutput) ToHelmSecretOutputWithContext(ctx context.Context) Hel
 	return o
 }
 
+// Id of the secret.
 func (o HelmSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the secret.
 func (o HelmSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o HelmSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8720,9 +9522,12 @@ func (o HelmSecretArrayOutput) Index(i pulumi.IntInput) HelmSecretOutput {
 }
 
 type HelmSecretAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret alias.
+	Id *string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
+	Value string `pulumi:"value"`
 }
 
 // HelmSecretAliasInput is an input type that accepts HelmSecretAliasArgs and HelmSecretAliasOutput values.
@@ -8737,9 +9542,12 @@ type HelmSecretAliasInput interface {
 }
 
 type HelmSecretAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmSecretAliasArgs) ElementType() reflect.Type {
@@ -8793,14 +9601,17 @@ func (o HelmSecretAliasOutput) ToHelmSecretAliasOutputWithContext(ctx context.Co
 	return o
 }
 
+// Id of the secret alias.
 func (o HelmSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret alias.
 func (o HelmSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o HelmSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8826,9 +9637,12 @@ func (o HelmSecretAliasArrayOutput) Index(i pulumi.IntInput) HelmSecretAliasOutp
 }
 
 type HelmSecretOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret override.
+	Id *string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
+	Value string `pulumi:"value"`
 }
 
 // HelmSecretOverrideInput is an input type that accepts HelmSecretOverrideArgs and HelmSecretOverrideOutput values.
@@ -8843,9 +9657,12 @@ type HelmSecretOverrideInput interface {
 }
 
 type HelmSecretOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (HelmSecretOverrideArgs) ElementType() reflect.Type {
@@ -8899,14 +9716,17 @@ func (o HelmSecretOverrideOutput) ToHelmSecretOverrideOutputWithContext(ctx cont
 	return o
 }
 
+// Id of the secret override.
 func (o HelmSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret override.
 func (o HelmSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o HelmSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8932,7 +9752,9 @@ func (o HelmSecretOverrideArrayOutput) Index(i pulumi.IntInput) HelmSecretOverri
 }
 
 type HelmSource struct {
-	GitRepository  *HelmSourceGitRepository  `pulumi:"gitRepository"`
+	// Git repository
+	GitRepository *HelmSourceGitRepository `pulumi:"gitRepository"`
+	// Helm repositories can be private or public
 	HelmRepository *HelmSourceHelmRepository `pulumi:"helmRepository"`
 }
 
@@ -8948,7 +9770,9 @@ type HelmSourceInput interface {
 }
 
 type HelmSourceArgs struct {
-	GitRepository  HelmSourceGitRepositoryPtrInput  `pulumi:"gitRepository"`
+	// Git repository
+	GitRepository HelmSourceGitRepositoryPtrInput `pulumi:"gitRepository"`
+	// Helm repositories can be private or public
 	HelmRepository HelmSourceHelmRepositoryPtrInput `pulumi:"helmRepository"`
 }
 
@@ -9029,10 +9853,12 @@ func (o HelmSourceOutput) ToHelmSourcePtrOutputWithContext(ctx context.Context) 
 	}).(HelmSourcePtrOutput)
 }
 
+// Git repository
 func (o HelmSourceOutput) GitRepository() HelmSourceGitRepositoryPtrOutput {
 	return o.ApplyT(func(v HelmSource) *HelmSourceGitRepository { return v.GitRepository }).(HelmSourceGitRepositoryPtrOutput)
 }
 
+// Helm repositories can be private or public
 func (o HelmSourceOutput) HelmRepository() HelmSourceHelmRepositoryPtrOutput {
 	return o.ApplyT(func(v HelmSource) *HelmSourceHelmRepository { return v.HelmRepository }).(HelmSourceHelmRepositoryPtrOutput)
 }
@@ -9061,6 +9887,7 @@ func (o HelmSourcePtrOutput) Elem() HelmSourceOutput {
 	}).(HelmSourceOutput)
 }
 
+// Git repository
 func (o HelmSourcePtrOutput) GitRepository() HelmSourceGitRepositoryPtrOutput {
 	return o.ApplyT(func(v *HelmSource) *HelmSourceGitRepository {
 		if v == nil {
@@ -9070,6 +9897,7 @@ func (o HelmSourcePtrOutput) GitRepository() HelmSourceGitRepositoryPtrOutput {
 	}).(HelmSourceGitRepositoryPtrOutput)
 }
 
+// Helm repositories can be private or public
 func (o HelmSourcePtrOutput) HelmRepository() HelmSourceHelmRepositoryPtrOutput {
 	return o.ApplyT(func(v *HelmSource) *HelmSourceHelmRepository {
 		if v == nil {
@@ -9080,10 +9908,14 @@ func (o HelmSourcePtrOutput) HelmRepository() HelmSourceHelmRepositoryPtrOutput 
 }
 
 type HelmSourceGitRepository struct {
-	Branch     *string `pulumi:"branch"`
+	// Helm's source git repository branch
+	Branch *string `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId *string `pulumi:"gitTokenId"`
-	RootPath   *string `pulumi:"rootPath"`
-	Url        string  `pulumi:"url"`
+	// Helm's source git repository root path
+	RootPath *string `pulumi:"rootPath"`
+	// Helm's source git repository URL
+	Url string `pulumi:"url"`
 }
 
 // HelmSourceGitRepositoryInput is an input type that accepts HelmSourceGitRepositoryArgs and HelmSourceGitRepositoryOutput values.
@@ -9098,10 +9930,14 @@ type HelmSourceGitRepositoryInput interface {
 }
 
 type HelmSourceGitRepositoryArgs struct {
-	Branch     pulumi.StringPtrInput `pulumi:"branch"`
+	// Helm's source git repository branch
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
-	RootPath   pulumi.StringPtrInput `pulumi:"rootPath"`
-	Url        pulumi.StringInput    `pulumi:"url"`
+	// Helm's source git repository root path
+	RootPath pulumi.StringPtrInput `pulumi:"rootPath"`
+	// Helm's source git repository URL
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (HelmSourceGitRepositoryArgs) ElementType() reflect.Type {
@@ -9181,18 +10017,22 @@ func (o HelmSourceGitRepositoryOutput) ToHelmSourceGitRepositoryPtrOutputWithCon
 	}).(HelmSourceGitRepositoryPtrOutput)
 }
 
+// Helm's source git repository branch
 func (o HelmSourceGitRepositoryOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o HelmSourceGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
 }
 
+// Helm's source git repository root path
 func (o HelmSourceGitRepositoryOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSourceGitRepository) *string { return v.RootPath }).(pulumi.StringPtrOutput)
 }
 
+// Helm's source git repository URL
 func (o HelmSourceGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSourceGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -9221,6 +10061,7 @@ func (o HelmSourceGitRepositoryPtrOutput) Elem() HelmSourceGitRepositoryOutput {
 	}).(HelmSourceGitRepositoryOutput)
 }
 
+// Helm's source git repository branch
 func (o HelmSourceGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
 		if v == nil {
@@ -9230,6 +10071,7 @@ func (o HelmSourceGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o HelmSourceGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
 		if v == nil {
@@ -9239,6 +10081,7 @@ func (o HelmSourceGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Helm's source git repository root path
 func (o HelmSourceGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
 		if v == nil {
@@ -9248,6 +10091,7 @@ func (o HelmSourceGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Helm's source git repository URL
 func (o HelmSourceGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceGitRepository) *string {
 		if v == nil {
@@ -9258,8 +10102,11 @@ func (o HelmSourceGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type HelmSourceHelmRepository struct {
-	ChartName        string `pulumi:"chartName"`
-	ChartVersion     string `pulumi:"chartVersion"`
+	// Chart name
+	ChartName string `pulumi:"chartName"`
+	// Chart version
+	ChartVersion string `pulumi:"chartVersion"`
+	// helm repository id
 	HelmRepositoryId string `pulumi:"helmRepositoryId"`
 }
 
@@ -9275,8 +10122,11 @@ type HelmSourceHelmRepositoryInput interface {
 }
 
 type HelmSourceHelmRepositoryArgs struct {
-	ChartName        pulumi.StringInput `pulumi:"chartName"`
-	ChartVersion     pulumi.StringInput `pulumi:"chartVersion"`
+	// Chart name
+	ChartName pulumi.StringInput `pulumi:"chartName"`
+	// Chart version
+	ChartVersion pulumi.StringInput `pulumi:"chartVersion"`
+	// helm repository id
 	HelmRepositoryId pulumi.StringInput `pulumi:"helmRepositoryId"`
 }
 
@@ -9357,14 +10207,17 @@ func (o HelmSourceHelmRepositoryOutput) ToHelmSourceHelmRepositoryPtrOutputWithC
 	}).(HelmSourceHelmRepositoryPtrOutput)
 }
 
+// Chart name
 func (o HelmSourceHelmRepositoryOutput) ChartName() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.ChartName }).(pulumi.StringOutput)
 }
 
+// Chart version
 func (o HelmSourceHelmRepositoryOutput) ChartVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.ChartVersion }).(pulumi.StringOutput)
 }
 
+// helm repository id
 func (o HelmSourceHelmRepositoryOutput) HelmRepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmSourceHelmRepository) string { return v.HelmRepositoryId }).(pulumi.StringOutput)
 }
@@ -9393,6 +10246,7 @@ func (o HelmSourceHelmRepositoryPtrOutput) Elem() HelmSourceHelmRepositoryOutput
 	}).(HelmSourceHelmRepositoryOutput)
 }
 
+// Chart name
 func (o HelmSourceHelmRepositoryPtrOutput) ChartName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
 		if v == nil {
@@ -9402,6 +10256,7 @@ func (o HelmSourceHelmRepositoryPtrOutput) ChartName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Chart version
 func (o HelmSourceHelmRepositoryPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
 		if v == nil {
@@ -9411,6 +10266,7 @@ func (o HelmSourceHelmRepositoryPtrOutput) ChartVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// helm repository id
 func (o HelmSourceHelmRepositoryPtrOutput) HelmRepositoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmSourceHelmRepository) *string {
 		if v == nil {
@@ -9421,6 +10277,7 @@ func (o HelmSourceHelmRepositoryPtrOutput) HelmRepositoryId() pulumi.StringPtrOu
 }
 
 type HelmValuesOverride struct {
+	// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 	File      *HelmValuesOverrideFile `pulumi:"file"`
 	Set       map[string]string       `pulumi:"set"`
 	SetJson   map[string]string       `pulumi:"setJson"`
@@ -9439,6 +10296,7 @@ type HelmValuesOverrideInput interface {
 }
 
 type HelmValuesOverrideArgs struct {
+	// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 	File      HelmValuesOverrideFilePtrInput `pulumi:"file"`
 	Set       pulumi.StringMapInput          `pulumi:"set"`
 	SetJson   pulumi.StringMapInput          `pulumi:"setJson"`
@@ -9522,6 +10380,7 @@ func (o HelmValuesOverrideOutput) ToHelmValuesOverridePtrOutputWithContext(ctx c
 	}).(HelmValuesOverridePtrOutput)
 }
 
+// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 func (o HelmValuesOverrideOutput) File() HelmValuesOverrideFilePtrOutput {
 	return o.ApplyT(func(v HelmValuesOverride) *HelmValuesOverrideFile { return v.File }).(HelmValuesOverrideFilePtrOutput)
 }
@@ -9562,6 +10421,7 @@ func (o HelmValuesOverridePtrOutput) Elem() HelmValuesOverrideOutput {
 	}).(HelmValuesOverrideOutput)
 }
 
+// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 func (o HelmValuesOverridePtrOutput) File() HelmValuesOverrideFilePtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverride) *HelmValuesOverrideFile {
 		if v == nil {
@@ -9599,8 +10459,10 @@ func (o HelmValuesOverridePtrOutput) SetString() pulumi.StringMapOutput {
 }
 
 type HelmValuesOverrideFile struct {
+	// YAML file from a git repository
 	GitRepository *HelmValuesOverrideFileGitRepository `pulumi:"gitRepository"`
-	Raw           map[string]HelmValuesOverrideFileRaw `pulumi:"raw"`
+	// Raw YAML files
+	Raw map[string]HelmValuesOverrideFileRaw `pulumi:"raw"`
 }
 
 // HelmValuesOverrideFileInput is an input type that accepts HelmValuesOverrideFileArgs and HelmValuesOverrideFileOutput values.
@@ -9615,8 +10477,10 @@ type HelmValuesOverrideFileInput interface {
 }
 
 type HelmValuesOverrideFileArgs struct {
+	// YAML file from a git repository
 	GitRepository HelmValuesOverrideFileGitRepositoryPtrInput `pulumi:"gitRepository"`
-	Raw           HelmValuesOverrideFileRawMapInput           `pulumi:"raw"`
+	// Raw YAML files
+	Raw HelmValuesOverrideFileRawMapInput `pulumi:"raw"`
 }
 
 func (HelmValuesOverrideFileArgs) ElementType() reflect.Type {
@@ -9696,10 +10560,12 @@ func (o HelmValuesOverrideFileOutput) ToHelmValuesOverrideFilePtrOutputWithConte
 	}).(HelmValuesOverrideFilePtrOutput)
 }
 
+// YAML file from a git repository
 func (o HelmValuesOverrideFileOutput) GitRepository() HelmValuesOverrideFileGitRepositoryPtrOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFile) *HelmValuesOverrideFileGitRepository { return v.GitRepository }).(HelmValuesOverrideFileGitRepositoryPtrOutput)
 }
 
+// Raw YAML files
 func (o HelmValuesOverrideFileOutput) Raw() HelmValuesOverrideFileRawMapOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFile) map[string]HelmValuesOverrideFileRaw { return v.Raw }).(HelmValuesOverrideFileRawMapOutput)
 }
@@ -9728,6 +10594,7 @@ func (o HelmValuesOverrideFilePtrOutput) Elem() HelmValuesOverrideFileOutput {
 	}).(HelmValuesOverrideFileOutput)
 }
 
+// YAML file from a git repository
 func (o HelmValuesOverrideFilePtrOutput) GitRepository() HelmValuesOverrideFileGitRepositoryPtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFile) *HelmValuesOverrideFileGitRepository {
 		if v == nil {
@@ -9737,6 +10604,7 @@ func (o HelmValuesOverrideFilePtrOutput) GitRepository() HelmValuesOverrideFileG
 	}).(HelmValuesOverrideFileGitRepositoryPtrOutput)
 }
 
+// Raw YAML files
 func (o HelmValuesOverrideFilePtrOutput) Raw() HelmValuesOverrideFileRawMapOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFile) map[string]HelmValuesOverrideFileRaw {
 		if v == nil {
@@ -9747,10 +10615,14 @@ func (o HelmValuesOverrideFilePtrOutput) Raw() HelmValuesOverrideFileRawMapOutpu
 }
 
 type HelmValuesOverrideFileGitRepository struct {
-	Branch     string   `pulumi:"branch"`
-	GitTokenId *string  `pulumi:"gitTokenId"`
-	Paths      []string `pulumi:"paths"`
-	Url        string   `pulumi:"url"`
+	// YAML file git repository branch
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId *string `pulumi:"gitTokenId"`
+	// YAML files git repository paths
+	Paths []string `pulumi:"paths"`
+	// YAML file git repository URL
+	Url string `pulumi:"url"`
 }
 
 // HelmValuesOverrideFileGitRepositoryInput is an input type that accepts HelmValuesOverrideFileGitRepositoryArgs and HelmValuesOverrideFileGitRepositoryOutput values.
@@ -9765,10 +10637,14 @@ type HelmValuesOverrideFileGitRepositoryInput interface {
 }
 
 type HelmValuesOverrideFileGitRepositoryArgs struct {
-	Branch     pulumi.StringInput      `pulumi:"branch"`
-	GitTokenId pulumi.StringPtrInput   `pulumi:"gitTokenId"`
-	Paths      pulumi.StringArrayInput `pulumi:"paths"`
-	Url        pulumi.StringInput      `pulumi:"url"`
+	// YAML file git repository branch
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
+	// YAML files git repository paths
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// YAML file git repository URL
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (HelmValuesOverrideFileGitRepositoryArgs) ElementType() reflect.Type {
@@ -9848,18 +10724,22 @@ func (o HelmValuesOverrideFileGitRepositoryOutput) ToHelmValuesOverrideFileGitRe
 	}).(HelmValuesOverrideFileGitRepositoryPtrOutput)
 }
 
+// YAML file git repository branch
 func (o HelmValuesOverrideFileGitRepositoryOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The git token ID to be used
 func (o HelmValuesOverrideFileGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
 }
 
+// YAML files git repository paths
 func (o HelmValuesOverrideFileGitRepositoryOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
+// YAML file git repository URL
 func (o HelmValuesOverrideFileGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFileGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -9888,6 +10768,7 @@ func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Elem() HelmValuesOverrideF
 	}).(HelmValuesOverrideFileGitRepositoryOutput)
 }
 
+// YAML file git repository branch
 func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
 		if v == nil {
@@ -9897,6 +10778,7 @@ func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Branch() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o HelmValuesOverrideFileGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
 		if v == nil {
@@ -9906,6 +10788,7 @@ func (o HelmValuesOverrideFileGitRepositoryPtrOutput) GitTokenId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// YAML files git repository paths
 func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) []string {
 		if v == nil {
@@ -9915,6 +10798,7 @@ func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Paths() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// YAML file git repository URL
 func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverrideFileGitRepository) *string {
 		if v == nil {
@@ -9925,6 +10809,7 @@ func (o HelmValuesOverrideFileGitRepositoryPtrOutput) Url() pulumi.StringPtrOutp
 }
 
 type HelmValuesOverrideFileRaw struct {
+	// content of the file
 	Content string `pulumi:"content"`
 }
 
@@ -9940,6 +10825,7 @@ type HelmValuesOverrideFileRawInput interface {
 }
 
 type HelmValuesOverrideFileRawArgs struct {
+	// content of the file
 	Content pulumi.StringInput `pulumi:"content"`
 }
 
@@ -9994,6 +10880,7 @@ func (o HelmValuesOverrideFileRawOutput) ToHelmValuesOverrideFileRawOutputWithCo
 	return o
 }
 
+// content of the file
 func (o HelmValuesOverrideFileRawOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v HelmValuesOverrideFileRaw) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -10019,8 +10906,11 @@ func (o HelmValuesOverrideFileRawMapOutput) MapIndex(k pulumi.StringInput) HelmV
 }
 
 type JobBuiltInEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   *string `pulumi:"key"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key *string `pulumi:"key"`
+	// Value of the environment variable.
 	Value *string `pulumi:"value"`
 }
 
@@ -10036,8 +10926,11 @@ type JobBuiltInEnvironmentVariableInput interface {
 }
 
 type JobBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10092,14 +10985,17 @@ func (o JobBuiltInEnvironmentVariableOutput) ToJobBuiltInEnvironmentVariableOutp
 	return o
 }
 
+// Id of the environment variable.
 func (o JobBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o JobBuiltInEnvironmentVariableOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobBuiltInEnvironmentVariable) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Value of the environment variable.
 func (o JobBuiltInEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobBuiltInEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10125,9 +11021,12 @@ func (o JobBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) JobBu
 }
 
 type JobEnvironmentVariable struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable.
+	Id *string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
 }
 
 // JobEnvironmentVariableInput is an input type that accepts JobEnvironmentVariableArgs and JobEnvironmentVariableOutput values.
@@ -10142,9 +11041,12 @@ type JobEnvironmentVariableInput interface {
 }
 
 type JobEnvironmentVariableArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobEnvironmentVariableArgs) ElementType() reflect.Type {
@@ -10198,14 +11100,17 @@ func (o JobEnvironmentVariableOutput) ToJobEnvironmentVariableOutputWithContext(
 	return o
 }
 
+// Id of the environment variable.
 func (o JobEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the environment variable.
 func (o JobEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o JobEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10231,9 +11136,12 @@ func (o JobEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) JobEnvironme
 }
 
 type JobEnvironmentVariableAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
+	Value string `pulumi:"value"`
 }
 
 // JobEnvironmentVariableAliasInput is an input type that accepts JobEnvironmentVariableAliasArgs and JobEnvironmentVariableAliasOutput values.
@@ -10248,9 +11156,12 @@ type JobEnvironmentVariableAliasInput interface {
 }
 
 type JobEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobEnvironmentVariableAliasArgs) ElementType() reflect.Type {
@@ -10304,14 +11215,17 @@ func (o JobEnvironmentVariableAliasOutput) ToJobEnvironmentVariableAliasOutputWi
 	return o
 }
 
+// Id of the environment variable alias.
 func (o JobEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable alias.
 func (o JobEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o JobEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10337,9 +11251,12 @@ func (o JobEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) JobEnvi
 }
 
 type JobEnvironmentVariableOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the environment variable override.
+	Id *string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
+	Value string `pulumi:"value"`
 }
 
 // JobEnvironmentVariableOverrideInput is an input type that accepts JobEnvironmentVariableOverrideArgs and JobEnvironmentVariableOverrideOutput values.
@@ -10354,9 +11271,12 @@ type JobEnvironmentVariableOverrideInput interface {
 }
 
 type JobEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the environment variable override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobEnvironmentVariableOverrideArgs) ElementType() reflect.Type {
@@ -10410,14 +11330,17 @@ func (o JobEnvironmentVariableOverrideOutput) ToJobEnvironmentVariableOverrideOu
 	return o
 }
 
+// Id of the environment variable override.
 func (o JobEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable override.
 func (o JobEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o JobEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10443,7 +11366,9 @@ func (o JobEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) JobE
 }
 
 type JobHealthchecks struct {
-	LivenessProbe  *JobHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *JobHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *JobHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -10459,7 +11384,9 @@ type JobHealthchecksInput interface {
 }
 
 type JobHealthchecksArgs struct {
-	LivenessProbe  JobHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe JobHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe JobHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -10540,10 +11467,12 @@ func (o JobHealthchecksOutput) ToJobHealthchecksPtrOutputWithContext(ctx context
 	}).(JobHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o JobHealthchecksOutput) LivenessProbe() JobHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v JobHealthchecks) *JobHealthchecksLivenessProbe { return v.LivenessProbe }).(JobHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o JobHealthchecksOutput) ReadinessProbe() JobHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v JobHealthchecks) *JobHealthchecksReadinessProbe { return v.ReadinessProbe }).(JobHealthchecksReadinessProbePtrOutput)
 }
@@ -10572,6 +11501,7 @@ func (o JobHealthchecksPtrOutput) Elem() JobHealthchecksOutput {
 	}).(JobHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o JobHealthchecksPtrOutput) LivenessProbe() JobHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *JobHealthchecks) *JobHealthchecksLivenessProbe {
 		if v == nil {
@@ -10581,6 +11511,7 @@ func (o JobHealthchecksPtrOutput) LivenessProbe() JobHealthchecksLivenessProbePt
 	}).(JobHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o JobHealthchecksPtrOutput) ReadinessProbe() JobHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *JobHealthchecks) *JobHealthchecksReadinessProbe {
 		if v == nil {
@@ -10591,12 +11522,18 @@ func (o JobHealthchecksPtrOutput) ReadinessProbe() JobHealthchecksReadinessProbe
 }
 
 type JobHealthchecksLivenessProbe struct {
-	FailureThreshold    int                              `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                              `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                              `pulumi:"periodSeconds"`
-	SuccessThreshold    int                              `pulumi:"successThreshold"`
-	TimeoutSeconds      int                              `pulumi:"timeoutSeconds"`
-	Type                JobHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type JobHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // JobHealthchecksLivenessProbeInput is an input type that accepts JobHealthchecksLivenessProbeArgs and JobHealthchecksLivenessProbeOutput values.
@@ -10611,12 +11548,18 @@ type JobHealthchecksLivenessProbeInput interface {
 }
 
 type JobHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                       `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                       `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                       `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                       `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                       `pulumi:"timeoutSeconds"`
-	Type                JobHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type JobHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (JobHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -10696,26 +11639,32 @@ func (o JobHealthchecksLivenessProbeOutput) ToJobHealthchecksLivenessProbePtrOut
 	}).(JobHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o JobHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o JobHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o JobHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o JobHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o JobHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o JobHealthchecksLivenessProbeOutput) Type() JobHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbe) JobHealthchecksLivenessProbeType { return v.Type }).(JobHealthchecksLivenessProbeTypeOutput)
 }
@@ -10744,6 +11693,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) Elem() JobHealthchecksLivenessPro
 	}).(JobHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o JobHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -10753,6 +11703,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o JobHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -10762,6 +11713,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o JobHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -10771,6 +11723,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o JobHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -10780,6 +11733,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o JobHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -10789,6 +11743,7 @@ func (o JobHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o JobHealthchecksLivenessProbePtrOutput) Type() JobHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbe) *JobHealthchecksLivenessProbeType {
 		if v == nil {
@@ -10799,10 +11754,14 @@ func (o JobHealthchecksLivenessProbePtrOutput) Type() JobHealthchecksLivenessPro
 }
 
 type JobHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *JobHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *JobHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *JobHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *JobHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *JobHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // JobHealthchecksLivenessProbeTypeInput is an input type that accepts JobHealthchecksLivenessProbeTypeArgs and JobHealthchecksLivenessProbeTypeOutput values.
@@ -10817,10 +11776,14 @@ type JobHealthchecksLivenessProbeTypeInput interface {
 }
 
 type JobHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec JobHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc JobHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http JobHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  JobHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp JobHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (JobHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -10900,18 +11863,22 @@ func (o JobHealthchecksLivenessProbeTypeOutput) ToJobHealthchecksLivenessProbeTy
 	}).(JobHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o JobHealthchecksLivenessProbeTypeOutput) Exec() JobHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeExec { return v.Exec }).(JobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o JobHealthchecksLivenessProbeTypeOutput) Grpc() JobHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeGrpc { return v.Grpc }).(JobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o JobHealthchecksLivenessProbeTypeOutput) Http() JobHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeHttp { return v.Http }).(JobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o JobHealthchecksLivenessProbeTypeOutput) Tcp() JobHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeTcp { return v.Tcp }).(JobHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
@@ -10940,6 +11907,7 @@ func (o JobHealthchecksLivenessProbeTypePtrOutput) Elem() JobHealthchecksLivenes
 	}).(JobHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o JobHealthchecksLivenessProbeTypePtrOutput) Exec() JobHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -10949,6 +11917,7 @@ func (o JobHealthchecksLivenessProbeTypePtrOutput) Exec() JobHealthchecksLivenes
 	}).(JobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o JobHealthchecksLivenessProbeTypePtrOutput) Grpc() JobHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -10958,6 +11927,7 @@ func (o JobHealthchecksLivenessProbeTypePtrOutput) Grpc() JobHealthchecksLivenes
 	}).(JobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o JobHealthchecksLivenessProbeTypePtrOutput) Http() JobHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -10967,6 +11937,7 @@ func (o JobHealthchecksLivenessProbeTypePtrOutput) Http() JobHealthchecksLivenes
 	}).(JobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o JobHealthchecksLivenessProbeTypePtrOutput) Tcp() JobHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeType) *JobHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -10977,6 +11948,7 @@ func (o JobHealthchecksLivenessProbeTypePtrOutput) Tcp() JobHealthchecksLiveness
 }
 
 type JobHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -10992,6 +11964,7 @@ type JobHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type JobHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -11072,6 +12045,7 @@ func (o JobHealthchecksLivenessProbeTypeExecOutput) ToJobHealthchecksLivenessPro
 	}).(JobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o JobHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -11100,6 +12074,7 @@ func (o JobHealthchecksLivenessProbeTypeExecPtrOutput) Elem() JobHealthchecksLiv
 	}).(JobHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o JobHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -11110,7 +12085,9 @@ func (o JobHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringA
 }
 
 type JobHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -11126,7 +12103,9 @@ type JobHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type JobHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -11207,10 +12186,12 @@ func (o JobHealthchecksLivenessProbeTypeGrpcOutput) ToJobHealthchecksLivenessPro
 	}).(JobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o JobHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -11239,6 +12220,7 @@ func (o JobHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() JobHealthchecksLiv
 	}).(JobHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -11248,6 +12230,7 @@ func (o JobHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o JobHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -11258,9 +12241,12 @@ func (o JobHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPt
 }
 
 type JobHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // JobHealthchecksLivenessProbeTypeHttpInput is an input type that accepts JobHealthchecksLivenessProbeTypeHttpArgs and JobHealthchecksLivenessProbeTypeHttpOutput values.
@@ -11275,9 +12261,12 @@ type JobHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type JobHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (JobHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -11357,16 +12346,19 @@ func (o JobHealthchecksLivenessProbeTypeHttpOutput) ToJobHealthchecksLivenessPro
 	}).(JobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o JobHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o JobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o JobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type JobHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -11393,6 +12385,7 @@ func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() JobHealthchecksLiv
 	}).(JobHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -11402,6 +12395,7 @@ func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -11411,18 +12405,21 @@ func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o JobHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type JobHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // JobHealthchecksLivenessProbeTypeTcpInput is an input type that accepts JobHealthchecksLivenessProbeTypeTcpArgs and JobHealthchecksLivenessProbeTypeTcpOutput values.
@@ -11437,8 +12434,10 @@ type JobHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type JobHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (JobHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -11518,10 +12517,12 @@ func (o JobHealthchecksLivenessProbeTypeTcpOutput) ToJobHealthchecksLivenessProb
 	}).(JobHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o JobHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -11550,6 +12551,7 @@ func (o JobHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() JobHealthchecksLive
 	}).(JobHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o JobHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -11559,6 +12561,7 @@ func (o JobHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -11569,12 +12572,18 @@ func (o JobHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput
 }
 
 type JobHealthchecksReadinessProbe struct {
-	FailureThreshold    int                               `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                               `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                               `pulumi:"periodSeconds"`
-	SuccessThreshold    int                               `pulumi:"successThreshold"`
-	TimeoutSeconds      int                               `pulumi:"timeoutSeconds"`
-	Type                JobHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type JobHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // JobHealthchecksReadinessProbeInput is an input type that accepts JobHealthchecksReadinessProbeArgs and JobHealthchecksReadinessProbeOutput values.
@@ -11589,12 +12598,18 @@ type JobHealthchecksReadinessProbeInput interface {
 }
 
 type JobHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                        `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                        `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                        `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                        `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                        `pulumi:"timeoutSeconds"`
-	Type                JobHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type JobHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (JobHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -11674,26 +12689,32 @@ func (o JobHealthchecksReadinessProbeOutput) ToJobHealthchecksReadinessProbePtrO
 	}).(JobHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o JobHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o JobHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o JobHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o JobHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o JobHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o JobHealthchecksReadinessProbeOutput) Type() JobHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbe) JobHealthchecksReadinessProbeType { return v.Type }).(JobHealthchecksReadinessProbeTypeOutput)
 }
@@ -11722,6 +12743,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) Elem() JobHealthchecksReadinessP
 	}).(JobHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o JobHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -11731,6 +12753,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o JobHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -11740,6 +12763,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o JobHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -11749,6 +12773,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o JobHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -11758,6 +12783,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o JobHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -11767,6 +12793,7 @@ func (o JobHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o JobHealthchecksReadinessProbePtrOutput) Type() JobHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbe) *JobHealthchecksReadinessProbeType {
 		if v == nil {
@@ -11777,10 +12804,14 @@ func (o JobHealthchecksReadinessProbePtrOutput) Type() JobHealthchecksReadinessP
 }
 
 type JobHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *JobHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *JobHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *JobHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *JobHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *JobHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // JobHealthchecksReadinessProbeTypeInput is an input type that accepts JobHealthchecksReadinessProbeTypeArgs and JobHealthchecksReadinessProbeTypeOutput values.
@@ -11795,10 +12826,14 @@ type JobHealthchecksReadinessProbeTypeInput interface {
 }
 
 type JobHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec JobHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc JobHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http JobHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  JobHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp JobHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (JobHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -11878,18 +12913,22 @@ func (o JobHealthchecksReadinessProbeTypeOutput) ToJobHealthchecksReadinessProbe
 	}).(JobHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o JobHealthchecksReadinessProbeTypeOutput) Exec() JobHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeExec { return v.Exec }).(JobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o JobHealthchecksReadinessProbeTypeOutput) Grpc() JobHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeGrpc { return v.Grpc }).(JobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o JobHealthchecksReadinessProbeTypeOutput) Http() JobHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeHttp { return v.Http }).(JobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o JobHealthchecksReadinessProbeTypeOutput) Tcp() JobHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeTcp { return v.Tcp }).(JobHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
@@ -11918,6 +12957,7 @@ func (o JobHealthchecksReadinessProbeTypePtrOutput) Elem() JobHealthchecksReadin
 	}).(JobHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o JobHealthchecksReadinessProbeTypePtrOutput) Exec() JobHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -11927,6 +12967,7 @@ func (o JobHealthchecksReadinessProbeTypePtrOutput) Exec() JobHealthchecksReadin
 	}).(JobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o JobHealthchecksReadinessProbeTypePtrOutput) Grpc() JobHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -11936,6 +12977,7 @@ func (o JobHealthchecksReadinessProbeTypePtrOutput) Grpc() JobHealthchecksReadin
 	}).(JobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o JobHealthchecksReadinessProbeTypePtrOutput) Http() JobHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -11945,6 +12987,7 @@ func (o JobHealthchecksReadinessProbeTypePtrOutput) Http() JobHealthchecksReadin
 	}).(JobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o JobHealthchecksReadinessProbeTypePtrOutput) Tcp() JobHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeType) *JobHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -11955,6 +12998,7 @@ func (o JobHealthchecksReadinessProbeTypePtrOutput) Tcp() JobHealthchecksReadine
 }
 
 type JobHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -11970,6 +13014,7 @@ type JobHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type JobHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -12050,6 +13095,7 @@ func (o JobHealthchecksReadinessProbeTypeExecOutput) ToJobHealthchecksReadinessP
 	}).(JobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o JobHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -12078,6 +13124,7 @@ func (o JobHealthchecksReadinessProbeTypeExecPtrOutput) Elem() JobHealthchecksRe
 	}).(JobHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o JobHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -12088,7 +13135,9 @@ func (o JobHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.String
 }
 
 type JobHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -12104,7 +13153,9 @@ type JobHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type JobHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -12185,10 +13236,12 @@ func (o JobHealthchecksReadinessProbeTypeGrpcOutput) ToJobHealthchecksReadinessP
 	}).(JobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o JobHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -12217,6 +13270,7 @@ func (o JobHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() JobHealthchecksRe
 	}).(JobHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -12226,6 +13280,7 @@ func (o JobHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o JobHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -12236,9 +13291,12 @@ func (o JobHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringP
 }
 
 type JobHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // JobHealthchecksReadinessProbeTypeHttpInput is an input type that accepts JobHealthchecksReadinessProbeTypeHttpArgs and JobHealthchecksReadinessProbeTypeHttpOutput values.
@@ -12253,9 +13311,12 @@ type JobHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type JobHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (JobHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -12335,16 +13396,19 @@ func (o JobHealthchecksReadinessProbeTypeHttpOutput) ToJobHealthchecksReadinessP
 	}).(JobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o JobHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o JobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o JobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type JobHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -12371,6 +13435,7 @@ func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() JobHealthchecksRe
 	}).(JobHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -12380,6 +13445,7 @@ func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -12389,18 +13455,21 @@ func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o JobHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type JobHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // JobHealthchecksReadinessProbeTypeTcpInput is an input type that accepts JobHealthchecksReadinessProbeTypeTcpArgs and JobHealthchecksReadinessProbeTypeTcpOutput values.
@@ -12415,8 +13484,10 @@ type JobHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type JobHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (JobHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -12496,10 +13567,12 @@ func (o JobHealthchecksReadinessProbeTypeTcpOutput) ToJobHealthchecksReadinessPr
 	}).(JobHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o JobHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12528,6 +13601,7 @@ func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() JobHealthchecksRea
 	}).(JobHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -12537,6 +13611,7 @@ func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -12547,10 +13622,14 @@ func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutpu
 }
 
 type JobSchedule struct {
-	Cronjob  *JobScheduleCronjob  `pulumi:"cronjob"`
+	// Job's cron.
+	Cronjob *JobScheduleCronjob `pulumi:"cronjob"`
+	// Job's schedule on delete.
 	OnDelete *JobScheduleOnDelete `pulumi:"onDelete"`
-	OnStart  *JobScheduleOnStart  `pulumi:"onStart"`
-	OnStop   *JobScheduleOnStop   `pulumi:"onStop"`
+	// Job's schedule on start.
+	OnStart *JobScheduleOnStart `pulumi:"onStart"`
+	// Job's schedule on stop.
+	OnStop *JobScheduleOnStop `pulumi:"onStop"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -12565,10 +13644,14 @@ type JobScheduleInput interface {
 }
 
 type JobScheduleArgs struct {
-	Cronjob  JobScheduleCronjobPtrInput  `pulumi:"cronjob"`
+	// Job's cron.
+	Cronjob JobScheduleCronjobPtrInput `pulumi:"cronjob"`
+	// Job's schedule on delete.
 	OnDelete JobScheduleOnDeletePtrInput `pulumi:"onDelete"`
-	OnStart  JobScheduleOnStartPtrInput  `pulumi:"onStart"`
-	OnStop   JobScheduleOnStopPtrInput   `pulumi:"onStop"`
+	// Job's schedule on start.
+	OnStart JobScheduleOnStartPtrInput `pulumi:"onStart"`
+	// Job's schedule on stop.
+	OnStop JobScheduleOnStopPtrInput `pulumi:"onStop"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -12648,18 +13731,22 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context
 	}).(JobSchedulePtrOutput)
 }
 
+// Job's cron.
 func (o JobScheduleOutput) Cronjob() JobScheduleCronjobPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleCronjob { return v.Cronjob }).(JobScheduleCronjobPtrOutput)
 }
 
+// Job's schedule on delete.
 func (o JobScheduleOutput) OnDelete() JobScheduleOnDeletePtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleOnDelete { return v.OnDelete }).(JobScheduleOnDeletePtrOutput)
 }
 
+// Job's schedule on start.
 func (o JobScheduleOutput) OnStart() JobScheduleOnStartPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleOnStart { return v.OnStart }).(JobScheduleOnStartPtrOutput)
 }
 
+// Job's schedule on stop.
 func (o JobScheduleOutput) OnStop() JobScheduleOnStopPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleOnStop { return v.OnStop }).(JobScheduleOnStopPtrOutput)
 }
@@ -12688,6 +13775,7 @@ func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
 	}).(JobScheduleOutput)
 }
 
+// Job's cron.
 func (o JobSchedulePtrOutput) Cronjob() JobScheduleCronjobPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *JobScheduleCronjob {
 		if v == nil {
@@ -12697,6 +13785,7 @@ func (o JobSchedulePtrOutput) Cronjob() JobScheduleCronjobPtrOutput {
 	}).(JobScheduleCronjobPtrOutput)
 }
 
+// Job's schedule on delete.
 func (o JobSchedulePtrOutput) OnDelete() JobScheduleOnDeletePtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *JobScheduleOnDelete {
 		if v == nil {
@@ -12706,6 +13795,7 @@ func (o JobSchedulePtrOutput) OnDelete() JobScheduleOnDeletePtrOutput {
 	}).(JobScheduleOnDeletePtrOutput)
 }
 
+// Job's schedule on start.
 func (o JobSchedulePtrOutput) OnStart() JobScheduleOnStartPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *JobScheduleOnStart {
 		if v == nil {
@@ -12715,6 +13805,7 @@ func (o JobSchedulePtrOutput) OnStart() JobScheduleOnStartPtrOutput {
 	}).(JobScheduleOnStartPtrOutput)
 }
 
+// Job's schedule on stop.
 func (o JobSchedulePtrOutput) OnStop() JobScheduleOnStopPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *JobScheduleOnStop {
 		if v == nil {
@@ -12725,8 +13816,10 @@ func (o JobSchedulePtrOutput) OnStop() JobScheduleOnStopPtrOutput {
 }
 
 type JobScheduleCronjob struct {
-	Command  JobScheduleCronjobCommand `pulumi:"command"`
-	Schedule string                    `pulumi:"schedule"`
+	// Job's cron command.
+	Command JobScheduleCronjobCommand `pulumi:"command"`
+	// Job's cron string.
+	Schedule string `pulumi:"schedule"`
 }
 
 // JobScheduleCronjobInput is an input type that accepts JobScheduleCronjobArgs and JobScheduleCronjobOutput values.
@@ -12741,8 +13834,10 @@ type JobScheduleCronjobInput interface {
 }
 
 type JobScheduleCronjobArgs struct {
-	Command  JobScheduleCronjobCommandInput `pulumi:"command"`
-	Schedule pulumi.StringInput             `pulumi:"schedule"`
+	// Job's cron command.
+	Command JobScheduleCronjobCommandInput `pulumi:"command"`
+	// Job's cron string.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 }
 
 func (JobScheduleCronjobArgs) ElementType() reflect.Type {
@@ -12822,10 +13917,12 @@ func (o JobScheduleCronjobOutput) ToJobScheduleCronjobPtrOutputWithContext(ctx c
 	}).(JobScheduleCronjobPtrOutput)
 }
 
+// Job's cron command.
 func (o JobScheduleCronjobOutput) Command() JobScheduleCronjobCommandOutput {
 	return o.ApplyT(func(v JobScheduleCronjob) JobScheduleCronjobCommand { return v.Command }).(JobScheduleCronjobCommandOutput)
 }
 
+// Job's cron string.
 func (o JobScheduleCronjobOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v JobScheduleCronjob) string { return v.Schedule }).(pulumi.StringOutput)
 }
@@ -12854,6 +13951,7 @@ func (o JobScheduleCronjobPtrOutput) Elem() JobScheduleCronjobOutput {
 	}).(JobScheduleCronjobOutput)
 }
 
+// Job's cron command.
 func (o JobScheduleCronjobPtrOutput) Command() JobScheduleCronjobCommandPtrOutput {
 	return o.ApplyT(func(v *JobScheduleCronjob) *JobScheduleCronjobCommand {
 		if v == nil {
@@ -12863,6 +13961,7 @@ func (o JobScheduleCronjobPtrOutput) Command() JobScheduleCronjobCommandPtrOutpu
 	}).(JobScheduleCronjobCommandPtrOutput)
 }
 
+// Job's cron string.
 func (o JobScheduleCronjobPtrOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleCronjob) *string {
 		if v == nil {
@@ -12873,8 +13972,10 @@ func (o JobScheduleCronjobPtrOutput) Schedule() pulumi.StringPtrOutput {
 }
 
 type JobScheduleCronjobCommand struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint *string  `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint *string `pulumi:"entrypoint"`
 }
 
 // JobScheduleCronjobCommandInput is an input type that accepts JobScheduleCronjobCommandArgs and JobScheduleCronjobCommandOutput values.
@@ -12889,8 +13990,10 @@ type JobScheduleCronjobCommandInput interface {
 }
 
 type JobScheduleCronjobCommandArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringPtrInput   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
 }
 
 func (JobScheduleCronjobCommandArgs) ElementType() reflect.Type {
@@ -12970,10 +14073,12 @@ func (o JobScheduleCronjobCommandOutput) ToJobScheduleCronjobCommandPtrOutputWit
 	}).(JobScheduleCronjobCommandPtrOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleCronjobCommandOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobScheduleCronjobCommand) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleCronjobCommandOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleCronjobCommand) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
@@ -13002,6 +14107,7 @@ func (o JobScheduleCronjobCommandPtrOutput) Elem() JobScheduleCronjobCommandOutp
 	}).(JobScheduleCronjobCommandOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleCronjobCommandPtrOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobScheduleCronjobCommand) []string {
 		if v == nil {
@@ -13011,6 +14117,7 @@ func (o JobScheduleCronjobCommandPtrOutput) Arguments() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleCronjobCommandPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleCronjobCommand) *string {
 		if v == nil {
@@ -13021,8 +14128,10 @@ func (o JobScheduleCronjobCommandPtrOutput) Entrypoint() pulumi.StringPtrOutput 
 }
 
 type JobScheduleOnDelete struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint *string  `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint *string `pulumi:"entrypoint"`
 }
 
 // JobScheduleOnDeleteInput is an input type that accepts JobScheduleOnDeleteArgs and JobScheduleOnDeleteOutput values.
@@ -13037,8 +14146,10 @@ type JobScheduleOnDeleteInput interface {
 }
 
 type JobScheduleOnDeleteArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringPtrInput   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
 }
 
 func (JobScheduleOnDeleteArgs) ElementType() reflect.Type {
@@ -13118,10 +14229,12 @@ func (o JobScheduleOnDeleteOutput) ToJobScheduleOnDeletePtrOutputWithContext(ctx
 	}).(JobScheduleOnDeletePtrOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnDeleteOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobScheduleOnDelete) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnDeleteOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleOnDelete) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
@@ -13150,6 +14263,7 @@ func (o JobScheduleOnDeletePtrOutput) Elem() JobScheduleOnDeleteOutput {
 	}).(JobScheduleOnDeleteOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnDeletePtrOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobScheduleOnDelete) []string {
 		if v == nil {
@@ -13159,6 +14273,7 @@ func (o JobScheduleOnDeletePtrOutput) Arguments() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnDeletePtrOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleOnDelete) *string {
 		if v == nil {
@@ -13169,8 +14284,10 @@ func (o JobScheduleOnDeletePtrOutput) Entrypoint() pulumi.StringPtrOutput {
 }
 
 type JobScheduleOnStart struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint *string  `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint *string `pulumi:"entrypoint"`
 }
 
 // JobScheduleOnStartInput is an input type that accepts JobScheduleOnStartArgs and JobScheduleOnStartOutput values.
@@ -13185,8 +14302,10 @@ type JobScheduleOnStartInput interface {
 }
 
 type JobScheduleOnStartArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringPtrInput   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
 }
 
 func (JobScheduleOnStartArgs) ElementType() reflect.Type {
@@ -13266,10 +14385,12 @@ func (o JobScheduleOnStartOutput) ToJobScheduleOnStartPtrOutputWithContext(ctx c
 	}).(JobScheduleOnStartPtrOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnStartOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobScheduleOnStart) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnStartOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleOnStart) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
@@ -13298,6 +14419,7 @@ func (o JobScheduleOnStartPtrOutput) Elem() JobScheduleOnStartOutput {
 	}).(JobScheduleOnStartOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnStartPtrOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobScheduleOnStart) []string {
 		if v == nil {
@@ -13307,6 +14429,7 @@ func (o JobScheduleOnStartPtrOutput) Arguments() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnStartPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleOnStart) *string {
 		if v == nil {
@@ -13317,8 +14440,10 @@ func (o JobScheduleOnStartPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 }
 
 type JobScheduleOnStop struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint *string  `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint *string `pulumi:"entrypoint"`
 }
 
 // JobScheduleOnStopInput is an input type that accepts JobScheduleOnStopArgs and JobScheduleOnStopOutput values.
@@ -13333,8 +14458,10 @@ type JobScheduleOnStopInput interface {
 }
 
 type JobScheduleOnStopArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringPtrInput   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringPtrInput `pulumi:"entrypoint"`
 }
 
 func (JobScheduleOnStopArgs) ElementType() reflect.Type {
@@ -13414,10 +14541,12 @@ func (o JobScheduleOnStopOutput) ToJobScheduleOnStopPtrOutputWithContext(ctx con
 	}).(JobScheduleOnStopPtrOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnStopOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobScheduleOnStop) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnStopOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleOnStop) *string { return v.Entrypoint }).(pulumi.StringPtrOutput)
 }
@@ -13446,6 +14575,7 @@ func (o JobScheduleOnStopPtrOutput) Elem() JobScheduleOnStopOutput {
 	}).(JobScheduleOnStopOutput)
 }
 
+// List of arguments of this job.
 func (o JobScheduleOnStopPtrOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobScheduleOnStop) []string {
 		if v == nil {
@@ -13455,6 +14585,7 @@ func (o JobScheduleOnStopPtrOutput) Arguments() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o JobScheduleOnStopPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleOnStop) *string {
 		if v == nil {
@@ -13465,9 +14596,12 @@ func (o JobScheduleOnStopPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 }
 
 type JobSecret struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret.
+	Id *string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
+	Value string `pulumi:"value"`
 }
 
 // JobSecretInput is an input type that accepts JobSecretArgs and JobSecretOutput values.
@@ -13482,9 +14616,12 @@ type JobSecretInput interface {
 }
 
 type JobSecretArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobSecretArgs) ElementType() reflect.Type {
@@ -13538,14 +14675,17 @@ func (o JobSecretOutput) ToJobSecretOutputWithContext(ctx context.Context) JobSe
 	return o
 }
 
+// Id of the secret.
 func (o JobSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key of the secret.
 func (o JobSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o JobSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13571,9 +14711,12 @@ func (o JobSecretArrayOutput) Index(i pulumi.IntInput) JobSecretOutput {
 }
 
 type JobSecretAlias struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret alias.
+	Id *string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
+	Value string `pulumi:"value"`
 }
 
 // JobSecretAliasInput is an input type that accepts JobSecretAliasArgs and JobSecretAliasOutput values.
@@ -13588,9 +14731,12 @@ type JobSecretAliasInput interface {
 }
 
 type JobSecretAliasArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret alias.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobSecretAliasArgs) ElementType() reflect.Type {
@@ -13644,14 +14790,17 @@ func (o JobSecretAliasOutput) ToJobSecretAliasOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Id of the secret alias.
 func (o JobSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret alias.
 func (o JobSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o JobSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13677,9 +14826,12 @@ func (o JobSecretAliasArrayOutput) Index(i pulumi.IntInput) JobSecretAliasOutput
 }
 
 type JobSecretOverride struct {
-	Id    *string `pulumi:"id"`
-	Key   string  `pulumi:"key"`
-	Value string  `pulumi:"value"`
+	// Id of the secret override.
+	Id *string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
+	Value string `pulumi:"value"`
 }
 
 // JobSecretOverrideInput is an input type that accepts JobSecretOverrideArgs and JobSecretOverrideOutput values.
@@ -13694,9 +14846,12 @@ type JobSecretOverrideInput interface {
 }
 
 type JobSecretOverrideArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Id of the secret override.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (JobSecretOverrideArgs) ElementType() reflect.Type {
@@ -13750,14 +14905,17 @@ func (o JobSecretOverrideOutput) ToJobSecretOverrideOutputWithContext(ctx contex
 	return o
 }
 
+// Id of the secret override.
 func (o JobSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Name of the secret override.
 func (o JobSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o JobSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13783,8 +14941,10 @@ func (o JobSecretOverrideArrayOutput) Index(i pulumi.IntInput) JobSecretOverride
 }
 
 type JobSource struct {
+	// Job's docker source.
 	Docker *JobSourceDocker `pulumi:"docker"`
-	Image  *JobSourceImage  `pulumi:"image"`
+	// Job's image source.
+	Image *JobSourceImage `pulumi:"image"`
 }
 
 // JobSourceInput is an input type that accepts JobSourceArgs and JobSourceOutput values.
@@ -13799,8 +14959,10 @@ type JobSourceInput interface {
 }
 
 type JobSourceArgs struct {
+	// Job's docker source.
 	Docker JobSourceDockerPtrInput `pulumi:"docker"`
-	Image  JobSourceImagePtrInput  `pulumi:"image"`
+	// Job's image source.
+	Image JobSourceImagePtrInput `pulumi:"image"`
 }
 
 func (JobSourceArgs) ElementType() reflect.Type {
@@ -13880,10 +15042,12 @@ func (o JobSourceOutput) ToJobSourcePtrOutputWithContext(ctx context.Context) Jo
 	}).(JobSourcePtrOutput)
 }
 
+// Job's docker source.
 func (o JobSourceOutput) Docker() JobSourceDockerPtrOutput {
 	return o.ApplyT(func(v JobSource) *JobSourceDocker { return v.Docker }).(JobSourceDockerPtrOutput)
 }
 
+// Job's image source.
 func (o JobSourceOutput) Image() JobSourceImagePtrOutput {
 	return o.ApplyT(func(v JobSource) *JobSourceImage { return v.Image }).(JobSourceImagePtrOutput)
 }
@@ -13912,6 +15076,7 @@ func (o JobSourcePtrOutput) Elem() JobSourceOutput {
 	}).(JobSourceOutput)
 }
 
+// Job's docker source.
 func (o JobSourcePtrOutput) Docker() JobSourceDockerPtrOutput {
 	return o.ApplyT(func(v *JobSource) *JobSourceDocker {
 		if v == nil {
@@ -13921,6 +15086,7 @@ func (o JobSourcePtrOutput) Docker() JobSourceDockerPtrOutput {
 	}).(JobSourceDockerPtrOutput)
 }
 
+// Job's image source.
 func (o JobSourcePtrOutput) Image() JobSourceImagePtrOutput {
 	return o.ApplyT(func(v *JobSource) *JobSourceImage {
 		if v == nil {
@@ -13931,8 +15097,10 @@ func (o JobSourcePtrOutput) Image() JobSourceImagePtrOutput {
 }
 
 type JobSourceDocker struct {
-	DockerfilePath *string                      `pulumi:"dockerfilePath"`
-	GitRepository  JobSourceDockerGitRepository `pulumi:"gitRepository"`
+	// Job's docker source dockerfile path.
+	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Job's docker source git repository.
+	GitRepository JobSourceDockerGitRepository `pulumi:"gitRepository"`
 }
 
 // JobSourceDockerInput is an input type that accepts JobSourceDockerArgs and JobSourceDockerOutput values.
@@ -13947,8 +15115,10 @@ type JobSourceDockerInput interface {
 }
 
 type JobSourceDockerArgs struct {
-	DockerfilePath pulumi.StringPtrInput             `pulumi:"dockerfilePath"`
-	GitRepository  JobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
+	// Job's docker source dockerfile path.
+	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+	// Job's docker source git repository.
+	GitRepository JobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
 }
 
 func (JobSourceDockerArgs) ElementType() reflect.Type {
@@ -14028,10 +15198,12 @@ func (o JobSourceDockerOutput) ToJobSourceDockerPtrOutputWithContext(ctx context
 	}).(JobSourceDockerPtrOutput)
 }
 
+// Job's docker source dockerfile path.
 func (o JobSourceDockerOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceDocker) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository.
 func (o JobSourceDockerOutput) GitRepository() JobSourceDockerGitRepositoryOutput {
 	return o.ApplyT(func(v JobSourceDocker) JobSourceDockerGitRepository { return v.GitRepository }).(JobSourceDockerGitRepositoryOutput)
 }
@@ -14060,6 +15232,7 @@ func (o JobSourceDockerPtrOutput) Elem() JobSourceDockerOutput {
 	}).(JobSourceDockerOutput)
 }
 
+// Job's docker source dockerfile path.
 func (o JobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceDocker) *string {
 		if v == nil {
@@ -14069,6 +15242,7 @@ func (o JobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository.
 func (o JobSourceDockerPtrOutput) GitRepository() JobSourceDockerGitRepositoryPtrOutput {
 	return o.ApplyT(func(v *JobSourceDocker) *JobSourceDockerGitRepository {
 		if v == nil {
@@ -14079,10 +15253,14 @@ func (o JobSourceDockerPtrOutput) GitRepository() JobSourceDockerGitRepositoryPt
 }
 
 type JobSourceDockerGitRepository struct {
-	Branch     string  `pulumi:"branch"`
+	// Job's docker source git repository branch.
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId *string `pulumi:"gitTokenId"`
-	RootPath   *string `pulumi:"rootPath"`
-	Url        string  `pulumi:"url"`
+	// Job's docker source git repository root path.
+	RootPath *string `pulumi:"rootPath"`
+	// Job's docker source git repository URL.
+	Url string `pulumi:"url"`
 }
 
 // JobSourceDockerGitRepositoryInput is an input type that accepts JobSourceDockerGitRepositoryArgs and JobSourceDockerGitRepositoryOutput values.
@@ -14097,10 +15275,14 @@ type JobSourceDockerGitRepositoryInput interface {
 }
 
 type JobSourceDockerGitRepositoryArgs struct {
-	Branch     pulumi.StringInput    `pulumi:"branch"`
+	// Job's docker source git repository branch.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
-	RootPath   pulumi.StringPtrInput `pulumi:"rootPath"`
-	Url        pulumi.StringInput    `pulumi:"url"`
+	// Job's docker source git repository root path.
+	RootPath pulumi.StringPtrInput `pulumi:"rootPath"`
+	// Job's docker source git repository URL.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (JobSourceDockerGitRepositoryArgs) ElementType() reflect.Type {
@@ -14180,18 +15362,22 @@ func (o JobSourceDockerGitRepositoryOutput) ToJobSourceDockerGitRepositoryPtrOut
 	}).(JobSourceDockerGitRepositoryPtrOutput)
 }
 
+// Job's docker source git repository branch.
 func (o JobSourceDockerGitRepositoryOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSourceDockerGitRepository) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The git token ID to be used
 func (o JobSourceDockerGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceDockerGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository root path.
 func (o JobSourceDockerGitRepositoryOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceDockerGitRepository) *string { return v.RootPath }).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository URL.
 func (o JobSourceDockerGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSourceDockerGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -14220,6 +15406,7 @@ func (o JobSourceDockerGitRepositoryPtrOutput) Elem() JobSourceDockerGitReposito
 	}).(JobSourceDockerGitRepositoryOutput)
 }
 
+// Job's docker source git repository branch.
 func (o JobSourceDockerGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -14229,6 +15416,7 @@ func (o JobSourceDockerGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o JobSourceDockerGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -14238,6 +15426,7 @@ func (o JobSourceDockerGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository root path.
 func (o JobSourceDockerGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -14247,6 +15436,7 @@ func (o JobSourceDockerGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository URL.
 func (o JobSourceDockerGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -14257,9 +15447,12 @@ func (o JobSourceDockerGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type JobSourceImage struct {
-	Name       string `pulumi:"name"`
+	// Job's image source name.
+	Name string `pulumi:"name"`
+	// Job's image source registry ID.
 	RegistryId string `pulumi:"registryId"`
-	Tag        string `pulumi:"tag"`
+	// Job's image source tag.
+	Tag string `pulumi:"tag"`
 }
 
 // JobSourceImageInput is an input type that accepts JobSourceImageArgs and JobSourceImageOutput values.
@@ -14274,9 +15467,12 @@ type JobSourceImageInput interface {
 }
 
 type JobSourceImageArgs struct {
-	Name       pulumi.StringInput `pulumi:"name"`
+	// Job's image source name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Job's image source registry ID.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
-	Tag        pulumi.StringInput `pulumi:"tag"`
+	// Job's image source tag.
+	Tag pulumi.StringInput `pulumi:"tag"`
 }
 
 func (JobSourceImageArgs) ElementType() reflect.Type {
@@ -14356,14 +15552,17 @@ func (o JobSourceImageOutput) ToJobSourceImagePtrOutputWithContext(ctx context.C
 	}).(JobSourceImagePtrOutput)
 }
 
+// Job's image source name.
 func (o JobSourceImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSourceImage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Job's image source registry ID.
 func (o JobSourceImageOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSourceImage) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// Job's image source tag.
 func (o JobSourceImageOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSourceImage) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -14392,6 +15591,7 @@ func (o JobSourceImagePtrOutput) Elem() JobSourceImageOutput {
 	}).(JobSourceImageOutput)
 }
 
+// Job's image source name.
 func (o JobSourceImagePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceImage) *string {
 		if v == nil {
@@ -14401,6 +15601,7 @@ func (o JobSourceImagePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's image source registry ID.
 func (o JobSourceImagePtrOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceImage) *string {
 		if v == nil {
@@ -14410,6 +15611,7 @@ func (o JobSourceImagePtrOutput) RegistryId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's image source tag.
 func (o JobSourceImagePtrOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceImage) *string {
 		if v == nil {
@@ -14995,8 +16197,11 @@ func (o ProjectSecretAliasArrayOutput) Index(i pulumi.IntInput) ProjectSecretAli
 }
 
 type GetApplicationBuiltInEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -15012,8 +16217,11 @@ type GetApplicationBuiltInEnvironmentVariableInput interface {
 }
 
 type GetApplicationBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15068,14 +16276,17 @@ func (o GetApplicationBuiltInEnvironmentVariableOutput) ToGetApplicationBuiltInE
 	return o
 }
 
+// Id of the environment variable.
 func (o GetApplicationBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetApplicationBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetApplicationBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15101,9 +16312,13 @@ func (o GetApplicationBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntI
 }
 
 type GetApplicationCustomDomain struct {
-	Domain           string `pulumi:"domain"`
-	Id               string `pulumi:"id"`
-	Status           string `pulumi:"status"`
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Id of the custom domain.
+	Id string `pulumi:"id"`
+	// Status of the custom domain.
+	Status string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
 
@@ -15119,9 +16334,13 @@ type GetApplicationCustomDomainInput interface {
 }
 
 type GetApplicationCustomDomainArgs struct {
-	Domain           pulumi.StringInput `pulumi:"domain"`
-	Id               pulumi.StringInput `pulumi:"id"`
-	Status           pulumi.StringInput `pulumi:"status"`
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Id of the custom domain.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
 
@@ -15176,18 +16395,22 @@ func (o GetApplicationCustomDomainOutput) ToGetApplicationCustomDomainOutputWith
 	return o
 }
 
+// Your custom domain.
 func (o GetApplicationCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Id of the custom domain.
 func (o GetApplicationCustomDomainOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Status of the custom domain.
 func (o GetApplicationCustomDomainOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 func (o GetApplicationCustomDomainOutput) ValidationDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.ValidationDomain }).(pulumi.StringOutput)
 }
@@ -15213,8 +16436,11 @@ func (o GetApplicationCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAppli
 }
 
 type GetApplicationEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -15230,8 +16456,11 @@ type GetApplicationEnvironmentVariableInput interface {
 }
 
 type GetApplicationEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15286,14 +16515,17 @@ func (o GetApplicationEnvironmentVariableOutput) ToGetApplicationEnvironmentVari
 	return o
 }
 
+// Id of the environment variable.
 func (o GetApplicationEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetApplicationEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetApplicationEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15319,8 +16551,11 @@ func (o GetApplicationEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetApplicationEnvironmentVariableAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -15336,8 +16571,11 @@ type GetApplicationEnvironmentVariableAliasInput interface {
 }
 
 type GetApplicationEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15392,14 +16630,17 @@ func (o GetApplicationEnvironmentVariableAliasOutput) ToGetApplicationEnvironmen
 	return o
 }
 
+// Id of the environment variable alias.
 func (o GetApplicationEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable alias.
 func (o GetApplicationEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o GetApplicationEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15425,8 +16666,11 @@ func (o GetApplicationEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetApplicationEnvironmentVariableOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable override.
+	Id string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
 	Value string `pulumi:"value"`
 }
 
@@ -15442,8 +16686,11 @@ type GetApplicationEnvironmentVariableOverrideInput interface {
 }
 
 type GetApplicationEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15498,14 +16745,17 @@ func (o GetApplicationEnvironmentVariableOverrideOutput) ToGetApplicationEnviron
 	return o
 }
 
+// Id of the environment variable override.
 func (o GetApplicationEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable override.
 func (o GetApplicationEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o GetApplicationEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15531,10 +16781,16 @@ func (o GetApplicationEnvironmentVariableOverrideArrayOutput) Index(i pulumi.Int
 }
 
 type GetApplicationGitRepository struct {
-	Branch     string `pulumi:"branch"`
+	// Branch of the git repository.
+	// 	- Default: `main or master (depending on repository)`.
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId string `pulumi:"gitTokenId"`
-	RootPath   string `pulumi:"rootPath"`
-	Url        string `pulumi:"url"`
+	// Root path of the application.
+	// 	- Default: `/`.
+	RootPath string `pulumi:"rootPath"`
+	// URL of the git repository.
+	Url string `pulumi:"url"`
 }
 
 // GetApplicationGitRepositoryInput is an input type that accepts GetApplicationGitRepositoryArgs and GetApplicationGitRepositoryOutput values.
@@ -15549,10 +16805,16 @@ type GetApplicationGitRepositoryInput interface {
 }
 
 type GetApplicationGitRepositoryArgs struct {
-	Branch     pulumi.StringInput `pulumi:"branch"`
+	// Branch of the git repository.
+	// 	- Default: `main or master (depending on repository)`.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId pulumi.StringInput `pulumi:"gitTokenId"`
-	RootPath   pulumi.StringInput `pulumi:"rootPath"`
-	Url        pulumi.StringInput `pulumi:"url"`
+	// Root path of the application.
+	// 	- Default: `/`.
+	RootPath pulumi.StringInput `pulumi:"rootPath"`
+	// URL of the git repository.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetApplicationGitRepositoryArgs) ElementType() reflect.Type {
@@ -15581,24 +16843,32 @@ func (o GetApplicationGitRepositoryOutput) ToGetApplicationGitRepositoryOutputWi
 	return o
 }
 
+// Branch of the git repository.
+//   - Default: `main or master (depending on repository)`.
 func (o GetApplicationGitRepositoryOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGitRepository) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The git token ID to be used
 func (o GetApplicationGitRepositoryOutput) GitTokenId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGitRepository) string { return v.GitTokenId }).(pulumi.StringOutput)
 }
 
+// Root path of the application.
+//   - Default: `/`.
 func (o GetApplicationGitRepositoryOutput) RootPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGitRepository) string { return v.RootPath }).(pulumi.StringOutput)
 }
 
+// URL of the git repository.
 func (o GetApplicationGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
 
 type GetApplicationHealthchecks struct {
-	LivenessProbe  *GetApplicationHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *GetApplicationHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *GetApplicationHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -15614,7 +16884,9 @@ type GetApplicationHealthchecksInput interface {
 }
 
 type GetApplicationHealthchecksArgs struct {
-	LivenessProbe  GetApplicationHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe GetApplicationHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe GetApplicationHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -15695,10 +16967,12 @@ func (o GetApplicationHealthchecksOutput) ToGetApplicationHealthchecksPtrOutputW
 	}).(GetApplicationHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetApplicationHealthchecksOutput) LivenessProbe() GetApplicationHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecks) *GetApplicationHealthchecksLivenessProbe { return v.LivenessProbe }).(GetApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetApplicationHealthchecksOutput) ReadinessProbe() GetApplicationHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecks) *GetApplicationHealthchecksReadinessProbe { return v.ReadinessProbe }).(GetApplicationHealthchecksReadinessProbePtrOutput)
 }
@@ -15727,6 +17001,7 @@ func (o GetApplicationHealthchecksPtrOutput) Elem() GetApplicationHealthchecksOu
 	}).(GetApplicationHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetApplicationHealthchecksPtrOutput) LivenessProbe() GetApplicationHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecks) *GetApplicationHealthchecksLivenessProbe {
 		if v == nil {
@@ -15736,6 +17011,7 @@ func (o GetApplicationHealthchecksPtrOutput) LivenessProbe() GetApplicationHealt
 	}).(GetApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetApplicationHealthchecksPtrOutput) ReadinessProbe() GetApplicationHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecks) *GetApplicationHealthchecksReadinessProbe {
 		if v == nil {
@@ -15746,12 +17022,18 @@ func (o GetApplicationHealthchecksPtrOutput) ReadinessProbe() GetApplicationHeal
 }
 
 type GetApplicationHealthchecksLivenessProbe struct {
-	FailureThreshold    int                                         `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                         `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                         `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                         `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                         `pulumi:"timeoutSeconds"`
-	Type                GetApplicationHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetApplicationHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // GetApplicationHealthchecksLivenessProbeInput is an input type that accepts GetApplicationHealthchecksLivenessProbeArgs and GetApplicationHealthchecksLivenessProbeOutput values.
@@ -15766,12 +17048,18 @@ type GetApplicationHealthchecksLivenessProbeInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                                  `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                                  `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                                  `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                                  `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                                  `pulumi:"timeoutSeconds"`
-	Type                GetApplicationHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetApplicationHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -15851,26 +17139,32 @@ func (o GetApplicationHealthchecksLivenessProbeOutput) ToGetApplicationHealthche
 	}).(GetApplicationHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetApplicationHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetApplicationHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetApplicationHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetApplicationHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetApplicationHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetApplicationHealthchecksLivenessProbeOutput) Type() GetApplicationHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbe) GetApplicationHealthchecksLivenessProbeType {
 		return v.Type
@@ -15901,6 +17195,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) Elem() GetApplicationH
 	}).(GetApplicationHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -15910,6 +17205,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) FailureThreshold() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -15919,6 +17215,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -15928,6 +17225,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -15937,6 +17235,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) SuccessThreshold() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -15946,6 +17245,7 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetApplicationHealthchecksLivenessProbePtrOutput) Type() GetApplicationHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbe) *GetApplicationHealthchecksLivenessProbeType {
 		if v == nil {
@@ -15956,10 +17256,14 @@ func (o GetApplicationHealthchecksLivenessProbePtrOutput) Type() GetApplicationH
 }
 
 type GetApplicationHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetApplicationHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetApplicationHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetApplicationHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetApplicationHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetApplicationHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetApplicationHealthchecksLivenessProbeTypeInput is an input type that accepts GetApplicationHealthchecksLivenessProbeTypeArgs and GetApplicationHealthchecksLivenessProbeTypeOutput values.
@@ -15974,10 +17278,14 @@ type GetApplicationHealthchecksLivenessProbeTypeInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetApplicationHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetApplicationHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetApplicationHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetApplicationHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetApplicationHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -16057,24 +17365,28 @@ func (o GetApplicationHealthchecksLivenessProbeTypeOutput) ToGetApplicationHealt
 	}).(GetApplicationHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetApplicationHealthchecksLivenessProbeTypeOutput) Exec() GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeExec {
 		return v.Exec
 	}).(GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetApplicationHealthchecksLivenessProbeTypeOutput) Grpc() GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeGrpc {
 		return v.Grpc
 	}).(GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetApplicationHealthchecksLivenessProbeTypeOutput) Http() GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeHttp {
 		return v.Http
 	}).(GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetApplicationHealthchecksLivenessProbeTypeOutput) Tcp() GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeTcp {
 		return v.Tcp
@@ -16105,6 +17417,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Elem() GetApplicat
 	}).(GetApplicationHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Exec() GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -16114,6 +17427,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Exec() GetApplicat
 	}).(GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Grpc() GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -16123,6 +17437,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Grpc() GetApplicat
 	}).(GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Http() GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -16132,6 +17447,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Http() GetApplicat
 	}).(GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Tcp() GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeType) *GetApplicationHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -16142,6 +17458,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypePtrOutput) Tcp() GetApplicati
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -16157,6 +17474,7 @@ type GetApplicationHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -16237,6 +17555,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeExecOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetApplicationHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -16265,6 +17584,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Elem() GetAppl
 	}).(GetApplicationHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -16275,7 +17595,9 @@ func (o GetApplicationHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pul
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -16291,7 +17613,9 @@ type GetApplicationHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -16372,10 +17696,12 @@ func (o GetApplicationHealthchecksLivenessProbeTypeGrpcOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetApplicationHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -16404,6 +17730,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() GetAppl
 	}).(GetApplicationHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -16413,6 +17740,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -16423,9 +17751,12 @@ func (o GetApplicationHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulu
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetApplicationHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetApplicationHealthchecksLivenessProbeTypeHttpArgs and GetApplicationHealthchecksLivenessProbeTypeHttpOutput values.
@@ -16440,9 +17771,12 @@ type GetApplicationHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -16522,16 +17856,19 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetApplicationHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -16558,6 +17895,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() GetAppl
 	}).(GetApplicationHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -16567,6 +17905,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -16576,18 +17915,21 @@ func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetApplicationHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetApplicationHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetApplicationHealthchecksLivenessProbeTypeTcpArgs and GetApplicationHealthchecksLivenessProbeTypeTcpOutput values.
@@ -16602,8 +17944,10 @@ type GetApplicationHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetApplicationHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetApplicationHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -16683,10 +18027,12 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) ToGetApplicationHe
 	}).(GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -16715,6 +18061,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() GetAppli
 	}).(GetApplicationHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -16724,6 +18071,7 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -16734,12 +18082,18 @@ func (o GetApplicationHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.I
 }
 
 type GetApplicationHealthchecksReadinessProbe struct {
-	FailureThreshold    int                                          `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                          `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                          `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                          `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                          `pulumi:"timeoutSeconds"`
-	Type                GetApplicationHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetApplicationHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // GetApplicationHealthchecksReadinessProbeInput is an input type that accepts GetApplicationHealthchecksReadinessProbeArgs and GetApplicationHealthchecksReadinessProbeOutput values.
@@ -16754,12 +18108,18 @@ type GetApplicationHealthchecksReadinessProbeInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                                   `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                                   `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                                   `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                                   `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                                   `pulumi:"timeoutSeconds"`
-	Type                GetApplicationHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetApplicationHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -16839,26 +18199,32 @@ func (o GetApplicationHealthchecksReadinessProbeOutput) ToGetApplicationHealthch
 	}).(GetApplicationHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetApplicationHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetApplicationHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetApplicationHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetApplicationHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetApplicationHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetApplicationHealthchecksReadinessProbeOutput) Type() GetApplicationHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbe) GetApplicationHealthchecksReadinessProbeType {
 		return v.Type
@@ -16889,6 +18255,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) Elem() GetApplication
 	}).(GetApplicationHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -16898,6 +18265,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) FailureThreshold() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -16907,6 +18275,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) InitialDelaySeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -16916,6 +18285,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -16925,6 +18295,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) SuccessThreshold() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -16934,6 +18305,7 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetApplicationHealthchecksReadinessProbePtrOutput) Type() GetApplicationHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbe) *GetApplicationHealthchecksReadinessProbeType {
 		if v == nil {
@@ -16944,10 +18316,14 @@ func (o GetApplicationHealthchecksReadinessProbePtrOutput) Type() GetApplication
 }
 
 type GetApplicationHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetApplicationHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetApplicationHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetApplicationHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetApplicationHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetApplicationHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetApplicationHealthchecksReadinessProbeTypeInput is an input type that accepts GetApplicationHealthchecksReadinessProbeTypeArgs and GetApplicationHealthchecksReadinessProbeTypeOutput values.
@@ -16962,10 +18338,14 @@ type GetApplicationHealthchecksReadinessProbeTypeInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetApplicationHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetApplicationHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetApplicationHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetApplicationHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetApplicationHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -17045,24 +18425,28 @@ func (o GetApplicationHealthchecksReadinessProbeTypeOutput) ToGetApplicationHeal
 	}).(GetApplicationHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetApplicationHealthchecksReadinessProbeTypeOutput) Exec() GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeExec {
 		return v.Exec
 	}).(GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetApplicationHealthchecksReadinessProbeTypeOutput) Grpc() GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeGrpc {
 		return v.Grpc
 	}).(GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetApplicationHealthchecksReadinessProbeTypeOutput) Http() GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeHttp {
 		return v.Http
 	}).(GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetApplicationHealthchecksReadinessProbeTypeOutput) Tcp() GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeTcp {
 		return v.Tcp
@@ -17093,6 +18477,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Elem() GetApplica
 	}).(GetApplicationHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Exec() GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -17102,6 +18487,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Exec() GetApplica
 	}).(GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Grpc() GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -17111,6 +18497,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Grpc() GetApplica
 	}).(GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Http() GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -17120,6 +18507,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Http() GetApplica
 	}).(GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Tcp() GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeType) *GetApplicationHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -17130,6 +18518,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypePtrOutput) Tcp() GetApplicat
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -17145,6 +18534,7 @@ type GetApplicationHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -17225,6 +18615,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeExecOutput) ToGetApplication
 	}).(GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetApplicationHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -17253,6 +18644,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Elem() GetApp
 	}).(GetApplicationHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -17263,7 +18655,9 @@ func (o GetApplicationHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pu
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -17279,7 +18673,9 @@ type GetApplicationHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -17360,10 +18756,12 @@ func (o GetApplicationHealthchecksReadinessProbeTypeGrpcOutput) ToGetApplication
 	}).(GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetApplicationHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -17392,6 +18790,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() GetApp
 	}).(GetApplicationHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -17401,6 +18800,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -17411,9 +18811,12 @@ func (o GetApplicationHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pul
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetApplicationHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetApplicationHealthchecksReadinessProbeTypeHttpArgs and GetApplicationHealthchecksReadinessProbeTypeHttpOutput values.
@@ -17428,9 +18831,12 @@ type GetApplicationHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -17510,16 +18916,19 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) ToGetApplication
 	}).(GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetApplicationHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -17546,6 +18955,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() GetApp
 	}).(GetApplicationHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -17555,6 +18965,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -17564,18 +18975,21 @@ func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetApplicationHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetApplicationHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetApplicationHealthchecksReadinessProbeTypeTcpArgs and GetApplicationHealthchecksReadinessProbeTypeTcpOutput values.
@@ -17590,8 +19004,10 @@ type GetApplicationHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetApplicationHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetApplicationHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -17671,10 +19087,12 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) ToGetApplicationH
 	}).(GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -17703,6 +19121,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() GetAppl
 	}).(GetApplicationHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -17712,6 +19131,7 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetApplicationHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -17722,13 +19142,25 @@ func (o GetApplicationHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.
 }
 
 type GetApplicationPort struct {
-	ExternalPort       int    `pulumi:"externalPort"`
-	Id                 string `pulumi:"id"`
-	InternalPort       int    `pulumi:"internalPort"`
-	IsDefault          bool   `pulumi:"isDefault"`
-	Name               string `pulumi:"name"`
-	Protocol           string `pulumi:"protocol"`
-	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	// External port of the application.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort int `pulumi:"externalPort"`
+	// Id of the port.
+	Id string `pulumi:"id"`
+	// Internal port of the application.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool `pulumi:"isDefault"`
+	// Name of the port.
+	Name string `pulumi:"name"`
+	// Protocol used for the port of the application.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol string `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this application.
+	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
 }
 
 // GetApplicationPortInput is an input type that accepts GetApplicationPortArgs and GetApplicationPortOutput values.
@@ -17743,13 +19175,25 @@ type GetApplicationPortInput interface {
 }
 
 type GetApplicationPortArgs struct {
-	ExternalPort       pulumi.IntInput    `pulumi:"externalPort"`
-	Id                 pulumi.StringInput `pulumi:"id"`
-	InternalPort       pulumi.IntInput    `pulumi:"internalPort"`
-	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
-	Name               pulumi.StringInput `pulumi:"name"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	PubliclyAccessible pulumi.BoolInput   `pulumi:"publiclyAccessible"`
+	// External port of the application.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntInput `pulumi:"externalPort"`
+	// Id of the port.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Internal port of the application.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// Name of the port.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Protocol used for the port of the application.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this application.
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 }
 
 func (GetApplicationPortArgs) ElementType() reflect.Type {
@@ -17803,30 +19247,42 @@ func (o GetApplicationPortOutput) ToGetApplicationPortOutputWithContext(ctx cont
 	return o
 }
 
+// External port of the application.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o GetApplicationPortOutput) ExternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationPort) int { return v.ExternalPort }).(pulumi.IntOutput)
 }
 
+// Id of the port.
 func (o GetApplicationPortOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPort) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Internal port of the application.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o GetApplicationPortOutput) InternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationPort) int { return v.InternalPort }).(pulumi.IntOutput)
 }
 
+// If this port will be used for the root domain
 func (o GetApplicationPortOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetApplicationPort) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// Name of the port.
 func (o GetApplicationPortOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPort) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Protocol used for the port of the application.
+//   - Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+//   - Default: `HTTP`.
 func (o GetApplicationPortOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPort) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Specify if the port is exposed to the world or not for this application.
 func (o GetApplicationPortOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetApplicationPort) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -17852,8 +19308,11 @@ func (o GetApplicationPortArrayOutput) Index(i pulumi.IntInput) GetApplicationPo
 }
 
 type GetApplicationSecret struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret.
+	Id string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
 	Value string `pulumi:"value"`
 }
 
@@ -17869,8 +19328,11 @@ type GetApplicationSecretInput interface {
 }
 
 type GetApplicationSecretArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -17925,14 +19387,17 @@ func (o GetApplicationSecretOutput) ToGetApplicationSecretOutputWithContext(ctx 
 	return o
 }
 
+// Id of the secret.
 func (o GetApplicationSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecret) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the secret.
 func (o GetApplicationSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o GetApplicationSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -17958,8 +19423,11 @@ func (o GetApplicationSecretArrayOutput) Index(i pulumi.IntInput) GetApplication
 }
 
 type GetApplicationSecretAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret alias.
+	Id string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -17975,8 +19443,11 @@ type GetApplicationSecretAliasInput interface {
 }
 
 type GetApplicationSecretAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -18031,14 +19502,17 @@ func (o GetApplicationSecretAliasOutput) ToGetApplicationSecretAliasOutputWithCo
 	return o
 }
 
+// Id of the secret alias.
 func (o GetApplicationSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret alias.
 func (o GetApplicationSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o GetApplicationSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18064,8 +19538,11 @@ func (o GetApplicationSecretAliasArrayOutput) Index(i pulumi.IntInput) GetApplic
 }
 
 type GetApplicationSecretOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret override.
+	Id string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
 	Value string `pulumi:"value"`
 }
 
@@ -18081,8 +19558,11 @@ type GetApplicationSecretOverrideInput interface {
 }
 
 type GetApplicationSecretOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -18137,14 +19617,17 @@ func (o GetApplicationSecretOverrideOutput) ToGetApplicationSecretOverrideOutput
 	return o
 }
 
+// Id of the secret override.
 func (o GetApplicationSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret override.
 func (o GetApplicationSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o GetApplicationSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18170,10 +19653,16 @@ func (o GetApplicationSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetApp
 }
 
 type GetApplicationStorage struct {
-	Id         string `pulumi:"id"`
+	// Id of the storage.
+	Id string `pulumi:"id"`
+	// Mount point of the storage for the application.
 	MountPoint string `pulumi:"mountPoint"`
-	Size       int    `pulumi:"size"`
-	Type       string `pulumi:"type"`
+	// Size of the storage for the application in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size int `pulumi:"size"`
+	// Type of the storage for the application.
+	// 	- Can be: `FAST_SSD`.
+	Type string `pulumi:"type"`
 }
 
 // GetApplicationStorageInput is an input type that accepts GetApplicationStorageArgs and GetApplicationStorageOutput values.
@@ -18188,10 +19677,16 @@ type GetApplicationStorageInput interface {
 }
 
 type GetApplicationStorageArgs struct {
-	Id         pulumi.StringInput `pulumi:"id"`
+	// Id of the storage.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Mount point of the storage for the application.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	Size       pulumi.IntInput    `pulumi:"size"`
-	Type       pulumi.StringInput `pulumi:"type"`
+	// Size of the storage for the application in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the storage for the application.
+	// 	- Can be: `FAST_SSD`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetApplicationStorageArgs) ElementType() reflect.Type {
@@ -18245,18 +19740,24 @@ func (o GetApplicationStorageOutput) ToGetApplicationStorageOutputWithContext(ct
 	return o
 }
 
+// Id of the storage.
 func (o GetApplicationStorageOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationStorage) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Mount point of the storage for the application.
 func (o GetApplicationStorageOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationStorage) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
+// Size of the storage for the application in GB [1024MB = 1GB].
+//   - Must be: `>= 1`.
 func (o GetApplicationStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationStorage) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Type of the storage for the application.
+//   - Can be: `FAST_SSD`.
 func (o GetApplicationStorageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationStorage) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18282,7 +19783,11 @@ func (o GetApplicationStorageArrayOutput) Index(i pulumi.IntInput) GetApplicatio
 }
 
 type GetClusterFeatures struct {
-	StaticIp  bool   `pulumi:"staticIp"`
+	// Static IP (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `false`.
+	StaticIp bool `pulumi:"staticIp"`
+	// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `10.0.0.0/16`.
 	VpcSubnet string `pulumi:"vpcSubnet"`
 }
 
@@ -18298,7 +19803,11 @@ type GetClusterFeaturesInput interface {
 }
 
 type GetClusterFeaturesArgs struct {
-	StaticIp  pulumi.BoolInput   `pulumi:"staticIp"`
+	// Static IP (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `false`.
+	StaticIp pulumi.BoolInput `pulumi:"staticIp"`
+	// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+	// 	- Default: `10.0.0.0/16`.
 	VpcSubnet pulumi.StringInput `pulumi:"vpcSubnet"`
 }
 
@@ -18379,10 +19888,14 @@ func (o GetClusterFeaturesOutput) ToGetClusterFeaturesPtrOutputWithContext(ctx c
 	}).(GetClusterFeaturesPtrOutput)
 }
 
+// Static IP (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `false`.
 func (o GetClusterFeaturesOutput) StaticIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterFeatures) bool { return v.StaticIp }).(pulumi.BoolOutput)
 }
 
+// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `10.0.0.0/16`.
 func (o GetClusterFeaturesOutput) VpcSubnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterFeatures) string { return v.VpcSubnet }).(pulumi.StringOutput)
 }
@@ -18411,6 +19924,8 @@ func (o GetClusterFeaturesPtrOutput) Elem() GetClusterFeaturesOutput {
 	}).(GetClusterFeaturesOutput)
 }
 
+// Static IP (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `false`.
 func (o GetClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetClusterFeatures) *bool {
 		if v == nil {
@@ -18420,6 +19935,8 @@ func (o GetClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+//   - Default: `10.0.0.0/16`.
 func (o GetClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetClusterFeatures) *string {
 		if v == nil {
@@ -18430,9 +19947,12 @@ func (o GetClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
 }
 
 type GetClusterRoutingTable struct {
+	// Description of the route.
 	Description string `pulumi:"description"`
+	// Destination of the route.
 	Destination string `pulumi:"destination"`
-	Target      string `pulumi:"target"`
+	// Target of the route.
+	Target string `pulumi:"target"`
 }
 
 // GetClusterRoutingTableInput is an input type that accepts GetClusterRoutingTableArgs and GetClusterRoutingTableOutput values.
@@ -18447,9 +19967,12 @@ type GetClusterRoutingTableInput interface {
 }
 
 type GetClusterRoutingTableArgs struct {
+	// Description of the route.
 	Description pulumi.StringInput `pulumi:"description"`
+	// Destination of the route.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	Target      pulumi.StringInput `pulumi:"target"`
+	// Target of the route.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (GetClusterRoutingTableArgs) ElementType() reflect.Type {
@@ -18503,14 +20026,17 @@ func (o GetClusterRoutingTableOutput) ToGetClusterRoutingTableOutputWithContext(
 	return o
 }
 
+// Description of the route.
 func (o GetClusterRoutingTableOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterRoutingTable) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Destination of the route.
 func (o GetClusterRoutingTableOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterRoutingTable) string { return v.Destination }).(pulumi.StringOutput)
 }
 
+// Target of the route.
 func (o GetClusterRoutingTableOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterRoutingTable) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -18536,8 +20062,11 @@ func (o GetClusterRoutingTableArrayOutput) Index(i pulumi.IntInput) GetClusterRo
 }
 
 type GetContainerBuiltInEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -18553,8 +20082,11 @@ type GetContainerBuiltInEnvironmentVariableInput interface {
 }
 
 type GetContainerBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -18609,14 +20141,17 @@ func (o GetContainerBuiltInEnvironmentVariableOutput) ToGetContainerBuiltInEnvir
 	return o
 }
 
+// Id of the environment variable.
 func (o GetContainerBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetContainerBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetContainerBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18642,9 +20177,13 @@ func (o GetContainerBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetContainerCustomDomain struct {
-	Domain           string `pulumi:"domain"`
-	Id               string `pulumi:"id"`
-	Status           string `pulumi:"status"`
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Id of the custom domain.
+	Id string `pulumi:"id"`
+	// Status of the custom domain.
+	Status string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
 
@@ -18660,9 +20199,13 @@ type GetContainerCustomDomainInput interface {
 }
 
 type GetContainerCustomDomainArgs struct {
-	Domain           pulumi.StringInput `pulumi:"domain"`
-	Id               pulumi.StringInput `pulumi:"id"`
-	Status           pulumi.StringInput `pulumi:"status"`
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Id of the custom domain.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
 
@@ -18717,18 +20260,22 @@ func (o GetContainerCustomDomainOutput) ToGetContainerCustomDomainOutputWithCont
 	return o
 }
 
+// Your custom domain.
 func (o GetContainerCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Id of the custom domain.
 func (o GetContainerCustomDomainOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Status of the custom domain.
 func (o GetContainerCustomDomainOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 func (o GetContainerCustomDomainOutput) ValidationDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.ValidationDomain }).(pulumi.StringOutput)
 }
@@ -18754,8 +20301,11 @@ func (o GetContainerCustomDomainArrayOutput) Index(i pulumi.IntInput) GetContain
 }
 
 type GetContainerEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -18771,8 +20321,11 @@ type GetContainerEnvironmentVariableInput interface {
 }
 
 type GetContainerEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -18827,14 +20380,17 @@ func (o GetContainerEnvironmentVariableOutput) ToGetContainerEnvironmentVariable
 	return o
 }
 
+// Id of the environment variable.
 func (o GetContainerEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetContainerEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetContainerEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18860,8 +20416,11 @@ func (o GetContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetContainerEnvironmentVariableAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -18877,8 +20436,11 @@ type GetContainerEnvironmentVariableAliasInput interface {
 }
 
 type GetContainerEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -18933,14 +20495,17 @@ func (o GetContainerEnvironmentVariableAliasOutput) ToGetContainerEnvironmentVar
 	return o
 }
 
+// Id of the environment variable alias.
 func (o GetContainerEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable alias.
 func (o GetContainerEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o GetContainerEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18966,8 +20531,11 @@ func (o GetContainerEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetContainerEnvironmentVariableOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable override.
+	Id string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
 	Value string `pulumi:"value"`
 }
 
@@ -18983,8 +20551,11 @@ type GetContainerEnvironmentVariableOverrideInput interface {
 }
 
 type GetContainerEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -19039,14 +20610,17 @@ func (o GetContainerEnvironmentVariableOverrideOutput) ToGetContainerEnvironment
 	return o
 }
 
+// Id of the environment variable override.
 func (o GetContainerEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable override.
 func (o GetContainerEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o GetContainerEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -19072,7 +20646,9 @@ func (o GetContainerEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetContainerHealthchecks struct {
-	LivenessProbe  *GetContainerHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *GetContainerHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *GetContainerHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -19088,7 +20664,9 @@ type GetContainerHealthchecksInput interface {
 }
 
 type GetContainerHealthchecksArgs struct {
-	LivenessProbe  GetContainerHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe GetContainerHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe GetContainerHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -19169,10 +20747,12 @@ func (o GetContainerHealthchecksOutput) ToGetContainerHealthchecksPtrOutputWithC
 	}).(GetContainerHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetContainerHealthchecksOutput) LivenessProbe() GetContainerHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecks) *GetContainerHealthchecksLivenessProbe { return v.LivenessProbe }).(GetContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetContainerHealthchecksOutput) ReadinessProbe() GetContainerHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecks) *GetContainerHealthchecksReadinessProbe { return v.ReadinessProbe }).(GetContainerHealthchecksReadinessProbePtrOutput)
 }
@@ -19201,6 +20781,7 @@ func (o GetContainerHealthchecksPtrOutput) Elem() GetContainerHealthchecksOutput
 	}).(GetContainerHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetContainerHealthchecksPtrOutput) LivenessProbe() GetContainerHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecks) *GetContainerHealthchecksLivenessProbe {
 		if v == nil {
@@ -19210,6 +20791,7 @@ func (o GetContainerHealthchecksPtrOutput) LivenessProbe() GetContainerHealthche
 	}).(GetContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetContainerHealthchecksPtrOutput) ReadinessProbe() GetContainerHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecks) *GetContainerHealthchecksReadinessProbe {
 		if v == nil {
@@ -19220,12 +20802,18 @@ func (o GetContainerHealthchecksPtrOutput) ReadinessProbe() GetContainerHealthch
 }
 
 type GetContainerHealthchecksLivenessProbe struct {
-	FailureThreshold    int                                       `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                       `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                       `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                       `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                       `pulumi:"timeoutSeconds"`
-	Type                GetContainerHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetContainerHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // GetContainerHealthchecksLivenessProbeInput is an input type that accepts GetContainerHealthchecksLivenessProbeArgs and GetContainerHealthchecksLivenessProbeOutput values.
@@ -19240,12 +20828,18 @@ type GetContainerHealthchecksLivenessProbeInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                                `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                                `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                                `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                                `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                                `pulumi:"timeoutSeconds"`
-	Type                GetContainerHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetContainerHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetContainerHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -19325,26 +20919,32 @@ func (o GetContainerHealthchecksLivenessProbeOutput) ToGetContainerHealthchecksL
 	}).(GetContainerHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetContainerHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetContainerHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetContainerHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetContainerHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetContainerHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetContainerHealthchecksLivenessProbeOutput) Type() GetContainerHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbe) GetContainerHealthchecksLivenessProbeType { return v.Type }).(GetContainerHealthchecksLivenessProbeTypeOutput)
 }
@@ -19373,6 +20973,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) Elem() GetContainerHealt
 	}).(GetContainerHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetContainerHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -19382,6 +20983,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) FailureThreshold() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetContainerHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -19391,6 +20993,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetContainerHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -19400,6 +21003,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetContainerHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -19409,6 +21013,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetContainerHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -19418,6 +21023,7 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetContainerHealthchecksLivenessProbePtrOutput) Type() GetContainerHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbe) *GetContainerHealthchecksLivenessProbeType {
 		if v == nil {
@@ -19428,10 +21034,14 @@ func (o GetContainerHealthchecksLivenessProbePtrOutput) Type() GetContainerHealt
 }
 
 type GetContainerHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetContainerHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetContainerHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetContainerHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetContainerHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetContainerHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetContainerHealthchecksLivenessProbeTypeInput is an input type that accepts GetContainerHealthchecksLivenessProbeTypeArgs and GetContainerHealthchecksLivenessProbeTypeOutput values.
@@ -19446,10 +21056,14 @@ type GetContainerHealthchecksLivenessProbeTypeInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetContainerHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetContainerHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetContainerHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetContainerHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetContainerHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetContainerHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -19529,24 +21143,28 @@ func (o GetContainerHealthchecksLivenessProbeTypeOutput) ToGetContainerHealthche
 	}).(GetContainerHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetContainerHealthchecksLivenessProbeTypeOutput) Exec() GetContainerHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeExec {
 		return v.Exec
 	}).(GetContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetContainerHealthchecksLivenessProbeTypeOutput) Grpc() GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeGrpc {
 		return v.Grpc
 	}).(GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetContainerHealthchecksLivenessProbeTypeOutput) Http() GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeHttp {
 		return v.Http
 	}).(GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetContainerHealthchecksLivenessProbeTypeOutput) Tcp() GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeTcp {
 		return v.Tcp
@@ -19577,6 +21195,7 @@ func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Elem() GetContainerH
 	}).(GetContainerHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Exec() GetContainerHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -19586,6 +21205,7 @@ func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Exec() GetContainerH
 	}).(GetContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Grpc() GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -19595,6 +21215,7 @@ func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Grpc() GetContainerH
 	}).(GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Http() GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -19604,6 +21225,7 @@ func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Http() GetContainerH
 	}).(GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Tcp() GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeType) *GetContainerHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -19614,6 +21236,7 @@ func (o GetContainerHealthchecksLivenessProbeTypePtrOutput) Tcp() GetContainerHe
 }
 
 type GetContainerHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -19629,6 +21252,7 @@ type GetContainerHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -19709,6 +21333,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeExecOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetContainerHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -19737,6 +21362,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeExecPtrOutput) Elem() GetContai
 	}).(GetContainerHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetContainerHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -19747,7 +21373,9 @@ func (o GetContainerHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulum
 }
 
 type GetContainerHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -19763,7 +21391,9 @@ type GetContainerHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -19844,10 +21474,12 @@ func (o GetContainerHealthchecksLivenessProbeTypeGrpcOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetContainerHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -19876,6 +21508,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() GetContai
 	}).(GetContainerHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -19885,6 +21518,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -19895,9 +21529,12 @@ func (o GetContainerHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetContainerHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetContainerHealthchecksLivenessProbeTypeHttpArgs and GetContainerHealthchecksLivenessProbeTypeHttpOutput values.
@@ -19912,9 +21549,12 @@ type GetContainerHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetContainerHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -19994,16 +21634,19 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetContainerHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -20030,6 +21673,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() GetContai
 	}).(GetContainerHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -20039,6 +21683,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -20048,18 +21693,21 @@ func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetContainerHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetContainerHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetContainerHealthchecksLivenessProbeTypeTcpArgs and GetContainerHealthchecksLivenessProbeTypeTcpOutput values.
@@ -20074,8 +21722,10 @@ type GetContainerHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetContainerHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetContainerHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -20155,10 +21805,12 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) ToGetContainerHealth
 	}).(GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -20187,6 +21839,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() GetContain
 	}).(GetContainerHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -20196,6 +21849,7 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -20206,12 +21860,18 @@ func (o GetContainerHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.Int
 }
 
 type GetContainerHealthchecksReadinessProbe struct {
-	FailureThreshold    int                                        `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                        `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                        `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                        `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                        `pulumi:"timeoutSeconds"`
-	Type                GetContainerHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetContainerHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // GetContainerHealthchecksReadinessProbeInput is an input type that accepts GetContainerHealthchecksReadinessProbeArgs and GetContainerHealthchecksReadinessProbeOutput values.
@@ -20226,12 +21886,18 @@ type GetContainerHealthchecksReadinessProbeInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                                 `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                                 `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                                 `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                                 `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                                 `pulumi:"timeoutSeconds"`
-	Type                GetContainerHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetContainerHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetContainerHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -20311,26 +21977,32 @@ func (o GetContainerHealthchecksReadinessProbeOutput) ToGetContainerHealthchecks
 	}).(GetContainerHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetContainerHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetContainerHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetContainerHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetContainerHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetContainerHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetContainerHealthchecksReadinessProbeOutput) Type() GetContainerHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbe) GetContainerHealthchecksReadinessProbeType {
 		return v.Type
@@ -20361,6 +22033,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) Elem() GetContainerHeal
 	}).(GetContainerHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetContainerHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -20370,6 +22043,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) FailureThreshold() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetContainerHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -20379,6 +22053,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() p
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetContainerHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -20388,6 +22063,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetContainerHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -20397,6 +22073,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetContainerHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -20406,6 +22083,7 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetContainerHealthchecksReadinessProbePtrOutput) Type() GetContainerHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbe) *GetContainerHealthchecksReadinessProbeType {
 		if v == nil {
@@ -20416,10 +22094,14 @@ func (o GetContainerHealthchecksReadinessProbePtrOutput) Type() GetContainerHeal
 }
 
 type GetContainerHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetContainerHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetContainerHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetContainerHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetContainerHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetContainerHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetContainerHealthchecksReadinessProbeTypeInput is an input type that accepts GetContainerHealthchecksReadinessProbeTypeArgs and GetContainerHealthchecksReadinessProbeTypeOutput values.
@@ -20434,10 +22116,14 @@ type GetContainerHealthchecksReadinessProbeTypeInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetContainerHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetContainerHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetContainerHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetContainerHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetContainerHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetContainerHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -20517,24 +22203,28 @@ func (o GetContainerHealthchecksReadinessProbeTypeOutput) ToGetContainerHealthch
 	}).(GetContainerHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetContainerHealthchecksReadinessProbeTypeOutput) Exec() GetContainerHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeExec {
 		return v.Exec
 	}).(GetContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetContainerHealthchecksReadinessProbeTypeOutput) Grpc() GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeGrpc {
 		return v.Grpc
 	}).(GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetContainerHealthchecksReadinessProbeTypeOutput) Http() GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeHttp {
 		return v.Http
 	}).(GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetContainerHealthchecksReadinessProbeTypeOutput) Tcp() GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeTcp {
 		return v.Tcp
@@ -20565,6 +22255,7 @@ func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Elem() GetContainer
 	}).(GetContainerHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Exec() GetContainerHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -20574,6 +22265,7 @@ func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Exec() GetContainer
 	}).(GetContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Grpc() GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -20583,6 +22275,7 @@ func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Grpc() GetContainer
 	}).(GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Http() GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -20592,6 +22285,7 @@ func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Http() GetContainer
 	}).(GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Tcp() GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeType) *GetContainerHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -20602,6 +22296,7 @@ func (o GetContainerHealthchecksReadinessProbeTypePtrOutput) Tcp() GetContainerH
 }
 
 type GetContainerHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -20617,6 +22312,7 @@ type GetContainerHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -20697,6 +22393,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeExecOutput) ToGetContainerHeal
 	}).(GetContainerHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetContainerHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -20725,6 +22422,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeExecPtrOutput) Elem() GetConta
 	}).(GetContainerHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetContainerHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -20735,7 +22433,9 @@ func (o GetContainerHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulu
 }
 
 type GetContainerHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -20751,7 +22451,9 @@ type GetContainerHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -20832,10 +22534,12 @@ func (o GetContainerHealthchecksReadinessProbeTypeGrpcOutput) ToGetContainerHeal
 	}).(GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetContainerHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -20864,6 +22568,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() GetConta
 	}).(GetContainerHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -20873,6 +22578,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -20883,9 +22589,12 @@ func (o GetContainerHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulum
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetContainerHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetContainerHealthchecksReadinessProbeTypeHttpArgs and GetContainerHealthchecksReadinessProbeTypeHttpOutput values.
@@ -20900,9 +22609,12 @@ type GetContainerHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetContainerHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -20982,16 +22694,19 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) ToGetContainerHeal
 	}).(GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetContainerHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -21018,6 +22733,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() GetConta
 	}).(GetContainerHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -21027,6 +22743,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -21036,18 +22753,21 @@ func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetContainerHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetContainerHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetContainerHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetContainerHealthchecksReadinessProbeTypeTcpArgs and GetContainerHealthchecksReadinessProbeTypeTcpOutput values.
@@ -21062,8 +22782,10 @@ type GetContainerHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetContainerHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetContainerHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -21143,10 +22865,12 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) ToGetContainerHealt
 	}).(GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -21175,6 +22899,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() GetContai
 	}).(GetContainerHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -21184,6 +22909,7 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetContainerHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -21194,13 +22920,25 @@ func (o GetContainerHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.In
 }
 
 type GetContainerPort struct {
-	ExternalPort       int    `pulumi:"externalPort"`
-	Id                 string `pulumi:"id"`
-	InternalPort       int    `pulumi:"internalPort"`
-	IsDefault          bool   `pulumi:"isDefault"`
-	Name               string `pulumi:"name"`
-	Protocol           string `pulumi:"protocol"`
-	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort int `pulumi:"externalPort"`
+	// Id of the port.
+	Id string `pulumi:"id"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool `pulumi:"isDefault"`
+	// Name of the port.
+	Name string `pulumi:"name"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol string `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this container.
+	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
 }
 
 // GetContainerPortInput is an input type that accepts GetContainerPortArgs and GetContainerPortOutput values.
@@ -21215,13 +22953,25 @@ type GetContainerPortInput interface {
 }
 
 type GetContainerPortArgs struct {
-	ExternalPort       pulumi.IntInput    `pulumi:"externalPort"`
-	Id                 pulumi.StringInput `pulumi:"id"`
-	InternalPort       pulumi.IntInput    `pulumi:"internalPort"`
-	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
-	Name               pulumi.StringInput `pulumi:"name"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	PubliclyAccessible pulumi.BoolInput   `pulumi:"publiclyAccessible"`
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntInput `pulumi:"externalPort"`
+	// Id of the port.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// Name of the port.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+	// 	- Default: `HTTP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Specify if the port is exposed to the world or not for this container.
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 }
 
 func (GetContainerPortArgs) ElementType() reflect.Type {
@@ -21275,30 +23025,42 @@ func (o GetContainerPortOutput) ToGetContainerPortOutputWithContext(ctx context.
 	return o
 }
 
+// External port of the container.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o GetContainerPortOutput) ExternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerPort) int { return v.ExternalPort }).(pulumi.IntOutput)
 }
 
+// Id of the port.
 func (o GetContainerPortOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerPort) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Internal port of the container.
+//   - Must be: `>= 1` and `<= 65535`.
 func (o GetContainerPortOutput) InternalPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerPort) int { return v.InternalPort }).(pulumi.IntOutput)
 }
 
+// If this port will be used for the root domain
 func (o GetContainerPortOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetContainerPort) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// Name of the port.
 func (o GetContainerPortOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerPort) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Protocol used for the port of the container.
+//   - Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+//   - Default: `HTTP`.
 func (o GetContainerPortOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerPort) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Specify if the port is exposed to the world or not for this container.
 func (o GetContainerPortOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetContainerPort) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -21324,8 +23086,11 @@ func (o GetContainerPortArrayOutput) Index(i pulumi.IntInput) GetContainerPortOu
 }
 
 type GetContainerSecret struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret.
+	Id string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
 	Value string `pulumi:"value"`
 }
 
@@ -21341,8 +23106,11 @@ type GetContainerSecretInput interface {
 }
 
 type GetContainerSecretArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -21397,14 +23165,17 @@ func (o GetContainerSecretOutput) ToGetContainerSecretOutputWithContext(ctx cont
 	return o
 }
 
+// Id of the secret.
 func (o GetContainerSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecret) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the secret.
 func (o GetContainerSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o GetContainerSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -21430,8 +23201,11 @@ func (o GetContainerSecretArrayOutput) Index(i pulumi.IntInput) GetContainerSecr
 }
 
 type GetContainerSecretAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret alias.
+	Id string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -21447,8 +23221,11 @@ type GetContainerSecretAliasInput interface {
 }
 
 type GetContainerSecretAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -21503,14 +23280,17 @@ func (o GetContainerSecretAliasOutput) ToGetContainerSecretAliasOutputWithContex
 	return o
 }
 
+// Id of the secret alias.
 func (o GetContainerSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret alias.
 func (o GetContainerSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o GetContainerSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -21536,8 +23316,11 @@ func (o GetContainerSecretAliasArrayOutput) Index(i pulumi.IntInput) GetContaine
 }
 
 type GetContainerSecretOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret override.
+	Id string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
 	Value string `pulumi:"value"`
 }
 
@@ -21553,8 +23336,11 @@ type GetContainerSecretOverrideInput interface {
 }
 
 type GetContainerSecretOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -21609,14 +23395,17 @@ func (o GetContainerSecretOverrideOutput) ToGetContainerSecretOverrideOutputWith
 	return o
 }
 
+// Id of the secret override.
 func (o GetContainerSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret override.
 func (o GetContainerSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o GetContainerSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -21642,10 +23431,16 @@ func (o GetContainerSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetConta
 }
 
 type GetContainerStorage struct {
-	Id         string `pulumi:"id"`
+	// Id of the storage.
+	Id string `pulumi:"id"`
+	// Mount point of the storage for the container.
 	MountPoint string `pulumi:"mountPoint"`
-	Size       int    `pulumi:"size"`
-	Type       string `pulumi:"type"`
+	// Size of the storage for the container in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size int `pulumi:"size"`
+	// Type of the storage for the container.
+	// 	- Can be: `FAST_SSD`.
+	Type string `pulumi:"type"`
 }
 
 // GetContainerStorageInput is an input type that accepts GetContainerStorageArgs and GetContainerStorageOutput values.
@@ -21660,10 +23455,16 @@ type GetContainerStorageInput interface {
 }
 
 type GetContainerStorageArgs struct {
-	Id         pulumi.StringInput `pulumi:"id"`
+	// Id of the storage.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Mount point of the storage for the container.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	Size       pulumi.IntInput    `pulumi:"size"`
-	Type       pulumi.StringInput `pulumi:"type"`
+	// Size of the storage for the container in GB [1024MB = 1GB].
+	// 	- Must be: `>= 1`.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the storage for the container.
+	// 	- Can be: `FAST_SSD`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetContainerStorageArgs) ElementType() reflect.Type {
@@ -21717,18 +23518,24 @@ func (o GetContainerStorageOutput) ToGetContainerStorageOutputWithContext(ctx co
 	return o
 }
 
+// Id of the storage.
 func (o GetContainerStorageOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerStorage) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Mount point of the storage for the container.
 func (o GetContainerStorageOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerStorage) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
+// Size of the storage for the container in GB [1024MB = 1GB].
+//   - Must be: `>= 1`.
 func (o GetContainerStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerStorage) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Type of the storage for the container.
+//   - Can be: `FAST_SSD`.
 func (o GetContainerStorageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerStorage) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21754,8 +23561,11 @@ func (o GetContainerStorageArrayOutput) Index(i pulumi.IntInput) GetContainerSto
 }
 
 type GetEnvironmentBuiltInEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -21771,8 +23581,11 @@ type GetEnvironmentBuiltInEnvironmentVariableInput interface {
 }
 
 type GetEnvironmentBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -21827,14 +23640,17 @@ func (o GetEnvironmentBuiltInEnvironmentVariableOutput) ToGetEnvironmentBuiltInE
 	return o
 }
 
+// Id of the environment variable.
 func (o GetEnvironmentBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetEnvironmentBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetEnvironmentBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -21860,8 +23676,11 @@ func (o GetEnvironmentBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntI
 }
 
 type GetEnvironmentEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -21877,8 +23696,11 @@ type GetEnvironmentEnvironmentVariableInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -21933,14 +23755,17 @@ func (o GetEnvironmentEnvironmentVariableOutput) ToGetEnvironmentEnvironmentVari
 	return o
 }
 
+// Id of the environment variable.
 func (o GetEnvironmentEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetEnvironmentEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetEnvironmentEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -21966,8 +23791,11 @@ func (o GetEnvironmentEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetEnvironmentEnvironmentVariableAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -21983,8 +23811,11 @@ type GetEnvironmentEnvironmentVariableAliasInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22039,14 +23870,17 @@ func (o GetEnvironmentEnvironmentVariableAliasOutput) ToGetEnvironmentEnvironmen
 	return o
 }
 
+// Id of the environment variable alias.
 func (o GetEnvironmentEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable alias.
 func (o GetEnvironmentEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o GetEnvironmentEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22072,8 +23906,11 @@ func (o GetEnvironmentEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetEnvironmentEnvironmentVariableOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable override.
+	Id string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
 	Value string `pulumi:"value"`
 }
 
@@ -22089,8 +23926,11 @@ type GetEnvironmentEnvironmentVariableOverrideInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22145,14 +23985,17 @@ func (o GetEnvironmentEnvironmentVariableOverrideOutput) ToGetEnvironmentEnviron
 	return o
 }
 
+// Id of the environment variable override.
 func (o GetEnvironmentEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable override.
 func (o GetEnvironmentEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o GetEnvironmentEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22178,8 +24021,11 @@ func (o GetEnvironmentEnvironmentVariableOverrideArrayOutput) Index(i pulumi.Int
 }
 
 type GetEnvironmentSecret struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret.
+	Id string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
 	Value string `pulumi:"value"`
 }
 
@@ -22195,8 +24041,11 @@ type GetEnvironmentSecretInput interface {
 }
 
 type GetEnvironmentSecretArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22251,14 +24100,17 @@ func (o GetEnvironmentSecretOutput) ToGetEnvironmentSecretOutputWithContext(ctx 
 	return o
 }
 
+// Id of the secret.
 func (o GetEnvironmentSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecret) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the secret.
 func (o GetEnvironmentSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o GetEnvironmentSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22284,8 +24136,11 @@ func (o GetEnvironmentSecretArrayOutput) Index(i pulumi.IntInput) GetEnvironment
 }
 
 type GetEnvironmentSecretAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret alias.
+	Id string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -22301,8 +24156,11 @@ type GetEnvironmentSecretAliasInput interface {
 }
 
 type GetEnvironmentSecretAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22357,14 +24215,17 @@ func (o GetEnvironmentSecretAliasOutput) ToGetEnvironmentSecretAliasOutputWithCo
 	return o
 }
 
+// Id of the secret alias.
 func (o GetEnvironmentSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret alias.
 func (o GetEnvironmentSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o GetEnvironmentSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22390,8 +24251,11 @@ func (o GetEnvironmentSecretAliasArrayOutput) Index(i pulumi.IntInput) GetEnviro
 }
 
 type GetEnvironmentSecretOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret override.
+	Id string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
 	Value string `pulumi:"value"`
 }
 
@@ -22407,8 +24271,11 @@ type GetEnvironmentSecretOverrideInput interface {
 }
 
 type GetEnvironmentSecretOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22463,14 +24330,17 @@ func (o GetEnvironmentSecretOverrideOutput) ToGetEnvironmentSecretOverrideOutput
 	return o
 }
 
+// Id of the secret override.
 func (o GetEnvironmentSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret override.
 func (o GetEnvironmentSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o GetEnvironmentSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22496,8 +24366,11 @@ func (o GetEnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetEnv
 }
 
 type GetHelmBuiltInEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -22513,8 +24386,11 @@ type GetHelmBuiltInEnvironmentVariableInput interface {
 }
 
 type GetHelmBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22569,14 +24445,17 @@ func (o GetHelmBuiltInEnvironmentVariableOutput) ToGetHelmBuiltInEnvironmentVari
 	return o
 }
 
+// Id of the environment variable.
 func (o GetHelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetHelmBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetHelmBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22602,8 +24481,11 @@ func (o GetHelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetHelmEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -22619,8 +24501,11 @@ type GetHelmEnvironmentVariableInput interface {
 }
 
 type GetHelmEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22675,14 +24560,17 @@ func (o GetHelmEnvironmentVariableOutput) ToGetHelmEnvironmentVariableOutputWith
 	return o
 }
 
+// Id of the environment variable.
 func (o GetHelmEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetHelmEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetHelmEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22708,8 +24596,11 @@ func (o GetHelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetHelmE
 }
 
 type GetHelmEnvironmentVariableAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -22725,8 +24616,11 @@ type GetHelmEnvironmentVariableAliasInput interface {
 }
 
 type GetHelmEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22781,14 +24675,17 @@ func (o GetHelmEnvironmentVariableAliasOutput) ToGetHelmEnvironmentVariableAlias
 	return o
 }
 
+// Id of the environment variable alias.
 func (o GetHelmEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable alias.
 func (o GetHelmEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o GetHelmEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22814,8 +24711,11 @@ func (o GetHelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetHelmEnvironmentVariableOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable override.
+	Id string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
 	Value string `pulumi:"value"`
 }
 
@@ -22831,8 +24731,11 @@ type GetHelmEnvironmentVariableOverrideInput interface {
 }
 
 type GetHelmEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22887,14 +24790,17 @@ func (o GetHelmEnvironmentVariableOverrideOutput) ToGetHelmEnvironmentVariableOv
 	return o
 }
 
+// Id of the environment variable override.
 func (o GetHelmEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable override.
 func (o GetHelmEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o GetHelmEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -22920,8 +24826,11 @@ func (o GetHelmEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetHelmSecret struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret.
+	Id string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
 	Value string `pulumi:"value"`
 }
 
@@ -22937,8 +24846,11 @@ type GetHelmSecretInput interface {
 }
 
 type GetHelmSecretArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -22993,14 +24905,17 @@ func (o GetHelmSecretOutput) ToGetHelmSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Id of the secret.
 func (o GetHelmSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecret) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the secret.
 func (o GetHelmSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o GetHelmSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23026,8 +24941,11 @@ func (o GetHelmSecretArrayOutput) Index(i pulumi.IntInput) GetHelmSecretOutput {
 }
 
 type GetHelmSecretAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret alias.
+	Id string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -23043,8 +24961,11 @@ type GetHelmSecretAliasInput interface {
 }
 
 type GetHelmSecretAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23099,14 +25020,17 @@ func (o GetHelmSecretAliasOutput) ToGetHelmSecretAliasOutputWithContext(ctx cont
 	return o
 }
 
+// Id of the secret alias.
 func (o GetHelmSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret alias.
 func (o GetHelmSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o GetHelmSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23132,8 +25056,11 @@ func (o GetHelmSecretAliasArrayOutput) Index(i pulumi.IntInput) GetHelmSecretAli
 }
 
 type GetHelmSecretOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret override.
+	Id string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
 	Value string `pulumi:"value"`
 }
 
@@ -23149,8 +25076,11 @@ type GetHelmSecretOverrideInput interface {
 }
 
 type GetHelmSecretOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23205,14 +25135,17 @@ func (o GetHelmSecretOverrideOutput) ToGetHelmSecretOverrideOutputWithContext(ct
 	return o
 }
 
+// Id of the secret override.
 func (o GetHelmSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret override.
 func (o GetHelmSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o GetHelmSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23238,8 +25171,11 @@ func (o GetHelmSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetHelmSecret
 }
 
 type GetJobBuiltInEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -23255,8 +25191,11 @@ type GetJobBuiltInEnvironmentVariableInput interface {
 }
 
 type GetJobBuiltInEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23311,14 +25250,17 @@ func (o GetJobBuiltInEnvironmentVariableOutput) ToGetJobBuiltInEnvironmentVariab
 	return o
 }
 
+// Id of the environment variable.
 func (o GetJobBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetJobBuiltInEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobBuiltInEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetJobBuiltInEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobBuiltInEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23344,8 +25286,11 @@ func (o GetJobBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetJobEnvironmentVariable struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// Key of the environment variable.
+	Key string `pulumi:"key"`
+	// Value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -23361,8 +25306,11 @@ type GetJobEnvironmentVariableInput interface {
 }
 
 type GetJobEnvironmentVariableArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23417,14 +25365,17 @@ func (o GetJobEnvironmentVariableOutput) ToGetJobEnvironmentVariableOutputWithCo
 	return o
 }
 
+// Id of the environment variable.
 func (o GetJobEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the environment variable.
 func (o GetJobEnvironmentVariableOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable.
 func (o GetJobEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23450,8 +25401,11 @@ func (o GetJobEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetJobEnv
 }
 
 type GetJobEnvironmentVariableAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id string `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key string `pulumi:"key"`
+	// Name of the variable to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -23467,8 +25421,11 @@ type GetJobEnvironmentVariableAliasInput interface {
 }
 
 type GetJobEnvironmentVariableAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the variable to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23523,14 +25480,17 @@ func (o GetJobEnvironmentVariableAliasOutput) ToGetJobEnvironmentVariableAliasOu
 	return o
 }
 
+// Id of the environment variable alias.
 func (o GetJobEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable alias.
 func (o GetJobEnvironmentVariableAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the variable to alias.
 func (o GetJobEnvironmentVariableAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23556,8 +25516,11 @@ func (o GetJobEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) GetJ
 }
 
 type GetJobEnvironmentVariableOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the environment variable override.
+	Id string `pulumi:"id"`
+	// Name of the environment variable override.
+	Key string `pulumi:"key"`
+	// Value of the environment variable override.
 	Value string `pulumi:"value"`
 }
 
@@ -23573,8 +25536,11 @@ type GetJobEnvironmentVariableOverrideInput interface {
 }
 
 type GetJobEnvironmentVariableOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the environment variable override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the environment variable override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the environment variable override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -23629,14 +25595,17 @@ func (o GetJobEnvironmentVariableOverrideOutput) ToGetJobEnvironmentVariableOver
 	return o
 }
 
+// Id of the environment variable override.
 func (o GetJobEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the environment variable override.
 func (o GetJobEnvironmentVariableOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the environment variable override.
 func (o GetJobEnvironmentVariableOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -23662,7 +25631,9 @@ func (o GetJobEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetJobHealthchecks struct {
-	LivenessProbe  *GetJobHealthchecksLivenessProbe  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe *GetJobHealthchecksLivenessProbe `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe *GetJobHealthchecksReadinessProbe `pulumi:"readinessProbe"`
 }
 
@@ -23678,7 +25649,9 @@ type GetJobHealthchecksInput interface {
 }
 
 type GetJobHealthchecksArgs struct {
-	LivenessProbe  GetJobHealthchecksLivenessProbePtrInput  `pulumi:"livenessProbe"`
+	// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+	LivenessProbe GetJobHealthchecksLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 	ReadinessProbe GetJobHealthchecksReadinessProbePtrInput `pulumi:"readinessProbe"`
 }
 
@@ -23759,10 +25732,12 @@ func (o GetJobHealthchecksOutput) ToGetJobHealthchecksPtrOutputWithContext(ctx c
 	}).(GetJobHealthchecksPtrOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetJobHealthchecksOutput) LivenessProbe() GetJobHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecks) *GetJobHealthchecksLivenessProbe { return v.LivenessProbe }).(GetJobHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetJobHealthchecksOutput) ReadinessProbe() GetJobHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecks) *GetJobHealthchecksReadinessProbe { return v.ReadinessProbe }).(GetJobHealthchecksReadinessProbePtrOutput)
 }
@@ -23791,6 +25766,7 @@ func (o GetJobHealthchecksPtrOutput) Elem() GetJobHealthchecksOutput {
 	}).(GetJobHealthchecksOutput)
 }
 
+// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
 func (o GetJobHealthchecksPtrOutput) LivenessProbe() GetJobHealthchecksLivenessProbePtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecks) *GetJobHealthchecksLivenessProbe {
 		if v == nil {
@@ -23800,6 +25776,7 @@ func (o GetJobHealthchecksPtrOutput) LivenessProbe() GetJobHealthchecksLivenessP
 	}).(GetJobHealthchecksLivenessProbePtrOutput)
 }
 
+// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
 func (o GetJobHealthchecksPtrOutput) ReadinessProbe() GetJobHealthchecksReadinessProbePtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecks) *GetJobHealthchecksReadinessProbe {
 		if v == nil {
@@ -23810,12 +25787,18 @@ func (o GetJobHealthchecksPtrOutput) ReadinessProbe() GetJobHealthchecksReadines
 }
 
 type GetJobHealthchecksLivenessProbe struct {
-	FailureThreshold    int                                 `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                 `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                 `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                 `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                 `pulumi:"timeoutSeconds"`
-	Type                GetJobHealthchecksLivenessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetJobHealthchecksLivenessProbeType `pulumi:"type"`
 }
 
 // GetJobHealthchecksLivenessProbeInput is an input type that accepts GetJobHealthchecksLivenessProbeArgs and GetJobHealthchecksLivenessProbeOutput values.
@@ -23830,12 +25813,18 @@ type GetJobHealthchecksLivenessProbeInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                          `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                          `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                          `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                          `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                          `pulumi:"timeoutSeconds"`
-	Type                GetJobHealthchecksLivenessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetJobHealthchecksLivenessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetJobHealthchecksLivenessProbeArgs) ElementType() reflect.Type {
@@ -23915,26 +25904,32 @@ func (o GetJobHealthchecksLivenessProbeOutput) ToGetJobHealthchecksLivenessProbe
 	}).(GetJobHealthchecksLivenessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetJobHealthchecksLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetJobHealthchecksLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetJobHealthchecksLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetJobHealthchecksLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetJobHealthchecksLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetJobHealthchecksLivenessProbeOutput) Type() GetJobHealthchecksLivenessProbeTypeOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbe) GetJobHealthchecksLivenessProbeType { return v.Type }).(GetJobHealthchecksLivenessProbeTypeOutput)
 }
@@ -23963,6 +25958,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) Elem() GetJobHealthchecksLiven
 	}).(GetJobHealthchecksLivenessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetJobHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -23972,6 +25968,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) FailureThreshold() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetJobHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -23981,6 +25978,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) InitialDelaySeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetJobHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -23990,6 +25988,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetJobHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -23999,6 +25998,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) SuccessThreshold() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetJobHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *int {
 		if v == nil {
@@ -24008,6 +26008,7 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetJobHealthchecksLivenessProbePtrOutput) Type() GetJobHealthchecksLivenessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbe) *GetJobHealthchecksLivenessProbeType {
 		if v == nil {
@@ -24018,10 +26019,14 @@ func (o GetJobHealthchecksLivenessProbePtrOutput) Type() GetJobHealthchecksLiven
 }
 
 type GetJobHealthchecksLivenessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetJobHealthchecksLivenessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetJobHealthchecksLivenessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetJobHealthchecksLivenessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetJobHealthchecksLivenessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetJobHealthchecksLivenessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetJobHealthchecksLivenessProbeTypeInput is an input type that accepts GetJobHealthchecksLivenessProbeTypeArgs and GetJobHealthchecksLivenessProbeTypeOutput values.
@@ -24036,10 +26041,14 @@ type GetJobHealthchecksLivenessProbeTypeInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetJobHealthchecksLivenessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetJobHealthchecksLivenessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetJobHealthchecksLivenessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetJobHealthchecksLivenessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetJobHealthchecksLivenessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetJobHealthchecksLivenessProbeTypeArgs) ElementType() reflect.Type {
@@ -24119,18 +26128,22 @@ func (o GetJobHealthchecksLivenessProbeTypeOutput) ToGetJobHealthchecksLivenessP
 	}).(GetJobHealthchecksLivenessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetJobHealthchecksLivenessProbeTypeOutput) Exec() GetJobHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeExec { return v.Exec }).(GetJobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetJobHealthchecksLivenessProbeTypeOutput) Grpc() GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeGrpc { return v.Grpc }).(GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetJobHealthchecksLivenessProbeTypeOutput) Http() GetJobHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeHttp { return v.Http }).(GetJobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetJobHealthchecksLivenessProbeTypeOutput) Tcp() GetJobHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeTcp { return v.Tcp }).(GetJobHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
@@ -24159,6 +26172,7 @@ func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Elem() GetJobHealthchecksL
 	}).(GetJobHealthchecksLivenessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Exec() GetJobHealthchecksLivenessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeExec {
 		if v == nil {
@@ -24168,6 +26182,7 @@ func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Exec() GetJobHealthchecksL
 	}).(GetJobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Grpc() GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeGrpc {
 		if v == nil {
@@ -24177,6 +26192,7 @@ func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Grpc() GetJobHealthchecksL
 	}).(GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Http() GetJobHealthchecksLivenessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeHttp {
 		if v == nil {
@@ -24186,6 +26202,7 @@ func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Http() GetJobHealthchecksL
 	}).(GetJobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Tcp() GetJobHealthchecksLivenessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeType) *GetJobHealthchecksLivenessProbeTypeTcp {
 		if v == nil {
@@ -24196,6 +26213,7 @@ func (o GetJobHealthchecksLivenessProbeTypePtrOutput) Tcp() GetJobHealthchecksLi
 }
 
 type GetJobHealthchecksLivenessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -24211,6 +26229,7 @@ type GetJobHealthchecksLivenessProbeTypeExecInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -24291,6 +26310,7 @@ func (o GetJobHealthchecksLivenessProbeTypeExecOutput) ToGetJobHealthchecksLiven
 	}).(GetJobHealthchecksLivenessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetJobHealthchecksLivenessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -24319,6 +26339,7 @@ func (o GetJobHealthchecksLivenessProbeTypeExecPtrOutput) Elem() GetJobHealthche
 	}).(GetJobHealthchecksLivenessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetJobHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeExec) []string {
 		if v == nil {
@@ -24329,7 +26350,9 @@ func (o GetJobHealthchecksLivenessProbeTypeExecPtrOutput) Commands() pulumi.Stri
 }
 
 type GetJobHealthchecksLivenessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -24345,7 +26368,9 @@ type GetJobHealthchecksLivenessProbeTypeGrpcInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -24426,10 +26451,12 @@ func (o GetJobHealthchecksLivenessProbeTypeGrpcOutput) ToGetJobHealthchecksLiven
 	}).(GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetJobHealthchecksLivenessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -24458,6 +26485,7 @@ func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Elem() GetJobHealthche
 	}).(GetJobHealthchecksLivenessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeGrpc) *int {
 		if v == nil {
@@ -24467,6 +26495,7 @@ func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeGrpc) *string {
 		if v == nil {
@@ -24477,9 +26506,12 @@ func (o GetJobHealthchecksLivenessProbeTypeGrpcPtrOutput) Service() pulumi.Strin
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetJobHealthchecksLivenessProbeTypeHttpInput is an input type that accepts GetJobHealthchecksLivenessProbeTypeHttpArgs and GetJobHealthchecksLivenessProbeTypeHttpOutput values.
@@ -24494,9 +26526,12 @@ type GetJobHealthchecksLivenessProbeTypeHttpInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetJobHealthchecksLivenessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -24576,16 +26611,19 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) ToGetJobHealthchecksLiven
 	}).(GetJobHealthchecksLivenessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetJobHealthchecksLivenessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetJobHealthchecksLivenessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -24612,6 +26650,7 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Elem() GetJobHealthche
 	}).(GetJobHealthchecksLivenessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
@@ -24621,6 +26660,7 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Path() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeHttp) *int {
 		if v == nil {
@@ -24630,18 +26670,21 @@ func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetJobHealthchecksLivenessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksLivenessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetJobHealthchecksLivenessProbeTypeTcpInput is an input type that accepts GetJobHealthchecksLivenessProbeTypeTcpArgs and GetJobHealthchecksLivenessProbeTypeTcpOutput values.
@@ -24656,8 +26699,10 @@ type GetJobHealthchecksLivenessProbeTypeTcpInput interface {
 }
 
 type GetJobHealthchecksLivenessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetJobHealthchecksLivenessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -24737,10 +26782,12 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) ToGetJobHealthchecksLivene
 	}).(GetJobHealthchecksLivenessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksLivenessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -24769,6 +26816,7 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Elem() GetJobHealthchec
 	}).(GetJobHealthchecksLivenessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeTcp) *string {
 		if v == nil {
@@ -24778,6 +26826,7 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Host() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksLivenessProbeTypeTcp) *int {
 		if v == nil {
@@ -24788,12 +26837,18 @@ func (o GetJobHealthchecksLivenessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOut
 }
 
 type GetJobHealthchecksReadinessProbe struct {
-	FailureThreshold    int                                  `pulumi:"failureThreshold"`
-	InitialDelaySeconds int                                  `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       int                                  `pulumi:"periodSeconds"`
-	SuccessThreshold    int                                  `pulumi:"successThreshold"`
-	TimeoutSeconds      int                                  `pulumi:"timeoutSeconds"`
-	Type                GetJobHealthchecksReadinessProbeType `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds int `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds int `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold int `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds int `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetJobHealthchecksReadinessProbeType `pulumi:"type"`
 }
 
 // GetJobHealthchecksReadinessProbeInput is an input type that accepts GetJobHealthchecksReadinessProbeArgs and GetJobHealthchecksReadinessProbeOutput values.
@@ -24808,12 +26863,18 @@ type GetJobHealthchecksReadinessProbeInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeArgs struct {
-	FailureThreshold    pulumi.IntInput                           `pulumi:"failureThreshold"`
-	InitialDelaySeconds pulumi.IntInput                           `pulumi:"initialDelaySeconds"`
-	PeriodSeconds       pulumi.IntInput                           `pulumi:"periodSeconds"`
-	SuccessThreshold    pulumi.IntInput                           `pulumi:"successThreshold"`
-	TimeoutSeconds      pulumi.IntInput                           `pulumi:"timeoutSeconds"`
-	Type                GetJobHealthchecksReadinessProbeTypeInput `pulumi:"type"`
+	// Number of time the an ok probe should fail before declaring it as failed
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// Number of seconds to wait before the first execution of the probe to be trigerred
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	// Number of seconds before each execution of the probe
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	// Number of time the probe should success before declaring a failed probe as ok again
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	// Number of seconds within which the check need to respond before declaring it as a failure
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+	// Kind of check to run for this probe. There can only be one configured at a time
+	Type GetJobHealthchecksReadinessProbeTypeInput `pulumi:"type"`
 }
 
 func (GetJobHealthchecksReadinessProbeArgs) ElementType() reflect.Type {
@@ -24893,26 +26954,32 @@ func (o GetJobHealthchecksReadinessProbeOutput) ToGetJobHealthchecksReadinessPro
 	}).(GetJobHealthchecksReadinessProbePtrOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetJobHealthchecksReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetJobHealthchecksReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) int { return v.InitialDelaySeconds }).(pulumi.IntOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetJobHealthchecksReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) int { return v.PeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetJobHealthchecksReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetJobHealthchecksReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) int { return v.TimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetJobHealthchecksReadinessProbeOutput) Type() GetJobHealthchecksReadinessProbeTypeOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbe) GetJobHealthchecksReadinessProbeType { return v.Type }).(GetJobHealthchecksReadinessProbeTypeOutput)
 }
@@ -24941,6 +27008,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) Elem() GetJobHealthchecksRead
 	}).(GetJobHealthchecksReadinessProbeOutput)
 }
 
+// Number of time the an ok probe should fail before declaring it as failed
 func (o GetJobHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -24950,6 +27018,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) FailureThreshold() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait before the first execution of the probe to be trigerred
 func (o GetJobHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -24959,6 +27028,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) InitialDelaySeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds before each execution of the probe
 func (o GetJobHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -24968,6 +27038,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of time the probe should success before declaring a failed probe as ok again
 func (o GetJobHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -24977,6 +27048,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) SuccessThreshold() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds within which the check need to respond before declaring it as a failure
 func (o GetJobHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *int {
 		if v == nil {
@@ -24986,6 +27058,7 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Kind of check to run for this probe. There can only be one configured at a time
 func (o GetJobHealthchecksReadinessProbePtrOutput) Type() GetJobHealthchecksReadinessProbeTypePtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbe) *GetJobHealthchecksReadinessProbeType {
 		if v == nil {
@@ -24996,10 +27069,14 @@ func (o GetJobHealthchecksReadinessProbePtrOutput) Type() GetJobHealthchecksRead
 }
 
 type GetJobHealthchecksReadinessProbeType struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec *GetJobHealthchecksReadinessProbeTypeExec `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc *GetJobHealthchecksReadinessProbeTypeGrpc `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http *GetJobHealthchecksReadinessProbeTypeHttp `pulumi:"http"`
-	Tcp  *GetJobHealthchecksReadinessProbeTypeTcp  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp *GetJobHealthchecksReadinessProbeTypeTcp `pulumi:"tcp"`
 }
 
 // GetJobHealthchecksReadinessProbeTypeInput is an input type that accepts GetJobHealthchecksReadinessProbeTypeArgs and GetJobHealthchecksReadinessProbeTypeOutput values.
@@ -25014,10 +27091,14 @@ type GetJobHealthchecksReadinessProbeTypeInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeArgs struct {
+	// Check that the given command return an exit 0. Binary should be present in the image
 	Exec GetJobHealthchecksReadinessProbeTypeExecPtrInput `pulumi:"exec"`
+	// Check that the given port respond to GRPC call
 	Grpc GetJobHealthchecksReadinessProbeTypeGrpcPtrInput `pulumi:"grpc"`
+	// Check that the given port respond to HTTP call (should return a 2xx response code)
 	Http GetJobHealthchecksReadinessProbeTypeHttpPtrInput `pulumi:"http"`
-	Tcp  GetJobHealthchecksReadinessProbeTypeTcpPtrInput  `pulumi:"tcp"`
+	// Check that the given port accepting connection
+	Tcp GetJobHealthchecksReadinessProbeTypeTcpPtrInput `pulumi:"tcp"`
 }
 
 func (GetJobHealthchecksReadinessProbeTypeArgs) ElementType() reflect.Type {
@@ -25097,18 +27178,22 @@ func (o GetJobHealthchecksReadinessProbeTypeOutput) ToGetJobHealthchecksReadines
 	}).(GetJobHealthchecksReadinessProbeTypePtrOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetJobHealthchecksReadinessProbeTypeOutput) Exec() GetJobHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeExec { return v.Exec }).(GetJobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetJobHealthchecksReadinessProbeTypeOutput) Grpc() GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeGrpc { return v.Grpc }).(GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetJobHealthchecksReadinessProbeTypeOutput) Http() GetJobHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeHttp { return v.Http }).(GetJobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetJobHealthchecksReadinessProbeTypeOutput) Tcp() GetJobHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeTcp { return v.Tcp }).(GetJobHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
@@ -25137,6 +27222,7 @@ func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Elem() GetJobHealthchecks
 	}).(GetJobHealthchecksReadinessProbeTypeOutput)
 }
 
+// Check that the given command return an exit 0. Binary should be present in the image
 func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Exec() GetJobHealthchecksReadinessProbeTypeExecPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeExec {
 		if v == nil {
@@ -25146,6 +27232,7 @@ func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Exec() GetJobHealthchecks
 	}).(GetJobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// Check that the given port respond to GRPC call
 func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Grpc() GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeGrpc {
 		if v == nil {
@@ -25155,6 +27242,7 @@ func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Grpc() GetJobHealthchecks
 	}).(GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// Check that the given port respond to HTTP call (should return a 2xx response code)
 func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Http() GetJobHealthchecksReadinessProbeTypeHttpPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeHttp {
 		if v == nil {
@@ -25164,6 +27252,7 @@ func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Http() GetJobHealthchecks
 	}).(GetJobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// Check that the given port accepting connection
 func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Tcp() GetJobHealthchecksReadinessProbeTypeTcpPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeType) *GetJobHealthchecksReadinessProbeTypeTcp {
 		if v == nil {
@@ -25174,6 +27263,7 @@ func (o GetJobHealthchecksReadinessProbeTypePtrOutput) Tcp() GetJobHealthchecksR
 }
 
 type GetJobHealthchecksReadinessProbeTypeExec struct {
+	// The command and its arguments to exec
 	Commands []string `pulumi:"commands"`
 }
 
@@ -25189,6 +27279,7 @@ type GetJobHealthchecksReadinessProbeTypeExecInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeExecArgs struct {
+	// The command and its arguments to exec
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 }
 
@@ -25269,6 +27360,7 @@ func (o GetJobHealthchecksReadinessProbeTypeExecOutput) ToGetJobHealthchecksRead
 	}).(GetJobHealthchecksReadinessProbeTypeExecPtrOutput)
 }
 
+// The command and its arguments to exec
 func (o GetJobHealthchecksReadinessProbeTypeExecOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeExec) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -25297,6 +27389,7 @@ func (o GetJobHealthchecksReadinessProbeTypeExecPtrOutput) Elem() GetJobHealthch
 	}).(GetJobHealthchecksReadinessProbeTypeExecOutput)
 }
 
+// The command and its arguments to exec
 func (o GetJobHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeExec) []string {
 		if v == nil {
@@ -25307,7 +27400,9 @@ func (o GetJobHealthchecksReadinessProbeTypeExecPtrOutput) Commands() pulumi.Str
 }
 
 type GetJobHealthchecksReadinessProbeTypeGrpc struct {
-	Port    int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service *string `pulumi:"service"`
 }
 
@@ -25323,7 +27418,9 @@ type GetJobHealthchecksReadinessProbeTypeGrpcInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeGrpcArgs struct {
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -25404,10 +27501,12 @@ func (o GetJobHealthchecksReadinessProbeTypeGrpcOutput) ToGetJobHealthchecksRead
 	}).(GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeGrpcOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeGrpc) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetJobHealthchecksReadinessProbeTypeGrpcOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeGrpc) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -25436,6 +27535,7 @@ func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Elem() GetJobHealthch
 	}).(GetJobHealthchecksReadinessProbeTypeGrpcOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeGrpc) *int {
 		if v == nil {
@@ -25445,6 +27545,7 @@ func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Port() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
 func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeGrpc) *string {
 		if v == nil {
@@ -25455,9 +27556,12 @@ func (o GetJobHealthchecksReadinessProbeTypeGrpcPtrOutput) Service() pulumi.Stri
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttp struct {
-	Path   *string `pulumi:"path"`
-	Port   int     `pulumi:"port"`
-	Scheme *string `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path *string `pulumi:"path"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme string `pulumi:"scheme"`
 }
 
 // GetJobHealthchecksReadinessProbeTypeHttpInput is an input type that accepts GetJobHealthchecksReadinessProbeTypeHttpArgs and GetJobHealthchecksReadinessProbeTypeHttpOutput values.
@@ -25472,9 +27576,12 @@ type GetJobHealthchecksReadinessProbeTypeHttpInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttpArgs struct {
-	Path   pulumi.StringPtrInput `pulumi:"path"`
-	Port   pulumi.IntInput       `pulumi:"port"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	// The path that the HTTP GET request. By default it is `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
+	// if the HTTP GET request should be done in HTTP or HTTPS.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (GetJobHealthchecksReadinessProbeTypeHttpArgs) ElementType() reflect.Type {
@@ -25554,16 +27661,19 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) ToGetJobHealthchecksRead
 	}).(GetJobHealthchecksReadinessProbeTypeHttpPtrOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+// if the HTTP GET request should be done in HTTP or HTTPS.
+func (o GetJobHealthchecksReadinessProbeTypeHttpOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeHttp) string { return v.Scheme }).(pulumi.StringOutput)
 }
 
 type GetJobHealthchecksReadinessProbeTypeHttpPtrOutput struct{ *pulumi.OutputState }
@@ -25590,6 +27700,7 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Elem() GetJobHealthch
 	}).(GetJobHealthchecksReadinessProbeTypeHttpOutput)
 }
 
+// The path that the HTTP GET request. By default it is `/`
 func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
@@ -25599,6 +27710,7 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Path() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeHttp) *int {
 		if v == nil {
@@ -25608,18 +27720,21 @@ func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Port() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// if the HTTP GET request should be done in HTTP or HTTPS.
 func (o GetJobHealthchecksReadinessProbeTypeHttpPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeHttp) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scheme
+		return &v.Scheme
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetJobHealthchecksReadinessProbeTypeTcp struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host *string `pulumi:"host"`
-	Port int     `pulumi:"port"`
+	// The port number to try to connect to
+	Port int `pulumi:"port"`
 }
 
 // GetJobHealthchecksReadinessProbeTypeTcpInput is an input type that accepts GetJobHealthchecksReadinessProbeTypeTcpArgs and GetJobHealthchecksReadinessProbeTypeTcpOutput values.
@@ -25634,8 +27749,10 @@ type GetJobHealthchecksReadinessProbeTypeTcpInput interface {
 }
 
 type GetJobHealthchecksReadinessProbeTypeTcpArgs struct {
+	// Optional. If the host need to be different than localhost/pod ip
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	Port pulumi.IntInput       `pulumi:"port"`
+	// The port number to try to connect to
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetJobHealthchecksReadinessProbeTypeTcpArgs) ElementType() reflect.Type {
@@ -25715,10 +27832,12 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) ToGetJobHealthchecksReadi
 	}).(GetJobHealthchecksReadinessProbeTypeTcpPtrOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeTcp) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeTcpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobHealthchecksReadinessProbeTypeTcp) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -25747,6 +27866,7 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Elem() GetJobHealthche
 	}).(GetJobHealthchecksReadinessProbeTypeTcpOutput)
 }
 
+// Optional. If the host need to be different than localhost/pod ip
 func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeTcp) *string {
 		if v == nil {
@@ -25756,6 +27876,7 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Host() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number to try to connect to
 func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetJobHealthchecksReadinessProbeTypeTcp) *int {
 		if v == nil {
@@ -25766,10 +27887,14 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOu
 }
 
 type GetJobSchedule struct {
-	Cronjob  GetJobScheduleCronjob  `pulumi:"cronjob"`
+	// Job's cron.
+	Cronjob GetJobScheduleCronjob `pulumi:"cronjob"`
+	// Job's schedule on delete.
 	OnDelete GetJobScheduleOnDelete `pulumi:"onDelete"`
-	OnStart  GetJobScheduleOnStart  `pulumi:"onStart"`
-	OnStop   GetJobScheduleOnStop   `pulumi:"onStop"`
+	// Job's schedule on start.
+	OnStart GetJobScheduleOnStart `pulumi:"onStart"`
+	// Job's schedule on stop.
+	OnStop GetJobScheduleOnStop `pulumi:"onStop"`
 }
 
 // GetJobScheduleInput is an input type that accepts GetJobScheduleArgs and GetJobScheduleOutput values.
@@ -25784,10 +27909,14 @@ type GetJobScheduleInput interface {
 }
 
 type GetJobScheduleArgs struct {
-	Cronjob  GetJobScheduleCronjobInput  `pulumi:"cronjob"`
+	// Job's cron.
+	Cronjob GetJobScheduleCronjobInput `pulumi:"cronjob"`
+	// Job's schedule on delete.
 	OnDelete GetJobScheduleOnDeleteInput `pulumi:"onDelete"`
-	OnStart  GetJobScheduleOnStartInput  `pulumi:"onStart"`
-	OnStop   GetJobScheduleOnStopInput   `pulumi:"onStop"`
+	// Job's schedule on start.
+	OnStart GetJobScheduleOnStartInput `pulumi:"onStart"`
+	// Job's schedule on stop.
+	OnStop GetJobScheduleOnStopInput `pulumi:"onStop"`
 }
 
 func (GetJobScheduleArgs) ElementType() reflect.Type {
@@ -25816,25 +27945,31 @@ func (o GetJobScheduleOutput) ToGetJobScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Job's cron.
 func (o GetJobScheduleOutput) Cronjob() GetJobScheduleCronjobOutput {
 	return o.ApplyT(func(v GetJobSchedule) GetJobScheduleCronjob { return v.Cronjob }).(GetJobScheduleCronjobOutput)
 }
 
+// Job's schedule on delete.
 func (o GetJobScheduleOutput) OnDelete() GetJobScheduleOnDeleteOutput {
 	return o.ApplyT(func(v GetJobSchedule) GetJobScheduleOnDelete { return v.OnDelete }).(GetJobScheduleOnDeleteOutput)
 }
 
+// Job's schedule on start.
 func (o GetJobScheduleOutput) OnStart() GetJobScheduleOnStartOutput {
 	return o.ApplyT(func(v GetJobSchedule) GetJobScheduleOnStart { return v.OnStart }).(GetJobScheduleOnStartOutput)
 }
 
+// Job's schedule on stop.
 func (o GetJobScheduleOutput) OnStop() GetJobScheduleOnStopOutput {
 	return o.ApplyT(func(v GetJobSchedule) GetJobScheduleOnStop { return v.OnStop }).(GetJobScheduleOnStopOutput)
 }
 
 type GetJobScheduleCronjob struct {
-	Command  GetJobScheduleCronjobCommand `pulumi:"command"`
-	Schedule string                       `pulumi:"schedule"`
+	// Job's cron command.
+	Command GetJobScheduleCronjobCommand `pulumi:"command"`
+	// Job's cron string.
+	Schedule string `pulumi:"schedule"`
 }
 
 // GetJobScheduleCronjobInput is an input type that accepts GetJobScheduleCronjobArgs and GetJobScheduleCronjobOutput values.
@@ -25849,8 +27984,10 @@ type GetJobScheduleCronjobInput interface {
 }
 
 type GetJobScheduleCronjobArgs struct {
-	Command  GetJobScheduleCronjobCommandInput `pulumi:"command"`
-	Schedule pulumi.StringInput                `pulumi:"schedule"`
+	// Job's cron command.
+	Command GetJobScheduleCronjobCommandInput `pulumi:"command"`
+	// Job's cron string.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 }
 
 func (GetJobScheduleCronjobArgs) ElementType() reflect.Type {
@@ -25879,17 +28016,21 @@ func (o GetJobScheduleCronjobOutput) ToGetJobScheduleCronjobOutputWithContext(ct
 	return o
 }
 
+// Job's cron command.
 func (o GetJobScheduleCronjobOutput) Command() GetJobScheduleCronjobCommandOutput {
 	return o.ApplyT(func(v GetJobScheduleCronjob) GetJobScheduleCronjobCommand { return v.Command }).(GetJobScheduleCronjobCommandOutput)
 }
 
+// Job's cron string.
 func (o GetJobScheduleCronjobOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobScheduleCronjob) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
 type GetJobScheduleCronjobCommand struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint string   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint string `pulumi:"entrypoint"`
 }
 
 // GetJobScheduleCronjobCommandInput is an input type that accepts GetJobScheduleCronjobCommandArgs and GetJobScheduleCronjobCommandOutput values.
@@ -25904,8 +28045,10 @@ type GetJobScheduleCronjobCommandInput interface {
 }
 
 type GetJobScheduleCronjobCommandArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringInput      `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringInput `pulumi:"entrypoint"`
 }
 
 func (GetJobScheduleCronjobCommandArgs) ElementType() reflect.Type {
@@ -25934,17 +28077,21 @@ func (o GetJobScheduleCronjobCommandOutput) ToGetJobScheduleCronjobCommandOutput
 	return o
 }
 
+// List of arguments of this job.
 func (o GetJobScheduleCronjobCommandOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobScheduleCronjobCommand) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o GetJobScheduleCronjobCommandOutput) Entrypoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobScheduleCronjobCommand) string { return v.Entrypoint }).(pulumi.StringOutput)
 }
 
 type GetJobScheduleOnDelete struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint string   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint string `pulumi:"entrypoint"`
 }
 
 // GetJobScheduleOnDeleteInput is an input type that accepts GetJobScheduleOnDeleteArgs and GetJobScheduleOnDeleteOutput values.
@@ -25959,8 +28106,10 @@ type GetJobScheduleOnDeleteInput interface {
 }
 
 type GetJobScheduleOnDeleteArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringInput      `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringInput `pulumi:"entrypoint"`
 }
 
 func (GetJobScheduleOnDeleteArgs) ElementType() reflect.Type {
@@ -25989,17 +28138,21 @@ func (o GetJobScheduleOnDeleteOutput) ToGetJobScheduleOnDeleteOutputWithContext(
 	return o
 }
 
+// List of arguments of this job.
 func (o GetJobScheduleOnDeleteOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobScheduleOnDelete) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o GetJobScheduleOnDeleteOutput) Entrypoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobScheduleOnDelete) string { return v.Entrypoint }).(pulumi.StringOutput)
 }
 
 type GetJobScheduleOnStart struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint string   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint string `pulumi:"entrypoint"`
 }
 
 // GetJobScheduleOnStartInput is an input type that accepts GetJobScheduleOnStartArgs and GetJobScheduleOnStartOutput values.
@@ -26014,8 +28167,10 @@ type GetJobScheduleOnStartInput interface {
 }
 
 type GetJobScheduleOnStartArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringInput      `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringInput `pulumi:"entrypoint"`
 }
 
 func (GetJobScheduleOnStartArgs) ElementType() reflect.Type {
@@ -26044,17 +28199,21 @@ func (o GetJobScheduleOnStartOutput) ToGetJobScheduleOnStartOutputWithContext(ct
 	return o
 }
 
+// List of arguments of this job.
 func (o GetJobScheduleOnStartOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobScheduleOnStart) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o GetJobScheduleOnStartOutput) Entrypoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobScheduleOnStart) string { return v.Entrypoint }).(pulumi.StringOutput)
 }
 
 type GetJobScheduleOnStop struct {
-	Arguments  []string `pulumi:"arguments"`
-	Entrypoint string   `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments []string `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint string `pulumi:"entrypoint"`
 }
 
 // GetJobScheduleOnStopInput is an input type that accepts GetJobScheduleOnStopArgs and GetJobScheduleOnStopOutput values.
@@ -26069,8 +28228,10 @@ type GetJobScheduleOnStopInput interface {
 }
 
 type GetJobScheduleOnStopArgs struct {
-	Arguments  pulumi.StringArrayInput `pulumi:"arguments"`
-	Entrypoint pulumi.StringInput      `pulumi:"entrypoint"`
+	// List of arguments of this job.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Entrypoint of the job.
+	Entrypoint pulumi.StringInput `pulumi:"entrypoint"`
 }
 
 func (GetJobScheduleOnStopArgs) ElementType() reflect.Type {
@@ -26099,17 +28260,22 @@ func (o GetJobScheduleOnStopOutput) ToGetJobScheduleOnStopOutputWithContext(ctx 
 	return o
 }
 
+// List of arguments of this job.
 func (o GetJobScheduleOnStopOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobScheduleOnStop) []string { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
+// Entrypoint of the job.
 func (o GetJobScheduleOnStopOutput) Entrypoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobScheduleOnStop) string { return v.Entrypoint }).(pulumi.StringOutput)
 }
 
 type GetJobSecret struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret.
+	Id string `pulumi:"id"`
+	// Key of the secret.
+	Key string `pulumi:"key"`
+	// Value of the secret.
 	Value string `pulumi:"value"`
 }
 
@@ -26125,8 +28291,11 @@ type GetJobSecretInput interface {
 }
 
 type GetJobSecretArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key of the secret.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26181,14 +28350,17 @@ func (o GetJobSecretOutput) ToGetJobSecretOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Id of the secret.
 func (o GetJobSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecret) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key of the secret.
 func (o GetJobSecretOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecret) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret.
 func (o GetJobSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26214,8 +28386,11 @@ func (o GetJobSecretArrayOutput) Index(i pulumi.IntInput) GetJobSecretOutput {
 }
 
 type GetJobSecretAlias struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret alias.
+	Id string `pulumi:"id"`
+	// Name of the secret alias.
+	Key string `pulumi:"key"`
+	// Name of the secret to alias.
 	Value string `pulumi:"value"`
 }
 
@@ -26231,8 +28406,11 @@ type GetJobSecretAliasInput interface {
 }
 
 type GetJobSecretAliasArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret alias.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret alias.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Name of the secret to alias.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26287,14 +28465,17 @@ func (o GetJobSecretAliasOutput) ToGetJobSecretAliasOutputWithContext(ctx contex
 	return o
 }
 
+// Id of the secret alias.
 func (o GetJobSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretAlias) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret alias.
 func (o GetJobSecretAliasOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretAlias) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name of the secret to alias.
 func (o GetJobSecretAliasOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretAlias) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26320,8 +28501,11 @@ func (o GetJobSecretAliasArrayOutput) Index(i pulumi.IntInput) GetJobSecretAlias
 }
 
 type GetJobSecretOverride struct {
-	Id    string `pulumi:"id"`
-	Key   string `pulumi:"key"`
+	// Id of the secret override.
+	Id string `pulumi:"id"`
+	// Name of the secret override.
+	Key string `pulumi:"key"`
+	// Value of the secret override.
 	Value string `pulumi:"value"`
 }
 
@@ -26337,8 +28521,11 @@ type GetJobSecretOverrideInput interface {
 }
 
 type GetJobSecretOverrideArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Id of the secret override.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the secret override.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the secret override.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26393,14 +28580,17 @@ func (o GetJobSecretOverrideOutput) ToGetJobSecretOverrideOutputWithContext(ctx 
 	return o
 }
 
+// Id of the secret override.
 func (o GetJobSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretOverride) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the secret override.
 func (o GetJobSecretOverrideOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretOverride) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the secret override.
 func (o GetJobSecretOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26426,8 +28616,10 @@ func (o GetJobSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetJobSecretOv
 }
 
 type GetJobSource struct {
+	// Job's docker source.
 	Docker GetJobSourceDocker `pulumi:"docker"`
-	Image  GetJobSourceImage  `pulumi:"image"`
+	// Job's image source.
+	Image GetJobSourceImage `pulumi:"image"`
 }
 
 // GetJobSourceInput is an input type that accepts GetJobSourceArgs and GetJobSourceOutput values.
@@ -26442,8 +28634,10 @@ type GetJobSourceInput interface {
 }
 
 type GetJobSourceArgs struct {
+	// Job's docker source.
 	Docker GetJobSourceDockerInput `pulumi:"docker"`
-	Image  GetJobSourceImageInput  `pulumi:"image"`
+	// Job's image source.
+	Image GetJobSourceImageInput `pulumi:"image"`
 }
 
 func (GetJobSourceArgs) ElementType() reflect.Type {
@@ -26523,10 +28717,12 @@ func (o GetJobSourceOutput) ToGetJobSourcePtrOutputWithContext(ctx context.Conte
 	}).(GetJobSourcePtrOutput)
 }
 
+// Job's docker source.
 func (o GetJobSourceOutput) Docker() GetJobSourceDockerOutput {
 	return o.ApplyT(func(v GetJobSource) GetJobSourceDocker { return v.Docker }).(GetJobSourceDockerOutput)
 }
 
+// Job's image source.
 func (o GetJobSourceOutput) Image() GetJobSourceImageOutput {
 	return o.ApplyT(func(v GetJobSource) GetJobSourceImage { return v.Image }).(GetJobSourceImageOutput)
 }
@@ -26555,6 +28751,7 @@ func (o GetJobSourcePtrOutput) Elem() GetJobSourceOutput {
 	}).(GetJobSourceOutput)
 }
 
+// Job's docker source.
 func (o GetJobSourcePtrOutput) Docker() GetJobSourceDockerPtrOutput {
 	return o.ApplyT(func(v *GetJobSource) *GetJobSourceDocker {
 		if v == nil {
@@ -26564,6 +28761,7 @@ func (o GetJobSourcePtrOutput) Docker() GetJobSourceDockerPtrOutput {
 	}).(GetJobSourceDockerPtrOutput)
 }
 
+// Job's image source.
 func (o GetJobSourcePtrOutput) Image() GetJobSourceImagePtrOutput {
 	return o.ApplyT(func(v *GetJobSource) *GetJobSourceImage {
 		if v == nil {
@@ -26574,8 +28772,10 @@ func (o GetJobSourcePtrOutput) Image() GetJobSourceImagePtrOutput {
 }
 
 type GetJobSourceDocker struct {
-	DockerfilePath *string                         `pulumi:"dockerfilePath"`
-	GitRepository  GetJobSourceDockerGitRepository `pulumi:"gitRepository"`
+	// Job's docker source dockerfile path.
+	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Job's docker source git repository.
+	GitRepository GetJobSourceDockerGitRepository `pulumi:"gitRepository"`
 }
 
 // GetJobSourceDockerInput is an input type that accepts GetJobSourceDockerArgs and GetJobSourceDockerOutput values.
@@ -26590,8 +28790,10 @@ type GetJobSourceDockerInput interface {
 }
 
 type GetJobSourceDockerArgs struct {
-	DockerfilePath pulumi.StringPtrInput                `pulumi:"dockerfilePath"`
-	GitRepository  GetJobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
+	// Job's docker source dockerfile path.
+	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+	// Job's docker source git repository.
+	GitRepository GetJobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
 }
 
 func (GetJobSourceDockerArgs) ElementType() reflect.Type {
@@ -26671,10 +28873,12 @@ func (o GetJobSourceDockerOutput) ToGetJobSourceDockerPtrOutputWithContext(ctx c
 	}).(GetJobSourceDockerPtrOutput)
 }
 
+// Job's docker source dockerfile path.
 func (o GetJobSourceDockerOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobSourceDocker) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository.
 func (o GetJobSourceDockerOutput) GitRepository() GetJobSourceDockerGitRepositoryOutput {
 	return o.ApplyT(func(v GetJobSourceDocker) GetJobSourceDockerGitRepository { return v.GitRepository }).(GetJobSourceDockerGitRepositoryOutput)
 }
@@ -26703,6 +28907,7 @@ func (o GetJobSourceDockerPtrOutput) Elem() GetJobSourceDockerOutput {
 	}).(GetJobSourceDockerOutput)
 }
 
+// Job's docker source dockerfile path.
 func (o GetJobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDocker) *string {
 		if v == nil {
@@ -26712,6 +28917,7 @@ func (o GetJobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository.
 func (o GetJobSourceDockerPtrOutput) GitRepository() GetJobSourceDockerGitRepositoryPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDocker) *GetJobSourceDockerGitRepository {
 		if v == nil {
@@ -26722,10 +28928,14 @@ func (o GetJobSourceDockerPtrOutput) GitRepository() GetJobSourceDockerGitReposi
 }
 
 type GetJobSourceDockerGitRepository struct {
-	Branch     string  `pulumi:"branch"`
+	// Job's docker source git repository branch.
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId *string `pulumi:"gitTokenId"`
-	RootPath   string  `pulumi:"rootPath"`
-	Url        string  `pulumi:"url"`
+	// Job's docker source git repository root path.
+	RootPath string `pulumi:"rootPath"`
+	// Job's docker source git repository URL.
+	Url string `pulumi:"url"`
 }
 
 // GetJobSourceDockerGitRepositoryInput is an input type that accepts GetJobSourceDockerGitRepositoryArgs and GetJobSourceDockerGitRepositoryOutput values.
@@ -26740,10 +28950,14 @@ type GetJobSourceDockerGitRepositoryInput interface {
 }
 
 type GetJobSourceDockerGitRepositoryArgs struct {
-	Branch     pulumi.StringInput    `pulumi:"branch"`
+	// Job's docker source git repository branch.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
 	GitTokenId pulumi.StringPtrInput `pulumi:"gitTokenId"`
-	RootPath   pulumi.StringInput    `pulumi:"rootPath"`
-	Url        pulumi.StringInput    `pulumi:"url"`
+	// Job's docker source git repository root path.
+	RootPath pulumi.StringInput `pulumi:"rootPath"`
+	// Job's docker source git repository URL.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetJobSourceDockerGitRepositoryArgs) ElementType() reflect.Type {
@@ -26823,18 +29037,22 @@ func (o GetJobSourceDockerGitRepositoryOutput) ToGetJobSourceDockerGitRepository
 	}).(GetJobSourceDockerGitRepositoryPtrOutput)
 }
 
+// Job's docker source git repository branch.
 func (o GetJobSourceDockerGitRepositoryOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceDockerGitRepository) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The git token ID to be used
 func (o GetJobSourceDockerGitRepositoryOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobSourceDockerGitRepository) *string { return v.GitTokenId }).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository root path.
 func (o GetJobSourceDockerGitRepositoryOutput) RootPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceDockerGitRepository) string { return v.RootPath }).(pulumi.StringOutput)
 }
 
+// Job's docker source git repository URL.
 func (o GetJobSourceDockerGitRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceDockerGitRepository) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -26863,6 +29081,7 @@ func (o GetJobSourceDockerGitRepositoryPtrOutput) Elem() GetJobSourceDockerGitRe
 	}).(GetJobSourceDockerGitRepositoryOutput)
 }
 
+// Job's docker source git repository branch.
 func (o GetJobSourceDockerGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -26872,6 +29091,7 @@ func (o GetJobSourceDockerGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The git token ID to be used
 func (o GetJobSourceDockerGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -26881,6 +29101,7 @@ func (o GetJobSourceDockerGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository root path.
 func (o GetJobSourceDockerGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -26890,6 +29111,7 @@ func (o GetJobSourceDockerGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's docker source git repository URL.
 func (o GetJobSourceDockerGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceDockerGitRepository) *string {
 		if v == nil {
@@ -26900,9 +29122,12 @@ func (o GetJobSourceDockerGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type GetJobSourceImage struct {
-	Name       string `pulumi:"name"`
+	// Job's image source name.
+	Name string `pulumi:"name"`
+	// Job's image source registry ID.
 	RegistryId string `pulumi:"registryId"`
-	Tag        string `pulumi:"tag"`
+	// Job's image source tag.
+	Tag string `pulumi:"tag"`
 }
 
 // GetJobSourceImageInput is an input type that accepts GetJobSourceImageArgs and GetJobSourceImageOutput values.
@@ -26917,9 +29142,12 @@ type GetJobSourceImageInput interface {
 }
 
 type GetJobSourceImageArgs struct {
-	Name       pulumi.StringInput `pulumi:"name"`
+	// Job's image source name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Job's image source registry ID.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
-	Tag        pulumi.StringInput `pulumi:"tag"`
+	// Job's image source tag.
+	Tag pulumi.StringInput `pulumi:"tag"`
 }
 
 func (GetJobSourceImageArgs) ElementType() reflect.Type {
@@ -26999,14 +29227,17 @@ func (o GetJobSourceImageOutput) ToGetJobSourceImagePtrOutputWithContext(ctx con
 	}).(GetJobSourceImagePtrOutput)
 }
 
+// Job's image source name.
 func (o GetJobSourceImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceImage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Job's image source registry ID.
 func (o GetJobSourceImageOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceImage) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// Job's image source tag.
 func (o GetJobSourceImageOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSourceImage) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -27035,6 +29266,7 @@ func (o GetJobSourceImagePtrOutput) Elem() GetJobSourceImageOutput {
 	}).(GetJobSourceImageOutput)
 }
 
+// Job's image source name.
 func (o GetJobSourceImagePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceImage) *string {
 		if v == nil {
@@ -27044,6 +29276,7 @@ func (o GetJobSourceImagePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's image source registry ID.
 func (o GetJobSourceImagePtrOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceImage) *string {
 		if v == nil {
@@ -27053,6 +29286,7 @@ func (o GetJobSourceImagePtrOutput) RegistryId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Job's image source tag.
 func (o GetJobSourceImagePtrOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetJobSourceImage) *string {
 		if v == nil {

@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobSourceDocker
     {
+        /// <summary>
+        /// Job's docker source dockerfile path.
+        /// </summary>
         public readonly string? DockerfilePath;
+        /// <summary>
+        /// Job's docker source git repository.
+        /// </summary>
         public readonly Outputs.JobSourceDockerGitRepository GitRepository;
 
         [OutputConstructor]

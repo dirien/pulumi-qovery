@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetJobEnvironmentVariableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id of the environment variable.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Key of the environment variable.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the environment variable.
+        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmEnvironmentVariableOverride
     {
+        /// <summary>
+        /// Id of the environment variable override.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Name of the environment variable override.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of the environment variable override.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

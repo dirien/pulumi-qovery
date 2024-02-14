@@ -13,20 +13,33 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmValuesOverrideFileGitRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// YAML file git repository branch
+        /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         [Input("gitTokenId")]
         public Input<string>? GitTokenId { get; set; }
 
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// YAML files git repository paths
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
             set => _paths = value;
         }
 
+        /// <summary>
+        /// YAML file git repository URL
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class JobScheduleCronjobGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Job's cron command.
+        /// </summary>
         [Input("command", required: true)]
         public Input<Inputs.JobScheduleCronjobCommandGetArgs> Command { get; set; } = null!;
 
+        /// <summary>
+        /// Job's cron string.
+        /// </summary>
         [Input("schedule", required: true)]
         public Input<string> Schedule { get; set; } = null!;
 

@@ -15,12 +15,19 @@ namespace ediri.Qovery.Inputs
     {
         [Input("arguments")]
         private InputList<string>? _arguments;
+
+        /// <summary>
+        /// List of arguments of this job.
+        /// </summary>
         public InputList<string> Arguments
         {
             get => _arguments ?? (_arguments = new InputList<string>());
             set => _arguments = value;
         }
 
+        /// <summary>
+        /// Entrypoint of the job.
+        /// </summary>
         [Input("entrypoint")]
         public Input<string>? Entrypoint { get; set; }
 

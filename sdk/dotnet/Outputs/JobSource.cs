@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobSource
     {
+        /// <summary>
+        /// Job's docker source.
+        /// </summary>
         public readonly Outputs.JobSourceDocker? Docker;
+        /// <summary>
+        /// Job's image source.
+        /// </summary>
         public readonly Outputs.JobSourceImage? Image;
 
         [OutputConstructor]

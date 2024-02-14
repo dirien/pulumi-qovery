@@ -14,6 +14,9 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobHealthchecksLivenessProbeTypeExec
     {
+        /// <summary>
+        /// The command and its arguments to exec
+        /// </summary>
         public readonly ImmutableArray<string> Commands;
 
         [OutputConstructor]

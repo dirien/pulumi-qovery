@@ -13,11 +13,18 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmValuesOverrideFileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// YAML file from a git repository
+        /// </summary>
         [Input("gitRepository")]
         public Input<Inputs.HelmValuesOverrideFileGitRepositoryArgs>? GitRepository { get; set; }
 
         [Input("raw")]
         private InputMap<Inputs.HelmValuesOverrideFileRawArgs>? _raw;
+
+        /// <summary>
+        /// Raw YAML files
+        /// </summary>
         public InputMap<Inputs.HelmValuesOverrideFileRawArgs> Raw
         {
             get => _raw ?? (_raw = new InputMap<Inputs.HelmValuesOverrideFileRawArgs>());

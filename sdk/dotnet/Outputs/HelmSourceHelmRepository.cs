@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmSourceHelmRepository
     {
+        /// <summary>
+        /// Chart name
+        /// </summary>
         public readonly string ChartName;
+        /// <summary>
+        /// Chart version
+        /// </summary>
         public readonly string ChartVersion;
+        /// <summary>
+        /// helm repository id
+        /// </summary>
         public readonly string HelmRepositoryId;
 
         [OutputConstructor]

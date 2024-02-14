@@ -13,15 +13,29 @@ namespace ediri.Qovery.Inputs
 
     public sealed class ApplicationGitRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Branch of the git repository.
+        /// 	- Default: `main or master (depending on repository)`.
+        /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         [Input("gitTokenId")]
         public Input<string>? GitTokenId { get; set; }
 
+        /// <summary>
+        /// Root path of the application.
+        /// 	- Default: `/`.
+        /// </summary>
         [Input("rootPath")]
         public Input<string>? RootPath { get; set; }
 
+        /// <summary>
+        /// URL of the git repository.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

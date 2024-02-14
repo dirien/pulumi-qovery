@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmValuesOverrideFile
     {
+        /// <summary>
+        /// YAML file from a git repository
+        /// </summary>
         public readonly Outputs.HelmValuesOverrideFileGitRepository? GitRepository;
+        /// <summary>
+        /// Raw YAML files
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.HelmValuesOverrideFileRaw>? Raw;
 
         [OutputConstructor]

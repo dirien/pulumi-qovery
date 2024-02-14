@@ -14,9 +14,23 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetApplicationGitRepositoryResult
     {
+        /// <summary>
+        /// Branch of the git repository.
+        /// 	- Default: `main or master (depending on repository)`.
+        /// </summary>
         public readonly string Branch;
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         public readonly string GitTokenId;
+        /// <summary>
+        /// Root path of the application.
+        /// 	- Default: `/`.
+        /// </summary>
         public readonly string RootPath;
+        /// <summary>
+        /// URL of the git repository.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

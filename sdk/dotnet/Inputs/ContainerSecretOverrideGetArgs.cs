@@ -13,14 +13,24 @@ namespace ediri.Qovery.Inputs
 
     public sealed class ContainerSecretOverrideGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the secret override.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Name of the secret override.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private Input<string>? _value;
+
+        /// <summary>
+        /// Value of the secret override.
+        /// </summary>
         public Input<string>? Value
         {
             get => _value;

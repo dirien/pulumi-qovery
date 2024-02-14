@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetJobHealthchecksReadinessProbeTypeTcpArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Optional. If the host need to be different than localhost/pod ip
+        /// </summary>
         [Input("host")]
         public string? Host { get; set; }
 
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         [Input("port", required: true)]
         public int Port { get; set; }
 

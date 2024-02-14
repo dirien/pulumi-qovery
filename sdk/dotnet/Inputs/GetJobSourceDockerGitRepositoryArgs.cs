@@ -13,15 +13,27 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetJobSourceDockerGitRepositoryInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Job's docker source git repository branch.
+        /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         [Input("gitTokenId")]
         public Input<string>? GitTokenId { get; set; }
 
+        /// <summary>
+        /// Job's docker source git repository root path.
+        /// </summary>
         [Input("rootPath", required: true)]
         public Input<string> RootPath { get; set; } = null!;
 
+        /// <summary>
+        /// Job's docker source git repository URL.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

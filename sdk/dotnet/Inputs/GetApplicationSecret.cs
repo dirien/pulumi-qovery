@@ -13,14 +13,24 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetApplicationSecretArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id of the secret.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Key of the secret.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private string? _value;
+
+        /// <summary>
+        /// Value of the secret.
+        /// </summary>
         public string? Value
         {
             get => _value;

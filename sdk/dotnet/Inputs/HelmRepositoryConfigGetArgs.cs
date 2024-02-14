@@ -13,24 +13,45 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmRepositoryConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Required if kind is `ECR` or `PUBLIC_ECR`.
+        /// </summary>
         [Input("accessKeyId")]
         public Input<string>? AccessKeyId { get; set; }
 
+        /// <summary>
+        /// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Required if kind is `ECR` or `SCALEWAY_CR`.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Required if kind is `SCALEWAY_CR`.
+        /// </summary>
         [Input("scalewayAccessKey")]
         public Input<string>? ScalewayAccessKey { get; set; }
 
+        /// <summary>
+        /// Required if kind is `SCALEWAY_CR`.
+        /// </summary>
         [Input("scalewaySecretKey")]
         public Input<string>? ScalewaySecretKey { get; set; }
 
+        /// <summary>
+        /// Required if kind is `ECR` or `PUBLIC_ECR`.
+        /// </summary>
         [Input("secretAccessKey")]
         public Input<string>? SecretAccessKey { get; set; }
 
+        /// <summary>
+        /// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

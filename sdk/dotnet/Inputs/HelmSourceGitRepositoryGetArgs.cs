@@ -13,15 +13,27 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmSourceGitRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Helm's source git repository branch
+        /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         [Input("gitTokenId")]
         public Input<string>? GitTokenId { get; set; }
 
+        /// <summary>
+        /// Helm's source git repository root path
+        /// </summary>
         [Input("rootPath")]
         public Input<string>? RootPath { get; set; }
 
+        /// <summary>
+        /// Helm's source git repository URL
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

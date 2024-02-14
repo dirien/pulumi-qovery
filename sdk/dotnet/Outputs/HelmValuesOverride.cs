@@ -14,6 +14,9 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmValuesOverride
     {
+        /// <summary>
+        /// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        /// </summary>
         public readonly Outputs.HelmValuesOverrideFile? File;
         public readonly ImmutableDictionary<string, string> Set;
         public readonly ImmutableDictionary<string, string> SetJson;

@@ -14,9 +14,21 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetApplicationCustomDomainResult
     {
+        /// <summary>
+        /// Your custom domain.
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// Id of the custom domain.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Status of the custom domain.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        /// </summary>
         public readonly string ValidationDomain;
 
         [OutputConstructor]

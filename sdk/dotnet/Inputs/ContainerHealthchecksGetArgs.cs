@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class ContainerHealthchecksGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        /// </summary>
         [Input("livenessProbe")]
         public Input<Inputs.ContainerHealthchecksLivenessProbeGetArgs>? LivenessProbe { get; set; }
 
+        /// <summary>
+        /// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        /// </summary>
         [Input("readinessProbe")]
         public Input<Inputs.ContainerHealthchecksReadinessProbeGetArgs>? ReadinessProbe { get; set; }
 

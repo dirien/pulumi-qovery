@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobEnvironmentVariableAlias
     {
+        /// <summary>
+        /// Id of the environment variable alias.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Name of the environment variable alias.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Name of the variable to alias.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

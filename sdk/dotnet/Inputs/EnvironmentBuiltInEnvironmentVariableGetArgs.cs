@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class EnvironmentBuiltInEnvironmentVariableGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the environment variable.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Key of the environment variable.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// Value of the environment variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

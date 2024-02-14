@@ -13,14 +13,23 @@ namespace ediri.Qovery.Inputs
 
     public sealed class ApplicationHealthchecksReadinessProbeTypeHttpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path that the HTTP GET request. By default it is `/`
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
-        [Input("scheme")]
-        public Input<string>? Scheme { get; set; }
+        /// <summary>
+        /// if the HTTP GET request should be done in HTTP or HTTPS.
+        /// </summary>
+        [Input("scheme", required: true)]
+        public Input<string> Scheme { get; set; } = null!;
 
         public ApplicationHealthchecksReadinessProbeTypeHttpArgs()
         {

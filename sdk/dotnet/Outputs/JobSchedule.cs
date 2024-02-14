@@ -14,9 +14,21 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobSchedule
     {
+        /// <summary>
+        /// Job's cron.
+        /// </summary>
         public readonly Outputs.JobScheduleCronjob? Cronjob;
+        /// <summary>
+        /// Job's schedule on delete.
+        /// </summary>
         public readonly Outputs.JobScheduleOnDelete? OnDelete;
+        /// <summary>
+        /// Job's schedule on start.
+        /// </summary>
         public readonly Outputs.JobScheduleOnStart? OnStart;
+        /// <summary>
+        /// Job's schedule on stop.
+        /// </summary>
         public readonly Outputs.JobScheduleOnStop? OnStop;
 
         [OutputConstructor]

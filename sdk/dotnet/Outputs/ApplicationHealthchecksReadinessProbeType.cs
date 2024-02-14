@@ -14,9 +14,21 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class ApplicationHealthchecksReadinessProbeType
     {
+        /// <summary>
+        /// Check that the given command return an exit 0. Binary should be present in the image
+        /// </summary>
         public readonly Outputs.ApplicationHealthchecksReadinessProbeTypeExec? Exec;
+        /// <summary>
+        /// Check that the given port respond to GRPC call
+        /// </summary>
         public readonly Outputs.ApplicationHealthchecksReadinessProbeTypeGrpc? Grpc;
+        /// <summary>
+        /// Check that the given port respond to HTTP call (should return a 2xx response code)
+        /// </summary>
         public readonly Outputs.ApplicationHealthchecksReadinessProbeTypeHttp? Http;
+        /// <summary>
+        /// Check that the given port accepting connection
+        /// </summary>
         public readonly Outputs.ApplicationHealthchecksReadinessProbeTypeTcp? Tcp;
 
         [OutputConstructor]

@@ -13,24 +13,50 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetContainerPortArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// External port of the container.
+        /// 	- Required if: `ports.publicly_accessible=true`.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         [Input("externalPort", required: true)]
         public int ExternalPort { get; set; }
 
+        /// <summary>
+        /// Id of the port.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Internal port of the container.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         [Input("internalPort", required: true)]
         public int InternalPort { get; set; }
 
+        /// <summary>
+        /// If this port will be used for the root domain
+        /// </summary>
         [Input("isDefault", required: true)]
         public bool IsDefault { get; set; }
 
+        /// <summary>
+        /// Name of the port.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Protocol used for the port of the container.
+        /// 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+        /// 	- Default: `HTTP`.
+        /// </summary>
         [Input("protocol", required: true)]
         public string Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Specify if the port is exposed to the world or not for this container.
+        /// </summary>
         [Input("publiclyAccessible", required: true)]
         public bool PubliclyAccessible { get; set; }
 

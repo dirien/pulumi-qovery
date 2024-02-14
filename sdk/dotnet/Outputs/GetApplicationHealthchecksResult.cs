@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetApplicationHealthchecksResult
     {
+        /// <summary>
+        /// Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        /// </summary>
         public readonly Outputs.GetApplicationHealthchecksLivenessProbeResult? LivenessProbe;
+        /// <summary>
+        /// Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        /// </summary>
         public readonly Outputs.GetApplicationHealthchecksReadinessProbeResult? ReadinessProbe;
 
         [OutputConstructor]

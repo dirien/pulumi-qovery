@@ -13,18 +13,35 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmPortsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// External port of the container.
+        /// 	- Required if: `ports.publicly_accessible=true`.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         [Input("externalPort", required: true)]
         public Input<int> ExternalPort { get; set; } = null!;
 
+        /// <summary>
+        /// Internal port of the container.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         [Input("internalPort", required: true)]
         public Input<int> InternalPort { get; set; } = null!;
 
+        /// <summary>
+        /// If this port will be used for the root domain
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
+        /// <summary>
+        /// Protocol used for the port of the container.
+        /// 	- Can be: `GRPC`, `HTTP`.
+        /// 	- Default: `HTTP`.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
