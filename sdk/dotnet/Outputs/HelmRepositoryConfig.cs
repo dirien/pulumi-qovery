@@ -14,12 +14,33 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmRepositoryConfig
     {
+        /// <summary>
+        /// Required if kind is `ECR` or `PUBLIC_ECR`.
+        /// </summary>
         public readonly string? AccessKeyId;
+        /// <summary>
+        /// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// Required if kind is `ECR` or `SCALEWAY_CR`.
+        /// </summary>
         public readonly string? Region;
+        /// <summary>
+        /// Required if kind is `SCALEWAY_CR`.
+        /// </summary>
         public readonly string? ScalewayAccessKey;
+        /// <summary>
+        /// Required if kind is `SCALEWAY_CR`.
+        /// </summary>
         public readonly string? ScalewaySecretKey;
+        /// <summary>
+        /// Required if kind is `ECR` or `PUBLIC_ECR`.
+        /// </summary>
         public readonly string? SecretAccessKey;
+        /// <summary>
+        /// Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]

@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Git repository
+        /// </summary>
         [Input("gitRepository")]
         public Input<Inputs.HelmSourceGitRepositoryArgs>? GitRepository { get; set; }
 
+        /// <summary>
+        /// Helm repositories can be private or public
+        /// </summary>
         [Input("helmRepository")]
         public Input<Inputs.HelmSourceHelmRepositoryArgs>? HelmRepository { get; set; }
 

@@ -13,15 +13,27 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetContainerCustomDomainInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your custom domain.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// Id of the custom domain.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Status of the custom domain.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
+        /// <summary>
+        /// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        /// </summary>
         [Input("validationDomain", required: true)]
         public Input<string> ValidationDomain { get; set; } = null!;
 

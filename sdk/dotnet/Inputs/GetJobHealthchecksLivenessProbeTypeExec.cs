@@ -15,6 +15,10 @@ namespace ediri.Qovery.Inputs
     {
         [Input("commands", required: true)]
         private List<string>? _commands;
+
+        /// <summary>
+        /// The command and its arguments to exec
+        /// </summary>
         public List<string> Commands
         {
             get => _commands ?? (_commands = new List<string>());

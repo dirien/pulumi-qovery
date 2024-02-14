@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class JobSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Job's docker source.
+        /// </summary>
         [Input("docker")]
         public Input<Inputs.JobSourceDockerArgs>? Docker { get; set; }
 
+        /// <summary>
+        /// Job's image source.
+        /// </summary>
         [Input("image")]
         public Input<Inputs.JobSourceImageArgs>? Image { get; set; }
 

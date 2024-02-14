@@ -210,6 +210,11 @@ class ApplicationBuiltInEnvironmentVariableArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Id of the environment variable.
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
@@ -220,6 +225,9 @@ class ApplicationBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -229,6 +237,9 @@ class ApplicationBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -238,6 +249,9 @@ class ApplicationBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -252,6 +266,12 @@ class ApplicationCustomDomainArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain: Your custom domain.
+        :param pulumi.Input[str] id: Id of the custom domain.
+        :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         pulumi.set(__self__, "domain", domain)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -263,6 +283,9 @@ class ApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        Your custom domain.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -272,6 +295,9 @@ class ApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the custom domain.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -281,6 +307,9 @@ class ApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the custom domain.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -290,6 +319,9 @@ class ApplicationCustomDomainArgs:
     @property
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         return pulumi.get(self, "validation_domain")
 
     @validation_domain.setter
@@ -303,6 +335,11 @@ class ApplicationEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] id: Id of the environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -311,6 +348,9 @@ class ApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -320,6 +360,9 @@ class ApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -329,6 +372,9 @@ class ApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -342,6 +388,11 @@ class ApplicationEnvironmentVariableAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable alias.
+        :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] id: Id of the environment variable alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -350,6 +401,9 @@ class ApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -359,6 +413,9 @@ class ApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -368,6 +425,9 @@ class ApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -381,6 +441,11 @@ class ApplicationEnvironmentVariableOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable override.
+        :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] id: Id of the environment variable override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -389,6 +454,9 @@ class ApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -398,6 +466,9 @@ class ApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -407,6 +478,9 @@ class ApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -421,6 +495,14 @@ class ApplicationGitRepositoryArgs:
                  branch: Optional[pulumi.Input[str]] = None,
                  git_token_id: Optional[pulumi.Input[str]] = None,
                  root_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: URL of the git repository.
+        :param pulumi.Input[str] branch: Branch of the git repository.
+               	- Default: `main or master (depending on repository)`.
+        :param pulumi.Input[str] git_token_id: The git token ID to be used
+        :param pulumi.Input[str] root_path: Root path of the application.
+               	- Default: `/`.
+        """
         pulumi.set(__self__, "url", url)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -432,6 +514,9 @@ class ApplicationGitRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        URL of the git repository.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -441,6 +526,10 @@ class ApplicationGitRepositoryArgs:
     @property
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Branch of the git repository.
+        	- Default: `main or master (depending on repository)`.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -450,6 +539,9 @@ class ApplicationGitRepositoryArgs:
     @property
     @pulumi.getter(name="gitTokenId")
     def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The git token ID to be used
+        """
         return pulumi.get(self, "git_token_id")
 
     @git_token_id.setter
@@ -459,6 +551,10 @@ class ApplicationGitRepositoryArgs:
     @property
     @pulumi.getter(name="rootPath")
     def root_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Root path of the application.
+        	- Default: `/`.
+        """
         return pulumi.get(self, "root_path")
 
     @root_path.setter
@@ -471,6 +567,10 @@ class ApplicationHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeArgs']] = None,
                  readiness_probe: Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeArgs'] liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeArgs'] readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -479,6 +579,9 @@ class ApplicationHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeArgs']]:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -488,6 +591,9 @@ class ApplicationHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeArgs']]:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -504,6 +610,14 @@ class ApplicationHealthchecksLivenessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['ApplicationHealthchecksLivenessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -514,6 +628,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -523,6 +640,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -532,6 +652,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -541,6 +664,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -550,6 +676,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -559,6 +688,9 @@ class ApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ApplicationHealthchecksLivenessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -573,6 +705,12 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['ApplicationHealthchecksLivenessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -585,6 +723,9 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -594,6 +735,9 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -603,6 +747,9 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -612,6 +759,9 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['ApplicationHealthchecksLivenessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -623,11 +773,17 @@ class ApplicationHealthchecksLivenessProbeTypeArgs:
 class ApplicationHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -640,6 +796,10 @@ class ApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -647,6 +807,9 @@ class ApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -656,6 +819,9 @@ class ApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -667,17 +833,24 @@ class ApplicationHealthchecksLivenessProbeTypeGrpcArgs:
 class ApplicationHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -686,21 +859,27 @@ class ApplicationHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -708,6 +887,10 @@ class ApplicationHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -715,6 +898,9 @@ class ApplicationHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -724,6 +910,9 @@ class ApplicationHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -740,6 +929,14 @@ class ApplicationHealthchecksReadinessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['ApplicationHealthchecksReadinessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -750,6 +947,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -759,6 +959,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -768,6 +971,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -777,6 +983,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -786,6 +995,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -795,6 +1007,9 @@ class ApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ApplicationHealthchecksReadinessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -809,6 +1024,12 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['ApplicationHealthchecksReadinessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -821,6 +1042,9 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -830,6 +1054,9 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -839,6 +1066,9 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -848,6 +1078,9 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['ApplicationHealthchecksReadinessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -859,11 +1092,17 @@ class ApplicationHealthchecksReadinessProbeTypeArgs:
 class ApplicationHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -876,6 +1115,10 @@ class ApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -883,6 +1126,9 @@ class ApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -892,6 +1138,9 @@ class ApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -903,17 +1152,24 @@ class ApplicationHealthchecksReadinessProbeTypeGrpcArgs:
 class ApplicationHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -922,21 +1178,27 @@ class ApplicationHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -944,6 +1206,10 @@ class ApplicationHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -951,6 +1217,9 @@ class ApplicationHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -960,6 +1229,9 @@ class ApplicationHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -977,6 +1249,20 @@ class ApplicationPortArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] internal_port: Internal port of the application.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[bool] is_default: If this port will be used for the root domain
+        :param pulumi.Input[bool] publicly_accessible: Specify if the port is exposed to the world or not for this application.
+        :param pulumi.Input[int] external_port: External port of the application.
+               	- Required if: `ports.publicly_accessible=true`.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[str] id: Id of the port.
+        :param pulumi.Input[str] name: Name of the port.
+        :param pulumi.Input[str] protocol: Protocol used for the port of the application.
+               	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+               	- Default: `HTTP`.
+        """
         pulumi.set(__self__, "internal_port", internal_port)
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
@@ -992,6 +1278,10 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter(name="internalPort")
     def internal_port(self) -> pulumi.Input[int]:
+        """
+        Internal port of the application.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "internal_port")
 
     @internal_port.setter
@@ -1001,6 +1291,9 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[bool]:
+        """
+        If this port will be used for the root domain
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -1010,6 +1303,9 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Input[bool]:
+        """
+        Specify if the port is exposed to the world or not for this application.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -1019,6 +1315,11 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter(name="externalPort")
     def external_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        External port of the application.
+        	- Required if: `ports.publicly_accessible=true`.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "external_port")
 
     @external_port.setter
@@ -1028,6 +1329,9 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the port.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1037,6 +1341,9 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the port.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1046,6 +1353,11 @@ class ApplicationPortArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol used for the port of the application.
+        	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+        	- Default: `HTTP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1059,6 +1371,11 @@ class ApplicationSecretArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the secret.
+        :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] id: Id of the secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1067,6 +1384,9 @@ class ApplicationSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1076,6 +1396,9 @@ class ApplicationSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1085,6 +1408,9 @@ class ApplicationSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1098,6 +1424,11 @@ class ApplicationSecretAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret alias.
+        :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] id: Id of the secret alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1106,6 +1437,9 @@ class ApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1115,6 +1449,9 @@ class ApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1124,6 +1461,9 @@ class ApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1137,6 +1477,11 @@ class ApplicationSecretOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret override.
+        :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] id: Id of the secret override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1145,6 +1490,9 @@ class ApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1154,6 +1502,9 @@ class ApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1163,6 +1514,9 @@ class ApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1177,6 +1531,14 @@ class ApplicationStorageArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: Mount point of the storage for the application.
+        :param pulumi.Input[int] size: Size of the storage for the application in GB [1024MB = 1GB].
+               	- Must be: `>= 1`.
+        :param pulumi.Input[str] type: Type of the storage for the application.
+               	- Can be: `FAST_SSD`.
+        :param pulumi.Input[str] id: Id of the storage.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
@@ -1186,6 +1548,9 @@ class ApplicationStorageArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        Mount point of the storage for the application.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -1195,6 +1560,10 @@ class ApplicationStorageArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        Size of the storage for the application in GB [1024MB = 1GB].
+        	- Must be: `>= 1`.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1204,6 +1573,10 @@ class ApplicationStorageArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of the storage for the application.
+        	- Can be: `FAST_SSD`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1213,6 +1586,9 @@ class ApplicationStorageArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the storage.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1225,6 +1601,12 @@ class ClusterFeaturesArgs:
     def __init__(__self__, *,
                  static_ip: Optional[pulumi.Input[bool]] = None,
                  vpc_subnet: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
+               	- Default: `false`.
+        :param pulumi.Input[str] vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+               	- Default: `10.0.0.0/16`.
+        """
         if static_ip is not None:
             pulumi.set(__self__, "static_ip", static_ip)
         if vpc_subnet is not None:
@@ -1233,6 +1615,10 @@ class ClusterFeaturesArgs:
     @property
     @pulumi.getter(name="staticIp")
     def static_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Static IP (AWS only) [NOTE: can't be updated after creation].
+        	- Default: `false`.
+        """
         return pulumi.get(self, "static_ip")
 
     @static_ip.setter
@@ -1242,6 +1628,10 @@ class ClusterFeaturesArgs:
     @property
     @pulumi.getter(name="vpcSubnet")
     def vpc_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+        	- Default: `10.0.0.0/16`.
+        """
         return pulumi.get(self, "vpc_subnet")
 
     @vpc_subnet.setter
@@ -1255,6 +1645,11 @@ class ClusterRoutingTableArgs:
                  description: pulumi.Input[str],
                  destination: pulumi.Input[str],
                  target: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] description: Description of the route.
+        :param pulumi.Input[str] destination: Destination of the route.
+        :param pulumi.Input[str] target: Target of the route.
+        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "target", target)
@@ -1262,6 +1657,9 @@ class ClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        Description of the route.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -1271,6 +1669,9 @@ class ClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        Destination of the route.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -1280,6 +1681,9 @@ class ClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
+        """
+        Target of the route.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -1293,6 +1697,11 @@ class ContainerBuiltInEnvironmentVariableArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Id of the environment variable.
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
@@ -1303,6 +1712,9 @@ class ContainerBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1312,6 +1724,9 @@ class ContainerBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1321,6 +1736,9 @@ class ContainerBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1335,6 +1753,12 @@ class ContainerCustomDomainArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain: Your custom domain.
+        :param pulumi.Input[str] id: Id of the custom domain.
+        :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         pulumi.set(__self__, "domain", domain)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1346,6 +1770,9 @@ class ContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        Your custom domain.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -1355,6 +1782,9 @@ class ContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the custom domain.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1364,6 +1794,9 @@ class ContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the custom domain.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1373,6 +1806,9 @@ class ContainerCustomDomainArgs:
     @property
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         return pulumi.get(self, "validation_domain")
 
     @validation_domain.setter
@@ -1386,6 +1822,11 @@ class ContainerEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] id: Id of the environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1394,6 +1835,9 @@ class ContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1403,6 +1847,9 @@ class ContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1412,6 +1859,9 @@ class ContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1425,6 +1875,11 @@ class ContainerEnvironmentVariableAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable alias.
+        :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] id: Id of the environment variable alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1433,6 +1888,9 @@ class ContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1442,6 +1900,9 @@ class ContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1451,6 +1912,9 @@ class ContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1464,6 +1928,11 @@ class ContainerEnvironmentVariableOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable override.
+        :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] id: Id of the environment variable override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -1472,6 +1941,9 @@ class ContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1481,6 +1953,9 @@ class ContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1490,6 +1965,9 @@ class ContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1502,6 +1980,10 @@ class ContainerHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional[pulumi.Input['ContainerHealthchecksLivenessProbeArgs']] = None,
                  readiness_probe: Optional[pulumi.Input['ContainerHealthchecksReadinessProbeArgs']] = None):
+        """
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeArgs'] liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeArgs'] readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -1510,6 +1992,9 @@ class ContainerHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional[pulumi.Input['ContainerHealthchecksLivenessProbeArgs']]:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -1519,6 +2004,9 @@ class ContainerHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional[pulumi.Input['ContainerHealthchecksReadinessProbeArgs']]:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -1535,6 +2023,14 @@ class ContainerHealthchecksLivenessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['ContainerHealthchecksLivenessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -1545,6 +2041,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -1554,6 +2053,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -1563,6 +2065,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -1572,6 +2077,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -1581,6 +2089,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -1590,6 +2101,9 @@ class ContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ContainerHealthchecksLivenessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1604,6 +2118,12 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['ContainerHealthchecksLivenessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -1616,6 +2136,9 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -1625,6 +2148,9 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -1634,6 +2160,9 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -1643,6 +2172,9 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['ContainerHealthchecksLivenessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -1654,11 +2186,17 @@ class ContainerHealthchecksLivenessProbeTypeArgs:
 class ContainerHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -1671,6 +2209,10 @@ class ContainerHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -1678,6 +2220,9 @@ class ContainerHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1687,6 +2232,9 @@ class ContainerHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -1698,17 +2246,24 @@ class ContainerHealthchecksLivenessProbeTypeGrpcArgs:
 class ContainerHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1717,21 +2272,27 @@ class ContainerHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -1739,6 +2300,10 @@ class ContainerHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -1746,6 +2311,9 @@ class ContainerHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1755,6 +2323,9 @@ class ContainerHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1771,6 +2342,14 @@ class ContainerHealthchecksReadinessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['ContainerHealthchecksReadinessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -1781,6 +2360,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -1790,6 +2372,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -1799,6 +2384,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -1808,6 +2396,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -1817,6 +2408,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -1826,6 +2420,9 @@ class ContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ContainerHealthchecksReadinessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1840,6 +2437,12 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['ContainerHealthchecksReadinessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -1852,6 +2455,9 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -1861,6 +2467,9 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -1870,6 +2479,9 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -1879,6 +2491,9 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['ContainerHealthchecksReadinessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -1890,11 +2505,17 @@ class ContainerHealthchecksReadinessProbeTypeArgs:
 class ContainerHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -1907,6 +2528,10 @@ class ContainerHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -1914,6 +2539,9 @@ class ContainerHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1923,6 +2551,9 @@ class ContainerHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -1934,17 +2565,24 @@ class ContainerHealthchecksReadinessProbeTypeGrpcArgs:
 class ContainerHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1953,21 +2591,27 @@ class ContainerHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -1975,6 +2619,10 @@ class ContainerHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -1982,6 +2630,9 @@ class ContainerHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1991,6 +2642,9 @@ class ContainerHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -2008,6 +2662,20 @@ class ContainerPortArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] internal_port: Internal port of the container.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[bool] is_default: If this port will be used for the root domain
+        :param pulumi.Input[bool] publicly_accessible: Specify if the port is exposed to the world or not for this container.
+        :param pulumi.Input[int] external_port: External port of the container.
+               	- Required if: `ports.publicly_accessible=true`.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[str] id: Id of the port.
+        :param pulumi.Input[str] name: Name of the port.
+        :param pulumi.Input[str] protocol: Protocol used for the port of the container.
+               	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+               	- Default: `HTTP`.
+        """
         pulumi.set(__self__, "internal_port", internal_port)
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
@@ -2023,6 +2691,10 @@ class ContainerPortArgs:
     @property
     @pulumi.getter(name="internalPort")
     def internal_port(self) -> pulumi.Input[int]:
+        """
+        Internal port of the container.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "internal_port")
 
     @internal_port.setter
@@ -2032,6 +2704,9 @@ class ContainerPortArgs:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[bool]:
+        """
+        If this port will be used for the root domain
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -2041,6 +2716,9 @@ class ContainerPortArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Input[bool]:
+        """
+        Specify if the port is exposed to the world or not for this container.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -2050,6 +2728,11 @@ class ContainerPortArgs:
     @property
     @pulumi.getter(name="externalPort")
     def external_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        External port of the container.
+        	- Required if: `ports.publicly_accessible=true`.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "external_port")
 
     @external_port.setter
@@ -2059,6 +2742,9 @@ class ContainerPortArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the port.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2068,6 +2754,9 @@ class ContainerPortArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the port.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2077,6 +2766,11 @@ class ContainerPortArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol used for the port of the container.
+        	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+        	- Default: `HTTP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -2094,6 +2788,15 @@ class ContainerRegistryConfigArgs:
                  scaleway_secret_key: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key_id: Required if kind is `ECR` or `PUBLIC_ECR`.
+        :param pulumi.Input[str] password: Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        :param pulumi.Input[str] region: Required if kind is `ECR` or `SCALEWAY_CR`.
+        :param pulumi.Input[str] scaleway_access_key: Required if kind is `SCALEWAY_CR`.
+        :param pulumi.Input[str] scaleway_secret_key: Required if kind is `SCALEWAY_CR`.
+        :param pulumi.Input[str] secret_access_key: Required if kind is `ECR` or `PUBLIC_ECR`.
+        :param pulumi.Input[str] username: Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
         if password is not None:
@@ -2112,6 +2815,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `PUBLIC_ECR`.
+        """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
@@ -2121,6 +2827,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -2130,6 +2839,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -2139,6 +2851,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter(name="scalewayAccessKey")
     def scaleway_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "scaleway_access_key")
 
     @scaleway_access_key.setter
@@ -2148,6 +2863,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter(name="scalewaySecretKey")
     def scaleway_secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "scaleway_secret_key")
 
     @scaleway_secret_key.setter
@@ -2157,6 +2875,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `PUBLIC_ECR`.
+        """
         return pulumi.get(self, "secret_access_key")
 
     @secret_access_key.setter
@@ -2166,6 +2887,9 @@ class ContainerRegistryConfigArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -2179,6 +2903,11 @@ class ContainerSecretArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the secret.
+        :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] id: Id of the secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2187,6 +2916,9 @@ class ContainerSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2196,6 +2928,9 @@ class ContainerSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2205,6 +2940,9 @@ class ContainerSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2218,6 +2956,11 @@ class ContainerSecretAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret alias.
+        :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] id: Id of the secret alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2226,6 +2969,9 @@ class ContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2235,6 +2981,9 @@ class ContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2244,6 +2993,9 @@ class ContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2257,6 +3009,11 @@ class ContainerSecretOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret override.
+        :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] id: Id of the secret override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2265,6 +3022,9 @@ class ContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2274,6 +3034,9 @@ class ContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2283,6 +3046,9 @@ class ContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2297,6 +3063,14 @@ class ContainerStorageArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: Mount point of the storage for the container.
+        :param pulumi.Input[int] size: Size of the storage for the container in GB [1024MB = 1GB].
+               	- Must be: `>= 1`.
+        :param pulumi.Input[str] type: Type of the storage for the container.
+               	- Can be: `FAST_SSD`.
+        :param pulumi.Input[str] id: Id of the storage.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
@@ -2306,6 +3080,9 @@ class ContainerStorageArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        Mount point of the storage for the container.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -2315,6 +3092,10 @@ class ContainerStorageArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        Size of the storage for the container in GB [1024MB = 1GB].
+        	- Must be: `>= 1`.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -2324,6 +3105,10 @@ class ContainerStorageArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of the storage for the container.
+        	- Can be: `FAST_SSD`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2333,6 +3118,9 @@ class ContainerStorageArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the storage.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2346,6 +3134,11 @@ class EnvironmentBuiltInEnvironmentVariableArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Id of the environment variable.
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
@@ -2356,6 +3149,9 @@ class EnvironmentBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2365,6 +3161,9 @@ class EnvironmentBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2374,6 +3173,9 @@ class EnvironmentBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2387,6 +3189,11 @@ class EnvironmentEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] id: Id of the environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2395,6 +3202,9 @@ class EnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2404,6 +3214,9 @@ class EnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2413,6 +3226,9 @@ class EnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2426,6 +3242,11 @@ class EnvironmentEnvironmentVariableAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable alias.
+        :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] id: Id of the environment variable alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2434,6 +3255,9 @@ class EnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2443,6 +3267,9 @@ class EnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2452,6 +3279,9 @@ class EnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2465,6 +3295,11 @@ class EnvironmentEnvironmentVariableOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable override.
+        :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] id: Id of the environment variable override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2473,6 +3308,9 @@ class EnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2482,6 +3320,9 @@ class EnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2491,6 +3332,9 @@ class EnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2504,6 +3348,11 @@ class EnvironmentSecretArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the secret.
+        :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] id: Id of the secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2512,6 +3361,9 @@ class EnvironmentSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2521,6 +3373,9 @@ class EnvironmentSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2530,6 +3385,9 @@ class EnvironmentSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2543,6 +3401,11 @@ class EnvironmentSecretAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret alias.
+        :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] id: Id of the secret alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2551,6 +3414,9 @@ class EnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2560,6 +3426,9 @@ class EnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2569,6 +3438,9 @@ class EnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2582,6 +3454,11 @@ class EnvironmentSecretOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret override.
+        :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] id: Id of the secret override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2590,6 +3467,9 @@ class EnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2599,6 +3479,9 @@ class EnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2608,6 +3491,9 @@ class EnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2621,6 +3507,11 @@ class HelmBuiltInEnvironmentVariableArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Id of the environment variable.
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
@@ -2631,6 +3522,9 @@ class HelmBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2640,6 +3534,9 @@ class HelmBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2649,6 +3546,9 @@ class HelmBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2662,6 +3562,11 @@ class HelmEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] id: Id of the environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2670,6 +3575,9 @@ class HelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2679,6 +3587,9 @@ class HelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2688,6 +3599,9 @@ class HelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2701,6 +3615,11 @@ class HelmEnvironmentVariableAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable alias.
+        :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] id: Id of the environment variable alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2709,6 +3628,9 @@ class HelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2718,6 +3640,9 @@ class HelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2727,6 +3652,9 @@ class HelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2740,6 +3668,11 @@ class HelmEnvironmentVariableOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable override.
+        :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] id: Id of the environment variable override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2748,6 +3681,9 @@ class HelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2757,6 +3693,9 @@ class HelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2766,6 +3705,9 @@ class HelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2782,6 +3724,17 @@ class HelmPortsArgs:
                  service_name: pulumi.Input[str],
                  namespace: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] external_port: External port of the container.
+               	- Required if: `ports.publicly_accessible=true`.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[int] internal_port: Internal port of the container.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param pulumi.Input[bool] is_default: If this port will be used for the root domain
+        :param pulumi.Input[str] protocol: Protocol used for the port of the container.
+               	- Can be: `GRPC`, `HTTP`.
+               	- Default: `HTTP`.
+        """
         pulumi.set(__self__, "external_port", external_port)
         pulumi.set(__self__, "internal_port", internal_port)
         pulumi.set(__self__, "is_default", is_default)
@@ -2794,6 +3747,11 @@ class HelmPortsArgs:
     @property
     @pulumi.getter(name="externalPort")
     def external_port(self) -> pulumi.Input[int]:
+        """
+        External port of the container.
+        	- Required if: `ports.publicly_accessible=true`.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "external_port")
 
     @external_port.setter
@@ -2803,6 +3761,10 @@ class HelmPortsArgs:
     @property
     @pulumi.getter(name="internalPort")
     def internal_port(self) -> pulumi.Input[int]:
+        """
+        Internal port of the container.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "internal_port")
 
     @internal_port.setter
@@ -2812,6 +3774,9 @@ class HelmPortsArgs:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[bool]:
+        """
+        If this port will be used for the root domain
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -2839,6 +3804,11 @@ class HelmPortsArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol used for the port of the container.
+        	- Can be: `GRPC`, `HTTP`.
+        	- Default: `HTTP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -2856,6 +3826,15 @@ class HelmRepositoryConfigArgs:
                  scaleway_secret_key: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key_id: Required if kind is `ECR` or `PUBLIC_ECR`.
+        :param pulumi.Input[str] password: Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        :param pulumi.Input[str] region: Required if kind is `ECR` or `SCALEWAY_CR`.
+        :param pulumi.Input[str] scaleway_access_key: Required if kind is `SCALEWAY_CR`.
+        :param pulumi.Input[str] scaleway_secret_key: Required if kind is `SCALEWAY_CR`.
+        :param pulumi.Input[str] secret_access_key: Required if kind is `ECR` or `PUBLIC_ECR`.
+        :param pulumi.Input[str] username: Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
         if password is not None:
@@ -2874,6 +3853,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `PUBLIC_ECR`.
+        """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
@@ -2883,6 +3865,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -2892,6 +3877,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -2901,6 +3889,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter(name="scalewayAccessKey")
     def scaleway_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "scaleway_access_key")
 
     @scaleway_access_key.setter
@@ -2910,6 +3901,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter(name="scalewaySecretKey")
     def scaleway_secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `SCALEWAY_CR`.
+        """
         return pulumi.get(self, "scaleway_secret_key")
 
     @scaleway_secret_key.setter
@@ -2919,6 +3913,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kind is `ECR` or `PUBLIC_ECR`.
+        """
         return pulumi.get(self, "secret_access_key")
 
     @secret_access_key.setter
@@ -2928,6 +3925,9 @@ class HelmRepositoryConfigArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -2941,6 +3941,11 @@ class HelmSecretArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the secret.
+        :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] id: Id of the secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2949,6 +3954,9 @@ class HelmSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2958,6 +3966,9 @@ class HelmSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2967,6 +3978,9 @@ class HelmSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2980,6 +3994,11 @@ class HelmSecretAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret alias.
+        :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] id: Id of the secret alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -2988,6 +4007,9 @@ class HelmSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2997,6 +4019,9 @@ class HelmSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3006,6 +4031,9 @@ class HelmSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3019,6 +4047,11 @@ class HelmSecretOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret override.
+        :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] id: Id of the secret override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -3027,6 +4060,9 @@ class HelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3036,6 +4072,9 @@ class HelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3045,6 +4084,9 @@ class HelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3057,6 +4099,10 @@ class HelmSourceArgs:
     def __init__(__self__, *,
                  git_repository: Optional[pulumi.Input['HelmSourceGitRepositoryArgs']] = None,
                  helm_repository: Optional[pulumi.Input['HelmSourceHelmRepositoryArgs']] = None):
+        """
+        :param pulumi.Input['HelmSourceGitRepositoryArgs'] git_repository: Git repository
+        :param pulumi.Input['HelmSourceHelmRepositoryArgs'] helm_repository: Helm repositories can be private or public
+        """
         if git_repository is not None:
             pulumi.set(__self__, "git_repository", git_repository)
         if helm_repository is not None:
@@ -3065,6 +4111,9 @@ class HelmSourceArgs:
     @property
     @pulumi.getter(name="gitRepository")
     def git_repository(self) -> Optional[pulumi.Input['HelmSourceGitRepositoryArgs']]:
+        """
+        Git repository
+        """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
@@ -3074,6 +4123,9 @@ class HelmSourceArgs:
     @property
     @pulumi.getter(name="helmRepository")
     def helm_repository(self) -> Optional[pulumi.Input['HelmSourceHelmRepositoryArgs']]:
+        """
+        Helm repositories can be private or public
+        """
         return pulumi.get(self, "helm_repository")
 
     @helm_repository.setter
@@ -3088,6 +4140,12 @@ class HelmSourceGitRepositoryArgs:
                  branch: Optional[pulumi.Input[str]] = None,
                  git_token_id: Optional[pulumi.Input[str]] = None,
                  root_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: Helm's source git repository URL
+        :param pulumi.Input[str] branch: Helm's source git repository branch
+        :param pulumi.Input[str] git_token_id: The git token ID to be used
+        :param pulumi.Input[str] root_path: Helm's source git repository root path
+        """
         pulumi.set(__self__, "url", url)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -3099,6 +4157,9 @@ class HelmSourceGitRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        Helm's source git repository URL
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -3108,6 +4169,9 @@ class HelmSourceGitRepositoryArgs:
     @property
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Helm's source git repository branch
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -3117,6 +4181,9 @@ class HelmSourceGitRepositoryArgs:
     @property
     @pulumi.getter(name="gitTokenId")
     def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The git token ID to be used
+        """
         return pulumi.get(self, "git_token_id")
 
     @git_token_id.setter
@@ -3126,6 +4193,9 @@ class HelmSourceGitRepositoryArgs:
     @property
     @pulumi.getter(name="rootPath")
     def root_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Helm's source git repository root path
+        """
         return pulumi.get(self, "root_path")
 
     @root_path.setter
@@ -3139,6 +4209,11 @@ class HelmSourceHelmRepositoryArgs:
                  chart_name: pulumi.Input[str],
                  chart_version: pulumi.Input[str],
                  helm_repository_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] chart_name: Chart name
+        :param pulumi.Input[str] chart_version: Chart version
+        :param pulumi.Input[str] helm_repository_id: helm repository id
+        """
         pulumi.set(__self__, "chart_name", chart_name)
         pulumi.set(__self__, "chart_version", chart_version)
         pulumi.set(__self__, "helm_repository_id", helm_repository_id)
@@ -3146,6 +4221,9 @@ class HelmSourceHelmRepositoryArgs:
     @property
     @pulumi.getter(name="chartName")
     def chart_name(self) -> pulumi.Input[str]:
+        """
+        Chart name
+        """
         return pulumi.get(self, "chart_name")
 
     @chart_name.setter
@@ -3155,6 +4233,9 @@ class HelmSourceHelmRepositoryArgs:
     @property
     @pulumi.getter(name="chartVersion")
     def chart_version(self) -> pulumi.Input[str]:
+        """
+        Chart version
+        """
         return pulumi.get(self, "chart_version")
 
     @chart_version.setter
@@ -3164,6 +4245,9 @@ class HelmSourceHelmRepositoryArgs:
     @property
     @pulumi.getter(name="helmRepositoryId")
     def helm_repository_id(self) -> pulumi.Input[str]:
+        """
+        helm repository id
+        """
         return pulumi.get(self, "helm_repository_id")
 
     @helm_repository_id.setter
@@ -3178,6 +4262,9 @@ class HelmValuesOverrideArgs:
                  set_json: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  set_string: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  file: Optional[pulumi.Input['HelmValuesOverrideFileArgs']] = None):
+        """
+        :param pulumi.Input['HelmValuesOverrideFileArgs'] file: Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        """
         pulumi.set(__self__, "set", set)
         pulumi.set(__self__, "set_json", set_json)
         pulumi.set(__self__, "set_string", set_string)
@@ -3214,6 +4301,9 @@ class HelmValuesOverrideArgs:
     @property
     @pulumi.getter
     def file(self) -> Optional[pulumi.Input['HelmValuesOverrideFileArgs']]:
+        """
+        Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        """
         return pulumi.get(self, "file")
 
     @file.setter
@@ -3226,6 +4316,10 @@ class HelmValuesOverrideFileArgs:
     def __init__(__self__, *,
                  git_repository: Optional[pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs']] = None,
                  raw: Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]]] = None):
+        """
+        :param pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs'] git_repository: YAML file from a git repository
+        :param pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]] raw: Raw YAML files
+        """
         if git_repository is not None:
             pulumi.set(__self__, "git_repository", git_repository)
         if raw is not None:
@@ -3234,6 +4328,9 @@ class HelmValuesOverrideFileArgs:
     @property
     @pulumi.getter(name="gitRepository")
     def git_repository(self) -> Optional[pulumi.Input['HelmValuesOverrideFileGitRepositoryArgs']]:
+        """
+        YAML file from a git repository
+        """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
@@ -3243,6 +4340,9 @@ class HelmValuesOverrideFileArgs:
     @property
     @pulumi.getter
     def raw(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmValuesOverrideFileRawArgs']]]]:
+        """
+        Raw YAML files
+        """
         return pulumi.get(self, "raw")
 
     @raw.setter
@@ -3257,6 +4357,12 @@ class HelmValuesOverrideFileGitRepositoryArgs:
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]],
                  url: pulumi.Input[str],
                  git_token_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] branch: YAML file git repository branch
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: YAML files git repository paths
+        :param pulumi.Input[str] url: YAML file git repository URL
+        :param pulumi.Input[str] git_token_id: The git token ID to be used
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "paths", paths)
         pulumi.set(__self__, "url", url)
@@ -3266,6 +4372,9 @@ class HelmValuesOverrideFileGitRepositoryArgs:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[str]:
+        """
+        YAML file git repository branch
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -3275,6 +4384,9 @@ class HelmValuesOverrideFileGitRepositoryArgs:
     @property
     @pulumi.getter
     def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        YAML files git repository paths
+        """
         return pulumi.get(self, "paths")
 
     @paths.setter
@@ -3284,6 +4396,9 @@ class HelmValuesOverrideFileGitRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        YAML file git repository URL
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -3293,6 +4408,9 @@ class HelmValuesOverrideFileGitRepositoryArgs:
     @property
     @pulumi.getter(name="gitTokenId")
     def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The git token ID to be used
+        """
         return pulumi.get(self, "git_token_id")
 
     @git_token_id.setter
@@ -3304,11 +4422,17 @@ class HelmValuesOverrideFileGitRepositoryArgs:
 class HelmValuesOverrideFileRawArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: content of the file
+        """
         pulumi.set(__self__, "content", content)
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
+        """
+        content of the file
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -3322,6 +4446,11 @@ class JobBuiltInEnvironmentVariableArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Id of the environment variable.
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
@@ -3332,6 +4461,9 @@ class JobBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3341,6 +4473,9 @@ class JobBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3350,6 +4485,9 @@ class JobBuiltInEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3363,6 +4501,11 @@ class JobEnvironmentVariableArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the environment variable.
+        :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] id: Id of the environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -3371,6 +4514,9 @@ class JobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3380,6 +4526,9 @@ class JobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3389,6 +4538,9 @@ class JobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3402,6 +4554,11 @@ class JobEnvironmentVariableAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable alias.
+        :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] id: Id of the environment variable alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -3410,6 +4567,9 @@ class JobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3419,6 +4579,9 @@ class JobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3428,6 +4591,9 @@ class JobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3441,6 +4607,11 @@ class JobEnvironmentVariableOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the environment variable override.
+        :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] id: Id of the environment variable override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -3449,6 +4620,9 @@ class JobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3458,6 +4632,9 @@ class JobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3467,6 +4644,9 @@ class JobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3479,6 +4659,10 @@ class JobHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional[pulumi.Input['JobHealthchecksLivenessProbeArgs']] = None,
                  readiness_probe: Optional[pulumi.Input['JobHealthchecksReadinessProbeArgs']] = None):
+        """
+        :param pulumi.Input['JobHealthchecksLivenessProbeArgs'] liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param pulumi.Input['JobHealthchecksReadinessProbeArgs'] readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -3487,6 +4671,9 @@ class JobHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional[pulumi.Input['JobHealthchecksLivenessProbeArgs']]:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -3496,6 +4683,9 @@ class JobHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional[pulumi.Input['JobHealthchecksReadinessProbeArgs']]:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -3512,6 +4702,14 @@ class JobHealthchecksLivenessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['JobHealthchecksLivenessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['JobHealthchecksLivenessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -3522,6 +4720,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -3531,6 +4732,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -3540,6 +4744,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -3549,6 +4756,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -3558,6 +4768,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -3567,6 +4780,9 @@ class JobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['JobHealthchecksLivenessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3581,6 +4797,12 @@ class JobHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['JobHealthchecksLivenessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['JobHealthchecksLivenessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['JobHealthchecksLivenessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['JobHealthchecksLivenessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -3593,6 +4815,9 @@ class JobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -3602,6 +4827,9 @@ class JobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -3611,6 +4839,9 @@ class JobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -3620,6 +4851,9 @@ class JobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['JobHealthchecksLivenessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -3631,11 +4865,17 @@ class JobHealthchecksLivenessProbeTypeArgs:
 class JobHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -3648,6 +4888,10 @@ class JobHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -3655,6 +4899,9 @@ class JobHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3664,6 +4911,9 @@ class JobHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -3675,17 +4925,24 @@ class JobHealthchecksLivenessProbeTypeGrpcArgs:
 class JobHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3694,21 +4951,27 @@ class JobHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -3716,6 +4979,10 @@ class JobHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -3723,6 +4990,9 @@ class JobHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3732,6 +5002,9 @@ class JobHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -3748,6 +5021,14 @@ class JobHealthchecksReadinessProbeArgs:
                  success_threshold: pulumi.Input[int],
                  timeout_seconds: pulumi.Input[int],
                  type: pulumi.Input['JobHealthchecksReadinessProbeTypeArgs']):
+        """
+        :param pulumi.Input[int] failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param pulumi.Input[int] period_seconds: Number of seconds before each execution of the probe
+        :param pulumi.Input[int] success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param pulumi.Input[int] timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param pulumi.Input['JobHealthchecksReadinessProbeTypeArgs'] type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -3758,6 +5039,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -3767,6 +5051,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -3776,6 +5063,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -3785,6 +5075,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> pulumi.Input[int]:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -3794,6 +5087,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -3803,6 +5099,9 @@ class JobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['JobHealthchecksReadinessProbeTypeArgs']:
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3817,6 +5116,12 @@ class JobHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeGrpcArgs']] = None,
                  http: Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeHttpArgs']] = None,
                  tcp: Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeTcpArgs']] = None):
+        """
+        :param pulumi.Input['JobHealthchecksReadinessProbeTypeExecArgs'] exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param pulumi.Input['JobHealthchecksReadinessProbeTypeGrpcArgs'] grpc: Check that the given port respond to GRPC call
+        :param pulumi.Input['JobHealthchecksReadinessProbeTypeHttpArgs'] http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param pulumi.Input['JobHealthchecksReadinessProbeTypeTcpArgs'] tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -3829,6 +5134,9 @@ class JobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeExecArgs']]:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -3838,6 +5146,9 @@ class JobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeGrpcArgs']]:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -3847,6 +5158,9 @@ class JobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeHttpArgs']]:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -3856,6 +5170,9 @@ class JobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input['JobHealthchecksReadinessProbeTypeTcpArgs']]:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -3867,11 +5184,17 @@ class JobHealthchecksReadinessProbeTypeArgs:
 class JobHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -3884,6 +5207,10 @@ class JobHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  service: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -3891,6 +5218,9 @@ class JobHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3900,6 +5230,9 @@ class JobHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -3911,17 +5244,24 @@ class JobHealthchecksReadinessProbeTypeGrpcArgs:
 class JobHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param pulumi.Input[str] path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3930,21 +5270,27 @@ class JobHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -3952,6 +5298,10 @@ class JobHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number to try to connect to
+        :param pulumi.Input[str] host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -3959,6 +5309,9 @@ class JobHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3968,6 +5321,9 @@ class JobHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -3982,6 +5338,12 @@ class JobScheduleArgs:
                  on_delete: Optional[pulumi.Input['JobScheduleOnDeleteArgs']] = None,
                  on_start: Optional[pulumi.Input['JobScheduleOnStartArgs']] = None,
                  on_stop: Optional[pulumi.Input['JobScheduleOnStopArgs']] = None):
+        """
+        :param pulumi.Input['JobScheduleCronjobArgs'] cronjob: Job's cron.
+        :param pulumi.Input['JobScheduleOnDeleteArgs'] on_delete: Job's schedule on delete.
+        :param pulumi.Input['JobScheduleOnStartArgs'] on_start: Job's schedule on start.
+        :param pulumi.Input['JobScheduleOnStopArgs'] on_stop: Job's schedule on stop.
+        """
         if cronjob is not None:
             pulumi.set(__self__, "cronjob", cronjob)
         if on_delete is not None:
@@ -3994,6 +5356,9 @@ class JobScheduleArgs:
     @property
     @pulumi.getter
     def cronjob(self) -> Optional[pulumi.Input['JobScheduleCronjobArgs']]:
+        """
+        Job's cron.
+        """
         return pulumi.get(self, "cronjob")
 
     @cronjob.setter
@@ -4003,6 +5368,9 @@ class JobScheduleArgs:
     @property
     @pulumi.getter(name="onDelete")
     def on_delete(self) -> Optional[pulumi.Input['JobScheduleOnDeleteArgs']]:
+        """
+        Job's schedule on delete.
+        """
         return pulumi.get(self, "on_delete")
 
     @on_delete.setter
@@ -4012,6 +5380,9 @@ class JobScheduleArgs:
     @property
     @pulumi.getter(name="onStart")
     def on_start(self) -> Optional[pulumi.Input['JobScheduleOnStartArgs']]:
+        """
+        Job's schedule on start.
+        """
         return pulumi.get(self, "on_start")
 
     @on_start.setter
@@ -4021,6 +5392,9 @@ class JobScheduleArgs:
     @property
     @pulumi.getter(name="onStop")
     def on_stop(self) -> Optional[pulumi.Input['JobScheduleOnStopArgs']]:
+        """
+        Job's schedule on stop.
+        """
         return pulumi.get(self, "on_stop")
 
     @on_stop.setter
@@ -4033,12 +5407,19 @@ class JobScheduleCronjobArgs:
     def __init__(__self__, *,
                  command: pulumi.Input['JobScheduleCronjobCommandArgs'],
                  schedule: pulumi.Input[str]):
+        """
+        :param pulumi.Input['JobScheduleCronjobCommandArgs'] command: Job's cron command.
+        :param pulumi.Input[str] schedule: Job's cron string.
+        """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "schedule", schedule)
 
     @property
     @pulumi.getter
     def command(self) -> pulumi.Input['JobScheduleCronjobCommandArgs']:
+        """
+        Job's cron command.
+        """
         return pulumi.get(self, "command")
 
     @command.setter
@@ -4048,6 +5429,9 @@ class JobScheduleCronjobArgs:
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Input[str]:
+        """
+        Job's cron string.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -4060,6 +5444,10 @@ class JobScheduleCronjobCommandArgs:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this job.
+        :param pulumi.Input[str] entrypoint: Entrypoint of the job.
+        """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if entrypoint is not None:
@@ -4068,6 +5456,9 @@ class JobScheduleCronjobCommandArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of arguments of this job.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -4077,6 +5468,9 @@ class JobScheduleCronjobCommandArgs:
     @property
     @pulumi.getter
     def entrypoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entrypoint of the job.
+        """
         return pulumi.get(self, "entrypoint")
 
     @entrypoint.setter
@@ -4089,6 +5483,10 @@ class JobScheduleOnDeleteArgs:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this job.
+        :param pulumi.Input[str] entrypoint: Entrypoint of the job.
+        """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if entrypoint is not None:
@@ -4097,6 +5495,9 @@ class JobScheduleOnDeleteArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of arguments of this job.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -4106,6 +5507,9 @@ class JobScheduleOnDeleteArgs:
     @property
     @pulumi.getter
     def entrypoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entrypoint of the job.
+        """
         return pulumi.get(self, "entrypoint")
 
     @entrypoint.setter
@@ -4118,6 +5522,10 @@ class JobScheduleOnStartArgs:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this job.
+        :param pulumi.Input[str] entrypoint: Entrypoint of the job.
+        """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if entrypoint is not None:
@@ -4126,6 +5534,9 @@ class JobScheduleOnStartArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of arguments of this job.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -4135,6 +5546,9 @@ class JobScheduleOnStartArgs:
     @property
     @pulumi.getter
     def entrypoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entrypoint of the job.
+        """
         return pulumi.get(self, "entrypoint")
 
     @entrypoint.setter
@@ -4147,6 +5561,10 @@ class JobScheduleOnStopArgs:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this job.
+        :param pulumi.Input[str] entrypoint: Entrypoint of the job.
+        """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if entrypoint is not None:
@@ -4155,6 +5573,9 @@ class JobScheduleOnStopArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of arguments of this job.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -4164,6 +5585,9 @@ class JobScheduleOnStopArgs:
     @property
     @pulumi.getter
     def entrypoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entrypoint of the job.
+        """
         return pulumi.get(self, "entrypoint")
 
     @entrypoint.setter
@@ -4177,6 +5601,11 @@ class JobSecretArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key of the secret.
+        :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] id: Id of the secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -4185,6 +5614,9 @@ class JobSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4194,6 +5626,9 @@ class JobSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4203,6 +5638,9 @@ class JobSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4216,6 +5654,11 @@ class JobSecretAliasArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret alias.
+        :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] id: Id of the secret alias.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -4224,6 +5667,9 @@ class JobSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4233,6 +5679,9 @@ class JobSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4242,6 +5691,9 @@ class JobSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4255,6 +5707,11 @@ class JobSecretOverrideArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Name of the secret override.
+        :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] id: Id of the secret override.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if id is not None:
@@ -4263,6 +5720,9 @@ class JobSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4272,6 +5732,9 @@ class JobSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4281,6 +5744,9 @@ class JobSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4293,6 +5759,10 @@ class JobSourceArgs:
     def __init__(__self__, *,
                  docker: Optional[pulumi.Input['JobSourceDockerArgs']] = None,
                  image: Optional[pulumi.Input['JobSourceImageArgs']] = None):
+        """
+        :param pulumi.Input['JobSourceDockerArgs'] docker: Job's docker source.
+        :param pulumi.Input['JobSourceImageArgs'] image: Job's image source.
+        """
         if docker is not None:
             pulumi.set(__self__, "docker", docker)
         if image is not None:
@@ -4301,6 +5771,9 @@ class JobSourceArgs:
     @property
     @pulumi.getter
     def docker(self) -> Optional[pulumi.Input['JobSourceDockerArgs']]:
+        """
+        Job's docker source.
+        """
         return pulumi.get(self, "docker")
 
     @docker.setter
@@ -4310,6 +5783,9 @@ class JobSourceArgs:
     @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input['JobSourceImageArgs']]:
+        """
+        Job's image source.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -4322,6 +5798,10 @@ class JobSourceDockerArgs:
     def __init__(__self__, *,
                  git_repository: pulumi.Input['JobSourceDockerGitRepositoryArgs'],
                  dockerfile_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['JobSourceDockerGitRepositoryArgs'] git_repository: Job's docker source git repository.
+        :param pulumi.Input[str] dockerfile_path: Job's docker source dockerfile path.
+        """
         pulumi.set(__self__, "git_repository", git_repository)
         if dockerfile_path is not None:
             pulumi.set(__self__, "dockerfile_path", dockerfile_path)
@@ -4329,6 +5809,9 @@ class JobSourceDockerArgs:
     @property
     @pulumi.getter(name="gitRepository")
     def git_repository(self) -> pulumi.Input['JobSourceDockerGitRepositoryArgs']:
+        """
+        Job's docker source git repository.
+        """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
@@ -4338,6 +5821,9 @@ class JobSourceDockerArgs:
     @property
     @pulumi.getter(name="dockerfilePath")
     def dockerfile_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Job's docker source dockerfile path.
+        """
         return pulumi.get(self, "dockerfile_path")
 
     @dockerfile_path.setter
@@ -4352,6 +5838,12 @@ class JobSourceDockerGitRepositoryArgs:
                  url: pulumi.Input[str],
                  git_token_id: Optional[pulumi.Input[str]] = None,
                  root_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] branch: Job's docker source git repository branch.
+        :param pulumi.Input[str] url: Job's docker source git repository URL.
+        :param pulumi.Input[str] git_token_id: The git token ID to be used
+        :param pulumi.Input[str] root_path: Job's docker source git repository root path.
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "url", url)
         if git_token_id is not None:
@@ -4362,6 +5854,9 @@ class JobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[str]:
+        """
+        Job's docker source git repository branch.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -4371,6 +5866,9 @@ class JobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        Job's docker source git repository URL.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -4380,6 +5878,9 @@ class JobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter(name="gitTokenId")
     def git_token_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The git token ID to be used
+        """
         return pulumi.get(self, "git_token_id")
 
     @git_token_id.setter
@@ -4389,6 +5890,9 @@ class JobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter(name="rootPath")
     def root_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Job's docker source git repository root path.
+        """
         return pulumi.get(self, "root_path")
 
     @root_path.setter
@@ -4402,6 +5906,11 @@ class JobSourceImageArgs:
                  name: pulumi.Input[str],
                  registry_id: pulumi.Input[str],
                  tag: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Job's image source name.
+        :param pulumi.Input[str] registry_id: Job's image source registry ID.
+        :param pulumi.Input[str] tag: Job's image source tag.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "registry_id", registry_id)
         pulumi.set(__self__, "tag", tag)
@@ -4409,6 +5918,9 @@ class JobSourceImageArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Job's image source name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4418,6 +5930,9 @@ class JobSourceImageArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Input[str]:
+        """
+        Job's image source registry ID.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -4427,6 +5942,9 @@ class JobSourceImageArgs:
     @property
     @pulumi.getter
     def tag(self) -> pulumi.Input[str]:
+        """
+        Job's image source tag.
+        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -4708,6 +6226,12 @@ class GetApplicationCustomDomainArgs:
                  id: str,
                  status: str,
                  validation_domain: str):
+        """
+        :param str domain: Your custom domain.
+        :param str id: Id of the custom domain.
+        :param str status: Status of the custom domain.
+        :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
@@ -4716,6 +6240,9 @@ class GetApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def domain(self) -> str:
+        """
+        Your custom domain.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -4725,6 +6252,9 @@ class GetApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the custom domain.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4734,6 +6264,9 @@ class GetApplicationCustomDomainArgs:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the custom domain.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -4743,6 +6276,9 @@ class GetApplicationCustomDomainArgs:
     @property
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> str:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         return pulumi.get(self, "validation_domain")
 
     @validation_domain.setter
@@ -4756,6 +6292,11 @@ class GetApplicationEnvironmentVariableArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable.
+        :param str key: Key of the environment variable.
+        :param str value: Value of the environment variable.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -4763,6 +6304,9 @@ class GetApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4772,6 +6316,9 @@ class GetApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4781,6 +6328,9 @@ class GetApplicationEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4794,6 +6344,11 @@ class GetApplicationEnvironmentVariableAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable alias.
+        :param str key: Name of the environment variable alias.
+        :param str value: Name of the variable to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -4801,6 +6356,9 @@ class GetApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4810,6 +6368,9 @@ class GetApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4819,6 +6380,9 @@ class GetApplicationEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4832,6 +6396,11 @@ class GetApplicationEnvironmentVariableOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable override.
+        :param str key: Name of the environment variable override.
+        :param str value: Value of the environment variable override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -4839,6 +6408,9 @@ class GetApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4848,6 +6420,9 @@ class GetApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4857,6 +6432,9 @@ class GetApplicationEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4869,6 +6447,10 @@ class GetApplicationHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional['GetApplicationHealthchecksLivenessProbeArgs'] = None,
                  readiness_probe: Optional['GetApplicationHealthchecksReadinessProbeArgs'] = None):
+        """
+        :param 'GetApplicationHealthchecksLivenessProbeArgs' liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param 'GetApplicationHealthchecksReadinessProbeArgs' readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -4877,6 +6459,9 @@ class GetApplicationHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['GetApplicationHealthchecksLivenessProbeArgs']:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -4886,6 +6471,9 @@ class GetApplicationHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional['GetApplicationHealthchecksReadinessProbeArgs']:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -4902,6 +6490,14 @@ class GetApplicationHealthchecksLivenessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetApplicationHealthchecksLivenessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetApplicationHealthchecksLivenessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -4912,6 +6508,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -4921,6 +6520,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -4930,6 +6532,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -4939,6 +6544,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -4948,6 +6556,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -4957,6 +6568,9 @@ class GetApplicationHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetApplicationHealthchecksLivenessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4971,6 +6585,12 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional['GetApplicationHealthchecksLivenessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetApplicationHealthchecksLivenessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetApplicationHealthchecksLivenessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetApplicationHealthchecksLivenessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetApplicationHealthchecksLivenessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetApplicationHealthchecksLivenessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetApplicationHealthchecksLivenessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -4983,6 +6603,9 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetApplicationHealthchecksLivenessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -4992,6 +6615,9 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetApplicationHealthchecksLivenessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -5001,6 +6627,9 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetApplicationHealthchecksLivenessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -5010,6 +6639,9 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetApplicationHealthchecksLivenessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -5021,11 +6653,17 @@ class GetApplicationHealthchecksLivenessProbeTypeArgs:
 class GetApplicationHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -5038,6 +6676,10 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -5045,6 +6687,9 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5054,6 +6699,9 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -5065,17 +6713,24 @@ class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs:
 class GetApplicationHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5084,21 +6739,27 @@ class GetApplicationHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -5106,6 +6767,10 @@ class GetApplicationHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -5113,6 +6778,9 @@ class GetApplicationHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5122,6 +6790,9 @@ class GetApplicationHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -5138,6 +6809,14 @@ class GetApplicationHealthchecksReadinessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetApplicationHealthchecksReadinessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetApplicationHealthchecksReadinessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -5148,6 +6827,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -5157,6 +6839,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -5166,6 +6851,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -5175,6 +6863,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -5184,6 +6875,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -5193,6 +6887,9 @@ class GetApplicationHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetApplicationHealthchecksReadinessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5207,6 +6904,12 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional['GetApplicationHealthchecksReadinessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetApplicationHealthchecksReadinessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetApplicationHealthchecksReadinessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetApplicationHealthchecksReadinessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetApplicationHealthchecksReadinessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetApplicationHealthchecksReadinessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetApplicationHealthchecksReadinessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -5219,6 +6922,9 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetApplicationHealthchecksReadinessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -5228,6 +6934,9 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetApplicationHealthchecksReadinessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -5237,6 +6946,9 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetApplicationHealthchecksReadinessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -5246,6 +6958,9 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetApplicationHealthchecksReadinessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -5257,11 +6972,17 @@ class GetApplicationHealthchecksReadinessProbeTypeArgs:
 class GetApplicationHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -5274,6 +6995,10 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -5281,6 +7006,9 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5290,6 +7018,9 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -5301,17 +7032,24 @@ class GetApplicationHealthchecksReadinessProbeTypeGrpcArgs:
 class GetApplicationHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5320,21 +7058,27 @@ class GetApplicationHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -5342,6 +7086,10 @@ class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -5349,6 +7097,9 @@ class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5358,6 +7109,9 @@ class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -5371,6 +7125,11 @@ class GetApplicationSecretArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret.
+        :param str key: Key of the secret.
+        :param str value: Value of the secret.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5378,6 +7137,9 @@ class GetApplicationSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5387,6 +7149,9 @@ class GetApplicationSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5396,6 +7161,9 @@ class GetApplicationSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5409,6 +7177,11 @@ class GetApplicationSecretAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret alias.
+        :param str key: Name of the secret alias.
+        :param str value: Name of the secret to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5416,6 +7189,9 @@ class GetApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5425,6 +7201,9 @@ class GetApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5434,6 +7213,9 @@ class GetApplicationSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5447,6 +7229,11 @@ class GetApplicationSecretOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret override.
+        :param str key: Name of the secret override.
+        :param str value: Value of the secret override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5454,6 +7241,9 @@ class GetApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5463,6 +7253,9 @@ class GetApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5472,6 +7265,9 @@ class GetApplicationSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5486,6 +7282,14 @@ class GetApplicationStorageArgs:
                  mount_point: str,
                  size: int,
                  type: str):
+        """
+        :param str id: Id of the storage.
+        :param str mount_point: Mount point of the storage for the application.
+        :param int size: Size of the storage for the application in GB [1024MB = 1GB].
+               	- Must be: `>= 1`.
+        :param str type: Type of the storage for the application.
+               	- Can be: `FAST_SSD`.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "size", size)
@@ -5494,6 +7298,9 @@ class GetApplicationStorageArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the storage.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5503,6 +7310,9 @@ class GetApplicationStorageArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> str:
+        """
+        Mount point of the storage for the application.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -5512,6 +7322,10 @@ class GetApplicationStorageArgs:
     @property
     @pulumi.getter
     def size(self) -> int:
+        """
+        Size of the storage for the application in GB [1024MB = 1GB].
+        	- Must be: `>= 1`.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -5521,6 +7335,10 @@ class GetApplicationStorageArgs:
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of the storage for the application.
+        	- Can be: `FAST_SSD`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5533,12 +7351,22 @@ class GetClusterFeaturesArgs:
     def __init__(__self__, *,
                  static_ip: bool,
                  vpc_subnet: str):
+        """
+        :param bool static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
+               	- Default: `false`.
+        :param str vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+               	- Default: `10.0.0.0/16`.
+        """
         pulumi.set(__self__, "static_ip", static_ip)
         pulumi.set(__self__, "vpc_subnet", vpc_subnet)
 
     @property
     @pulumi.getter(name="staticIp")
     def static_ip(self) -> bool:
+        """
+        Static IP (AWS only) [NOTE: can't be updated after creation].
+        	- Default: `false`.
+        """
         return pulumi.get(self, "static_ip")
 
     @static_ip.setter
@@ -5548,6 +7376,10 @@ class GetClusterFeaturesArgs:
     @property
     @pulumi.getter(name="vpcSubnet")
     def vpc_subnet(self) -> str:
+        """
+        Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+        	- Default: `10.0.0.0/16`.
+        """
         return pulumi.get(self, "vpc_subnet")
 
     @vpc_subnet.setter
@@ -5561,6 +7393,11 @@ class GetClusterRoutingTableArgs:
                  description: str,
                  destination: str,
                  target: str):
+        """
+        :param str description: Description of the route.
+        :param str destination: Destination of the route.
+        :param str target: Target of the route.
+        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "target", target)
@@ -5568,6 +7405,9 @@ class GetClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the route.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -5577,6 +7417,9 @@ class GetClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def destination(self) -> str:
+        """
+        Destination of the route.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -5586,6 +7429,9 @@ class GetClusterRoutingTableArgs:
     @property
     @pulumi.getter
     def target(self) -> str:
+        """
+        Target of the route.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -5600,6 +7446,12 @@ class GetContainerCustomDomainArgs:
                  id: str,
                  status: str,
                  validation_domain: str):
+        """
+        :param str domain: Your custom domain.
+        :param str id: Id of the custom domain.
+        :param str status: Status of the custom domain.
+        :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
@@ -5608,6 +7460,9 @@ class GetContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def domain(self) -> str:
+        """
+        Your custom domain.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -5617,6 +7472,9 @@ class GetContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the custom domain.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5626,6 +7484,9 @@ class GetContainerCustomDomainArgs:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the custom domain.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -5635,6 +7496,9 @@ class GetContainerCustomDomainArgs:
     @property
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> str:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
         return pulumi.get(self, "validation_domain")
 
     @validation_domain.setter
@@ -5648,6 +7512,11 @@ class GetContainerEnvironmentVariableArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable.
+        :param str key: Key of the environment variable.
+        :param str value: Value of the environment variable.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5655,6 +7524,9 @@ class GetContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5664,6 +7536,9 @@ class GetContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5673,6 +7548,9 @@ class GetContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5686,6 +7564,11 @@ class GetContainerEnvironmentVariableAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable alias.
+        :param str key: Name of the environment variable alias.
+        :param str value: Name of the variable to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5693,6 +7576,9 @@ class GetContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5702,6 +7588,9 @@ class GetContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5711,6 +7600,9 @@ class GetContainerEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5724,6 +7616,11 @@ class GetContainerEnvironmentVariableOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable override.
+        :param str key: Name of the environment variable override.
+        :param str value: Value of the environment variable override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5731,6 +7628,9 @@ class GetContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5740,6 +7640,9 @@ class GetContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5749,6 +7652,9 @@ class GetContainerEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5761,6 +7667,10 @@ class GetContainerHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional['GetContainerHealthchecksLivenessProbeArgs'] = None,
                  readiness_probe: Optional['GetContainerHealthchecksReadinessProbeArgs'] = None):
+        """
+        :param 'GetContainerHealthchecksLivenessProbeArgs' liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param 'GetContainerHealthchecksReadinessProbeArgs' readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -5769,6 +7679,9 @@ class GetContainerHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['GetContainerHealthchecksLivenessProbeArgs']:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -5778,6 +7691,9 @@ class GetContainerHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional['GetContainerHealthchecksReadinessProbeArgs']:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -5794,6 +7710,14 @@ class GetContainerHealthchecksLivenessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetContainerHealthchecksLivenessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetContainerHealthchecksLivenessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -5804,6 +7728,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -5813,6 +7740,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -5822,6 +7752,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -5831,6 +7764,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -5840,6 +7776,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -5849,6 +7788,9 @@ class GetContainerHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetContainerHealthchecksLivenessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5863,6 +7805,12 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional['GetContainerHealthchecksLivenessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetContainerHealthchecksLivenessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetContainerHealthchecksLivenessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetContainerHealthchecksLivenessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetContainerHealthchecksLivenessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetContainerHealthchecksLivenessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetContainerHealthchecksLivenessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -5875,6 +7823,9 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetContainerHealthchecksLivenessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -5884,6 +7835,9 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetContainerHealthchecksLivenessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -5893,6 +7847,9 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetContainerHealthchecksLivenessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -5902,6 +7859,9 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetContainerHealthchecksLivenessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -5913,11 +7873,17 @@ class GetContainerHealthchecksLivenessProbeTypeArgs:
 class GetContainerHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -5930,6 +7896,10 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -5937,6 +7907,9 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5946,6 +7919,9 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -5957,17 +7933,24 @@ class GetContainerHealthchecksLivenessProbeTypeGrpcArgs:
 class GetContainerHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -5976,21 +7959,27 @@ class GetContainerHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -5998,6 +7987,10 @@ class GetContainerHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -6005,6 +7998,9 @@ class GetContainerHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -6014,6 +8010,9 @@ class GetContainerHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -6030,6 +8029,14 @@ class GetContainerHealthchecksReadinessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetContainerHealthchecksReadinessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetContainerHealthchecksReadinessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -6040,6 +8047,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -6049,6 +8059,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -6058,6 +8071,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -6067,6 +8083,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -6076,6 +8095,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -6085,6 +8107,9 @@ class GetContainerHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetContainerHealthchecksReadinessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6099,6 +8124,12 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional['GetContainerHealthchecksReadinessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetContainerHealthchecksReadinessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetContainerHealthchecksReadinessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetContainerHealthchecksReadinessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetContainerHealthchecksReadinessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetContainerHealthchecksReadinessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetContainerHealthchecksReadinessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -6111,6 +8142,9 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetContainerHealthchecksReadinessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -6120,6 +8154,9 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetContainerHealthchecksReadinessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -6129,6 +8166,9 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetContainerHealthchecksReadinessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -6138,6 +8178,9 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetContainerHealthchecksReadinessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -6149,11 +8192,17 @@ class GetContainerHealthchecksReadinessProbeTypeArgs:
 class GetContainerHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -6166,6 +8215,10 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -6173,6 +8226,9 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -6182,6 +8238,9 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -6193,17 +8252,24 @@ class GetContainerHealthchecksReadinessProbeTypeGrpcArgs:
 class GetContainerHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -6212,21 +8278,27 @@ class GetContainerHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -6234,6 +8306,10 @@ class GetContainerHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -6241,6 +8317,9 @@ class GetContainerHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -6250,6 +8329,9 @@ class GetContainerHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -6267,6 +8349,20 @@ class GetContainerPortArgs:
                  name: str,
                  protocol: str,
                  publicly_accessible: bool):
+        """
+        :param int external_port: External port of the container.
+               	- Required if: `ports.publicly_accessible=true`.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param str id: Id of the port.
+        :param int internal_port: Internal port of the container.
+               	- Must be: `>= 1` and `<= 65535`.
+        :param bool is_default: If this port will be used for the root domain
+        :param str name: Name of the port.
+        :param str protocol: Protocol used for the port of the container.
+               	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+               	- Default: `HTTP`.
+        :param bool publicly_accessible: Specify if the port is exposed to the world or not for this container.
+        """
         pulumi.set(__self__, "external_port", external_port)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "internal_port", internal_port)
@@ -6278,6 +8374,11 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter(name="externalPort")
     def external_port(self) -> int:
+        """
+        External port of the container.
+        	- Required if: `ports.publicly_accessible=true`.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "external_port")
 
     @external_port.setter
@@ -6287,6 +8388,9 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the port.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6296,6 +8400,10 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter(name="internalPort")
     def internal_port(self) -> int:
+        """
+        Internal port of the container.
+        	- Must be: `>= 1` and `<= 65535`.
+        """
         return pulumi.get(self, "internal_port")
 
     @internal_port.setter
@@ -6305,6 +8413,9 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> bool:
+        """
+        If this port will be used for the root domain
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -6314,6 +8425,9 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the port.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6323,6 +8437,11 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        Protocol used for the port of the container.
+        	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+        	- Default: `HTTP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -6332,6 +8451,9 @@ class GetContainerPortArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> bool:
+        """
+        Specify if the port is exposed to the world or not for this container.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -6345,6 +8467,11 @@ class GetContainerSecretArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret.
+        :param str key: Key of the secret.
+        :param str value: Value of the secret.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6352,6 +8479,9 @@ class GetContainerSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6361,6 +8491,9 @@ class GetContainerSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6370,6 +8503,9 @@ class GetContainerSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6383,6 +8519,11 @@ class GetContainerSecretAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret alias.
+        :param str key: Name of the secret alias.
+        :param str value: Name of the secret to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6390,6 +8531,9 @@ class GetContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6399,6 +8543,9 @@ class GetContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6408,6 +8555,9 @@ class GetContainerSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6421,6 +8571,11 @@ class GetContainerSecretOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret override.
+        :param str key: Name of the secret override.
+        :param str value: Value of the secret override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6428,6 +8583,9 @@ class GetContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6437,6 +8595,9 @@ class GetContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6446,6 +8607,9 @@ class GetContainerSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6460,6 +8624,14 @@ class GetContainerStorageArgs:
                  mount_point: str,
                  size: int,
                  type: str):
+        """
+        :param str id: Id of the storage.
+        :param str mount_point: Mount point of the storage for the container.
+        :param int size: Size of the storage for the container in GB [1024MB = 1GB].
+               	- Must be: `>= 1`.
+        :param str type: Type of the storage for the container.
+               	- Can be: `FAST_SSD`.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "size", size)
@@ -6468,6 +8640,9 @@ class GetContainerStorageArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the storage.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6477,6 +8652,9 @@ class GetContainerStorageArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> str:
+        """
+        Mount point of the storage for the container.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -6486,6 +8664,10 @@ class GetContainerStorageArgs:
     @property
     @pulumi.getter
     def size(self) -> int:
+        """
+        Size of the storage for the container in GB [1024MB = 1GB].
+        	- Must be: `>= 1`.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -6495,6 +8677,10 @@ class GetContainerStorageArgs:
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of the storage for the container.
+        	- Can be: `FAST_SSD`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6508,6 +8694,11 @@ class GetEnvironmentEnvironmentVariableArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable.
+        :param str key: Key of the environment variable.
+        :param str value: Value of the environment variable.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6515,6 +8706,9 @@ class GetEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6524,6 +8718,9 @@ class GetEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6533,6 +8730,9 @@ class GetEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6546,6 +8746,11 @@ class GetEnvironmentEnvironmentVariableAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable alias.
+        :param str key: Name of the environment variable alias.
+        :param str value: Name of the variable to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6553,6 +8758,9 @@ class GetEnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6562,6 +8770,9 @@ class GetEnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6571,6 +8782,9 @@ class GetEnvironmentEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6584,6 +8798,11 @@ class GetEnvironmentEnvironmentVariableOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable override.
+        :param str key: Name of the environment variable override.
+        :param str value: Value of the environment variable override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6591,6 +8810,9 @@ class GetEnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6600,6 +8822,9 @@ class GetEnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6609,6 +8834,9 @@ class GetEnvironmentEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6622,6 +8850,11 @@ class GetEnvironmentSecretArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret.
+        :param str key: Key of the secret.
+        :param str value: Value of the secret.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6629,6 +8862,9 @@ class GetEnvironmentSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6638,6 +8874,9 @@ class GetEnvironmentSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6647,6 +8886,9 @@ class GetEnvironmentSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6660,6 +8902,11 @@ class GetEnvironmentSecretAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret alias.
+        :param str key: Name of the secret alias.
+        :param str value: Name of the secret to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6667,6 +8914,9 @@ class GetEnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6676,6 +8926,9 @@ class GetEnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6685,6 +8938,9 @@ class GetEnvironmentSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6698,6 +8954,11 @@ class GetEnvironmentSecretOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret override.
+        :param str key: Name of the secret override.
+        :param str value: Value of the secret override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6705,6 +8966,9 @@ class GetEnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6714,6 +8978,9 @@ class GetEnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6723,6 +8990,9 @@ class GetEnvironmentSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6736,6 +9006,11 @@ class GetHelmEnvironmentVariableArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable.
+        :param str key: Key of the environment variable.
+        :param str value: Value of the environment variable.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6743,6 +9018,9 @@ class GetHelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6752,6 +9030,9 @@ class GetHelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6761,6 +9042,9 @@ class GetHelmEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6774,6 +9058,11 @@ class GetHelmEnvironmentVariableAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable alias.
+        :param str key: Name of the environment variable alias.
+        :param str value: Name of the variable to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6781,6 +9070,9 @@ class GetHelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6790,6 +9082,9 @@ class GetHelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6799,6 +9094,9 @@ class GetHelmEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6812,6 +9110,11 @@ class GetHelmEnvironmentVariableOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable override.
+        :param str key: Name of the environment variable override.
+        :param str value: Value of the environment variable override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6819,6 +9122,9 @@ class GetHelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6828,6 +9134,9 @@ class GetHelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6837,6 +9146,9 @@ class GetHelmEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6850,6 +9162,11 @@ class GetHelmSecretArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret.
+        :param str key: Key of the secret.
+        :param str value: Value of the secret.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6857,6 +9174,9 @@ class GetHelmSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6866,6 +9186,9 @@ class GetHelmSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6875,6 +9198,9 @@ class GetHelmSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6888,6 +9214,11 @@ class GetHelmSecretAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret alias.
+        :param str key: Name of the secret alias.
+        :param str value: Name of the secret to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6895,6 +9226,9 @@ class GetHelmSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6904,6 +9238,9 @@ class GetHelmSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6913,6 +9250,9 @@ class GetHelmSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6926,6 +9266,11 @@ class GetHelmSecretOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret override.
+        :param str key: Name of the secret override.
+        :param str value: Value of the secret override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6933,6 +9278,9 @@ class GetHelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6942,6 +9290,9 @@ class GetHelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6951,6 +9302,9 @@ class GetHelmSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6964,6 +9318,11 @@ class GetJobEnvironmentVariableArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable.
+        :param str key: Key of the environment variable.
+        :param str value: Value of the environment variable.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6971,6 +9330,9 @@ class GetJobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6980,6 +9342,9 @@ class GetJobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6989,6 +9354,9 @@ class GetJobEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7002,6 +9370,11 @@ class GetJobEnvironmentVariableAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable alias.
+        :param str key: Name of the environment variable alias.
+        :param str value: Name of the variable to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -7009,6 +9382,9 @@ class GetJobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7018,6 +9394,9 @@ class GetJobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -7027,6 +9406,9 @@ class GetJobEnvironmentVariableAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the variable to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7040,6 +9422,11 @@ class GetJobEnvironmentVariableOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the environment variable override.
+        :param str key: Name of the environment variable override.
+        :param str value: Value of the environment variable override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -7047,6 +9434,9 @@ class GetJobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the environment variable override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7056,6 +9446,9 @@ class GetJobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the environment variable override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -7065,6 +9458,9 @@ class GetJobEnvironmentVariableOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the environment variable override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7077,6 +9473,10 @@ class GetJobHealthchecksArgs:
     def __init__(__self__, *,
                  liveness_probe: Optional['GetJobHealthchecksLivenessProbeArgs'] = None,
                  readiness_probe: Optional['GetJobHealthchecksReadinessProbeArgs'] = None):
+        """
+        :param 'GetJobHealthchecksLivenessProbeArgs' liveness_probe: Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        :param 'GetJobHealthchecksReadinessProbeArgs' readiness_probe: Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if readiness_probe is not None:
@@ -7085,6 +9485,9 @@ class GetJobHealthchecksArgs:
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['GetJobHealthchecksLivenessProbeArgs']:
+        """
+        Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
@@ -7094,6 +9497,9 @@ class GetJobHealthchecksArgs:
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional['GetJobHealthchecksReadinessProbeArgs']:
+        """
+        Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
@@ -7110,6 +9516,14 @@ class GetJobHealthchecksLivenessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetJobHealthchecksLivenessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetJobHealthchecksLivenessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -7120,6 +9534,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -7129,6 +9546,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -7138,6 +9558,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -7147,6 +9570,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -7156,6 +9582,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -7165,6 +9594,9 @@ class GetJobHealthchecksLivenessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetJobHealthchecksLivenessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -7179,6 +9611,12 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
                  grpc: Optional['GetJobHealthchecksLivenessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetJobHealthchecksLivenessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetJobHealthchecksLivenessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetJobHealthchecksLivenessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetJobHealthchecksLivenessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetJobHealthchecksLivenessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetJobHealthchecksLivenessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -7191,6 +9629,9 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetJobHealthchecksLivenessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -7200,6 +9641,9 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetJobHealthchecksLivenessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -7209,6 +9653,9 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetJobHealthchecksLivenessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -7218,6 +9665,9 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetJobHealthchecksLivenessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -7229,11 +9679,17 @@ class GetJobHealthchecksLivenessProbeTypeArgs:
 class GetJobHealthchecksLivenessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -7246,6 +9702,10 @@ class GetJobHealthchecksLivenessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -7253,6 +9713,9 @@ class GetJobHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7262,6 +9725,9 @@ class GetJobHealthchecksLivenessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -7273,17 +9739,24 @@ class GetJobHealthchecksLivenessProbeTypeGrpcArgs:
 class GetJobHealthchecksLivenessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7292,21 +9765,27 @@ class GetJobHealthchecksLivenessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -7314,6 +9793,10 @@ class GetJobHealthchecksLivenessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -7321,6 +9804,9 @@ class GetJobHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7330,6 +9816,9 @@ class GetJobHealthchecksLivenessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -7346,6 +9835,14 @@ class GetJobHealthchecksReadinessProbeArgs:
                  success_threshold: int,
                  timeout_seconds: int,
                  type: 'GetJobHealthchecksReadinessProbeTypeArgs'):
+        """
+        :param int failure_threshold: Number of time the an ok probe should fail before declaring it as failed
+        :param int initial_delay_seconds: Number of seconds to wait before the first execution of the probe to be trigerred
+        :param int period_seconds: Number of seconds before each execution of the probe
+        :param int success_threshold: Number of time the probe should success before declaring a failed probe as ok again
+        :param int timeout_seconds: Number of seconds within which the check need to respond before declaring it as a failure
+        :param 'GetJobHealthchecksReadinessProbeTypeArgs' type: Kind of check to run for this probe. There can only be one configured at a time
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
         pulumi.set(__self__, "period_seconds", period_seconds)
@@ -7356,6 +9853,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        Number of time the an ok probe should fail before declaring it as failed
+        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -7365,6 +9865,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="initialDelaySeconds")
     def initial_delay_seconds(self) -> int:
+        """
+        Number of seconds to wait before the first execution of the probe to be trigerred
+        """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
@@ -7374,6 +9877,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> int:
+        """
+        Number of seconds before each execution of the probe
+        """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
@@ -7383,6 +9889,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> int:
+        """
+        Number of time the probe should success before declaring a failed probe as ok again
+        """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
@@ -7392,6 +9901,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> int:
+        """
+        Number of seconds within which the check need to respond before declaring it as a failure
+        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -7401,6 +9913,9 @@ class GetJobHealthchecksReadinessProbeArgs:
     @property
     @pulumi.getter
     def type(self) -> 'GetJobHealthchecksReadinessProbeTypeArgs':
+        """
+        Kind of check to run for this probe. There can only be one configured at a time
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -7415,6 +9930,12 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
                  grpc: Optional['GetJobHealthchecksReadinessProbeTypeGrpcArgs'] = None,
                  http: Optional['GetJobHealthchecksReadinessProbeTypeHttpArgs'] = None,
                  tcp: Optional['GetJobHealthchecksReadinessProbeTypeTcpArgs'] = None):
+        """
+        :param 'GetJobHealthchecksReadinessProbeTypeExecArgs' exec_: Check that the given command return an exit 0. Binary should be present in the image
+        :param 'GetJobHealthchecksReadinessProbeTypeGrpcArgs' grpc: Check that the given port respond to GRPC call
+        :param 'GetJobHealthchecksReadinessProbeTypeHttpArgs' http: Check that the given port respond to HTTP call (should return a 2xx response code)
+        :param 'GetJobHealthchecksReadinessProbeTypeTcpArgs' tcp: Check that the given port accepting connection
+        """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
         if grpc is not None:
@@ -7427,6 +9948,9 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter(name="exec")
     def exec_(self) -> Optional['GetJobHealthchecksReadinessProbeTypeExecArgs']:
+        """
+        Check that the given command return an exit 0. Binary should be present in the image
+        """
         return pulumi.get(self, "exec_")
 
     @exec_.setter
@@ -7436,6 +9960,9 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def grpc(self) -> Optional['GetJobHealthchecksReadinessProbeTypeGrpcArgs']:
+        """
+        Check that the given port respond to GRPC call
+        """
         return pulumi.get(self, "grpc")
 
     @grpc.setter
@@ -7445,6 +9972,9 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def http(self) -> Optional['GetJobHealthchecksReadinessProbeTypeHttpArgs']:
+        """
+        Check that the given port respond to HTTP call (should return a 2xx response code)
+        """
         return pulumi.get(self, "http")
 
     @http.setter
@@ -7454,6 +9984,9 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
     @property
     @pulumi.getter
     def tcp(self) -> Optional['GetJobHealthchecksReadinessProbeTypeTcpArgs']:
+        """
+        Check that the given port accepting connection
+        """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
@@ -7465,11 +9998,17 @@ class GetJobHealthchecksReadinessProbeTypeArgs:
 class GetJobHealthchecksReadinessProbeTypeExecArgs:
     def __init__(__self__, *,
                  commands: Sequence[str]):
+        """
+        :param Sequence[str] commands: The command and its arguments to exec
+        """
         pulumi.set(__self__, "commands", commands)
 
     @property
     @pulumi.getter
     def commands(self) -> Sequence[str]:
+        """
+        The command and its arguments to exec
+        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -7482,6 +10021,10 @@ class GetJobHealthchecksReadinessProbeTypeGrpcArgs:
     def __init__(__self__, *,
                  port: int,
                  service: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str service: The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         pulumi.set(__self__, "port", port)
         if service is not None:
             pulumi.set(__self__, "service", service)
@@ -7489,6 +10032,9 @@ class GetJobHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7498,6 +10044,9 @@ class GetJobHealthchecksReadinessProbeTypeGrpcArgs:
     @property
     @pulumi.getter
     def service(self) -> Optional[str]:
+        """
+        The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -7509,17 +10058,24 @@ class GetJobHealthchecksReadinessProbeTypeGrpcArgs:
 class GetJobHealthchecksReadinessProbeTypeHttpArgs:
     def __init__(__self__, *,
                  port: int,
-                 path: Optional[str] = None,
-                 scheme: Optional[str] = None):
+                 scheme: str,
+                 path: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str scheme: if the HTTP GET request should be done in HTTP or HTTPS.
+        :param str path: The path that the HTTP GET request. By default it is `/`
+        """
         pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "scheme", scheme)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7528,21 +10084,27 @@ class GetJobHealthchecksReadinessProbeTypeHttpArgs:
 
     @property
     @pulumi.getter
+    def scheme(self) -> str:
+        """
+        if the HTTP GET request should be done in HTTP or HTTPS.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path that the HTTP GET request. By default it is `/`
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[str]):
         pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def scheme(self) -> Optional[str]:
-        return pulumi.get(self, "scheme")
-
-    @scheme.setter
-    def scheme(self, value: Optional[str]):
-        pulumi.set(self, "scheme", value)
 
 
 @pulumi.input_type
@@ -7550,6 +10112,10 @@ class GetJobHealthchecksReadinessProbeTypeTcpArgs:
     def __init__(__self__, *,
                  port: int,
                  host: Optional[str] = None):
+        """
+        :param int port: The port number to try to connect to
+        :param str host: Optional. If the host need to be different than localhost/pod ip
+        """
         pulumi.set(__self__, "port", port)
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -7557,6 +10123,9 @@ class GetJobHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port number to try to connect to
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -7566,6 +10135,9 @@ class GetJobHealthchecksReadinessProbeTypeTcpArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        Optional. If the host need to be different than localhost/pod ip
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -7579,6 +10151,11 @@ class GetJobSecretArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret.
+        :param str key: Key of the secret.
+        :param str value: Value of the secret.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -7586,6 +10163,9 @@ class GetJobSecretArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7595,6 +10175,9 @@ class GetJobSecretArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the secret.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -7604,6 +10187,9 @@ class GetJobSecretArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7617,6 +10203,11 @@ class GetJobSecretAliasArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret alias.
+        :param str key: Name of the secret alias.
+        :param str value: Name of the secret to alias.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -7624,6 +10215,9 @@ class GetJobSecretAliasArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret alias.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7633,6 +10227,9 @@ class GetJobSecretAliasArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret alias.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -7642,6 +10239,9 @@ class GetJobSecretAliasArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Name of the secret to alias.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7655,6 +10255,11 @@ class GetJobSecretOverrideArgs:
                  id: str,
                  key: str,
                  value: str):
+        """
+        :param str id: Id of the secret override.
+        :param str key: Name of the secret override.
+        :param str value: Value of the secret override.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -7662,6 +10267,9 @@ class GetJobSecretOverrideArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the secret override.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7671,6 +10279,9 @@ class GetJobSecretOverrideArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name of the secret override.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -7680,6 +10291,9 @@ class GetJobSecretOverrideArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the secret override.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -7692,12 +10306,19 @@ class GetJobSourceArgs:
     def __init__(__self__, *,
                  docker: 'GetJobSourceDockerArgs',
                  image: 'GetJobSourceImageArgs'):
+        """
+        :param 'GetJobSourceDockerArgs' docker: Job's docker source.
+        :param 'GetJobSourceImageArgs' image: Job's image source.
+        """
         pulumi.set(__self__, "docker", docker)
         pulumi.set(__self__, "image", image)
 
     @property
     @pulumi.getter
     def docker(self) -> 'GetJobSourceDockerArgs':
+        """
+        Job's docker source.
+        """
         return pulumi.get(self, "docker")
 
     @docker.setter
@@ -7707,6 +10328,9 @@ class GetJobSourceArgs:
     @property
     @pulumi.getter
     def image(self) -> 'GetJobSourceImageArgs':
+        """
+        Job's image source.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -7719,6 +10343,10 @@ class GetJobSourceDockerArgs:
     def __init__(__self__, *,
                  git_repository: 'GetJobSourceDockerGitRepositoryArgs',
                  dockerfile_path: Optional[str] = None):
+        """
+        :param 'GetJobSourceDockerGitRepositoryArgs' git_repository: Job's docker source git repository.
+        :param str dockerfile_path: Job's docker source dockerfile path.
+        """
         pulumi.set(__self__, "git_repository", git_repository)
         if dockerfile_path is not None:
             pulumi.set(__self__, "dockerfile_path", dockerfile_path)
@@ -7726,6 +10354,9 @@ class GetJobSourceDockerArgs:
     @property
     @pulumi.getter(name="gitRepository")
     def git_repository(self) -> 'GetJobSourceDockerGitRepositoryArgs':
+        """
+        Job's docker source git repository.
+        """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
@@ -7735,6 +10366,9 @@ class GetJobSourceDockerArgs:
     @property
     @pulumi.getter(name="dockerfilePath")
     def dockerfile_path(self) -> Optional[str]:
+        """
+        Job's docker source dockerfile path.
+        """
         return pulumi.get(self, "dockerfile_path")
 
     @dockerfile_path.setter
@@ -7749,6 +10383,12 @@ class GetJobSourceDockerGitRepositoryArgs:
                  root_path: str,
                  url: str,
                  git_token_id: Optional[str] = None):
+        """
+        :param str branch: Job's docker source git repository branch.
+        :param str root_path: Job's docker source git repository root path.
+        :param str url: Job's docker source git repository URL.
+        :param str git_token_id: The git token ID to be used
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "root_path", root_path)
         pulumi.set(__self__, "url", url)
@@ -7758,6 +10398,9 @@ class GetJobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter
     def branch(self) -> str:
+        """
+        Job's docker source git repository branch.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -7767,6 +10410,9 @@ class GetJobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter(name="rootPath")
     def root_path(self) -> str:
+        """
+        Job's docker source git repository root path.
+        """
         return pulumi.get(self, "root_path")
 
     @root_path.setter
@@ -7776,6 +10422,9 @@ class GetJobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Job's docker source git repository URL.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -7785,6 +10434,9 @@ class GetJobSourceDockerGitRepositoryArgs:
     @property
     @pulumi.getter(name="gitTokenId")
     def git_token_id(self) -> Optional[str]:
+        """
+        The git token ID to be used
+        """
         return pulumi.get(self, "git_token_id")
 
     @git_token_id.setter
@@ -7798,6 +10450,11 @@ class GetJobSourceImageArgs:
                  name: str,
                  registry_id: str,
                  tag: str):
+        """
+        :param str name: Job's image source name.
+        :param str registry_id: Job's image source registry ID.
+        :param str tag: Job's image source tag.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "registry_id", registry_id)
         pulumi.set(__self__, "tag", tag)
@@ -7805,6 +10462,9 @@ class GetJobSourceImageArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Job's image source name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -7814,6 +10474,9 @@ class GetJobSourceImageArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> str:
+        """
+        Job's image source registry ID.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -7823,6 +10486,9 @@ class GetJobSourceImageArgs:
     @property
     @pulumi.getter
     def tag(self) -> str:
+        """
+        Job's image source tag.
+        """
         return pulumi.get(self, "tag")
 
     @tag.setter

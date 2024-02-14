@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmSourceHelmRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Chart name
+        /// </summary>
         [Input("chartName", required: true)]
         public Input<string> ChartName { get; set; } = null!;
 
+        /// <summary>
+        /// Chart version
+        /// </summary>
         [Input("chartVersion", required: true)]
         public Input<string> ChartVersion { get; set; } = null!;
 
+        /// <summary>
+        /// helm repository id
+        /// </summary>
         [Input("helmRepositoryId", required: true)]
         public Input<string> HelmRepositoryId { get; set; } = null!;
 

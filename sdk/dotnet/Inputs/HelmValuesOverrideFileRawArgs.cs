@@ -13,6 +13,9 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmValuesOverrideFileRawArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// content of the file
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 

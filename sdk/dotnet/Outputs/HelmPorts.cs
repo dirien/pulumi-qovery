@@ -14,10 +14,27 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmPorts
     {
+        /// <summary>
+        /// External port of the container.
+        /// 	- Required if: `ports.publicly_accessible=true`.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         public readonly int ExternalPort;
+        /// <summary>
+        /// Internal port of the container.
+        /// 	- Must be: `&gt;= 1` and `&lt;= 65535`.
+        /// </summary>
         public readonly int InternalPort;
+        /// <summary>
+        /// If this port will be used for the root domain
+        /// </summary>
         public readonly bool IsDefault;
         public readonly string? Namespace;
+        /// <summary>
+        /// Protocol used for the port of the container.
+        /// 	- Can be: `GRPC`, `HTTP`.
+        /// 	- Default: `HTTP`.
+        /// </summary>
         public readonly string? Protocol;
         public readonly string ServiceName;
 

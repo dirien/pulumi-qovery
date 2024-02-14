@@ -13,15 +13,29 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetContainerStorageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id of the storage.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Mount point of the storage for the container.
+        /// </summary>
         [Input("mountPoint", required: true)]
         public string MountPoint { get; set; } = null!;
 
+        /// <summary>
+        /// Size of the storage for the container in GB [1024MB = 1GB].
+        /// 	- Must be: `&gt;= 1`.
+        /// </summary>
         [Input("size", required: true)]
         public int Size { get; set; }
 
+        /// <summary>
+        /// Type of the storage for the container.
+        /// 	- Can be: `FAST_SSD`.
+        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 

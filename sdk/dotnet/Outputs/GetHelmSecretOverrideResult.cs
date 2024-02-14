@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetHelmSecretOverrideResult
     {
+        /// <summary>
+        /// Id of the secret override.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the secret override.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of the secret override.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

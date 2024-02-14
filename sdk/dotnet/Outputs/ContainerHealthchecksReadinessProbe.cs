@@ -14,11 +14,29 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class ContainerHealthchecksReadinessProbe
     {
+        /// <summary>
+        /// Number of time the an ok probe should fail before declaring it as failed
+        /// </summary>
         public readonly int FailureThreshold;
+        /// <summary>
+        /// Number of seconds to wait before the first execution of the probe to be trigerred
+        /// </summary>
         public readonly int InitialDelaySeconds;
+        /// <summary>
+        /// Number of seconds before each execution of the probe
+        /// </summary>
         public readonly int PeriodSeconds;
+        /// <summary>
+        /// Number of time the probe should success before declaring a failed probe as ok again
+        /// </summary>
         public readonly int SuccessThreshold;
+        /// <summary>
+        /// Number of seconds within which the check need to respond before declaring it as a failure
+        /// </summary>
         public readonly int TimeoutSeconds;
+        /// <summary>
+        /// Kind of check to run for this probe. There can only be one configured at a time
+        /// </summary>
         public readonly Outputs.ContainerHealthchecksReadinessProbeType Type;
 
         [OutputConstructor]

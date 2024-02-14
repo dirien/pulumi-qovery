@@ -13,9 +13,17 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetClusterFeaturesInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Static IP (AWS only) [NOTE: can't be updated after creation].
+        /// 	- Default: `false`.
+        /// </summary>
         [Input("staticIp", required: true)]
         public Input<bool> StaticIp { get; set; } = null!;
 
+        /// <summary>
+        /// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+        /// 	- Default: `10.0.0.0/16`.
+        /// </summary>
         [Input("vpcSubnet", required: true)]
         public Input<string> VpcSubnet { get; set; } = null!;
 

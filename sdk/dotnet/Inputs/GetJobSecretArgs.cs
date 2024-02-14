@@ -13,14 +13,24 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetJobSecretInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the secret.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Key of the secret.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private Input<string>? _value;
+
+        /// <summary>
+        /// Value of the secret.
+        /// </summary>
         public Input<string>? Value
         {
             get => _value;

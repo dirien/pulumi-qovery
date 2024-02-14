@@ -14,9 +14,21 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmValuesOverrideFileGitRepository
     {
+        /// <summary>
+        /// YAML file git repository branch
+        /// </summary>
         public readonly string Branch;
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         public readonly string? GitTokenId;
+        /// <summary>
+        /// YAML files git repository paths
+        /// </summary>
         public readonly ImmutableArray<string> Paths;
+        /// <summary>
+        /// YAML file git repository URL
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

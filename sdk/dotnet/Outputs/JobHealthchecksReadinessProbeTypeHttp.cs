@@ -14,9 +14,18 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobHealthchecksReadinessProbeTypeHttp
     {
+        /// <summary>
+        /// The path that the HTTP GET request. By default it is `/`
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         public readonly int Port;
-        public readonly string? Scheme;
+        /// <summary>
+        /// if the HTTP GET request should be done in HTTP or HTTPS.
+        /// </summary>
+        public readonly string Scheme;
 
         [OutputConstructor]
         private JobHealthchecksReadinessProbeTypeHttp(
@@ -24,7 +33,7 @@ namespace ediri.Qovery.Outputs
 
             int port,
 
-            string? scheme)
+            string scheme)
         {
             Path = path;
             Port = port;

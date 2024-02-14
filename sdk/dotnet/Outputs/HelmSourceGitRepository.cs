@@ -14,9 +14,21 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmSourceGitRepository
     {
+        /// <summary>
+        /// Helm's source git repository branch
+        /// </summary>
         public readonly string? Branch;
+        /// <summary>
+        /// The git token ID to be used
+        /// </summary>
         public readonly string? GitTokenId;
+        /// <summary>
+        /// Helm's source git repository root path
+        /// </summary>
         public readonly string? RootPath;
+        /// <summary>
+        /// Helm's source git repository URL
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

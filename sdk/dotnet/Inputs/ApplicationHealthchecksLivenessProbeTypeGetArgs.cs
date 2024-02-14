@@ -13,15 +13,27 @@ namespace ediri.Qovery.Inputs
 
     public sealed class ApplicationHealthchecksLivenessProbeTypeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Check that the given command return an exit 0. Binary should be present in the image
+        /// </summary>
         [Input("exec")]
         public Input<Inputs.ApplicationHealthchecksLivenessProbeTypeExecGetArgs>? Exec { get; set; }
 
+        /// <summary>
+        /// Check that the given port respond to GRPC call
+        /// </summary>
         [Input("grpc")]
         public Input<Inputs.ApplicationHealthchecksLivenessProbeTypeGrpcGetArgs>? Grpc { get; set; }
 
+        /// <summary>
+        /// Check that the given port respond to HTTP call (should return a 2xx response code)
+        /// </summary>
         [Input("http")]
         public Input<Inputs.ApplicationHealthchecksLivenessProbeTypeHttpGetArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Check that the given port accepting connection
+        /// </summary>
         [Input("tcp")]
         public Input<Inputs.ApplicationHealthchecksLivenessProbeTypeTcpGetArgs>? Tcp { get; set; }
 

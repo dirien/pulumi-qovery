@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetHelmEnvironmentVariableOverrideArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id of the environment variable override.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the environment variable override.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the environment variable override.
+        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

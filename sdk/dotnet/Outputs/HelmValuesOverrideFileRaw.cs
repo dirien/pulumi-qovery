@@ -14,6 +14,9 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmValuesOverrideFileRaw
     {
+        /// <summary>
+        /// content of the file
+        /// </summary>
         public readonly string Content;
 
         [OutputConstructor]

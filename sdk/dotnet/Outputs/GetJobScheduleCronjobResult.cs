@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobScheduleCronjobResult
     {
+        /// <summary>
+        /// Job's cron command.
+        /// </summary>
         public readonly Outputs.GetJobScheduleCronjobCommandResult Command;
+        /// <summary>
+        /// Job's cron string.
+        /// </summary>
         public readonly string Schedule;
 
         [OutputConstructor]

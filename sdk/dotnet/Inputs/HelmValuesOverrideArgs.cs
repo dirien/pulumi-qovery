@@ -13,6 +13,9 @@ namespace ediri.Qovery.Inputs
 
     public sealed class HelmValuesOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        /// </summary>
         [Input("file")]
         public Input<Inputs.HelmValuesOverrideFileArgs>? File { get; set; }
 

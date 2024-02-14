@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetClusterRoutingTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Description of the route.
+        /// </summary>
         [Input("description", required: true)]
         public string Description { get; set; } = null!;
 
+        /// <summary>
+        /// Destination of the route.
+        /// </summary>
         [Input("destination", required: true)]
         public string Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Target of the route.
+        /// </summary>
         [Input("target", required: true)]
         public string Target { get; set; } = null!;
 

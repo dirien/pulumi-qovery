@@ -13,15 +13,27 @@ namespace ediri.Qovery.Inputs
 
     public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Job's cron.
+        /// </summary>
         [Input("cronjob")]
         public Input<Inputs.JobScheduleCronjobArgs>? Cronjob { get; set; }
 
+        /// <summary>
+        /// Job's schedule on delete.
+        /// </summary>
         [Input("onDelete")]
         public Input<Inputs.JobScheduleOnDeleteArgs>? OnDelete { get; set; }
 
+        /// <summary>
+        /// Job's schedule on start.
+        /// </summary>
         [Input("onStart")]
         public Input<Inputs.JobScheduleOnStartArgs>? OnStart { get; set; }
 
+        /// <summary>
+        /// Job's schedule on stop.
+        /// </summary>
         [Input("onStop")]
         public Input<Inputs.JobScheduleOnStopArgs>? OnStop { get; set; }
 

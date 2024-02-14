@@ -13,9 +13,15 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetApplicationHealthchecksLivenessProbeTypeGrpcArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         [Input("port", required: true)]
         public int Port { get; set; }
 
+        /// <summary>
+        /// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        /// </summary>
         [Input("service")]
         public string? Service { get; set; }
 

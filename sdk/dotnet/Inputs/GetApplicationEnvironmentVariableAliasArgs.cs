@@ -13,12 +13,21 @@ namespace ediri.Qovery.Inputs
 
     public sealed class GetApplicationEnvironmentVariableAliasInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the environment variable alias.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the environment variable alias.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the variable to alias.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetClusterRoutingTableResult
     {
+        /// <summary>
+        /// Description of the route.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Destination of the route.
+        /// </summary>
         public readonly string Destination;
+        /// <summary>
+        /// Target of the route.
+        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

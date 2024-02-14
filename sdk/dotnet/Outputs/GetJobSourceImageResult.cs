@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobSourceImageResult
     {
+        /// <summary>
+        /// Job's image source name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Job's image source registry ID.
+        /// </summary>
         public readonly string RegistryId;
+        /// <summary>
+        /// Job's image source tag.
+        /// </summary>
         public readonly string Tag;
 
         [OutputConstructor]

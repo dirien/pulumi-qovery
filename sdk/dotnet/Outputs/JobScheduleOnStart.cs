@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class JobScheduleOnStart
     {
+        /// <summary>
+        /// List of arguments of this job.
+        /// </summary>
         public readonly ImmutableArray<string> Arguments;
+        /// <summary>
+        /// Entrypoint of the job.
+        /// </summary>
         public readonly string? Entrypoint;
 
         [OutputConstructor]

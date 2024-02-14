@@ -6,1324 +6,3377 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ApplicationBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface ApplicationCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * Id of the custom domain.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: pulumi.Input<string>;
 }
 
 export interface ApplicationEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationGitRepository {
+    /**
+     * Branch of the git repository.
+     * 	- Default: `main or master (depending on repository)`.
+     */
     branch?: pulumi.Input<string>;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: pulumi.Input<string>;
+    /**
+     * Root path of the application.
+     * 	- Default: `/`.
+     */
     rootPath?: pulumi.Input<string>;
+    /**
+     * URL of the git repository.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface ApplicationHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbe>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbe>;
 }
 
 export interface ApplicationHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbeType>;
 }
 
 export interface ApplicationHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.ApplicationHealthchecksLivenessProbeTypeTcp>;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface ApplicationHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbeType>;
 }
 
 export interface ApplicationHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.ApplicationHealthchecksReadinessProbeTypeTcp>;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface ApplicationPort {
+    /**
+     * External port of the application.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: pulumi.Input<number>;
+    /**
+     * Id of the port.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Internal port of the application.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: pulumi.Input<number>;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: pulumi.Input<boolean>;
+    /**
+     * Name of the port.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Protocol used for the port of the application.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol?: pulumi.Input<string>;
+    /**
+     * Specify if the port is exposed to the world or not for this application.
+     */
     publiclyAccessible: pulumi.Input<boolean>;
 }
 
 export interface ApplicationSecret {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ApplicationStorage {
+    /**
+     * Id of the storage.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Mount point of the storage for the application.
+     */
     mountPoint: pulumi.Input<string>;
+    /**
+     * Size of the storage for the application in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: pulumi.Input<number>;
+    /**
+     * Type of the storage for the application.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: pulumi.Input<string>;
 }
 
 export interface ClusterFeatures {
+    /**
+     * Static IP (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `false`.
+     */
     staticIp?: pulumi.Input<boolean>;
+    /**
+     * Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `10.0.0.0/16`.
+     */
     vpcSubnet?: pulumi.Input<string>;
 }
 
 export interface ClusterRoutingTable {
+    /**
+     * Description of the route.
+     */
     description: pulumi.Input<string>;
+    /**
+     * Destination of the route.
+     */
     destination: pulumi.Input<string>;
+    /**
+     * Target of the route.
+     */
     target: pulumi.Input<string>;
 }
 
 export interface ContainerBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface ContainerCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * Id of the custom domain.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: pulumi.Input<string>;
 }
 
 export interface ContainerEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.ContainerHealthchecksLivenessProbe>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.ContainerHealthchecksReadinessProbe>;
 }
 
 export interface ContainerHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.ContainerHealthchecksLivenessProbeType>;
 }
 
 export interface ContainerHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.ContainerHealthchecksLivenessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.ContainerHealthchecksLivenessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.ContainerHealthchecksLivenessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.ContainerHealthchecksLivenessProbeTypeTcp>;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface ContainerHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.ContainerHealthchecksReadinessProbeType>;
 }
 
 export interface ContainerHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.ContainerHealthchecksReadinessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.ContainerHealthchecksReadinessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.ContainerHealthchecksReadinessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.ContainerHealthchecksReadinessProbeTypeTcp>;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface ContainerPort {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: pulumi.Input<number>;
+    /**
+     * Id of the port.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: pulumi.Input<number>;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: pulumi.Input<boolean>;
+    /**
+     * Name of the port.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol?: pulumi.Input<string>;
+    /**
+     * Specify if the port is exposed to the world or not for this container.
+     */
     publiclyAccessible: pulumi.Input<boolean>;
 }
 
 export interface ContainerRegistryConfig {
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     accessKeyId?: pulumi.Input<string>;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * Required if kind is `ECR` or `SCALEWAY_CR`.
+     */
     region?: pulumi.Input<string>;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewayAccessKey?: pulumi.Input<string>;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewaySecretKey?: pulumi.Input<string>;
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     secretAccessKey?: pulumi.Input<string>;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     username?: pulumi.Input<string>;
 }
 
 export interface ContainerSecret {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ContainerStorage {
+    /**
+     * Id of the storage.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Mount point of the storage for the container.
+     */
     mountPoint: pulumi.Input<string>;
+    /**
+     * Size of the storage for the container in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: pulumi.Input<number>;
+    /**
+     * Type of the storage for the container.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: pulumi.Input<string>;
 }
 
 export interface EnvironmentBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface EnvironmentEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EnvironmentEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EnvironmentEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EnvironmentSecret {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EnvironmentSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EnvironmentSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface GetApplicationCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain?: string;
+    /**
+     * Id of the custom domain.
+     */
     id?: string;
+    /**
+     * Status of the custom domain.
+     */
     status?: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: string;
 }
 
 export interface GetApplicationCustomDomainArgs {
+    /**
+     * Your custom domain.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * Id of the custom domain.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: pulumi.Input<string>;
 }
 
 export interface GetApplicationEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: string;
+    /**
+     * Key of the environment variable.
+     */
     key?: string;
+    /**
+     * Value of the environment variable.
+     */
     value?: string;
 }
 
 export interface GetApplicationEnvironmentVariableArgs {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: string;
+    /**
+     * Name of the variable to alias.
+     */
     value?: string;
 }
 
 export interface GetApplicationEnvironmentVariableAliasArgs {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: string;
+    /**
+     * Name of the environment variable override.
+     */
     key?: string;
+    /**
+     * Value of the environment variable override.
+     */
     value?: string;
 }
 
 export interface GetApplicationEnvironmentVariableOverrideArgs {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: inputs.GetApplicationHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: inputs.GetApplicationHealthchecksReadinessProbe;
 }
 
 export interface GetApplicationHealthchecksArgs {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeArgs>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeArgs>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetApplicationHealthchecksLivenessProbeType;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeTypeArgs>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetApplicationHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetApplicationHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetApplicationHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetApplicationHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetApplicationHealthchecksLivenessProbeTypeTcpArgs>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetApplicationHealthchecksReadinessProbeType;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeTypeArgs>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetApplicationHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetApplicationHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetApplicationHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetApplicationHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetApplicationHealthchecksReadinessProbeTypeTcpArgs>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetApplicationSecret {
+    /**
+     * Id of the secret.
+     */
     id?: string;
+    /**
+     * Key of the secret.
+     */
     key?: string;
+    /**
+     * Value of the secret.
+     */
     value?: string;
 }
 
 export interface GetApplicationSecretArgs {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: string;
+    /**
+     * Name of the secret alias.
+     */
     key?: string;
+    /**
+     * Name of the secret to alias.
+     */
     value?: string;
 }
 
 export interface GetApplicationSecretAliasArgs {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: string;
+    /**
+     * Name of the secret override.
+     */
     key?: string;
+    /**
+     * Value of the secret override.
+     */
     value?: string;
 }
 
 export interface GetApplicationSecretOverrideArgs {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationStorage {
+    /**
+     * Id of the storage.
+     */
     id?: string;
+    /**
+     * Mount point of the storage for the application.
+     */
     mountPoint?: string;
+    /**
+     * Size of the storage for the application in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size?: number;
+    /**
+     * Type of the storage for the application.
+     * 	- Can be: `FAST_SSD`.
+     */
     type?: string;
 }
 
 export interface GetApplicationStorageArgs {
+    /**
+     * Id of the storage.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Mount point of the storage for the application.
+     */
     mountPoint?: pulumi.Input<string>;
+    /**
+     * Size of the storage for the application in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size?: pulumi.Input<number>;
+    /**
+     * Type of the storage for the application.
+     * 	- Can be: `FAST_SSD`.
+     */
     type?: pulumi.Input<string>;
 }
 
 export interface GetClusterFeatures {
+    /**
+     * Static IP (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `false`.
+     */
     staticIp?: boolean;
+    /**
+     * Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `10.0.0.0/16`.
+     */
     vpcSubnet?: string;
 }
 
 export interface GetClusterFeaturesArgs {
+    /**
+     * Static IP (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `false`.
+     */
     staticIp?: pulumi.Input<boolean>;
+    /**
+     * Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `10.0.0.0/16`.
+     */
     vpcSubnet?: pulumi.Input<string>;
 }
 
 export interface GetClusterRoutingTable {
+    /**
+     * Description of the route.
+     */
     description?: string;
+    /**
+     * Destination of the route.
+     */
     destination?: string;
+    /**
+     * Target of the route.
+     */
     target?: string;
 }
 
 export interface GetClusterRoutingTableArgs {
+    /**
+     * Description of the route.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Destination of the route.
+     */
     destination?: pulumi.Input<string>;
+    /**
+     * Target of the route.
+     */
     target?: pulumi.Input<string>;
 }
 
 export interface GetContainerCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain?: string;
+    /**
+     * Id of the custom domain.
+     */
     id?: string;
+    /**
+     * Status of the custom domain.
+     */
     status?: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: string;
 }
 
 export interface GetContainerCustomDomainArgs {
+    /**
+     * Your custom domain.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * Id of the custom domain.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain?: pulumi.Input<string>;
 }
 
 export interface GetContainerEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: string;
+    /**
+     * Key of the environment variable.
+     */
     key?: string;
+    /**
+     * Value of the environment variable.
+     */
     value?: string;
 }
 
 export interface GetContainerEnvironmentVariableArgs {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: string;
+    /**
+     * Name of the variable to alias.
+     */
     value?: string;
 }
 
 export interface GetContainerEnvironmentVariableAliasArgs {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: string;
+    /**
+     * Name of the environment variable override.
+     */
     key?: string;
+    /**
+     * Value of the environment variable override.
+     */
     value?: string;
 }
 
 export interface GetContainerEnvironmentVariableOverrideArgs {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: inputs.GetContainerHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: inputs.GetContainerHealthchecksReadinessProbe;
 }
 
 export interface GetContainerHealthchecksArgs {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeArgs>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeArgs>;
 }
 
 export interface GetContainerHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetContainerHealthchecksLivenessProbeType;
 }
 
 export interface GetContainerHealthchecksLivenessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeTypeArgs>;
 }
 
 export interface GetContainerHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetContainerHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetContainerHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetContainerHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetContainerHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetContainerHealthchecksLivenessProbeTypeTcpArgs>;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetContainerHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetContainerHealthchecksReadinessProbeType;
 }
 
 export interface GetContainerHealthchecksReadinessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeTypeArgs>;
 }
 
 export interface GetContainerHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetContainerHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetContainerHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetContainerHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetContainerHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetContainerHealthchecksReadinessProbeTypeTcpArgs>;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetContainerPort {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: number;
+    /**
+     * Id of the port.
+     */
     id?: string;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort?: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault?: boolean;
+    /**
+     * Name of the port.
+     */
     name?: string;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol?: string;
+    /**
+     * Specify if the port is exposed to the world or not for this container.
+     */
     publiclyAccessible?: boolean;
 }
 
 export interface GetContainerPortArgs {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: pulumi.Input<number>;
+    /**
+     * Id of the port.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort?: pulumi.Input<number>;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault?: pulumi.Input<boolean>;
+    /**
+     * Name of the port.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol?: pulumi.Input<string>;
+    /**
+     * Specify if the port is exposed to the world or not for this container.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
 }
 
 export interface GetContainerSecret {
+    /**
+     * Id of the secret.
+     */
     id?: string;
+    /**
+     * Key of the secret.
+     */
     key?: string;
+    /**
+     * Value of the secret.
+     */
     value?: string;
 }
 
 export interface GetContainerSecretArgs {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: string;
+    /**
+     * Name of the secret alias.
+     */
     key?: string;
+    /**
+     * Name of the secret to alias.
+     */
     value?: string;
 }
 
 export interface GetContainerSecretAliasArgs {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: string;
+    /**
+     * Name of the secret override.
+     */
     key?: string;
+    /**
+     * Value of the secret override.
+     */
     value?: string;
 }
 
 export interface GetContainerSecretOverrideArgs {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetContainerStorage {
+    /**
+     * Id of the storage.
+     */
     id?: string;
+    /**
+     * Mount point of the storage for the container.
+     */
     mountPoint?: string;
+    /**
+     * Size of the storage for the container in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size?: number;
+    /**
+     * Type of the storage for the container.
+     * 	- Can be: `FAST_SSD`.
+     */
     type?: string;
 }
 
 export interface GetContainerStorageArgs {
+    /**
+     * Id of the storage.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Mount point of the storage for the container.
+     */
     mountPoint?: pulumi.Input<string>;
+    /**
+     * Size of the storage for the container in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size?: pulumi.Input<number>;
+    /**
+     * Type of the storage for the container.
+     * 	- Can be: `FAST_SSD`.
+     */
     type?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: string;
+    /**
+     * Key of the environment variable.
+     */
     key?: string;
+    /**
+     * Value of the environment variable.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentEnvironmentVariableArgs {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: string;
+    /**
+     * Name of the variable to alias.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentEnvironmentVariableAliasArgs {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: string;
+    /**
+     * Name of the environment variable override.
+     */
     key?: string;
+    /**
+     * Value of the environment variable override.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentEnvironmentVariableOverrideArgs {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentSecret {
+    /**
+     * Id of the secret.
+     */
     id?: string;
+    /**
+     * Key of the secret.
+     */
     key?: string;
+    /**
+     * Value of the secret.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentSecretArgs {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: string;
+    /**
+     * Name of the secret alias.
+     */
     key?: string;
+    /**
+     * Name of the secret to alias.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentSecretAliasArgs {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetEnvironmentSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: string;
+    /**
+     * Name of the secret override.
+     */
     key?: string;
+    /**
+     * Value of the secret override.
+     */
     value?: string;
 }
 
 export interface GetEnvironmentSecretOverrideArgs {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: string;
+    /**
+     * Key of the environment variable.
+     */
     key?: string;
+    /**
+     * Value of the environment variable.
+     */
     value?: string;
 }
 
 export interface GetHelmEnvironmentVariableArgs {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: string;
+    /**
+     * Name of the variable to alias.
+     */
     value?: string;
 }
 
 export interface GetHelmEnvironmentVariableAliasArgs {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: string;
+    /**
+     * Name of the environment variable override.
+     */
     key?: string;
+    /**
+     * Value of the environment variable override.
+     */
     value?: string;
 }
 
 export interface GetHelmEnvironmentVariableOverrideArgs {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmSecret {
+    /**
+     * Id of the secret.
+     */
     id?: string;
+    /**
+     * Key of the secret.
+     */
     key?: string;
+    /**
+     * Value of the secret.
+     */
     value?: string;
 }
 
 export interface GetHelmSecretArgs {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: string;
+    /**
+     * Name of the secret alias.
+     */
     key?: string;
+    /**
+     * Name of the secret to alias.
+     */
     value?: string;
 }
 
 export interface GetHelmSecretAliasArgs {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetHelmSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: string;
+    /**
+     * Name of the secret override.
+     */
     key?: string;
+    /**
+     * Value of the secret override.
+     */
     value?: string;
 }
 
 export interface GetHelmSecretOverrideArgs {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: string;
+    /**
+     * Key of the environment variable.
+     */
     key?: string;
+    /**
+     * Value of the environment variable.
+     */
     value?: string;
 }
 
 export interface GetJobEnvironmentVariableArgs {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: string;
+    /**
+     * Name of the variable to alias.
+     */
     value?: string;
 }
 
 export interface GetJobEnvironmentVariableAliasArgs {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: string;
+    /**
+     * Name of the environment variable override.
+     */
     key?: string;
+    /**
+     * Value of the environment variable override.
+     */
     value?: string;
 }
 
 export interface GetJobEnvironmentVariableOverrideArgs {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: inputs.GetJobHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: inputs.GetJobHealthchecksReadinessProbe;
 }
 
 export interface GetJobHealthchecksArgs {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeArgs>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeArgs>;
 }
 
 export interface GetJobHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetJobHealthchecksLivenessProbeType;
 }
 
 export interface GetJobHealthchecksLivenessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeTypeArgs>;
 }
 
 export interface GetJobHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetJobHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetJobHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetJobHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetJobHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetJobHealthchecksLivenessProbeTypeTcpArgs>;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetJobHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: inputs.GetJobHealthchecksReadinessProbeType;
 }
 
 export interface GetJobHealthchecksReadinessProbeArgs {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeTypeArgs>;
 }
 
 export interface GetJobHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: inputs.GetJobHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: inputs.GetJobHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: inputs.GetJobHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: inputs.GetJobHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeArgs {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeTypeExecArgs>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeTypeGrpcArgs>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeTypeHttpArgs>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.GetJobHealthchecksReadinessProbeTypeTcpArgs>;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeExecArgs {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeGrpcArgs {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeHttpArgs {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeTcpArgs {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface GetJobSecret {
+    /**
+     * Id of the secret.
+     */
     id?: string;
+    /**
+     * Key of the secret.
+     */
     key?: string;
+    /**
+     * Value of the secret.
+     */
     value?: string;
 }
 
 export interface GetJobSecretArgs {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: string;
+    /**
+     * Name of the secret alias.
+     */
     key?: string;
+    /**
+     * Name of the secret to alias.
+     */
     value?: string;
 }
 
 export interface GetJobSecretAliasArgs {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: string;
+    /**
+     * Name of the secret override.
+     */
     key?: string;
+    /**
+     * Value of the secret override.
+     */
     value?: string;
 }
 
 export interface GetJobSecretOverrideArgs {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GetJobSource {
+    /**
+     * Job's docker source.
+     */
     docker?: inputs.GetJobSourceDocker;
+    /**
+     * Job's image source.
+     */
     image?: inputs.GetJobSourceImage;
 }
 
 export interface GetJobSourceArgs {
+    /**
+     * Job's docker source.
+     */
     docker?: pulumi.Input<inputs.GetJobSourceDockerArgs>;
+    /**
+     * Job's image source.
+     */
     image?: pulumi.Input<inputs.GetJobSourceImageArgs>;
 }
 
 export interface GetJobSourceDocker {
+    /**
+     * Job's docker source dockerfile path.
+     */
     dockerfilePath?: string;
+    /**
+     * Job's docker source git repository.
+     */
     gitRepository?: inputs.GetJobSourceDockerGitRepository;
 }
 
 export interface GetJobSourceDockerArgs {
+    /**
+     * Job's docker source dockerfile path.
+     */
     dockerfilePath?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository.
+     */
     gitRepository?: pulumi.Input<inputs.GetJobSourceDockerGitRepositoryArgs>;
 }
 
 export interface GetJobSourceDockerGitRepository {
+    /**
+     * Job's docker source git repository branch.
+     */
     branch?: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: string;
+    /**
+     * Job's docker source git repository root path.
+     */
     rootPath?: string;
+    /**
+     * Job's docker source git repository URL.
+     */
     url?: string;
 }
 
 export interface GetJobSourceDockerGitRepositoryArgs {
+    /**
+     * Job's docker source git repository branch.
+     */
     branch?: pulumi.Input<string>;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository root path.
+     */
     rootPath?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository URL.
+     */
     url?: pulumi.Input<string>;
 }
 
 export interface GetJobSourceImage {
+    /**
+     * Job's image source name.
+     */
     name?: string;
+    /**
+     * Job's image source registry ID.
+     */
     registryId?: string;
+    /**
+     * Job's image source tag.
+     */
     tag?: string;
 }
 
 export interface GetJobSourceImageArgs {
+    /**
+     * Job's image source name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Job's image source registry ID.
+     */
     registryId?: pulumi.Input<string>;
+    /**
+     * Job's image source tag.
+     */
     tag?: pulumi.Input<string>;
 }
 
@@ -1448,85 +3501,216 @@ export interface GetProjectSecretAliasArgs {
 }
 
 export interface HelmBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface HelmEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmPorts {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort: pulumi.Input<number>;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: pulumi.Input<number>;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: pulumi.Input<boolean>;
     namespace?: pulumi.Input<string>;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`.
+     * 	- Default: `HTTP`.
+     */
     protocol?: pulumi.Input<string>;
     serviceName: pulumi.Input<string>;
 }
 
 export interface HelmRepositoryConfig {
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     accessKeyId?: pulumi.Input<string>;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * Required if kind is `ECR` or `SCALEWAY_CR`.
+     */
     region?: pulumi.Input<string>;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewayAccessKey?: pulumi.Input<string>;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewaySecretKey?: pulumi.Input<string>;
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     secretAccessKey?: pulumi.Input<string>;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     username?: pulumi.Input<string>;
 }
 
 export interface HelmSecret {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface HelmSource {
+    /**
+     * Git repository
+     */
     gitRepository?: pulumi.Input<inputs.HelmSourceGitRepository>;
+    /**
+     * Helm repositories can be private or public
+     */
     helmRepository?: pulumi.Input<inputs.HelmSourceHelmRepository>;
 }
 
 export interface HelmSourceGitRepository {
+    /**
+     * Helm's source git repository branch
+     */
     branch?: pulumi.Input<string>;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: pulumi.Input<string>;
+    /**
+     * Helm's source git repository root path
+     */
     rootPath?: pulumi.Input<string>;
+    /**
+     * Helm's source git repository URL
+     */
     url: pulumi.Input<string>;
 }
 
 export interface HelmSourceHelmRepository {
+    /**
+     * Chart name
+     */
     chartName: pulumi.Input<string>;
+    /**
+     * Chart version
+     */
     chartVersion: pulumi.Input<string>;
+    /**
+     * helm repository id
+     */
     helmRepositoryId: pulumi.Input<string>;
 }
 
 export interface HelmValuesOverride {
+    /**
+     * Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+     */
     file?: pulumi.Input<inputs.HelmValuesOverrideFile>;
     set: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     setJson: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -1534,192 +3718,465 @@ export interface HelmValuesOverride {
 }
 
 export interface HelmValuesOverrideFile {
+    /**
+     * YAML file from a git repository
+     */
     gitRepository?: pulumi.Input<inputs.HelmValuesOverrideFileGitRepository>;
+    /**
+     * Raw YAML files
+     */
     raw?: pulumi.Input<{[key: string]: pulumi.Input<inputs.HelmValuesOverrideFileRaw>}>;
 }
 
 export interface HelmValuesOverrideFileGitRepository {
+    /**
+     * YAML file git repository branch
+     */
     branch: pulumi.Input<string>;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: pulumi.Input<string>;
+    /**
+     * YAML files git repository paths
+     */
     paths: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * YAML file git repository URL
+     */
     url: pulumi.Input<string>;
 }
 
 export interface HelmValuesOverrideFileRaw {
+    /**
+     * content of the file
+     */
     content: pulumi.Input<string>;
 }
 
 export interface JobBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface JobEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the environment variable.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the variable to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the environment variable override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the environment variable override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: pulumi.Input<inputs.JobHealthchecksLivenessProbe>;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: pulumi.Input<inputs.JobHealthchecksReadinessProbe>;
 }
 
 export interface JobHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.JobHealthchecksLivenessProbeType>;
 }
 
 export interface JobHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.JobHealthchecksLivenessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.JobHealthchecksLivenessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.JobHealthchecksLivenessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.JobHealthchecksLivenessProbeTypeTcp>;
 }
 
 export interface JobHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface JobHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface JobHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface JobHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface JobHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: pulumi.Input<number>;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: pulumi.Input<number>;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: pulumi.Input<number>;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: pulumi.Input<number>;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: pulumi.Input<inputs.JobHealthchecksReadinessProbeType>;
 }
 
 export interface JobHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: pulumi.Input<inputs.JobHealthchecksReadinessProbeTypeExec>;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: pulumi.Input<inputs.JobHealthchecksReadinessProbeTypeGrpc>;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: pulumi.Input<inputs.JobHealthchecksReadinessProbeTypeHttp>;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: pulumi.Input<inputs.JobHealthchecksReadinessProbeTypeTcp>;
 }
 
 export interface JobHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface JobHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: pulumi.Input<string>;
 }
 
 export interface JobHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
-    scheme?: pulumi.Input<string>;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: pulumi.Input<string>;
 }
 
 export interface JobHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: pulumi.Input<string>;
+    /**
+     * The port number to try to connect to
+     */
     port: pulumi.Input<number>;
 }
 
 export interface JobSchedule {
+    /**
+     * Job's cron.
+     */
     cronjob?: pulumi.Input<inputs.JobScheduleCronjob>;
+    /**
+     * Job's schedule on delete.
+     */
     onDelete?: pulumi.Input<inputs.JobScheduleOnDelete>;
+    /**
+     * Job's schedule on start.
+     */
     onStart?: pulumi.Input<inputs.JobScheduleOnStart>;
+    /**
+     * Job's schedule on stop.
+     */
     onStop?: pulumi.Input<inputs.JobScheduleOnStop>;
 }
 
 export interface JobScheduleCronjob {
+    /**
+     * Job's cron command.
+     */
     command: pulumi.Input<inputs.JobScheduleCronjobCommand>;
+    /**
+     * Job's cron string.
+     */
     schedule: pulumi.Input<string>;
 }
 
 export interface JobScheduleCronjobCommand {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint?: pulumi.Input<string>;
 }
 
 export interface JobScheduleOnDelete {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint?: pulumi.Input<string>;
 }
 
 export interface JobScheduleOnStart {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint?: pulumi.Input<string>;
 }
 
 export interface JobScheduleOnStop {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint?: pulumi.Input<string>;
 }
 
 export interface JobSecret {
+    /**
+     * Id of the secret.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Key of the secret.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret alias.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Name of the secret to alias.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the secret override.
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of the secret override.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface JobSource {
+    /**
+     * Job's docker source.
+     */
     docker?: pulumi.Input<inputs.JobSourceDocker>;
+    /**
+     * Job's image source.
+     */
     image?: pulumi.Input<inputs.JobSourceImage>;
 }
 
 export interface JobSourceDocker {
+    /**
+     * Job's docker source dockerfile path.
+     */
     dockerfilePath?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository.
+     */
     gitRepository: pulumi.Input<inputs.JobSourceDockerGitRepository>;
 }
 
 export interface JobSourceDockerGitRepository {
+    /**
+     * Job's docker source git repository branch.
+     */
     branch: pulumi.Input<string>;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository root path.
+     */
     rootPath?: pulumi.Input<string>;
+    /**
+     * Job's docker source git repository URL.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface JobSourceImage {
+    /**
+     * Job's image source name.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Job's image source registry ID.
+     */
     registryId: pulumi.Input<string>;
+    /**
+     * Job's image source tag.
+     */
     tag: pulumi.Input<string>;
 }
 

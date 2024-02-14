@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobHealthchecksLivenessProbeTypeGrpcResult
     {
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+        /// </summary>
         public readonly string? Service;
 
         [OutputConstructor]

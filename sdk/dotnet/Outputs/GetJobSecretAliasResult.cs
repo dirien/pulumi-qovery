@@ -14,8 +14,17 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetJobSecretAliasResult
     {
+        /// <summary>
+        /// Id of the secret alias.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the secret alias.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Name of the secret to alias.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

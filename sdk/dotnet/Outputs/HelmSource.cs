@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class HelmSource
     {
+        /// <summary>
+        /// Git repository
+        /// </summary>
         public readonly Outputs.HelmSourceGitRepository? GitRepository;
+        /// <summary>
+        /// Helm repositories can be private or public
+        /// </summary>
         public readonly Outputs.HelmSourceHelmRepository? HelmRepository;
 
         [OutputConstructor]

@@ -14,9 +14,23 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class ApplicationStorage
     {
+        /// <summary>
+        /// Id of the storage.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Mount point of the storage for the application.
+        /// </summary>
         public readonly string MountPoint;
+        /// <summary>
+        /// Size of the storage for the application in GB [1024MB = 1GB].
+        /// 	- Must be: `&gt;= 1`.
+        /// </summary>
         public readonly int Size;
+        /// <summary>
+        /// Type of the storage for the application.
+        /// 	- Can be: `FAST_SSD`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -6,920 +6,2360 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ApplicationBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface ApplicationCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: string;
+    /**
+     * Id of the custom domain.
+     */
     id: string;
+    /**
+     * Status of the custom domain.
+     */
     status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain: string;
 }
 
 export interface ApplicationEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface ApplicationEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface ApplicationEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface ApplicationGitRepository {
+    /**
+     * Branch of the git repository.
+     * 	- Default: `main or master (depending on repository)`.
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: string;
+    /**
+     * Root path of the application.
+     * 	- Default: `/`.
+     */
     rootPath: string;
+    /**
+     * URL of the git repository.
+     */
     url: string;
 }
 
 export interface ApplicationHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.ApplicationHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.ApplicationHealthchecksReadinessProbe;
 }
 
 export interface ApplicationHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.ApplicationHealthchecksLivenessProbeType;
 }
 
 export interface ApplicationHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.ApplicationHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.ApplicationHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.ApplicationHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.ApplicationHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface ApplicationHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface ApplicationHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.ApplicationHealthchecksReadinessProbeType;
 }
 
 export interface ApplicationHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.ApplicationHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.ApplicationHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.ApplicationHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.ApplicationHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface ApplicationHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface ApplicationPort {
+    /**
+     * External port of the application.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: number;
+    /**
+     * Id of the port.
+     */
     id: string;
+    /**
+     * Internal port of the application.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: boolean;
+    /**
+     * Name of the port.
+     */
     name: string;
+    /**
+     * Protocol used for the port of the application.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol: string;
+    /**
+     * Specify if the port is exposed to the world or not for this application.
+     */
     publiclyAccessible: boolean;
 }
 
 export interface ApplicationSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface ApplicationSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface ApplicationSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface ApplicationStorage {
+    /**
+     * Id of the storage.
+     */
     id: string;
+    /**
+     * Mount point of the storage for the application.
+     */
     mountPoint: string;
+    /**
+     * Size of the storage for the application in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: number;
+    /**
+     * Type of the storage for the application.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: string;
 }
 
 export interface ClusterFeatures {
+    /**
+     * Static IP (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `false`.
+     */
     staticIp: boolean;
+    /**
+     * Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `10.0.0.0/16`.
+     */
     vpcSubnet: string;
 }
 
 export interface ClusterRoutingTable {
+    /**
+     * Description of the route.
+     */
     description: string;
+    /**
+     * Destination of the route.
+     */
     destination: string;
+    /**
+     * Target of the route.
+     */
     target: string;
 }
 
 export interface ContainerBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface ContainerCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: string;
+    /**
+     * Id of the custom domain.
+     */
     id: string;
+    /**
+     * Status of the custom domain.
+     */
     status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain: string;
 }
 
 export interface ContainerEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface ContainerEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface ContainerEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface ContainerHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.ContainerHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.ContainerHealthchecksReadinessProbe;
 }
 
 export interface ContainerHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.ContainerHealthchecksLivenessProbeType;
 }
 
 export interface ContainerHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.ContainerHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.ContainerHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.ContainerHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.ContainerHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface ContainerHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface ContainerHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.ContainerHealthchecksReadinessProbeType;
 }
 
 export interface ContainerHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.ContainerHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.ContainerHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.ContainerHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.ContainerHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface ContainerHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface ContainerPort {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort?: number;
+    /**
+     * Id of the port.
+     */
     id: string;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: boolean;
+    /**
+     * Name of the port.
+     */
     name: string;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol: string;
+    /**
+     * Specify if the port is exposed to the world or not for this container.
+     */
     publiclyAccessible: boolean;
 }
 
 export interface ContainerRegistryConfig {
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     accessKeyId?: string;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     password?: string;
+    /**
+     * Required if kind is `ECR` or `SCALEWAY_CR`.
+     */
     region?: string;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewayAccessKey?: string;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewaySecretKey?: string;
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     secretAccessKey?: string;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     username?: string;
 }
 
 export interface ContainerSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface ContainerSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface ContainerSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface ContainerStorage {
+    /**
+     * Id of the storage.
+     */
     id: string;
+    /**
+     * Mount point of the storage for the container.
+     */
     mountPoint: string;
+    /**
+     * Size of the storage for the container in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: number;
+    /**
+     * Type of the storage for the container.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: string;
 }
 
 export interface EnvironmentBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface EnvironmentEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface EnvironmentEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface EnvironmentEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface EnvironmentSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface EnvironmentSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface EnvironmentSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetApplicationBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetApplicationCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: string;
+    /**
+     * Id of the custom domain.
+     */
     id: string;
+    /**
+     * Status of the custom domain.
+     */
     status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain: string;
 }
 
 export interface GetApplicationEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetApplicationEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface GetApplicationEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface GetApplicationGitRepository {
+    /**
+     * Branch of the git repository.
+     * 	- Default: `main or master (depending on repository)`.
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId: string;
+    /**
+     * Root path of the application.
+     * 	- Default: `/`.
+     */
     rootPath: string;
+    /**
+     * URL of the git repository.
+     */
     url: string;
 }
 
 export interface GetApplicationHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.GetApplicationHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.GetApplicationHealthchecksReadinessProbe;
 }
 
 export interface GetApplicationHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetApplicationHealthchecksLivenessProbeType;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetApplicationHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetApplicationHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetApplicationHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetApplicationHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetApplicationHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetApplicationHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetApplicationHealthchecksReadinessProbeType;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetApplicationHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetApplicationHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetApplicationHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetApplicationHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetApplicationHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetApplicationPort {
+    /**
+     * External port of the application.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort: number;
+    /**
+     * Id of the port.
+     */
     id: string;
+    /**
+     * Internal port of the application.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: boolean;
+    /**
+     * Name of the port.
+     */
     name: string;
+    /**
+     * Protocol used for the port of the application.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol: string;
+    /**
+     * Specify if the port is exposed to the world or not for this application.
+     */
     publiclyAccessible: boolean;
 }
 
 export interface GetApplicationSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface GetApplicationSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface GetApplicationSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetApplicationStorage {
+    /**
+     * Id of the storage.
+     */
     id: string;
+    /**
+     * Mount point of the storage for the application.
+     */
     mountPoint: string;
+    /**
+     * Size of the storage for the application in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: number;
+    /**
+     * Type of the storage for the application.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: string;
 }
 
 export interface GetClusterFeatures {
+    /**
+     * Static IP (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `false`.
+     */
     staticIp: boolean;
+    /**
+     * Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+     * 	- Default: `10.0.0.0/16`.
+     */
     vpcSubnet: string;
 }
 
 export interface GetClusterRoutingTable {
+    /**
+     * Description of the route.
+     */
     description: string;
+    /**
+     * Destination of the route.
+     */
     destination: string;
+    /**
+     * Target of the route.
+     */
     target: string;
 }
 
 export interface GetContainerBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetContainerCustomDomain {
+    /**
+     * Your custom domain.
+     */
     domain: string;
+    /**
+     * Id of the custom domain.
+     */
     id: string;
+    /**
+     * Status of the custom domain.
+     */
     status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
     validationDomain: string;
 }
 
 export interface GetContainerEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetContainerEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface GetContainerEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface GetContainerHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.GetContainerHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.GetContainerHealthchecksReadinessProbe;
 }
 
 export interface GetContainerHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetContainerHealthchecksLivenessProbeType;
 }
 
 export interface GetContainerHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetContainerHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetContainerHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetContainerHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetContainerHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetContainerHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetContainerHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetContainerHealthchecksReadinessProbeType;
 }
 
 export interface GetContainerHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetContainerHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetContainerHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetContainerHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetContainerHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetContainerHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetContainerPort {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort: number;
+    /**
+     * Id of the port.
+     */
     id: string;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: boolean;
+    /**
+     * Name of the port.
+     */
     name: string;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`, `TCP`, `UDP`.
+     * 	- Default: `HTTP`.
+     */
     protocol: string;
+    /**
+     * Specify if the port is exposed to the world or not for this container.
+     */
     publiclyAccessible: boolean;
 }
 
 export interface GetContainerSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface GetContainerSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface GetContainerSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetContainerStorage {
+    /**
+     * Id of the storage.
+     */
     id: string;
+    /**
+     * Mount point of the storage for the container.
+     */
     mountPoint: string;
+    /**
+     * Size of the storage for the container in GB [1024MB = 1GB].
+     * 	- Must be: `>= 1`.
+     */
     size: number;
+    /**
+     * Type of the storage for the container.
+     * 	- Can be: `FAST_SSD`.
+     */
     type: string;
 }
 
 export interface GetEnvironmentBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetEnvironmentEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetEnvironmentEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface GetEnvironmentEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface GetEnvironmentSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface GetEnvironmentSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface GetEnvironmentSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetHelmBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetHelmEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetHelmEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface GetHelmEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface GetHelmSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface GetHelmSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface GetHelmSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetJobBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetJobEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface GetJobEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface GetJobEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface GetJobHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.GetJobHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.GetJobHealthchecksReadinessProbe;
 }
 
 export interface GetJobHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetJobHealthchecksLivenessProbeType;
 }
 
 export interface GetJobHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetJobHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetJobHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetJobHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetJobHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetJobHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetJobHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.GetJobHealthchecksReadinessProbeType;
 }
 
 export interface GetJobHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.GetJobHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.GetJobHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.GetJobHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.GetJobHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface GetJobHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface GetJobSchedule {
+    /**
+     * Job's cron.
+     */
     cronjob: outputs.GetJobScheduleCronjob;
+    /**
+     * Job's schedule on delete.
+     */
     onDelete: outputs.GetJobScheduleOnDelete;
+    /**
+     * Job's schedule on start.
+     */
     onStart: outputs.GetJobScheduleOnStart;
+    /**
+     * Job's schedule on stop.
+     */
     onStop: outputs.GetJobScheduleOnStop;
 }
 
 export interface GetJobScheduleCronjob {
+    /**
+     * Job's cron command.
+     */
     command: outputs.GetJobScheduleCronjobCommand;
+    /**
+     * Job's cron string.
+     */
     schedule: string;
 }
 
 export interface GetJobScheduleCronjobCommand {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface GetJobScheduleOnDelete {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface GetJobScheduleOnStart {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface GetJobScheduleOnStop {
+    /**
+     * List of arguments of this job.
+     */
     arguments?: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface GetJobSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface GetJobSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface GetJobSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface GetJobSource {
+    /**
+     * Job's docker source.
+     */
     docker: outputs.GetJobSourceDocker;
+    /**
+     * Job's image source.
+     */
     image: outputs.GetJobSourceImage;
 }
 
 export interface GetJobSourceDocker {
+    /**
+     * Job's docker source dockerfile path.
+     */
     dockerfilePath?: string;
+    /**
+     * Job's docker source git repository.
+     */
     gitRepository: outputs.GetJobSourceDockerGitRepository;
 }
 
 export interface GetJobSourceDockerGitRepository {
+    /**
+     * Job's docker source git repository branch.
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: string;
+    /**
+     * Job's docker source git repository root path.
+     */
     rootPath: string;
+    /**
+     * Job's docker source git repository URL.
+     */
     url: string;
 }
 
 export interface GetJobSourceImage {
+    /**
+     * Job's image source name.
+     */
     name: string;
+    /**
+     * Job's image source registry ID.
+     */
     registryId: string;
+    /**
+     * Job's image source tag.
+     */
     tag: string;
 }
 
@@ -999,85 +2439,216 @@ export interface GetProjectSecretAlias {
 }
 
 export interface HelmBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface HelmEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface HelmEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface HelmEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface HelmPorts {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     externalPort: number;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
     internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
     isDefault: boolean;
     namespace?: string;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`.
+     * 	- Default: `HTTP`.
+     */
     protocol: string;
     serviceName: string;
 }
 
 export interface HelmRepositoryConfig {
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     accessKeyId?: string;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     password?: string;
+    /**
+     * Required if kind is `ECR` or `SCALEWAY_CR`.
+     */
     region?: string;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewayAccessKey?: string;
+    /**
+     * Required if kind is `SCALEWAY_CR`.
+     */
     scalewaySecretKey?: string;
+    /**
+     * Required if kind is `ECR` or `PUBLIC_ECR`.
+     */
     secretAccessKey?: string;
+    /**
+     * Required if kinds are `DOCKER_HUB`, `GITHUB_CR`, `GITLAB`CR`, `GENERIC_CR`.
+     */
     username?: string;
 }
 
 export interface HelmSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface HelmSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface HelmSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface HelmSource {
+    /**
+     * Git repository
+     */
     gitRepository?: outputs.HelmSourceGitRepository;
+    /**
+     * Helm repositories can be private or public
+     */
     helmRepository?: outputs.HelmSourceHelmRepository;
 }
 
 export interface HelmSourceGitRepository {
+    /**
+     * Helm's source git repository branch
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId: string;
+    /**
+     * Helm's source git repository root path
+     */
     rootPath: string;
+    /**
+     * Helm's source git repository URL
+     */
     url: string;
 }
 
 export interface HelmSourceHelmRepository {
+    /**
+     * Chart name
+     */
     chartName: string;
+    /**
+     * Chart version
+     */
     chartVersion: string;
+    /**
+     * helm repository id
+     */
     helmRepositoryId: string;
 }
 
 export interface HelmValuesOverride {
+    /**
+     * Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+     */
     file?: outputs.HelmValuesOverrideFile;
     set: {[key: string]: string};
     setJson: {[key: string]: string};
@@ -1085,192 +2656,465 @@ export interface HelmValuesOverride {
 }
 
 export interface HelmValuesOverrideFile {
+    /**
+     * YAML file from a git repository
+     */
     gitRepository?: outputs.HelmValuesOverrideFileGitRepository;
+    /**
+     * Raw YAML files
+     */
     raw?: {[key: string]: outputs.HelmValuesOverrideFileRaw};
 }
 
 export interface HelmValuesOverrideFileGitRepository {
+    /**
+     * YAML file git repository branch
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId: string;
+    /**
+     * YAML files git repository paths
+     */
     paths: string[];
+    /**
+     * YAML file git repository URL
+     */
     url: string;
 }
 
 export interface HelmValuesOverrideFileRaw {
+    /**
+     * content of the file
+     */
     content: string;
 }
 
 export interface JobBuiltInEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface JobEnvironmentVariable {
+    /**
+     * Id of the environment variable.
+     */
     id: string;
+    /**
+     * Key of the environment variable.
+     */
     key: string;
+    /**
+     * Value of the environment variable.
+     */
     value: string;
 }
 
 export interface JobEnvironmentVariableAlias {
+    /**
+     * Id of the environment variable alias.
+     */
     id: string;
+    /**
+     * Name of the environment variable alias.
+     */
     key: string;
+    /**
+     * Name of the variable to alias.
+     */
     value: string;
 }
 
 export interface JobEnvironmentVariableOverride {
+    /**
+     * Id of the environment variable override.
+     */
     id: string;
+    /**
+     * Name of the environment variable override.
+     */
     key: string;
+    /**
+     * Value of the environment variable override.
+     */
     value: string;
 }
 
 export interface JobHealthchecks {
+    /**
+     * Configuration for the liveness probe, in order to know when your service is working correctly. Failing the probe means your service being killed/ask to be restarted.
+     */
     livenessProbe?: outputs.JobHealthchecksLivenessProbe;
+    /**
+     * Configuration for the readiness probe, in order to know when your service is ready to receive traffic. Failing the probe means your service will stop receiving traffic.
+     */
     readinessProbe?: outputs.JobHealthchecksReadinessProbe;
 }
 
 export interface JobHealthchecksLivenessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.JobHealthchecksLivenessProbeType;
 }
 
 export interface JobHealthchecksLivenessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.JobHealthchecksLivenessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.JobHealthchecksLivenessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.JobHealthchecksLivenessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.JobHealthchecksLivenessProbeTypeTcp;
 }
 
 export interface JobHealthchecksLivenessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface JobHealthchecksLivenessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface JobHealthchecksLivenessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface JobHealthchecksLivenessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface JobHealthchecksReadinessProbe {
+    /**
+     * Number of time the an ok probe should fail before declaring it as failed
+     */
     failureThreshold: number;
+    /**
+     * Number of seconds to wait before the first execution of the probe to be trigerred
+     */
     initialDelaySeconds: number;
+    /**
+     * Number of seconds before each execution of the probe
+     */
     periodSeconds: number;
+    /**
+     * Number of time the probe should success before declaring a failed probe as ok again
+     */
     successThreshold: number;
+    /**
+     * Number of seconds within which the check need to respond before declaring it as a failure
+     */
     timeoutSeconds: number;
+    /**
+     * Kind of check to run for this probe. There can only be one configured at a time
+     */
     type: outputs.JobHealthchecksReadinessProbeType;
 }
 
 export interface JobHealthchecksReadinessProbeType {
+    /**
+     * Check that the given command return an exit 0. Binary should be present in the image
+     */
     exec?: outputs.JobHealthchecksReadinessProbeTypeExec;
+    /**
+     * Check that the given port respond to GRPC call
+     */
     grpc?: outputs.JobHealthchecksReadinessProbeTypeGrpc;
+    /**
+     * Check that the given port respond to HTTP call (should return a 2xx response code)
+     */
     http?: outputs.JobHealthchecksReadinessProbeTypeHttp;
+    /**
+     * Check that the given port accepting connection
+     */
     tcp?: outputs.JobHealthchecksReadinessProbeTypeTcp;
 }
 
 export interface JobHealthchecksReadinessProbeTypeExec {
+    /**
+     * The command and its arguments to exec
+     */
     commands: string[];
 }
 
 export interface JobHealthchecksReadinessProbeTypeGrpc {
+    /**
+     * The port number to try to connect to
+     */
     port: number;
+    /**
+     * The grpc service to connect to. It needs to implement grpc health protocol. https://kubernetes.io/blog/2018/10/01/health-checking-grpc-servers-on-kubernetes/#introducing-grpc-health-probe
+     */
     service?: string;
 }
 
 export interface JobHealthchecksReadinessProbeTypeHttp {
+    /**
+     * The path that the HTTP GET request. By default it is `/`
+     */
     path?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
-    scheme?: string;
+    /**
+     * if the HTTP GET request should be done in HTTP or HTTPS.
+     */
+    scheme: string;
 }
 
 export interface JobHealthchecksReadinessProbeTypeTcp {
+    /**
+     * Optional. If the host need to be different than localhost/pod ip
+     */
     host?: string;
+    /**
+     * The port number to try to connect to
+     */
     port: number;
 }
 
 export interface JobSchedule {
+    /**
+     * Job's cron.
+     */
     cronjob?: outputs.JobScheduleCronjob;
+    /**
+     * Job's schedule on delete.
+     */
     onDelete?: outputs.JobScheduleOnDelete;
+    /**
+     * Job's schedule on start.
+     */
     onStart?: outputs.JobScheduleOnStart;
+    /**
+     * Job's schedule on stop.
+     */
     onStop?: outputs.JobScheduleOnStop;
 }
 
 export interface JobScheduleCronjob {
+    /**
+     * Job's cron command.
+     */
     command: outputs.JobScheduleCronjobCommand;
+    /**
+     * Job's cron string.
+     */
     schedule: string;
 }
 
 export interface JobScheduleCronjobCommand {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface JobScheduleOnDelete {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface JobScheduleOnStart {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface JobScheduleOnStop {
+    /**
+     * List of arguments of this job.
+     */
     arguments: string[];
+    /**
+     * Entrypoint of the job.
+     */
     entrypoint: string;
 }
 
 export interface JobSecret {
+    /**
+     * Id of the secret.
+     */
     id: string;
+    /**
+     * Key of the secret.
+     */
     key: string;
+    /**
+     * Value of the secret.
+     */
     value: string;
 }
 
 export interface JobSecretAlias {
+    /**
+     * Id of the secret alias.
+     */
     id: string;
+    /**
+     * Name of the secret alias.
+     */
     key: string;
+    /**
+     * Name of the secret to alias.
+     */
     value: string;
 }
 
 export interface JobSecretOverride {
+    /**
+     * Id of the secret override.
+     */
     id: string;
+    /**
+     * Name of the secret override.
+     */
     key: string;
+    /**
+     * Value of the secret override.
+     */
     value: string;
 }
 
 export interface JobSource {
+    /**
+     * Job's docker source.
+     */
     docker?: outputs.JobSourceDocker;
+    /**
+     * Job's image source.
+     */
     image?: outputs.JobSourceImage;
 }
 
 export interface JobSourceDocker {
+    /**
+     * Job's docker source dockerfile path.
+     */
     dockerfilePath?: string;
+    /**
+     * Job's docker source git repository.
+     */
     gitRepository: outputs.JobSourceDockerGitRepository;
 }
 
 export interface JobSourceDockerGitRepository {
+    /**
+     * Job's docker source git repository branch.
+     */
     branch: string;
+    /**
+     * The git token ID to be used
+     */
     gitTokenId?: string;
+    /**
+     * Job's docker source git repository root path.
+     */
     rootPath: string;
+    /**
+     * Job's docker source git repository URL.
+     */
     url: string;
 }
 
 export interface JobSourceImage {
+    /**
+     * Job's image source name.
+     */
     name: string;
+    /**
+     * Job's image source registry ID.
+     */
     registryId: string;
+    /**
+     * Job's image source tag.
+     */
     tag: string;
 }
 

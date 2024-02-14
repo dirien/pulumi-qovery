@@ -14,7 +14,15 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetClusterFeaturesResult
     {
+        /// <summary>
+        /// Static IP (AWS only) [NOTE: can't be updated after creation].
+        /// 	- Default: `false`.
+        /// </summary>
         public readonly bool StaticIp;
+        /// <summary>
+        /// Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
+        /// 	- Default: `10.0.0.0/16`.
+        /// </summary>
         public readonly string VpcSubnet;
 
         [OutputConstructor]

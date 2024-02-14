@@ -14,7 +14,13 @@ namespace ediri.Qovery.Outputs
     [OutputType]
     public sealed class GetContainerHealthchecksLivenessProbeTypeTcpResult
     {
+        /// <summary>
+        /// Optional. If the host need to be different than localhost/pod ip
+        /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// The port number to try to connect to
+        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]
