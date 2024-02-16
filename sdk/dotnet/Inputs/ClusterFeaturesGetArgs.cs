@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class ClusterFeaturesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Network configuration if you want to install qovery on an existing VPC
+        /// </summary>
+        [Input("existingVpc")]
+        public Input<Inputs.ClusterFeaturesExistingVpcGetArgs>? ExistingVpc { get; set; }
+
+        /// <summary>
         /// Static IP (AWS only) [NOTE: can't be updated after creation].
         /// 	- Default: `false`.
         /// </summary>

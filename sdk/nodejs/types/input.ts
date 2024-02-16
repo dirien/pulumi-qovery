@@ -400,6 +400,10 @@ export interface ApplicationStorage {
 
 export interface ClusterFeatures {
     /**
+     * Network configuration if you want to install qovery on an existing VPC
+     */
+    existingVpc?: pulumi.Input<inputs.ClusterFeaturesExistingVpc>;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -409,6 +413,61 @@ export interface ClusterFeatures {
      * 	- Default: `10.0.0.0/16`.
      */
     vpcSubnet?: pulumi.Input<string>;
+}
+
+export interface ClusterFeaturesExistingVpc {
+    /**
+     * Aws VPC id
+     */
+    awsVpcEksId: pulumi.Input<string>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneAIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneBIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneCIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ClusterRoutingTable {

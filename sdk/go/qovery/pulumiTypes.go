@@ -3713,6 +3713,8 @@ func (o ApplicationStorageArrayOutput) Index(i pulumi.IntInput) ApplicationStora
 }
 
 type ClusterFeatures struct {
+	// Network configuration if you want to install qovery on an existing VPC
+	ExistingVpc *ClusterFeaturesExistingVpc `pulumi:"existingVpc"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp *bool `pulumi:"staticIp"`
@@ -3733,6 +3735,8 @@ type ClusterFeaturesInput interface {
 }
 
 type ClusterFeaturesArgs struct {
+	// Network configuration if you want to install qovery on an existing VPC
+	ExistingVpc ClusterFeaturesExistingVpcPtrInput `pulumi:"existingVpc"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp pulumi.BoolPtrInput `pulumi:"staticIp"`
@@ -3818,6 +3822,11 @@ func (o ClusterFeaturesOutput) ToClusterFeaturesPtrOutputWithContext(ctx context
 	}).(ClusterFeaturesPtrOutput)
 }
 
+// Network configuration if you want to install qovery on an existing VPC
+func (o ClusterFeaturesOutput) ExistingVpc() ClusterFeaturesExistingVpcPtrOutput {
+	return o.ApplyT(func(v ClusterFeatures) *ClusterFeaturesExistingVpc { return v.ExistingVpc }).(ClusterFeaturesExistingVpcPtrOutput)
+}
+
 // Static IP (AWS only) [NOTE: can't be updated after creation].
 //   - Default: `false`.
 func (o ClusterFeaturesOutput) StaticIp() pulumi.BoolPtrOutput {
@@ -3854,6 +3863,16 @@ func (o ClusterFeaturesPtrOutput) Elem() ClusterFeaturesOutput {
 	}).(ClusterFeaturesOutput)
 }
 
+// Network configuration if you want to install qovery on an existing VPC
+func (o ClusterFeaturesPtrOutput) ExistingVpc() ClusterFeaturesExistingVpcPtrOutput {
+	return o.ApplyT(func(v *ClusterFeatures) *ClusterFeaturesExistingVpc {
+		if v == nil {
+			return nil
+		}
+		return v.ExistingVpc
+	}).(ClusterFeaturesExistingVpcPtrOutput)
+}
+
 // Static IP (AWS only) [NOTE: can't be updated after creation].
 //   - Default: `false`.
 func (o ClusterFeaturesPtrOutput) StaticIp() pulumi.BoolPtrOutput {
@@ -3874,6 +3893,371 @@ func (o ClusterFeaturesPtrOutput) VpcSubnet() pulumi.StringPtrOutput {
 		}
 		return v.VpcSubnet
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterFeaturesExistingVpc struct {
+	// Aws VPC id
+	AwsVpcEksId string `pulumi:"awsVpcEksId"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneAIds []string `pulumi:"documentdbSubnetsZoneAIds"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneBIds []string `pulumi:"documentdbSubnetsZoneBIds"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneCIds []string `pulumi:"documentdbSubnetsZoneCIds"`
+	// Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneAIds []string `pulumi:"eksSubnetsZoneAIds"`
+	// Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneBIds []string `pulumi:"eksSubnetsZoneBIds"`
+	// Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneCIds []string `pulumi:"eksSubnetsZoneCIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneAIds []string `pulumi:"elasticacheSubnetsZoneAIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneBIds []string `pulumi:"elasticacheSubnetsZoneBIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneCIds []string `pulumi:"elasticacheSubnetsZoneCIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneAIds []string `pulumi:"rdsSubnetsZoneAIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneBIds []string `pulumi:"rdsSubnetsZoneBIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneCIds []string `pulumi:"rdsSubnetsZoneCIds"`
+}
+
+// ClusterFeaturesExistingVpcInput is an input type that accepts ClusterFeaturesExistingVpcArgs and ClusterFeaturesExistingVpcOutput values.
+// You can construct a concrete instance of `ClusterFeaturesExistingVpcInput` via:
+//
+//	ClusterFeaturesExistingVpcArgs{...}
+type ClusterFeaturesExistingVpcInput interface {
+	pulumi.Input
+
+	ToClusterFeaturesExistingVpcOutput() ClusterFeaturesExistingVpcOutput
+	ToClusterFeaturesExistingVpcOutputWithContext(context.Context) ClusterFeaturesExistingVpcOutput
+}
+
+type ClusterFeaturesExistingVpcArgs struct {
+	// Aws VPC id
+	AwsVpcEksId pulumi.StringInput `pulumi:"awsVpcEksId"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneAIds pulumi.StringArrayInput `pulumi:"documentdbSubnetsZoneAIds"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneBIds pulumi.StringArrayInput `pulumi:"documentdbSubnetsZoneBIds"`
+	// Ids of the subnets for document db
+	DocumentdbSubnetsZoneCIds pulumi.StringArrayInput `pulumi:"documentdbSubnetsZoneCIds"`
+	// Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneAIds pulumi.StringArrayInput `pulumi:"eksSubnetsZoneAIds"`
+	// Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneBIds pulumi.StringArrayInput `pulumi:"eksSubnetsZoneBIds"`
+	// Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+	EksSubnetsZoneCIds pulumi.StringArrayInput `pulumi:"eksSubnetsZoneCIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneAIds pulumi.StringArrayInput `pulumi:"elasticacheSubnetsZoneAIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneBIds pulumi.StringArrayInput `pulumi:"elasticacheSubnetsZoneBIds"`
+	// Ids of the subnets for elasticache
+	ElasticacheSubnetsZoneCIds pulumi.StringArrayInput `pulumi:"elasticacheSubnetsZoneCIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneAIds pulumi.StringArrayInput `pulumi:"rdsSubnetsZoneAIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneBIds pulumi.StringArrayInput `pulumi:"rdsSubnetsZoneBIds"`
+	// Ids of the subnets for RDS
+	RdsSubnetsZoneCIds pulumi.StringArrayInput `pulumi:"rdsSubnetsZoneCIds"`
+}
+
+func (ClusterFeaturesExistingVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFeaturesExistingVpc)(nil)).Elem()
+}
+
+func (i ClusterFeaturesExistingVpcArgs) ToClusterFeaturesExistingVpcOutput() ClusterFeaturesExistingVpcOutput {
+	return i.ToClusterFeaturesExistingVpcOutputWithContext(context.Background())
+}
+
+func (i ClusterFeaturesExistingVpcArgs) ToClusterFeaturesExistingVpcOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesExistingVpcOutput)
+}
+
+func (i ClusterFeaturesExistingVpcArgs) ToClusterFeaturesExistingVpcPtrOutput() ClusterFeaturesExistingVpcPtrOutput {
+	return i.ToClusterFeaturesExistingVpcPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterFeaturesExistingVpcArgs) ToClusterFeaturesExistingVpcPtrOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesExistingVpcOutput).ToClusterFeaturesExistingVpcPtrOutputWithContext(ctx)
+}
+
+// ClusterFeaturesExistingVpcPtrInput is an input type that accepts ClusterFeaturesExistingVpcArgs, ClusterFeaturesExistingVpcPtr and ClusterFeaturesExistingVpcPtrOutput values.
+// You can construct a concrete instance of `ClusterFeaturesExistingVpcPtrInput` via:
+//
+//	        ClusterFeaturesExistingVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterFeaturesExistingVpcPtrInput interface {
+	pulumi.Input
+
+	ToClusterFeaturesExistingVpcPtrOutput() ClusterFeaturesExistingVpcPtrOutput
+	ToClusterFeaturesExistingVpcPtrOutputWithContext(context.Context) ClusterFeaturesExistingVpcPtrOutput
+}
+
+type clusterFeaturesExistingVpcPtrType ClusterFeaturesExistingVpcArgs
+
+func ClusterFeaturesExistingVpcPtr(v *ClusterFeaturesExistingVpcArgs) ClusterFeaturesExistingVpcPtrInput {
+	return (*clusterFeaturesExistingVpcPtrType)(v)
+}
+
+func (*clusterFeaturesExistingVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFeaturesExistingVpc)(nil)).Elem()
+}
+
+func (i *clusterFeaturesExistingVpcPtrType) ToClusterFeaturesExistingVpcPtrOutput() ClusterFeaturesExistingVpcPtrOutput {
+	return i.ToClusterFeaturesExistingVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterFeaturesExistingVpcPtrType) ToClusterFeaturesExistingVpcPtrOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesExistingVpcPtrOutput)
+}
+
+type ClusterFeaturesExistingVpcOutput struct{ *pulumi.OutputState }
+
+func (ClusterFeaturesExistingVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFeaturesExistingVpc)(nil)).Elem()
+}
+
+func (o ClusterFeaturesExistingVpcOutput) ToClusterFeaturesExistingVpcOutput() ClusterFeaturesExistingVpcOutput {
+	return o
+}
+
+func (o ClusterFeaturesExistingVpcOutput) ToClusterFeaturesExistingVpcOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcOutput {
+	return o
+}
+
+func (o ClusterFeaturesExistingVpcOutput) ToClusterFeaturesExistingVpcPtrOutput() ClusterFeaturesExistingVpcPtrOutput {
+	return o.ToClusterFeaturesExistingVpcPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterFeaturesExistingVpcOutput) ToClusterFeaturesExistingVpcPtrOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterFeaturesExistingVpc) *ClusterFeaturesExistingVpc {
+		return &v
+	}).(ClusterFeaturesExistingVpcPtrOutput)
+}
+
+// Aws VPC id
+func (o ClusterFeaturesExistingVpcOutput) AwsVpcEksId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) string { return v.AwsVpcEksId }).(pulumi.StringOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcOutput) DocumentdbSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.DocumentdbSubnetsZoneAIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcOutput) DocumentdbSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.DocumentdbSubnetsZoneBIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcOutput) DocumentdbSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.DocumentdbSubnetsZoneCIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcOutput) EksSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.EksSubnetsZoneAIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcOutput) EksSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.EksSubnetsZoneBIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcOutput) EksSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.EksSubnetsZoneCIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcOutput) ElasticacheSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.ElasticacheSubnetsZoneAIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcOutput) ElasticacheSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.ElasticacheSubnetsZoneBIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcOutput) ElasticacheSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.ElasticacheSubnetsZoneCIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcOutput) RdsSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.RdsSubnetsZoneAIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcOutput) RdsSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.RdsSubnetsZoneBIds }).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcOutput) RdsSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterFeaturesExistingVpc) []string { return v.RdsSubnetsZoneCIds }).(pulumi.StringArrayOutput)
+}
+
+type ClusterFeaturesExistingVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterFeaturesExistingVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFeaturesExistingVpc)(nil)).Elem()
+}
+
+func (o ClusterFeaturesExistingVpcPtrOutput) ToClusterFeaturesExistingVpcPtrOutput() ClusterFeaturesExistingVpcPtrOutput {
+	return o
+}
+
+func (o ClusterFeaturesExistingVpcPtrOutput) ToClusterFeaturesExistingVpcPtrOutputWithContext(ctx context.Context) ClusterFeaturesExistingVpcPtrOutput {
+	return o
+}
+
+func (o ClusterFeaturesExistingVpcPtrOutput) Elem() ClusterFeaturesExistingVpcOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) ClusterFeaturesExistingVpc {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterFeaturesExistingVpc
+		return ret
+	}).(ClusterFeaturesExistingVpcOutput)
+}
+
+// Aws VPC id
+func (o ClusterFeaturesExistingVpcPtrOutput) AwsVpcEksId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsVpcEksId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcPtrOutput) DocumentdbSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentdbSubnetsZoneAIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcPtrOutput) DocumentdbSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentdbSubnetsZoneBIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for document db
+func (o ClusterFeaturesExistingVpcPtrOutput) DocumentdbSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentdbSubnetsZoneCIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcPtrOutput) EksSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EksSubnetsZoneAIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcPtrOutput) EksSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EksSubnetsZoneBIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+func (o ClusterFeaturesExistingVpcPtrOutput) EksSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EksSubnetsZoneCIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcPtrOutput) ElasticacheSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticacheSubnetsZoneAIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcPtrOutput) ElasticacheSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticacheSubnetsZoneBIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for elasticache
+func (o ClusterFeaturesExistingVpcPtrOutput) ElasticacheSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticacheSubnetsZoneCIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcPtrOutput) RdsSubnetsZoneAIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsSubnetsZoneAIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcPtrOutput) RdsSubnetsZoneBIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsSubnetsZoneBIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Ids of the subnets for RDS
+func (o ClusterFeaturesExistingVpcPtrOutput) RdsSubnetsZoneCIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterFeaturesExistingVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsSubnetsZoneCIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type ClusterRoutingTable struct {
@@ -29922,6 +30306,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStorageArrayInput)(nil)).Elem(), ApplicationStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesInput)(nil)).Elem(), ClusterFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesPtrInput)(nil)).Elem(), ClusterFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesExistingVpcInput)(nil)).Elem(), ClusterFeaturesExistingVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesExistingVpcPtrInput)(nil)).Elem(), ClusterFeaturesExistingVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoutingTableInput)(nil)).Elem(), ClusterRoutingTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoutingTableArrayInput)(nil)).Elem(), ClusterRoutingTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerBuiltInEnvironmentVariableInput)(nil)).Elem(), ContainerBuiltInEnvironmentVariableArgs{})
@@ -30327,6 +30713,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationStorageArrayOutput{})
 	pulumi.RegisterOutputType(ClusterFeaturesOutput{})
 	pulumi.RegisterOutputType(ClusterFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterFeaturesExistingVpcOutput{})
+	pulumi.RegisterOutputType(ClusterFeaturesExistingVpcPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRoutingTableOutput{})
 	pulumi.RegisterOutputType(ClusterRoutingTableArrayOutput{})
 	pulumi.RegisterOutputType(ContainerBuiltInEnvironmentVariableOutput{})
