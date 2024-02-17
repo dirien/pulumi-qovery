@@ -15,6 +15,10 @@ namespace ediri.Qovery.Outputs
     public sealed class ClusterFeatures
     {
         /// <summary>
+        /// Network configuration if you want to install qovery on an existing VPC
+        /// </summary>
+        public readonly Outputs.ClusterFeaturesExistingVpc? ExistingVpc;
+        /// <summary>
         /// Static IP (AWS only) [NOTE: can't be updated after creation].
         /// 	- Default: `false`.
         /// </summary>
@@ -27,10 +31,13 @@ namespace ediri.Qovery.Outputs
 
         [OutputConstructor]
         private ClusterFeatures(
+            Outputs.ClusterFeaturesExistingVpc? existingVpc,
+
             bool? staticIp,
 
             string? vpcSubnet)
         {
+            ExistingVpc = existingVpc;
             StaticIp = staticIp;
             VpcSubnet = vpcSubnet;
         }

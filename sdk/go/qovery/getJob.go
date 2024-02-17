@@ -55,6 +55,7 @@ type LookupJobArgs struct {
 	AutoDeploy                   *bool                               `pulumi:"autoDeploy"`
 	AutoPreview                  *bool                               `pulumi:"autoPreview"`
 	Cpu                          *int                                `pulumi:"cpu"`
+	DeploymentRestrictions       []GetJobDeploymentRestriction       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            *string                             `pulumi:"deploymentStageId"`
 	EnvironmentVariableAliases   []GetJobEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides []GetJobEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
@@ -78,6 +79,7 @@ type LookupJobResult struct {
 	AutoPreview                  bool                                `pulumi:"autoPreview"`
 	BuiltInEnvironmentVariables  []GetJobBuiltInEnvironmentVariable  `pulumi:"builtInEnvironmentVariables"`
 	Cpu                          *int                                `pulumi:"cpu"`
+	DeploymentRestrictions       []GetJobDeploymentRestriction       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            string                              `pulumi:"deploymentStageId"`
 	EnvironmentId                string                              `pulumi:"environmentId"`
 	EnvironmentVariableAliases   []GetJobEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
@@ -118,6 +120,7 @@ type LookupJobOutputArgs struct {
 	AutoDeploy                   pulumi.BoolPtrInput                         `pulumi:"autoDeploy"`
 	AutoPreview                  pulumi.BoolPtrInput                         `pulumi:"autoPreview"`
 	Cpu                          pulumi.IntPtrInput                          `pulumi:"cpu"`
+	DeploymentRestrictions       GetJobDeploymentRestrictionArrayInput       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            pulumi.StringPtrInput                       `pulumi:"deploymentStageId"`
 	EnvironmentVariableAliases   GetJobEnvironmentVariableAliasArrayInput    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides GetJobEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
@@ -171,6 +174,10 @@ func (o LookupJobResultOutput) BuiltInEnvironmentVariables() GetJobBuiltInEnviro
 
 func (o LookupJobResultOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupJobResultOutput) DeploymentRestrictions() GetJobDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []GetJobDeploymentRestriction { return v.DeploymentRestrictions }).(GetJobDeploymentRestrictionArrayOutput)
 }
 
 func (o LookupJobResultOutput) DeploymentStageId() pulumi.StringOutput {

@@ -12,6 +12,7 @@ from . import _utilities
 __all__ = [
     'ApplicationBuiltInEnvironmentVariableArgs',
     'ApplicationCustomDomainArgs',
+    'ApplicationDeploymentRestrictionArgs',
     'ApplicationEnvironmentVariableArgs',
     'ApplicationEnvironmentVariableAliasArgs',
     'ApplicationEnvironmentVariableOverrideArgs',
@@ -35,6 +36,7 @@ __all__ = [
     'ApplicationSecretOverrideArgs',
     'ApplicationStorageArgs',
     'ClusterFeaturesArgs',
+    'ClusterFeaturesExistingVpcArgs',
     'ClusterRoutingTableArgs',
     'ContainerBuiltInEnvironmentVariableArgs',
     'ContainerCustomDomainArgs',
@@ -68,6 +70,7 @@ __all__ = [
     'EnvironmentSecretAliasArgs',
     'EnvironmentSecretOverrideArgs',
     'HelmBuiltInEnvironmentVariableArgs',
+    'HelmDeploymentRestrictionArgs',
     'HelmEnvironmentVariableArgs',
     'HelmEnvironmentVariableAliasArgs',
     'HelmEnvironmentVariableOverrideArgs',
@@ -84,6 +87,7 @@ __all__ = [
     'HelmValuesOverrideFileGitRepositoryArgs',
     'HelmValuesOverrideFileRawArgs',
     'JobBuiltInEnvironmentVariableArgs',
+    'JobDeploymentRestrictionArgs',
     'JobEnvironmentVariableArgs',
     'JobEnvironmentVariableAliasArgs',
     'JobEnvironmentVariableOverrideArgs',
@@ -119,6 +123,7 @@ __all__ = [
     'ProjectSecretArgs',
     'ProjectSecretAliasArgs',
     'GetApplicationCustomDomainArgs',
+    'GetApplicationDeploymentRestrictionArgs',
     'GetApplicationEnvironmentVariableArgs',
     'GetApplicationEnvironmentVariableAliasArgs',
     'GetApplicationEnvironmentVariableOverrideArgs',
@@ -169,12 +174,14 @@ __all__ = [
     'GetEnvironmentSecretArgs',
     'GetEnvironmentSecretAliasArgs',
     'GetEnvironmentSecretOverrideArgs',
+    'GetHelmDeploymentRestrictionArgs',
     'GetHelmEnvironmentVariableArgs',
     'GetHelmEnvironmentVariableAliasArgs',
     'GetHelmEnvironmentVariableOverrideArgs',
     'GetHelmSecretArgs',
     'GetHelmSecretAliasArgs',
     'GetHelmSecretOverrideArgs',
+    'GetJobDeploymentRestrictionArgs',
     'GetJobEnvironmentVariableArgs',
     'GetJobEnvironmentVariableAliasArgs',
     'GetJobEnvironmentVariableOverrideArgs',
@@ -327,6 +334,74 @@ class ApplicationCustomDomainArgs:
     @validation_domain.setter
     def validation_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validation_domain", value)
+
+
+@pulumi.input_type
+class ApplicationDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -1599,18 +1674,34 @@ class ApplicationStorageArgs:
 @pulumi.input_type
 class ClusterFeaturesArgs:
     def __init__(__self__, *,
+                 existing_vpc: Optional[pulumi.Input['ClusterFeaturesExistingVpcArgs']] = None,
                  static_ip: Optional[pulumi.Input[bool]] = None,
                  vpc_subnet: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['ClusterFeaturesExistingVpcArgs'] existing_vpc: Network configuration if you want to install qovery on an existing VPC
         :param pulumi.Input[bool] static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
                	- Default: `false`.
         :param pulumi.Input[str] vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
                	- Default: `10.0.0.0/16`.
         """
+        if existing_vpc is not None:
+            pulumi.set(__self__, "existing_vpc", existing_vpc)
         if static_ip is not None:
             pulumi.set(__self__, "static_ip", static_ip)
         if vpc_subnet is not None:
             pulumi.set(__self__, "vpc_subnet", vpc_subnet)
+
+    @property
+    @pulumi.getter(name="existingVpc")
+    def existing_vpc(self) -> Optional[pulumi.Input['ClusterFeaturesExistingVpcArgs']]:
+        """
+        Network configuration if you want to install qovery on an existing VPC
+        """
+        return pulumi.get(self, "existing_vpc")
+
+    @existing_vpc.setter
+    def existing_vpc(self, value: Optional[pulumi.Input['ClusterFeaturesExistingVpcArgs']]):
+        pulumi.set(self, "existing_vpc", value)
 
     @property
     @pulumi.getter(name="staticIp")
@@ -1637,6 +1728,217 @@ class ClusterFeaturesArgs:
     @vpc_subnet.setter
     def vpc_subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_subnet", value)
+
+
+@pulumi.input_type
+class ClusterFeaturesExistingVpcArgs:
+    def __init__(__self__, *,
+                 aws_vpc_eks_id: pulumi.Input[str],
+                 eks_subnets_zone_a_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 eks_subnets_zone_b_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 eks_subnets_zone_c_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 documentdb_subnets_zone_a_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 documentdb_subnets_zone_b_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 documentdb_subnets_zone_c_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 elasticache_subnets_zone_a_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 elasticache_subnets_zone_b_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 elasticache_subnets_zone_c_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rds_subnets_zone_a_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rds_subnets_zone_b_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rds_subnets_zone_c_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aws_vpc_eks_id: Aws VPC id
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eks_subnets_zone_a_ids: Ids of the subnets for EKS zone a. Must have map_public_ip_on_launch set to true
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eks_subnets_zone_b_ids: Ids of the subnets for EKS zone b. Must have map_public_ip_on_launch set to true
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eks_subnets_zone_c_ids: Ids of the subnets for EKS zone c. Must have map_public_ip_on_launch set to true
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] documentdb_subnets_zone_a_ids: Ids of the subnets for document db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] documentdb_subnets_zone_b_ids: Ids of the subnets for document db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] documentdb_subnets_zone_c_ids: Ids of the subnets for document db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] elasticache_subnets_zone_a_ids: Ids of the subnets for elasticache
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] elasticache_subnets_zone_b_ids: Ids of the subnets for elasticache
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] elasticache_subnets_zone_c_ids: Ids of the subnets for elasticache
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rds_subnets_zone_a_ids: Ids of the subnets for RDS
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rds_subnets_zone_b_ids: Ids of the subnets for RDS
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rds_subnets_zone_c_ids: Ids of the subnets for RDS
+        """
+        pulumi.set(__self__, "aws_vpc_eks_id", aws_vpc_eks_id)
+        pulumi.set(__self__, "eks_subnets_zone_a_ids", eks_subnets_zone_a_ids)
+        pulumi.set(__self__, "eks_subnets_zone_b_ids", eks_subnets_zone_b_ids)
+        pulumi.set(__self__, "eks_subnets_zone_c_ids", eks_subnets_zone_c_ids)
+        if documentdb_subnets_zone_a_ids is not None:
+            pulumi.set(__self__, "documentdb_subnets_zone_a_ids", documentdb_subnets_zone_a_ids)
+        if documentdb_subnets_zone_b_ids is not None:
+            pulumi.set(__self__, "documentdb_subnets_zone_b_ids", documentdb_subnets_zone_b_ids)
+        if documentdb_subnets_zone_c_ids is not None:
+            pulumi.set(__self__, "documentdb_subnets_zone_c_ids", documentdb_subnets_zone_c_ids)
+        if elasticache_subnets_zone_a_ids is not None:
+            pulumi.set(__self__, "elasticache_subnets_zone_a_ids", elasticache_subnets_zone_a_ids)
+        if elasticache_subnets_zone_b_ids is not None:
+            pulumi.set(__self__, "elasticache_subnets_zone_b_ids", elasticache_subnets_zone_b_ids)
+        if elasticache_subnets_zone_c_ids is not None:
+            pulumi.set(__self__, "elasticache_subnets_zone_c_ids", elasticache_subnets_zone_c_ids)
+        if rds_subnets_zone_a_ids is not None:
+            pulumi.set(__self__, "rds_subnets_zone_a_ids", rds_subnets_zone_a_ids)
+        if rds_subnets_zone_b_ids is not None:
+            pulumi.set(__self__, "rds_subnets_zone_b_ids", rds_subnets_zone_b_ids)
+        if rds_subnets_zone_c_ids is not None:
+            pulumi.set(__self__, "rds_subnets_zone_c_ids", rds_subnets_zone_c_ids)
+
+    @property
+    @pulumi.getter(name="awsVpcEksId")
+    def aws_vpc_eks_id(self) -> pulumi.Input[str]:
+        """
+        Aws VPC id
+        """
+        return pulumi.get(self, "aws_vpc_eks_id")
+
+    @aws_vpc_eks_id.setter
+    def aws_vpc_eks_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_vpc_eks_id", value)
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneAIds")
+    def eks_subnets_zone_a_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Ids of the subnets for EKS zone a. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_a_ids")
+
+    @eks_subnets_zone_a_ids.setter
+    def eks_subnets_zone_a_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "eks_subnets_zone_a_ids", value)
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneBIds")
+    def eks_subnets_zone_b_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Ids of the subnets for EKS zone b. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_b_ids")
+
+    @eks_subnets_zone_b_ids.setter
+    def eks_subnets_zone_b_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "eks_subnets_zone_b_ids", value)
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneCIds")
+    def eks_subnets_zone_c_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Ids of the subnets for EKS zone c. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_c_ids")
+
+    @eks_subnets_zone_c_ids.setter
+    def eks_subnets_zone_c_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "eks_subnets_zone_c_ids", value)
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneAIds")
+    def documentdb_subnets_zone_a_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_a_ids")
+
+    @documentdb_subnets_zone_a_ids.setter
+    def documentdb_subnets_zone_a_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "documentdb_subnets_zone_a_ids", value)
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneBIds")
+    def documentdb_subnets_zone_b_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_b_ids")
+
+    @documentdb_subnets_zone_b_ids.setter
+    def documentdb_subnets_zone_b_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "documentdb_subnets_zone_b_ids", value)
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneCIds")
+    def documentdb_subnets_zone_c_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_c_ids")
+
+    @documentdb_subnets_zone_c_ids.setter
+    def documentdb_subnets_zone_c_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "documentdb_subnets_zone_c_ids", value)
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneAIds")
+    def elasticache_subnets_zone_a_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_a_ids")
+
+    @elasticache_subnets_zone_a_ids.setter
+    def elasticache_subnets_zone_a_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "elasticache_subnets_zone_a_ids", value)
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneBIds")
+    def elasticache_subnets_zone_b_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_b_ids")
+
+    @elasticache_subnets_zone_b_ids.setter
+    def elasticache_subnets_zone_b_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "elasticache_subnets_zone_b_ids", value)
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneCIds")
+    def elasticache_subnets_zone_c_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_c_ids")
+
+    @elasticache_subnets_zone_c_ids.setter
+    def elasticache_subnets_zone_c_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "elasticache_subnets_zone_c_ids", value)
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneAIds")
+    def rds_subnets_zone_a_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_a_ids")
+
+    @rds_subnets_zone_a_ids.setter
+    def rds_subnets_zone_a_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "rds_subnets_zone_a_ids", value)
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneBIds")
+    def rds_subnets_zone_b_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_b_ids")
+
+    @rds_subnets_zone_b_ids.setter
+    def rds_subnets_zone_b_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "rds_subnets_zone_b_ids", value)
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneCIds")
+    def rds_subnets_zone_c_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_c_ids")
+
+    @rds_subnets_zone_c_ids.setter
+    def rds_subnets_zone_c_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "rds_subnets_zone_c_ids", value)
 
 
 @pulumi.input_type
@@ -3557,6 +3859,74 @@ class HelmBuiltInEnvironmentVariableArgs:
 
 
 @pulumi.input_type
+class HelmDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class HelmEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4493,6 +4863,74 @@ class JobBuiltInEnvironmentVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class JobDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -6284,6 +6722,73 @@ class GetApplicationCustomDomainArgs:
     @validation_domain.setter
     def validation_domain(self, value: str):
         pulumi.set(self, "validation_domain", value)
+
+
+@pulumi.input_type
+class GetApplicationDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -9001,6 +9506,73 @@ class GetEnvironmentSecretOverrideArgs:
 
 
 @pulumi.input_type
+class GetHelmDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class GetHelmEnvironmentVariableArgs:
     def __init__(__self__, *,
                  id: str,
@@ -9304,6 +9876,73 @@ class GetHelmSecretOverrideArgs:
     def value(self) -> str:
         """
         Value of the secret override.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetJobDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
         """
         return pulumi.get(self, "value")
 

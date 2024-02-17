@@ -55,6 +55,12 @@ namespace ediri.Qovery
         public Output<int> Cpu { get; private set; } = null!;
 
         /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        [Output("deploymentRestrictions")]
+        public Output<ImmutableArray<Outputs.JobDeploymentRestriction>> DeploymentRestrictions { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the deployment stage.
         /// </summary>
         [Output("deploymentStageId")]
@@ -233,6 +239,18 @@ namespace ediri.Qovery
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.JobDeploymentRestrictionArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.JobDeploymentRestrictionArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.JobDeploymentRestrictionArgs>());
+            set => _deploymentRestrictions = value;
+        }
+
         /// <summary>
         /// Id of the deployment stage.
         /// </summary>
@@ -408,6 +426,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
+
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.JobDeploymentRestrictionGetArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.JobDeploymentRestrictionGetArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.JobDeploymentRestrictionGetArgs>());
+            set => _deploymentRestrictions = value;
+        }
 
         /// <summary>
         /// Id of the deployment stage.

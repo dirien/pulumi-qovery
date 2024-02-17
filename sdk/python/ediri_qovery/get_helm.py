@@ -23,13 +23,16 @@ class GetHelmResult:
     """
     A collection of values returned by getHelm.
     """
-    def __init__(__self__, advanced_settings_json=None, built_in_environment_variables=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, id=None, internal_host=None, name=None, secret_aliases=None, secret_overrides=None, secrets=None):
+    def __init__(__self__, advanced_settings_json=None, built_in_environment_variables=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, id=None, internal_host=None, name=None, secret_aliases=None, secret_overrides=None, secrets=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
         if built_in_environment_variables and not isinstance(built_in_environment_variables, list):
             raise TypeError("Expected argument 'built_in_environment_variables' to be a list")
         pulumi.set(__self__, "built_in_environment_variables", built_in_environment_variables)
+        if deployment_restrictions and not isinstance(deployment_restrictions, list):
+            raise TypeError("Expected argument 'deployment_restrictions' to be a list")
+        pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id and not isinstance(deployment_stage_id, str):
             raise TypeError("Expected argument 'deployment_stage_id' to be a str")
         pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
@@ -70,71 +73,121 @@ class GetHelmResult:
     @property
     @pulumi.getter(name="advancedSettingsJson")
     def advanced_settings_json(self) -> str:
+        """
+        Advanced settings.
+        """
         return pulumi.get(self, "advanced_settings_json")
 
     @property
     @pulumi.getter(name="builtInEnvironmentVariables")
     def built_in_environment_variables(self) -> Sequence['outputs.GetHelmBuiltInEnvironmentVariableResult']:
+        """
+        List of built-in environment variables linked to this helm.
+        """
         return pulumi.get(self, "built_in_environment_variables")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[Sequence['outputs.GetHelmDeploymentRestrictionResult']]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")
     def deployment_stage_id(self) -> str:
+        """
+        Id of the deployment stage.
+        """
         return pulumi.get(self, "deployment_stage_id")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> str:
+        """
+        Id of the environment.
+        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter(name="environmentVariableAliases")
     def environment_variable_aliases(self) -> Sequence['outputs.GetHelmEnvironmentVariableAliasResult']:
+        """
+        List of environment variable aliases linked to this helm.
+        """
         return pulumi.get(self, "environment_variable_aliases")
 
     @property
     @pulumi.getter(name="environmentVariableOverrides")
     def environment_variable_overrides(self) -> Optional[Sequence['outputs.GetHelmEnvironmentVariableOverrideResult']]:
+        """
+        List of environment variable overrides linked to this helm.
+        """
         return pulumi.get(self, "environment_variable_overrides")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.GetHelmEnvironmentVariableResult']]:
+        """
+        List of environment variables linked to this helm.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="externalHost")
     def external_host(self) -> str:
+        """
+        The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
+        """
         return pulumi.get(self, "external_host")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Id of the helm.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> str:
+        """
+        The helm internal host.
+        """
         return pulumi.get(self, "internal_host")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the helm.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretAliases")
     def secret_aliases(self) -> Optional[Sequence['outputs.GetHelmSecretAliasResult']]:
+        """
+        List of secret aliases linked to this helm.
+        """
         return pulumi.get(self, "secret_aliases")
 
     @property
     @pulumi.getter(name="secretOverrides")
     def secret_overrides(self) -> Optional[Sequence['outputs.GetHelmSecretOverrideResult']]:
+        """
+        List of secret overrides linked to this helm.
+        """
         return pulumi.get(self, "secret_overrides")
 
     @property
     @pulumi.getter
     def secrets(self) -> Optional[Sequence['outputs.GetHelmSecretResult']]:
+        """
+        List of secrets linked to this helm.
+        """
         return pulumi.get(self, "secrets")
 
 
@@ -146,6 +199,7 @@ class AwaitableGetHelmResult(GetHelmResult):
         return GetHelmResult(
             advanced_settings_json=self.advanced_settings_json,
             built_in_environment_variables=self.built_in_environment_variables,
+            deployment_restrictions=self.deployment_restrictions,
             deployment_stage_id=self.deployment_stage_id,
             environment_id=self.environment_id,
             environment_variable_aliases=self.environment_variable_aliases,
@@ -161,6 +215,7 @@ class AwaitableGetHelmResult(GetHelmResult):
 
 
 def get_helm(advanced_settings_json: Optional[str] = None,
+             deployment_restrictions: Optional[Sequence[pulumi.InputType['GetHelmDeploymentRestrictionArgs']]] = None,
              deployment_stage_id: Optional[str] = None,
              environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']]] = None,
              environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']]] = None,
@@ -174,9 +229,30 @@ def get_helm(advanced_settings_json: Optional[str] = None,
     ## # Helm (Data Source)
 
     Provides a Qovery helm resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_helm = qovery.get_helm(id="<helm_id>")
+    ```
+
+
+    :param str advanced_settings_json: Advanced settings.
+    :param Sequence[pulumi.InputType['GetHelmDeploymentRestrictionArgs']] deployment_restrictions: List of deployment restrictions
+    :param str deployment_stage_id: Id of the deployment stage.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']] environment_variable_overrides: List of environment variable overrides linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this helm.
+    :param str id: Id of the environment variable.
+    :param Sequence[pulumi.InputType['GetHelmSecretAliasArgs']] secret_aliases: List of secret aliases linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']] secret_overrides: List of secret overrides linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmSecretArgs']] secrets: List of secrets linked to this helm.
     """
     __args__ = dict()
     __args__['advancedSettingsJson'] = advanced_settings_json
+    __args__['deploymentRestrictions'] = deployment_restrictions
     __args__['deploymentStageId'] = deployment_stage_id
     __args__['environmentVariableAliases'] = environment_variable_aliases
     __args__['environmentVariableOverrides'] = environment_variable_overrides
@@ -191,6 +267,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
     return AwaitableGetHelmResult(
         advanced_settings_json=pulumi.get(__ret__, 'advanced_settings_json'),
         built_in_environment_variables=pulumi.get(__ret__, 'built_in_environment_variables'),
+        deployment_restrictions=pulumi.get(__ret__, 'deployment_restrictions'),
         deployment_stage_id=pulumi.get(__ret__, 'deployment_stage_id'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         environment_variable_aliases=pulumi.get(__ret__, 'environment_variable_aliases'),
@@ -207,6 +284,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
 
 @_utilities.lift_output_func(get_helm)
 def get_helm_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
+                    deployment_restrictions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmDeploymentRestrictionArgs']]]]] = None,
                     deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
                     environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']]]]] = None,
                     environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']]]]] = None,
@@ -220,5 +298,25 @@ def get_helm_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]
     ## # Helm (Data Source)
 
     Provides a Qovery helm resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_helm = qovery.get_helm(id="<helm_id>")
+    ```
+
+
+    :param str advanced_settings_json: Advanced settings.
+    :param Sequence[pulumi.InputType['GetHelmDeploymentRestrictionArgs']] deployment_restrictions: List of deployment restrictions
+    :param str deployment_stage_id: Id of the deployment stage.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']] environment_variable_overrides: List of environment variable overrides linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this helm.
+    :param str id: Id of the environment variable.
+    :param Sequence[pulumi.InputType['GetHelmSecretAliasArgs']] secret_aliases: List of secret aliases linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']] secret_overrides: List of secret overrides linked to this helm.
+    :param Sequence[pulumi.InputType['GetHelmSecretArgs']] secrets: List of secrets linked to this helm.
     """
     ...

@@ -29,6 +29,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
         "autoDeploy": args.autoDeploy,
         "autoPreview": args.autoPreview,
         "cpu": args.cpu,
+        "deploymentRestrictions": args.deploymentRestrictions,
         "deploymentStageId": args.deploymentStageId,
         "environmentVariableAliases": args.environmentVariableAliases,
         "environmentVariableOverrides": args.environmentVariableOverrides,
@@ -54,6 +55,7 @@ export interface GetJobArgs {
     autoDeploy?: boolean;
     autoPreview?: boolean;
     cpu?: number;
+    deploymentRestrictions?: inputs.GetJobDeploymentRestriction[];
     deploymentStageId?: string;
     environmentVariableAliases?: inputs.GetJobEnvironmentVariableAlias[];
     environmentVariableOverrides?: inputs.GetJobEnvironmentVariableOverride[];
@@ -79,6 +81,7 @@ export interface GetJobResult {
     readonly autoPreview: boolean;
     readonly builtInEnvironmentVariables: outputs.GetJobBuiltInEnvironmentVariable[];
     readonly cpu?: number;
+    readonly deploymentRestrictions?: outputs.GetJobDeploymentRestriction[];
     readonly deploymentStageId: string;
     readonly environmentId: string;
     readonly environmentVariableAliases: outputs.GetJobEnvironmentVariableAlias[];
@@ -126,6 +129,7 @@ export interface GetJobOutputArgs {
     autoDeploy?: pulumi.Input<boolean>;
     autoPreview?: pulumi.Input<boolean>;
     cpu?: pulumi.Input<number>;
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.GetJobDeploymentRestrictionArgs>[]>;
     deploymentStageId?: pulumi.Input<string>;
     environmentVariableAliases?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableAliasArgs>[]>;
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableOverrideArgs>[]>;

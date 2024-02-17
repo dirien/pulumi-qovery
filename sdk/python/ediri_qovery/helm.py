@@ -24,6 +24,7 @@ class HelmArgs:
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]]] = None,
@@ -44,6 +45,7 @@ class HelmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
         :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
+        :param pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this helm.
@@ -67,6 +69,8 @@ class HelmArgs:
             pulumi.set(__self__, "auto_deploy", auto_deploy)
         if auto_preview is not None:
             pulumi.set(__self__, "auto_preview", auto_preview)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if environment_variable_aliases is not None:
@@ -183,6 +187,18 @@ class HelmArgs:
     @auto_preview.setter
     def auto_preview(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_preview", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -314,6 +330,7 @@ class _HelmState:
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]]] = None,
@@ -337,6 +354,7 @@ class _HelmState:
         :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]] built_in_environment_variables: List of built-in environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this helm.
@@ -365,6 +383,8 @@ class _HelmState:
             pulumi.set(__self__, "auto_preview", auto_preview)
         if built_in_environment_variables is not None:
             pulumi.set(__self__, "built_in_environment_variables", built_in_environment_variables)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if environment_id is not None:
@@ -467,6 +487,18 @@ class _HelmState:
     @built_in_environment_variables.setter
     def built_in_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]]]):
         pulumi.set(self, "built_in_environment_variables", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -659,6 +691,7 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
@@ -691,6 +724,7 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
         :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
@@ -742,6 +776,7 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
@@ -771,6 +806,7 @@ class Helm(pulumi.CustomResource):
             __props__.__dict__["arguments"] = arguments
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["auto_preview"] = auto_preview
+            __props__.__dict__["deployment_restrictions"] = deployment_restrictions
             __props__.__dict__["deployment_stage_id"] = deployment_stage_id
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
@@ -809,6 +845,7 @@ class Helm(pulumi.CustomResource):
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
             built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
@@ -837,6 +874,7 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
@@ -863,6 +901,7 @@ class Helm(pulumi.CustomResource):
         __props__.__dict__["auto_deploy"] = auto_deploy
         __props__.__dict__["auto_preview"] = auto_preview
         __props__.__dict__["built_in_environment_variables"] = built_in_environment_variables
+        __props__.__dict__["deployment_restrictions"] = deployment_restrictions
         __props__.__dict__["deployment_stage_id"] = deployment_stage_id
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["environment_variable_aliases"] = environment_variable_aliases
@@ -927,6 +966,14 @@ class Helm(pulumi.CustomResource):
         List of built-in environment variables linked to this helm.
         """
         return pulumi.get(self, "built_in_environment_variables")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> pulumi.Output[Optional[Sequence['outputs.HelmDeploymentRestriction']]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")

@@ -38,6 +38,8 @@ type Helm struct {
 	AutoPreview pulumi.BoolOutput `pulumi:"autoPreview"`
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables HelmBuiltInEnvironmentVariableArrayOutput `pulumi:"builtInEnvironmentVariables"`
+	// List of deployment restrictions
+	DeploymentRestrictions HelmDeploymentRestrictionArrayOutput `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringOutput `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -124,6 +126,8 @@ type helmState struct {
 	AutoPreview *bool `pulumi:"autoPreview"`
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables []HelmBuiltInEnvironmentVariable `pulumi:"builtInEnvironmentVariables"`
+	// List of deployment restrictions
+	DeploymentRestrictions []HelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -169,6 +173,8 @@ type HelmState struct {
 	AutoPreview pulumi.BoolPtrInput
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables HelmBuiltInEnvironmentVariableArrayInput
+	// List of deployment restrictions
+	DeploymentRestrictions HelmDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Id of the environment.
@@ -216,6 +222,8 @@ type helmArgs struct {
 	AutoDeploy *bool `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview *bool `pulumi:"autoPreview"`
+	// List of deployment restrictions
+	DeploymentRestrictions []HelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -256,6 +264,8 @@ type HelmArgs struct {
 	AutoDeploy pulumi.BoolPtrInput
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview pulumi.BoolPtrInput
+	// List of deployment restrictions
+	DeploymentRestrictions HelmDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Id of the environment.
@@ -399,6 +409,11 @@ func (o HelmOutput) AutoPreview() pulumi.BoolOutput {
 // List of built-in environment variables linked to this helm.
 func (o HelmOutput) BuiltInEnvironmentVariables() HelmBuiltInEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *Helm) HelmBuiltInEnvironmentVariableArrayOutput { return v.BuiltInEnvironmentVariables }).(HelmBuiltInEnvironmentVariableArrayOutput)
+}
+
+// List of deployment restrictions
+func (o HelmOutput) DeploymentRestrictions() HelmDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v *Helm) HelmDeploymentRestrictionArrayOutput { return v.DeploymentRestrictions }).(HelmDeploymentRestrictionArrayOutput)
 }
 
 // Id of the deployment stage.

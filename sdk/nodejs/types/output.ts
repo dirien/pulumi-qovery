@@ -39,6 +39,25 @@ export interface ApplicationCustomDomain {
     validationDomain: string;
 }
 
+export interface ApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface ApplicationEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -400,6 +419,10 @@ export interface ApplicationStorage {
 
 export interface ClusterFeatures {
     /**
+     * Network configuration if you want to install qovery on an existing VPC
+     */
+    existingVpc?: outputs.ClusterFeaturesExistingVpc;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -409,6 +432,61 @@ export interface ClusterFeatures {
      * 	- Default: `10.0.0.0/16`.
      */
     vpcSubnet: string;
+}
+
+export interface ClusterFeaturesExistingVpc {
+    /**
+     * Aws VPC id
+     */
+    awsVpcEksId: string;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneAIds: string[];
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneBIds: string[];
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneCIds: string[];
+    /**
+     * Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneAIds: string[];
+    /**
+     * Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneBIds: string[];
+    /**
+     * Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneCIds: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneAIds: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneBIds: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneCIds: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneAIds: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneBIds: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneCIds: string[];
 }
 
 export interface ClusterRoutingTable {
@@ -966,6 +1044,25 @@ export interface GetApplicationCustomDomain {
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain: string;
+}
+
+export interface GetApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
 }
 
 export interface GetApplicationEnvironmentVariable {
@@ -1847,6 +1944,25 @@ export interface GetHelmBuiltInEnvironmentVariable {
     value: string;
 }
 
+export interface GetHelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface GetHelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -1948,6 +2064,25 @@ export interface GetJobBuiltInEnvironmentVariable {
     key: string;
     /**
      * Value of the environment variable.
+     */
+    value: string;
+}
+
+export interface GetJobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
      */
     value: string;
 }
@@ -2453,6 +2588,25 @@ export interface HelmBuiltInEnvironmentVariable {
     value: string;
 }
 
+export interface HelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface HelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -2703,6 +2857,25 @@ export interface JobBuiltInEnvironmentVariable {
     key: string;
     /**
      * Value of the environment variable.
+     */
+    value: string;
+}
+
+export interface JobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
      */
     value: string;
 }
