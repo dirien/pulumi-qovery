@@ -13,6 +13,9 @@
                     "custom_domains": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -79,6 +82,50 @@
             "qovery_cluster": {
                 "current": "qovery:index/cluster:Cluster",
                 "fields": {
+                    "features": {
+                        "fields": {
+                            "existing_vpc": {
+                                "fields": {
+                                    "documentdb_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "documentdb_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "documentdb_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "routing_table": {
                         "maxItemsOne": false
                     }
@@ -206,6 +253,9 @@
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -248,6 +298,9 @@
                 "current": "qovery:index/job:Job",
                 "fields": {
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -378,6 +431,9 @@
                         "maxItemsOne": false
                     },
                     "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -570,6 +626,9 @@
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -597,6 +656,9 @@
                 "current": "qovery:index/getJob:getJob",
                 "fields": {
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -797,8 +859,24 @@
                 "mountPoint": "mount_point"
             },
             "qovery:index/ClusterFeatures:ClusterFeatures": {
+                "existingVpc": "existing_vpc",
                 "staticIp": "static_ip",
                 "vpcSubnet": "vpc_subnet"
+            },
+            "qovery:index/ClusterFeaturesExistingVpc:ClusterFeaturesExistingVpc": {
+                "awsVpcEksId": "aws_vpc_eks_id",
+                "documentdbSubnetsZoneAIds": "documentdb_subnets_zone_a_ids",
+                "documentdbSubnetsZoneBIds": "documentdb_subnets_zone_b_ids",
+                "documentdbSubnetsZoneCIds": "documentdb_subnets_zone_c_ids",
+                "eksSubnetsZoneAIds": "eks_subnets_zone_a_ids",
+                "eksSubnetsZoneBIds": "eks_subnets_zone_b_ids",
+                "eksSubnetsZoneCIds": "eks_subnets_zone_c_ids",
+                "elasticacheSubnetsZoneAIds": "elasticache_subnets_zone_a_ids",
+                "elasticacheSubnetsZoneBIds": "elasticache_subnets_zone_b_ids",
+                "elasticacheSubnetsZoneCIds": "elasticache_subnets_zone_c_ids",
+                "rdsSubnetsZoneAIds": "rds_subnets_zone_a_ids",
+                "rdsSubnetsZoneBIds": "rds_subnets_zone_b_ids",
+                "rdsSubnetsZoneCIds": "rds_subnets_zone_c_ids"
             },
             "qovery:index/ContainerCustomDomain:ContainerCustomDomain": {
                 "validationDomain": "validation_domain"
@@ -925,6 +1003,7 @@
                 "buildpackLanguage": "buildpack_language",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
                 "customDomains": "custom_domains",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "dockerfilePath": "dockerfile_path",
                 "environmentId": "environment_id",
@@ -1015,6 +1094,7 @@
                 "buildpackLanguage": "buildpack_language",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
                 "customDomains": "custom_domains",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "dockerfilePath": "dockerfile_path",
                 "environmentId": "environment_id",
@@ -1182,6 +1262,7 @@
             "qovery:index/getHelm:getHelm": {
                 "advancedSettingsJson": "advanced_settings_json",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1200,6 +1281,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1272,6 +1354,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1293,6 +1376,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
