@@ -23,7 +23,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, advanced_settings_json=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, internal_host=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
+    def __init__(__self__, advanced_settings_json=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, internal_host=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -39,6 +39,9 @@ class GetJobResult:
         if cpu and not isinstance(cpu, int):
             raise TypeError("Expected argument 'cpu' to be a int")
         pulumi.set(__self__, "cpu", cpu)
+        if deployment_restrictions and not isinstance(deployment_restrictions, list):
+            raise TypeError("Expected argument 'deployment_restrictions' to be a list")
+        pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id and not isinstance(deployment_stage_id, str):
             raise TypeError("Expected argument 'deployment_stage_id' to be a str")
         pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
@@ -121,6 +124,11 @@ class GetJobResult:
     @pulumi.getter
     def cpu(self) -> Optional[int]:
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[Sequence['outputs.GetJobDeploymentRestrictionResult']]:
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -229,6 +237,7 @@ class AwaitableGetJobResult(GetJobResult):
             auto_preview=self.auto_preview,
             built_in_environment_variables=self.built_in_environment_variables,
             cpu=self.cpu,
+            deployment_restrictions=self.deployment_restrictions,
             deployment_stage_id=self.deployment_stage_id,
             environment_id=self.environment_id,
             environment_variable_aliases=self.environment_variable_aliases,
@@ -254,6 +263,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
             auto_deploy: Optional[bool] = None,
             auto_preview: Optional[bool] = None,
             cpu: Optional[int] = None,
+            deployment_restrictions: Optional[Sequence[pulumi.InputType['GetJobDeploymentRestrictionArgs']]] = None,
             deployment_stage_id: Optional[str] = None,
             environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableAliasArgs']]] = None,
             environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableOverrideArgs']]] = None,
@@ -287,6 +297,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
     __args__['autoDeploy'] = auto_deploy
     __args__['autoPreview'] = auto_preview
     __args__['cpu'] = cpu
+    __args__['deploymentRestrictions'] = deployment_restrictions
     __args__['deploymentStageId'] = deployment_stage_id
     __args__['environmentVariableAliases'] = environment_variable_aliases
     __args__['environmentVariableOverrides'] = environment_variable_overrides
@@ -310,6 +321,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
         auto_preview=pulumi.get(__ret__, 'auto_preview'),
         built_in_environment_variables=pulumi.get(__ret__, 'built_in_environment_variables'),
         cpu=pulumi.get(__ret__, 'cpu'),
+        deployment_restrictions=pulumi.get(__ret__, 'deployment_restrictions'),
         deployment_stage_id=pulumi.get(__ret__, 'deployment_stage_id'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         environment_variable_aliases=pulumi.get(__ret__, 'environment_variable_aliases'),
@@ -336,6 +348,7 @@ def get_job_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]]
                    auto_deploy: Optional[pulumi.Input[Optional[bool]]] = None,
                    auto_preview: Optional[pulumi.Input[Optional[bool]]] = None,
                    cpu: Optional[pulumi.Input[Optional[int]]] = None,
+                   deployment_restrictions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobDeploymentRestrictionArgs']]]]] = None,
                    deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
                    environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableAliasArgs']]]]] = None,
                    environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableOverrideArgs']]]]] = None,

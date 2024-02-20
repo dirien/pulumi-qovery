@@ -105,6 +105,14 @@ namespace ediri.Qovery
             set => _customDomains = value;
         }
 
+        [Input("deploymentRestrictions")]
+        private List<Inputs.GetApplicationDeploymentRestrictionArgs>? _deploymentRestrictions;
+        public List<Inputs.GetApplicationDeploymentRestrictionArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new List<Inputs.GetApplicationDeploymentRestrictionArgs>());
+            set => _deploymentRestrictions = value;
+        }
+
         [Input("deploymentStageId")]
         public string? DeploymentStageId { get; set; }
 
@@ -224,6 +232,14 @@ namespace ediri.Qovery
             set => _customDomains = value;
         }
 
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.GetApplicationDeploymentRestrictionInputArgs>? _deploymentRestrictions;
+        public InputList<Inputs.GetApplicationDeploymentRestrictionInputArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.GetApplicationDeploymentRestrictionInputArgs>());
+            set => _deploymentRestrictions = value;
+        }
+
         [Input("deploymentStageId")]
         public Input<string>? DeploymentStageId { get; set; }
 
@@ -323,6 +339,7 @@ namespace ediri.Qovery
         public readonly ImmutableArray<Outputs.GetApplicationBuiltInEnvironmentVariableResult> BuiltInEnvironmentVariables;
         public readonly int Cpu;
         public readonly ImmutableArray<Outputs.GetApplicationCustomDomainResult> CustomDomains;
+        public readonly ImmutableArray<Outputs.GetApplicationDeploymentRestrictionResult> DeploymentRestrictions;
         public readonly string DeploymentStageId;
         public readonly string DockerfilePath;
         public readonly string Entrypoint;
@@ -364,6 +381,8 @@ namespace ediri.Qovery
             int cpu,
 
             ImmutableArray<Outputs.GetApplicationCustomDomainResult> customDomains,
+
+            ImmutableArray<Outputs.GetApplicationDeploymentRestrictionResult> deploymentRestrictions,
 
             string deploymentStageId,
 
@@ -416,6 +435,7 @@ namespace ediri.Qovery
             BuiltInEnvironmentVariables = builtInEnvironmentVariables;
             Cpu = cpu;
             CustomDomains = customDomains;
+            DeploymentRestrictions = deploymentRestrictions;
             DeploymentStageId = deploymentStageId;
             DockerfilePath = dockerfilePath;
             Entrypoint = entrypoint;

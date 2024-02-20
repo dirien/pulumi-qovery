@@ -32,6 +32,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         "buildpackLanguage": args.buildpackLanguage,
         "cpu": args.cpu,
         "customDomains": args.customDomains,
+        "deploymentRestrictions": args.deploymentRestrictions,
         "deploymentStageId": args.deploymentStageId,
         "dockerfilePath": args.dockerfilePath,
         "entrypoint": args.entrypoint,
@@ -61,6 +62,7 @@ export interface GetApplicationArgs {
     buildpackLanguage?: string;
     cpu?: number;
     customDomains?: inputs.GetApplicationCustomDomain[];
+    deploymentRestrictions?: inputs.GetApplicationDeploymentRestriction[];
     deploymentStageId?: string;
     dockerfilePath?: string;
     entrypoint?: string;
@@ -91,6 +93,7 @@ export interface GetApplicationResult {
     readonly builtInEnvironmentVariables: outputs.GetApplicationBuiltInEnvironmentVariable[];
     readonly cpu: number;
     readonly customDomains?: outputs.GetApplicationCustomDomain[];
+    readonly deploymentRestrictions?: outputs.GetApplicationDeploymentRestriction[];
     readonly deploymentStageId: string;
     readonly dockerfilePath: string;
     readonly entrypoint: string;
@@ -143,6 +146,7 @@ export interface GetApplicationOutputArgs {
     buildpackLanguage?: pulumi.Input<string>;
     cpu?: pulumi.Input<number>;
     customDomains?: pulumi.Input<pulumi.Input<inputs.GetApplicationCustomDomainArgs>[]>;
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.GetApplicationDeploymentRestrictionArgs>[]>;
     deploymentStageId?: pulumi.Input<string>;
     dockerfilePath?: pulumi.Input<string>;
     entrypoint?: pulumi.Input<string>;

@@ -23,7 +23,7 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, advanced_settings_json=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, id=None, internal_host=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
+    def __init__(__self__, advanced_settings_json=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, id=None, internal_host=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -51,6 +51,9 @@ class GetApplicationResult:
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
         pulumi.set(__self__, "custom_domains", custom_domains)
+        if deployment_restrictions and not isinstance(deployment_restrictions, list):
+            raise TypeError("Expected argument 'deployment_restrictions' to be a list")
+        pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id and not isinstance(deployment_stage_id, str):
             raise TypeError("Expected argument 'deployment_stage_id' to be a str")
         pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
@@ -159,6 +162,11 @@ class GetApplicationResult:
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> Optional[Sequence['outputs.GetApplicationCustomDomainResult']]:
         return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[Sequence['outputs.GetApplicationDeploymentRestrictionResult']]:
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -281,6 +289,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             built_in_environment_variables=self.built_in_environment_variables,
             cpu=self.cpu,
             custom_domains=self.custom_domains,
+            deployment_restrictions=self.deployment_restrictions,
             deployment_stage_id=self.deployment_stage_id,
             dockerfile_path=self.dockerfile_path,
             entrypoint=self.entrypoint,
@@ -311,6 +320,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
                     buildpack_language: Optional[str] = None,
                     cpu: Optional[int] = None,
                     custom_domains: Optional[Sequence[pulumi.InputType['GetApplicationCustomDomainArgs']]] = None,
+                    deployment_restrictions: Optional[Sequence[pulumi.InputType['GetApplicationDeploymentRestrictionArgs']]] = None,
                     deployment_stage_id: Optional[str] = None,
                     dockerfile_path: Optional[str] = None,
                     entrypoint: Optional[str] = None,
@@ -348,6 +358,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
     __args__['buildpackLanguage'] = buildpack_language
     __args__['cpu'] = cpu
     __args__['customDomains'] = custom_domains
+    __args__['deploymentRestrictions'] = deployment_restrictions
     __args__['deploymentStageId'] = deployment_stage_id
     __args__['dockerfilePath'] = dockerfile_path
     __args__['entrypoint'] = entrypoint
@@ -376,6 +387,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
         built_in_environment_variables=pulumi.get(__ret__, 'built_in_environment_variables'),
         cpu=pulumi.get(__ret__, 'cpu'),
         custom_domains=pulumi.get(__ret__, 'custom_domains'),
+        deployment_restrictions=pulumi.get(__ret__, 'deployment_restrictions'),
         deployment_stage_id=pulumi.get(__ret__, 'deployment_stage_id'),
         dockerfile_path=pulumi.get(__ret__, 'dockerfile_path'),
         entrypoint=pulumi.get(__ret__, 'entrypoint'),
@@ -407,6 +419,7 @@ def get_application_output(advanced_settings_json: Optional[pulumi.Input[Optiona
                            buildpack_language: Optional[pulumi.Input[Optional[str]]] = None,
                            cpu: Optional[pulumi.Input[Optional[int]]] = None,
                            custom_domains: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationCustomDomainArgs']]]]] = None,
+                           deployment_restrictions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationDeploymentRestrictionArgs']]]]] = None,
                            deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
                            dockerfile_path: Optional[pulumi.Input[Optional[str]]] = None,
                            entrypoint: Optional[pulumi.Input[Optional[str]]] = None,
