@@ -39,6 +39,25 @@ export interface ApplicationCustomDomain {
     validationDomain?: pulumi.Input<string>;
 }
 
+export interface ApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface ApplicationEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -400,6 +419,10 @@ export interface ApplicationStorage {
 
 export interface ClusterFeatures {
     /**
+     * Network configuration if you want to install qovery on an existing VPC
+     */
+    existingVpc?: pulumi.Input<inputs.ClusterFeaturesExistingVpc>;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -409,6 +432,61 @@ export interface ClusterFeatures {
      * 	- Default: `10.0.0.0/16`.
      */
     vpcSubnet?: pulumi.Input<string>;
+}
+
+export interface ClusterFeaturesExistingVpc {
+    /**
+     * Aws VPC id
+     */
+    awsVpcEksId: pulumi.Input<string>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneAIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneBIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneCIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ClusterRoutingTable {
@@ -970,6 +1048,44 @@ export interface GetApplicationCustomDomainArgs {
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: pulumi.Input<string>;
+}
+
+export interface GetApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetApplicationDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationEnvironmentVariable {
@@ -2526,6 +2642,44 @@ export interface GetEnvironmentSecretOverrideArgs {
     value?: pulumi.Input<string>;
 }
 
+export interface GetHelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetHelmDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: pulumi.Input<string>;
+}
+
 export interface GetHelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -2702,6 +2856,44 @@ export interface GetHelmSecretOverrideArgs {
     key?: pulumi.Input<string>;
     /**
      * Value of the secret override.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface GetJobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetJobDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
      */
     value?: pulumi.Input<string>;
 }
@@ -3515,6 +3707,25 @@ export interface HelmBuiltInEnvironmentVariable {
     value?: pulumi.Input<string>;
 }
 
+export interface HelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface HelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -3767,6 +3978,25 @@ export interface JobBuiltInEnvironmentVariable {
      * Value of the environment variable.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface JobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface JobEnvironmentVariable {

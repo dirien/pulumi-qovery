@@ -23,6 +23,7 @@ class JobArgs:
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]]] = None,
@@ -45,6 +46,7 @@ class JobArgs:
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this job.
@@ -70,6 +72,8 @@ class JobArgs:
             pulumi.set(__self__, "auto_preview", auto_preview)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if environment_variable_aliases is not None:
@@ -180,6 +184,18 @@ class JobArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -346,6 +362,7 @@ class _JobState:
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobBuiltInEnvironmentVariableArgs']]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]]] = None,
@@ -371,6 +388,7 @@ class _JobState:
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobBuiltInEnvironmentVariableArgs']]] built_in_environment_variables: List of built-in environment variables linked to this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this job.
@@ -400,6 +418,8 @@ class _JobState:
             pulumi.set(__self__, "built_in_environment_variables", built_in_environment_variables)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if environment_id is not None:
@@ -496,6 +516,18 @@ class _JobState:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -723,6 +755,7 @@ class Job(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
@@ -757,6 +790,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
@@ -810,6 +844,7 @@ class Job(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
@@ -839,6 +874,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["auto_preview"] = auto_preview
             __props__.__dict__["cpu"] = cpu
+            __props__.__dict__["deployment_restrictions"] = deployment_restrictions
             __props__.__dict__["deployment_stage_id"] = deployment_stage_id
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
@@ -879,6 +915,7 @@ class Job(pulumi.CustomResource):
             auto_preview: Optional[pulumi.Input[bool]] = None,
             built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
@@ -909,6 +946,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
@@ -937,6 +975,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["auto_preview"] = auto_preview
         __props__.__dict__["built_in_environment_variables"] = built_in_environment_variables
         __props__.__dict__["cpu"] = cpu
+        __props__.__dict__["deployment_restrictions"] = deployment_restrictions
         __props__.__dict__["deployment_stage_id"] = deployment_stage_id
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["environment_variable_aliases"] = environment_variable_aliases
@@ -996,6 +1035,14 @@ class Job(pulumi.CustomResource):
         CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
         """
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> pulumi.Output[Optional[Sequence['outputs.JobDeploymentRestriction']]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")

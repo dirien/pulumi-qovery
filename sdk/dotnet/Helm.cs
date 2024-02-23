@@ -61,6 +61,12 @@ namespace ediri.Qovery
         public Output<ImmutableArray<Outputs.HelmBuiltInEnvironmentVariable>> BuiltInEnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        [Output("deploymentRestrictions")]
+        public Output<ImmutableArray<Outputs.HelmDeploymentRestriction>> DeploymentRestrictions { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the deployment stage.
         /// </summary>
         [Output("deploymentStageId")]
@@ -232,6 +238,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("autoPreview")]
         public Input<bool>? AutoPreview { get; set; }
+
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.HelmDeploymentRestrictionArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.HelmDeploymentRestrictionArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.HelmDeploymentRestrictionArgs>());
+            set => _deploymentRestrictions = value;
+        }
 
         /// <summary>
         /// Id of the deployment stage.
@@ -407,6 +425,18 @@ namespace ediri.Qovery
         {
             get => _builtInEnvironmentVariables ?? (_builtInEnvironmentVariables = new InputList<Inputs.HelmBuiltInEnvironmentVariableGetArgs>());
             set => _builtInEnvironmentVariables = value;
+        }
+
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.HelmDeploymentRestrictionGetArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.HelmDeploymentRestrictionGetArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.HelmDeploymentRestrictionGetArgs>());
+            set => _deploymentRestrictions = value;
         }
 
         /// <summary>

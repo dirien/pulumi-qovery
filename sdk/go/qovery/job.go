@@ -36,6 +36,8 @@ type Job struct {
 	BuiltInEnvironmentVariables JobBuiltInEnvironmentVariableArrayOutput `pulumi:"builtInEnvironmentVariables"`
 	// CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 	Cpu pulumi.IntOutput `pulumi:"cpu"`
+	// List of deployment restrictions
+	DeploymentRestrictions JobDeploymentRestrictionArrayOutput `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringOutput `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -123,6 +125,8 @@ type jobState struct {
 	BuiltInEnvironmentVariables []JobBuiltInEnvironmentVariable `pulumi:"builtInEnvironmentVariables"`
 	// CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 	Cpu *int `pulumi:"cpu"`
+	// List of deployment restrictions
+	DeploymentRestrictions []JobDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -172,6 +176,8 @@ type JobState struct {
 	BuiltInEnvironmentVariables JobBuiltInEnvironmentVariableArrayInput
 	// CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 	Cpu pulumi.IntPtrInput
+	// List of deployment restrictions
+	DeploymentRestrictions JobDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Id of the environment.
@@ -223,6 +229,8 @@ type jobArgs struct {
 	AutoPreview *bool `pulumi:"autoPreview"`
 	// CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 	Cpu *int `pulumi:"cpu"`
+	// List of deployment restrictions
+	DeploymentRestrictions []JobDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Id of the environment.
@@ -267,6 +275,8 @@ type JobArgs struct {
 	AutoPreview pulumi.BoolPtrInput
 	// CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 	Cpu pulumi.IntPtrInput
+	// List of deployment restrictions
+	DeploymentRestrictions JobDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Id of the environment.
@@ -411,6 +421,11 @@ func (o JobOutput) BuiltInEnvironmentVariables() JobBuiltInEnvironmentVariableAr
 // CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
 func (o JobOutput) Cpu() pulumi.IntOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.Cpu }).(pulumi.IntOutput)
+}
+
+// List of deployment restrictions
+func (o JobOutput) DeploymentRestrictions() JobDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v *Job) JobDeploymentRestrictionArrayOutput { return v.DeploymentRestrictions }).(JobDeploymentRestrictionArrayOutput)
 }
 
 // Id of the deployment stage.
