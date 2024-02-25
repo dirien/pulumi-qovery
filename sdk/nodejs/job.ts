@@ -66,6 +66,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly cpu!: pulumi.Output<number>;
     /**
+     * List of deployment restrictions
+     */
+    public readonly deploymentRestrictions!: pulumi.Output<outputs.JobDeploymentRestriction[] | undefined>;
+    /**
      * Id of the deployment stage.
      */
     public readonly deploymentStageId!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["autoPreview"] = state ? state.autoPreview : undefined;
             resourceInputs["builtInEnvironmentVariables"] = state ? state.builtInEnvironmentVariables : undefined;
             resourceInputs["cpu"] = state ? state.cpu : undefined;
+            resourceInputs["deploymentRestrictions"] = state ? state.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["environmentVariableAliases"] = state ? state.environmentVariableAliases : undefined;
@@ -189,6 +194,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
             resourceInputs["autoPreview"] = args ? args.autoPreview : undefined;
             resourceInputs["cpu"] = args ? args.cpu : undefined;
+            resourceInputs["deploymentRestrictions"] = args ? args.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["environmentVariableAliases"] = args ? args.environmentVariableAliases : undefined;
@@ -238,6 +244,10 @@ export interface JobState {
      * CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
      */
     cpu?: pulumi.Input<number>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.JobDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */
@@ -332,6 +342,10 @@ export interface JobArgs {
      * CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
      */
     cpu?: pulumi.Input<number>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.JobDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */

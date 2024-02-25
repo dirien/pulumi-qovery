@@ -80,6 +80,12 @@ namespace ediri.Qovery
         public Output<ImmutableArray<Outputs.ApplicationCustomDomain>> CustomDomains { get; private set; } = null!;
 
         /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        [Output("deploymentRestrictions")]
+        public Output<ImmutableArray<Outputs.ApplicationDeploymentRestriction>> DeploymentRestrictions { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the deployment stage.
         /// </summary>
         [Output("deploymentStageId")]
@@ -305,6 +311,18 @@ namespace ediri.Qovery
         {
             get => _customDomains ?? (_customDomains = new InputList<Inputs.ApplicationCustomDomainArgs>());
             set => _customDomains = value;
+        }
+
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.ApplicationDeploymentRestrictionArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.ApplicationDeploymentRestrictionArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.ApplicationDeploymentRestrictionArgs>());
+            set => _deploymentRestrictions = value;
         }
 
         /// <summary>
@@ -542,6 +560,18 @@ namespace ediri.Qovery
         {
             get => _customDomains ?? (_customDomains = new InputList<Inputs.ApplicationCustomDomainGetArgs>());
             set => _customDomains = value;
+        }
+
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.ApplicationDeploymentRestrictionGetArgs>? _deploymentRestrictions;
+
+        /// <summary>
+        /// List of deployment restrictions
+        /// </summary>
+        public InputList<Inputs.ApplicationDeploymentRestrictionGetArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.ApplicationDeploymentRestrictionGetArgs>());
+            set => _deploymentRestrictions = value;
         }
 
         /// <summary>

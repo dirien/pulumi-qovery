@@ -45,6 +45,8 @@ type Application struct {
 	Cpu pulumi.IntOutput `pulumi:"cpu"`
 	// List of custom domains linked to this application.
 	CustomDomains ApplicationCustomDomainArrayOutput `pulumi:"customDomains"`
+	// List of deployment restrictions
+	DeploymentRestrictions ApplicationDeploymentRestrictionArrayOutput `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringOutput `pulumi:"deploymentStageId"`
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
@@ -145,6 +147,8 @@ type applicationState struct {
 	Cpu *int `pulumi:"cpu"`
 	// List of custom domains linked to this application.
 	CustomDomains []ApplicationCustomDomain `pulumi:"customDomains"`
+	// List of deployment restrictions
+	DeploymentRestrictions []ApplicationDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
@@ -207,6 +211,8 @@ type ApplicationState struct {
 	Cpu pulumi.IntPtrInput
 	// List of custom domains linked to this application.
 	CustomDomains ApplicationCustomDomainArrayInput
+	// List of deployment restrictions
+	DeploymentRestrictions ApplicationDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
@@ -271,6 +277,8 @@ type applicationArgs struct {
 	Cpu *int `pulumi:"cpu"`
 	// List of custom domains linked to this application.
 	CustomDomains []ApplicationCustomDomain `pulumi:"customDomains"`
+	// List of deployment restrictions
+	DeploymentRestrictions []ApplicationDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
@@ -328,6 +336,8 @@ type ApplicationArgs struct {
 	Cpu pulumi.IntPtrInput
 	// List of custom domains linked to this application.
 	CustomDomains ApplicationCustomDomainArrayInput
+	// List of deployment restrictions
+	DeploymentRestrictions ApplicationDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
 	DeploymentStageId pulumi.StringPtrInput
 	// Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
@@ -499,6 +509,11 @@ func (o ApplicationOutput) Cpu() pulumi.IntOutput {
 // List of custom domains linked to this application.
 func (o ApplicationOutput) CustomDomains() ApplicationCustomDomainArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCustomDomainArrayOutput { return v.CustomDomains }).(ApplicationCustomDomainArrayOutput)
+}
+
+// List of deployment restrictions
+func (o ApplicationOutput) DeploymentRestrictions() ApplicationDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationDeploymentRestrictionArrayOutput { return v.DeploymentRestrictions }).(ApplicationDeploymentRestrictionArrayOutput)
 }
 
 // Id of the deployment stage.

@@ -252,6 +252,130 @@ func (o ApplicationCustomDomainArrayOutput) Index(i pulumi.IntInput) Application
 	}).(ApplicationCustomDomainOutput)
 }
 
+type ApplicationDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id *string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// ApplicationDeploymentRestrictionInput is an input type that accepts ApplicationDeploymentRestrictionArgs and ApplicationDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `ApplicationDeploymentRestrictionInput` via:
+//
+//	ApplicationDeploymentRestrictionArgs{...}
+type ApplicationDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToApplicationDeploymentRestrictionOutput() ApplicationDeploymentRestrictionOutput
+	ToApplicationDeploymentRestrictionOutputWithContext(context.Context) ApplicationDeploymentRestrictionOutput
+}
+
+type ApplicationDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApplicationDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (i ApplicationDeploymentRestrictionArgs) ToApplicationDeploymentRestrictionOutput() ApplicationDeploymentRestrictionOutput {
+	return i.ToApplicationDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i ApplicationDeploymentRestrictionArgs) ToApplicationDeploymentRestrictionOutputWithContext(ctx context.Context) ApplicationDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentRestrictionOutput)
+}
+
+// ApplicationDeploymentRestrictionArrayInput is an input type that accepts ApplicationDeploymentRestrictionArray and ApplicationDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `ApplicationDeploymentRestrictionArrayInput` via:
+//
+//	ApplicationDeploymentRestrictionArray{ ApplicationDeploymentRestrictionArgs{...} }
+type ApplicationDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToApplicationDeploymentRestrictionArrayOutput() ApplicationDeploymentRestrictionArrayOutput
+	ToApplicationDeploymentRestrictionArrayOutputWithContext(context.Context) ApplicationDeploymentRestrictionArrayOutput
+}
+
+type ApplicationDeploymentRestrictionArray []ApplicationDeploymentRestrictionInput
+
+func (ApplicationDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (i ApplicationDeploymentRestrictionArray) ToApplicationDeploymentRestrictionArrayOutput() ApplicationDeploymentRestrictionArrayOutput {
+	return i.ToApplicationDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationDeploymentRestrictionArray) ToApplicationDeploymentRestrictionArrayOutputWithContext(ctx context.Context) ApplicationDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentRestrictionArrayOutput)
+}
+
+type ApplicationDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (o ApplicationDeploymentRestrictionOutput) ToApplicationDeploymentRestrictionOutput() ApplicationDeploymentRestrictionOutput {
+	return o
+}
+
+func (o ApplicationDeploymentRestrictionOutput) ToApplicationDeploymentRestrictionOutputWithContext(ctx context.Context) ApplicationDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o ApplicationDeploymentRestrictionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationDeploymentRestriction) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o ApplicationDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o ApplicationDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o ApplicationDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApplicationDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (o ApplicationDeploymentRestrictionArrayOutput) ToApplicationDeploymentRestrictionArrayOutput() ApplicationDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o ApplicationDeploymentRestrictionArrayOutput) ToApplicationDeploymentRestrictionArrayOutputWithContext(ctx context.Context) ApplicationDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o ApplicationDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) ApplicationDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDeploymentRestriction {
+		return vs[0].([]ApplicationDeploymentRestriction)[vs[1].(int)]
+	}).(ApplicationDeploymentRestrictionOutput)
+}
+
 type ApplicationEnvironmentVariable struct {
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
@@ -9043,6 +9167,130 @@ func (o HelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Helm
 	}).(HelmBuiltInEnvironmentVariableOutput)
 }
 
+type HelmDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id *string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// HelmDeploymentRestrictionInput is an input type that accepts HelmDeploymentRestrictionArgs and HelmDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `HelmDeploymentRestrictionInput` via:
+//
+//	HelmDeploymentRestrictionArgs{...}
+type HelmDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToHelmDeploymentRestrictionOutput() HelmDeploymentRestrictionOutput
+	ToHelmDeploymentRestrictionOutputWithContext(context.Context) HelmDeploymentRestrictionOutput
+}
+
+type HelmDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (HelmDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (i HelmDeploymentRestrictionArgs) ToHelmDeploymentRestrictionOutput() HelmDeploymentRestrictionOutput {
+	return i.ToHelmDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i HelmDeploymentRestrictionArgs) ToHelmDeploymentRestrictionOutputWithContext(ctx context.Context) HelmDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmDeploymentRestrictionOutput)
+}
+
+// HelmDeploymentRestrictionArrayInput is an input type that accepts HelmDeploymentRestrictionArray and HelmDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `HelmDeploymentRestrictionArrayInput` via:
+//
+//	HelmDeploymentRestrictionArray{ HelmDeploymentRestrictionArgs{...} }
+type HelmDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToHelmDeploymentRestrictionArrayOutput() HelmDeploymentRestrictionArrayOutput
+	ToHelmDeploymentRestrictionArrayOutputWithContext(context.Context) HelmDeploymentRestrictionArrayOutput
+}
+
+type HelmDeploymentRestrictionArray []HelmDeploymentRestrictionInput
+
+func (HelmDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (i HelmDeploymentRestrictionArray) ToHelmDeploymentRestrictionArrayOutput() HelmDeploymentRestrictionArrayOutput {
+	return i.ToHelmDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i HelmDeploymentRestrictionArray) ToHelmDeploymentRestrictionArrayOutputWithContext(ctx context.Context) HelmDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmDeploymentRestrictionArrayOutput)
+}
+
+type HelmDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (HelmDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (o HelmDeploymentRestrictionOutput) ToHelmDeploymentRestrictionOutput() HelmDeploymentRestrictionOutput {
+	return o
+}
+
+func (o HelmDeploymentRestrictionOutput) ToHelmDeploymentRestrictionOutputWithContext(ctx context.Context) HelmDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o HelmDeploymentRestrictionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmDeploymentRestriction) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o HelmDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o HelmDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o HelmDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HelmDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (o HelmDeploymentRestrictionArrayOutput) ToHelmDeploymentRestrictionArrayOutput() HelmDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o HelmDeploymentRestrictionArrayOutput) ToHelmDeploymentRestrictionArrayOutputWithContext(ctx context.Context) HelmDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o HelmDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) HelmDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmDeploymentRestriction {
+		return vs[0].([]HelmDeploymentRestriction)[vs[1].(int)]
+	}).(HelmDeploymentRestrictionOutput)
+}
+
 type HelmEnvironmentVariable struct {
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
@@ -11402,6 +11650,130 @@ func (o JobBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) JobBu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobBuiltInEnvironmentVariable {
 		return vs[0].([]JobBuiltInEnvironmentVariable)[vs[1].(int)]
 	}).(JobBuiltInEnvironmentVariableOutput)
+}
+
+type JobDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id *string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// JobDeploymentRestrictionInput is an input type that accepts JobDeploymentRestrictionArgs and JobDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `JobDeploymentRestrictionInput` via:
+//
+//	JobDeploymentRestrictionArgs{...}
+type JobDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToJobDeploymentRestrictionOutput() JobDeploymentRestrictionOutput
+	ToJobDeploymentRestrictionOutputWithContext(context.Context) JobDeploymentRestrictionOutput
+}
+
+type JobDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDeploymentRestriction)(nil)).Elem()
+}
+
+func (i JobDeploymentRestrictionArgs) ToJobDeploymentRestrictionOutput() JobDeploymentRestrictionOutput {
+	return i.ToJobDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i JobDeploymentRestrictionArgs) ToJobDeploymentRestrictionOutputWithContext(ctx context.Context) JobDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDeploymentRestrictionOutput)
+}
+
+// JobDeploymentRestrictionArrayInput is an input type that accepts JobDeploymentRestrictionArray and JobDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `JobDeploymentRestrictionArrayInput` via:
+//
+//	JobDeploymentRestrictionArray{ JobDeploymentRestrictionArgs{...} }
+type JobDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToJobDeploymentRestrictionArrayOutput() JobDeploymentRestrictionArrayOutput
+	ToJobDeploymentRestrictionArrayOutputWithContext(context.Context) JobDeploymentRestrictionArrayOutput
+}
+
+type JobDeploymentRestrictionArray []JobDeploymentRestrictionInput
+
+func (JobDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDeploymentRestriction)(nil)).Elem()
+}
+
+func (i JobDeploymentRestrictionArray) ToJobDeploymentRestrictionArrayOutput() JobDeploymentRestrictionArrayOutput {
+	return i.ToJobDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i JobDeploymentRestrictionArray) ToJobDeploymentRestrictionArrayOutputWithContext(ctx context.Context) JobDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDeploymentRestrictionArrayOutput)
+}
+
+type JobDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (JobDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDeploymentRestriction)(nil)).Elem()
+}
+
+func (o JobDeploymentRestrictionOutput) ToJobDeploymentRestrictionOutput() JobDeploymentRestrictionOutput {
+	return o
+}
+
+func (o JobDeploymentRestrictionOutput) ToJobDeploymentRestrictionOutputWithContext(ctx context.Context) JobDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o JobDeploymentRestrictionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDeploymentRestriction) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o JobDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o JobDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o JobDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDeploymentRestriction)(nil)).Elem()
+}
+
+func (o JobDeploymentRestrictionArrayOutput) ToJobDeploymentRestrictionArrayOutput() JobDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o JobDeploymentRestrictionArrayOutput) ToJobDeploymentRestrictionArrayOutputWithContext(ctx context.Context) JobDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o JobDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) JobDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDeploymentRestriction {
+		return vs[0].([]JobDeploymentRestriction)[vs[1].(int)]
+	}).(JobDeploymentRestrictionOutput)
 }
 
 type JobEnvironmentVariable struct {
@@ -16817,6 +17189,130 @@ func (o GetApplicationCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAppli
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationCustomDomain {
 		return vs[0].([]GetApplicationCustomDomain)[vs[1].(int)]
 	}).(GetApplicationCustomDomainOutput)
+}
+
+type GetApplicationDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationDeploymentRestrictionInput is an input type that accepts GetApplicationDeploymentRestrictionArgs and GetApplicationDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `GetApplicationDeploymentRestrictionInput` via:
+//
+//	GetApplicationDeploymentRestrictionArgs{...}
+type GetApplicationDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToGetApplicationDeploymentRestrictionOutput() GetApplicationDeploymentRestrictionOutput
+	ToGetApplicationDeploymentRestrictionOutputWithContext(context.Context) GetApplicationDeploymentRestrictionOutput
+}
+
+type GetApplicationDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetApplicationDeploymentRestrictionArgs) ToGetApplicationDeploymentRestrictionOutput() GetApplicationDeploymentRestrictionOutput {
+	return i.ToGetApplicationDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationDeploymentRestrictionArgs) ToGetApplicationDeploymentRestrictionOutputWithContext(ctx context.Context) GetApplicationDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationDeploymentRestrictionOutput)
+}
+
+// GetApplicationDeploymentRestrictionArrayInput is an input type that accepts GetApplicationDeploymentRestrictionArray and GetApplicationDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationDeploymentRestrictionArrayInput` via:
+//
+//	GetApplicationDeploymentRestrictionArray{ GetApplicationDeploymentRestrictionArgs{...} }
+type GetApplicationDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationDeploymentRestrictionArrayOutput() GetApplicationDeploymentRestrictionArrayOutput
+	ToGetApplicationDeploymentRestrictionArrayOutputWithContext(context.Context) GetApplicationDeploymentRestrictionArrayOutput
+}
+
+type GetApplicationDeploymentRestrictionArray []GetApplicationDeploymentRestrictionInput
+
+func (GetApplicationDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetApplicationDeploymentRestrictionArray) ToGetApplicationDeploymentRestrictionArrayOutput() GetApplicationDeploymentRestrictionArrayOutput {
+	return i.ToGetApplicationDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationDeploymentRestrictionArray) ToGetApplicationDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetApplicationDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationDeploymentRestrictionArrayOutput)
+}
+
+type GetApplicationDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetApplicationDeploymentRestrictionOutput) ToGetApplicationDeploymentRestrictionOutput() GetApplicationDeploymentRestrictionOutput {
+	return o
+}
+
+func (o GetApplicationDeploymentRestrictionOutput) ToGetApplicationDeploymentRestrictionOutputWithContext(ctx context.Context) GetApplicationDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o GetApplicationDeploymentRestrictionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationDeploymentRestriction) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o GetApplicationDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o GetApplicationDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o GetApplicationDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetApplicationDeploymentRestrictionArrayOutput) ToGetApplicationDeploymentRestrictionArrayOutput() GetApplicationDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetApplicationDeploymentRestrictionArrayOutput) ToGetApplicationDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetApplicationDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetApplicationDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) GetApplicationDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationDeploymentRestriction {
+		return vs[0].([]GetApplicationDeploymentRestriction)[vs[1].(int)]
+	}).(GetApplicationDeploymentRestrictionOutput)
 }
 
 type GetApplicationEnvironmentVariable struct {
@@ -24864,6 +25360,130 @@ func (o GetHelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetHelmBuiltInEnvironmentVariableOutput)
 }
 
+type GetHelmDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// GetHelmDeploymentRestrictionInput is an input type that accepts GetHelmDeploymentRestrictionArgs and GetHelmDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `GetHelmDeploymentRestrictionInput` via:
+//
+//	GetHelmDeploymentRestrictionArgs{...}
+type GetHelmDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToGetHelmDeploymentRestrictionOutput() GetHelmDeploymentRestrictionOutput
+	ToGetHelmDeploymentRestrictionOutputWithContext(context.Context) GetHelmDeploymentRestrictionOutput
+}
+
+type GetHelmDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHelmDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetHelmDeploymentRestrictionArgs) ToGetHelmDeploymentRestrictionOutput() GetHelmDeploymentRestrictionOutput {
+	return i.ToGetHelmDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetHelmDeploymentRestrictionArgs) ToGetHelmDeploymentRestrictionOutputWithContext(ctx context.Context) GetHelmDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmDeploymentRestrictionOutput)
+}
+
+// GetHelmDeploymentRestrictionArrayInput is an input type that accepts GetHelmDeploymentRestrictionArray and GetHelmDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetHelmDeploymentRestrictionArrayInput` via:
+//
+//	GetHelmDeploymentRestrictionArray{ GetHelmDeploymentRestrictionArgs{...} }
+type GetHelmDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmDeploymentRestrictionArrayOutput() GetHelmDeploymentRestrictionArrayOutput
+	ToGetHelmDeploymentRestrictionArrayOutputWithContext(context.Context) GetHelmDeploymentRestrictionArrayOutput
+}
+
+type GetHelmDeploymentRestrictionArray []GetHelmDeploymentRestrictionInput
+
+func (GetHelmDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetHelmDeploymentRestrictionArray) ToGetHelmDeploymentRestrictionArrayOutput() GetHelmDeploymentRestrictionArrayOutput {
+	return i.ToGetHelmDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmDeploymentRestrictionArray) ToGetHelmDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetHelmDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmDeploymentRestrictionArrayOutput)
+}
+
+type GetHelmDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetHelmDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetHelmDeploymentRestrictionOutput) ToGetHelmDeploymentRestrictionOutput() GetHelmDeploymentRestrictionOutput {
+	return o
+}
+
+func (o GetHelmDeploymentRestrictionOutput) ToGetHelmDeploymentRestrictionOutputWithContext(ctx context.Context) GetHelmDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o GetHelmDeploymentRestrictionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmDeploymentRestriction) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o GetHelmDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o GetHelmDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o GetHelmDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHelmDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetHelmDeploymentRestrictionArrayOutput) ToGetHelmDeploymentRestrictionArrayOutput() GetHelmDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetHelmDeploymentRestrictionArrayOutput) ToGetHelmDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetHelmDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetHelmDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) GetHelmDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmDeploymentRestriction {
+		return vs[0].([]GetHelmDeploymentRestriction)[vs[1].(int)]
+	}).(GetHelmDeploymentRestrictionOutput)
+}
+
 type GetHelmEnvironmentVariable struct {
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
@@ -25667,6 +26287,130 @@ func (o GetJobBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobBuiltInEnvironmentVariable {
 		return vs[0].([]GetJobBuiltInEnvironmentVariable)[vs[1].(int)]
 	}).(GetJobBuiltInEnvironmentVariableOutput)
+}
+
+type GetJobDeploymentRestriction struct {
+	// Id of the deployment restriction
+	Id string `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode string `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type string `pulumi:"type"`
+	// Value of the deployment restriction
+	Value string `pulumi:"value"`
+}
+
+// GetJobDeploymentRestrictionInput is an input type that accepts GetJobDeploymentRestrictionArgs and GetJobDeploymentRestrictionOutput values.
+// You can construct a concrete instance of `GetJobDeploymentRestrictionInput` via:
+//
+//	GetJobDeploymentRestrictionArgs{...}
+type GetJobDeploymentRestrictionInput interface {
+	pulumi.Input
+
+	ToGetJobDeploymentRestrictionOutput() GetJobDeploymentRestrictionOutput
+	ToGetJobDeploymentRestrictionOutputWithContext(context.Context) GetJobDeploymentRestrictionOutput
+}
+
+type GetJobDeploymentRestrictionArgs struct {
+	// Id of the deployment restriction
+	Id pulumi.StringInput `pulumi:"id"`
+	// Can be EXCLUDE or MATCH
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Currently, only PATH is accepted
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the deployment restriction
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetJobDeploymentRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetJobDeploymentRestrictionArgs) ToGetJobDeploymentRestrictionOutput() GetJobDeploymentRestrictionOutput {
+	return i.ToGetJobDeploymentRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetJobDeploymentRestrictionArgs) ToGetJobDeploymentRestrictionOutputWithContext(ctx context.Context) GetJobDeploymentRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDeploymentRestrictionOutput)
+}
+
+// GetJobDeploymentRestrictionArrayInput is an input type that accepts GetJobDeploymentRestrictionArray and GetJobDeploymentRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetJobDeploymentRestrictionArrayInput` via:
+//
+//	GetJobDeploymentRestrictionArray{ GetJobDeploymentRestrictionArgs{...} }
+type GetJobDeploymentRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDeploymentRestrictionArrayOutput() GetJobDeploymentRestrictionArrayOutput
+	ToGetJobDeploymentRestrictionArrayOutputWithContext(context.Context) GetJobDeploymentRestrictionArrayOutput
+}
+
+type GetJobDeploymentRestrictionArray []GetJobDeploymentRestrictionInput
+
+func (GetJobDeploymentRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDeploymentRestriction)(nil)).Elem()
+}
+
+func (i GetJobDeploymentRestrictionArray) ToGetJobDeploymentRestrictionArrayOutput() GetJobDeploymentRestrictionArrayOutput {
+	return i.ToGetJobDeploymentRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDeploymentRestrictionArray) ToGetJobDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetJobDeploymentRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDeploymentRestrictionArrayOutput)
+}
+
+type GetJobDeploymentRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetJobDeploymentRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetJobDeploymentRestrictionOutput) ToGetJobDeploymentRestrictionOutput() GetJobDeploymentRestrictionOutput {
+	return o
+}
+
+func (o GetJobDeploymentRestrictionOutput) ToGetJobDeploymentRestrictionOutputWithContext(ctx context.Context) GetJobDeploymentRestrictionOutput {
+	return o
+}
+
+// Id of the deployment restriction
+func (o GetJobDeploymentRestrictionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDeploymentRestriction) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Can be EXCLUDE or MATCH
+func (o GetJobDeploymentRestrictionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDeploymentRestriction) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Currently, only PATH is accepted
+func (o GetJobDeploymentRestrictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDeploymentRestriction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the deployment restriction
+func (o GetJobDeploymentRestrictionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDeploymentRestriction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetJobDeploymentRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDeploymentRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDeploymentRestriction)(nil)).Elem()
+}
+
+func (o GetJobDeploymentRestrictionArrayOutput) ToGetJobDeploymentRestrictionArrayOutput() GetJobDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetJobDeploymentRestrictionArrayOutput) ToGetJobDeploymentRestrictionArrayOutputWithContext(ctx context.Context) GetJobDeploymentRestrictionArrayOutput {
+	return o
+}
+
+func (o GetJobDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) GetJobDeploymentRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDeploymentRestriction {
+		return vs[0].([]GetJobDeploymentRestriction)[vs[1].(int)]
+	}).(GetJobDeploymentRestrictionOutput)
 }
 
 type GetJobEnvironmentVariable struct {
@@ -30260,6 +31004,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), ApplicationBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomDomainInput)(nil)).Elem(), ApplicationCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomDomainArrayInput)(nil)).Elem(), ApplicationCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeploymentRestrictionInput)(nil)).Elem(), ApplicationDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeploymentRestrictionArrayInput)(nil)).Elem(), ApplicationDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentVariableInput)(nil)).Elem(), ApplicationEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentVariableArrayInput)(nil)).Elem(), ApplicationEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentVariableAliasInput)(nil)).Elem(), ApplicationEnvironmentVariableAliasArgs{})
@@ -30374,6 +31120,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSecretOverrideArrayInput)(nil)).Elem(), EnvironmentSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmDeploymentRestrictionInput)(nil)).Elem(), HelmDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmDeploymentRestrictionArrayInput)(nil)).Elem(), HelmDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableInput)(nil)).Elem(), HelmEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableArrayInput)(nil)).Elem(), HelmEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableAliasInput)(nil)).Elem(), HelmEnvironmentVariableAliasArgs{})
@@ -30406,6 +31154,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmValuesOverrideFileRawMapInput)(nil)).Elem(), HelmValuesOverrideFileRawMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobBuiltInEnvironmentVariableInput)(nil)).Elem(), JobBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), JobBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDeploymentRestrictionInput)(nil)).Elem(), JobDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDeploymentRestrictionArrayInput)(nil)).Elem(), JobDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobEnvironmentVariableInput)(nil)).Elem(), JobEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobEnvironmentVariableArrayInput)(nil)).Elem(), JobEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobEnvironmentVariableAliasInput)(nil)).Elem(), JobEnvironmentVariableAliasArgs{})
@@ -30478,6 +31228,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetApplicationBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationCustomDomainInput)(nil)).Elem(), GetApplicationCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationCustomDomainArrayInput)(nil)).Elem(), GetApplicationCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationDeploymentRestrictionInput)(nil)).Elem(), GetApplicationDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationDeploymentRestrictionArrayInput)(nil)).Elem(), GetApplicationDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationEnvironmentVariableInput)(nil)).Elem(), GetApplicationEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationEnvironmentVariableArrayInput)(nil)).Elem(), GetApplicationEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationEnvironmentVariableAliasInput)(nil)).Elem(), GetApplicationEnvironmentVariableAliasArgs{})
@@ -30587,6 +31339,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentSecretOverrideArrayInput)(nil)).Elem(), GetEnvironmentSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmDeploymentRestrictionInput)(nil)).Elem(), GetHelmDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmDeploymentRestrictionArrayInput)(nil)).Elem(), GetHelmDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableInput)(nil)).Elem(), GetHelmEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableAliasInput)(nil)).Elem(), GetHelmEnvironmentVariableAliasArgs{})
@@ -30601,6 +31355,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretOverrideArrayInput)(nil)).Elem(), GetHelmSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDeploymentRestrictionInput)(nil)).Elem(), GetJobDeploymentRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDeploymentRestrictionArrayInput)(nil)).Elem(), GetJobDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobEnvironmentVariableInput)(nil)).Elem(), GetJobEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobEnvironmentVariableArrayInput)(nil)).Elem(), GetJobEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobEnvironmentVariableAliasInput)(nil)).Elem(), GetJobEnvironmentVariableAliasArgs{})
@@ -30667,6 +31423,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomDomainOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(ApplicationDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentVariableAliasOutput{})
@@ -30781,6 +31539,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(HelmDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(HelmDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(HelmEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(HelmEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(HelmEnvironmentVariableAliasOutput{})
@@ -30813,6 +31573,8 @@ func init() {
 	pulumi.RegisterOutputType(HelmValuesOverrideFileRawMapOutput{})
 	pulumi.RegisterOutputType(JobBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(JobBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(JobDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(JobDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(JobEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(JobEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(JobEnvironmentVariableAliasOutput{})
@@ -30885,6 +31647,8 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetApplicationCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(GetApplicationDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetApplicationEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationEnvironmentVariableAliasOutput{})
@@ -30994,6 +31758,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEnvironmentSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(GetHelmDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableAliasOutput{})
@@ -31008,6 +31774,8 @@ func init() {
 	pulumi.RegisterOutputType(GetHelmSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDeploymentRestrictionOutput{})
+	pulumi.RegisterOutputType(GetJobDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetJobEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetJobEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetJobEnvironmentVariableAliasOutput{})

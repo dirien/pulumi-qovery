@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'ApplicationBuiltInEnvironmentVariable',
     'ApplicationCustomDomain',
+    'ApplicationDeploymentRestriction',
     'ApplicationEnvironmentVariable',
     'ApplicationEnvironmentVariableAlias',
     'ApplicationEnvironmentVariableOverride',
@@ -70,6 +71,7 @@ __all__ = [
     'EnvironmentSecretAlias',
     'EnvironmentSecretOverride',
     'HelmBuiltInEnvironmentVariable',
+    'HelmDeploymentRestriction',
     'HelmEnvironmentVariable',
     'HelmEnvironmentVariableAlias',
     'HelmEnvironmentVariableOverride',
@@ -86,6 +88,7 @@ __all__ = [
     'HelmValuesOverrideFileGitRepository',
     'HelmValuesOverrideFileRaw',
     'JobBuiltInEnvironmentVariable',
+    'JobDeploymentRestriction',
     'JobEnvironmentVariable',
     'JobEnvironmentVariableAlias',
     'JobEnvironmentVariableOverride',
@@ -122,6 +125,7 @@ __all__ = [
     'ProjectSecretAlias',
     'GetApplicationBuiltInEnvironmentVariableResult',
     'GetApplicationCustomDomainResult',
+    'GetApplicationDeploymentRestrictionResult',
     'GetApplicationEnvironmentVariableResult',
     'GetApplicationEnvironmentVariableAliasResult',
     'GetApplicationEnvironmentVariableOverrideResult',
@@ -177,6 +181,7 @@ __all__ = [
     'GetEnvironmentSecretAliasResult',
     'GetEnvironmentSecretOverrideResult',
     'GetHelmBuiltInEnvironmentVariableResult',
+    'GetHelmDeploymentRestrictionResult',
     'GetHelmEnvironmentVariableResult',
     'GetHelmEnvironmentVariableAliasResult',
     'GetHelmEnvironmentVariableOverrideResult',
@@ -184,6 +189,7 @@ __all__ = [
     'GetHelmSecretAliasResult',
     'GetHelmSecretOverrideResult',
     'GetJobBuiltInEnvironmentVariableResult',
+    'GetJobDeploymentRestrictionResult',
     'GetJobEnvironmentVariableResult',
     'GetJobEnvironmentVariableAliasResult',
     'GetJobEnvironmentVariableOverrideResult',
@@ -332,6 +338,58 @@ class ApplicationCustomDomain(dict):
         URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         return pulumi.get(self, "validation_domain")
+
+
+@pulumi.output_type
+class ApplicationDeploymentRestriction(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 type: str,
+                 value: str,
+                 id: Optional[str] = None):
+        """
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        :param str id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3416,6 +3474,58 @@ class HelmBuiltInEnvironmentVariable(dict):
 
 
 @pulumi.output_type
+class HelmDeploymentRestriction(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 type: str,
+                 value: str,
+                 id: Optional[str] = None):
+        """
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        :param str id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class HelmEnvironmentVariable(dict):
     def __init__(__self__, *,
                  key: str,
@@ -4294,6 +4404,58 @@ class JobBuiltInEnvironmentVariable(dict):
         Value of the environment variable.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobDeploymentRestriction(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 type: str,
+                 value: str,
+                 id: Optional[str] = None):
+        """
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        :param str id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -5904,6 +6066,57 @@ class GetApplicationCustomDomainResult(dict):
         URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         return pulumi.get(self, "validation_domain")
+
+
+@pulumi.output_type
+class GetApplicationDeploymentRestrictionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -8274,6 +8487,57 @@ class GetHelmBuiltInEnvironmentVariableResult(dict):
 
 
 @pulumi.output_type
+class GetHelmDeploymentRestrictionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetHelmEnvironmentVariableResult(dict):
     def __init__(__self__, *,
                  id: str,
@@ -8549,6 +8813,57 @@ class GetJobBuiltInEnvironmentVariableResult(dict):
     def value(self) -> str:
         """
         Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetJobDeploymentRestrictionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
         """
         return pulumi.get(self, "value")
 

@@ -106,8 +106,7 @@ type Environment struct {
 	EnvironmentVariableOverrides EnvironmentEnvironmentVariableOverrideArrayOutput `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this environment.
 	EnvironmentVariables EnvironmentEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
-	// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-	// `STAGING`. - Default: `DEVELOPMENT`.
+	// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Name of the environment.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -167,8 +166,7 @@ type environmentState struct {
 	EnvironmentVariableOverrides []EnvironmentEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this environment.
 	EnvironmentVariables []EnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
-	// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-	// `STAGING`. - Default: `DEVELOPMENT`.
+	// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 	Mode *string `pulumi:"mode"`
 	// Name of the environment.
 	Name *string `pulumi:"name"`
@@ -193,8 +191,7 @@ type EnvironmentState struct {
 	EnvironmentVariableOverrides EnvironmentEnvironmentVariableOverrideArrayInput
 	// List of environment variables linked to this environment.
 	EnvironmentVariables EnvironmentEnvironmentVariableArrayInput
-	// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-	// `STAGING`. - Default: `DEVELOPMENT`.
+	// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 	Mode pulumi.StringPtrInput
 	// Name of the environment.
 	Name pulumi.StringPtrInput
@@ -221,8 +218,7 @@ type environmentArgs struct {
 	EnvironmentVariableOverrides []EnvironmentEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this environment.
 	EnvironmentVariables []EnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
-	// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-	// `STAGING`. - Default: `DEVELOPMENT`.
+	// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 	Mode *string `pulumi:"mode"`
 	// Name of the environment.
 	Name *string `pulumi:"name"`
@@ -246,8 +242,7 @@ type EnvironmentArgs struct {
 	EnvironmentVariableOverrides EnvironmentEnvironmentVariableOverrideArrayInput
 	// List of environment variables linked to this environment.
 	EnvironmentVariables EnvironmentEnvironmentVariableArrayInput
-	// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-	// `STAGING`. - Default: `DEVELOPMENT`.
+	// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 	Mode pulumi.StringPtrInput
 	// Name of the environment.
 	Name pulumi.StringPtrInput
@@ -379,8 +374,7 @@ func (o EnvironmentOutput) EnvironmentVariables() EnvironmentEnvironmentVariable
 	return o.ApplyT(func(v *Environment) EnvironmentEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(EnvironmentEnvironmentVariableArrayOutput)
 }
 
-// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-// `STAGING`. - Default: `DEVELOPMENT`.
+// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
 func (o EnvironmentOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }

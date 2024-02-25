@@ -39,6 +39,25 @@ export interface ApplicationCustomDomain {
     validationDomain: string;
 }
 
+export interface ApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface ApplicationEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -1027,6 +1046,25 @@ export interface GetApplicationCustomDomain {
     validationDomain: string;
 }
 
+export interface GetApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface GetApplicationEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -1906,6 +1944,25 @@ export interface GetHelmBuiltInEnvironmentVariable {
     value: string;
 }
 
+export interface GetHelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface GetHelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -2007,6 +2064,25 @@ export interface GetJobBuiltInEnvironmentVariable {
     key: string;
     /**
      * Value of the environment variable.
+     */
+    value: string;
+}
+
+export interface GetJobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
      */
     value: string;
 }
@@ -2512,6 +2588,25 @@ export interface HelmBuiltInEnvironmentVariable {
     value: string;
 }
 
+export interface HelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value: string;
+}
+
 export interface HelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -2762,6 +2857,25 @@ export interface JobBuiltInEnvironmentVariable {
     key: string;
     /**
      * Value of the environment variable.
+     */
+    value: string;
+}
+
+export interface JobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: string;
+    /**
+     * Value of the deployment restriction
      */
     value: string;
 }

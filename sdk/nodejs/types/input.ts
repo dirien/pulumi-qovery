@@ -39,6 +39,25 @@ export interface ApplicationCustomDomain {
     validationDomain?: pulumi.Input<string>;
 }
 
+export interface ApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface ApplicationEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -1029,6 +1048,44 @@ export interface GetApplicationCustomDomainArgs {
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: pulumi.Input<string>;
+}
+
+export interface GetApplicationDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetApplicationDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface GetApplicationEnvironmentVariable {
@@ -2585,6 +2642,44 @@ export interface GetEnvironmentSecretOverrideArgs {
     value?: pulumi.Input<string>;
 }
 
+export interface GetHelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetHelmDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: pulumi.Input<string>;
+}
+
 export interface GetHelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -2761,6 +2856,44 @@ export interface GetHelmSecretOverrideArgs {
     key?: pulumi.Input<string>;
     /**
      * Value of the secret override.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface GetJobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: string;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: string;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: string;
+    /**
+     * Value of the deployment restriction
+     */
+    value?: string;
+}
+
+export interface GetJobDeploymentRestrictionArgs {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
      */
     value?: pulumi.Input<string>;
 }
@@ -3574,6 +3707,25 @@ export interface HelmBuiltInEnvironmentVariable {
     value?: pulumi.Input<string>;
 }
 
+export interface HelmDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface HelmEnvironmentVariable {
     /**
      * Id of the environment variable.
@@ -3826,6 +3978,25 @@ export interface JobBuiltInEnvironmentVariable {
      * Value of the environment variable.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface JobDeploymentRestriction {
+    /**
+     * Id of the deployment restriction
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be EXCLUDE or MATCH
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Currently, only PATH is accepted
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the deployment restriction
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface JobEnvironmentVariable {

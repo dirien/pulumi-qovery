@@ -83,6 +83,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly customDomains!: pulumi.Output<outputs.ApplicationCustomDomain[] | undefined>;
     /**
+     * List of deployment restrictions
+     */
+    public readonly deploymentRestrictions!: pulumi.Output<outputs.ApplicationDeploymentRestriction[] | undefined>;
+    /**
      * Id of the deployment stage.
      */
     public readonly deploymentStageId!: pulumi.Output<string>;
@@ -185,6 +189,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["builtInEnvironmentVariables"] = state ? state.builtInEnvironmentVariables : undefined;
             resourceInputs["cpu"] = state ? state.cpu : undefined;
             resourceInputs["customDomains"] = state ? state.customDomains : undefined;
+            resourceInputs["deploymentRestrictions"] = state ? state.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["dockerfilePath"] = state ? state.dockerfilePath : undefined;
             resourceInputs["entrypoint"] = state ? state.entrypoint : undefined;
@@ -224,6 +229,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["buildpackLanguage"] = args ? args.buildpackLanguage : undefined;
             resourceInputs["cpu"] = args ? args.cpu : undefined;
             resourceInputs["customDomains"] = args ? args.customDomains : undefined;
+            resourceInputs["deploymentRestrictions"] = args ? args.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["dockerfilePath"] = args ? args.dockerfilePath : undefined;
             resourceInputs["entrypoint"] = args ? args.entrypoint : undefined;
@@ -292,6 +298,10 @@ export interface ApplicationState {
      * List of custom domains linked to this application.
      */
     customDomains?: pulumi.Input<pulumi.Input<inputs.ApplicationCustomDomain>[]>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.ApplicationDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */
@@ -411,6 +421,10 @@ export interface ApplicationArgs {
      * List of custom domains linked to this application.
      */
     customDomains?: pulumi.Input<pulumi.Input<inputs.ApplicationCustomDomain>[]>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.ApplicationDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */
