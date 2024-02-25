@@ -134,6 +134,42 @@
                 }
             }
         },
+        "qovery:index/ApplicationDeploymentRestriction:ApplicationDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "mode",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
         "qovery:index/ApplicationEnvironmentVariable:ApplicationEnvironmentVariable": {
             "properties": {
                 "id": {
@@ -1725,6 +1761,42 @@
                 }
             }
         },
+        "qovery:index/HelmDeploymentRestriction:HelmDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "mode",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
         "qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable": {
             "properties": {
                 "id": {
@@ -2173,6 +2245,42 @@
                     "requiredOutputs": [
                         "id",
                         "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "qovery:index/JobDeploymentRestriction:JobDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "mode",
+                        "type",
                         "value"
                     ]
                 }
@@ -3043,6 +3151,38 @@
                 "id",
                 "status",
                 "validationDomain"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getApplicationDeploymentRestriction:getApplicationDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "mode",
+                "type",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -4424,6 +4564,38 @@
                 }
             }
         },
+        "qovery:index/getHelmDeploymentRestriction:getHelmDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "mode",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable": {
             "properties": {
                 "id": {
@@ -4607,6 +4779,38 @@
             "required": [
                 "id",
                 "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getJobDeploymentRestriction:getJobDeploymentRestriction": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Id of the deployment restriction\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Can be EXCLUDE or MATCH\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Currently, only PATH is accepted\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the deployment restriction\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "mode",
+                "type",
                 "value"
             ],
             "language": {
@@ -5458,7 +5662,7 @@
     },
     "resources": {
         "qovery:index/application:Application": {
-            "description": "## # qovery.Application (Resource)\n\nProvides a Qovery application resource. This can be used to create and manage Qovery applications.\n\n\n## Example\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Application;\nimport com.pulumi.qovery.ApplicationArgs;\nimport com.pulumi.qovery.inputs.ApplicationGitRepositoryArgs;\nimport com.pulumi.qovery.inputs.ApplicationHealthchecksArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretAliasArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretOverrideArgs;\nimport com.pulumi.qovery.inputs.ApplicationCustomDomainArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myApplication = new Application(\"myApplication\", ApplicationArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .gitRepository(ApplicationGitRepositoryArgs.builder()\n                .url(\"https://github.com/Qovery/terraform-provider-qovery.git\")\n                .branch(\"main\")\n                .root_path(\"/\")\n                .build())\n            .buildMode(\"DOCKER\")\n            .dockerfilePath(\"Dockerfile\")\n            .autoPreview(\"true\")\n            .cpu(500)\n            .memory(512)\n            .minRunningInstances(1)\n            .maxRunningInstances(1)\n            .entrypoint(\"/bin/sh\")\n            .arguments(\"arg\")\n            .healthchecks(ApplicationHealthchecksArgs.builder()\n                .readiness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .liveness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .build())\n            .environmentVariables(ApplicationEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(ApplicationEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(ApplicationEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(ApplicationSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(ApplicationSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(ApplicationSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .customDomains(ApplicationCustomDomainArgs.builder()\n                .domain(\"example.com\")\n                .build())\n            .advancedSettingsJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"network.ingress.proxy_buffer_size_kb\", 8),\n                    jsonProperty(\"network.ingress.keepalive_time_seconds\", 1000)\n                )))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myApplication:\n    type: qovery:Application\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      gitRepository:\n        url: https://github.com/Qovery/terraform-provider-qovery.git\n        branch: main\n        root_path: /\n      # Optional\n      buildMode: DOCKER\n      dockerfilePath: Dockerfile\n      autoPreview: 'true'\n      cpu: 500\n      memory: 512\n      minRunningInstances: 1\n      maxRunningInstances: 1\n      entrypoint: /bin/sh\n      arguments:\n        - arg\n      healthchecks:\n        readiness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n        liveness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      customDomains:\n        - domain: example.com\n      advancedSettingsJson:\n        fn::toJSON:\n          network.ingress.proxy_buffer_size_kb: 8\n          network.ingress.keepalive_time_seconds: 1000\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy an Application and Database within 3 environments\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/application:Application my_application \"\u003capplication_id\u003e\"\n```\n\n ",
+            "description": "## # qovery.Application (Resource)\n\nProvides a Qovery application resource. This can be used to create and manage Qovery applications.\n\n\n## Example\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Application;\nimport com.pulumi.qovery.ApplicationArgs;\nimport com.pulumi.qovery.inputs.ApplicationGitRepositoryArgs;\nimport com.pulumi.qovery.inputs.ApplicationHealthchecksArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.ApplicationEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretAliasArgs;\nimport com.pulumi.qovery.inputs.ApplicationSecretOverrideArgs;\nimport com.pulumi.qovery.inputs.ApplicationCustomDomainArgs;\nimport com.pulumi.qovery.inputs.ApplicationDeploymentRestrictionArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myApplication = new Application(\"myApplication\", ApplicationArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .gitRepository(ApplicationGitRepositoryArgs.builder()\n                .url(\"https://github.com/Qovery/terraform-provider-qovery.git\")\n                .branch(\"main\")\n                .root_path(\"/\")\n                .build())\n            .buildMode(\"DOCKER\")\n            .dockerfilePath(\"Dockerfile\")\n            .autoPreview(\"true\")\n            .cpu(500)\n            .memory(512)\n            .minRunningInstances(1)\n            .maxRunningInstances(1)\n            .entrypoint(\"/bin/sh\")\n            .arguments(\"arg\")\n            .healthchecks(ApplicationHealthchecksArgs.builder()\n                .readiness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .liveness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .build())\n            .environmentVariables(ApplicationEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(ApplicationEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(ApplicationEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(ApplicationSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(ApplicationSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(ApplicationSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .customDomains(ApplicationCustomDomainArgs.builder()\n                .domain(\"example.com\")\n                .build())\n            .deploymentRestrictions(ApplicationDeploymentRestrictionArgs.builder()\n                .mode(\"MATCH\")\n                .type(\"PATH\")\n                .value(\"path/or/file\")\n                .build())\n            .advancedSettingsJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"network.ingress.proxy_buffer_size_kb\", 8),\n                    jsonProperty(\"network.ingress.keepalive_time_seconds\", 1000)\n                )))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myApplication:\n    type: qovery:Application\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      gitRepository:\n        url: https://github.com/Qovery/terraform-provider-qovery.git\n        branch: main\n        root_path: /\n      # Optional\n      buildMode: DOCKER\n      dockerfilePath: Dockerfile\n      autoPreview: 'true'\n      cpu: 500\n      memory: 512\n      minRunningInstances: 1\n      maxRunningInstances: 1\n      entrypoint: /bin/sh\n      arguments:\n        - arg\n      healthchecks:\n        readiness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n        liveness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      customDomains:\n        - domain: example.com\n      deploymentRestrictions:\n        - mode: MATCH\n          type: PATH\n          value: path/or/file\n      advancedSettingsJson:\n        fn::toJSON:\n          network.ingress.proxy_buffer_size_kb: 8\n          network.ingress.keepalive_time_seconds: 1000\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy an Application and Database within 3 environments\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/application:Application my_application \"\u003capplication_id\u003e\"\n```\n\n ",
             "properties": {
                 "advancedSettingsJson": {
                     "type": "string",
@@ -5504,6 +5708,13 @@
                         "$ref": "#/types/qovery:index/ApplicationCustomDomain:ApplicationCustomDomain"
                     },
                     "description": "List of custom domains linked to this application.\n"
+                },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/ApplicationDeploymentRestriction:ApplicationDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
                 },
                 "deploymentStageId": {
                     "type": "string",
@@ -5668,6 +5879,13 @@
                     },
                     "description": "List of custom domains linked to this application.\n"
                 },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/ApplicationDeploymentRestriction:ApplicationDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
+                },
                 "deploymentStageId": {
                     "type": "string",
                     "description": "Id of the deployment stage.\n"
@@ -5817,6 +6035,13 @@
                             "$ref": "#/types/qovery:index/ApplicationCustomDomain:ApplicationCustomDomain"
                         },
                         "description": "List of custom domains linked to this application.\n"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/ApplicationDeploymentRestriction:ApplicationDeploymentRestriction"
+                        },
+                        "description": "List of deployment restrictions\n"
                     },
                     "deploymentStageId": {
                         "type": "string",
@@ -7051,7 +7276,7 @@
             }
         },
         "qovery:index/deploymentStage:DeploymentStage": {
-            "description": "## # qovery.DeploymentStage (Resource)\n\nProvides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.\n\n\n## Example\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myDeploymentStage = new qovery.DeploymentStage(\"myDeploymentStage\", {\n    environmentId: qovery_environment.my_environment.id,\n    description: \"\",\n    isAfter: qovery_deployment_stage.first_deployment_stage.id,\n    isBefore: qovery_deployment_stage.third_deployment_stage.id,\n}, {\n    dependsOn: [qovery_environment.my_environment],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_deployment_stage = qovery.DeploymentStage(\"myDeploymentStage\",\n    environment_id=qovery_environment[\"my_environment\"][\"id\"],\n    description=\"\",\n    is_after=qovery_deployment_stage[\"first_deployment_stage\"][\"id\"],\n    is_before=qovery_deployment_stage[\"third_deployment_stage\"][\"id\"],\n    opts=pulumi.ResourceOptions(depends_on=[qovery_environment[\"my_environment\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myDeploymentStage = new Qovery.DeploymentStage(\"myDeploymentStage\", new()\n    {\n        EnvironmentId = qovery_environment.My_environment.Id,\n        Description = \"\",\n        IsAfter = qovery_deployment_stage.First_deployment_stage.Id,\n        IsBefore = qovery_deployment_stage.Third_deployment_stage.Id,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            qovery_environment.My_environment,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewDeploymentStage(ctx, \"myDeploymentStage\", \u0026qovery.DeploymentStageArgs{\n\t\t\tEnvironmentId: pulumi.Any(qovery_environment.My_environment.Id),\n\t\t\tDescription:   pulumi.String(\"\"),\n\t\t\tIsAfter:       pulumi.Any(qovery_deployment_stage.First_deployment_stage.Id),\n\t\t\tIsBefore:      pulumi.Any(qovery_deployment_stage.Third_deployment_stage.Id),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_environment.My_environment,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.DeploymentStage;\nimport com.pulumi.qovery.DeploymentStageArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myDeploymentStage = new DeploymentStage(\"myDeploymentStage\", DeploymentStageArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .description(\"\")\n            .isAfter(qovery_deployment_stage.first_deployment_stage().id())\n            .isBefore(qovery_deployment_stage.third_deployment_stage().id())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myDeploymentStage:\n    type: qovery:DeploymentStage\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      # Optional\n      description:\n      isAfter: ${qovery_deployment_stage.first_deployment_stage.id}\n      isBefore: ${qovery_deployment_stage.third_deployment_stage.id}\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy services with a specific order\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage \"\u003cdeployment_stage_id\u003e\"\n```\n\n ",
+            "description": "## # qovery.DeploymentStage (Resource)\n\nProvides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.\n\n\n## Example\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myDeploymentStage = new qovery.DeploymentStage(\"myDeploymentStage\", {\n    environmentId: qovery_environment.my_environment.id,\n    description: \"\",\n    isAfter: qovery_deployment_stage.first_deployment_stage.id,\n    isBefore: qovery_deployment_stage.third_deployment_stage.id,\n}, {\n    dependsOn: [qovery_environment.my_environment],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_deployment_stage = qovery.DeploymentStage(\"myDeploymentStage\",\n    environment_id=qovery_environment[\"my_environment\"][\"id\"],\n    description=\"\",\n    is_after=qovery_deployment_stage[\"first_deployment_stage\"][\"id\"],\n    is_before=qovery_deployment_stage[\"third_deployment_stage\"][\"id\"],\n    opts=pulumi.ResourceOptions(depends_on=[qovery_environment[\"my_environment\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myDeploymentStage = new Qovery.DeploymentStage(\"myDeploymentStage\", new()\n    {\n        EnvironmentId = qovery_environment.My_environment.Id,\n        Description = \"\",\n        IsAfter = qovery_deployment_stage.First_deployment_stage.Id,\n        IsBefore = qovery_deployment_stage.Third_deployment_stage.Id,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            qovery_environment.My_environment,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewDeploymentStage(ctx, \"myDeploymentStage\", \u0026qovery.DeploymentStageArgs{\n\t\t\tEnvironmentId: pulumi.Any(qovery_environment.My_environment.Id),\n\t\t\tDescription:   pulumi.String(\"\"),\n\t\t\tIsAfter:       pulumi.Any(qovery_deployment_stage.First_deployment_stage.Id),\n\t\t\tIsBefore:      pulumi.Any(qovery_deployment_stage.Third_deployment_stage.Id),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_environment.My_environment,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.DeploymentStage;\nimport com.pulumi.qovery.DeploymentStageArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myDeploymentStage = new DeploymentStage(\"myDeploymentStage\", DeploymentStageArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .description(\"\")\n            .isAfter(qovery_deployment_stage.first_deployment_stage().id())\n            .isBefore(qovery_deployment_stage.third_deployment_stage().id())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myDeploymentStage:\n    type: qovery:DeploymentStage\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      # Optional\n      description:\n      isAfter: ${qovery_deployment_stage.first_deployment_stage.id}\n      isBefore: ${qovery_deployment_stage.third_deployment_stage.id}\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy services with a specific order\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage \"\u003cenvironment_id\u003e,\u003cdeployment_stage_name\u003e\"\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -7167,7 +7392,7 @@
                 },
                 "mode": {
                     "type": "string",
-                    "description": "Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,\n`STAGING`. - Default: `DEVELOPMENT`.\n"
+                    "description": "Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7234,7 +7459,7 @@
                 },
                 "mode": {
                     "type": "string",
-                    "description": "Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,\n`STAGING`. - Default: `DEVELOPMENT`.\n"
+                    "description": "Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7307,7 +7532,7 @@
                     },
                     "mode": {
                         "type": "string",
-                        "description": "Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,\n`STAGING`. - Default: `DEVELOPMENT`.\n"
+                        "description": "Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.\n"
                     },
                     "name": {
                         "type": "string",
@@ -7444,7 +7669,7 @@
             }
         },
         "qovery:index/helm:Helm": {
-            "description": "## # qovery.Helm (Resource)\n\nProvides a Qovery helm resource. This can be used to create and manage Qovery helm registry.\n\n\n## Example\n\n```yaml\nresources:\n  myHelm:\n    type: qovery:Helm\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      allowClusterWideResources: false\n      source:\n        helm_repository:\n          helmRepositoryId: 5a4a2dd6-02e1-4e3a-a3cc-8ebb97e135a9\n          chartName: httpbin\n          chartVersion: 1.0.0\n      valuesOverride:\n        set:\n          key1: 6600\n          key2: values1\n        set_string:\n          s-key1: value1\n          s-key2: value2\n        set_json:\n          j-key1: '{}'\n          j-key2: '{}'\n        file:\n          raw:\n            file1:\n              content: \"--- \\n ssss\"\n            file2:\n              content: \"a \\n eee\"\n      # Optional\n      autoPreview: 'true'\n      environmentVariables:\n        - key: MY_TERRAFORM_HELM_VARIABLE\n          value: MY_TERRAFORM_HELM_VARIABLE_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: MY_TERRAFORM_HELM_SECRET\n          value: MY_TERRAFORM_HELM_SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      advancedSettingsJson:\n        fn::toJSON: {}\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/helm:Helm my_helm \"\u003chelm_id\u003e\"\n```\n\n ",
+            "description": "## # qovery.Helm (Resource)\n\nProvides a Qovery helm resource. This can be used to create and manage Qovery helm registry.\n\n\n## Example\n\n```yaml\nresources:\n  myHelm:\n    type: qovery:Helm\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      allowClusterWideResources: false\n      source:\n        helm_repository:\n          helmRepositoryId: 5a4a2dd6-02e1-4e3a-a3cc-8ebb97e135a9\n          chartName: httpbin\n          chartVersion: 1.0.0\n      valuesOverride:\n        set:\n          key1: 6600\n          key2: values1\n        set_string:\n          s-key1: value1\n          s-key2: value2\n        set_json:\n          j-key1: '{}'\n          j-key2: '{}'\n        file:\n          raw:\n            file1:\n              content: \"--- \\n ssss\"\n            file2:\n              content: \"a \\n eee\"\n      # Optional\n      autoPreview: 'true'\n      environmentVariables:\n        - key: MY_TERRAFORM_HELM_VARIABLE\n          value: MY_TERRAFORM_HELM_VARIABLE_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: MY_TERRAFORM_HELM_SECRET\n          value: MY_TERRAFORM_HELM_SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      deploymentRestrictions:\n        - mode: MATCH\n          type: PATH\n          value: path/or/file\n      advancedSettingsJson:\n        fn::toJSON: {}\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/helm:Helm my_helm \"\u003chelm_id\u003e\"\n```\n\n ",
             "properties": {
                 "advancedSettingsJson": {
                     "type": "string",
@@ -7475,6 +7700,13 @@
                         "$ref": "#/types/qovery:index/HelmBuiltInEnvironmentVariable:HelmBuiltInEnvironmentVariable"
                     },
                     "description": "List of built-in environment variables linked to this helm.\n"
+                },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmDeploymentRestriction:HelmDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
                 },
                 "deploymentStageId": {
                     "type": "string",
@@ -7598,6 +7830,13 @@
                     "type": "boolean",
                     "description": "Specify if the environment preview option is activated or not for this helm.\n"
                 },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/HelmDeploymentRestriction:HelmDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
+                },
                 "deploymentStageId": {
                     "type": "string",
                     "description": "Id of the deployment stage.\n"
@@ -7710,6 +7949,13 @@
                             "$ref": "#/types/qovery:index/HelmBuiltInEnvironmentVariable:HelmBuiltInEnvironmentVariable"
                         },
                         "description": "List of built-in environment variables linked to this helm.\n"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/HelmDeploymentRestriction:HelmDeploymentRestriction"
+                        },
+                        "description": "List of deployment restrictions\n"
                     },
                     "deploymentStageId": {
                         "type": "string",
@@ -7908,7 +8154,7 @@
             }
         },
         "qovery:index/job:Job": {
-            "description": "## # qovery.Job (Resource)\n\nProvides a Qovery job resource. This can be used to create and manage Qovery job registry.\n\n\n## Example\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Job;\nimport com.pulumi.qovery.JobArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.JobSecretArgs;\nimport com.pulumi.qovery.inputs.JobSecretAliasArgs;\nimport com.pulumi.qovery.inputs.JobSecretOverrideArgs;\nimport com.pulumi.qovery.inputs.JobScheduleArgs;\nimport com.pulumi.qovery.inputs.JobScheduleCronjobArgs;\nimport com.pulumi.qovery.inputs.JobScheduleCronjobCommandArgs;\nimport com.pulumi.qovery.inputs.JobSourceArgs;\nimport com.pulumi.qovery.inputs.JobSourceImageArgs;\nimport com.pulumi.qovery.inputs.JobHealthchecksArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myJob = new Job(\"myJob\", JobArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .autoPreview(\"true\")\n            .cpu(500)\n            .memory(512)\n            .maxDurationSeconds(23)\n            .maxNbRestart(1)\n            .port(5432)\n            .environmentVariables(JobEnvironmentVariableArgs.builder()\n                .key(\"MY_TERRAFORM_CONTAINER_VARIABLE\")\n                .value(\"MY_TERRAFORM_CONTAINER_VARIABLE_VALUE\")\n                .build())\n            .environmentVariableAliases(JobEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(JobEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(JobSecretArgs.builder()\n                .key(\"MY_TERRAFORM_CONTAINER_SECRET\")\n                .value(\"MY_TERRAFORM_CONTAINER_SECRET_VALUE\")\n                .build())\n            .secretAliases(JobSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(JobSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .schedule(JobScheduleArgs.builder()\n                .on_start()\n                .on_stop()\n                .on_delete()\n                .cronjob(JobScheduleCronjobArgs.builder()\n                    .schedule(\"*/2 * * * *\")\n                    .command(JobScheduleCronjobCommandArgs.builder()\n                        .entrypoint(\"\")\n                        .arguments(                        \n                            \"echo\",\n                            \"'DONE'\")\n                        .build())\n                    .build())\n                .build())\n            .source(JobSourceArgs.builder()\n                .image(JobSourceImageArgs.builder()\n                    .registryId(qovery_container_registry.my_container_registry().id())\n                    .name(\"debian\")\n                    .tag(\"stable\")\n                    .build())\n                .build())\n            .healthchecks(JobHealthchecksArgs.builder()\n                .readiness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .liveness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .build())\n            .advancedSettingsJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"deployment.termination_grace_period_seconds\", 120),\n                    jsonProperty(\"build.timeout_max_sec\", 120)\n                )))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myJob:\n    type: qovery:Job\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      # Optional\n      autoPreview: 'true'\n      cpu: 500\n      memory: 512\n      maxDurationSeconds: 23\n      maxNbRestart: 1\n      port: 5432\n      environmentVariables:\n        - key: MY_TERRAFORM_CONTAINER_VARIABLE\n          value: MY_TERRAFORM_CONTAINER_VARIABLE_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: MY_TERRAFORM_CONTAINER_SECRET\n          value: MY_TERRAFORM_CONTAINER_SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      schedule:\n        on_start: {}\n        on_stop: {}\n        on_delete: {}\n        cronjob:\n          schedule: '*/2 * * * *'\n          command:\n            entrypoint:\n            arguments:\n              - echo\n              - '''DONE'''\n      source:\n        image:\n          registryId: ${qovery_container_registry.my_container_registry.id}\n          name: debian\n          tag: stable\n      healthchecks:\n        readiness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n        liveness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n      advancedSettingsJson:\n        fn::toJSON:\n          deployment.termination_grace_period_seconds: 120\n          build.timeout_max_sec: 120\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy a cron job\n* Deploy a lifecycle job\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/job:Job my_job \"\u003cjob_id\u003e\"\n```\n\n ",
+            "description": "## # qovery.Job (Resource)\n\nProvides a Qovery job resource. This can be used to create and manage Qovery job registry.\n\n\n## Example\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Job;\nimport com.pulumi.qovery.JobArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.JobEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.JobSecretArgs;\nimport com.pulumi.qovery.inputs.JobSecretAliasArgs;\nimport com.pulumi.qovery.inputs.JobSecretOverrideArgs;\nimport com.pulumi.qovery.inputs.JobScheduleArgs;\nimport com.pulumi.qovery.inputs.JobScheduleCronjobArgs;\nimport com.pulumi.qovery.inputs.JobScheduleCronjobCommandArgs;\nimport com.pulumi.qovery.inputs.JobSourceArgs;\nimport com.pulumi.qovery.inputs.JobSourceImageArgs;\nimport com.pulumi.qovery.inputs.JobHealthchecksArgs;\nimport com.pulumi.qovery.inputs.JobDeploymentRestrictionArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myJob = new Job(\"myJob\", JobArgs.builder()        \n            .environmentId(qovery_environment.my_environment().id())\n            .autoPreview(\"true\")\n            .cpu(500)\n            .memory(512)\n            .maxDurationSeconds(23)\n            .maxNbRestart(1)\n            .port(5432)\n            .environmentVariables(JobEnvironmentVariableArgs.builder()\n                .key(\"MY_TERRAFORM_CONTAINER_VARIABLE\")\n                .value(\"MY_TERRAFORM_CONTAINER_VARIABLE_VALUE\")\n                .build())\n            .environmentVariableAliases(JobEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(JobEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(JobSecretArgs.builder()\n                .key(\"MY_TERRAFORM_CONTAINER_SECRET\")\n                .value(\"MY_TERRAFORM_CONTAINER_SECRET_VALUE\")\n                .build())\n            .secretAliases(JobSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(JobSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .schedule(JobScheduleArgs.builder()\n                .on_start()\n                .on_stop()\n                .on_delete()\n                .cronjob(JobScheduleCronjobArgs.builder()\n                    .schedule(\"*/2 * * * *\")\n                    .command(JobScheduleCronjobCommandArgs.builder()\n                        .entrypoint(\"\")\n                        .arguments(                        \n                            \"echo\",\n                            \"'DONE'\")\n                        .build())\n                    .build())\n                .build())\n            .source(JobSourceArgs.builder()\n                .image(JobSourceImageArgs.builder()\n                    .registryId(qovery_container_registry.my_container_registry().id())\n                    .name(\"debian\")\n                    .tag(\"stable\")\n                    .build())\n                .build())\n            .healthchecks(JobHealthchecksArgs.builder()\n                .readiness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .liveness_probe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .build())\n            .deploymentRestrictions(JobDeploymentRestrictionArgs.builder()\n                .mode(\"MATCH\")\n                .type(\"PATH\")\n                .value(\"path/or/file\")\n                .build())\n            .advancedSettingsJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"deployment.termination_grace_period_seconds\", 120),\n                    jsonProperty(\"build.timeout_max_sec\", 120)\n                )))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_environment.my_environment())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myJob:\n    type: qovery:Job\n    properties:\n      # Required\n      environmentId: ${qovery_environment.my_environment.id}\n      # Optional\n      autoPreview: 'true'\n      cpu: 500\n      memory: 512\n      maxDurationSeconds: 23\n      maxNbRestart: 1\n      port: 5432\n      environmentVariables:\n        - key: MY_TERRAFORM_CONTAINER_VARIABLE\n          value: MY_TERRAFORM_CONTAINER_VARIABLE_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: MY_TERRAFORM_CONTAINER_SECRET\n          value: MY_TERRAFORM_CONTAINER_SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n      schedule:\n        on_start: {}\n        on_stop: {}\n        on_delete: {}\n        cronjob:\n          schedule: '*/2 * * * *'\n          command:\n            entrypoint:\n            arguments:\n              - echo\n              - '''DONE'''\n      source:\n        image:\n          registryId: ${qovery_container_registry.my_container_registry.id}\n          name: debian\n          tag: stable\n      healthchecks:\n        readiness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n        liveness_probe:\n          type:\n            http:\n              port: 8000\n          initialDelaySeconds: 30\n          periodSeconds: 10\n          timeoutSeconds: 10\n          successThreshold: 1\n          failureThreshold: 3\n      deploymentRestrictions:\n        - mode: MATCH\n          type: PATH\n          value: path/or/file\n      advancedSettingsJson:\n        fn::toJSON:\n          deployment.termination_grace_period_seconds: 120\n          build.timeout_max_sec: 120\n    options:\n      dependson:\n        - ${qovery_environment.my_environment}\n```\n\nYou can find complete examples within these repositories:\n\n* Deploy a cron job\n* Deploy a lifecycle job\n\n\n## Import\n\n```sh\n $ pulumi import qovery:index/job:Job my_job \"\u003cjob_id\u003e\"\n```\n\n ",
             "properties": {
                 "advancedSettingsJson": {
                     "type": "string",
@@ -7932,6 +8178,13 @@
                 "cpu": {
                     "type": "integer",
                     "description": "CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `\u003e= 10`. - Default: `500`.\n"
+                },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/JobDeploymentRestriction:JobDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
                 },
                 "deploymentStageId": {
                     "type": "string",
@@ -8058,6 +8311,13 @@
                     "type": "integer",
                     "description": "CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `\u003e= 10`. - Default: `500`.\n"
                 },
+                "deploymentRestrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/qovery:index/JobDeploymentRestriction:JobDeploymentRestriction"
+                    },
+                    "description": "List of deployment restrictions\n"
+                },
                 "deploymentStageId": {
                     "type": "string",
                     "description": "Id of the deployment stage.\n"
@@ -8171,6 +8431,13 @@
                     "cpu": {
                         "type": "integer",
                         "description": "CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `\u003e= 10`. - Default: `500`.\n"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/JobDeploymentRestriction:JobDeploymentRestriction"
+                        },
+                        "description": "List of deployment restrictions\n"
                     },
                     "deploymentStageId": {
                         "type": "string",
@@ -8616,6 +8883,12 @@
                             "$ref": "#/types/qovery:index/getApplicationCustomDomain:getApplicationCustomDomain"
                         }
                     },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getApplicationDeploymentRestriction:getApplicationDeploymentRestriction"
+                        }
+                    },
                     "deploymentStageId": {
                         "type": "string"
                     },
@@ -8725,6 +8998,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getApplicationCustomDomain:getApplicationCustomDomain"
+                        }
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getApplicationDeploymentRestriction:getApplicationDeploymentRestriction"
                         }
                     },
                     "deploymentStageId": {
@@ -9708,54 +9987,70 @@
             }
         },
         "qovery:index/getHelm:getHelm": {
-            "description": "## # qovery.Helm (Data Source)\n\nProvides a Qovery helm resource.\n",
+            "description": "## # qovery.Helm (Data Source)\n\nProvides a Qovery helm resource.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@pulumi/qovery\";\n\nconst myHelm = qovery.getHelm({\n    id: \"\u003chelm_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_qovery as qovery\n\nmy_helm = qovery.get_helm(id=\"\u003chelm_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = Pulumi.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myHelm = Qovery.GetHelm.Invoke(new()\n    {\n        Id = \"\u003chelm_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.LookupHelm(ctx, \u0026qovery.LookupHelmArgs{\n\t\t\tId: \"\u003chelm_id\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.QoveryFunctions;\nimport com.pulumi.qovery.inputs.GetHelmArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myHelm = QoveryFunctions.getHelm(GetHelmArgs.builder()\n            .id(\"\u003chelm_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myHelm:\n    fn::invoke:\n      Function: qovery:getHelm\n      Arguments:\n        id: \u003chelm_id\u003e\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getHelm.\n",
                 "properties": {
                     "advancedSettingsJson": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Advanced settings.\n"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmDeploymentRestriction:getHelmDeploymentRestriction"
+                        },
+                        "description": "List of deployment restrictions\n"
                     },
                     "deploymentStageId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the deployment stage.\n"
                     },
                     "environmentVariableAliases": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariableAlias:getHelmEnvironmentVariableAlias"
-                        }
+                        },
+                        "description": "List of environment variable aliases linked to this helm.\n"
                     },
                     "environmentVariableOverrides": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariableOverride:getHelmEnvironmentVariableOverride"
-                        }
+                        },
+                        "description": "List of environment variable overrides linked to this helm.\n"
                     },
                     "environmentVariables": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
-                        }
+                        },
+                        "description": "List of environment variables linked to this helm.\n"
                     },
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the environment variable.\n"
                     },
                     "secretAliases": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecretAlias:getHelmSecretAlias"
-                        }
+                        },
+                        "description": "List of secret aliases linked to this helm.\n"
                     },
                     "secretOverrides": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecretOverride:getHelmSecretOverride"
-                        }
+                        },
+                        "description": "List of secret overrides linked to this helm.\n"
                     },
                     "secrets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecret:getHelmSecret"
-                        }
+                        },
+                        "description": "List of secrets linked to this helm.\n"
                     }
                 },
                 "type": "object",
@@ -9767,67 +10062,88 @@
                 "description": "A collection of values returned by getHelm.\n",
                 "properties": {
                     "advancedSettingsJson": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Advanced settings.\n"
                     },
                     "builtInEnvironmentVariables": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmBuiltInEnvironmentVariable:getHelmBuiltInEnvironmentVariable"
-                        }
+                        },
+                        "description": "List of built-in environment variables linked to this helm.\n"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getHelmDeploymentRestriction:getHelmDeploymentRestriction"
+                        },
+                        "description": "List of deployment restrictions\n"
                     },
                     "deploymentStageId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the deployment stage.\n"
                     },
                     "environmentId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the environment.\n"
                     },
                     "environmentVariableAliases": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariableAlias:getHelmEnvironmentVariableAlias"
-                        }
+                        },
+                        "description": "List of environment variable aliases linked to this helm.\n"
                     },
                     "environmentVariableOverrides": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariableOverride:getHelmEnvironmentVariableOverride"
-                        }
+                        },
+                        "description": "List of environment variable overrides linked to this helm.\n"
                     },
                     "environmentVariables": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
-                        }
+                        },
+                        "description": "List of environment variables linked to this helm.\n"
                     },
                     "externalHost": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
                     },
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Id of the helm.\n"
                     },
                     "internalHost": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The helm internal host.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the helm.\n"
                     },
                     "secretAliases": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecretAlias:getHelmSecretAlias"
-                        }
+                        },
+                        "description": "List of secret aliases linked to this helm.\n"
                     },
                     "secretOverrides": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecretOverride:getHelmSecretOverride"
-                        }
+                        },
+                        "description": "List of secret overrides linked to this helm.\n"
                     },
                     "secrets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/qovery:index/getHelmSecret:getHelmSecret"
-                        }
+                        },
+                        "description": "List of secrets linked to this helm.\n"
                     }
                 },
                 "type": "object",
@@ -9915,6 +10231,12 @@
                     "cpu": {
                         "type": "integer"
                     },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getJobDeploymentRestriction:getJobDeploymentRestriction"
+                        }
+                    },
                     "deploymentStageId": {
                         "type": "string"
                     },
@@ -10001,6 +10323,12 @@
                     },
                     "cpu": {
                         "type": "integer"
+                    },
+                    "deploymentRestrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/qovery:index/getJobDeploymentRestriction:getJobDeploymentRestriction"
+                        }
                     },
                     "deploymentStageId": {
                         "type": "string"

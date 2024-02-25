@@ -13,6 +13,9 @@
                     "custom_domains": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -250,6 +253,9 @@
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -292,6 +298,9 @@
                 "current": "qovery:index/job:Job",
                 "fields": {
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -422,6 +431,9 @@
                         "maxItemsOne": false
                     },
                     "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -614,6 +626,9 @@
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
+                    "deployment_restrictions": {
+                        "maxItemsOne": false
+                    },
                     "environment_variable_aliases": {
                         "maxItemsOne": false
                     },
@@ -641,6 +656,9 @@
                 "current": "qovery:index/getJob:getJob",
                 "fields": {
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "deployment_restrictions": {
                         "maxItemsOne": false
                     },
                     "environment_variable_aliases": {
@@ -985,6 +1003,7 @@
                 "buildpackLanguage": "buildpack_language",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
                 "customDomains": "custom_domains",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "dockerfilePath": "dockerfile_path",
                 "environmentId": "environment_id",
@@ -1075,6 +1094,7 @@
                 "buildpackLanguage": "buildpack_language",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
                 "customDomains": "custom_domains",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "dockerfilePath": "dockerfile_path",
                 "environmentId": "environment_id",
@@ -1242,6 +1262,7 @@
             "qovery:index/getHelm:getHelm": {
                 "advancedSettingsJson": "advanced_settings_json",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1260,6 +1281,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1332,6 +1354,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
@@ -1353,6 +1376,7 @@
                 "autoDeploy": "auto_deploy",
                 "autoPreview": "auto_preview",
                 "builtInEnvironmentVariables": "built_in_environment_variables",
+                "deploymentRestrictions": "deployment_restrictions",
                 "deploymentStageId": "deployment_stage_id",
                 "environmentId": "environment_id",
                 "environmentVariableAliases": "environment_variable_aliases",
