@@ -14,6 +14,31 @@ import (
 // ## # Helm (Data Source)
 //
 // Provides a Qovery helm resource.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.LookupHelm(ctx, &qovery.LookupHelmArgs{
+//				Id: "<helm_id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupHelm(ctx *pulumi.Context, args *LookupHelmArgs, opts ...pulumi.InvokeOption) (*LookupHelmResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHelmResult
@@ -26,33 +51,60 @@ func LookupHelm(ctx *pulumi.Context, args *LookupHelmArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getHelm.
 type LookupHelmArgs struct {
-	AdvancedSettingsJson         *string                              `pulumi:"advancedSettingsJson"`
-	DeploymentStageId            *string                              `pulumi:"deploymentStageId"`
-	EnvironmentVariableAliases   []GetHelmEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
+	// Advanced settings.
+	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of deployment restrictions
+	DeploymentRestrictions []GetHelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
+	// Id of the deployment stage.
+	DeploymentStageId *string `pulumi:"deploymentStageId"`
+	// List of environment variable aliases linked to this helm.
+	EnvironmentVariableAliases []GetHelmEnvironmentVariableAlias `pulumi:"environmentVariableAliases"`
+	// List of environment variable overrides linked to this helm.
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
-	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
-	Id                           string                               `pulumi:"id"`
-	SecretAliases                []GetHelmSecretAlias                 `pulumi:"secretAliases"`
-	SecretOverrides              []GetHelmSecretOverride              `pulumi:"secretOverrides"`
-	Secrets                      []GetHelmSecret                      `pulumi:"secrets"`
+	// List of environment variables linked to this helm.
+	EnvironmentVariables []GetHelmEnvironmentVariable `pulumi:"environmentVariables"`
+	// Id of the environment variable.
+	Id string `pulumi:"id"`
+	// List of secret aliases linked to this helm.
+	SecretAliases []GetHelmSecretAlias `pulumi:"secretAliases"`
+	// List of secret overrides linked to this helm.
+	SecretOverrides []GetHelmSecretOverride `pulumi:"secretOverrides"`
+	// List of secrets linked to this helm.
+	Secrets []GetHelmSecret `pulumi:"secrets"`
 }
 
 // A collection of values returned by getHelm.
 type LookupHelmResult struct {
-	AdvancedSettingsJson         string                               `pulumi:"advancedSettingsJson"`
-	BuiltInEnvironmentVariables  []GetHelmBuiltInEnvironmentVariable  `pulumi:"builtInEnvironmentVariables"`
-	DeploymentStageId            string                               `pulumi:"deploymentStageId"`
-	EnvironmentId                string                               `pulumi:"environmentId"`
-	EnvironmentVariableAliases   []GetHelmEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
+	// Advanced settings.
+	AdvancedSettingsJson string `pulumi:"advancedSettingsJson"`
+	// List of built-in environment variables linked to this helm.
+	BuiltInEnvironmentVariables []GetHelmBuiltInEnvironmentVariable `pulumi:"builtInEnvironmentVariables"`
+	// List of deployment restrictions
+	DeploymentRestrictions []GetHelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
+	// Id of the deployment stage.
+	DeploymentStageId string `pulumi:"deploymentStageId"`
+	// Id of the environment.
+	EnvironmentId string `pulumi:"environmentId"`
+	// List of environment variable aliases linked to this helm.
+	EnvironmentVariableAliases []GetHelmEnvironmentVariableAlias `pulumi:"environmentVariableAliases"`
+	// List of environment variable overrides linked to this helm.
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
-	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
-	ExternalHost                 string                               `pulumi:"externalHost"`
-	Id                           string                               `pulumi:"id"`
-	InternalHost                 string                               `pulumi:"internalHost"`
-	Name                         string                               `pulumi:"name"`
-	SecretAliases                []GetHelmSecretAlias                 `pulumi:"secretAliases"`
-	SecretOverrides              []GetHelmSecretOverride              `pulumi:"secretOverrides"`
-	Secrets                      []GetHelmSecret                      `pulumi:"secrets"`
+	// List of environment variables linked to this helm.
+	EnvironmentVariables []GetHelmEnvironmentVariable `pulumi:"environmentVariables"`
+	// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
+	ExternalHost string `pulumi:"externalHost"`
+	// Id of the helm.
+	Id string `pulumi:"id"`
+	// The helm internal host.
+	InternalHost string `pulumi:"internalHost"`
+	// Name of the helm.
+	Name string `pulumi:"name"`
+	// List of secret aliases linked to this helm.
+	SecretAliases []GetHelmSecretAlias `pulumi:"secretAliases"`
+	// List of secret overrides linked to this helm.
+	SecretOverrides []GetHelmSecretOverride `pulumi:"secretOverrides"`
+	// List of secrets linked to this helm.
+	Secrets []GetHelmSecret `pulumi:"secrets"`
 }
 
 func LookupHelmOutput(ctx *pulumi.Context, args LookupHelmOutputArgs, opts ...pulumi.InvokeOption) LookupHelmResultOutput {
@@ -70,15 +122,26 @@ func LookupHelmOutput(ctx *pulumi.Context, args LookupHelmOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getHelm.
 type LookupHelmOutputArgs struct {
-	AdvancedSettingsJson         pulumi.StringPtrInput                        `pulumi:"advancedSettingsJson"`
-	DeploymentStageId            pulumi.StringPtrInput                        `pulumi:"deploymentStageId"`
-	EnvironmentVariableAliases   GetHelmEnvironmentVariableAliasArrayInput    `pulumi:"environmentVariableAliases"`
+	// Advanced settings.
+	AdvancedSettingsJson pulumi.StringPtrInput `pulumi:"advancedSettingsJson"`
+	// List of deployment restrictions
+	DeploymentRestrictions GetHelmDeploymentRestrictionArrayInput `pulumi:"deploymentRestrictions"`
+	// Id of the deployment stage.
+	DeploymentStageId pulumi.StringPtrInput `pulumi:"deploymentStageId"`
+	// List of environment variable aliases linked to this helm.
+	EnvironmentVariableAliases GetHelmEnvironmentVariableAliasArrayInput `pulumi:"environmentVariableAliases"`
+	// List of environment variable overrides linked to this helm.
 	EnvironmentVariableOverrides GetHelmEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
-	EnvironmentVariables         GetHelmEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
-	Id                           pulumi.StringInput                           `pulumi:"id"`
-	SecretAliases                GetHelmSecretAliasArrayInput                 `pulumi:"secretAliases"`
-	SecretOverrides              GetHelmSecretOverrideArrayInput              `pulumi:"secretOverrides"`
-	Secrets                      GetHelmSecretArrayInput                      `pulumi:"secrets"`
+	// List of environment variables linked to this helm.
+	EnvironmentVariables GetHelmEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	// Id of the environment variable.
+	Id pulumi.StringInput `pulumi:"id"`
+	// List of secret aliases linked to this helm.
+	SecretAliases GetHelmSecretAliasArrayInput `pulumi:"secretAliases"`
+	// List of secret overrides linked to this helm.
+	SecretOverrides GetHelmSecretOverrideArrayInput `pulumi:"secretOverrides"`
+	// List of secrets linked to this helm.
+	Secrets GetHelmSecretArrayInput `pulumi:"secrets"`
 }
 
 func (LookupHelmOutputArgs) ElementType() reflect.Type {
@@ -100,58 +163,77 @@ func (o LookupHelmResultOutput) ToLookupHelmResultOutputWithContext(ctx context.
 	return o
 }
 
+// Advanced settings.
 func (o LookupHelmResultOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
 }
 
+// List of built-in environment variables linked to this helm.
 func (o LookupHelmResultOutput) BuiltInEnvironmentVariables() GetHelmBuiltInEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmBuiltInEnvironmentVariable { return v.BuiltInEnvironmentVariables }).(GetHelmBuiltInEnvironmentVariableArrayOutput)
 }
 
+// List of deployment restrictions
+func (o LookupHelmResultOutput) DeploymentRestrictions() GetHelmDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v LookupHelmResult) []GetHelmDeploymentRestriction { return v.DeploymentRestrictions }).(GetHelmDeploymentRestrictionArrayOutput)
+}
+
+// Id of the deployment stage.
 func (o LookupHelmResultOutput) DeploymentStageId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.DeploymentStageId }).(pulumi.StringOutput)
 }
 
+// Id of the environment.
 func (o LookupHelmResultOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
+// List of environment variable aliases linked to this helm.
 func (o LookupHelmResultOutput) EnvironmentVariableAliases() GetHelmEnvironmentVariableAliasArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmEnvironmentVariableAlias { return v.EnvironmentVariableAliases }).(GetHelmEnvironmentVariableAliasArrayOutput)
 }
 
+// List of environment variable overrides linked to this helm.
 func (o LookupHelmResultOutput) EnvironmentVariableOverrides() GetHelmEnvironmentVariableOverrideArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmEnvironmentVariableOverride { return v.EnvironmentVariableOverrides }).(GetHelmEnvironmentVariableOverrideArrayOutput)
 }
 
+// List of environment variables linked to this helm.
 func (o LookupHelmResultOutput) EnvironmentVariables() GetHelmEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmEnvironmentVariable { return v.EnvironmentVariables }).(GetHelmEnvironmentVariableArrayOutput)
 }
 
+// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
 func (o LookupHelmResultOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.ExternalHost }).(pulumi.StringOutput)
 }
 
+// Id of the helm.
 func (o LookupHelmResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The helm internal host.
 func (o LookupHelmResultOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.InternalHost }).(pulumi.StringOutput)
 }
 
+// Name of the helm.
 func (o LookupHelmResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of secret aliases linked to this helm.
 func (o LookupHelmResultOutput) SecretAliases() GetHelmSecretAliasArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmSecretAlias { return v.SecretAliases }).(GetHelmSecretAliasArrayOutput)
 }
 
+// List of secret overrides linked to this helm.
 func (o LookupHelmResultOutput) SecretOverrides() GetHelmSecretOverrideArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmSecretOverride { return v.SecretOverrides }).(GetHelmSecretOverrideArrayOutput)
 }
 
+// List of secrets linked to this helm.
 func (o LookupHelmResultOutput) Secrets() GetHelmSecretArrayOutput {
 	return o.ApplyT(func(v LookupHelmResult) []GetHelmSecret { return v.Secrets }).(GetHelmSecretArrayOutput)
 }

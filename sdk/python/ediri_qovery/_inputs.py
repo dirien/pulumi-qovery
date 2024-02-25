@@ -12,6 +12,7 @@ from . import _utilities
 __all__ = [
     'ApplicationBuiltInEnvironmentVariableArgs',
     'ApplicationCustomDomainArgs',
+    'ApplicationDeploymentRestrictionArgs',
     'ApplicationEnvironmentVariableArgs',
     'ApplicationEnvironmentVariableAliasArgs',
     'ApplicationEnvironmentVariableOverrideArgs',
@@ -69,6 +70,7 @@ __all__ = [
     'EnvironmentSecretAliasArgs',
     'EnvironmentSecretOverrideArgs',
     'HelmBuiltInEnvironmentVariableArgs',
+    'HelmDeploymentRestrictionArgs',
     'HelmEnvironmentVariableArgs',
     'HelmEnvironmentVariableAliasArgs',
     'HelmEnvironmentVariableOverrideArgs',
@@ -85,6 +87,7 @@ __all__ = [
     'HelmValuesOverrideFileGitRepositoryArgs',
     'HelmValuesOverrideFileRawArgs',
     'JobBuiltInEnvironmentVariableArgs',
+    'JobDeploymentRestrictionArgs',
     'JobEnvironmentVariableArgs',
     'JobEnvironmentVariableAliasArgs',
     'JobEnvironmentVariableOverrideArgs',
@@ -120,6 +123,7 @@ __all__ = [
     'ProjectSecretArgs',
     'ProjectSecretAliasArgs',
     'GetApplicationCustomDomainArgs',
+    'GetApplicationDeploymentRestrictionArgs',
     'GetApplicationEnvironmentVariableArgs',
     'GetApplicationEnvironmentVariableAliasArgs',
     'GetApplicationEnvironmentVariableOverrideArgs',
@@ -170,12 +174,14 @@ __all__ = [
     'GetEnvironmentSecretArgs',
     'GetEnvironmentSecretAliasArgs',
     'GetEnvironmentSecretOverrideArgs',
+    'GetHelmDeploymentRestrictionArgs',
     'GetHelmEnvironmentVariableArgs',
     'GetHelmEnvironmentVariableAliasArgs',
     'GetHelmEnvironmentVariableOverrideArgs',
     'GetHelmSecretArgs',
     'GetHelmSecretAliasArgs',
     'GetHelmSecretOverrideArgs',
+    'GetJobDeploymentRestrictionArgs',
     'GetJobEnvironmentVariableArgs',
     'GetJobEnvironmentVariableAliasArgs',
     'GetJobEnvironmentVariableOverrideArgs',
@@ -328,6 +334,74 @@ class ApplicationCustomDomainArgs:
     @validation_domain.setter
     def validation_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validation_domain", value)
+
+
+@pulumi.input_type
+class ApplicationDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -3785,6 +3859,74 @@ class HelmBuiltInEnvironmentVariableArgs:
 
 
 @pulumi.input_type
+class HelmDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class HelmEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4721,6 +4863,74 @@ class JobBuiltInEnvironmentVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class JobDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Can be EXCLUDE or MATCH
+        :param pulumi.Input[str] type: Currently, only PATH is accepted
+        :param pulumi.Input[str] value: Value of the deployment restriction
+        :param pulumi.Input[str] id: Id of the deployment restriction
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -6512,6 +6722,73 @@ class GetApplicationCustomDomainArgs:
     @validation_domain.setter
     def validation_domain(self, value: str):
         pulumi.set(self, "validation_domain", value)
+
+
+@pulumi.input_type
+class GetApplicationDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -9229,6 +9506,73 @@ class GetEnvironmentSecretOverrideArgs:
 
 
 @pulumi.input_type
+class GetHelmDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class GetHelmEnvironmentVariableArgs:
     def __init__(__self__, *,
                  id: str,
@@ -9532,6 +9876,73 @@ class GetHelmSecretOverrideArgs:
     def value(self) -> str:
         """
         Value of the secret override.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetJobDeploymentRestrictionArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 mode: str,
+                 type: str,
+                 value: str):
+        """
+        :param str id: Id of the deployment restriction
+        :param str mode: Can be EXCLUDE or MATCH
+        :param str type: Currently, only PATH is accepted
+        :param str value: Value of the deployment restriction
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the deployment restriction
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Can be EXCLUDE or MATCH
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Currently, only PATH is accepted
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the deployment restriction
         """
         return pulumi.get(self, "value")
 

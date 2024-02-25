@@ -133,8 +133,7 @@ namespace ediri.Qovery
         public Output<ImmutableArray<Outputs.EnvironmentEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        /// `STAGING`. - Default: `DEVELOPMENT`.
+        /// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -259,8 +258,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        /// `STAGING`. - Default: `DEVELOPMENT`.
+        /// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -376,8 +374,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        /// `STAGING`. - Default: `DEVELOPMENT`.
+        /// Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

@@ -58,6 +58,7 @@ type LookupApplicationArgs struct {
 	BuildpackLanguage            *string                                     `pulumi:"buildpackLanguage"`
 	Cpu                          *int                                        `pulumi:"cpu"`
 	CustomDomains                []GetApplicationCustomDomain                `pulumi:"customDomains"`
+	DeploymentRestrictions       []GetApplicationDeploymentRestriction       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            *string                                     `pulumi:"deploymentStageId"`
 	DockerfilePath               *string                                     `pulumi:"dockerfilePath"`
 	Entrypoint                   *string                                     `pulumi:"entrypoint"`
@@ -86,6 +87,7 @@ type LookupApplicationResult struct {
 	BuiltInEnvironmentVariables  []GetApplicationBuiltInEnvironmentVariable  `pulumi:"builtInEnvironmentVariables"`
 	Cpu                          int                                         `pulumi:"cpu"`
 	CustomDomains                []GetApplicationCustomDomain                `pulumi:"customDomains"`
+	DeploymentRestrictions       []GetApplicationDeploymentRestriction       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            string                                      `pulumi:"deploymentStageId"`
 	DockerfilePath               string                                      `pulumi:"dockerfilePath"`
 	Entrypoint                   string                                      `pulumi:"entrypoint"`
@@ -131,6 +133,7 @@ type LookupApplicationOutputArgs struct {
 	BuildpackLanguage            pulumi.StringPtrInput                               `pulumi:"buildpackLanguage"`
 	Cpu                          pulumi.IntPtrInput                                  `pulumi:"cpu"`
 	CustomDomains                GetApplicationCustomDomainArrayInput                `pulumi:"customDomains"`
+	DeploymentRestrictions       GetApplicationDeploymentRestrictionArrayInput       `pulumi:"deploymentRestrictions"`
 	DeploymentStageId            pulumi.StringPtrInput                               `pulumi:"deploymentStageId"`
 	DockerfilePath               pulumi.StringPtrInput                               `pulumi:"dockerfilePath"`
 	Entrypoint                   pulumi.StringPtrInput                               `pulumi:"entrypoint"`
@@ -203,6 +206,10 @@ func (o LookupApplicationResultOutput) Cpu() pulumi.IntOutput {
 
 func (o LookupApplicationResultOutput) CustomDomains() GetApplicationCustomDomainArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationCustomDomain { return v.CustomDomains }).(GetApplicationCustomDomainArrayOutput)
+}
+
+func (o LookupApplicationResultOutput) DeploymentRestrictions() GetApplicationDeploymentRestrictionArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationDeploymentRestriction { return v.DeploymentRestrictions }).(GetApplicationDeploymentRestrictionArrayOutput)
 }
 
 func (o LookupApplicationResultOutput) DeploymentStageId() pulumi.StringOutput {

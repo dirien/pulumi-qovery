@@ -109,8 +109,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly environmentVariables!: pulumi.Output<outputs.EnvironmentEnvironmentVariable[] | undefined>;
     /**
-     * Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-     * `STAGING`. - Default: `DEVELOPMENT`.
+     * Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -208,8 +207,7 @@ export interface EnvironmentState {
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.EnvironmentEnvironmentVariable>[]>;
     /**
-     * Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-     * `STAGING`. - Default: `DEVELOPMENT`.
+     * Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -255,8 +253,7 @@ export interface EnvironmentArgs {
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.EnvironmentEnvironmentVariable>[]>;
     /**
-     * Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-     * `STAGING`. - Default: `DEVELOPMENT`.
+     * Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
      */
     mode?: pulumi.Input<string>;
     /**

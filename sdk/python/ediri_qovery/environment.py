@@ -33,8 +33,7 @@ class EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this environment.
-        :param pulumi.Input[str] mode: Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-               `STAGING`. - Default: `DEVELOPMENT`.
+        :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSecretAliasArgs']]] secret_aliases: List of secret aliases linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSecretOverrideArgs']]] secret_overrides: List of secret overrides linked to this environment.
@@ -123,8 +122,7 @@ class EnvironmentArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        `STAGING`. - Default: `DEVELOPMENT`.
+        Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         """
         return pulumi.get(self, "mode")
 
@@ -202,8 +200,7 @@ class _EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this environment.
-        :param pulumi.Input[str] mode: Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-               `STAGING`. - Default: `DEVELOPMENT`.
+        :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[str] project_id: Id of the project.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSecretAliasArgs']]] secret_aliases: List of secret aliases linked to this environment.
@@ -297,8 +294,7 @@ class _EnvironmentState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        `STAGING`. - Default: `DEVELOPMENT`.
+        Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         """
         return pulumi.get(self, "mode")
 
@@ -441,8 +437,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this environment.
-        :param pulumi.Input[str] mode: Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-               `STAGING`. - Default: `DEVELOPMENT`.
+        :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[str] project_id: Id of the project.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this environment.
@@ -589,8 +584,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this environment.
-        :param pulumi.Input[str] mode: Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-               `STAGING`. - Default: `DEVELOPMENT`.
+        :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[str] project_id: Id of the project.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this environment.
@@ -658,8 +652,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[str]:
         """
-        Mode of the environment [NOTE: can't be updated after creation]. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`,
-        `STAGING`. - Default: `DEVELOPMENT`.
+        Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         """
         return pulumi.get(self, "mode")
 

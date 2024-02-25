@@ -86,6 +86,14 @@ namespace ediri.Qovery
         [Input("cpu")]
         public int? Cpu { get; set; }
 
+        [Input("deploymentRestrictions")]
+        private List<Inputs.GetJobDeploymentRestrictionArgs>? _deploymentRestrictions;
+        public List<Inputs.GetJobDeploymentRestrictionArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new List<Inputs.GetJobDeploymentRestrictionArgs>());
+            set => _deploymentRestrictions = value;
+        }
+
         [Input("deploymentStageId")]
         public string? DeploymentStageId { get; set; }
 
@@ -178,6 +186,14 @@ namespace ediri.Qovery
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
+        [Input("deploymentRestrictions")]
+        private InputList<Inputs.GetJobDeploymentRestrictionInputArgs>? _deploymentRestrictions;
+        public InputList<Inputs.GetJobDeploymentRestrictionInputArgs> DeploymentRestrictions
+        {
+            get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.GetJobDeploymentRestrictionInputArgs>());
+            set => _deploymentRestrictions = value;
+        }
+
         [Input("deploymentStageId")]
         public Input<string>? DeploymentStageId { get; set; }
 
@@ -265,6 +281,7 @@ namespace ediri.Qovery
         public readonly bool AutoPreview;
         public readonly ImmutableArray<Outputs.GetJobBuiltInEnvironmentVariableResult> BuiltInEnvironmentVariables;
         public readonly int? Cpu;
+        public readonly ImmutableArray<Outputs.GetJobDeploymentRestrictionResult> DeploymentRestrictions;
         public readonly string DeploymentStageId;
         public readonly string EnvironmentId;
         public readonly ImmutableArray<Outputs.GetJobEnvironmentVariableAliasResult> EnvironmentVariableAliases;
@@ -296,6 +313,8 @@ namespace ediri.Qovery
             ImmutableArray<Outputs.GetJobBuiltInEnvironmentVariableResult> builtInEnvironmentVariables,
 
             int? cpu,
+
+            ImmutableArray<Outputs.GetJobDeploymentRestrictionResult> deploymentRestrictions,
 
             string deploymentStageId,
 
@@ -340,6 +359,7 @@ namespace ediri.Qovery
             AutoPreview = autoPreview;
             BuiltInEnvironmentVariables = builtInEnvironmentVariables;
             Cpu = cpu;
+            DeploymentRestrictions = deploymentRestrictions;
             DeploymentStageId = deploymentStageId;
             EnvironmentId = environmentId;
             EnvironmentVariableAliases = environmentVariableAliases;

@@ -55,7 +55,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<deployment_stage_id>"
+//	$ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<environment_id>,<deployment_stage_name>"
 //
 // ```
 type DeploymentStage struct {

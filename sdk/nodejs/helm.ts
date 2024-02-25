@@ -70,6 +70,10 @@ export class Helm extends pulumi.CustomResource {
      */
     public /*out*/ readonly builtInEnvironmentVariables!: pulumi.Output<outputs.HelmBuiltInEnvironmentVariable[]>;
     /**
+     * List of deployment restrictions
+     */
+    public readonly deploymentRestrictions!: pulumi.Output<outputs.HelmDeploymentRestriction[] | undefined>;
+    /**
      * Id of the deployment stage.
      */
     public readonly deploymentStageId!: pulumi.Output<string>;
@@ -149,6 +153,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
             resourceInputs["autoPreview"] = state ? state.autoPreview : undefined;
             resourceInputs["builtInEnvironmentVariables"] = state ? state.builtInEnvironmentVariables : undefined;
+            resourceInputs["deploymentRestrictions"] = state ? state.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["environmentVariableAliases"] = state ? state.environmentVariableAliases : undefined;
@@ -183,6 +188,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
             resourceInputs["autoPreview"] = args ? args.autoPreview : undefined;
+            resourceInputs["deploymentRestrictions"] = args ? args.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["environmentVariableAliases"] = args ? args.environmentVariableAliases : undefined;
@@ -233,6 +239,10 @@ export interface HelmState {
      * List of built-in environment variables linked to this helm.
      */
     builtInEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.HelmBuiltInEnvironmentVariable>[]>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.HelmDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */
@@ -319,6 +329,10 @@ export interface HelmArgs {
      * Specify if the environment preview option is activated or not for this helm.
      */
     autoPreview?: pulumi.Input<boolean>;
+    /**
+     * List of deployment restrictions
+     */
+    deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.HelmDeploymentRestriction>[]>;
     /**
      * Id of the deployment stage.
      */

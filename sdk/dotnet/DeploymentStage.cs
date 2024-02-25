@@ -49,7 +49,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "&lt;deployment_stage_id&gt;"
+    ///  $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "&lt;environment_id&gt;,&lt;deployment_stage_name&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/deploymentStage:DeploymentStage")]

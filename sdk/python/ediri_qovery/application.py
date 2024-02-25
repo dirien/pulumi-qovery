@@ -27,6 +27,7 @@ class ApplicationArgs:
                  buildpack_language: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
@@ -56,6 +57,7 @@ class ApplicationArgs:
                `JAVA`, `JVM`, `NODE_JS`, `PHP`, `PLAY`, `PYTHON`, `SCALA`.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
@@ -91,6 +93,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "cpu", cpu)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if dockerfile_path is not None:
@@ -254,6 +258,18 @@ class ApplicationArgs:
     @custom_domains.setter
     def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]]]):
         pulumi.set(self, "custom_domains", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -448,6 +464,7 @@ class _ApplicationState:
                  built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationBuiltInEnvironmentVariableArgs']]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
@@ -480,6 +497,7 @@ class _ApplicationState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationBuiltInEnvironmentVariableArgs']]] built_in_environment_variables: List of built-in environment variables linked to this application.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
@@ -519,6 +537,8 @@ class _ApplicationState:
             pulumi.set(__self__, "cpu", cpu)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
+        if deployment_restrictions is not None:
+            pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if dockerfile_path is not None:
@@ -668,6 +688,18 @@ class _ApplicationState:
     @custom_domains.setter
     def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomDomainArgs']]]]):
         pulumi.set(self, "custom_domains", value)
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
+
+    @deployment_restrictions.setter
+    def deployment_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDeploymentRestrictionArgs']]]]):
+        pulumi.set(self, "deployment_restrictions", value)
 
     @property
     @pulumi.getter(name="deploymentStageId")
@@ -923,6 +955,7 @@ class Application(pulumi.CustomResource):
                  buildpack_language: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
@@ -964,6 +997,7 @@ class Application(pulumi.CustomResource):
                `JAVA`, `JVM`, `NODE_JS`, `PHP`, `PLAY`, `PYTHON`, `SCALA`.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
@@ -1023,6 +1057,7 @@ class Application(pulumi.CustomResource):
                  buildpack_language: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
@@ -1058,6 +1093,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["buildpack_language"] = buildpack_language
             __props__.__dict__["cpu"] = cpu
             __props__.__dict__["custom_domains"] = custom_domains
+            __props__.__dict__["deployment_restrictions"] = deployment_restrictions
             __props__.__dict__["deployment_stage_id"] = deployment_stage_id
             __props__.__dict__["dockerfile_path"] = dockerfile_path
             __props__.__dict__["entrypoint"] = entrypoint
@@ -1104,6 +1140,7 @@ class Application(pulumi.CustomResource):
             built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationBuiltInEnvironmentVariableArgs']]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
             custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             dockerfile_path: Optional[pulumi.Input[str]] = None,
             entrypoint: Optional[pulumi.Input[str]] = None,
@@ -1141,6 +1178,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this application.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
@@ -1175,6 +1213,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["built_in_environment_variables"] = built_in_environment_variables
         __props__.__dict__["cpu"] = cpu
         __props__.__dict__["custom_domains"] = custom_domains
+        __props__.__dict__["deployment_restrictions"] = deployment_restrictions
         __props__.__dict__["deployment_stage_id"] = deployment_stage_id
         __props__.__dict__["dockerfile_path"] = dockerfile_path
         __props__.__dict__["entrypoint"] = entrypoint
@@ -1269,6 +1308,14 @@ class Application(pulumi.CustomResource):
         List of custom domains linked to this application.
         """
         return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter(name="deploymentRestrictions")
+    def deployment_restrictions(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationDeploymentRestriction']]]:
+        """
+        List of deployment restrictions
+        """
+        return pulumi.get(self, "deployment_restrictions")
 
     @property
     @pulumi.getter(name="deploymentStageId")
