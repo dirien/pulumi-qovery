@@ -8,7 +8,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.27.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.75.0
 	github.com/pulumi/pulumi/sdk/v3 v3.105.0
-	github.com/qovery/terraform-provider-qovery v0.28.7
+	github.com/qovery/terraform-provider-qovery v0.28.8
 )
 
 require (
