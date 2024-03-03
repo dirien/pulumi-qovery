@@ -149,6 +149,7 @@ __all__ = [
     'GetApplicationSecretOverrideResult',
     'GetApplicationStorageResult',
     'GetClusterFeaturesResult',
+    'GetClusterFeaturesExistingVpcResult',
     'GetClusterRoutingTableResult',
     'GetContainerBuiltInEnvironmentVariableResult',
     'GetContainerCustomDomainResult',
@@ -7092,15 +7093,19 @@ class GetApplicationStorageResult(dict):
 class GetClusterFeaturesResult(dict):
     def __init__(__self__, *,
                  static_ip: bool,
-                 vpc_subnet: str):
+                 vpc_subnet: str,
+                 existing_vpc: Optional['outputs.GetClusterFeaturesExistingVpcResult'] = None):
         """
         :param bool static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
                	- Default: `false`.
         :param str vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
                	- Default: `10.0.0.0/16`.
+        :param 'GetClusterFeaturesExistingVpcArgs' existing_vpc: Network configuration if you want to install qovery on an existing VPC
         """
         pulumi.set(__self__, "static_ip", static_ip)
         pulumi.set(__self__, "vpc_subnet", vpc_subnet)
+        if existing_vpc is not None:
+            pulumi.set(__self__, "existing_vpc", existing_vpc)
 
     @property
     @pulumi.getter(name="staticIp")
@@ -7119,6 +7124,164 @@ class GetClusterFeaturesResult(dict):
         	- Default: `10.0.0.0/16`.
         """
         return pulumi.get(self, "vpc_subnet")
+
+    @property
+    @pulumi.getter(name="existingVpc")
+    def existing_vpc(self) -> Optional['outputs.GetClusterFeaturesExistingVpcResult']:
+        """
+        Network configuration if you want to install qovery on an existing VPC
+        """
+        return pulumi.get(self, "existing_vpc")
+
+
+@pulumi.output_type
+class GetClusterFeaturesExistingVpcResult(dict):
+    def __init__(__self__, *,
+                 aws_vpc_eks_id: str,
+                 documentdb_subnets_zone_a_ids: Sequence[str],
+                 documentdb_subnets_zone_b_ids: Sequence[str],
+                 documentdb_subnets_zone_c_ids: Sequence[str],
+                 eks_subnets_zone_a_ids: Sequence[str],
+                 eks_subnets_zone_b_ids: Sequence[str],
+                 eks_subnets_zone_c_ids: Sequence[str],
+                 elasticache_subnets_zone_a_ids: Sequence[str],
+                 elasticache_subnets_zone_b_ids: Sequence[str],
+                 elasticache_subnets_zone_c_ids: Sequence[str],
+                 rds_subnets_zone_a_ids: Sequence[str],
+                 rds_subnets_zone_b_ids: Sequence[str],
+                 rds_subnets_zone_c_ids: Sequence[str]):
+        """
+        :param str aws_vpc_eks_id: Aws VPC id
+        :param Sequence[str] documentdb_subnets_zone_a_ids: Ids of the subnets for document db
+        :param Sequence[str] documentdb_subnets_zone_b_ids: Ids of the subnets for document db
+        :param Sequence[str] documentdb_subnets_zone_c_ids: Ids of the subnets for document db
+        :param Sequence[str] eks_subnets_zone_a_ids: Ids of the subnets for EKS zone a. Must have map_public_ip_on_launch set to true
+        :param Sequence[str] eks_subnets_zone_b_ids: Ids of the subnets for EKS zone b. Must have map_public_ip_on_launch set to true
+        :param Sequence[str] eks_subnets_zone_c_ids: Ids of the subnets for EKS zone c. Must have map_public_ip_on_launch set to true
+        :param Sequence[str] elasticache_subnets_zone_a_ids: Ids of the subnets for elasticache
+        :param Sequence[str] elasticache_subnets_zone_b_ids: Ids of the subnets for elasticache
+        :param Sequence[str] elasticache_subnets_zone_c_ids: Ids of the subnets for elasticache
+        :param Sequence[str] rds_subnets_zone_a_ids: Ids of the subnets for RDS
+        :param Sequence[str] rds_subnets_zone_b_ids: Ids of the subnets for RDS
+        :param Sequence[str] rds_subnets_zone_c_ids: Ids of the subnets for RDS
+        """
+        pulumi.set(__self__, "aws_vpc_eks_id", aws_vpc_eks_id)
+        pulumi.set(__self__, "documentdb_subnets_zone_a_ids", documentdb_subnets_zone_a_ids)
+        pulumi.set(__self__, "documentdb_subnets_zone_b_ids", documentdb_subnets_zone_b_ids)
+        pulumi.set(__self__, "documentdb_subnets_zone_c_ids", documentdb_subnets_zone_c_ids)
+        pulumi.set(__self__, "eks_subnets_zone_a_ids", eks_subnets_zone_a_ids)
+        pulumi.set(__self__, "eks_subnets_zone_b_ids", eks_subnets_zone_b_ids)
+        pulumi.set(__self__, "eks_subnets_zone_c_ids", eks_subnets_zone_c_ids)
+        pulumi.set(__self__, "elasticache_subnets_zone_a_ids", elasticache_subnets_zone_a_ids)
+        pulumi.set(__self__, "elasticache_subnets_zone_b_ids", elasticache_subnets_zone_b_ids)
+        pulumi.set(__self__, "elasticache_subnets_zone_c_ids", elasticache_subnets_zone_c_ids)
+        pulumi.set(__self__, "rds_subnets_zone_a_ids", rds_subnets_zone_a_ids)
+        pulumi.set(__self__, "rds_subnets_zone_b_ids", rds_subnets_zone_b_ids)
+        pulumi.set(__self__, "rds_subnets_zone_c_ids", rds_subnets_zone_c_ids)
+
+    @property
+    @pulumi.getter(name="awsVpcEksId")
+    def aws_vpc_eks_id(self) -> str:
+        """
+        Aws VPC id
+        """
+        return pulumi.get(self, "aws_vpc_eks_id")
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneAIds")
+    def documentdb_subnets_zone_a_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_a_ids")
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneBIds")
+    def documentdb_subnets_zone_b_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_b_ids")
+
+    @property
+    @pulumi.getter(name="documentdbSubnetsZoneCIds")
+    def documentdb_subnets_zone_c_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for document db
+        """
+        return pulumi.get(self, "documentdb_subnets_zone_c_ids")
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneAIds")
+    def eks_subnets_zone_a_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for EKS zone a. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_a_ids")
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneBIds")
+    def eks_subnets_zone_b_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for EKS zone b. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_b_ids")
+
+    @property
+    @pulumi.getter(name="eksSubnetsZoneCIds")
+    def eks_subnets_zone_c_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for EKS zone c. Must have map_public_ip_on_launch set to true
+        """
+        return pulumi.get(self, "eks_subnets_zone_c_ids")
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneAIds")
+    def elasticache_subnets_zone_a_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_a_ids")
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneBIds")
+    def elasticache_subnets_zone_b_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_b_ids")
+
+    @property
+    @pulumi.getter(name="elasticacheSubnetsZoneCIds")
+    def elasticache_subnets_zone_c_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for elasticache
+        """
+        return pulumi.get(self, "elasticache_subnets_zone_c_ids")
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneAIds")
+    def rds_subnets_zone_a_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_a_ids")
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneBIds")
+    def rds_subnets_zone_b_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_b_ids")
+
+    @property
+    @pulumi.getter(name="rdsSubnetsZoneCIds")
+    def rds_subnets_zone_c_ids(self) -> Sequence[str]:
+        """
+        Ids of the subnets for RDS
+        """
+        return pulumi.get(self, "rds_subnets_zone_c_ids")
 
 
 @pulumi.output_type

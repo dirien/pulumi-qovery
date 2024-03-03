@@ -1694,6 +1694,10 @@ export interface GetApplicationStorageArgs {
 
 export interface GetClusterFeatures {
     /**
+     * Network configuration if you want to install qovery on an existing VPC
+     */
+    existingVpc?: inputs.GetClusterFeaturesExistingVpc;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -1707,6 +1711,10 @@ export interface GetClusterFeatures {
 
 export interface GetClusterFeaturesArgs {
     /**
+     * Network configuration if you want to install qovery on an existing VPC
+     */
+    existingVpc?: pulumi.Input<inputs.GetClusterFeaturesExistingVpcArgs>;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -1716,6 +1724,116 @@ export interface GetClusterFeaturesArgs {
      * 	- Default: `10.0.0.0/16`.
      */
     vpcSubnet?: pulumi.Input<string>;
+}
+
+export interface GetClusterFeaturesExistingVpc {
+    /**
+     * Aws VPC id
+     */
+    awsVpcEksId: string;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneAIds?: string[];
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneBIds?: string[];
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneCIds?: string[];
+    /**
+     * Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneAIds: string[];
+    /**
+     * Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneBIds: string[];
+    /**
+     * Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneCIds: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneAIds?: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneBIds?: string[];
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneCIds?: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneAIds?: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneBIds?: string[];
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneCIds?: string[];
+}
+
+export interface GetClusterFeaturesExistingVpcArgs {
+    /**
+     * Aws VPC id
+     */
+    awsVpcEksId: pulumi.Input<string>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for document db
+     */
+    documentdbSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone a. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneAIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone b. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneBIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for EKS zone c. Must have mapPublicIpOnLaunch set to true
+     */
+    eksSubnetsZoneCIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for elasticache
+     */
+    elasticacheSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneAIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneBIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ids of the subnets for RDS
+     */
+    rdsSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetClusterRoutingTable {
