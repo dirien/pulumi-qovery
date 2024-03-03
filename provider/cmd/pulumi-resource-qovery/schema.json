@@ -3732,6 +3732,10 @@
         },
         "qovery:index/getClusterFeatures:getClusterFeatures": {
             "properties": {
+                "existingVpc": {
+                    "$ref": "#/types/qovery:index/getClusterFeaturesExistingVpc:getClusterFeaturesExistingVpc",
+                    "description": "Network configuration if you want to install qovery on an existing VPC\n"
+                },
                 "staticIp": {
                     "type": "boolean",
                     "description": "Static IP (AWS only) [NOTE: can't be updated after creation].\n\t- Default: `false`.\n"
@@ -3749,6 +3753,124 @@
             "language": {
                 "nodejs": {
                     "requiredInputs": []
+                }
+            }
+        },
+        "qovery:index/getClusterFeaturesExistingVpc:getClusterFeaturesExistingVpc": {
+            "properties": {
+                "awsVpcEksId": {
+                    "type": "string",
+                    "description": "Aws VPC id\n"
+                },
+                "documentdbSubnetsZoneAIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for document db\n"
+                },
+                "documentdbSubnetsZoneBIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for document db\n"
+                },
+                "documentdbSubnetsZoneCIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for document db\n"
+                },
+                "eksSubnetsZoneAIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for EKS zone a. Must have map_public_ip_on_launch set to true\n"
+                },
+                "eksSubnetsZoneBIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for EKS zone b. Must have map_public_ip_on_launch set to true\n"
+                },
+                "eksSubnetsZoneCIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for EKS zone c. Must have map_public_ip_on_launch set to true\n"
+                },
+                "elasticacheSubnetsZoneAIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for elasticache\n"
+                },
+                "elasticacheSubnetsZoneBIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for elasticache\n"
+                },
+                "elasticacheSubnetsZoneCIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for elasticache\n"
+                },
+                "rdsSubnetsZoneAIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for RDS\n"
+                },
+                "rdsSubnetsZoneBIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for RDS\n"
+                },
+                "rdsSubnetsZoneCIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of the subnets for RDS\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "awsVpcEksId",
+                "documentdbSubnetsZoneAIds",
+                "documentdbSubnetsZoneBIds",
+                "documentdbSubnetsZoneCIds",
+                "eksSubnetsZoneAIds",
+                "eksSubnetsZoneBIds",
+                "eksSubnetsZoneCIds",
+                "elasticacheSubnetsZoneAIds",
+                "elasticacheSubnetsZoneBIds",
+                "elasticacheSubnetsZoneCIds",
+                "rdsSubnetsZoneAIds",
+                "rdsSubnetsZoneBIds",
+                "rdsSubnetsZoneCIds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": [
+                        "awsVpcEksId",
+                        "eksSubnetsZoneAIds",
+                        "eksSubnetsZoneBIds",
+                        "eksSubnetsZoneCIds"
+                    ]
                 }
             }
         },
