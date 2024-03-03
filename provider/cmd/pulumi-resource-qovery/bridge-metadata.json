@@ -502,6 +502,50 @@
             "qovery_cluster": {
                 "current": "qovery:index/getCluster:getCluster",
                 "fields": {
+                    "features": {
+                        "fields": {
+                            "existing_vpc": {
+                                "fields": {
+                                    "documentdb_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "documentdb_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "documentdb_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "eks_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "elasticache_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_a_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_b_ids": {
+                                        "maxItemsOne": false
+                                    },
+                                    "rds_subnets_zone_c_ids": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "routing_table": {
                         "maxItemsOne": false
                     }
