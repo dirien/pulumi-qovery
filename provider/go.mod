@@ -9,7 +9,7 @@ replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraf
 require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
-	github.com/pulumi/pulumi/sdk/v3 v3.107.0
+	github.com/pulumi/pulumi/sdk/v3 v3.109.0
 	github.com/qovery/terraform-provider-qovery v0.28.8
 )
 
