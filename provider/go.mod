@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.33.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.80.0
 	github.com/pulumi/pulumi/sdk/v3 v3.113.1
-	github.com/qovery/terraform-provider-qovery v0.28.8
+	github.com/qovery/terraform-provider-qovery v0.28.9
 )
 
 require (
@@ -188,7 +188,7 @@ require (
 	github.com/pulumi/pulumi-yaml v1.6.0 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.112.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
-	github.com/qovery/qovery-client-go v0.0.0-20240215160333-8424923c00e9 // indirect
+	github.com/qovery/qovery-client-go v0.0.0-20240422162248-1a51e133ad7d // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
@@ -204,7 +204,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.8.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/testify v1.8.4 // indirect
+	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
