@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
+ * $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
  * ```
  */
 export class ScalewayCredentials extends pulumi.CustomResource {

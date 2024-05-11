@@ -32,7 +32,7 @@ namespace ediri.Qovery
     ///         Version = "random_uuid_to_force_retrigger_terraform_apply",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_application.My_application,
     ///             qovery_database.My_database,

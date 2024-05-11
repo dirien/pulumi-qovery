@@ -67,7 +67,7 @@ export interface GetHelmArgs {
      */
     environmentVariables?: inputs.GetHelmEnvironmentVariable[];
     /**
-     * Id of the environment variable.
+     * Id of the helm.
      */
     id: string;
     /**
@@ -197,7 +197,7 @@ export interface GetHelmOutputArgs {
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableArgs>[]>;
     /**
-     * Id of the environment variable.
+     * Id of the helm.
      */
     id: pulumi.Input<string>;
     /**

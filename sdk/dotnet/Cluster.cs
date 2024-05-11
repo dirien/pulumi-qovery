@@ -18,7 +18,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/cluster:Cluster my_cluster "&lt;organization_id&gt;,&lt;cluster_id&gt;"
+    /// $ pulumi import qovery:index/cluster:Cluster my_cluster "&lt;organization_id&gt;,&lt;cluster_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/cluster:Cluster")]
@@ -31,7 +31,7 @@ namespace ediri.Qovery
         public Output<string> AdvancedSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         /// </summary>
         [Output("cloudProvider")]
         public Output<string> CloudProvider { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace ediri.Qovery
         public Input<string>? AdvancedSettingsJson { get; set; }
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         /// </summary>
         [Input("cloudProvider", required: true)]
         public Input<string> CloudProvider { get; set; } = null!;
@@ -270,7 +270,7 @@ namespace ediri.Qovery
         public Input<string>? AdvancedSettingsJson { get; set; }
 
         /// <summary>
-        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        /// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         /// </summary>
         [Input("cloudProvider")]
         public Input<string>? CloudProvider { get; set; }

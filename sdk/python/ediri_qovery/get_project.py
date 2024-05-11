@@ -166,7 +166,7 @@ def get_project(description: Optional[str] = None,
     :param str description: Description of the project.
     :param Sequence[pulumi.InputType['GetProjectEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this project.
     :param Sequence[pulumi.InputType['GetProjectEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this project.
-    :param str id: Id of the environment variable.
+    :param str id: Id of the project.
     :param Sequence[pulumi.InputType['GetProjectSecretAliasArgs']] secret_aliases: List of secret aliases linked to this project.
     :param Sequence[pulumi.InputType['GetProjectSecretArgs']] secrets: List of secrets linked to this project.
     """
@@ -217,7 +217,7 @@ def get_project_output(description: Optional[pulumi.Input[Optional[str]]] = None
     :param str description: Description of the project.
     :param Sequence[pulumi.InputType['GetProjectEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this project.
     :param Sequence[pulumi.InputType['GetProjectEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this project.
-    :param str id: Id of the environment variable.
+    :param str id: Id of the project.
     :param Sequence[pulumi.InputType['GetProjectSecretAliasArgs']] secret_aliases: List of secret aliases linked to this project.
     :param Sequence[pulumi.InputType['GetProjectSecretArgs']] secrets: List of secrets linked to this project.
     """

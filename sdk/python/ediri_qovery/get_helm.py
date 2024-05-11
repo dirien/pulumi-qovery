@@ -245,7 +245,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']] environment_variable_overrides: List of environment variable overrides linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this helm.
-    :param str id: Id of the environment variable.
+    :param str id: Id of the helm.
     :param Sequence[pulumi.InputType['GetHelmSecretAliasArgs']] secret_aliases: List of secret aliases linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']] secret_overrides: List of secret overrides linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmSecretArgs']] secrets: List of secrets linked to this helm.
@@ -314,7 +314,7 @@ def get_helm_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']] environment_variable_aliases: List of environment variable aliases linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']] environment_variable_overrides: List of environment variable overrides linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']] environment_variables: List of environment variables linked to this helm.
-    :param str id: Id of the environment variable.
+    :param str id: Id of the helm.
     :param Sequence[pulumi.InputType['GetHelmSecretAliasArgs']] secret_aliases: List of secret aliases linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']] secret_overrides: List of secret overrides linked to this helm.
     :param Sequence[pulumi.InputType['GetHelmSecretArgs']] secrets: List of secrets linked to this helm.

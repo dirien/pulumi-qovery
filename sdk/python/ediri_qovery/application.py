@@ -983,7 +983,7 @@ class Application(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/application:Application my_application "<application_id>"
+        $ pulumi import qovery:index/application:Application my_application "<application_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -1031,7 +1031,7 @@ class Application(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/application:Application my_application "<application_id>"
+        $ pulumi import qovery:index/application:Application my_application "<application_id>"
         ```
 
         :param str resource_name: The name of the resource.

@@ -43,7 +43,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/database:Database my_database "<database_id>"
+ * $ pulumi import qovery:index/database:Database my_database "<database_id>"
  * ```
  */
 export class Database extends pulumi.CustomResource {

@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Database (Data Source)
         /// 
         /// Provides a Qovery database resource. This can be used to create and manage Qovery databases.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("qovery:index/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Database (Data Source)
         /// 
         /// Provides a Qovery database resource. This can be used to create and manage Qovery databases.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("qovery:index/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

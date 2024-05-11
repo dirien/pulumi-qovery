@@ -50,9 +50,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
-//
+// $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
 // ```
 type ScalewayCredentials struct {
 	pulumi.CustomResourceState

@@ -19,9 +19,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/container:Container my_container "<container_id>"
-//
+// $ pulumi import qovery:index/container:Container my_container "<container_id>"
 // ```
 type Container struct {
 	pulumi.CustomResourceState

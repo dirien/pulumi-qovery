@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/application:Application my_application "<application_id>"
+ * $ pulumi import qovery:index/application:Application my_application "<application_id>"
  * ```
  */
 export class Application extends pulumi.CustomResource {

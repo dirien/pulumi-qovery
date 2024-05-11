@@ -154,7 +154,7 @@ class Organization(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
+        $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,7 +189,7 @@ class Organization(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
+        $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
         ```
 
         :param str resource_name: The name of the resource.

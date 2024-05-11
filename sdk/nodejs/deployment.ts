@@ -65,7 +65,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly environmentId!: pulumi.Output<string>;
     /**
-     * Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+     * Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
      * state)
      */
     public readonly version!: pulumi.Output<string | undefined>;
@@ -116,7 +116,7 @@ export interface DeploymentState {
      */
     environmentId?: pulumi.Input<string>;
     /**
-     * Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+     * Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
      * state)
      */
     version?: pulumi.Input<string>;
@@ -135,7 +135,7 @@ export interface DeploymentArgs {
      */
     environmentId: pulumi.Input<string>;
     /**
-     * Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+     * Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
      * state)
      */
     version?: pulumi.Input<string>;

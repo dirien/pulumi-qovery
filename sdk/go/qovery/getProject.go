@@ -57,7 +57,7 @@ type LookupProjectArgs struct {
 	EnvironmentVariableAliases []GetProjectEnvironmentVariableAlias `pulumi:"environmentVariableAliases"`
 	// List of environment variables linked to this project.
 	EnvironmentVariables []GetProjectEnvironmentVariable `pulumi:"environmentVariables"`
-	// Id of the environment variable.
+	// Id of the project.
 	Id string `pulumi:"id"`
 	// List of secret aliases linked to this project.
 	SecretAliases []GetProjectSecretAlias `pulumi:"secretAliases"`
@@ -108,7 +108,7 @@ type LookupProjectOutputArgs struct {
 	EnvironmentVariableAliases GetProjectEnvironmentVariableAliasArrayInput `pulumi:"environmentVariableAliases"`
 	// List of environment variables linked to this project.
 	EnvironmentVariables GetProjectEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// Id of the environment variable.
+	// Id of the project.
 	Id pulumi.StringInput `pulumi:"id"`
 	// List of secret aliases linked to this project.
 	SecretAliases GetProjectSecretAliasArrayInput `pulumi:"secretAliases"`

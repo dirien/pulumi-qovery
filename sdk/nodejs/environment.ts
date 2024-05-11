@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
+ * $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
  * ```
  */
 export class Environment extends pulumi.CustomResource {

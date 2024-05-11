@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/container:Container my_container "<container_id>"
+ * $ pulumi import qovery:index/container:Container my_container "<container_id>"
  * ```
  */
 export class Container extends pulumi.CustomResource {

@@ -911,7 +911,7 @@ class Container(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/container:Container my_container "<container_id>"
+        $ pulumi import qovery:index/container:Container my_container "<container_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -956,7 +956,7 @@ class Container(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/container:Container my_container "<container_id>"
+        $ pulumi import qovery:index/container:Container my_container "<container_id>"
         ```
 
         :param str resource_name: The name of the resource.

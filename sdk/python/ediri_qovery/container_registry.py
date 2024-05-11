@@ -260,7 +260,7 @@ class ContainerRegistry(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
+        $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,7 +305,7 @@ class ContainerRegistry(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
+        $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
         ```
 
         :param str resource_name: The name of the resource.

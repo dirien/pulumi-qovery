@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
+ * $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
  * ```
  */
 export class ContainerRegistry extends pulumi.CustomResource {

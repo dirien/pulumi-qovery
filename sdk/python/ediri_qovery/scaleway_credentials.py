@@ -248,7 +248,7 @@ class ScalewayCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
+        $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -288,7 +288,7 @@ class ScalewayCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
+        $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "<organization_id>,<scaleway_credentials_id>"
         ```
 
         :param str resource_name: The name of the resource.

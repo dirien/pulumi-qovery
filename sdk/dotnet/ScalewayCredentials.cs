@@ -33,7 +33,7 @@ namespace ediri.Qovery
     ///         ScalewayProjectId = "&lt;your-scaleway-project-id&gt;",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_organization.My_organization,
     ///         },
@@ -45,7 +45,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "&lt;organization_id&gt;,&lt;scaleway_credentials_id&gt;"
+    /// $ pulumi import qovery:index/scalewayCredentials:ScalewayCredentials my_scaleway_creds "&lt;organization_id&gt;,&lt;scaleway_credentials_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/scalewayCredentials:ScalewayCredentials")]

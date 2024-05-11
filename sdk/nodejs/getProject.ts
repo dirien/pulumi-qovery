@@ -51,7 +51,7 @@ export interface GetProjectArgs {
      */
     environmentVariables?: inputs.GetProjectEnvironmentVariable[];
     /**
-     * Id of the environment variable.
+     * Id of the project.
      */
     id: string;
     /**
@@ -141,7 +141,7 @@ export interface GetProjectOutputArgs {
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetProjectEnvironmentVariableArgs>[]>;
     /**
-     * Id of the environment variable.
+     * Id of the project.
      */
     id: pulumi.Input<string>;
     /**

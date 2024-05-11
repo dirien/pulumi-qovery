@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Container (Data Source)
         /// 
         /// Provides a Qovery container resource. This can be used to create and manage Qovery container registry.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("qovery:index/getContainer:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Container (Data Source)
         /// 
         /// Provides a Qovery container resource. This can be used to create and manage Qovery container registry.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("qovery:index/getContainer:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());

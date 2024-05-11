@@ -33,7 +33,7 @@ class ClusterArgs:
                  state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
         :param pulumi.Input[str] organization_id: Id of the organization.
@@ -80,7 +80,7 @@ class ClusterArgs:
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Input[str]:
         """
-        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         """
         return pulumi.get(self, "cloud_provider")
 
@@ -277,7 +277,7 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings of the cluster.
-        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input['ClusterFeaturesArgs'] features: Features of the cluster.
@@ -340,7 +340,7 @@ class _ClusterState:
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         """
         return pulumi.get(self, "cloud_provider")
 
@@ -533,13 +533,13 @@ class Cluster(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
+        $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings of the cluster.
-        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
@@ -569,7 +569,7 @@ class Cluster(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
+        $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -669,7 +669,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings of the cluster.
-        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
@@ -718,7 +718,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Output[str]:
         """
-        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+        Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         """
         return pulumi.get(self, "cloud_provider")
 

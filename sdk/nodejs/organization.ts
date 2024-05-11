@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
+ * $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
  * ```
  */
 export class Organization extends pulumi.CustomResource {

@@ -781,7 +781,7 @@ class Job(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/job:Job my_job "<job_id>"
+        $ pulumi import qovery:index/job:Job my_job "<job_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -822,7 +822,7 @@ class Job(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/job:Job my_job "<job_id>"
+        $ pulumi import qovery:index/job:Job my_job "<job_id>"
         ```
 
         :param str resource_name: The name of the resource.

@@ -72,9 +72,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/project:Project my_project "<project_id>"
-//
+// $ pulumi import qovery:index/project:Project my_project "<project_id>"
 // ```
 type Project struct {
 	pulumi.CustomResourceState
