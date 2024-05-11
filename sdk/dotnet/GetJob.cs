@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Job (Data Source)
         /// 
         /// Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("qovery:index/getJob:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Job (Data Source)
         /// 
         /// Provides a Qovery job resource. This can be used to create and manage Qovery job registry.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("qovery:index/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

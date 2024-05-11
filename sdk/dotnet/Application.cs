@@ -18,7 +18,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/application:Application my_application "&lt;application_id&gt;"
+    /// $ pulumi import qovery:index/application:Application my_application "&lt;application_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/application:Application")]

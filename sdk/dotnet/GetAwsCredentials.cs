@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.AwsCredentials (Data Source)
         /// 
         /// Provides a Qovery AWS credentials resource. This can be used to create and manage Qovery AWS credentials.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -36,8 +34,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAwsCredentialsResult> InvokeAsync(GetAwsCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsCredentialsResult>("qovery:index/getAwsCredentials:getAwsCredentials", args ?? new GetAwsCredentialsArgs(), options.WithDefaults());
@@ -46,9 +42,7 @@ namespace ediri.Qovery
         /// ## # qovery.AwsCredentials (Data Source)
         /// 
         /// Provides a Qovery AWS credentials resource. This can be used to create and manage Qovery AWS credentials.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -66,8 +60,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAwsCredentialsResult> Invoke(GetAwsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsCredentialsResult>("qovery:index/getAwsCredentials:getAwsCredentials", args ?? new GetAwsCredentialsInvokeArgs(), options.WithDefaults());

@@ -37,7 +37,7 @@ namespace ediri.Qovery
     ///         Storage = 10,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_environment.My_environment,
     ///         },
@@ -54,7 +54,7 @@ namespace ediri.Qovery
     ///         Storage = 10,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_environment.My_environment,
     ///         },
@@ -66,7 +66,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/database:Database my_database "&lt;database_id&gt;"
+    /// $ pulumi import qovery:index/database:Database my_database "&lt;database_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/database:Database")]

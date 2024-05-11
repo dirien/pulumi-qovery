@@ -38,7 +38,7 @@ namespace ediri.Qovery
     ///         Description = "My Docker Hub Registry",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_organization.My_organization,
     ///         },
@@ -50,7 +50,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "&lt;organization_id&gt;,&lt;container_registry_id&gt;"
+    /// $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "&lt;organization_id&gt;,&lt;container_registry_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/containerRegistry:ContainerRegistry")]

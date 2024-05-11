@@ -19,9 +19,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/job:Job my_job "<job_id>"
-//
+// $ pulumi import qovery:index/job:Job my_job "<job_id>"
 // ```
 type Job struct {
 	pulumi.CustomResourceState

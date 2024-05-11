@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/project:Project my_project "<project_id>"
+ * $ pulumi import qovery:index/project:Project my_project "<project_id>"
  * ```
  */
 export class Project extends pulumi.CustomResource {

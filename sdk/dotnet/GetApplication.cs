@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Application (Data Source)
         /// 
         /// Provides a Qovery application resource. This can be used to create and manage Qovery applications.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("qovery:index/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Application (Data Source)
         /// 
         /// Provides a Qovery application resource. This can be used to create and manage Qovery applications.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("qovery:index/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

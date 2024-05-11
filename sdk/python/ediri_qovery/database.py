@@ -511,7 +511,7 @@ class Database(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/database:Database my_database "<database_id>"
+        $ pulumi import qovery:index/database:Database my_database "<database_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -570,7 +570,7 @@ class Database(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/database:Database my_database "<database_id>"
+        $ pulumi import qovery:index/database:Database my_database "<database_id>"
         ```
 
         :param str resource_name: The name of the resource.

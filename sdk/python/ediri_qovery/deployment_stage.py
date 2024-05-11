@@ -223,7 +223,7 @@ class DeploymentStage(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<environment_id>,<deployment_stage_name>"
+        $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<environment_id>,<deployment_stage_name>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,7 +266,7 @@ class DeploymentStage(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<environment_id>,<deployment_stage_name>"
+        $ pulumi import qovery:index/deploymentStage:DeploymentStage my_deployment_stage "<environment_id>,<deployment_stage_name>"
         ```
 
         :param str resource_name: The name of the resource.

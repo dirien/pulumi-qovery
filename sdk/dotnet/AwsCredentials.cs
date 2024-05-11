@@ -32,7 +32,7 @@ namespace ediri.Qovery
     ///         SecretAccessKey = "&lt;your-aws-secret-access-key&gt;",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_organization.My_organization,
     ///         },
@@ -44,7 +44,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "&lt;organization_id&gt;,&lt;aws_credentials_id&gt;"
+    /// $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "&lt;organization_id&gt;,&lt;aws_credentials_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/awsCredentials:AwsCredentials")]

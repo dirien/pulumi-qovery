@@ -49,9 +49,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
-//
+// $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
 // ```
 type GitToken struct {
 	pulumi.CustomResourceState

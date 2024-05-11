@@ -68,9 +68,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/database:Database my_database "<database_id>"
-//
+// $ pulumi import qovery:index/database:Database my_database "<database_id>"
 // ```
 type Database struct {
 	pulumi.CustomResourceState

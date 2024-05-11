@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Helm (Data Source)
         /// 
         /// Provides a Qovery helm resource.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetHelmResult> InvokeAsync(GetHelmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHelmResult>("qovery:index/getHelm:getHelm", args ?? new GetHelmArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Helm (Data Source)
         /// 
         /// Provides a Qovery helm resource.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetHelmResult> Invoke(GetHelmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHelmResult>("qovery:index/getHelm:getHelm", args ?? new GetHelmInvokeArgs(), options.WithDefaults());
@@ -135,7 +127,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Id of the environment variable.
+        /// Id of the helm.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -245,7 +237,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Id of the environment variable.
+        /// Id of the helm.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

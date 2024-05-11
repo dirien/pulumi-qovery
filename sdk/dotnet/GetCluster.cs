@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Cluster (Data Source)
         /// 
         /// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -36,8 +34,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("qovery:index/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -46,9 +42,7 @@ namespace ediri.Qovery
         /// ## # qovery.Cluster (Data Source)
         /// 
         /// Provides a Qovery cluster resource. This can be used to create and manage Qovery cluster.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -66,8 +60,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("qovery:index/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

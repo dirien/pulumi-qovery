@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
+ * $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -50,7 +50,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly advancedSettingsJson!: pulumi.Output<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
      */
     public readonly cloudProvider!: pulumi.Output<string>;
     /**
@@ -180,7 +180,7 @@ export interface ClusterState {
      */
     advancedSettingsJson?: pulumi.Input<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
      */
     cloudProvider?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface ClusterArgs {
      */
     advancedSettingsJson?: pulumi.Input<string>;
     /**
-     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+     * Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
      */
     cloudProvider: pulumi.Input<string>;
     /**

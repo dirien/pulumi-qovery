@@ -18,7 +18,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/job:Job my_job "&lt;job_id&gt;"
+    /// $ pulumi import qovery:index/job:Job my_job "&lt;job_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/job:Job")]

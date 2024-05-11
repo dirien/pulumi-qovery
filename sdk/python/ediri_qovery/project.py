@@ -317,7 +317,7 @@ class Project(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/project:Project my_project "<project_id>"
+        $ pulumi import qovery:index/project:Project my_project "<project_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,7 +372,7 @@ class Project(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/project:Project my_project "<project_id>"
+        $ pulumi import qovery:index/project:Project my_project "<project_id>"
         ```
 
         :param str resource_name: The name of the resource.

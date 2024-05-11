@@ -19,16 +19,14 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
-//
+// $ pulumi import qovery:index/cluster:Cluster my_cluster "<organization_id>,<cluster_id>"
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Advanced settings of the cluster.
 	AdvancedSettingsJson pulumi.StringOutput `pulumi:"advancedSettingsJson"`
-	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 	CloudProvider pulumi.StringOutput `pulumi:"cloudProvider"`
 	// Id of the credentials.
 	CredentialsId pulumi.StringOutput `pulumi:"credentialsId"`
@@ -106,7 +104,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// Advanced settings of the cluster.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
-	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 	CloudProvider *string `pulumi:"cloudProvider"`
 	// Id of the credentials.
 	CredentialsId *string `pulumi:"credentialsId"`
@@ -140,7 +138,7 @@ type clusterState struct {
 type ClusterState struct {
 	// Advanced settings of the cluster.
 	AdvancedSettingsJson pulumi.StringPtrInput
-	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 	CloudProvider pulumi.StringPtrInput
 	// Id of the credentials.
 	CredentialsId pulumi.StringPtrInput
@@ -178,7 +176,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Advanced settings of the cluster.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
-	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 	CloudProvider string `pulumi:"cloudProvider"`
 	// Id of the credentials.
 	CredentialsId string `pulumi:"credentialsId"`
@@ -213,7 +211,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Advanced settings of the cluster.
 	AdvancedSettingsJson pulumi.StringPtrInput
-	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+	// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 	CloudProvider pulumi.StringInput
 	// Id of the credentials.
 	CredentialsId pulumi.StringInput
@@ -336,7 +334,7 @@ func (o ClusterOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
 }
 
-// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `SCW`.
+// Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
 func (o ClusterOutput) CloudProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CloudProvider }).(pulumi.StringOutput)
 }

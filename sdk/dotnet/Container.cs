@@ -18,7 +18,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/container:Container my_container "&lt;container_id&gt;"
+    /// $ pulumi import qovery:index/container:Container my_container "&lt;container_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/container:Container")]

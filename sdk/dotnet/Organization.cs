@@ -37,7 +37,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/organization:Organization my_organization "&lt;organization_id&gt;"
+    /// $ pulumi import qovery:index/organization:Organization my_organization "&lt;organization_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/organization:Organization")]

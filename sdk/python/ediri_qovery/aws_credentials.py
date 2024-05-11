@@ -183,7 +183,7 @@ class AwsCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "<organization_id>,<aws_credentials_id>"
+        $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "<organization_id>,<aws_credentials_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,7 +220,7 @@ class AwsCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "<organization_id>,<aws_credentials_id>"
+        $ pulumi import qovery:index/awsCredentials:AwsCredentials my_aws_creds "<organization_id>,<aws_credentials_id>"
         ```
 
         :param str resource_name: The name of the resource.

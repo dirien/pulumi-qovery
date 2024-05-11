@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/helm:Helm my_helm "<helm_id>"
+ * $ pulumi import qovery:index/helm:Helm my_helm "<helm_id>"
  * ```
  */
 export class Helm extends pulumi.CustomResource {

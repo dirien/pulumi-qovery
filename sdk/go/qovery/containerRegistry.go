@@ -54,9 +54,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
-//
+// $ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry "<organization_id>,<container_registry_id>"
 // ```
 type ContainerRegistry struct {
 	pulumi.CustomResourceState

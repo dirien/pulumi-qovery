@@ -16,9 +16,7 @@ namespace ediri.Qovery
         /// ## # qovery.Project (Data Source)
         /// 
         /// Provides a Qovery project resource. This can be used to create and manage Qovery projects.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,8 +33,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("qovery:index/getProject:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -45,9 +41,7 @@ namespace ediri.Qovery
         /// ## # qovery.Project (Data Source)
         /// 
         /// Provides a Qovery project resource. This can be used to create and manage Qovery projects.
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,8 +58,6 @@ namespace ediri.Qovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("qovery:index/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -105,7 +97,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Id of the environment variable.
+        /// Id of the project.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -173,7 +165,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Id of the environment variable.
+        /// Id of the project.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

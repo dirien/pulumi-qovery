@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/job:Job my_job "<job_id>"
+ * $ pulumi import qovery:index/job:Job my_job "<job_id>"
  * ```
  */
 export class Job extends pulumi.CustomResource {

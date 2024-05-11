@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+ * $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
  * ```
  */
 export class GitToken extends pulumi.CustomResource {

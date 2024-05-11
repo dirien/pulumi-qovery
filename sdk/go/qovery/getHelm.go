@@ -63,7 +63,7 @@ type LookupHelmArgs struct {
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this helm.
 	EnvironmentVariables []GetHelmEnvironmentVariable `pulumi:"environmentVariables"`
-	// Id of the environment variable.
+	// Id of the helm.
 	Id string `pulumi:"id"`
 	// List of secret aliases linked to this helm.
 	SecretAliases []GetHelmSecretAlias `pulumi:"secretAliases"`
@@ -134,7 +134,7 @@ type LookupHelmOutputArgs struct {
 	EnvironmentVariableOverrides GetHelmEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this helm.
 	EnvironmentVariables GetHelmEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// Id of the environment variable.
+	// Id of the helm.
 	Id pulumi.StringInput `pulumi:"id"`
 	// List of secret aliases linked to this helm.
 	SecretAliases GetHelmSecretAliasArrayInput `pulumi:"secretAliases"`

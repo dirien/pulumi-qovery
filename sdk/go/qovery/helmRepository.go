@@ -19,9 +19,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
-//
+// $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
 // ```
 type HelmRepository struct {
 	pulumi.CustomResourceState

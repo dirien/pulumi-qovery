@@ -18,7 +18,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/helm:Helm my_helm "&lt;helm_id&gt;"
+    /// $ pulumi import qovery:index/helm:Helm my_helm "&lt;helm_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/helm:Helm")]

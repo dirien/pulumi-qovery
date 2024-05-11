@@ -428,7 +428,7 @@ class Environment(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
+        $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -499,7 +499,7 @@ class Environment(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
+        $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
         ```
 
         :param str resource_name: The name of the resource.

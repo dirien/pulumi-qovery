@@ -274,7 +274,7 @@ class HelmRepository(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
+        $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,7 +302,7 @@ class HelmRepository(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
+        $ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository "<organization_id>,<helm_repository_id>"
         ```
 
         :param str resource_name: The name of the resource.

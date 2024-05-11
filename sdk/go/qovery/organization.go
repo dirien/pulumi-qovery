@@ -46,9 +46,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
-//
+// $ pulumi import qovery:index/organization:Organization my_organization "<organization_id>"
 // ```
 type Organization struct {
 	pulumi.CustomResourceState

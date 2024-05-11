@@ -40,7 +40,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/gitToken:GitToken my_git_token "&lt;organization_id&gt;,&lt;git_token_id&gt;"
+    /// $ pulumi import qovery:index/gitToken:GitToken my_git_token "&lt;organization_id&gt;,&lt;git_token_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/gitToken:GitToken")]

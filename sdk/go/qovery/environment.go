@@ -89,9 +89,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
-//
+// $ pulumi import qovery:index/environment:Environment my_environment "<environment_id>"
 // ```
 type Environment struct {
 	pulumi.CustomResourceState

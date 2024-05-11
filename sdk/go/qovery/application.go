@@ -19,9 +19,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import qovery:index/application:Application my_application "<application_id>"
-//
+// $ pulumi import qovery:index/application:Application my_application "<application_id>"
 // ```
 type Application struct {
 	pulumi.CustomResourceState

@@ -250,7 +250,7 @@ class GitToken(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+        $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,7 +290,7 @@ class GitToken(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
+        $ pulumi import qovery:index/gitToken:GitToken my_git_token "<organization_id>,<git_token_id>"
         ```
 
         :param str resource_name: The name of the resource.

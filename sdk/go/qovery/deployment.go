@@ -54,7 +54,7 @@ type Deployment struct {
 	DesiredState pulumi.StringOutput `pulumi:"desiredState"`
 	// Id of the environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+	// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 	// state)
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -99,7 +99,7 @@ type deploymentState struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// Id of the environment.
 	EnvironmentId *string `pulumi:"environmentId"`
-	// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+	// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 	// state)
 	Version *string `pulumi:"version"`
 }
@@ -109,7 +109,7 @@ type DeploymentState struct {
 	DesiredState pulumi.StringPtrInput
 	// Id of the environment.
 	EnvironmentId pulumi.StringPtrInput
-	// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+	// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 	// state)
 	Version pulumi.StringPtrInput
 }
@@ -123,7 +123,7 @@ type deploymentArgs struct {
 	DesiredState string `pulumi:"desiredState"`
 	// Id of the environment.
 	EnvironmentId string `pulumi:"environmentId"`
-	// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+	// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 	// state)
 	Version *string `pulumi:"version"`
 }
@@ -134,7 +134,7 @@ type DeploymentArgs struct {
 	DesiredState pulumi.StringInput
 	// Id of the environment.
 	EnvironmentId pulumi.StringInput
-	// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+	// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 	// state)
 	Version pulumi.StringPtrInput
 }
@@ -236,7 +236,7 @@ func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
+// Version to force trigger a deployment when desiredState doesn't change (e.g redeploy a deployment having the 'RUNNING'
 // state)
 func (o DeploymentOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)

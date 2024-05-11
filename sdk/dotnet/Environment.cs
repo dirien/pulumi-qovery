@@ -80,7 +80,7 @@ namespace ediri.Qovery
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
     ///             qovery_project.My_project,
     ///         },
@@ -96,7 +96,7 @@ namespace ediri.Qovery
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import qovery:index/environment:Environment my_environment "&lt;environment_id&gt;"
+    /// $ pulumi import qovery:index/environment:Environment my_environment "&lt;environment_id&gt;"
     /// ```
     /// </summary>
     [QoveryResourceType("qovery:index/environment:Environment")]
