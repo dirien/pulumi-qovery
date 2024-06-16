@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.37.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.84.0
 	github.com/pulumi/pulumi/sdk/v3 v3.119.0
-	github.com/qovery/terraform-provider-qovery v0.28.10
+	github.com/qovery/terraform-provider-qovery v0.29.1
 )
 
 require (
@@ -182,7 +182,7 @@ require (
 	github.com/pulumi/pulumi-yaml v1.7.0 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.118.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
-	github.com/qovery/qovery-client-go v0.0.0-20240603100311-87ebc2e571ef // indirect
+	github.com/qovery/qovery-client-go v0.0.0-20240611152527-5b39ca9f2845 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect

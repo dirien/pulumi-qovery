@@ -778,10 +778,10 @@ github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abq
 github.com/pulumi/terraform-diff-reader v0.0.2/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10 h1:M6Ceq1o6gGeEKxTZgJ2CKLye3p67ZZjnsAwxr5VC32A=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10/go.mod h1:H+8tjs9TjV2w57QFVSMBQacf8k/E1XwLXGCARgViC6A=
-github.com/qovery/qovery-client-go v0.0.0-20240603100311-87ebc2e571ef h1:DyzdF7rJFYl7zRHH8+8GpiNbrYtTnY6fzpvHAWygvwk=
-github.com/qovery/qovery-client-go v0.0.0-20240603100311-87ebc2e571ef/go.mod h1:9eHj5a4EtXGIyfbvVL3HVYW9k7Xmiwi00OqHrP4dc10=
-github.com/qovery/terraform-provider-qovery v0.28.10 h1:bkmRatNhX916vRsXyGE9xzTG2FXxJoGRmJwbe3OLWn8=
-github.com/qovery/terraform-provider-qovery v0.28.10/go.mod h1:YEJHk+QhvaBzIYXvoyaRQOJLSrID69ZpxcJchcy0WYA=
+github.com/qovery/qovery-client-go v0.0.0-20240611152527-5b39ca9f2845 h1:x7cDoxl+y9Wba9aumkGek3mIn7byyAk3QRrqhzsQ3pw=
+github.com/qovery/qovery-client-go v0.0.0-20240611152527-5b39ca9f2845/go.mod h1:9eHj5a4EtXGIyfbvVL3HVYW9k7Xmiwi00OqHrP4dc10=
+github.com/qovery/terraform-provider-qovery v0.29.1 h1:rZCPMOXrzL2QrqOj0CQQ4jufgiRiaO3WHgqzuelYRAs=
+github.com/qovery/terraform-provider-qovery v0.29.1/go.mod h1:jZGzIugEmSAk6SB5iP5vSjzSbDe8SNVm3D0uHtSoXuA=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.4 h1:8TfxU8dW6PdqD27gjM8MVNuicgxIjxpm4K7x4jp8sis=
