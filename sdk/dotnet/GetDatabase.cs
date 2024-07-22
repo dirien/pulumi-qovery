@@ -69,6 +69,14 @@ namespace ediri.Qovery
         [Input("accessibility")]
         public string? Accessibility { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private List<string>? _annotationsGroupIds;
+        public List<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new List<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         [Input("cpu")]
         public int? Cpu { get; set; }
 
@@ -80,6 +88,14 @@ namespace ediri.Qovery
 
         [Input("instanceType")]
         public string? InstanceType { get; set; }
+
+        [Input("labelsGroupIds")]
+        private List<string>? _labelsGroupIds;
+        public List<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new List<string>());
+            set => _labelsGroupIds = value;
+        }
 
         [Input("memory")]
         public int? Memory { get; set; }
@@ -98,6 +114,14 @@ namespace ediri.Qovery
         [Input("accessibility")]
         public Input<string>? Accessibility { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
@@ -109,6 +133,14 @@ namespace ediri.Qovery
 
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
+
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
 
         [Input("memory")]
         public Input<int>? Memory { get; set; }
@@ -127,6 +159,7 @@ namespace ediri.Qovery
     public sealed class GetDatabaseResult
     {
         public readonly string? Accessibility;
+        public readonly ImmutableArray<string> AnnotationsGroupIds;
         public readonly int? Cpu;
         public readonly string DeploymentStageId;
         public readonly string EnvironmentId;
@@ -134,6 +167,7 @@ namespace ediri.Qovery
         public readonly string Id;
         public readonly string InstanceType;
         public readonly string InternalHost;
+        public readonly ImmutableArray<string> LabelsGroupIds;
         public readonly string Login;
         public readonly int? Memory;
         public readonly string Mode;
@@ -148,6 +182,8 @@ namespace ediri.Qovery
         private GetDatabaseResult(
             string? accessibility,
 
+            ImmutableArray<string> annotationsGroupIds,
+
             int? cpu,
 
             string deploymentStageId,
@@ -161,6 +197,8 @@ namespace ediri.Qovery
             string instanceType,
 
             string internalHost,
+
+            ImmutableArray<string> labelsGroupIds,
 
             string login,
 
@@ -181,6 +219,7 @@ namespace ediri.Qovery
             string version)
         {
             Accessibility = accessibility;
+            AnnotationsGroupIds = annotationsGroupIds;
             Cpu = cpu;
             DeploymentStageId = deploymentStageId;
             EnvironmentId = environmentId;
@@ -188,6 +227,7 @@ namespace ediri.Qovery
             Id = id;
             InstanceType = instanceType;
             InternalHost = internalHost;
+            LabelsGroupIds = labelsGroupIds;
             Login = login;
             Memory = memory;
             Mode = mode;

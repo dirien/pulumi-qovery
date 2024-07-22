@@ -26,6 +26,8 @@ type Application struct {
 
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringOutput `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayOutput `pulumi:"annotationsGroupIds"`
 	// List of arguments of this application.
 	Arguments pulumi.StringArrayOutput `pulumi:"arguments"`
 	// Specify if the application will be automatically updated after receiving a new image tag.
@@ -67,6 +69,8 @@ type Application struct {
 	Healthchecks ApplicationHealthchecksOutput `pulumi:"healthchecks"`
 	// The application internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayOutput `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntOutput `pulumi:"maxRunningInstances"`
 	// RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -128,6 +132,8 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// List of arguments of this application.
 	Arguments []string `pulumi:"arguments"`
 	// Specify if the application will be automatically updated after receiving a new image tag.
@@ -169,6 +175,8 @@ type applicationState struct {
 	Healthchecks *ApplicationHealthchecks `pulumi:"healthchecks"`
 	// The application internal host.
 	InternalHost *string `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances *int `pulumi:"maxRunningInstances"`
 	// RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -192,6 +200,8 @@ type applicationState struct {
 type ApplicationState struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// List of arguments of this application.
 	Arguments pulumi.StringArrayInput
 	// Specify if the application will be automatically updated after receiving a new image tag.
@@ -233,6 +243,8 @@ type ApplicationState struct {
 	Healthchecks ApplicationHealthchecksPtrInput
 	// The application internal host.
 	InternalHost pulumi.StringPtrInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntPtrInput
 	// RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -260,6 +272,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// List of arguments of this application.
 	Arguments []string `pulumi:"arguments"`
 	// Specify if the application will be automatically updated after receiving a new image tag.
@@ -295,6 +309,8 @@ type applicationArgs struct {
 	GitRepository ApplicationGitRepository `pulumi:"gitRepository"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecks `pulumi:"healthchecks"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances *int `pulumi:"maxRunningInstances"`
 	// RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -319,6 +335,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// List of arguments of this application.
 	Arguments pulumi.StringArrayInput
 	// Specify if the application will be automatically updated after receiving a new image tag.
@@ -354,6 +372,8 @@ type ApplicationArgs struct {
 	GitRepository ApplicationGitRepositoryInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecksInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntPtrInput
 	// RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -466,6 +486,11 @@ func (o ApplicationOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
 }
 
+// List of annotations group ids
+func (o ApplicationOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // List of arguments of this application.
 func (o ApplicationOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Arguments }).(pulumi.StringArrayOutput)
@@ -571,6 +596,11 @@ func (o ApplicationOutput) Healthchecks() ApplicationHealthchecksOutput {
 // The application internal host.
 func (o ApplicationOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+// List of labels group ids
+func (o ApplicationOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.

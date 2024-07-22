@@ -75,6 +75,8 @@ type Database struct {
 
 	// Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
 	Accessibility pulumi.StringOutput `pulumi:"accessibility"`
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayOutput `pulumi:"annotationsGroupIds"`
 	// CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 	Cpu pulumi.IntOutput `pulumi:"cpu"`
 	// Id of the deployment stage.
@@ -87,6 +89,8 @@ type Database struct {
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The database internal host (Recommended for your application)
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayOutput `pulumi:"labelsGroupIds"`
 	// The login to connect to your database
 	Login pulumi.StringOutput `pulumi:"login"`
 	// RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
@@ -152,6 +156,8 @@ func GetDatabase(ctx *pulumi.Context,
 type databaseState struct {
 	// Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
 	Accessibility *string `pulumi:"accessibility"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 	Cpu *int `pulumi:"cpu"`
 	// Id of the deployment stage.
@@ -164,6 +170,8 @@ type databaseState struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// The database internal host (Recommended for your application)
 	InternalHost *string `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// The login to connect to your database
 	Login *string `pulumi:"login"`
 	// RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
@@ -188,6 +196,8 @@ type databaseState struct {
 type DatabaseState struct {
 	// Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
 	Accessibility pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 	Cpu pulumi.IntPtrInput
 	// Id of the deployment stage.
@@ -200,6 +210,8 @@ type DatabaseState struct {
 	InstanceType pulumi.StringPtrInput
 	// The database internal host (Recommended for your application)
 	InternalHost pulumi.StringPtrInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// The login to connect to your database
 	Login pulumi.StringPtrInput
 	// RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
@@ -228,6 +240,8 @@ func (DatabaseState) ElementType() reflect.Type {
 type databaseArgs struct {
 	// Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
 	Accessibility *string `pulumi:"accessibility"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 	Cpu *int `pulumi:"cpu"`
 	// Id of the deployment stage.
@@ -236,6 +250,8 @@ type databaseArgs struct {
 	EnvironmentId string `pulumi:"environmentId"`
 	// Instance type of the database.
 	InstanceType *string `pulumi:"instanceType"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
 	Memory *int `pulumi:"memory"`
 	// Mode of the database [NOTE: can't be updated after creation]. - Can be: `CONTAINER`, `MANAGED`.
@@ -255,6 +271,8 @@ type databaseArgs struct {
 type DatabaseArgs struct {
 	// Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
 	Accessibility pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 	Cpu pulumi.IntPtrInput
 	// Id of the deployment stage.
@@ -263,6 +281,8 @@ type DatabaseArgs struct {
 	EnvironmentId pulumi.StringInput
 	// Instance type of the database.
 	InstanceType pulumi.StringPtrInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
 	Memory pulumi.IntPtrInput
 	// Mode of the database [NOTE: can't be updated after creation]. - Can be: `CONTAINER`, `MANAGED`.
@@ -370,6 +390,11 @@ func (o DatabaseOutput) Accessibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Accessibility }).(pulumi.StringOutput)
 }
 
+// List of annotations group ids
+func (o DatabaseOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringArrayOutput { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
 func (o DatabaseOutput) Cpu() pulumi.IntOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.Cpu }).(pulumi.IntOutput)
@@ -398,6 +423,11 @@ func (o DatabaseOutput) InstanceType() pulumi.StringOutput {
 // The database internal host (Recommended for your application)
 func (o DatabaseOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+// List of labels group ids
+func (o DatabaseOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringArrayOutput { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // The login to connect to your database

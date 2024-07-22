@@ -67,7 +67,8 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly features!: pulumi.Output<outputs.ClusterFeatures>;
     /**
-     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+     * clusters
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -75,13 +76,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kubernetesMode!: pulumi.Output<string>;
     /**
-     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-     * - Default: `10`.
+     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+     * Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
      */
     public readonly maxRunningNodes!: pulumi.Output<number>;
     /**
-     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-     * - Default: `3`.
+     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+     * Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
      */
     public readonly minRunningNodes!: pulumi.Output<number>;
     /**
@@ -141,9 +142,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.credentialsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'credentialsId'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceType'");
-            }
             if ((!args || args.organizationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'organizationId'");
             }
@@ -197,7 +195,8 @@ export interface ClusterState {
      */
     features?: pulumi.Input<inputs.ClusterFeatures>;
     /**
-     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+     * clusters
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -205,13 +204,13 @@ export interface ClusterState {
      */
     kubernetesMode?: pulumi.Input<string>;
     /**
-     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-     * - Default: `10`.
+     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+     * Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
      */
     maxRunningNodes?: pulumi.Input<number>;
     /**
-     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-     * - Default: `3`.
+     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+     * Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
      */
     minRunningNodes?: pulumi.Input<number>;
     /**
@@ -262,21 +261,22 @@ export interface ClusterArgs {
      */
     features?: pulumi.Input<inputs.ClusterFeatures>;
     /**
-     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+     * Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+     * clusters
      */
-    instanceType: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
     /**
      * Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
      */
     kubernetesMode?: pulumi.Input<string>;
     /**
-     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-     * - Default: `10`.
+     * Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+     * Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
      */
     maxRunningNodes?: pulumi.Input<number>;
     /**
-     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-     * - Default: `3`.
+     * Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+     * Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
      */
     minRunningNodes?: pulumi.Input<number>;
     /**

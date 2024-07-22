@@ -21,10 +21,13 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, accessibility=None, cpu=None, deployment_stage_id=None, environment_id=None, external_host=None, id=None, instance_type=None, internal_host=None, login=None, memory=None, mode=None, name=None, password=None, port=None, storage=None, type=None, version=None):
+    def __init__(__self__, accessibility=None, annotations_group_ids=None, cpu=None, deployment_stage_id=None, environment_id=None, external_host=None, id=None, instance_type=None, internal_host=None, labels_group_ids=None, login=None, memory=None, mode=None, name=None, password=None, port=None, storage=None, type=None, version=None):
         if accessibility and not isinstance(accessibility, str):
             raise TypeError("Expected argument 'accessibility' to be a str")
         pulumi.set(__self__, "accessibility", accessibility)
+        if annotations_group_ids and not isinstance(annotations_group_ids, list):
+            raise TypeError("Expected argument 'annotations_group_ids' to be a list")
+        pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if cpu and not isinstance(cpu, int):
             raise TypeError("Expected argument 'cpu' to be a int")
         pulumi.set(__self__, "cpu", cpu)
@@ -46,6 +49,9 @@ class GetDatabaseResult:
         if internal_host and not isinstance(internal_host, str):
             raise TypeError("Expected argument 'internal_host' to be a str")
         pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids and not isinstance(labels_group_ids, list):
+            raise TypeError("Expected argument 'labels_group_ids' to be a list")
+        pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if login and not isinstance(login, str):
             raise TypeError("Expected argument 'login' to be a str")
         pulumi.set(__self__, "login", login)
@@ -78,6 +84,11 @@ class GetDatabaseResult:
     @pulumi.getter
     def accessibility(self) -> Optional[str]:
         return pulumi.get(self, "accessibility")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter
@@ -113,6 +124,11 @@ class GetDatabaseResult:
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> str:
         return pulumi.get(self, "internal_host")
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "labels_group_ids")
 
     @property
     @pulumi.getter
@@ -167,6 +183,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             yield self
         return GetDatabaseResult(
             accessibility=self.accessibility,
+            annotations_group_ids=self.annotations_group_ids,
             cpu=self.cpu,
             deployment_stage_id=self.deployment_stage_id,
             environment_id=self.environment_id,
@@ -174,6 +191,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             id=self.id,
             instance_type=self.instance_type,
             internal_host=self.internal_host,
+            labels_group_ids=self.labels_group_ids,
             login=self.login,
             memory=self.memory,
             mode=self.mode,
@@ -186,10 +204,12 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
 
 
 def get_database(accessibility: Optional[str] = None,
+                 annotations_group_ids: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
                  deployment_stage_id: Optional[str] = None,
                  id: Optional[str] = None,
                  instance_type: Optional[str] = None,
+                 labels_group_ids: Optional[Sequence[str]] = None,
                  memory: Optional[int] = None,
                  storage: Optional[int] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
@@ -208,10 +228,12 @@ def get_database(accessibility: Optional[str] = None,
     """
     __args__ = dict()
     __args__['accessibility'] = accessibility
+    __args__['annotationsGroupIds'] = annotations_group_ids
     __args__['cpu'] = cpu
     __args__['deploymentStageId'] = deployment_stage_id
     __args__['id'] = id
     __args__['instanceType'] = instance_type
+    __args__['labelsGroupIds'] = labels_group_ids
     __args__['memory'] = memory
     __args__['storage'] = storage
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -219,6 +241,7 @@ def get_database(accessibility: Optional[str] = None,
 
     return AwaitableGetDatabaseResult(
         accessibility=pulumi.get(__ret__, 'accessibility'),
+        annotations_group_ids=pulumi.get(__ret__, 'annotations_group_ids'),
         cpu=pulumi.get(__ret__, 'cpu'),
         deployment_stage_id=pulumi.get(__ret__, 'deployment_stage_id'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
@@ -226,6 +249,7 @@ def get_database(accessibility: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
+        labels_group_ids=pulumi.get(__ret__, 'labels_group_ids'),
         login=pulumi.get(__ret__, 'login'),
         memory=pulumi.get(__ret__, 'memory'),
         mode=pulumi.get(__ret__, 'mode'),
@@ -239,10 +263,12 @@ def get_database(accessibility: Optional[str] = None,
 
 @_utilities.lift_output_func(get_database)
 def get_database_output(accessibility: Optional[pulumi.Input[Optional[str]]] = None,
+                        annotations_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         cpu: Optional[pulumi.Input[Optional[int]]] = None,
                         deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
                         id: Optional[pulumi.Input[str]] = None,
                         instance_type: Optional[pulumi.Input[Optional[str]]] = None,
+                        labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         memory: Optional[pulumi.Input[Optional[int]]] = None,
                         storage: Optional[pulumi.Input[Optional[int]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:

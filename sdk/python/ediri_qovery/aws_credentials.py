@@ -177,7 +177,7 @@ class AwsCredentials(pulumi.CustomResource):
             organization_id=qovery_organization["my_organization"]["id"],
             access_key_id="<your-aws-access-key-id>",
             secret_access_key="<your-aws-secret-access-key>",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import
@@ -214,7 +214,7 @@ class AwsCredentials(pulumi.CustomResource):
             organization_id=qovery_organization["my_organization"]["id"],
             access_key_id="<your-aws-access-key-id>",
             secret_access_key="<your-aws-secret-access-key>",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import

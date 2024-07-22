@@ -30,12 +30,14 @@ type Helm struct {
 	AllowClusterWideResources pulumi.BoolOutput `pulumi:"allowClusterWideResources"`
 	// Helm arguments
 	Arguments pulumi.StringArrayOutput `pulumi:"arguments"`
-	// Specify if the service will be automatically updated on every new commit on the branch.
+	// Specify if service will be automatically updated on every new commit on the branch.
 	AutoDeploy pulumi.BoolOutput `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview pulumi.BoolOutput `pulumi:"autoPreview"`
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables HelmBuiltInEnvironmentVariableArrayOutput `pulumi:"builtInEnvironmentVariables"`
+	// List of custom domains linked to this helm.
+	CustomDomains HelmCustomDomainArrayOutput `pulumi:"customDomains"`
 	// List of deployment restrictions
 	DeploymentRestrictions HelmDeploymentRestrictionArrayOutput `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
@@ -64,7 +66,7 @@ type Helm struct {
 	Secrets HelmSecretArrayOutput `pulumi:"secrets"`
 	// Helm chart from a Helm repository or from a git repository
 	Source HelmSourceOutput `pulumi:"source"`
-	// Helm timeout in second
+	// Helm timeout in seconds
 	TimeoutSec pulumi.IntOutput `pulumi:"timeoutSec"`
 	// Define your own overrides to customize the helm chart behaviour.
 	ValuesOverride HelmValuesOverrideOutput `pulumi:"valuesOverride"`
@@ -118,12 +120,14 @@ type helmState struct {
 	AllowClusterWideResources *bool `pulumi:"allowClusterWideResources"`
 	// Helm arguments
 	Arguments []string `pulumi:"arguments"`
-	// Specify if the service will be automatically updated on every new commit on the branch.
+	// Specify if service will be automatically updated on every new commit on the branch.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview *bool `pulumi:"autoPreview"`
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables []HelmBuiltInEnvironmentVariable `pulumi:"builtInEnvironmentVariables"`
+	// List of custom domains linked to this helm.
+	CustomDomains []HelmCustomDomain `pulumi:"customDomains"`
 	// List of deployment restrictions
 	DeploymentRestrictions []HelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
@@ -152,7 +156,7 @@ type helmState struct {
 	Secrets []HelmSecret `pulumi:"secrets"`
 	// Helm chart from a Helm repository or from a git repository
 	Source *HelmSource `pulumi:"source"`
-	// Helm timeout in second
+	// Helm timeout in seconds
 	TimeoutSec *int `pulumi:"timeoutSec"`
 	// Define your own overrides to customize the helm chart behaviour.
 	ValuesOverride *HelmValuesOverride `pulumi:"valuesOverride"`
@@ -165,12 +169,14 @@ type HelmState struct {
 	AllowClusterWideResources pulumi.BoolPtrInput
 	// Helm arguments
 	Arguments pulumi.StringArrayInput
-	// Specify if the service will be automatically updated on every new commit on the branch.
+	// Specify if service will be automatically updated on every new commit on the branch.
 	AutoDeploy pulumi.BoolPtrInput
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview pulumi.BoolPtrInput
 	// List of built-in environment variables linked to this helm.
 	BuiltInEnvironmentVariables HelmBuiltInEnvironmentVariableArrayInput
+	// List of custom domains linked to this helm.
+	CustomDomains HelmCustomDomainArrayInput
 	// List of deployment restrictions
 	DeploymentRestrictions HelmDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
@@ -199,7 +205,7 @@ type HelmState struct {
 	Secrets HelmSecretArrayInput
 	// Helm chart from a Helm repository or from a git repository
 	Source HelmSourcePtrInput
-	// Helm timeout in second
+	// Helm timeout in seconds
 	TimeoutSec pulumi.IntPtrInput
 	// Define your own overrides to customize the helm chart behaviour.
 	ValuesOverride HelmValuesOverridePtrInput
@@ -216,10 +222,12 @@ type helmArgs struct {
 	AllowClusterWideResources bool `pulumi:"allowClusterWideResources"`
 	// Helm arguments
 	Arguments []string `pulumi:"arguments"`
-	// Specify if the service will be automatically updated on every new commit on the branch.
+	// Specify if service will be automatically updated on every new commit on the branch.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview *bool `pulumi:"autoPreview"`
+	// List of custom domains linked to this helm.
+	CustomDomains []HelmCustomDomain `pulumi:"customDomains"`
 	// List of deployment restrictions
 	DeploymentRestrictions []HelmDeploymentRestriction `pulumi:"deploymentRestrictions"`
 	// Id of the deployment stage.
@@ -244,7 +252,7 @@ type helmArgs struct {
 	Secrets []HelmSecret `pulumi:"secrets"`
 	// Helm chart from a Helm repository or from a git repository
 	Source HelmSource `pulumi:"source"`
-	// Helm timeout in second
+	// Helm timeout in seconds
 	TimeoutSec *int `pulumi:"timeoutSec"`
 	// Define your own overrides to customize the helm chart behaviour.
 	ValuesOverride HelmValuesOverride `pulumi:"valuesOverride"`
@@ -258,10 +266,12 @@ type HelmArgs struct {
 	AllowClusterWideResources pulumi.BoolInput
 	// Helm arguments
 	Arguments pulumi.StringArrayInput
-	// Specify if the service will be automatically updated on every new commit on the branch.
+	// Specify if service will be automatically updated on every new commit on the branch.
 	AutoDeploy pulumi.BoolPtrInput
 	// Specify if the environment preview option is activated or not for this helm.
 	AutoPreview pulumi.BoolPtrInput
+	// List of custom domains linked to this helm.
+	CustomDomains HelmCustomDomainArrayInput
 	// List of deployment restrictions
 	DeploymentRestrictions HelmDeploymentRestrictionArrayInput
 	// Id of the deployment stage.
@@ -286,7 +296,7 @@ type HelmArgs struct {
 	Secrets HelmSecretArrayInput
 	// Helm chart from a Helm repository or from a git repository
 	Source HelmSourceInput
-	// Helm timeout in second
+	// Helm timeout in seconds
 	TimeoutSec pulumi.IntPtrInput
 	// Define your own overrides to customize the helm chart behaviour.
 	ValuesOverride HelmValuesOverrideInput
@@ -394,7 +404,7 @@ func (o HelmOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Helm) pulumi.StringArrayOutput { return v.Arguments }).(pulumi.StringArrayOutput)
 }
 
-// Specify if the service will be automatically updated on every new commit on the branch.
+// Specify if service will be automatically updated on every new commit on the branch.
 func (o HelmOutput) AutoDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Helm) pulumi.BoolOutput { return v.AutoDeploy }).(pulumi.BoolOutput)
 }
@@ -407,6 +417,11 @@ func (o HelmOutput) AutoPreview() pulumi.BoolOutput {
 // List of built-in environment variables linked to this helm.
 func (o HelmOutput) BuiltInEnvironmentVariables() HelmBuiltInEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *Helm) HelmBuiltInEnvironmentVariableArrayOutput { return v.BuiltInEnvironmentVariables }).(HelmBuiltInEnvironmentVariableArrayOutput)
+}
+
+// List of custom domains linked to this helm.
+func (o HelmOutput) CustomDomains() HelmCustomDomainArrayOutput {
+	return o.ApplyT(func(v *Helm) HelmCustomDomainArrayOutput { return v.CustomDomains }).(HelmCustomDomainArrayOutput)
 }
 
 // List of deployment restrictions
@@ -479,7 +494,7 @@ func (o HelmOutput) Source() HelmSourceOutput {
 	return o.ApplyT(func(v *Helm) HelmSourceOutput { return v.Source }).(HelmSourceOutput)
 }
 
-// Helm timeout in second
+// Helm timeout in seconds
 func (o HelmOutput) TimeoutSec() pulumi.IntOutput {
 	return o.ApplyT(func(v *Helm) pulumi.IntOutput { return v.TimeoutSec }).(pulumi.IntOutput)
 }

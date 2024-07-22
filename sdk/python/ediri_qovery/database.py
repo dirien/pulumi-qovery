@@ -19,9 +19,11 @@ class DatabaseArgs:
                  type: pulumi.Input[str],
                  version: pulumi.Input[str],
                  accessibility: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[int]] = None):
@@ -32,9 +34,11 @@ class DatabaseArgs:
         :param pulumi.Input[str] type: Type of the database [NOTE: can't be updated after creation]. - Can be: `MONGODB`, `MYSQL`, `POSTGRESQL`, `REDIS`.
         :param pulumi.Input[str] version: Version of the database
         :param pulumi.Input[str] accessibility: Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[int] cpu: CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] instance_type: Instance type of the database.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] memory: RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
         :param pulumi.Input[str] name: Name of the database.
         :param pulumi.Input[int] storage: Storage of the database in GB [1024MB = 1GB] [NOTE: can't be updated after creation]. - Must be: `>= 10`. - Default:
@@ -46,12 +50,16 @@ class DatabaseArgs:
         pulumi.set(__self__, "version", version)
         if accessibility is not None:
             pulumi.set(__self__, "accessibility", accessibility)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
         if deployment_stage_id is not None:
             pulumi.set(__self__, "deployment_stage_id", deployment_stage_id)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
         if name is not None:
@@ -120,6 +128,18 @@ class DatabaseArgs:
         pulumi.set(self, "accessibility", value)
 
     @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
+
+    @property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[int]]:
         """
@@ -154,6 +174,18 @@ class DatabaseArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
 
     @property
     @pulumi.getter
@@ -197,12 +229,14 @@ class DatabaseArgs:
 class _DatabaseState:
     def __init__(__self__, *,
                  accessibility: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  external_host: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
@@ -215,12 +249,14 @@ class _DatabaseState:
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input[str] accessibility: Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[int] cpu: CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] external_host: The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
         :param pulumi.Input[str] instance_type: Instance type of the database.
         :param pulumi.Input[str] internal_host: The database internal host (Recommended for your application)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[str] login: The login to connect to your database
         :param pulumi.Input[int] memory: RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
         :param pulumi.Input[str] mode: Mode of the database [NOTE: can't be updated after creation]. - Can be: `CONTAINER`, `MANAGED`.
@@ -234,6 +270,8 @@ class _DatabaseState:
         """
         if accessibility is not None:
             pulumi.set(__self__, "accessibility", accessibility)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
         if deployment_stage_id is not None:
@@ -246,6 +284,8 @@ class _DatabaseState:
             pulumi.set(__self__, "instance_type", instance_type)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if memory is not None:
@@ -276,6 +316,18 @@ class _DatabaseState:
     @accessibility.setter
     def accessibility(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accessibility", value)
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
 
     @property
     @pulumi.getter
@@ -348,6 +400,18 @@ class _DatabaseState:
     @internal_host.setter
     def internal_host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "internal_host", value)
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
 
     @property
     @pulumi.getter
@@ -465,10 +529,12 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -496,7 +562,7 @@ class Database(pulumi.CustomResource):
             cpu=250,
             memory=256,
             storage=10,
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         my_managed_database = qovery.Database("myManagedDatabase",
             environment_id=qovery_environment["my_environment"]["id"],
             type="POSTGRESQL",
@@ -505,7 +571,7 @@ class Database(pulumi.CustomResource):
             instance_type="db.t3.micro",
             accessibility="PRIVATE",
             storage=10,
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         ```
 
         ## Import
@@ -517,10 +583,12 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility: Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[int] cpu: CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] instance_type: Instance type of the database.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] memory: RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
         :param pulumi.Input[str] mode: Mode of the database [NOTE: can't be updated after creation]. - Can be: `CONTAINER`, `MANAGED`.
         :param pulumi.Input[str] name: Name of the database.
@@ -555,7 +623,7 @@ class Database(pulumi.CustomResource):
             cpu=250,
             memory=256,
             storage=10,
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         my_managed_database = qovery.Database("myManagedDatabase",
             environment_id=qovery_environment["my_environment"]["id"],
             type="POSTGRESQL",
@@ -564,7 +632,7 @@ class Database(pulumi.CustomResource):
             instance_type="db.t3.micro",
             accessibility="PRIVATE",
             storage=10,
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         ```
 
         ## Import
@@ -589,10 +657,12 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -609,12 +679,14 @@ class Database(pulumi.CustomResource):
             __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
             __props__.__dict__["accessibility"] = accessibility
+            __props__.__dict__["annotations_group_ids"] = annotations_group_ids
             __props__.__dict__["cpu"] = cpu
             __props__.__dict__["deployment_stage_id"] = deployment_stage_id
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["memory"] = memory
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
@@ -643,12 +715,14 @@ class Database(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accessibility: Optional[pulumi.Input[str]] = None,
+            annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
+            labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             login: Optional[pulumi.Input[str]] = None,
             memory: Optional[pulumi.Input[int]] = None,
             mode: Optional[pulumi.Input[str]] = None,
@@ -666,12 +740,14 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility: Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[int] cpu: CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] external_host: The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
         :param pulumi.Input[str] instance_type: Instance type of the database.
         :param pulumi.Input[str] internal_host: The database internal host (Recommended for your application)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[str] login: The login to connect to your database
         :param pulumi.Input[int] memory: RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
         :param pulumi.Input[str] mode: Mode of the database [NOTE: can't be updated after creation]. - Can be: `CONTAINER`, `MANAGED`.
@@ -688,12 +764,14 @@ class Database(pulumi.CustomResource):
         __props__ = _DatabaseState.__new__(_DatabaseState)
 
         __props__.__dict__["accessibility"] = accessibility
+        __props__.__dict__["annotations_group_ids"] = annotations_group_ids
         __props__.__dict__["cpu"] = cpu
         __props__.__dict__["deployment_stage_id"] = deployment_stage_id
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["internal_host"] = internal_host
+        __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["login"] = login
         __props__.__dict__["memory"] = memory
         __props__.__dict__["mode"] = mode
@@ -712,6 +790,14 @@ class Database(pulumi.CustomResource):
         Accessibility of the database. - Can be: `PRIVATE`, `PUBLIC`. - Default: `PUBLIC`.
         """
         return pulumi.get(self, "accessibility")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter
@@ -760,6 +846,14 @@ class Database(pulumi.CustomResource):
         The database internal host (Recommended for your application)
         """
         return pulumi.get(self, "internal_host")
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
 
     @property
     @pulumi.getter

@@ -26,6 +26,8 @@ type Job struct {
 
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringOutput `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayOutput `pulumi:"annotationsGroupIds"`
 	// Specify if the job will be automatically updated after receiving a new image tag.
 	AutoDeploy pulumi.BoolOutput `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this job.
@@ -52,6 +54,8 @@ type Job struct {
 	Healthchecks JobHealthchecksOutput `pulumi:"healthchecks"`
 	// The job internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayOutput `pulumi:"labelsGroupIds"`
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
 	MaxDurationSeconds pulumi.IntOutput `pulumi:"maxDurationSeconds"`
 	// Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -115,6 +119,8 @@ func GetJob(ctx *pulumi.Context,
 type jobState struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// Specify if the job will be automatically updated after receiving a new image tag.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this job.
@@ -141,6 +147,8 @@ type jobState struct {
 	Healthchecks *JobHealthchecks `pulumi:"healthchecks"`
 	// The job internal host.
 	InternalHost *string `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
 	MaxDurationSeconds *int `pulumi:"maxDurationSeconds"`
 	// Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -166,6 +174,8 @@ type jobState struct {
 type JobState struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// Specify if the job will be automatically updated after receiving a new image tag.
 	AutoDeploy pulumi.BoolPtrInput
 	// Specify if the environment preview option is activated or not for this job.
@@ -192,6 +202,8 @@ type JobState struct {
 	Healthchecks JobHealthchecksPtrInput
 	// The job internal host.
 	InternalHost pulumi.StringPtrInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
 	MaxDurationSeconds pulumi.IntPtrInput
 	// Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -221,6 +233,8 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// Specify if the job will be automatically updated after receiving a new image tag.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
 	// Specify if the environment preview option is activated or not for this job.
@@ -241,6 +255,8 @@ type jobArgs struct {
 	EnvironmentVariables []JobEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecks `pulumi:"healthchecks"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
 	MaxDurationSeconds *int `pulumi:"maxDurationSeconds"`
 	// Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -267,6 +283,8 @@ type jobArgs struct {
 type JobArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// Specify if the job will be automatically updated after receiving a new image tag.
 	AutoDeploy pulumi.BoolPtrInput
 	// Specify if the environment preview option is activated or not for this job.
@@ -287,6 +305,8 @@ type JobArgs struct {
 	EnvironmentVariables JobEnvironmentVariableArrayInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecksInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
 	MaxDurationSeconds pulumi.IntPtrInput
 	// Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -401,6 +421,11 @@ func (o JobOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
 }
 
+// List of annotations group ids
+func (o JobOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringArrayOutput { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // Specify if the job will be automatically updated after receiving a new image tag.
 func (o JobOutput) AutoDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.AutoDeploy }).(pulumi.BoolOutput)
@@ -464,6 +489,11 @@ func (o JobOutput) Healthchecks() JobHealthchecksOutput {
 // The job internal host.
 func (o JobOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+// List of labels group ids
+func (o JobOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringArrayOutput { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.

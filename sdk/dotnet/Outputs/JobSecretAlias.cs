@@ -15,6 +15,10 @@ namespace ediri.Qovery.Outputs
     public sealed class JobSecretAlias
     {
         /// <summary>
+        /// Description of the secret alias.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Id of the secret alias.
         /// </summary>
         public readonly string? Id;
@@ -29,12 +33,15 @@ namespace ediri.Qovery.Outputs
 
         [OutputConstructor]
         private JobSecretAlias(
+            string? description,
+
             string? id,
 
             string key,
 
             string value)
         {
+            Description = description;
             Id = id;
             Key = key;
             Value = value;

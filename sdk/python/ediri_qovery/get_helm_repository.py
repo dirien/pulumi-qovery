@@ -21,7 +21,7 @@ class GetHelmRepositoryResult:
     """
     A collection of values returned by getHelmRepository.
     """
-    def __init__(__self__, description=None, id=None, kind=None, name=None, organization_id=None, url=None):
+    def __init__(__self__, description=None, id=None, kind=None, name=None, organization_id=None, skip_tls_verification=None, url=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +37,9 @@ class GetHelmRepositoryResult:
         if organization_id and not isinstance(organization_id, str):
             raise TypeError("Expected argument 'organization_id' to be a str")
         pulumi.set(__self__, "organization_id", organization_id)
+        if skip_tls_verification and not isinstance(skip_tls_verification, bool):
+            raise TypeError("Expected argument 'skip_tls_verification' to be a bool")
+        pulumi.set(__self__, "skip_tls_verification", skip_tls_verification)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -67,6 +70,11 @@ class GetHelmRepositoryResult:
         return pulumi.get(self, "organization_id")
 
     @property
+    @pulumi.getter(name="skipTlsVerification")
+    def skip_tls_verification(self) -> bool:
+        return pulumi.get(self, "skip_tls_verification")
+
+    @property
     @pulumi.getter
     def url(self) -> str:
         return pulumi.get(self, "url")
@@ -83,22 +91,40 @@ class AwaitableGetHelmRepositoryResult(GetHelmRepositoryResult):
             kind=self.kind,
             name=self.name,
             organization_id=self.organization_id,
+            skip_tls_verification=self.skip_tls_verification,
             url=self.url)
 
 
 def get_helm_repository(description: Optional[str] = None,
                         id: Optional[str] = None,
+                        kind: Optional[str] = None,
+                        name: Optional[str] = None,
                         organization_id: Optional[str] = None,
+                        skip_tls_verification: Optional[bool] = None,
+                        url: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHelmRepositoryResult:
     """
     ## # HelmRepository (Data Source)
 
     Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_helm_repository = qovery.get_helm_repository(id="<helm_repository_id>",
+        organization_id="<organization_id>")
+    ```
     """
     __args__ = dict()
     __args__['description'] = description
     __args__['id'] = id
+    __args__['kind'] = kind
+    __args__['name'] = name
     __args__['organizationId'] = organization_id
+    __args__['skipTlsVerification'] = skip_tls_verification
+    __args__['url'] = url
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('qovery:index/getHelmRepository:getHelmRepository', __args__, opts=opts, typ=GetHelmRepositoryResult).value
 
@@ -108,17 +134,31 @@ def get_helm_repository(description: Optional[str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         organization_id=pulumi.get(__ret__, 'organization_id'),
+        skip_tls_verification=pulumi.get(__ret__, 'skip_tls_verification'),
         url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_helm_repository)
 def get_helm_repository_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                                id: Optional[pulumi.Input[str]] = None,
+                               kind: Optional[pulumi.Input[Optional[str]]] = None,
+                               name: Optional[pulumi.Input[Optional[str]]] = None,
                                organization_id: Optional[pulumi.Input[str]] = None,
+                               skip_tls_verification: Optional[pulumi.Input[Optional[bool]]] = None,
+                               url: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHelmRepositoryResult]:
     """
     ## # HelmRepository (Data Source)
 
     Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_qovery as qovery
+
+    my_helm_repository = qovery.get_helm_repository(id="<helm_repository_id>",
+        organization_id="<organization_id>")
+    ```
     """
     ...

@@ -15,6 +15,10 @@ namespace ediri.Qovery.Outputs
     public sealed class GetEnvironmentEnvironmentVariableAliasResult
     {
         /// <summary>
+        /// Description of the environment variable.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Id of the environment variable alias.
         /// </summary>
         public readonly string Id;
@@ -29,12 +33,15 @@ namespace ediri.Qovery.Outputs
 
         [OutputConstructor]
         private GetEnvironmentEnvironmentVariableAliasResult(
+            string description,
+
             string id,
 
             string key,
 
             string value)
         {
+            Description = description;
             Id = id;
             Key = key;
             Value = value;

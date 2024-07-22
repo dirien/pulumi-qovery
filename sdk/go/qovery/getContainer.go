@@ -52,6 +52,7 @@ func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pul
 // A collection of arguments for invoking getContainer.
 type LookupContainerArgs struct {
 	AdvancedSettingsJson         *string                                   `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                                  `pulumi:"annotationsGroupIds"`
 	Arguments                    []string                                  `pulumi:"arguments"`
 	AutoDeploy                   *bool                                     `pulumi:"autoDeploy"`
 	AutoPreview                  *bool                                     `pulumi:"autoPreview"`
@@ -64,6 +65,7 @@ type LookupContainerArgs struct {
 	EnvironmentVariables         []GetContainerEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetContainerHealthchecks                 `pulumi:"healthchecks"`
 	Id                           string                                    `pulumi:"id"`
+	LabelsGroupIds               []string                                  `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                      `pulumi:"maxRunningInstances"`
 	Memory                       *int                                      `pulumi:"memory"`
 	MinRunningInstances          *int                                      `pulumi:"minRunningInstances"`
@@ -77,6 +79,7 @@ type LookupContainerArgs struct {
 // A collection of values returned by getContainer.
 type LookupContainerResult struct {
 	AdvancedSettingsJson         string                                    `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                                  `pulumi:"annotationsGroupIds"`
 	Arguments                    []string                                  `pulumi:"arguments"`
 	AutoDeploy                   bool                                      `pulumi:"autoDeploy"`
 	AutoPreview                  bool                                      `pulumi:"autoPreview"`
@@ -94,6 +97,7 @@ type LookupContainerResult struct {
 	Id                           string                                    `pulumi:"id"`
 	ImageName                    string                                    `pulumi:"imageName"`
 	InternalHost                 string                                    `pulumi:"internalHost"`
+	LabelsGroupIds               []string                                  `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          int                                       `pulumi:"maxRunningInstances"`
 	Memory                       int                                       `pulumi:"memory"`
 	MinRunningInstances          int                                       `pulumi:"minRunningInstances"`
@@ -123,6 +127,7 @@ func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, 
 // A collection of arguments for invoking getContainer.
 type LookupContainerOutputArgs struct {
 	AdvancedSettingsJson         pulumi.StringPtrInput                             `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          pulumi.StringArrayInput                           `pulumi:"annotationsGroupIds"`
 	Arguments                    pulumi.StringArrayInput                           `pulumi:"arguments"`
 	AutoDeploy                   pulumi.BoolPtrInput                               `pulumi:"autoDeploy"`
 	AutoPreview                  pulumi.BoolPtrInput                               `pulumi:"autoPreview"`
@@ -135,6 +140,7 @@ type LookupContainerOutputArgs struct {
 	EnvironmentVariables         GetContainerEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetContainerHealthchecksPtrInput                  `pulumi:"healthchecks"`
 	Id                           pulumi.StringInput                                `pulumi:"id"`
+	LabelsGroupIds               pulumi.StringArrayInput                           `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                `pulumi:"maxRunningInstances"`
 	Memory                       pulumi.IntPtrInput                                `pulumi:"memory"`
 	MinRunningInstances          pulumi.IntPtrInput                                `pulumi:"minRunningInstances"`
@@ -166,6 +172,10 @@ func (o LookupContainerResultOutput) ToLookupContainerResultOutputWithContext(ct
 
 func (o LookupContainerResultOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerResult) string { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
+}
+
+func (o LookupContainerResultOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupContainerResult) []string { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupContainerResultOutput) Arguments() pulumi.StringArrayOutput {
@@ -240,6 +250,10 @@ func (o LookupContainerResultOutput) ImageName() pulumi.StringOutput {
 
 func (o LookupContainerResultOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerResult) string { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupContainerResultOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupContainerResult) []string { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupContainerResultOutput) MaxRunningInstances() pulumi.IntOutput {

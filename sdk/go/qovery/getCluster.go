@@ -57,6 +57,7 @@ type LookupClusterArgs struct {
 	DiskSize             *int                     `pulumi:"diskSize"`
 	Features             *GetClusterFeatures      `pulumi:"features"`
 	Id                   string                   `pulumi:"id"`
+	InstanceType         *string                  `pulumi:"instanceType"`
 	KubernetesMode       *string                  `pulumi:"kubernetesMode"`
 	MaxRunningNodes      *int                     `pulumi:"maxRunningNodes"`
 	MinRunningNodes      *int                     `pulumi:"minRunningNodes"`
@@ -105,6 +106,7 @@ type LookupClusterOutputArgs struct {
 	DiskSize             pulumi.IntPtrInput               `pulumi:"diskSize"`
 	Features             GetClusterFeaturesPtrInput       `pulumi:"features"`
 	Id                   pulumi.StringInput               `pulumi:"id"`
+	InstanceType         pulumi.StringPtrInput            `pulumi:"instanceType"`
 	KubernetesMode       pulumi.StringPtrInput            `pulumi:"kubernetesMode"`
 	MaxRunningNodes      pulumi.IntPtrInput               `pulumi:"maxRunningNodes"`
 	MinRunningNodes      pulumi.IntPtrInput               `pulumi:"minRunningNodes"`

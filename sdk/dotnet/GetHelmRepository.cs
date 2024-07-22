@@ -16,6 +16,24 @@ namespace ediri.Qovery
         /// ## # qovery.HelmRepository (Data Source)
         /// 
         /// Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Qovery = Pulumi.Qovery;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myHelmRepository = Qovery.GetHelmRepository.Invoke(new()
+        ///     {
+        ///         Id = "&lt;helm_repository_id&gt;",
+        ///         OrganizationId = "&lt;organization_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetHelmRepositoryResult> InvokeAsync(GetHelmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHelmRepositoryResult>("qovery:index/getHelmRepository:getHelmRepository", args ?? new GetHelmRepositoryArgs(), options.WithDefaults());
@@ -24,6 +42,24 @@ namespace ediri.Qovery
         /// ## # qovery.HelmRepository (Data Source)
         /// 
         /// Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Qovery = Pulumi.Qovery;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myHelmRepository = Qovery.GetHelmRepository.Invoke(new()
+        ///     {
+        ///         Id = "&lt;helm_repository_id&gt;",
+        ///         OrganizationId = "&lt;organization_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetHelmRepositoryResult> Invoke(GetHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHelmRepositoryResult>("qovery:index/getHelmRepository:getHelmRepository", args ?? new GetHelmRepositoryInvokeArgs(), options.WithDefaults());
@@ -38,8 +74,20 @@ namespace ediri.Qovery
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("kind")]
+        public string? Kind { get; set; }
+
+        [Input("name")]
+        public string? Name { get; set; }
+
         [Input("organizationId", required: true)]
         public string OrganizationId { get; set; } = null!;
+
+        [Input("skipTlsVerification")]
+        public bool? SkipTlsVerification { get; set; }
+
+        [Input("url")]
+        public string? Url { get; set; }
 
         public GetHelmRepositoryArgs()
         {
@@ -55,8 +103,20 @@ namespace ediri.Qovery
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         [Input("organizationId", required: true)]
         public Input<string> OrganizationId { get; set; } = null!;
+
+        [Input("skipTlsVerification")]
+        public Input<bool>? SkipTlsVerification { get; set; }
+
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public GetHelmRepositoryInvokeArgs()
         {
@@ -73,6 +133,7 @@ namespace ediri.Qovery
         public readonly string Kind;
         public readonly string Name;
         public readonly string OrganizationId;
+        public readonly bool SkipTlsVerification;
         public readonly string Url;
 
         [OutputConstructor]
@@ -87,6 +148,8 @@ namespace ediri.Qovery
 
             string organizationId,
 
+            bool skipTlsVerification,
+
             string url)
         {
             Description = description;
@@ -94,6 +157,7 @@ namespace ediri.Qovery
             Kind = kind;
             Name = name;
             OrganizationId = organizationId;
+            SkipTlsVerification = skipTlsVerification;
             Url = url;
         }
     }

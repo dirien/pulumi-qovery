@@ -18,13 +18,13 @@ class ClusterArgs:
     def __init__(__self__, *,
                  cloud_provider: pulumi.Input[str],
                  credentials_id: pulumi.Input[str],
-                 instance_type: pulumi.Input[str],
                  organization_id: pulumi.Input[str],
                  region: pulumi.Input[str],
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_size: Optional[pulumi.Input[int]] = None,
                  features: Optional[pulumi.Input['ClusterFeaturesArgs']] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
                  min_running_nodes: Optional[pulumi.Input[int]] = None,
@@ -35,24 +35,24 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
-        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings of the cluster.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input['ClusterFeaturesArgs'] features: Features of the cluster.
+        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+               clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
-        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-               - Default: `10`.
-        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-               - Default: `3`.
+        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+               Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
+        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+               Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
         pulumi.set(__self__, "cloud_provider", cloud_provider)
         pulumi.set(__self__, "credentials_id", credentials_id)
-        pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "organization_id", organization_id)
         pulumi.set(__self__, "region", region)
         if advanced_settings_json is not None:
@@ -63,6 +63,8 @@ class ClusterArgs:
             pulumi.set(__self__, "disk_size", disk_size)
         if features is not None:
             pulumi.set(__self__, "features", features)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if kubernetes_mode is not None:
             pulumi.set(__self__, "kubernetes_mode", kubernetes_mode)
         if max_running_nodes is not None:
@@ -99,18 +101,6 @@ class ClusterArgs:
     @credentials_id.setter
     def credentials_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "credentials_id", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[str]:
-        """
-        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
-        """
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="organizationId")
@@ -182,6 +172,19 @@ class ClusterArgs:
         pulumi.set(self, "features", value)
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        clusters
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
     @pulumi.getter(name="kubernetesMode")
     def kubernetes_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -197,8 +200,8 @@ class ClusterArgs:
     @pulumi.getter(name="maxRunningNodes")
     def max_running_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-        - Default: `10`.
+        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
         """
         return pulumi.get(self, "max_running_nodes")
 
@@ -210,8 +213,8 @@ class ClusterArgs:
     @pulumi.getter(name="minRunningNodes")
     def min_running_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-        - Default: `3`.
+        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         """
         return pulumi.get(self, "min_running_nodes")
 
@@ -281,12 +284,13 @@ class _ClusterState:
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input['ClusterFeaturesArgs'] features: Features of the cluster.
-        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+               clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
-        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-               - Default: `10`.
-        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-               - Default: `3`.
+        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+               Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
+        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+               Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
@@ -397,7 +401,8 @@ class _ClusterState:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        clusters
         """
         return pulumi.get(self, "instance_type")
 
@@ -421,8 +426,8 @@ class _ClusterState:
     @pulumi.getter(name="maxRunningNodes")
     def max_running_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-        - Default: `10`.
+        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
         """
         return pulumi.get(self, "max_running_nodes")
 
@@ -434,8 +439,8 @@ class _ClusterState:
     @pulumi.getter(name="minRunningNodes")
     def min_running_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-        - Default: `3`.
+        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         """
         return pulumi.get(self, "min_running_nodes")
 
@@ -543,12 +548,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
-        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+               clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
-        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-               - Default: `10`.
-        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-               - Default: `3`.
+        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+               Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
+        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+               Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
@@ -621,8 +627,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["disk_size"] = disk_size
             __props__.__dict__["features"] = features
-            if instance_type is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["kubernetes_mode"] = kubernetes_mode
             __props__.__dict__["max_running_nodes"] = max_running_nodes
@@ -673,12 +677,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
         :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
-        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+               clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
-        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-               - Default: `10`.
-        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-               - Default: `3`.
+        :param pulumi.Input[int] max_running_nodes: Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+               Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
+        :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+               Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
@@ -755,7 +760,8 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
-        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        clusters
         """
         return pulumi.get(self, "instance_type")
 
@@ -771,8 +777,8 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="maxRunningNodes")
     def max_running_nodes(self) -> pulumi.Output[int]:
         """
-        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-        - Default: `10`.
+        Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
         """
         return pulumi.get(self, "max_running_nodes")
 
@@ -780,8 +786,8 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="minRunningNodes")
     def min_running_nodes(self) -> pulumi.Output[int]:
         """
-        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-        - Default: `3`.
+        Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         """
         return pulumi.get(self, "min_running_nodes")
 

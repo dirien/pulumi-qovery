@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class GetContainerSecretInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of the secret.
+        /// </summary>
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
+
+        /// <summary>
         /// Id of the secret.
         /// </summary>
         [Input("id", required: true)]

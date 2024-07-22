@@ -311,7 +311,7 @@ class Project(pulumi.CustomResource):
                 key="SECRET_KEY_ALIAS",
                 value="SECRET_KEY",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import
@@ -366,7 +366,7 @@ class Project(pulumi.CustomResource):
                 key="SECRET_KEY_ALIAS",
                 value="SECRET_KEY",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import

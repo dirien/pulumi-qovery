@@ -14,6 +14,32 @@ import (
 // ## # HelmRepository (Data Source)
 //
 // Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.LookupHelmRepository(ctx, &qovery.LookupHelmRepositoryArgs{
+//				Id:             "<helm_repository_id>",
+//				OrganizationId: "<organization_id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupHelmRepository(ctx *pulumi.Context, args *LookupHelmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupHelmRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHelmRepositoryResult
@@ -26,19 +52,24 @@ func LookupHelmRepository(ctx *pulumi.Context, args *LookupHelmRepositoryArgs, o
 
 // A collection of arguments for invoking getHelmRepository.
 type LookupHelmRepositoryArgs struct {
-	Description    *string `pulumi:"description"`
-	Id             string  `pulumi:"id"`
-	OrganizationId string  `pulumi:"organizationId"`
+	Description         *string `pulumi:"description"`
+	Id                  string  `pulumi:"id"`
+	Kind                *string `pulumi:"kind"`
+	Name                *string `pulumi:"name"`
+	OrganizationId      string  `pulumi:"organizationId"`
+	SkipTlsVerification *bool   `pulumi:"skipTlsVerification"`
+	Url                 *string `pulumi:"url"`
 }
 
 // A collection of values returned by getHelmRepository.
 type LookupHelmRepositoryResult struct {
-	Description    string `pulumi:"description"`
-	Id             string `pulumi:"id"`
-	Kind           string `pulumi:"kind"`
-	Name           string `pulumi:"name"`
-	OrganizationId string `pulumi:"organizationId"`
-	Url            string `pulumi:"url"`
+	Description         string `pulumi:"description"`
+	Id                  string `pulumi:"id"`
+	Kind                string `pulumi:"kind"`
+	Name                string `pulumi:"name"`
+	OrganizationId      string `pulumi:"organizationId"`
+	SkipTlsVerification bool   `pulumi:"skipTlsVerification"`
+	Url                 string `pulumi:"url"`
 }
 
 func LookupHelmRepositoryOutput(ctx *pulumi.Context, args LookupHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupHelmRepositoryResultOutput {
@@ -56,9 +87,13 @@ func LookupHelmRepositoryOutput(ctx *pulumi.Context, args LookupHelmRepositoryOu
 
 // A collection of arguments for invoking getHelmRepository.
 type LookupHelmRepositoryOutputArgs struct {
-	Description    pulumi.StringPtrInput `pulumi:"description"`
-	Id             pulumi.StringInput    `pulumi:"id"`
-	OrganizationId pulumi.StringInput    `pulumi:"organizationId"`
+	Description         pulumi.StringPtrInput `pulumi:"description"`
+	Id                  pulumi.StringInput    `pulumi:"id"`
+	Kind                pulumi.StringPtrInput `pulumi:"kind"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	OrganizationId      pulumi.StringInput    `pulumi:"organizationId"`
+	SkipTlsVerification pulumi.BoolPtrInput   `pulumi:"skipTlsVerification"`
+	Url                 pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LookupHelmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -98,6 +133,10 @@ func (o LookupHelmRepositoryResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupHelmRepositoryResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmRepositoryResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+func (o LookupHelmRepositoryResultOutput) SkipTlsVerification() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupHelmRepositoryResult) bool { return v.SkipTlsVerification }).(pulumi.BoolOutput)
 }
 
 func (o LookupHelmRepositoryResultOutput) Url() pulumi.StringOutput {

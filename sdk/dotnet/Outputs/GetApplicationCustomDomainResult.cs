@@ -19,6 +19,10 @@ namespace ediri.Qovery.Outputs
         /// </summary>
         public readonly string Domain;
         /// <summary>
+        /// Qovery will generate and manage the certificate for this domain.
+        /// </summary>
+        public readonly bool? GenerateCertificate;
+        /// <summary>
         /// Id of the custom domain.
         /// </summary>
         public readonly string Id;
@@ -35,6 +39,8 @@ namespace ediri.Qovery.Outputs
         private GetApplicationCustomDomainResult(
             string domain,
 
+            bool? generateCertificate,
+
             string id,
 
             string status,
@@ -42,6 +48,7 @@ namespace ediri.Qovery.Outputs
             string validationDomain)
         {
             Domain = domain;
+            GenerateCertificate = generateCertificate;
             Id = id;
             Status = status;
             ValidationDomain = validationDomain;

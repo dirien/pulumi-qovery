@@ -66,36 +66,44 @@ namespace ediri.Qovery
 
     public sealed class GetHelmArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Advanced settings.
-        /// </summary>
         [Input("advancedSettingsJson")]
         public string? AdvancedSettingsJson { get; set; }
 
+        [Input("arguments")]
+        private List<string>? _arguments;
+        public List<string> Arguments
+        {
+            get => _arguments ?? (_arguments = new List<string>());
+            set => _arguments = value;
+        }
+
+        [Input("autoDeploy")]
+        public bool? AutoDeploy { get; set; }
+
+        [Input("autoPreview")]
+        public bool? AutoPreview { get; set; }
+
+        [Input("customDomains")]
+        private List<Inputs.GetHelmCustomDomainArgs>? _customDomains;
+        public List<Inputs.GetHelmCustomDomainArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new List<Inputs.GetHelmCustomDomainArgs>());
+            set => _customDomains = value;
+        }
+
         [Input("deploymentRestrictions")]
         private List<Inputs.GetHelmDeploymentRestrictionArgs>? _deploymentRestrictions;
-
-        /// <summary>
-        /// List of deployment restrictions
-        /// </summary>
         public List<Inputs.GetHelmDeploymentRestrictionArgs> DeploymentRestrictions
         {
             get => _deploymentRestrictions ?? (_deploymentRestrictions = new List<Inputs.GetHelmDeploymentRestrictionArgs>());
             set => _deploymentRestrictions = value;
         }
 
-        /// <summary>
-        /// Id of the deployment stage.
-        /// </summary>
         [Input("deploymentStageId")]
         public string? DeploymentStageId { get; set; }
 
         [Input("environmentVariableAliases")]
         private List<Inputs.GetHelmEnvironmentVariableAliasArgs>? _environmentVariableAliases;
-
-        /// <summary>
-        /// List of environment variable aliases linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmEnvironmentVariableAliasArgs> EnvironmentVariableAliases
         {
             get => _environmentVariableAliases ?? (_environmentVariableAliases = new List<Inputs.GetHelmEnvironmentVariableAliasArgs>());
@@ -104,10 +112,6 @@ namespace ediri.Qovery
 
         [Input("environmentVariableOverrides")]
         private List<Inputs.GetHelmEnvironmentVariableOverrideArgs>? _environmentVariableOverrides;
-
-        /// <summary>
-        /// List of environment variable overrides linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmEnvironmentVariableOverrideArgs> EnvironmentVariableOverrides
         {
             get => _environmentVariableOverrides ?? (_environmentVariableOverrides = new List<Inputs.GetHelmEnvironmentVariableOverrideArgs>());
@@ -116,28 +120,17 @@ namespace ediri.Qovery
 
         [Input("environmentVariables")]
         private List<Inputs.GetHelmEnvironmentVariableArgs>? _environmentVariables;
-
-        /// <summary>
-        /// List of environment variables linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmEnvironmentVariableArgs> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new List<Inputs.GetHelmEnvironmentVariableArgs>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// Id of the helm.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
         [Input("secretAliases")]
         private List<Inputs.GetHelmSecretAliasArgs>? _secretAliases;
-
-        /// <summary>
-        /// List of secret aliases linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmSecretAliasArgs> SecretAliases
         {
             get => _secretAliases ?? (_secretAliases = new List<Inputs.GetHelmSecretAliasArgs>());
@@ -146,10 +139,6 @@ namespace ediri.Qovery
 
         [Input("secretOverrides")]
         private List<Inputs.GetHelmSecretOverrideArgs>? _secretOverrides;
-
-        /// <summary>
-        /// List of secret overrides linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmSecretOverrideArgs> SecretOverrides
         {
             get => _secretOverrides ?? (_secretOverrides = new List<Inputs.GetHelmSecretOverrideArgs>());
@@ -158,15 +147,14 @@ namespace ediri.Qovery
 
         [Input("secrets")]
         private List<Inputs.GetHelmSecretArgs>? _secrets;
-
-        /// <summary>
-        /// List of secrets linked to this helm.
-        /// </summary>
         public List<Inputs.GetHelmSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new List<Inputs.GetHelmSecretArgs>());
             set => _secrets = value;
         }
+
+        [Input("timeoutSec")]
+        public int? TimeoutSec { get; set; }
 
         public GetHelmArgs()
         {
@@ -176,36 +164,44 @@ namespace ediri.Qovery
 
     public sealed class GetHelmInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Advanced settings.
-        /// </summary>
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
 
+        [Input("arguments")]
+        private InputList<string>? _arguments;
+        public InputList<string> Arguments
+        {
+            get => _arguments ?? (_arguments = new InputList<string>());
+            set => _arguments = value;
+        }
+
+        [Input("autoDeploy")]
+        public Input<bool>? AutoDeploy { get; set; }
+
+        [Input("autoPreview")]
+        public Input<bool>? AutoPreview { get; set; }
+
+        [Input("customDomains")]
+        private InputList<Inputs.GetHelmCustomDomainInputArgs>? _customDomains;
+        public InputList<Inputs.GetHelmCustomDomainInputArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.GetHelmCustomDomainInputArgs>());
+            set => _customDomains = value;
+        }
+
         [Input("deploymentRestrictions")]
         private InputList<Inputs.GetHelmDeploymentRestrictionInputArgs>? _deploymentRestrictions;
-
-        /// <summary>
-        /// List of deployment restrictions
-        /// </summary>
         public InputList<Inputs.GetHelmDeploymentRestrictionInputArgs> DeploymentRestrictions
         {
             get => _deploymentRestrictions ?? (_deploymentRestrictions = new InputList<Inputs.GetHelmDeploymentRestrictionInputArgs>());
             set => _deploymentRestrictions = value;
         }
 
-        /// <summary>
-        /// Id of the deployment stage.
-        /// </summary>
         [Input("deploymentStageId")]
         public Input<string>? DeploymentStageId { get; set; }
 
         [Input("environmentVariableAliases")]
         private InputList<Inputs.GetHelmEnvironmentVariableAliasInputArgs>? _environmentVariableAliases;
-
-        /// <summary>
-        /// List of environment variable aliases linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmEnvironmentVariableAliasInputArgs> EnvironmentVariableAliases
         {
             get => _environmentVariableAliases ?? (_environmentVariableAliases = new InputList<Inputs.GetHelmEnvironmentVariableAliasInputArgs>());
@@ -214,10 +210,6 @@ namespace ediri.Qovery
 
         [Input("environmentVariableOverrides")]
         private InputList<Inputs.GetHelmEnvironmentVariableOverrideInputArgs>? _environmentVariableOverrides;
-
-        /// <summary>
-        /// List of environment variable overrides linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmEnvironmentVariableOverrideInputArgs> EnvironmentVariableOverrides
         {
             get => _environmentVariableOverrides ?? (_environmentVariableOverrides = new InputList<Inputs.GetHelmEnvironmentVariableOverrideInputArgs>());
@@ -226,28 +218,17 @@ namespace ediri.Qovery
 
         [Input("environmentVariables")]
         private InputList<Inputs.GetHelmEnvironmentVariableInputArgs>? _environmentVariables;
-
-        /// <summary>
-        /// List of environment variables linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmEnvironmentVariableInputArgs> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.GetHelmEnvironmentVariableInputArgs>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// Id of the helm.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("secretAliases")]
         private InputList<Inputs.GetHelmSecretAliasInputArgs>? _secretAliases;
-
-        /// <summary>
-        /// List of secret aliases linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmSecretAliasInputArgs> SecretAliases
         {
             get => _secretAliases ?? (_secretAliases = new InputList<Inputs.GetHelmSecretAliasInputArgs>());
@@ -256,10 +237,6 @@ namespace ediri.Qovery
 
         [Input("secretOverrides")]
         private InputList<Inputs.GetHelmSecretOverrideInputArgs>? _secretOverrides;
-
-        /// <summary>
-        /// List of secret overrides linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmSecretOverrideInputArgs> SecretOverrides
         {
             get => _secretOverrides ?? (_secretOverrides = new InputList<Inputs.GetHelmSecretOverrideInputArgs>());
@@ -268,15 +245,14 @@ namespace ediri.Qovery
 
         [Input("secrets")]
         private InputList<Inputs.GetHelmSecretInputArgs>? _secrets;
-
-        /// <summary>
-        /// List of secrets linked to this helm.
-        /// </summary>
         public InputList<Inputs.GetHelmSecretInputArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.GetHelmSecretInputArgs>());
             set => _secrets = value;
         }
+
+        [Input("timeoutSec")]
+        public Input<int>? TimeoutSec { get; set; }
 
         public GetHelmInvokeArgs()
         {
@@ -288,72 +264,46 @@ namespace ediri.Qovery
     [OutputType]
     public sealed class GetHelmResult
     {
-        /// <summary>
-        /// Advanced settings.
-        /// </summary>
         public readonly string AdvancedSettingsJson;
-        /// <summary>
-        /// List of built-in environment variables linked to this helm.
-        /// </summary>
+        public readonly bool AllowClusterWideResources;
+        public readonly ImmutableArray<string> Arguments;
+        public readonly bool AutoDeploy;
+        public readonly bool AutoPreview;
         public readonly ImmutableArray<Outputs.GetHelmBuiltInEnvironmentVariableResult> BuiltInEnvironmentVariables;
-        /// <summary>
-        /// List of deployment restrictions
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetHelmCustomDomainResult> CustomDomains;
         public readonly ImmutableArray<Outputs.GetHelmDeploymentRestrictionResult> DeploymentRestrictions;
-        /// <summary>
-        /// Id of the deployment stage.
-        /// </summary>
         public readonly string DeploymentStageId;
-        /// <summary>
-        /// Id of the environment.
-        /// </summary>
         public readonly string EnvironmentId;
-        /// <summary>
-        /// List of environment variable aliases linked to this helm.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHelmEnvironmentVariableAliasResult> EnvironmentVariableAliases;
-        /// <summary>
-        /// List of environment variable overrides linked to this helm.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHelmEnvironmentVariableOverrideResult> EnvironmentVariableOverrides;
-        /// <summary>
-        /// List of environment variables linked to this helm.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHelmEnvironmentVariableResult> EnvironmentVariables;
-        /// <summary>
-        /// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
-        /// </summary>
         public readonly string ExternalHost;
-        /// <summary>
-        /// Id of the helm.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The helm internal host.
-        /// </summary>
         public readonly string InternalHost;
-        /// <summary>
-        /// Name of the helm.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of secret aliases linked to this helm.
-        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.GetHelmPortsResult> Ports;
         public readonly ImmutableArray<Outputs.GetHelmSecretAliasResult> SecretAliases;
-        /// <summary>
-        /// List of secret overrides linked to this helm.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHelmSecretOverrideResult> SecretOverrides;
-        /// <summary>
-        /// List of secrets linked to this helm.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHelmSecretResult> Secrets;
+        public readonly Outputs.GetHelmSourceResult Source;
+        public readonly int TimeoutSec;
+        public readonly Outputs.GetHelmValuesOverrideResult ValuesOverride;
 
         [OutputConstructor]
         private GetHelmResult(
             string advancedSettingsJson,
 
+            bool allowClusterWideResources,
+
+            ImmutableArray<string> arguments,
+
+            bool autoDeploy,
+
+            bool autoPreview,
+
             ImmutableArray<Outputs.GetHelmBuiltInEnvironmentVariableResult> builtInEnvironmentVariables,
+
+            ImmutableArray<Outputs.GetHelmCustomDomainResult> customDomains,
 
             ImmutableArray<Outputs.GetHelmDeploymentRestrictionResult> deploymentRestrictions,
 
@@ -375,14 +325,27 @@ namespace ediri.Qovery
 
             string name,
 
+            ImmutableDictionary<string, Outputs.GetHelmPortsResult> ports,
+
             ImmutableArray<Outputs.GetHelmSecretAliasResult> secretAliases,
 
             ImmutableArray<Outputs.GetHelmSecretOverrideResult> secretOverrides,
 
-            ImmutableArray<Outputs.GetHelmSecretResult> secrets)
+            ImmutableArray<Outputs.GetHelmSecretResult> secrets,
+
+            Outputs.GetHelmSourceResult source,
+
+            int timeoutSec,
+
+            Outputs.GetHelmValuesOverrideResult valuesOverride)
         {
             AdvancedSettingsJson = advancedSettingsJson;
+            AllowClusterWideResources = allowClusterWideResources;
+            Arguments = arguments;
+            AutoDeploy = autoDeploy;
+            AutoPreview = autoPreview;
             BuiltInEnvironmentVariables = builtInEnvironmentVariables;
+            CustomDomains = customDomains;
             DeploymentRestrictions = deploymentRestrictions;
             DeploymentStageId = deploymentStageId;
             EnvironmentId = environmentId;
@@ -393,9 +356,13 @@ namespace ediri.Qovery
             Id = id;
             InternalHost = internalHost;
             Name = name;
+            Ports = ports;
             SecretAliases = secretAliases;
             SecretOverrides = secretOverrides;
             Secrets = secrets;
+            Source = source;
+            TimeoutSec = timeoutSec;
+            ValuesOverride = valuesOverride;
         }
     }
 }

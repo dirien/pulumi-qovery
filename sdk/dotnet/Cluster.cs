@@ -58,7 +58,8 @@ namespace ediri.Qovery
         public Output<Outputs.ClusterFeatures> Features { get; private set; } = null!;
 
         /// <summary>
-        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        /// clusters
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -70,15 +71,15 @@ namespace ediri.Qovery
         public Output<string> KubernetesMode { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `&gt;= 1`.
-        /// - Default: `10`.
+        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        /// Karpenter-enabled clusters] - Must be: `&gt;= 1`. - Default: `10`.
         /// </summary>
         [Output("maxRunningNodes")]
         public Output<int> MaxRunningNodes { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `&gt;= 1`.
-        /// - Default: `3`.
+        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        /// Karpenter-enabled clusters]. - Must be: `&gt;= 1`. - Default: `3`.
         /// </summary>
         [Output("minRunningNodes")]
         public Output<int> MinRunningNodes { get; private set; } = null!;
@@ -194,10 +195,11 @@ namespace ediri.Qovery
         public Input<Inputs.ClusterFeaturesArgs>? Features { get; set; }
 
         /// <summary>
-        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        /// clusters
         /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         /// <summary>
         /// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
@@ -206,15 +208,15 @@ namespace ediri.Qovery
         public Input<string>? KubernetesMode { get; set; }
 
         /// <summary>
-        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `&gt;= 1`.
-        /// - Default: `10`.
+        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        /// Karpenter-enabled clusters] - Must be: `&gt;= 1`. - Default: `10`.
         /// </summary>
         [Input("maxRunningNodes")]
         public Input<int>? MaxRunningNodes { get; set; }
 
         /// <summary>
-        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `&gt;= 1`.
-        /// - Default: `3`.
+        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        /// Karpenter-enabled clusters]. - Must be: `&gt;= 1`. - Default: `3`.
         /// </summary>
         [Input("minRunningNodes")]
         public Input<int>? MinRunningNodes { get; set; }
@@ -297,7 +299,8 @@ namespace ediri.Qovery
         public Input<Inputs.ClusterFeaturesGetArgs>? Features { get; set; }
 
         /// <summary>
-        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+        /// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+        /// clusters
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -309,15 +312,15 @@ namespace ediri.Qovery
         public Input<string>? KubernetesMode { get; set; }
 
         /// <summary>
-        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `&gt;= 1`.
-        /// - Default: `10`.
+        /// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+        /// Karpenter-enabled clusters] - Must be: `&gt;= 1`. - Default: `10`.
         /// </summary>
         [Input("maxRunningNodes")]
         public Input<int>? MaxRunningNodes { get; set; }
 
         /// <summary>
-        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `&gt;= 1`.
-        /// - Default: `3`.
+        /// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+        /// Karpenter-enabled clusters]. - Must be: `&gt;= 1`. - Default: `3`.
         /// </summary>
         [Input("minRunningNodes")]
         public Input<int>? MinRunningNodes { get; set; }

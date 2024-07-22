@@ -35,15 +35,16 @@ type Cluster struct {
 	DiskSize    pulumi.IntOutput    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features ClusterFeaturesOutput `pulumi:"features"`
-	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+	// clusters
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
 	KubernetesMode pulumi.StringOutput `pulumi:"kubernetesMode"`
-	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-	// - Default: `10`.
+	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+	// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 	MaxRunningNodes pulumi.IntOutput `pulumi:"maxRunningNodes"`
-	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-	// - Default: `3`.
+	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+	// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 	MinRunningNodes pulumi.IntOutput `pulumi:"minRunningNodes"`
 	// Name of the cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -69,9 +70,6 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	if args.CredentialsId == nil {
 		return nil, errors.New("invalid value for required argument 'CredentialsId'")
-	}
-	if args.InstanceType == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	if args.OrganizationId == nil {
 		return nil, errors.New("invalid value for required argument 'OrganizationId'")
@@ -113,15 +111,16 @@ type clusterState struct {
 	DiskSize    *int    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features *ClusterFeatures `pulumi:"features"`
-	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+	// clusters
 	InstanceType *string `pulumi:"instanceType"`
 	// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
 	KubernetesMode *string `pulumi:"kubernetesMode"`
-	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-	// - Default: `10`.
+	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+	// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 	MaxRunningNodes *int `pulumi:"maxRunningNodes"`
-	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-	// - Default: `3`.
+	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+	// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 	MinRunningNodes *int `pulumi:"minRunningNodes"`
 	// Name of the cluster.
 	Name *string `pulumi:"name"`
@@ -147,15 +146,16 @@ type ClusterState struct {
 	DiskSize    pulumi.IntPtrInput
 	// Features of the cluster.
 	Features ClusterFeaturesPtrInput
-	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+	// clusters
 	InstanceType pulumi.StringPtrInput
 	// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
 	KubernetesMode pulumi.StringPtrInput
-	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-	// - Default: `10`.
+	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+	// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 	MaxRunningNodes pulumi.IntPtrInput
-	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-	// - Default: `3`.
+	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+	// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 	MinRunningNodes pulumi.IntPtrInput
 	// Name of the cluster.
 	Name pulumi.StringPtrInput
@@ -185,15 +185,16 @@ type clusterArgs struct {
 	DiskSize    *int    `pulumi:"diskSize"`
 	// Features of the cluster.
 	Features *ClusterFeatures `pulumi:"features"`
-	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
-	InstanceType string `pulumi:"instanceType"`
+	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+	// clusters
+	InstanceType *string `pulumi:"instanceType"`
 	// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
 	KubernetesMode *string `pulumi:"kubernetesMode"`
-	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-	// - Default: `10`.
+	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+	// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 	MaxRunningNodes *int `pulumi:"maxRunningNodes"`
-	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-	// - Default: `3`.
+	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+	// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 	MinRunningNodes *int `pulumi:"minRunningNodes"`
 	// Name of the cluster.
 	Name *string `pulumi:"name"`
@@ -220,15 +221,16 @@ type ClusterArgs struct {
 	DiskSize    pulumi.IntPtrInput
 	// Features of the cluster.
 	Features ClusterFeaturesPtrInput
-	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
-	InstanceType pulumi.StringInput
+	// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+	// clusters
+	InstanceType pulumi.StringPtrInput
 	// Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
 	KubernetesMode pulumi.StringPtrInput
-	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-	// - Default: `10`.
+	// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+	// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 	MaxRunningNodes pulumi.IntPtrInput
-	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-	// - Default: `3`.
+	// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+	// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 	MinRunningNodes pulumi.IntPtrInput
 	// Name of the cluster.
 	Name pulumi.StringPtrInput
@@ -358,7 +360,8 @@ func (o ClusterOutput) Features() ClusterFeaturesOutput {
 	return o.ApplyT(func(v *Cluster) ClusterFeaturesOutput { return v.Features }).(ClusterFeaturesOutput)
 }
 
-// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`
+// Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
+// clusters
 func (o ClusterOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -368,14 +371,14 @@ func (o ClusterOutput) KubernetesMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KubernetesMode }).(pulumi.StringOutput)
 }
 
-// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters] - Must be: `>= 1`.
-// - Default: `10`.
+// Maximum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters; and not set for
+// Karpenter-enabled clusters] - Must be: `>= 1`. - Default: `10`.
 func (o ClusterOutput) MaxRunningNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.MaxRunningNodes }).(pulumi.IntOutput)
 }
 
-// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters]. - Must be: `>= 1`.
-// - Default: `3`.
+// Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
+// Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
 func (o ClusterOutput) MinRunningNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.MinRunningNodes }).(pulumi.IntOutput)
 }

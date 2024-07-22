@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class JobEnvironmentVariableOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of the environment variable override.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Id of the environment variable override.
         /// </summary>
         [Input("id")]

@@ -20,6 +20,13 @@ namespace ediri.Qovery.Inputs
         public Input<Inputs.JobScheduleCronjobGetArgs>? Cronjob { get; set; }
 
         /// <summary>
+        /// Type of the lifecycle job.
+        /// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+        /// </summary>
+        [Input("lifecycleType")]
+        public Input<string>? LifecycleType { get; set; }
+
+        /// <summary>
         /// Job's schedule on delete.
         /// </summary>
         [Input("onDelete")]

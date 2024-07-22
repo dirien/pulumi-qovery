@@ -26,6 +26,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getJob:getJob", {
         "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
         "autoDeploy": args.autoDeploy,
         "autoPreview": args.autoPreview,
         "cpu": args.cpu,
@@ -36,6 +37,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
         "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
         "maxDurationSeconds": args.maxDurationSeconds,
         "maxNbRestart": args.maxNbRestart,
         "memory": args.memory,
@@ -52,6 +54,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetJobArgs {
     advancedSettingsJson?: string;
+    annotationsGroupIds?: string[];
     autoDeploy?: boolean;
     autoPreview?: boolean;
     cpu?: number;
@@ -62,6 +65,7 @@ export interface GetJobArgs {
     environmentVariables?: inputs.GetJobEnvironmentVariable[];
     healthchecks?: inputs.GetJobHealthchecks;
     id: string;
+    labelsGroupIds?: string[];
     maxDurationSeconds?: number;
     maxNbRestart?: number;
     memory?: number;
@@ -77,6 +81,7 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     readonly advancedSettingsJson: string;
+    readonly annotationsGroupIds?: string[];
     readonly autoDeploy: boolean;
     readonly autoPreview: boolean;
     readonly builtInEnvironmentVariables: outputs.GetJobBuiltInEnvironmentVariable[];
@@ -91,6 +96,7 @@ export interface GetJobResult {
     readonly healthchecks?: outputs.GetJobHealthchecks;
     readonly id: string;
     readonly internalHost: string;
+    readonly labelsGroupIds?: string[];
     readonly maxDurationSeconds: number;
     readonly maxNbRestart: number;
     readonly memory?: number;
@@ -126,6 +132,7 @@ export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetJobOutputArgs {
     advancedSettingsJson?: pulumi.Input<string>;
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     autoDeploy?: pulumi.Input<boolean>;
     autoPreview?: pulumi.Input<boolean>;
     cpu?: pulumi.Input<number>;
@@ -136,6 +143,7 @@ export interface GetJobOutputArgs {
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetJobHealthchecksArgs>;
     id: pulumi.Input<string>;
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxDurationSeconds?: pulumi.Input<number>;
     maxNbRestart?: pulumi.Input<number>;
     memory?: pulumi.Input<number>;

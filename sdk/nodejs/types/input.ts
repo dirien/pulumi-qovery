@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 
 export interface ApplicationBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -25,6 +29,10 @@ export interface ApplicationCustomDomain {
      * Your custom domain.
      */
     domain: pulumi.Input<string>;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: pulumi.Input<boolean>;
     /**
      * Id of the custom domain.
      */
@@ -60,6 +68,10 @@ export interface ApplicationDeploymentRestriction {
 
 export interface ApplicationEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -75,6 +87,10 @@ export interface ApplicationEnvironmentVariable {
 
 export interface ApplicationEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -89,6 +105,10 @@ export interface ApplicationEnvironmentVariableAlias {
 }
 
 export interface ApplicationEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -353,6 +373,10 @@ export interface ApplicationPort {
 
 export interface ApplicationSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -368,6 +392,10 @@ export interface ApplicationSecret {
 
 export interface ApplicationSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -382,6 +410,10 @@ export interface ApplicationSecretAlias {
 }
 
 export interface ApplicationSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -422,6 +454,10 @@ export interface ClusterFeatures {
      * Network configuration if you want to install qovery on an existing VPC
      */
     existingVpc?: pulumi.Input<inputs.ClusterFeaturesExistingVpc>;
+    /**
+     * Karpenter parameters if you want to use Karpenter on an EKS cluster
+     */
+    karpenter?: pulumi.Input<inputs.ClusterFeaturesKarpenter>;
     /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
@@ -489,6 +525,18 @@ export interface ClusterFeaturesExistingVpc {
     rdsSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface ClusterFeaturesKarpenter {
+    /**
+     * The default architecture of service
+     */
+    defaultServiceArchitecture: pulumi.Input<string>;
+    diskSizeInGib: pulumi.Input<number>;
+    /**
+     * Enable spot instances
+     */
+    spotEnabled: pulumi.Input<boolean>;
+}
+
 export interface ClusterRoutingTable {
     /**
      * Description of the route.
@@ -505,6 +553,10 @@ export interface ClusterRoutingTable {
 }
 
 export interface ContainerBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -525,6 +577,10 @@ export interface ContainerCustomDomain {
      */
     domain: pulumi.Input<string>;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: pulumi.Input<boolean>;
+    /**
      * Id of the custom domain.
      */
     id?: pulumi.Input<string>;
@@ -539,6 +595,10 @@ export interface ContainerCustomDomain {
 }
 
 export interface ContainerEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -555,6 +615,10 @@ export interface ContainerEnvironmentVariable {
 
 export interface ContainerEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -569,6 +633,10 @@ export interface ContainerEnvironmentVariableAlias {
 }
 
 export interface ContainerEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -843,6 +911,10 @@ export interface ContainerRegistryConfig {
 
 export interface ContainerSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -858,6 +930,10 @@ export interface ContainerSecret {
 
 export interface ContainerSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -872,6 +948,10 @@ export interface ContainerSecretAlias {
 }
 
 export interface ContainerSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -909,6 +989,10 @@ export interface ContainerStorage {
 
 export interface EnvironmentBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -923,6 +1007,10 @@ export interface EnvironmentBuiltInEnvironmentVariable {
 }
 
 export interface EnvironmentEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -939,6 +1027,10 @@ export interface EnvironmentEnvironmentVariable {
 
 export interface EnvironmentEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -953,6 +1045,10 @@ export interface EnvironmentEnvironmentVariableAlias {
 }
 
 export interface EnvironmentEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -969,6 +1065,10 @@ export interface EnvironmentEnvironmentVariableOverride {
 
 export interface EnvironmentSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -984,6 +1084,10 @@ export interface EnvironmentSecret {
 
 export interface EnvironmentSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -998,6 +1102,10 @@ export interface EnvironmentSecretAlias {
 }
 
 export interface EnvironmentSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -1018,6 +1126,10 @@ export interface GetApplicationCustomDomain {
      */
     domain?: string;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
      * Id of the custom domain.
      */
     id?: string;
@@ -1036,6 +1148,10 @@ export interface GetApplicationCustomDomainArgs {
      * Your custom domain.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: pulumi.Input<boolean>;
     /**
      * Id of the custom domain.
      */
@@ -1090,6 +1206,10 @@ export interface GetApplicationDeploymentRestrictionArgs {
 
 export interface GetApplicationEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id?: string;
@@ -1104,6 +1224,10 @@ export interface GetApplicationEnvironmentVariable {
 }
 
 export interface GetApplicationEnvironmentVariableArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -1120,6 +1244,10 @@ export interface GetApplicationEnvironmentVariableArgs {
 
 export interface GetApplicationEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id?: string;
@@ -1134,6 +1262,10 @@ export interface GetApplicationEnvironmentVariableAlias {
 }
 
 export interface GetApplicationEnvironmentVariableAliasArgs {
+    /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable alias.
      */
@@ -1150,6 +1282,10 @@ export interface GetApplicationEnvironmentVariableAliasArgs {
 
 export interface GetApplicationEnvironmentVariableOverride {
     /**
+     * Description of the environment variable override.
+     */
+    description?: string;
+    /**
      * Id of the environment variable override.
      */
     id?: string;
@@ -1164,6 +1300,10 @@ export interface GetApplicationEnvironmentVariableOverride {
 }
 
 export interface GetApplicationEnvironmentVariableOverrideArgs {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -1562,6 +1702,10 @@ export interface GetApplicationHealthchecksReadinessProbeTypeTcpArgs {
 
 export interface GetApplicationSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id?: string;
@@ -1576,6 +1720,10 @@ export interface GetApplicationSecret {
 }
 
 export interface GetApplicationSecretArgs {
+    /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret.
      */
@@ -1592,6 +1740,10 @@ export interface GetApplicationSecretArgs {
 
 export interface GetApplicationSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id?: string;
@@ -1606,6 +1758,10 @@ export interface GetApplicationSecretAlias {
 }
 
 export interface GetApplicationSecretAliasArgs {
+    /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */
@@ -1622,6 +1778,10 @@ export interface GetApplicationSecretAliasArgs {
 
 export interface GetApplicationSecretOverride {
     /**
+     * Description of the secret override.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id?: string;
@@ -1636,6 +1796,10 @@ export interface GetApplicationSecretOverride {
 }
 
 export interface GetApplicationSecretOverrideArgs {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -1698,6 +1862,10 @@ export interface GetClusterFeatures {
      */
     existingVpc?: inputs.GetClusterFeaturesExistingVpc;
     /**
+     * Karpenter parameters if you want to use Karpenter on an EKS cluster
+     */
+    karpenter?: inputs.GetClusterFeaturesKarpenter;
+    /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
      */
@@ -1714,6 +1882,10 @@ export interface GetClusterFeaturesArgs {
      * Network configuration if you want to install qovery on an existing VPC
      */
     existingVpc?: pulumi.Input<inputs.GetClusterFeaturesExistingVpcArgs>;
+    /**
+     * Karpenter parameters if you want to use Karpenter on an EKS cluster
+     */
+    karpenter?: pulumi.Input<inputs.GetClusterFeaturesKarpenterArgs>;
     /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
@@ -1836,6 +2008,30 @@ export interface GetClusterFeaturesExistingVpcArgs {
     rdsSubnetsZoneCIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetClusterFeaturesKarpenter {
+    /**
+     * The default architecture of service
+     */
+    defaultServiceArchitecture: string;
+    diskSizeInGib: number;
+    /**
+     * Enable spot instances
+     */
+    spotEnabled: boolean;
+}
+
+export interface GetClusterFeaturesKarpenterArgs {
+    /**
+     * The default architecture of service
+     */
+    defaultServiceArchitecture: pulumi.Input<string>;
+    diskSizeInGib: pulumi.Input<number>;
+    /**
+     * Enable spot instances
+     */
+    spotEnabled: pulumi.Input<boolean>;
+}
+
 export interface GetClusterRoutingTable {
     /**
      * Description of the route.
@@ -1872,6 +2068,10 @@ export interface GetContainerCustomDomain {
      */
     domain?: string;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
      * Id of the custom domain.
      */
     id?: string;
@@ -1891,6 +2091,10 @@ export interface GetContainerCustomDomainArgs {
      */
     domain?: pulumi.Input<string>;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: pulumi.Input<boolean>;
+    /**
      * Id of the custom domain.
      */
     id?: pulumi.Input<string>;
@@ -1905,6 +2109,10 @@ export interface GetContainerCustomDomainArgs {
 }
 
 export interface GetContainerEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the environment variable.
      */
@@ -1921,6 +2129,10 @@ export interface GetContainerEnvironmentVariable {
 
 export interface GetContainerEnvironmentVariableArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -1935,6 +2147,10 @@ export interface GetContainerEnvironmentVariableArgs {
 }
 
 export interface GetContainerEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
     /**
      * Id of the environment variable alias.
      */
@@ -1951,6 +2167,10 @@ export interface GetContainerEnvironmentVariableAlias {
 
 export interface GetContainerEnvironmentVariableAliasArgs {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -1966,6 +2186,10 @@ export interface GetContainerEnvironmentVariableAliasArgs {
 
 export interface GetContainerEnvironmentVariableOverride {
     /**
+     * Description of the environment variable override.
+     */
+    description?: string;
+    /**
      * Id of the environment variable override.
      */
     id?: string;
@@ -1980,6 +2204,10 @@ export interface GetContainerEnvironmentVariableOverride {
 }
 
 export interface GetContainerEnvironmentVariableOverrideArgs {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -2450,6 +2678,10 @@ export interface GetContainerPortArgs {
 
 export interface GetContainerSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id?: string;
@@ -2464,6 +2696,10 @@ export interface GetContainerSecret {
 }
 
 export interface GetContainerSecretArgs {
+    /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret.
      */
@@ -2480,6 +2716,10 @@ export interface GetContainerSecretArgs {
 
 export interface GetContainerSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id?: string;
@@ -2494,6 +2734,10 @@ export interface GetContainerSecretAlias {
 }
 
 export interface GetContainerSecretAliasArgs {
+    /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */
@@ -2510,6 +2754,10 @@ export interface GetContainerSecretAliasArgs {
 
 export interface GetContainerSecretOverride {
     /**
+     * Description of the secret override.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id?: string;
@@ -2524,6 +2772,10 @@ export interface GetContainerSecretOverride {
 }
 
 export interface GetContainerSecretOverrideArgs {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -2582,6 +2834,10 @@ export interface GetContainerStorageArgs {
 
 export interface GetEnvironmentEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id?: string;
@@ -2596,6 +2852,10 @@ export interface GetEnvironmentEnvironmentVariable {
 }
 
 export interface GetEnvironmentEnvironmentVariableArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -2612,6 +2872,10 @@ export interface GetEnvironmentEnvironmentVariableArgs {
 
 export interface GetEnvironmentEnvironmentVariableAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id?: string;
@@ -2626,6 +2890,10 @@ export interface GetEnvironmentEnvironmentVariableAlias {
 }
 
 export interface GetEnvironmentEnvironmentVariableAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable alias.
      */
@@ -2642,6 +2910,10 @@ export interface GetEnvironmentEnvironmentVariableAliasArgs {
 
 export interface GetEnvironmentEnvironmentVariableOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable override.
      */
     id?: string;
@@ -2656,6 +2928,10 @@ export interface GetEnvironmentEnvironmentVariableOverride {
 }
 
 export interface GetEnvironmentEnvironmentVariableOverrideArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -2672,6 +2948,10 @@ export interface GetEnvironmentEnvironmentVariableOverrideArgs {
 
 export interface GetEnvironmentSecret {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id?: string;
@@ -2686,6 +2966,10 @@ export interface GetEnvironmentSecret {
 }
 
 export interface GetEnvironmentSecretArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret.
      */
@@ -2702,6 +2986,10 @@ export interface GetEnvironmentSecretArgs {
 
 export interface GetEnvironmentSecretAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id?: string;
@@ -2716,6 +3004,10 @@ export interface GetEnvironmentSecretAlias {
 }
 
 export interface GetEnvironmentSecretAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */
@@ -2732,6 +3024,10 @@ export interface GetEnvironmentSecretAliasArgs {
 
 export interface GetEnvironmentSecretOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id?: string;
@@ -2747,6 +3043,10 @@ export interface GetEnvironmentSecretOverride {
 
 export interface GetEnvironmentSecretOverrideArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret override.
      */
     id?: pulumi.Input<string>;
@@ -2758,6 +3058,52 @@ export interface GetEnvironmentSecretOverrideArgs {
      * Value of the secret override.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface GetHelmCustomDomain {
+    /**
+     * Your custom domain.
+     */
+    domain?: string;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
+     * Id of the custom domain.
+     */
+    id?: string;
+    /**
+     * Status of the custom domain.
+     */
+    status?: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
+    validationDomain?: string;
+}
+
+export interface GetHelmCustomDomainArgs {
+    /**
+     * Your custom domain.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: pulumi.Input<boolean>;
+    /**
+     * Id of the custom domain.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
+    validationDomain?: pulumi.Input<string>;
 }
 
 export interface GetHelmDeploymentRestriction {
@@ -2800,6 +3146,10 @@ export interface GetHelmDeploymentRestrictionArgs {
 
 export interface GetHelmEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id?: string;
@@ -2814,6 +3164,10 @@ export interface GetHelmEnvironmentVariable {
 }
 
 export interface GetHelmEnvironmentVariableArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -2830,6 +3184,10 @@ export interface GetHelmEnvironmentVariableArgs {
 
 export interface GetHelmEnvironmentVariableAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id?: string;
@@ -2844,6 +3202,10 @@ export interface GetHelmEnvironmentVariableAlias {
 }
 
 export interface GetHelmEnvironmentVariableAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable alias.
      */
@@ -2860,6 +3222,10 @@ export interface GetHelmEnvironmentVariableAliasArgs {
 
 export interface GetHelmEnvironmentVariableOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable override.
      */
     id?: string;
@@ -2874,6 +3240,10 @@ export interface GetHelmEnvironmentVariableOverride {
 }
 
 export interface GetHelmEnvironmentVariableOverrideArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -2890,6 +3260,10 @@ export interface GetHelmEnvironmentVariableOverrideArgs {
 
 export interface GetHelmSecret {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id?: string;
@@ -2904,6 +3278,10 @@ export interface GetHelmSecret {
 }
 
 export interface GetHelmSecretArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret.
      */
@@ -2920,6 +3298,10 @@ export interface GetHelmSecretArgs {
 
 export interface GetHelmSecretAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id?: string;
@@ -2934,6 +3316,10 @@ export interface GetHelmSecretAlias {
 }
 
 export interface GetHelmSecretAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */
@@ -2950,6 +3336,10 @@ export interface GetHelmSecretAliasArgs {
 
 export interface GetHelmSecretOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id?: string;
@@ -2964,6 +3354,10 @@ export interface GetHelmSecretOverride {
 }
 
 export interface GetHelmSecretOverrideArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -3018,6 +3412,10 @@ export interface GetJobDeploymentRestrictionArgs {
 
 export interface GetJobEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id?: string;
@@ -3032,6 +3430,10 @@ export interface GetJobEnvironmentVariable {
 }
 
 export interface GetJobEnvironmentVariableArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -3048,6 +3450,10 @@ export interface GetJobEnvironmentVariableArgs {
 
 export interface GetJobEnvironmentVariableAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id?: string;
@@ -3062,6 +3468,10 @@ export interface GetJobEnvironmentVariableAlias {
 }
 
 export interface GetJobEnvironmentVariableAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable alias.
      */
@@ -3078,6 +3488,10 @@ export interface GetJobEnvironmentVariableAliasArgs {
 
 export interface GetJobEnvironmentVariableOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable override.
      */
     id?: string;
@@ -3092,6 +3506,10 @@ export interface GetJobEnvironmentVariableOverride {
 }
 
 export interface GetJobEnvironmentVariableOverrideArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -3490,6 +3908,10 @@ export interface GetJobHealthchecksReadinessProbeTypeTcpArgs {
 
 export interface GetJobSecret {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id?: string;
@@ -3504,6 +3926,10 @@ export interface GetJobSecret {
 }
 
 export interface GetJobSecretArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret.
      */
@@ -3520,6 +3946,10 @@ export interface GetJobSecretArgs {
 
 export interface GetJobSecretAlias {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id?: string;
@@ -3534,6 +3964,10 @@ export interface GetJobSecretAlias {
 }
 
 export interface GetJobSecretAliasArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */
@@ -3550,6 +3984,10 @@ export interface GetJobSecretAliasArgs {
 
 export interface GetJobSecretOverride {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id?: string;
@@ -3564,6 +4002,10 @@ export interface GetJobSecretOverride {
 }
 
 export interface GetJobSecretOverrideArgs {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -3606,6 +4048,10 @@ export interface GetJobSourceDocker {
      */
     dockerfilePath?: string;
     /**
+     * Inline Dockerfile to inject for building the image
+     */
+    dockerfileRaw?: string;
+    /**
      * Job's docker source git repository.
      */
     gitRepository?: inputs.GetJobSourceDockerGitRepository;
@@ -3616,6 +4062,10 @@ export interface GetJobSourceDockerArgs {
      * Job's docker source dockerfile path.
      */
     dockerfilePath?: pulumi.Input<string>;
+    /**
+     * Inline Dockerfile to inject for building the image
+     */
+    dockerfileRaw?: pulumi.Input<string>;
     /**
      * Job's docker source git repository.
      */
@@ -3690,7 +4140,23 @@ export interface GetJobSourceImageArgs {
     tag?: pulumi.Input<string>;
 }
 
+export interface GetLabelsGroupLabel {
+    key: string;
+    propagateToCloudProvider: boolean;
+    value: string;
+}
+
+export interface GetLabelsGroupLabelArgs {
+    key: pulumi.Input<string>;
+    propagateToCloudProvider: pulumi.Input<boolean>;
+    value: pulumi.Input<string>;
+}
+
 export interface GetProjectEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the environment variable.
      */
@@ -3707,6 +4173,10 @@ export interface GetProjectEnvironmentVariable {
 
 export interface GetProjectEnvironmentVariableArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -3721,6 +4191,10 @@ export interface GetProjectEnvironmentVariableArgs {
 }
 
 export interface GetProjectEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the environment variable alias.
      */
@@ -3737,6 +4211,10 @@ export interface GetProjectEnvironmentVariableAlias {
 
 export interface GetProjectEnvironmentVariableAliasArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -3751,6 +4229,10 @@ export interface GetProjectEnvironmentVariableAliasArgs {
 }
 
 export interface GetProjectSecret {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the secret.
      */
@@ -3767,6 +4249,10 @@ export interface GetProjectSecret {
 
 export interface GetProjectSecretArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -3781,6 +4267,10 @@ export interface GetProjectSecretArgs {
 }
 
 export interface GetProjectSecretAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the secret alias.
      */
@@ -3797,6 +4287,10 @@ export interface GetProjectSecretAlias {
 
 export interface GetProjectSecretAliasArgs {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -3812,6 +4306,10 @@ export interface GetProjectSecretAliasArgs {
 
 export interface HelmBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -3823,6 +4321,29 @@ export interface HelmBuiltInEnvironmentVariable {
      * Value of the environment variable.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface HelmCustomDomain {
+    /**
+     * Your custom domain.
+     */
+    domain: pulumi.Input<string>;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate: pulumi.Input<boolean>;
+    /**
+     * Id of the custom domain.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Status of the custom domain.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
+    validationDomain?: pulumi.Input<string>;
 }
 
 export interface HelmDeploymentRestriction {
@@ -3846,6 +4367,10 @@ export interface HelmDeploymentRestriction {
 
 export interface HelmEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -3861,6 +4386,10 @@ export interface HelmEnvironmentVariable {
 
 export interface HelmEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -3875,6 +4404,10 @@ export interface HelmEnvironmentVariableAlias {
 }
 
 export interface HelmEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -3948,6 +4481,10 @@ export interface HelmRepositoryConfig {
 
 export interface HelmSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -3963,6 +4500,10 @@ export interface HelmSecret {
 
 export interface HelmSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -3977,6 +4518,10 @@ export interface HelmSecretAlias {
 }
 
 export interface HelmSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -4038,12 +4583,12 @@ export interface HelmSourceHelmRepository {
 
 export interface HelmValuesOverride {
     /**
-     * Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+     * Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
      */
     file?: pulumi.Input<inputs.HelmValuesOverrideFile>;
-    set: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    setJson: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    setString: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    set?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    setJson?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    setString?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 export interface HelmValuesOverrideFile {
@@ -4085,6 +4630,10 @@ export interface HelmValuesOverrideFileRaw {
 
 export interface JobBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -4119,6 +4668,10 @@ export interface JobDeploymentRestriction {
 
 export interface JobEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -4134,6 +4687,10 @@ export interface JobEnvironmentVariable {
 
 export interface JobEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable alias.
      */
     id?: pulumi.Input<string>;
@@ -4148,6 +4705,10 @@ export interface JobEnvironmentVariableAlias {
 }
 
 export interface JobEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable override.
      */
@@ -4359,6 +4920,11 @@ export interface JobSchedule {
      */
     cronjob?: pulumi.Input<inputs.JobScheduleCronjob>;
     /**
+     * Type of the lifecycle job.
+     * 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+     */
+    lifecycleType?: pulumi.Input<string>;
+    /**
      * Job's schedule on delete.
      */
     onDelete?: pulumi.Input<inputs.JobScheduleOnDelete>;
@@ -4429,6 +4995,10 @@ export interface JobScheduleOnStop {
 
 export interface JobSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -4444,6 +5014,10 @@ export interface JobSecret {
 
 export interface JobSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret alias.
      */
     id?: pulumi.Input<string>;
@@ -4458,6 +5032,10 @@ export interface JobSecretAlias {
 }
 
 export interface JobSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret override.
      */
@@ -4488,6 +5066,10 @@ export interface JobSourceDocker {
      * Job's docker source dockerfile path.
      */
     dockerfilePath?: pulumi.Input<string>;
+    /**
+     * Inline Dockerfile to inject for building the image
+     */
+    dockerfileRaw?: pulumi.Input<string>;
     /**
      * Job's docker source git repository.
      */
@@ -4528,7 +5110,17 @@ export interface JobSourceImage {
     tag: pulumi.Input<string>;
 }
 
+export interface LabelsGroupLabel {
+    key: pulumi.Input<string>;
+    propagateToCloudProvider: pulumi.Input<boolean>;
+    value: pulumi.Input<string>;
+}
+
 export interface ProjectBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable.
      */
@@ -4545,6 +5137,10 @@ export interface ProjectBuiltInEnvironmentVariable {
 
 export interface ProjectEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the environment variable.
      */
     id?: pulumi.Input<string>;
@@ -4559,6 +5155,10 @@ export interface ProjectEnvironmentVariable {
 }
 
 export interface ProjectEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable alias.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the environment variable alias.
      */
@@ -4575,6 +5175,10 @@ export interface ProjectEnvironmentVariableAlias {
 
 export interface ProjectSecret {
     /**
+     * Description of the secret.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * Id of the secret.
      */
     id?: pulumi.Input<string>;
@@ -4589,6 +5193,10 @@ export interface ProjectSecret {
 }
 
 export interface ProjectSecretAlias {
+    /**
+     * Description of the secret alias.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Id of the secret alias.
      */

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "qovery:index/annotationsGroup:AnnotationsGroup":
+		r = &AnnotationsGroup{}
 	case "qovery:index/application:Application":
 		r = &Application{}
 	case "qovery:index/awsCredentials:AwsCredentials":
@@ -47,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HelmRepository{}
 	case "qovery:index/job:Job":
 		r = &Job{}
+	case "qovery:index/labelsGroup:LabelsGroup":
+		r = &LabelsGroup{}
 	case "qovery:index/organization:Organization":
 		r = &Organization{}
 	case "qovery:index/project:Project":
@@ -84,6 +88,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"qovery",
+		"index/annotationsGroup",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"qovery",
 		"index/application",
@@ -147,6 +156,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"qovery",
 		"index/job",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"qovery",
+		"index/labelsGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

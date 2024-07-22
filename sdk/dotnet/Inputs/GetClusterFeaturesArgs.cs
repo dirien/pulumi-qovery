@@ -20,6 +20,12 @@ namespace ediri.Qovery.Inputs
         public Input<Inputs.GetClusterFeaturesExistingVpcInputArgs>? ExistingVpc { get; set; }
 
         /// <summary>
+        /// Karpenter parameters if you want to use Karpenter on an EKS cluster
+        /// </summary>
+        [Input("karpenter")]
+        public Input<Inputs.GetClusterFeaturesKarpenterInputArgs>? Karpenter { get; set; }
+
+        /// <summary>
         /// Static IP (AWS only) [NOTE: can't be updated after creation].
         /// 	- Default: `false`.
         /// </summary>

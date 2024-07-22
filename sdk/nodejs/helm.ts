@@ -58,7 +58,7 @@ export class Helm extends pulumi.CustomResource {
      */
     public readonly arguments!: pulumi.Output<string[]>;
     /**
-     * Specify if the service will be automatically updated on every new commit on the branch.
+     * Specify if service will be automatically updated on every new commit on the branch.
      */
     public readonly autoDeploy!: pulumi.Output<boolean>;
     /**
@@ -69,6 +69,10 @@ export class Helm extends pulumi.CustomResource {
      * List of built-in environment variables linked to this helm.
      */
     public /*out*/ readonly builtInEnvironmentVariables!: pulumi.Output<outputs.HelmBuiltInEnvironmentVariable[]>;
+    /**
+     * List of custom domains linked to this helm.
+     */
+    public readonly customDomains!: pulumi.Output<outputs.HelmCustomDomain[] | undefined>;
     /**
      * List of deployment restrictions
      */
@@ -126,7 +130,7 @@ export class Helm extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.HelmSource>;
     /**
-     * Helm timeout in second
+     * Helm timeout in seconds
      */
     public readonly timeoutSec!: pulumi.Output<number>;
     /**
@@ -153,6 +157,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
             resourceInputs["autoPreview"] = state ? state.autoPreview : undefined;
             resourceInputs["builtInEnvironmentVariables"] = state ? state.builtInEnvironmentVariables : undefined;
+            resourceInputs["customDomains"] = state ? state.customDomains : undefined;
             resourceInputs["deploymentRestrictions"] = state ? state.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
@@ -188,6 +193,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
             resourceInputs["autoPreview"] = args ? args.autoPreview : undefined;
+            resourceInputs["customDomains"] = args ? args.customDomains : undefined;
             resourceInputs["deploymentRestrictions"] = args ? args.deploymentRestrictions : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
@@ -228,7 +234,7 @@ export interface HelmState {
      */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify if the service will be automatically updated on every new commit on the branch.
+     * Specify if service will be automatically updated on every new commit on the branch.
      */
     autoDeploy?: pulumi.Input<boolean>;
     /**
@@ -239,6 +245,10 @@ export interface HelmState {
      * List of built-in environment variables linked to this helm.
      */
     builtInEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.HelmBuiltInEnvironmentVariable>[]>;
+    /**
+     * List of custom domains linked to this helm.
+     */
+    customDomains?: pulumi.Input<pulumi.Input<inputs.HelmCustomDomain>[]>;
     /**
      * List of deployment restrictions
      */
@@ -296,7 +306,7 @@ export interface HelmState {
      */
     source?: pulumi.Input<inputs.HelmSource>;
     /**
-     * Helm timeout in second
+     * Helm timeout in seconds
      */
     timeoutSec?: pulumi.Input<number>;
     /**
@@ -322,13 +332,17 @@ export interface HelmArgs {
      */
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify if the service will be automatically updated on every new commit on the branch.
+     * Specify if service will be automatically updated on every new commit on the branch.
      */
     autoDeploy?: pulumi.Input<boolean>;
     /**
      * Specify if the environment preview option is activated or not for this helm.
      */
     autoPreview?: pulumi.Input<boolean>;
+    /**
+     * List of custom domains linked to this helm.
+     */
+    customDomains?: pulumi.Input<pulumi.Input<inputs.HelmCustomDomain>[]>;
     /**
      * List of deployment restrictions
      */
@@ -378,7 +392,7 @@ export interface HelmArgs {
      */
     source: pulumi.Input<inputs.HelmSource>;
     /**
-     * Helm timeout in second
+     * Helm timeout in seconds
      */
     timeoutSec?: pulumi.Input<number>;
     /**

@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
  * ## # qovery.HelmRepository (Data Source)
  *
  * Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@pulumi/qovery";
+ *
+ * const myHelmRepository = qovery.getHelmRepository({
+ *     id: "<helm_repository_id>",
+ *     organizationId: "<organization_id>",
+ * });
+ * ```
  */
 export function getHelmRepository(args: GetHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetHelmRepositoryResult> {
 
@@ -15,7 +26,11 @@ export function getHelmRepository(args: GetHelmRepositoryArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("qovery:index/getHelmRepository:getHelmRepository", {
         "description": args.description,
         "id": args.id,
+        "kind": args.kind,
+        "name": args.name,
         "organizationId": args.organizationId,
+        "skipTlsVerification": args.skipTlsVerification,
+        "url": args.url,
     }, opts);
 }
 
@@ -25,7 +40,11 @@ export function getHelmRepository(args: GetHelmRepositoryArgs, opts?: pulumi.Inv
 export interface GetHelmRepositoryArgs {
     description?: string;
     id: string;
+    kind?: string;
+    name?: string;
     organizationId: string;
+    skipTlsVerification?: boolean;
+    url?: string;
 }
 
 /**
@@ -37,12 +56,24 @@ export interface GetHelmRepositoryResult {
     readonly kind: string;
     readonly name: string;
     readonly organizationId: string;
+    readonly skipTlsVerification: boolean;
     readonly url: string;
 }
 /**
  * ## # qovery.HelmRepository (Data Source)
  *
  * Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@pulumi/qovery";
+ *
+ * const myHelmRepository = qovery.getHelmRepository({
+ *     id: "<helm_repository_id>",
+ *     organizationId: "<organization_id>",
+ * });
+ * ```
  */
 export function getHelmRepositoryOutput(args: GetHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getHelmRepository(a, opts))
@@ -54,5 +85,9 @@ export function getHelmRepositoryOutput(args: GetHelmRepositoryOutputArgs, opts?
 export interface GetHelmRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     id: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     organizationId: pulumi.Input<string>;
+    skipTlsVerification?: pulumi.Input<boolean>;
+    url?: pulumi.Input<string>;
 }

@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class GetApplicationSecretAliasInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of the secret alias.
+        /// </summary>
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
+
+        /// <summary>
         /// Id of the secret alias.
         /// </summary>
         [Input("id", required: true)]

@@ -83,6 +83,9 @@ namespace ediri.Qovery
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("instanceType")]
+        public string? InstanceType { get; set; }
+
         [Input("kubernetesMode")]
         public string? KubernetesMode { get; set; }
 
@@ -128,6 +131,9 @@ namespace ediri.Qovery
 
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         [Input("kubernetesMode")]
         public Input<string>? KubernetesMode { get; set; }

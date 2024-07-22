@@ -50,6 +50,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly advancedSettingsJson!: pulumi.Output<string>;
     /**
+     * List of annotations group ids
+     */
+    public readonly annotationsGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * List of arguments of this application.
      */
     public readonly arguments!: pulumi.Output<string[]>;
@@ -131,6 +135,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
     /**
+     * List of labels group ids
+     */
+    public readonly labelsGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
      */
     public readonly maxRunningInstances!: pulumi.Output<number>;
@@ -181,6 +189,7 @@ export class Application extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             resourceInputs["advancedSettingsJson"] = state ? state.advancedSettingsJson : undefined;
+            resourceInputs["annotationsGroupIds"] = state ? state.annotationsGroupIds : undefined;
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
             resourceInputs["autoPreview"] = state ? state.autoPreview : undefined;
@@ -201,6 +210,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["gitRepository"] = state ? state.gitRepository : undefined;
             resourceInputs["healthchecks"] = state ? state.healthchecks : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
+            resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
             resourceInputs["maxRunningInstances"] = state ? state.maxRunningInstances : undefined;
             resourceInputs["memory"] = state ? state.memory : undefined;
             resourceInputs["minRunningInstances"] = state ? state.minRunningInstances : undefined;
@@ -222,6 +232,7 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'healthchecks'");
             }
             resourceInputs["advancedSettingsJson"] = args ? args.advancedSettingsJson : undefined;
+            resourceInputs["annotationsGroupIds"] = args ? args.annotationsGroupIds : undefined;
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
             resourceInputs["autoPreview"] = args ? args.autoPreview : undefined;
@@ -239,6 +250,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["gitRepository"] = args ? args.gitRepository : undefined;
             resourceInputs["healthchecks"] = args ? args.healthchecks : undefined;
+            resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["maxRunningInstances"] = args ? args.maxRunningInstances : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
             resourceInputs["minRunningInstances"] = args ? args.minRunningInstances : undefined;
@@ -265,6 +277,10 @@ export interface ApplicationState {
      * Advanced settings.
      */
     advancedSettingsJson?: pulumi.Input<string>;
+    /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of arguments of this application.
      */
@@ -347,6 +363,10 @@ export interface ApplicationState {
      */
     internalHost?: pulumi.Input<string>;
     /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
      */
     maxRunningInstances?: pulumi.Input<number>;
@@ -392,6 +412,10 @@ export interface ApplicationArgs {
      * Advanced settings.
      */
     advancedSettingsJson?: pulumi.Input<string>;
+    /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of arguments of this application.
      */
@@ -461,6 +485,10 @@ export interface ApplicationArgs {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks: pulumi.Input<inputs.ApplicationHealthchecks>;
+    /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
      */

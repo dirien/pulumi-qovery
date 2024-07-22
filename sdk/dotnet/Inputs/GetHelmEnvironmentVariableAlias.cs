@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class GetHelmEnvironmentVariableAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Description of the environment variable.
+        /// </summary>
+        [Input("description", required: true)]
+        public string Description { get; set; } = null!;
+
+        /// <summary>
         /// Id of the environment variable alias.
         /// </summary>
         [Input("id", required: true)]

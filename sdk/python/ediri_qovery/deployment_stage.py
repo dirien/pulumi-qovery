@@ -213,7 +213,7 @@ class DeploymentStage(pulumi.CustomResource):
             description="",
             is_after=qovery_deployment_stage["first_deployment_stage"]["id"],
             is_before=qovery_deployment_stage["third_deployment_stage"]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         ```
 
         You can find complete examples within these repositories:
@@ -256,7 +256,7 @@ class DeploymentStage(pulumi.CustomResource):
             description="",
             is_after=qovery_deployment_stage["first_deployment_stage"]["id"],
             is_before=qovery_deployment_stage["third_deployment_stage"]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_environment["my_environment"]]))
         ```
 
         You can find complete examples within these repositories:

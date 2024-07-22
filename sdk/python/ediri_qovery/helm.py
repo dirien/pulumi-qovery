@@ -24,6 +24,7 @@ class HelmArgs:
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]] = None,
                  deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]]] = None,
@@ -43,8 +44,9 @@ class HelmArgs:
         :param pulumi.Input['HelmValuesOverrideArgs'] values_override: Define your own overrides to customize the helm chart behaviour.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
-        :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
+        :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
+        :param pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]] custom_domains: List of custom domains linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this helm.
@@ -55,7 +57,7 @@ class HelmArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretAliasArgs']]] secret_aliases: List of secret aliases linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretOverrideArgs']]] secret_overrides: List of secret overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretArgs']]] secrets: List of secrets linked to this helm.
-        :param pulumi.Input[int] timeout_sec: Helm timeout in second
+        :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
         """
         pulumi.set(__self__, "allow_cluster_wide_resources", allow_cluster_wide_resources)
         pulumi.set(__self__, "environment_id", environment_id)
@@ -69,6 +71,8 @@ class HelmArgs:
             pulumi.set(__self__, "auto_deploy", auto_deploy)
         if auto_preview is not None:
             pulumi.set(__self__, "auto_preview", auto_preview)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
         if deployment_restrictions is not None:
             pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
@@ -168,7 +172,7 @@ class HelmArgs:
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specify if the service will be automatically updated on every new commit on the branch.
+        Specify if service will be automatically updated on every new commit on the branch.
         """
         return pulumi.get(self, "auto_deploy")
 
@@ -187,6 +191,18 @@ class HelmArgs:
     @auto_preview.setter
     def auto_preview(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_preview", value)
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]]:
+        """
+        List of custom domains linked to this helm.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @custom_domains.setter
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]]):
+        pulumi.set(self, "custom_domains", value)
 
     @property
     @pulumi.getter(name="deploymentRestrictions")
@@ -312,7 +328,7 @@ class HelmArgs:
     @pulumi.getter(name="timeoutSec")
     def timeout_sec(self) -> Optional[pulumi.Input[int]]:
         """
-        Helm timeout in second
+        Helm timeout in seconds
         """
         return pulumi.get(self, "timeout_sec")
 
@@ -330,6 +346,7 @@ class _HelmState:
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]] = None,
                  deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
@@ -351,9 +368,10 @@ class _HelmState:
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
         :param pulumi.Input[bool] allow_cluster_wide_resources: Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
-        :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
+        :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]] built_in_environment_variables: List of built-in environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]] custom_domains: List of custom domains linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmDeploymentRestrictionArgs']]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
@@ -368,7 +386,7 @@ class _HelmState:
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretOverrideArgs']]] secret_overrides: List of secret overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretArgs']]] secrets: List of secrets linked to this helm.
         :param pulumi.Input['HelmSourceArgs'] source: Helm chart from a Helm repository or from a git repository
-        :param pulumi.Input[int] timeout_sec: Helm timeout in second
+        :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
         :param pulumi.Input['HelmValuesOverrideArgs'] values_override: Define your own overrides to customize the helm chart behaviour.
         """
         if advanced_settings_json is not None:
@@ -383,6 +401,8 @@ class _HelmState:
             pulumi.set(__self__, "auto_preview", auto_preview)
         if built_in_environment_variables is not None:
             pulumi.set(__self__, "built_in_environment_variables", built_in_environment_variables)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
         if deployment_restrictions is not None:
             pulumi.set(__self__, "deployment_restrictions", deployment_restrictions)
         if deployment_stage_id is not None:
@@ -456,7 +476,7 @@ class _HelmState:
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specify if the service will be automatically updated on every new commit on the branch.
+        Specify if service will be automatically updated on every new commit on the branch.
         """
         return pulumi.get(self, "auto_deploy")
 
@@ -487,6 +507,18 @@ class _HelmState:
     @built_in_environment_variables.setter
     def built_in_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmBuiltInEnvironmentVariableArgs']]]]):
         pulumi.set(self, "built_in_environment_variables", value)
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]]:
+        """
+        List of custom domains linked to this helm.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @custom_domains.setter
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HelmCustomDomainArgs']]]]):
+        pulumi.set(self, "custom_domains", value)
 
     @property
     @pulumi.getter(name="deploymentRestrictions")
@@ -660,7 +692,7 @@ class _HelmState:
     @pulumi.getter(name="timeoutSec")
     def timeout_sec(self) -> Optional[pulumi.Input[int]]:
         """
-        Helm timeout in second
+        Helm timeout in seconds
         """
         return pulumi.get(self, "timeout_sec")
 
@@ -691,6 +723,7 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
                  deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
@@ -722,8 +755,9 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
         :param pulumi.Input[bool] allow_cluster_wide_resources: Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
-        :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
+        :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]] custom_domains: List of custom domains linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
@@ -736,7 +770,7 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]] secrets: List of secrets linked to this helm.
         :param pulumi.Input[pulumi.InputType['HelmSourceArgs']] source: Helm chart from a Helm repository or from a git repository
-        :param pulumi.Input[int] timeout_sec: Helm timeout in second
+        :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
         :param pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']] values_override: Define your own overrides to customize the helm chart behaviour.
         """
         ...
@@ -776,6 +810,7 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
                  deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
@@ -806,6 +841,7 @@ class Helm(pulumi.CustomResource):
             __props__.__dict__["arguments"] = arguments
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["auto_preview"] = auto_preview
+            __props__.__dict__["custom_domains"] = custom_domains
             __props__.__dict__["deployment_restrictions"] = deployment_restrictions
             __props__.__dict__["deployment_stage_id"] = deployment_stage_id
             if environment_id is None and not opts.urn:
@@ -845,6 +881,7 @@ class Helm(pulumi.CustomResource):
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
             built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]]] = None,
+            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
             deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
@@ -871,9 +908,10 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
         :param pulumi.Input[bool] allow_cluster_wide_resources: Allow this chart to deploy resources outside of this environment namespace (including CRDs or non-namespaced resources)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
-        :param pulumi.Input[bool] auto_deploy: Specify if the service will be automatically updated on every new commit on the branch.
+        :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]] custom_domains: List of custom domains linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
@@ -888,7 +926,7 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]] secrets: List of secrets linked to this helm.
         :param pulumi.Input[pulumi.InputType['HelmSourceArgs']] source: Helm chart from a Helm repository or from a git repository
-        :param pulumi.Input[int] timeout_sec: Helm timeout in second
+        :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
         :param pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']] values_override: Define your own overrides to customize the helm chart behaviour.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -901,6 +939,7 @@ class Helm(pulumi.CustomResource):
         __props__.__dict__["auto_deploy"] = auto_deploy
         __props__.__dict__["auto_preview"] = auto_preview
         __props__.__dict__["built_in_environment_variables"] = built_in_environment_variables
+        __props__.__dict__["custom_domains"] = custom_domains
         __props__.__dict__["deployment_restrictions"] = deployment_restrictions
         __props__.__dict__["deployment_stage_id"] = deployment_stage_id
         __props__.__dict__["environment_id"] = environment_id
@@ -947,7 +986,7 @@ class Helm(pulumi.CustomResource):
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> pulumi.Output[bool]:
         """
-        Specify if the service will be automatically updated on every new commit on the branch.
+        Specify if service will be automatically updated on every new commit on the branch.
         """
         return pulumi.get(self, "auto_deploy")
 
@@ -966,6 +1005,14 @@ class Helm(pulumi.CustomResource):
         List of built-in environment variables linked to this helm.
         """
         return pulumi.get(self, "built_in_environment_variables")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> pulumi.Output[Optional[Sequence['outputs.HelmCustomDomain']]]:
+        """
+        List of custom domains linked to this helm.
+        """
+        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="deploymentRestrictions")
@@ -1083,7 +1130,7 @@ class Helm(pulumi.CustomResource):
     @pulumi.getter(name="timeoutSec")
     def timeout_sec(self) -> pulumi.Output[int]:
         """
-        Helm timeout in second
+        Helm timeout in seconds
         """
         return pulumi.get(self, "timeout_sec")
 

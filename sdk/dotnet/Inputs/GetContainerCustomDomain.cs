@@ -20,6 +20,12 @@ namespace ediri.Qovery.Inputs
         public string Domain { get; set; } = null!;
 
         /// <summary>
+        /// Qovery will generate and manage the certificate for this domain.
+        /// </summary>
+        [Input("generateCertificate")]
+        public bool? GenerateCertificate { get; set; }
+
+        /// <summary>
         /// Id of the custom domain.
         /// </summary>
         [Input("id", required: true)]

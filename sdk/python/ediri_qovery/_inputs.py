@@ -37,6 +37,7 @@ __all__ = [
     'ApplicationStorageArgs',
     'ClusterFeaturesArgs',
     'ClusterFeaturesExistingVpcArgs',
+    'ClusterFeaturesKarpenterArgs',
     'ClusterRoutingTableArgs',
     'ContainerBuiltInEnvironmentVariableArgs',
     'ContainerCustomDomainArgs',
@@ -70,6 +71,7 @@ __all__ = [
     'EnvironmentSecretAliasArgs',
     'EnvironmentSecretOverrideArgs',
     'HelmBuiltInEnvironmentVariableArgs',
+    'HelmCustomDomainArgs',
     'HelmDeploymentRestrictionArgs',
     'HelmEnvironmentVariableArgs',
     'HelmEnvironmentVariableAliasArgs',
@@ -117,6 +119,7 @@ __all__ = [
     'JobSourceDockerArgs',
     'JobSourceDockerGitRepositoryArgs',
     'JobSourceImageArgs',
+    'LabelsGroupLabelArgs',
     'ProjectBuiltInEnvironmentVariableArgs',
     'ProjectEnvironmentVariableArgs',
     'ProjectEnvironmentVariableAliasArgs',
@@ -146,6 +149,7 @@ __all__ = [
     'GetApplicationStorageArgs',
     'GetClusterFeaturesArgs',
     'GetClusterFeaturesExistingVpcArgs',
+    'GetClusterFeaturesKarpenterArgs',
     'GetClusterRoutingTableArgs',
     'GetContainerCustomDomainArgs',
     'GetContainerEnvironmentVariableArgs',
@@ -175,6 +179,7 @@ __all__ = [
     'GetEnvironmentSecretArgs',
     'GetEnvironmentSecretAliasArgs',
     'GetEnvironmentSecretOverrideArgs',
+    'GetHelmCustomDomainArgs',
     'GetHelmDeploymentRestrictionArgs',
     'GetHelmEnvironmentVariableArgs',
     'GetHelmEnvironmentVariableAliasArgs',
@@ -206,6 +211,7 @@ __all__ = [
     'GetJobSourceDockerArgs',
     'GetJobSourceDockerGitRepositoryArgs',
     'GetJobSourceImageArgs',
+    'GetLabelsGroupLabelArgs',
     'GetProjectEnvironmentVariableArgs',
     'GetProjectEnvironmentVariableAliasArgs',
     'GetProjectSecretArgs',
@@ -215,20 +221,36 @@ __all__ = [
 @pulumi.input_type
 class ApplicationBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -271,16 +293,20 @@ class ApplicationBuiltInEnvironmentVariableArgs:
 class ApplicationCustomDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
+                 generate_certificate: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: Your custom domain.
+        :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
         :param pulumi.Input[str] id: Id of the custom domain.
         :param pulumi.Input[str] status: Status of the custom domain.
         :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         pulumi.set(__self__, "domain", domain)
+        if generate_certificate is not None:
+            pulumi.set(__self__, "generate_certificate", generate_certificate)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if status is not None:
@@ -299,6 +325,18 @@ class ApplicationCustomDomainArgs:
     @domain.setter
     def domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_certificate", value)
 
     @property
     @pulumi.getter
@@ -410,14 +448,18 @@ class ApplicationEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -447,6 +489,18 @@ class ApplicationEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -463,14 +517,18 @@ class ApplicationEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -500,6 +558,18 @@ class ApplicationEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -516,14 +586,18 @@ class ApplicationEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable override.
         :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] description: Description of the environment variable override.
         :param pulumi.Input[str] id: Id of the environment variable override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -550,6 +624,18 @@ class ApplicationEnvironmentVariableOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -1446,14 +1532,18 @@ class ApplicationSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -1483,6 +1573,18 @@ class ApplicationSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -1499,14 +1601,18 @@ class ApplicationSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -1536,6 +1642,18 @@ class ApplicationSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -1552,14 +1670,18 @@ class ApplicationSecretOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret override.
         :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] description: Description of the secret override.
         :param pulumi.Input[str] id: Id of the secret override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -1586,6 +1708,18 @@ class ApplicationSecretOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -1676,10 +1810,12 @@ class ApplicationStorageArgs:
 class ClusterFeaturesArgs:
     def __init__(__self__, *,
                  existing_vpc: Optional[pulumi.Input['ClusterFeaturesExistingVpcArgs']] = None,
+                 karpenter: Optional[pulumi.Input['ClusterFeaturesKarpenterArgs']] = None,
                  static_ip: Optional[pulumi.Input[bool]] = None,
                  vpc_subnet: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ClusterFeaturesExistingVpcArgs'] existing_vpc: Network configuration if you want to install qovery on an existing VPC
+        :param pulumi.Input['ClusterFeaturesKarpenterArgs'] karpenter: Karpenter parameters if you want to use Karpenter on an EKS cluster
         :param pulumi.Input[bool] static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
                	- Default: `false`.
         :param pulumi.Input[str] vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
@@ -1687,6 +1823,8 @@ class ClusterFeaturesArgs:
         """
         if existing_vpc is not None:
             pulumi.set(__self__, "existing_vpc", existing_vpc)
+        if karpenter is not None:
+            pulumi.set(__self__, "karpenter", karpenter)
         if static_ip is not None:
             pulumi.set(__self__, "static_ip", static_ip)
         if vpc_subnet is not None:
@@ -1703,6 +1841,18 @@ class ClusterFeaturesArgs:
     @existing_vpc.setter
     def existing_vpc(self, value: Optional[pulumi.Input['ClusterFeaturesExistingVpcArgs']]):
         pulumi.set(self, "existing_vpc", value)
+
+    @property
+    @pulumi.getter
+    def karpenter(self) -> Optional[pulumi.Input['ClusterFeaturesKarpenterArgs']]:
+        """
+        Karpenter parameters if you want to use Karpenter on an EKS cluster
+        """
+        return pulumi.get(self, "karpenter")
+
+    @karpenter.setter
+    def karpenter(self, value: Optional[pulumi.Input['ClusterFeaturesKarpenterArgs']]):
+        pulumi.set(self, "karpenter", value)
 
     @property
     @pulumi.getter(name="staticIp")
@@ -1943,6 +2093,54 @@ class ClusterFeaturesExistingVpcArgs:
 
 
 @pulumi.input_type
+class ClusterFeaturesKarpenterArgs:
+    def __init__(__self__, *,
+                 default_service_architecture: pulumi.Input[str],
+                 disk_size_in_gib: pulumi.Input[int],
+                 spot_enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] default_service_architecture: The default architecture of service
+        :param pulumi.Input[bool] spot_enabled: Enable spot instances
+        """
+        pulumi.set(__self__, "default_service_architecture", default_service_architecture)
+        pulumi.set(__self__, "disk_size_in_gib", disk_size_in_gib)
+        pulumi.set(__self__, "spot_enabled", spot_enabled)
+
+    @property
+    @pulumi.getter(name="defaultServiceArchitecture")
+    def default_service_architecture(self) -> pulumi.Input[str]:
+        """
+        The default architecture of service
+        """
+        return pulumi.get(self, "default_service_architecture")
+
+    @default_service_architecture.setter
+    def default_service_architecture(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_service_architecture", value)
+
+    @property
+    @pulumi.getter(name="diskSizeInGib")
+    def disk_size_in_gib(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "disk_size_in_gib")
+
+    @disk_size_in_gib.setter
+    def disk_size_in_gib(self, value: pulumi.Input[int]):
+        pulumi.set(self, "disk_size_in_gib", value)
+
+    @property
+    @pulumi.getter(name="spotEnabled")
+    def spot_enabled(self) -> pulumi.Input[bool]:
+        """
+        Enable spot instances
+        """
+        return pulumi.get(self, "spot_enabled")
+
+    @spot_enabled.setter
+    def spot_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "spot_enabled", value)
+
+
+@pulumi.input_type
 class ClusterRoutingTableArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
@@ -1997,20 +2195,36 @@ class ClusterRoutingTableArgs:
 @pulumi.input_type
 class ContainerBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -2053,16 +2267,20 @@ class ContainerBuiltInEnvironmentVariableArgs:
 class ContainerCustomDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
+                 generate_certificate: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: Your custom domain.
+        :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
         :param pulumi.Input[str] id: Id of the custom domain.
         :param pulumi.Input[str] status: Status of the custom domain.
         :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         pulumi.set(__self__, "domain", domain)
+        if generate_certificate is not None:
+            pulumi.set(__self__, "generate_certificate", generate_certificate)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if status is not None:
@@ -2081,6 +2299,18 @@ class ContainerCustomDomainArgs:
     @domain.setter
     def domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_certificate", value)
 
     @property
     @pulumi.getter
@@ -2124,14 +2354,18 @@ class ContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -2161,6 +2395,18 @@ class ContainerEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -2177,14 +2423,18 @@ class ContainerEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -2214,6 +2464,18 @@ class ContainerEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -2230,14 +2492,18 @@ class ContainerEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable override.
         :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] description: Description of the environment variable override.
         :param pulumi.Input[str] id: Id of the environment variable override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -2264,6 +2530,18 @@ class ContainerEnvironmentVariableOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -3205,14 +3483,18 @@ class ContainerSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3242,6 +3524,18 @@ class ContainerSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -3258,14 +3552,18 @@ class ContainerSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3295,6 +3593,18 @@ class ContainerSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -3311,14 +3621,18 @@ class ContainerSecretOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret override.
         :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] description: Description of the secret override.
         :param pulumi.Input[str] id: Id of the secret override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3345,6 +3659,18 @@ class ContainerSecretOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -3434,20 +3760,36 @@ class ContainerStorageArgs:
 @pulumi.input_type
 class EnvironmentBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -3491,14 +3833,18 @@ class EnvironmentEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3528,6 +3874,18 @@ class EnvironmentEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -3544,14 +3902,18 @@ class EnvironmentEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3581,6 +3943,18 @@ class EnvironmentEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -3597,14 +3971,18 @@ class EnvironmentEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable override.
         :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] description: Description of the environment variable override.
         :param pulumi.Input[str] id: Id of the environment variable override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3634,6 +4012,18 @@ class EnvironmentEnvironmentVariableOverrideArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable override.
@@ -3650,14 +4040,18 @@ class EnvironmentSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3687,6 +4081,18 @@ class EnvironmentSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -3703,14 +4109,18 @@ class EnvironmentSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3740,6 +4150,18 @@ class EnvironmentSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -3756,14 +4178,18 @@ class EnvironmentSecretOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret override.
         :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] description: Description of the secret override.
         :param pulumi.Input[str] id: Id of the secret override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3793,6 +4219,18 @@ class EnvironmentSecretOverrideArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret override.
@@ -3807,20 +4245,36 @@ class EnvironmentSecretOverrideArgs:
 @pulumi.input_type
 class HelmBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -3857,6 +4311,91 @@ class HelmBuiltInEnvironmentVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class HelmCustomDomainArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 generate_certificate: pulumi.Input[bool],
+                 id: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 validation_domain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain: Your custom domain.
+        :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
+        :param pulumi.Input[str] id: Id of the custom domain.
+        :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "generate_certificate", generate_certificate)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if validation_domain is not None:
+            pulumi.set(__self__, "validation_domain", validation_domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        Your custom domain.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> pulumi.Input[bool]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "generate_certificate", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the custom domain.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the custom domain.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
+        return pulumi.get(self, "validation_domain")
+
+    @validation_domain.setter
+    def validation_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_domain", value)
 
 
 @pulumi.input_type
@@ -3932,14 +4471,18 @@ class HelmEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -3969,6 +4512,18 @@ class HelmEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -3985,14 +4540,18 @@ class HelmEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4022,6 +4581,18 @@ class HelmEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -4038,14 +4609,18 @@ class HelmEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable override.
         :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] description: Description of the environment variable override.
         :param pulumi.Input[str] id: Id of the environment variable override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4072,6 +4647,18 @@ class HelmEnvironmentVariableOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -4311,14 +4898,18 @@ class HelmSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4348,6 +4939,18 @@ class HelmSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -4364,14 +4967,18 @@ class HelmSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4401,6 +5008,18 @@ class HelmSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -4417,14 +5036,18 @@ class HelmSecretOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret override.
         :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] description: Description of the secret override.
         :param pulumi.Input[str] id: Id of the secret override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4451,6 +5074,18 @@ class HelmSecretOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -4629,57 +5264,60 @@ class HelmSourceHelmRepositoryArgs:
 @pulumi.input_type
 class HelmValuesOverrideArgs:
     def __init__(__self__, *,
-                 set: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 set_json: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 set_string: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 file: Optional[pulumi.Input['HelmValuesOverrideFileArgs']] = None):
+                 file: Optional[pulumi.Input['HelmValuesOverrideFileArgs']] = None,
+                 set: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 set_json: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 set_string: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['HelmValuesOverrideFileArgs'] file: Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        :param pulumi.Input['HelmValuesOverrideFileArgs'] file: Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
         """
-        pulumi.set(__self__, "set", set)
-        pulumi.set(__self__, "set_json", set_json)
-        pulumi.set(__self__, "set_string", set_string)
         if file is not None:
             pulumi.set(__self__, "file", file)
-
-    @property
-    @pulumi.getter
-    def set(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        return pulumi.get(self, "set")
-
-    @set.setter
-    def set(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "set", value)
-
-    @property
-    @pulumi.getter(name="setJson")
-    def set_json(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        return pulumi.get(self, "set_json")
-
-    @set_json.setter
-    def set_json(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "set_json", value)
-
-    @property
-    @pulumi.getter(name="setString")
-    def set_string(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        return pulumi.get(self, "set_string")
-
-    @set_string.setter
-    def set_string(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "set_string", value)
+        if set is not None:
+            pulumi.set(__self__, "set", set)
+        if set_json is not None:
+            pulumi.set(__self__, "set_json", set_json)
+        if set_string is not None:
+            pulumi.set(__self__, "set_string", set_string)
 
     @property
     @pulumi.getter
     def file(self) -> Optional[pulumi.Input['HelmValuesOverrideFileArgs']]:
         """
-        Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
         """
         return pulumi.get(self, "file")
 
     @file.setter
     def file(self, value: Optional[pulumi.Input['HelmValuesOverrideFileArgs']]):
         pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def set(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "set")
+
+    @set.setter
+    def set(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "set", value)
+
+    @property
+    @pulumi.getter(name="setJson")
+    def set_json(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "set_json")
+
+    @set_json.setter
+    def set_json(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "set_json", value)
+
+    @property
+    @pulumi.getter(name="setString")
+    def set_string(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "set_string")
+
+    @set_string.setter
+    def set_string(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "set_string", value)
 
 
 @pulumi.input_type
@@ -4814,20 +5452,36 @@ class HelmValuesOverrideFileRawArgs:
 @pulumi.input_type
 class JobBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -4939,14 +5593,18 @@ class JobEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -4976,6 +5634,18 @@ class JobEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -4992,14 +5662,18 @@ class JobEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -5029,6 +5703,18 @@ class JobEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -5045,14 +5731,18 @@ class JobEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable override.
         :param pulumi.Input[str] value: Value of the environment variable override.
+        :param pulumi.Input[str] description: Description of the environment variable override.
         :param pulumi.Input[str] id: Id of the environment variable override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -5079,6 +5769,18 @@ class JobEnvironmentVariableOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -5774,17 +6476,22 @@ class JobHealthchecksReadinessProbeTypeTcpArgs:
 class JobScheduleArgs:
     def __init__(__self__, *,
                  cronjob: Optional[pulumi.Input['JobScheduleCronjobArgs']] = None,
+                 lifecycle_type: Optional[pulumi.Input[str]] = None,
                  on_delete: Optional[pulumi.Input['JobScheduleOnDeleteArgs']] = None,
                  on_start: Optional[pulumi.Input['JobScheduleOnStartArgs']] = None,
                  on_stop: Optional[pulumi.Input['JobScheduleOnStopArgs']] = None):
         """
         :param pulumi.Input['JobScheduleCronjobArgs'] cronjob: Job's cron.
+        :param pulumi.Input[str] lifecycle_type: Type of the lifecycle job.
+               	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
         :param pulumi.Input['JobScheduleOnDeleteArgs'] on_delete: Job's schedule on delete.
         :param pulumi.Input['JobScheduleOnStartArgs'] on_start: Job's schedule on start.
         :param pulumi.Input['JobScheduleOnStopArgs'] on_stop: Job's schedule on stop.
         """
         if cronjob is not None:
             pulumi.set(__self__, "cronjob", cronjob)
+        if lifecycle_type is not None:
+            pulumi.set(__self__, "lifecycle_type", lifecycle_type)
         if on_delete is not None:
             pulumi.set(__self__, "on_delete", on_delete)
         if on_start is not None:
@@ -5803,6 +6510,19 @@ class JobScheduleArgs:
     @cronjob.setter
     def cronjob(self, value: Optional[pulumi.Input['JobScheduleCronjobArgs']]):
         pulumi.set(self, "cronjob", value)
+
+    @property
+    @pulumi.getter(name="lifecycleType")
+    def lifecycle_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the lifecycle job.
+        	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+        """
+        return pulumi.get(self, "lifecycle_type")
+
+    @lifecycle_type.setter
+    def lifecycle_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_type", value)
 
     @property
     @pulumi.getter(name="onDelete")
@@ -6039,14 +6759,18 @@ class JobSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6076,6 +6800,18 @@ class JobSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -6092,14 +6828,18 @@ class JobSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6129,6 +6869,18 @@ class JobSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -6145,14 +6897,18 @@ class JobSecretOverrideArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret override.
         :param pulumi.Input[str] value: Value of the secret override.
+        :param pulumi.Input[str] description: Description of the secret override.
         :param pulumi.Input[str] id: Id of the secret override.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6179,6 +6935,18 @@ class JobSecretOverrideArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -6236,14 +7004,18 @@ class JobSourceArgs:
 class JobSourceDockerArgs:
     def __init__(__self__, *,
                  git_repository: pulumi.Input['JobSourceDockerGitRepositoryArgs'],
-                 dockerfile_path: Optional[pulumi.Input[str]] = None):
+                 dockerfile_path: Optional[pulumi.Input[str]] = None,
+                 dockerfile_raw: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['JobSourceDockerGitRepositoryArgs'] git_repository: Job's docker source git repository.
         :param pulumi.Input[str] dockerfile_path: Job's docker source dockerfile path.
+        :param pulumi.Input[str] dockerfile_raw: Inline Dockerfile to inject for building the image
         """
         pulumi.set(__self__, "git_repository", git_repository)
         if dockerfile_path is not None:
             pulumi.set(__self__, "dockerfile_path", dockerfile_path)
+        if dockerfile_raw is not None:
+            pulumi.set(__self__, "dockerfile_raw", dockerfile_raw)
 
     @property
     @pulumi.getter(name="gitRepository")
@@ -6268,6 +7040,18 @@ class JobSourceDockerArgs:
     @dockerfile_path.setter
     def dockerfile_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dockerfile_path", value)
+
+    @property
+    @pulumi.getter(name="dockerfileRaw")
+    def dockerfile_raw(self) -> Optional[pulumi.Input[str]]:
+        """
+        Inline Dockerfile to inject for building the image
+        """
+        return pulumi.get(self, "dockerfile_raw")
+
+    @dockerfile_raw.setter
+    def dockerfile_raw(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dockerfile_raw", value)
 
 
 @pulumi.input_type
@@ -6392,22 +7176,76 @@ class JobSourceImageArgs:
 
 
 @pulumi.input_type
+class LabelsGroupLabelArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 propagate_to_cloud_provider: pulumi.Input[bool],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "propagate_to_cloud_provider", propagate_to_cloud_provider)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="propagateToCloudProvider")
+    def propagate_to_cloud_provider(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "propagate_to_cloud_provider")
+
+    @propagate_to_cloud_provider.setter
+    def propagate_to_cloud_provider(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "propagate_to_cloud_provider", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ProjectBuiltInEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -6451,14 +7289,18 @@ class ProjectEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the environment variable.
         :param pulumi.Input[str] value: Value of the environment variable.
+        :param pulumi.Input[str] description: Description of the environment variable.
         :param pulumi.Input[str] id: Id of the environment variable.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6488,6 +7330,18 @@ class ProjectEnvironmentVariableArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable.
@@ -6504,14 +7358,18 @@ class ProjectEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the environment variable alias.
         :param pulumi.Input[str] value: Name of the variable to alias.
+        :param pulumi.Input[str] description: Description of the environment variable alias.
         :param pulumi.Input[str] id: Id of the environment variable alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6541,6 +7399,18 @@ class ProjectEnvironmentVariableAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the environment variable alias.
@@ -6557,14 +7427,18 @@ class ProjectSecretArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Key of the secret.
         :param pulumi.Input[str] value: Value of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
         :param pulumi.Input[str] id: Id of the secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6594,6 +7468,18 @@ class ProjectSecretArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret.
@@ -6610,14 +7496,18 @@ class ProjectSecretAliasArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: Name of the secret alias.
         :param pulumi.Input[str] value: Name of the secret to alias.
+        :param pulumi.Input[str] description: Description of the secret alias.
         :param pulumi.Input[str] id: Id of the secret alias.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -6647,6 +7537,18 @@ class ProjectSecretAliasArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of the secret alias.
@@ -6664,17 +7566,21 @@ class GetApplicationCustomDomainArgs:
                  domain: str,
                  id: str,
                  status: str,
-                 validation_domain: str):
+                 validation_domain: str,
+                 generate_certificate: Optional[bool] = None):
         """
         :param str domain: Your custom domain.
         :param str id: Id of the custom domain.
         :param str status: Status of the custom domain.
         :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "validation_domain", validation_domain)
+        if generate_certificate is not None:
+            pulumi.set(__self__, "generate_certificate", generate_certificate)
 
     @property
     @pulumi.getter
@@ -6723,6 +7629,18 @@ class GetApplicationCustomDomainArgs:
     @validation_domain.setter
     def validation_domain(self, value: str):
         pulumi.set(self, "validation_domain", value)
+
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> Optional[bool]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: Optional[bool]):
+        pulumi.set(self, "generate_certificate", value)
 
 
 @pulumi.input_type
@@ -6795,17 +7713,32 @@ class GetApplicationDeploymentRestrictionArgs:
 @pulumi.input_type
 class GetApplicationEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -6847,17 +7780,32 @@ class GetApplicationEnvironmentVariableArgs:
 @pulumi.input_type
 class GetApplicationEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable alias.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -6899,17 +7847,32 @@ class GetApplicationEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetApplicationEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable override.
         :param str id: Id of the environment variable override.
         :param str key: Name of the environment variable override.
         :param str value: Value of the environment variable override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -7628,17 +8591,32 @@ class GetApplicationHealthchecksReadinessProbeTypeTcpArgs:
 @pulumi.input_type
 class GetApplicationSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -7680,17 +8658,32 @@ class GetApplicationSecretArgs:
 @pulumi.input_type
 class GetApplicationSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret alias.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -7732,17 +8725,32 @@ class GetApplicationSecretAliasArgs:
 @pulumi.input_type
 class GetApplicationSecretOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret override.
         :param str id: Id of the secret override.
         :param str key: Name of the secret override.
         :param str value: Value of the secret override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -7857,18 +8865,22 @@ class GetClusterFeaturesArgs:
     def __init__(__self__, *,
                  static_ip: bool,
                  vpc_subnet: str,
-                 existing_vpc: Optional['GetClusterFeaturesExistingVpcArgs'] = None):
+                 existing_vpc: Optional['GetClusterFeaturesExistingVpcArgs'] = None,
+                 karpenter: Optional['GetClusterFeaturesKarpenterArgs'] = None):
         """
         :param bool static_ip: Static IP (AWS only) [NOTE: can't be updated after creation].
                	- Default: `false`.
         :param str vpc_subnet: Custom VPC subnet (AWS only) [NOTE: can't be updated after creation].
                	- Default: `10.0.0.0/16`.
         :param 'GetClusterFeaturesExistingVpcArgs' existing_vpc: Network configuration if you want to install qovery on an existing VPC
+        :param 'GetClusterFeaturesKarpenterArgs' karpenter: Karpenter parameters if you want to use Karpenter on an EKS cluster
         """
         pulumi.set(__self__, "static_ip", static_ip)
         pulumi.set(__self__, "vpc_subnet", vpc_subnet)
         if existing_vpc is not None:
             pulumi.set(__self__, "existing_vpc", existing_vpc)
+        if karpenter is not None:
+            pulumi.set(__self__, "karpenter", karpenter)
 
     @property
     @pulumi.getter(name="staticIp")
@@ -7907,6 +8919,18 @@ class GetClusterFeaturesArgs:
     @existing_vpc.setter
     def existing_vpc(self, value: Optional['GetClusterFeaturesExistingVpcArgs']):
         pulumi.set(self, "existing_vpc", value)
+
+    @property
+    @pulumi.getter
+    def karpenter(self) -> Optional['GetClusterFeaturesKarpenterArgs']:
+        """
+        Karpenter parameters if you want to use Karpenter on an EKS cluster
+        """
+        return pulumi.get(self, "karpenter")
+
+    @karpenter.setter
+    def karpenter(self, value: Optional['GetClusterFeaturesKarpenterArgs']):
+        pulumi.set(self, "karpenter", value)
 
 
 @pulumi.input_type
@@ -8112,6 +9136,54 @@ class GetClusterFeaturesExistingVpcArgs:
 
 
 @pulumi.input_type
+class GetClusterFeaturesKarpenterArgs:
+    def __init__(__self__, *,
+                 default_service_architecture: str,
+                 disk_size_in_gib: int,
+                 spot_enabled: bool):
+        """
+        :param str default_service_architecture: The default architecture of service
+        :param bool spot_enabled: Enable spot instances
+        """
+        pulumi.set(__self__, "default_service_architecture", default_service_architecture)
+        pulumi.set(__self__, "disk_size_in_gib", disk_size_in_gib)
+        pulumi.set(__self__, "spot_enabled", spot_enabled)
+
+    @property
+    @pulumi.getter(name="defaultServiceArchitecture")
+    def default_service_architecture(self) -> str:
+        """
+        The default architecture of service
+        """
+        return pulumi.get(self, "default_service_architecture")
+
+    @default_service_architecture.setter
+    def default_service_architecture(self, value: str):
+        pulumi.set(self, "default_service_architecture", value)
+
+    @property
+    @pulumi.getter(name="diskSizeInGib")
+    def disk_size_in_gib(self) -> int:
+        return pulumi.get(self, "disk_size_in_gib")
+
+    @disk_size_in_gib.setter
+    def disk_size_in_gib(self, value: int):
+        pulumi.set(self, "disk_size_in_gib", value)
+
+    @property
+    @pulumi.getter(name="spotEnabled")
+    def spot_enabled(self) -> bool:
+        """
+        Enable spot instances
+        """
+        return pulumi.get(self, "spot_enabled")
+
+    @spot_enabled.setter
+    def spot_enabled(self, value: bool):
+        pulumi.set(self, "spot_enabled", value)
+
+
+@pulumi.input_type
 class GetClusterRoutingTableArgs:
     def __init__(__self__, *,
                  description: str,
@@ -8169,17 +9241,21 @@ class GetContainerCustomDomainArgs:
                  domain: str,
                  id: str,
                  status: str,
-                 validation_domain: str):
+                 validation_domain: str,
+                 generate_certificate: Optional[bool] = None):
         """
         :param str domain: Your custom domain.
         :param str id: Id of the custom domain.
         :param str status: Status of the custom domain.
         :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "validation_domain", validation_domain)
+        if generate_certificate is not None:
+            pulumi.set(__self__, "generate_certificate", generate_certificate)
 
     @property
     @pulumi.getter
@@ -8229,21 +9305,48 @@ class GetContainerCustomDomainArgs:
     def validation_domain(self, value: str):
         pulumi.set(self, "validation_domain", value)
 
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> Optional[bool]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: Optional[bool]):
+        pulumi.set(self, "generate_certificate", value)
+
 
 @pulumi.input_type
 class GetContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -8285,17 +9388,32 @@ class GetContainerEnvironmentVariableArgs:
 @pulumi.input_type
 class GetContainerEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable alias.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -8337,17 +9455,32 @@ class GetContainerEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetContainerEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable override.
         :param str id: Id of the environment variable override.
         :param str key: Name of the environment variable override.
         :param str value: Value of the environment variable override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9188,17 +10321,32 @@ class GetContainerPortArgs:
 @pulumi.input_type
 class GetContainerSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9240,17 +10388,32 @@ class GetContainerSecretArgs:
 @pulumi.input_type
 class GetContainerSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret alias.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9292,17 +10455,32 @@ class GetContainerSecretAliasArgs:
 @pulumi.input_type
 class GetContainerSecretOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the secret override.
         :param str id: Id of the secret override.
         :param str key: Name of the secret override.
         :param str value: Value of the secret override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the secret override.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9415,17 +10593,32 @@ class GetContainerStorageArgs:
 @pulumi.input_type
 class GetEnvironmentEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9467,17 +10660,32 @@ class GetEnvironmentEnvironmentVariableArgs:
 @pulumi.input_type
 class GetEnvironmentEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9519,17 +10727,32 @@ class GetEnvironmentEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetEnvironmentEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable override.
         :param str key: Name of the environment variable override.
         :param str value: Value of the environment variable override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9571,17 +10794,32 @@ class GetEnvironmentEnvironmentVariableOverrideArgs:
 @pulumi.input_type
 class GetEnvironmentSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9623,17 +10861,32 @@ class GetEnvironmentSecretArgs:
 @pulumi.input_type
 class GetEnvironmentSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9675,17 +10928,32 @@ class GetEnvironmentSecretAliasArgs:
 @pulumi.input_type
 class GetEnvironmentSecretOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret override.
         :param str key: Name of the secret override.
         :param str value: Value of the secret override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9722,6 +10990,89 @@ class GetEnvironmentSecretOverrideArgs:
     @value.setter
     def value(self, value: str):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetHelmCustomDomainArgs:
+    def __init__(__self__, *,
+                 domain: str,
+                 id: str,
+                 status: str,
+                 validation_domain: str,
+                 generate_certificate: Optional[bool] = None):
+        """
+        :param str domain: Your custom domain.
+        :param str id: Id of the custom domain.
+        :param str status: Status of the custom domain.
+        :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "validation_domain", validation_domain)
+        if generate_certificate is not None:
+            pulumi.set(__self__, "generate_certificate", generate_certificate)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        Your custom domain.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: str):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the custom domain.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the custom domain.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: str):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> str:
+        """
+        URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+        """
+        return pulumi.get(self, "validation_domain")
+
+    @validation_domain.setter
+    def validation_domain(self, value: str):
+        pulumi.set(self, "validation_domain", value)
+
+    @property
+    @pulumi.getter(name="generateCertificate")
+    def generate_certificate(self) -> Optional[bool]:
+        """
+        Qovery will generate and manage the certificate for this domain.
+        """
+        return pulumi.get(self, "generate_certificate")
+
+    @generate_certificate.setter
+    def generate_certificate(self, value: Optional[bool]):
+        pulumi.set(self, "generate_certificate", value)
 
 
 @pulumi.input_type
@@ -9794,17 +11145,32 @@ class GetHelmDeploymentRestrictionArgs:
 @pulumi.input_type
 class GetHelmEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9846,17 +11212,32 @@ class GetHelmEnvironmentVariableArgs:
 @pulumi.input_type
 class GetHelmEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9898,17 +11279,32 @@ class GetHelmEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetHelmEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable override.
         :param str key: Name of the environment variable override.
         :param str value: Value of the environment variable override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9950,17 +11346,32 @@ class GetHelmEnvironmentVariableOverrideArgs:
 @pulumi.input_type
 class GetHelmSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -10002,17 +11413,32 @@ class GetHelmSecretArgs:
 @pulumi.input_type
 class GetHelmSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -10054,17 +11480,32 @@ class GetHelmSecretAliasArgs:
 @pulumi.input_type
 class GetHelmSecretOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret override.
         :param str key: Name of the secret override.
         :param str value: Value of the secret override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -10173,17 +11614,32 @@ class GetJobDeploymentRestrictionArgs:
 @pulumi.input_type
 class GetJobEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -10225,17 +11681,32 @@ class GetJobEnvironmentVariableArgs:
 @pulumi.input_type
 class GetJobEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -10277,17 +11748,32 @@ class GetJobEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetJobEnvironmentVariableOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable override.
         :param str key: Name of the environment variable override.
         :param str value: Value of the environment variable override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11006,17 +12492,32 @@ class GetJobHealthchecksReadinessProbeTypeTcpArgs:
 @pulumi.input_type
 class GetJobSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11058,17 +12559,32 @@ class GetJobSecretArgs:
 @pulumi.input_type
 class GetJobSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11110,17 +12626,32 @@ class GetJobSecretAliasArgs:
 @pulumi.input_type
 class GetJobSecretOverrideArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret override.
         :param str key: Name of the secret override.
         :param str value: Value of the secret override.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11200,14 +12731,18 @@ class GetJobSourceArgs:
 class GetJobSourceDockerArgs:
     def __init__(__self__, *,
                  git_repository: 'GetJobSourceDockerGitRepositoryArgs',
-                 dockerfile_path: Optional[str] = None):
+                 dockerfile_path: Optional[str] = None,
+                 dockerfile_raw: Optional[str] = None):
         """
         :param 'GetJobSourceDockerGitRepositoryArgs' git_repository: Job's docker source git repository.
         :param str dockerfile_path: Job's docker source dockerfile path.
+        :param str dockerfile_raw: Inline Dockerfile to inject for building the image
         """
         pulumi.set(__self__, "git_repository", git_repository)
         if dockerfile_path is not None:
             pulumi.set(__self__, "dockerfile_path", dockerfile_path)
+        if dockerfile_raw is not None:
+            pulumi.set(__self__, "dockerfile_raw", dockerfile_raw)
 
     @property
     @pulumi.getter(name="gitRepository")
@@ -11232,6 +12767,18 @@ class GetJobSourceDockerArgs:
     @dockerfile_path.setter
     def dockerfile_path(self, value: Optional[str]):
         pulumi.set(self, "dockerfile_path", value)
+
+    @property
+    @pulumi.getter(name="dockerfileRaw")
+    def dockerfile_raw(self) -> Optional[str]:
+        """
+        Inline Dockerfile to inject for building the image
+        """
+        return pulumi.get(self, "dockerfile_raw")
+
+    @dockerfile_raw.setter
+    def dockerfile_raw(self, value: Optional[str]):
+        pulumi.set(self, "dockerfile_raw", value)
 
 
 @pulumi.input_type
@@ -11355,19 +12902,72 @@ class GetJobSourceImageArgs:
 
 
 @pulumi.input_type
+class GetLabelsGroupLabelArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 propagate_to_cloud_provider: bool,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "propagate_to_cloud_provider", propagate_to_cloud_provider)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="propagateToCloudProvider")
+    def propagate_to_cloud_provider(self) -> bool:
+        return pulumi.get(self, "propagate_to_cloud_provider")
+
+    @propagate_to_cloud_provider.setter
+    def propagate_to_cloud_provider(self, value: bool):
+        pulumi.set(self, "propagate_to_cloud_provider", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class GetProjectEnvironmentVariableArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable.
         :param str key: Key of the environment variable.
         :param str value: Value of the environment variable.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11409,17 +13009,32 @@ class GetProjectEnvironmentVariableArgs:
 @pulumi.input_type
 class GetProjectEnvironmentVariableAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the environment variable alias.
         :param str key: Name of the environment variable alias.
         :param str value: Name of the variable to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11461,17 +13076,32 @@ class GetProjectEnvironmentVariableAliasArgs:
 @pulumi.input_type
 class GetProjectSecretArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret.
         :param str key: Key of the secret.
         :param str value: Value of the secret.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -11513,17 +13143,32 @@ class GetProjectSecretArgs:
 @pulumi.input_type
 class GetProjectSecretAliasArgs:
     def __init__(__self__, *,
+                 description: str,
                  id: str,
                  key: str,
                  value: str):
         """
+        :param str description: Description of the environment variable.
         :param str id: Id of the secret alias.
         :param str key: Name of the secret alias.
         :param str value: Name of the secret to alias.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the environment variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
