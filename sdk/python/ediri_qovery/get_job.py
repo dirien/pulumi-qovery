@@ -23,10 +23,13 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, advanced_settings_json=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, internal_host=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
+    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, internal_host=None, labels_group_ids=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids and not isinstance(annotations_group_ids, list):
+            raise TypeError("Expected argument 'annotations_group_ids' to be a list")
+        pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if auto_deploy and not isinstance(auto_deploy, bool):
             raise TypeError("Expected argument 'auto_deploy' to be a bool")
         pulumi.set(__self__, "auto_deploy", auto_deploy)
@@ -69,6 +72,9 @@ class GetJobResult:
         if internal_host and not isinstance(internal_host, str):
             raise TypeError("Expected argument 'internal_host' to be a str")
         pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids and not isinstance(labels_group_ids, list):
+            raise TypeError("Expected argument 'labels_group_ids' to be a list")
+        pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_duration_seconds and not isinstance(max_duration_seconds, int):
             raise TypeError("Expected argument 'max_duration_seconds' to be a int")
         pulumi.set(__self__, "max_duration_seconds", max_duration_seconds)
@@ -104,6 +110,11 @@ class GetJobResult:
     @pulumi.getter(name="advancedSettingsJson")
     def advanced_settings_json(self) -> str:
         return pulumi.get(self, "advanced_settings_json")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter(name="autoDeploy")
@@ -176,6 +187,11 @@ class GetJobResult:
         return pulumi.get(self, "internal_host")
 
     @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "labels_group_ids")
+
+    @property
     @pulumi.getter(name="maxDurationSeconds")
     def max_duration_seconds(self) -> int:
         return pulumi.get(self, "max_duration_seconds")
@@ -233,6 +249,7 @@ class AwaitableGetJobResult(GetJobResult):
             yield self
         return GetJobResult(
             advanced_settings_json=self.advanced_settings_json,
+            annotations_group_ids=self.annotations_group_ids,
             auto_deploy=self.auto_deploy,
             auto_preview=self.auto_preview,
             built_in_environment_variables=self.built_in_environment_variables,
@@ -247,6 +264,7 @@ class AwaitableGetJobResult(GetJobResult):
             healthchecks=self.healthchecks,
             id=self.id,
             internal_host=self.internal_host,
+            labels_group_ids=self.labels_group_ids,
             max_duration_seconds=self.max_duration_seconds,
             max_nb_restart=self.max_nb_restart,
             memory=self.memory,
@@ -260,6 +278,7 @@ class AwaitableGetJobResult(GetJobResult):
 
 
 def get_job(advanced_settings_json: Optional[str] = None,
+            annotations_group_ids: Optional[Sequence[str]] = None,
             auto_deploy: Optional[bool] = None,
             auto_preview: Optional[bool] = None,
             cpu: Optional[int] = None,
@@ -270,6 +289,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
             environment_variables: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableArgs']]] = None,
             healthchecks: Optional[pulumi.InputType['GetJobHealthchecksArgs']] = None,
             id: Optional[str] = None,
+            labels_group_ids: Optional[Sequence[str]] = None,
             max_duration_seconds: Optional[int] = None,
             max_nb_restart: Optional[int] = None,
             memory: Optional[int] = None,
@@ -294,6 +314,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
     """
     __args__ = dict()
     __args__['advancedSettingsJson'] = advanced_settings_json
+    __args__['annotationsGroupIds'] = annotations_group_ids
     __args__['autoDeploy'] = auto_deploy
     __args__['autoPreview'] = auto_preview
     __args__['cpu'] = cpu
@@ -304,6 +325,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariables'] = environment_variables
     __args__['healthchecks'] = healthchecks
     __args__['id'] = id
+    __args__['labelsGroupIds'] = labels_group_ids
     __args__['maxDurationSeconds'] = max_duration_seconds
     __args__['maxNbRestart'] = max_nb_restart
     __args__['memory'] = memory
@@ -317,6 +339,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
 
     return AwaitableGetJobResult(
         advanced_settings_json=pulumi.get(__ret__, 'advanced_settings_json'),
+        annotations_group_ids=pulumi.get(__ret__, 'annotations_group_ids'),
         auto_deploy=pulumi.get(__ret__, 'auto_deploy'),
         auto_preview=pulumi.get(__ret__, 'auto_preview'),
         built_in_environment_variables=pulumi.get(__ret__, 'built_in_environment_variables'),
@@ -331,6 +354,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
         healthchecks=pulumi.get(__ret__, 'healthchecks'),
         id=pulumi.get(__ret__, 'id'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
+        labels_group_ids=pulumi.get(__ret__, 'labels_group_ids'),
         max_duration_seconds=pulumi.get(__ret__, 'max_duration_seconds'),
         max_nb_restart=pulumi.get(__ret__, 'max_nb_restart'),
         memory=pulumi.get(__ret__, 'memory'),
@@ -345,6 +369,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
 
 @_utilities.lift_output_func(get_job)
 def get_job_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
+                   annotations_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    auto_deploy: Optional[pulumi.Input[Optional[bool]]] = None,
                    auto_preview: Optional[pulumi.Input[Optional[bool]]] = None,
                    cpu: Optional[pulumi.Input[Optional[int]]] = None,
@@ -355,6 +380,7 @@ def get_job_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]]
                    environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableArgs']]]]] = None,
                    healthchecks: Optional[pulumi.Input[Optional[pulumi.InputType['GetJobHealthchecksArgs']]]] = None,
                    id: Optional[pulumi.Input[str]] = None,
+                   labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    max_duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                    max_nb_restart: Optional[pulumi.Input[Optional[int]]] = None,
                    memory: Optional[pulumi.Input[Optional[int]]] = None,

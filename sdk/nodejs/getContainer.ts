@@ -26,6 +26,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getContainer:getContainer", {
         "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
         "arguments": args.arguments,
         "autoDeploy": args.autoDeploy,
         "autoPreview": args.autoPreview,
@@ -38,6 +39,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
         "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
         "memory": args.memory,
         "minRunningInstances": args.minRunningInstances,
@@ -54,6 +56,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetContainerArgs {
     advancedSettingsJson?: string;
+    annotationsGroupIds?: string[];
     arguments?: string[];
     autoDeploy?: boolean;
     autoPreview?: boolean;
@@ -66,6 +69,7 @@ export interface GetContainerArgs {
     environmentVariables?: inputs.GetContainerEnvironmentVariable[];
     healthchecks?: inputs.GetContainerHealthchecks;
     id: string;
+    labelsGroupIds?: string[];
     maxRunningInstances?: number;
     memory?: number;
     minRunningInstances?: number;
@@ -81,6 +85,7 @@ export interface GetContainerArgs {
  */
 export interface GetContainerResult {
     readonly advancedSettingsJson: string;
+    readonly annotationsGroupIds?: string[];
     readonly arguments?: string[];
     readonly autoDeploy: boolean;
     readonly autoPreview: boolean;
@@ -98,6 +103,7 @@ export interface GetContainerResult {
     readonly id: string;
     readonly imageName: string;
     readonly internalHost: string;
+    readonly labelsGroupIds?: string[];
     readonly maxRunningInstances: number;
     readonly memory: number;
     readonly minRunningInstances: number;
@@ -134,6 +140,7 @@ export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.I
  */
 export interface GetContainerOutputArgs {
     advancedSettingsJson?: pulumi.Input<string>;
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
     autoDeploy?: pulumi.Input<boolean>;
     autoPreview?: pulumi.Input<boolean>;
@@ -146,6 +153,7 @@ export interface GetContainerOutputArgs {
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetContainerEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetContainerHealthchecksArgs>;
     id: pulumi.Input<string>;
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;
     memory?: pulumi.Input<number>;
     minRunningInstances?: pulumi.Input<number>;

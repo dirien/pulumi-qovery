@@ -24,10 +24,12 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getDatabase:getDatabase", {
         "accessibility": args.accessibility,
+        "annotationsGroupIds": args.annotationsGroupIds,
         "cpu": args.cpu,
         "deploymentStageId": args.deploymentStageId,
         "id": args.id,
         "instanceType": args.instanceType,
+        "labelsGroupIds": args.labelsGroupIds,
         "memory": args.memory,
         "storage": args.storage,
     }, opts);
@@ -38,10 +40,12 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDatabaseArgs {
     accessibility?: string;
+    annotationsGroupIds?: string[];
     cpu?: number;
     deploymentStageId?: string;
     id: string;
     instanceType?: string;
+    labelsGroupIds?: string[];
     memory?: number;
     storage?: number;
 }
@@ -51,6 +55,7 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     readonly accessibility?: string;
+    readonly annotationsGroupIds?: string[];
     readonly cpu?: number;
     readonly deploymentStageId: string;
     readonly environmentId: string;
@@ -58,6 +63,7 @@ export interface GetDatabaseResult {
     readonly id: string;
     readonly instanceType: string;
     readonly internalHost: string;
+    readonly labelsGroupIds?: string[];
     readonly login: string;
     readonly memory?: number;
     readonly mode: string;
@@ -92,10 +98,12 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDatabaseOutputArgs {
     accessibility?: pulumi.Input<string>;
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     cpu?: pulumi.Input<number>;
     deploymentStageId?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     instanceType?: pulumi.Input<string>;
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     memory?: pulumi.Input<number>;
     storage?: pulumi.Input<number>;
 }

@@ -69,6 +69,14 @@ namespace ediri.Qovery
         [Input("advancedSettingsJson")]
         public string? AdvancedSettingsJson { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private List<string>? _annotationsGroupIds;
+        public List<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new List<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         [Input("arguments")]
         private List<string>? _arguments;
         public List<string> Arguments
@@ -130,6 +138,14 @@ namespace ediri.Qovery
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("labelsGroupIds")]
+        private List<string>? _labelsGroupIds;
+        public List<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new List<string>());
+            set => _labelsGroupIds = value;
+        }
+
         [Input("maxRunningInstances")]
         public int? MaxRunningInstances { get; set; }
 
@@ -189,6 +205,14 @@ namespace ediri.Qovery
     {
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
+
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
 
         [Input("arguments")]
         private InputList<string>? _arguments;
@@ -251,6 +275,14 @@ namespace ediri.Qovery
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
+
         [Input("maxRunningInstances")]
         public Input<int>? MaxRunningInstances { get; set; }
 
@@ -311,6 +343,7 @@ namespace ediri.Qovery
     public sealed class GetContainerResult
     {
         public readonly string AdvancedSettingsJson;
+        public readonly ImmutableArray<string> AnnotationsGroupIds;
         public readonly ImmutableArray<string> Arguments;
         public readonly bool AutoDeploy;
         public readonly bool AutoPreview;
@@ -328,6 +361,7 @@ namespace ediri.Qovery
         public readonly string Id;
         public readonly string ImageName;
         public readonly string InternalHost;
+        public readonly ImmutableArray<string> LabelsGroupIds;
         public readonly int MaxRunningInstances;
         public readonly int Memory;
         public readonly int MinRunningInstances;
@@ -343,6 +377,8 @@ namespace ediri.Qovery
         [OutputConstructor]
         private GetContainerResult(
             string advancedSettingsJson,
+
+            ImmutableArray<string> annotationsGroupIds,
 
             ImmutableArray<string> arguments,
 
@@ -378,6 +414,8 @@ namespace ediri.Qovery
 
             string internalHost,
 
+            ImmutableArray<string> labelsGroupIds,
+
             int maxRunningInstances,
 
             int memory,
@@ -401,6 +439,7 @@ namespace ediri.Qovery
             string tag)
         {
             AdvancedSettingsJson = advancedSettingsJson;
+            AnnotationsGroupIds = annotationsGroupIds;
             Arguments = arguments;
             AutoDeploy = autoDeploy;
             AutoPreview = autoPreview;
@@ -418,6 +457,7 @@ namespace ediri.Qovery
             Id = id;
             ImageName = imageName;
             InternalHost = internalHost;
+            LabelsGroupIds = labelsGroupIds;
             MaxRunningInstances = maxRunningInstances;
             Memory = memory;
             MinRunningInstances = minRunningInstances;

@@ -14,6 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -34,6 +36,8 @@ type ApplicationBuiltInEnvironmentVariableInput interface {
 }
 
 type ApplicationBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -93,6 +97,11 @@ func (o ApplicationBuiltInEnvironmentVariableOutput) ToApplicationBuiltInEnviron
 	return o
 }
 
+// Description of the environment variable.
+func (o ApplicationBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ApplicationBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -131,6 +140,8 @@ func (o ApplicationBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInpu
 type ApplicationCustomDomain struct {
 	// Your custom domain.
 	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate *bool `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id *string `pulumi:"id"`
 	// Status of the custom domain.
@@ -153,6 +164,8 @@ type ApplicationCustomDomainInput interface {
 type ApplicationCustomDomainArgs struct {
 	// Your custom domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolPtrInput `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Status of the custom domain.
@@ -215,6 +228,11 @@ func (o ApplicationCustomDomainOutput) ToApplicationCustomDomainOutputWithContex
 // Your custom domain.
 func (o ApplicationCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Qovery will generate and manage the certificate for this domain.
+func (o ApplicationCustomDomainOutput) GenerateCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationCustomDomain) *bool { return v.GenerateCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the custom domain.
@@ -377,6 +395,8 @@ func (o ApplicationDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) Ap
 }
 
 type ApplicationEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -397,6 +417,8 @@ type ApplicationEnvironmentVariableInput interface {
 }
 
 type ApplicationEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -456,6 +478,11 @@ func (o ApplicationEnvironmentVariableOutput) ToApplicationEnvironmentVariableOu
 	return o
 }
 
+// Description of the environment variable.
+func (o ApplicationEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ApplicationEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -492,6 +519,8 @@ func (o ApplicationEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Appl
 }
 
 type ApplicationEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -512,6 +541,8 @@ type ApplicationEnvironmentVariableAliasInput interface {
 }
 
 type ApplicationEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -571,6 +602,11 @@ func (o ApplicationEnvironmentVariableAliasOutput) ToApplicationEnvironmentVaria
 	return o
 }
 
+// Description of the environment variable alias.
+func (o ApplicationEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o ApplicationEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -607,6 +643,8 @@ func (o ApplicationEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ApplicationEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -627,6 +665,8 @@ type ApplicationEnvironmentVariableOverrideInput interface {
 }
 
 type ApplicationEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -684,6 +724,11 @@ func (o ApplicationEnvironmentVariableOverrideOutput) ToApplicationEnvironmentVa
 
 func (o ApplicationEnvironmentVariableOverrideOutput) ToApplicationEnvironmentVariableOverrideOutputWithContext(ctx context.Context) ApplicationEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o ApplicationEnvironmentVariableOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationEnvironmentVariableOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment variable override.
@@ -3362,6 +3407,8 @@ func (o ApplicationPortArrayOutput) Index(i pulumi.IntInput) ApplicationPortOutp
 }
 
 type ApplicationSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -3382,6 +3429,8 @@ type ApplicationSecretInput interface {
 }
 
 type ApplicationSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -3441,6 +3490,11 @@ func (o ApplicationSecretOutput) ToApplicationSecretOutputWithContext(ctx contex
 	return o
 }
 
+// Description of the secret.
+func (o ApplicationSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o ApplicationSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -3477,6 +3531,8 @@ func (o ApplicationSecretArrayOutput) Index(i pulumi.IntInput) ApplicationSecret
 }
 
 type ApplicationSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -3497,6 +3553,8 @@ type ApplicationSecretAliasInput interface {
 }
 
 type ApplicationSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -3556,6 +3614,11 @@ func (o ApplicationSecretAliasOutput) ToApplicationSecretAliasOutputWithContext(
 	return o
 }
 
+// Description of the secret alias.
+func (o ApplicationSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o ApplicationSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -3592,6 +3655,8 @@ func (o ApplicationSecretAliasArrayOutput) Index(i pulumi.IntInput) ApplicationS
 }
 
 type ApplicationSecretOverride struct {
+	// Description of the secret override.
+	Description *string `pulumi:"description"`
 	// Id of the secret override.
 	Id *string `pulumi:"id"`
 	// Name of the secret override.
@@ -3612,6 +3677,8 @@ type ApplicationSecretOverrideInput interface {
 }
 
 type ApplicationSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret override.
@@ -3669,6 +3736,11 @@ func (o ApplicationSecretOverrideOutput) ToApplicationSecretOverrideOutput() App
 
 func (o ApplicationSecretOverrideOutput) ToApplicationSecretOverrideOutputWithContext(ctx context.Context) ApplicationSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o ApplicationSecretOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSecretOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the secret override.
@@ -3839,6 +3911,8 @@ func (o ApplicationStorageArrayOutput) Index(i pulumi.IntInput) ApplicationStora
 type ClusterFeatures struct {
 	// Network configuration if you want to install qovery on an existing VPC
 	ExistingVpc *ClusterFeaturesExistingVpc `pulumi:"existingVpc"`
+	// Karpenter parameters if you want to use Karpenter on an EKS cluster
+	Karpenter *ClusterFeaturesKarpenter `pulumi:"karpenter"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp *bool `pulumi:"staticIp"`
@@ -3861,6 +3935,8 @@ type ClusterFeaturesInput interface {
 type ClusterFeaturesArgs struct {
 	// Network configuration if you want to install qovery on an existing VPC
 	ExistingVpc ClusterFeaturesExistingVpcPtrInput `pulumi:"existingVpc"`
+	// Karpenter parameters if you want to use Karpenter on an EKS cluster
+	Karpenter ClusterFeaturesKarpenterPtrInput `pulumi:"karpenter"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp pulumi.BoolPtrInput `pulumi:"staticIp"`
@@ -3951,6 +4027,11 @@ func (o ClusterFeaturesOutput) ExistingVpc() ClusterFeaturesExistingVpcPtrOutput
 	return o.ApplyT(func(v ClusterFeatures) *ClusterFeaturesExistingVpc { return v.ExistingVpc }).(ClusterFeaturesExistingVpcPtrOutput)
 }
 
+// Karpenter parameters if you want to use Karpenter on an EKS cluster
+func (o ClusterFeaturesOutput) Karpenter() ClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyT(func(v ClusterFeatures) *ClusterFeaturesKarpenter { return v.Karpenter }).(ClusterFeaturesKarpenterPtrOutput)
+}
+
 // Static IP (AWS only) [NOTE: can't be updated after creation].
 //   - Default: `false`.
 func (o ClusterFeaturesOutput) StaticIp() pulumi.BoolPtrOutput {
@@ -3995,6 +4076,16 @@ func (o ClusterFeaturesPtrOutput) ExistingVpc() ClusterFeaturesExistingVpcPtrOut
 		}
 		return v.ExistingVpc
 	}).(ClusterFeaturesExistingVpcPtrOutput)
+}
+
+// Karpenter parameters if you want to use Karpenter on an EKS cluster
+func (o ClusterFeaturesPtrOutput) Karpenter() ClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyT(func(v *ClusterFeatures) *ClusterFeaturesKarpenter {
+		if v == nil {
+			return nil
+		}
+		return v.Karpenter
+	}).(ClusterFeaturesKarpenterPtrOutput)
 }
 
 // Static IP (AWS only) [NOTE: can't be updated after creation].
@@ -4384,6 +4475,177 @@ func (o ClusterFeaturesExistingVpcPtrOutput) RdsSubnetsZoneCIds() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
+type ClusterFeaturesKarpenter struct {
+	// The default architecture of service
+	DefaultServiceArchitecture string `pulumi:"defaultServiceArchitecture"`
+	DiskSizeInGib              int    `pulumi:"diskSizeInGib"`
+	// Enable spot instances
+	SpotEnabled bool `pulumi:"spotEnabled"`
+}
+
+// ClusterFeaturesKarpenterInput is an input type that accepts ClusterFeaturesKarpenterArgs and ClusterFeaturesKarpenterOutput values.
+// You can construct a concrete instance of `ClusterFeaturesKarpenterInput` via:
+//
+//	ClusterFeaturesKarpenterArgs{...}
+type ClusterFeaturesKarpenterInput interface {
+	pulumi.Input
+
+	ToClusterFeaturesKarpenterOutput() ClusterFeaturesKarpenterOutput
+	ToClusterFeaturesKarpenterOutputWithContext(context.Context) ClusterFeaturesKarpenterOutput
+}
+
+type ClusterFeaturesKarpenterArgs struct {
+	// The default architecture of service
+	DefaultServiceArchitecture pulumi.StringInput `pulumi:"defaultServiceArchitecture"`
+	DiskSizeInGib              pulumi.IntInput    `pulumi:"diskSizeInGib"`
+	// Enable spot instances
+	SpotEnabled pulumi.BoolInput `pulumi:"spotEnabled"`
+}
+
+func (ClusterFeaturesKarpenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (i ClusterFeaturesKarpenterArgs) ToClusterFeaturesKarpenterOutput() ClusterFeaturesKarpenterOutput {
+	return i.ToClusterFeaturesKarpenterOutputWithContext(context.Background())
+}
+
+func (i ClusterFeaturesKarpenterArgs) ToClusterFeaturesKarpenterOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesKarpenterOutput)
+}
+
+func (i ClusterFeaturesKarpenterArgs) ToClusterFeaturesKarpenterPtrOutput() ClusterFeaturesKarpenterPtrOutput {
+	return i.ToClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterFeaturesKarpenterArgs) ToClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesKarpenterOutput).ToClusterFeaturesKarpenterPtrOutputWithContext(ctx)
+}
+
+// ClusterFeaturesKarpenterPtrInput is an input type that accepts ClusterFeaturesKarpenterArgs, ClusterFeaturesKarpenterPtr and ClusterFeaturesKarpenterPtrOutput values.
+// You can construct a concrete instance of `ClusterFeaturesKarpenterPtrInput` via:
+//
+//	        ClusterFeaturesKarpenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterFeaturesKarpenterPtrInput interface {
+	pulumi.Input
+
+	ToClusterFeaturesKarpenterPtrOutput() ClusterFeaturesKarpenterPtrOutput
+	ToClusterFeaturesKarpenterPtrOutputWithContext(context.Context) ClusterFeaturesKarpenterPtrOutput
+}
+
+type clusterFeaturesKarpenterPtrType ClusterFeaturesKarpenterArgs
+
+func ClusterFeaturesKarpenterPtr(v *ClusterFeaturesKarpenterArgs) ClusterFeaturesKarpenterPtrInput {
+	return (*clusterFeaturesKarpenterPtrType)(v)
+}
+
+func (*clusterFeaturesKarpenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (i *clusterFeaturesKarpenterPtrType) ToClusterFeaturesKarpenterPtrOutput() ClusterFeaturesKarpenterPtrOutput {
+	return i.ToClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterFeaturesKarpenterPtrType) ToClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFeaturesKarpenterPtrOutput)
+}
+
+type ClusterFeaturesKarpenterOutput struct{ *pulumi.OutputState }
+
+func (ClusterFeaturesKarpenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (o ClusterFeaturesKarpenterOutput) ToClusterFeaturesKarpenterOutput() ClusterFeaturesKarpenterOutput {
+	return o
+}
+
+func (o ClusterFeaturesKarpenterOutput) ToClusterFeaturesKarpenterOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterOutput {
+	return o
+}
+
+func (o ClusterFeaturesKarpenterOutput) ToClusterFeaturesKarpenterPtrOutput() ClusterFeaturesKarpenterPtrOutput {
+	return o.ToClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterFeaturesKarpenterOutput) ToClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterFeaturesKarpenter) *ClusterFeaturesKarpenter {
+		return &v
+	}).(ClusterFeaturesKarpenterPtrOutput)
+}
+
+// The default architecture of service
+func (o ClusterFeaturesKarpenterOutput) DefaultServiceArchitecture() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterFeaturesKarpenter) string { return v.DefaultServiceArchitecture }).(pulumi.StringOutput)
+}
+
+func (o ClusterFeaturesKarpenterOutput) DiskSizeInGib() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterFeaturesKarpenter) int { return v.DiskSizeInGib }).(pulumi.IntOutput)
+}
+
+// Enable spot instances
+func (o ClusterFeaturesKarpenterOutput) SpotEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterFeaturesKarpenter) bool { return v.SpotEnabled }).(pulumi.BoolOutput)
+}
+
+type ClusterFeaturesKarpenterPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterFeaturesKarpenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (o ClusterFeaturesKarpenterPtrOutput) ToClusterFeaturesKarpenterPtrOutput() ClusterFeaturesKarpenterPtrOutput {
+	return o
+}
+
+func (o ClusterFeaturesKarpenterPtrOutput) ToClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) ClusterFeaturesKarpenterPtrOutput {
+	return o
+}
+
+func (o ClusterFeaturesKarpenterPtrOutput) Elem() ClusterFeaturesKarpenterOutput {
+	return o.ApplyT(func(v *ClusterFeaturesKarpenter) ClusterFeaturesKarpenter {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterFeaturesKarpenter
+		return ret
+	}).(ClusterFeaturesKarpenterOutput)
+}
+
+// The default architecture of service
+func (o ClusterFeaturesKarpenterPtrOutput) DefaultServiceArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterFeaturesKarpenter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultServiceArchitecture
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterFeaturesKarpenterPtrOutput) DiskSizeInGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterFeaturesKarpenter) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskSizeInGib
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enable spot instances
+func (o ClusterFeaturesKarpenterPtrOutput) SpotEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterFeaturesKarpenter) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SpotEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClusterRoutingTable struct {
 	// Description of the route.
 	Description string `pulumi:"description"`
@@ -4500,6 +4762,8 @@ func (o ClusterRoutingTableArrayOutput) Index(i pulumi.IntInput) ClusterRoutingT
 }
 
 type ContainerBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -4520,6 +4784,8 @@ type ContainerBuiltInEnvironmentVariableInput interface {
 }
 
 type ContainerBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -4579,6 +4845,11 @@ func (o ContainerBuiltInEnvironmentVariableOutput) ToContainerBuiltInEnvironment
 	return o
 }
 
+// Description of the environment variable.
+func (o ContainerBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ContainerBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -4617,6 +4888,8 @@ func (o ContainerBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput)
 type ContainerCustomDomain struct {
 	// Your custom domain.
 	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate *bool `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id *string `pulumi:"id"`
 	// Status of the custom domain.
@@ -4639,6 +4912,8 @@ type ContainerCustomDomainInput interface {
 type ContainerCustomDomainArgs struct {
 	// Your custom domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolPtrInput `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Status of the custom domain.
@@ -4703,6 +4978,11 @@ func (o ContainerCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Qovery will generate and manage the certificate for this domain.
+func (o ContainerCustomDomainOutput) GenerateCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerCustomDomain) *bool { return v.GenerateCertificate }).(pulumi.BoolPtrOutput)
+}
+
 // Id of the custom domain.
 func (o ContainerCustomDomainOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -4739,6 +5019,8 @@ func (o ContainerCustomDomainArrayOutput) Index(i pulumi.IntInput) ContainerCust
 }
 
 type ContainerEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -4759,6 +5041,8 @@ type ContainerEnvironmentVariableInput interface {
 }
 
 type ContainerEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -4818,6 +5102,11 @@ func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutput
 	return o
 }
 
+// Description of the environment variable.
+func (o ContainerEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ContainerEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -4854,6 +5143,8 @@ func (o ContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Contai
 }
 
 type ContainerEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -4874,6 +5165,8 @@ type ContainerEnvironmentVariableAliasInput interface {
 }
 
 type ContainerEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -4933,6 +5226,11 @@ func (o ContainerEnvironmentVariableAliasOutput) ToContainerEnvironmentVariableA
 	return o
 }
 
+// Description of the environment variable alias.
+func (o ContainerEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o ContainerEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -4969,6 +5267,8 @@ func (o ContainerEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -4989,6 +5289,8 @@ type ContainerEnvironmentVariableOverrideInput interface {
 }
 
 type ContainerEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -5046,6 +5348,11 @@ func (o ContainerEnvironmentVariableOverrideOutput) ToContainerEnvironmentVariab
 
 func (o ContainerEnvironmentVariableOverrideOutput) ToContainerEnvironmentVariableOverrideOutputWithContext(ctx context.Context) ContainerEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o ContainerEnvironmentVariableOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEnvironmentVariableOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment variable override.
@@ -7773,6 +8080,8 @@ func (o ContainerRegistryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type ContainerSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -7793,6 +8102,8 @@ type ContainerSecretInput interface {
 }
 
 type ContainerSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -7852,6 +8163,11 @@ func (o ContainerSecretOutput) ToContainerSecretOutputWithContext(ctx context.Co
 	return o
 }
 
+// Description of the secret.
+func (o ContainerSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o ContainerSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -7888,6 +8204,8 @@ func (o ContainerSecretArrayOutput) Index(i pulumi.IntInput) ContainerSecretOutp
 }
 
 type ContainerSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -7908,6 +8226,8 @@ type ContainerSecretAliasInput interface {
 }
 
 type ContainerSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -7967,6 +8287,11 @@ func (o ContainerSecretAliasOutput) ToContainerSecretAliasOutputWithContext(ctx 
 	return o
 }
 
+// Description of the secret alias.
+func (o ContainerSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o ContainerSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8003,6 +8328,8 @@ func (o ContainerSecretAliasArrayOutput) Index(i pulumi.IntInput) ContainerSecre
 }
 
 type ContainerSecretOverride struct {
+	// Description of the secret override.
+	Description *string `pulumi:"description"`
 	// Id of the secret override.
 	Id *string `pulumi:"id"`
 	// Name of the secret override.
@@ -8023,6 +8350,8 @@ type ContainerSecretOverrideInput interface {
 }
 
 type ContainerSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret override.
@@ -8080,6 +8409,11 @@ func (o ContainerSecretOverrideOutput) ToContainerSecretOverrideOutput() Contain
 
 func (o ContainerSecretOverrideOutput) ToContainerSecretOverrideOutputWithContext(ctx context.Context) ContainerSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o ContainerSecretOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerSecretOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the secret override.
@@ -8248,6 +8582,8 @@ func (o ContainerStorageArrayOutput) Index(i pulumi.IntInput) ContainerStorageOu
 }
 
 type EnvironmentBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -8268,6 +8604,8 @@ type EnvironmentBuiltInEnvironmentVariableInput interface {
 }
 
 type EnvironmentBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -8327,6 +8665,11 @@ func (o EnvironmentBuiltInEnvironmentVariableOutput) ToEnvironmentBuiltInEnviron
 	return o
 }
 
+// Description of the environment variable.
+func (o EnvironmentBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o EnvironmentBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8363,6 +8706,8 @@ func (o EnvironmentBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInpu
 }
 
 type EnvironmentEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -8383,6 +8728,8 @@ type EnvironmentEnvironmentVariableInput interface {
 }
 
 type EnvironmentEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -8442,6 +8789,11 @@ func (o EnvironmentEnvironmentVariableOutput) ToEnvironmentEnvironmentVariableOu
 	return o
 }
 
+// Description of the environment variable.
+func (o EnvironmentEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o EnvironmentEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8478,6 +8830,8 @@ func (o EnvironmentEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Envi
 }
 
 type EnvironmentEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -8498,6 +8852,8 @@ type EnvironmentEnvironmentVariableAliasInput interface {
 }
 
 type EnvironmentEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -8557,6 +8913,11 @@ func (o EnvironmentEnvironmentVariableAliasOutput) ToEnvironmentEnvironmentVaria
 	return o
 }
 
+// Description of the environment variable alias.
+func (o EnvironmentEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o EnvironmentEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8593,6 +8954,8 @@ func (o EnvironmentEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput)
 }
 
 type EnvironmentEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -8613,6 +8976,8 @@ type EnvironmentEnvironmentVariableOverrideInput interface {
 }
 
 type EnvironmentEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -8672,6 +9037,11 @@ func (o EnvironmentEnvironmentVariableOverrideOutput) ToEnvironmentEnvironmentVa
 	return o
 }
 
+// Description of the environment variable override.
+func (o EnvironmentEnvironmentVariableOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentEnvironmentVariableOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable override.
 func (o EnvironmentEnvironmentVariableOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentEnvironmentVariableOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8708,6 +9078,8 @@ func (o EnvironmentEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInp
 }
 
 type EnvironmentSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -8728,6 +9100,8 @@ type EnvironmentSecretInput interface {
 }
 
 type EnvironmentSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -8787,6 +9161,11 @@ func (o EnvironmentSecretOutput) ToEnvironmentSecretOutputWithContext(ctx contex
 	return o
 }
 
+// Description of the secret.
+func (o EnvironmentSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o EnvironmentSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8823,6 +9202,8 @@ func (o EnvironmentSecretArrayOutput) Index(i pulumi.IntInput) EnvironmentSecret
 }
 
 type EnvironmentSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -8843,6 +9224,8 @@ type EnvironmentSecretAliasInput interface {
 }
 
 type EnvironmentSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -8902,6 +9285,11 @@ func (o EnvironmentSecretAliasOutput) ToEnvironmentSecretAliasOutputWithContext(
 	return o
 }
 
+// Description of the secret alias.
+func (o EnvironmentSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o EnvironmentSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -8938,6 +9326,8 @@ func (o EnvironmentSecretAliasArrayOutput) Index(i pulumi.IntInput) EnvironmentS
 }
 
 type EnvironmentSecretOverride struct {
+	// Description of the secret override.
+	Description *string `pulumi:"description"`
 	// Id of the secret override.
 	Id *string `pulumi:"id"`
 	// Name of the secret override.
@@ -8958,6 +9348,8 @@ type EnvironmentSecretOverrideInput interface {
 }
 
 type EnvironmentSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret override.
@@ -9017,6 +9409,11 @@ func (o EnvironmentSecretOverrideOutput) ToEnvironmentSecretOverrideOutputWithCo
 	return o
 }
 
+// Description of the secret override.
+func (o EnvironmentSecretOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentSecretOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret override.
 func (o EnvironmentSecretOverrideOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecretOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -9053,6 +9450,8 @@ func (o EnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) Environme
 }
 
 type HelmBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -9073,6 +9472,8 @@ type HelmBuiltInEnvironmentVariableInput interface {
 }
 
 type HelmBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -9132,6 +9533,11 @@ func (o HelmBuiltInEnvironmentVariableOutput) ToHelmBuiltInEnvironmentVariableOu
 	return o
 }
 
+// Description of the environment variable.
+func (o HelmBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o HelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -9165,6 +9571,139 @@ func (o HelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Helm
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmBuiltInEnvironmentVariable {
 		return vs[0].([]HelmBuiltInEnvironmentVariable)[vs[1].(int)]
 	}).(HelmBuiltInEnvironmentVariableOutput)
+}
+
+type HelmCustomDomain struct {
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate bool `pulumi:"generateCertificate"`
+	// Id of the custom domain.
+	Id *string `pulumi:"id"`
+	// Status of the custom domain.
+	Status *string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+	ValidationDomain *string `pulumi:"validationDomain"`
+}
+
+// HelmCustomDomainInput is an input type that accepts HelmCustomDomainArgs and HelmCustomDomainOutput values.
+// You can construct a concrete instance of `HelmCustomDomainInput` via:
+//
+//	HelmCustomDomainArgs{...}
+type HelmCustomDomainInput interface {
+	pulumi.Input
+
+	ToHelmCustomDomainOutput() HelmCustomDomainOutput
+	ToHelmCustomDomainOutputWithContext(context.Context) HelmCustomDomainOutput
+}
+
+type HelmCustomDomainArgs struct {
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolInput `pulumi:"generateCertificate"`
+	// Id of the custom domain.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
+}
+
+func (HelmCustomDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmCustomDomain)(nil)).Elem()
+}
+
+func (i HelmCustomDomainArgs) ToHelmCustomDomainOutput() HelmCustomDomainOutput {
+	return i.ToHelmCustomDomainOutputWithContext(context.Background())
+}
+
+func (i HelmCustomDomainArgs) ToHelmCustomDomainOutputWithContext(ctx context.Context) HelmCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmCustomDomainOutput)
+}
+
+// HelmCustomDomainArrayInput is an input type that accepts HelmCustomDomainArray and HelmCustomDomainArrayOutput values.
+// You can construct a concrete instance of `HelmCustomDomainArrayInput` via:
+//
+//	HelmCustomDomainArray{ HelmCustomDomainArgs{...} }
+type HelmCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToHelmCustomDomainArrayOutput() HelmCustomDomainArrayOutput
+	ToHelmCustomDomainArrayOutputWithContext(context.Context) HelmCustomDomainArrayOutput
+}
+
+type HelmCustomDomainArray []HelmCustomDomainInput
+
+func (HelmCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmCustomDomain)(nil)).Elem()
+}
+
+func (i HelmCustomDomainArray) ToHelmCustomDomainArrayOutput() HelmCustomDomainArrayOutput {
+	return i.ToHelmCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i HelmCustomDomainArray) ToHelmCustomDomainArrayOutputWithContext(ctx context.Context) HelmCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmCustomDomainArrayOutput)
+}
+
+type HelmCustomDomainOutput struct{ *pulumi.OutputState }
+
+func (HelmCustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmCustomDomain)(nil)).Elem()
+}
+
+func (o HelmCustomDomainOutput) ToHelmCustomDomainOutput() HelmCustomDomainOutput {
+	return o
+}
+
+func (o HelmCustomDomainOutput) ToHelmCustomDomainOutputWithContext(ctx context.Context) HelmCustomDomainOutput {
+	return o
+}
+
+// Your custom domain.
+func (o HelmCustomDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v HelmCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Qovery will generate and manage the certificate for this domain.
+func (o HelmCustomDomainOutput) GenerateCertificate() pulumi.BoolOutput {
+	return o.ApplyT(func(v HelmCustomDomain) bool { return v.GenerateCertificate }).(pulumi.BoolOutput)
+}
+
+// Id of the custom domain.
+func (o HelmCustomDomainOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmCustomDomain) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Status of the custom domain.
+func (o HelmCustomDomainOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+func (o HelmCustomDomainOutput) ValidationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmCustomDomain) *string { return v.ValidationDomain }).(pulumi.StringPtrOutput)
+}
+
+type HelmCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (HelmCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HelmCustomDomain)(nil)).Elem()
+}
+
+func (o HelmCustomDomainArrayOutput) ToHelmCustomDomainArrayOutput() HelmCustomDomainArrayOutput {
+	return o
+}
+
+func (o HelmCustomDomainArrayOutput) ToHelmCustomDomainArrayOutputWithContext(ctx context.Context) HelmCustomDomainArrayOutput {
+	return o
+}
+
+func (o HelmCustomDomainArrayOutput) Index(i pulumi.IntInput) HelmCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HelmCustomDomain {
+		return vs[0].([]HelmCustomDomain)[vs[1].(int)]
+	}).(HelmCustomDomainOutput)
 }
 
 type HelmDeploymentRestriction struct {
@@ -9292,6 +9831,8 @@ func (o HelmDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) HelmDeplo
 }
 
 type HelmEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -9312,6 +9853,8 @@ type HelmEnvironmentVariableInput interface {
 }
 
 type HelmEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -9371,6 +9914,11 @@ func (o HelmEnvironmentVariableOutput) ToHelmEnvironmentVariableOutputWithContex
 	return o
 }
 
+// Description of the environment variable.
+func (o HelmEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o HelmEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -9407,6 +9955,8 @@ func (o HelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) HelmEnviron
 }
 
 type HelmEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -9427,6 +9977,8 @@ type HelmEnvironmentVariableAliasInput interface {
 }
 
 type HelmEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -9486,6 +10038,11 @@ func (o HelmEnvironmentVariableAliasOutput) ToHelmEnvironmentVariableAliasOutput
 	return o
 }
 
+// Description of the environment variable alias.
+func (o HelmEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o HelmEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -9522,6 +10079,8 @@ func (o HelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) HelmEn
 }
 
 type HelmEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -9542,6 +10101,8 @@ type HelmEnvironmentVariableOverrideInput interface {
 }
 
 type HelmEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -9599,6 +10160,11 @@ func (o HelmEnvironmentVariableOverrideOutput) ToHelmEnvironmentVariableOverride
 
 func (o HelmEnvironmentVariableOverrideOutput) ToHelmEnvironmentVariableOverrideOutputWithContext(ctx context.Context) HelmEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o HelmEnvironmentVariableOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmEnvironmentVariableOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment variable override.
@@ -10039,6 +10605,8 @@ func (o HelmRepositoryConfigPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type HelmSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -10059,6 +10627,8 @@ type HelmSecretInput interface {
 }
 
 type HelmSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -10118,6 +10688,11 @@ func (o HelmSecretOutput) ToHelmSecretOutputWithContext(ctx context.Context) Hel
 	return o
 }
 
+// Description of the secret.
+func (o HelmSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o HelmSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -10154,6 +10729,8 @@ func (o HelmSecretArrayOutput) Index(i pulumi.IntInput) HelmSecretOutput {
 }
 
 type HelmSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -10174,6 +10751,8 @@ type HelmSecretAliasInput interface {
 }
 
 type HelmSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -10233,6 +10812,11 @@ func (o HelmSecretAliasOutput) ToHelmSecretAliasOutputWithContext(ctx context.Co
 	return o
 }
 
+// Description of the secret alias.
+func (o HelmSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o HelmSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -10269,6 +10853,8 @@ func (o HelmSecretAliasArrayOutput) Index(i pulumi.IntInput) HelmSecretAliasOutp
 }
 
 type HelmSecretOverride struct {
+	// Description of the secret override.
+	Description *string `pulumi:"description"`
 	// Id of the secret override.
 	Id *string `pulumi:"id"`
 	// Name of the secret override.
@@ -10289,6 +10875,8 @@ type HelmSecretOverrideInput interface {
 }
 
 type HelmSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret override.
@@ -10346,6 +10934,11 @@ func (o HelmSecretOverrideOutput) ToHelmSecretOverrideOutput() HelmSecretOverrid
 
 func (o HelmSecretOverrideOutput) ToHelmSecretOverrideOutputWithContext(ctx context.Context) HelmSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o HelmSecretOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmSecretOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the secret override.
@@ -10909,7 +11502,7 @@ func (o HelmSourceHelmRepositoryPtrOutput) HelmRepositoryId() pulumi.StringPtrOu
 }
 
 type HelmValuesOverride struct {
-	// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+	// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 	File      *HelmValuesOverrideFile `pulumi:"file"`
 	Set       map[string]string       `pulumi:"set"`
 	SetJson   map[string]string       `pulumi:"setJson"`
@@ -10928,7 +11521,7 @@ type HelmValuesOverrideInput interface {
 }
 
 type HelmValuesOverrideArgs struct {
-	// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+	// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 	File      HelmValuesOverrideFilePtrInput `pulumi:"file"`
 	Set       pulumi.StringMapInput          `pulumi:"set"`
 	SetJson   pulumi.StringMapInput          `pulumi:"setJson"`
@@ -11012,7 +11605,7 @@ func (o HelmValuesOverrideOutput) ToHelmValuesOverridePtrOutputWithContext(ctx c
 	}).(HelmValuesOverridePtrOutput)
 }
 
-// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 func (o HelmValuesOverrideOutput) File() HelmValuesOverrideFilePtrOutput {
 	return o.ApplyT(func(v HelmValuesOverride) *HelmValuesOverrideFile { return v.File }).(HelmValuesOverrideFilePtrOutput)
 }
@@ -11053,7 +11646,7 @@ func (o HelmValuesOverridePtrOutput) Elem() HelmValuesOverrideOutput {
 	}).(HelmValuesOverrideOutput)
 }
 
-// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
 func (o HelmValuesOverridePtrOutput) File() HelmValuesOverrideFilePtrOutput {
 	return o.ApplyT(func(v *HelmValuesOverride) *HelmValuesOverrideFile {
 		if v == nil {
@@ -11538,6 +12131,8 @@ func (o HelmValuesOverrideFileRawMapOutput) MapIndex(k pulumi.StringInput) HelmV
 }
 
 type JobBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -11558,6 +12153,8 @@ type JobBuiltInEnvironmentVariableInput interface {
 }
 
 type JobBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -11615,6 +12212,11 @@ func (o JobBuiltInEnvironmentVariableOutput) ToJobBuiltInEnvironmentVariableOutp
 
 func (o JobBuiltInEnvironmentVariableOutput) ToJobBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) JobBuiltInEnvironmentVariableOutput {
 	return o
+}
+
+// Description of the environment variable.
+func (o JobBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment variable.
@@ -11777,6 +12379,8 @@ func (o JobDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) JobDeploym
 }
 
 type JobEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -11797,6 +12401,8 @@ type JobEnvironmentVariableInput interface {
 }
 
 type JobEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -11856,6 +12462,11 @@ func (o JobEnvironmentVariableOutput) ToJobEnvironmentVariableOutputWithContext(
 	return o
 }
 
+// Description of the environment variable.
+func (o JobEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o JobEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -11892,6 +12503,8 @@ func (o JobEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) JobEnvironme
 }
 
 type JobEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -11912,6 +12525,8 @@ type JobEnvironmentVariableAliasInput interface {
 }
 
 type JobEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -11971,6 +12586,11 @@ func (o JobEnvironmentVariableAliasOutput) ToJobEnvironmentVariableAliasOutputWi
 	return o
 }
 
+// Description of the environment variable alias.
+func (o JobEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o JobEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -12007,6 +12627,8 @@ func (o JobEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) JobEnvi
 }
 
 type JobEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -12027,6 +12649,8 @@ type JobEnvironmentVariableOverrideInput interface {
 }
 
 type JobEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -12084,6 +12708,11 @@ func (o JobEnvironmentVariableOverrideOutput) ToJobEnvironmentVariableOverrideOu
 
 func (o JobEnvironmentVariableOverrideOutput) ToJobEnvironmentVariableOverrideOutputWithContext(ctx context.Context) JobEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o JobEnvironmentVariableOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobEnvironmentVariableOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the environment variable override.
@@ -14380,6 +15009,9 @@ func (o JobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOutpu
 type JobSchedule struct {
 	// Job's cron.
 	Cronjob *JobScheduleCronjob `pulumi:"cronjob"`
+	// Type of the lifecycle job.
+	// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+	LifecycleType *string `pulumi:"lifecycleType"`
 	// Job's schedule on delete.
 	OnDelete *JobScheduleOnDelete `pulumi:"onDelete"`
 	// Job's schedule on start.
@@ -14402,6 +15034,9 @@ type JobScheduleInput interface {
 type JobScheduleArgs struct {
 	// Job's cron.
 	Cronjob JobScheduleCronjobPtrInput `pulumi:"cronjob"`
+	// Type of the lifecycle job.
+	// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+	LifecycleType pulumi.StringPtrInput `pulumi:"lifecycleType"`
 	// Job's schedule on delete.
 	OnDelete JobScheduleOnDeletePtrInput `pulumi:"onDelete"`
 	// Job's schedule on start.
@@ -14492,6 +15127,12 @@ func (o JobScheduleOutput) Cronjob() JobScheduleCronjobPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleCronjob { return v.Cronjob }).(JobScheduleCronjobPtrOutput)
 }
 
+// Type of the lifecycle job.
+//   - Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+func (o JobScheduleOutput) LifecycleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSchedule) *string { return v.LifecycleType }).(pulumi.StringPtrOutput)
+}
+
 // Job's schedule on delete.
 func (o JobScheduleOutput) OnDelete() JobScheduleOnDeletePtrOutput {
 	return o.ApplyT(func(v JobSchedule) *JobScheduleOnDelete { return v.OnDelete }).(JobScheduleOnDeletePtrOutput)
@@ -14539,6 +15180,17 @@ func (o JobSchedulePtrOutput) Cronjob() JobScheduleCronjobPtrOutput {
 		}
 		return v.Cronjob
 	}).(JobScheduleCronjobPtrOutput)
+}
+
+// Type of the lifecycle job.
+//   - Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+func (o JobSchedulePtrOutput) LifecycleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Job's schedule on delete.
@@ -15352,6 +16004,8 @@ func (o JobScheduleOnStopPtrOutput) Entrypoint() pulumi.StringPtrOutput {
 }
 
 type JobSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -15372,6 +16026,8 @@ type JobSecretInput interface {
 }
 
 type JobSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -15431,6 +16087,11 @@ func (o JobSecretOutput) ToJobSecretOutputWithContext(ctx context.Context) JobSe
 	return o
 }
 
+// Description of the secret.
+func (o JobSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o JobSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -15467,6 +16128,8 @@ func (o JobSecretArrayOutput) Index(i pulumi.IntInput) JobSecretOutput {
 }
 
 type JobSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -15487,6 +16150,8 @@ type JobSecretAliasInput interface {
 }
 
 type JobSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -15546,6 +16211,11 @@ func (o JobSecretAliasOutput) ToJobSecretAliasOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Description of the secret alias.
+func (o JobSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o JobSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -15582,6 +16252,8 @@ func (o JobSecretAliasArrayOutput) Index(i pulumi.IntInput) JobSecretAliasOutput
 }
 
 type JobSecretOverride struct {
+	// Description of the secret override.
+	Description *string `pulumi:"description"`
 	// Id of the secret override.
 	Id *string `pulumi:"id"`
 	// Name of the secret override.
@@ -15602,6 +16274,8 @@ type JobSecretOverrideInput interface {
 }
 
 type JobSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret override.
@@ -15659,6 +16333,11 @@ func (o JobSecretOverrideOutput) ToJobSecretOverrideOutput() JobSecretOverrideOu
 
 func (o JobSecretOverrideOutput) ToJobSecretOverrideOutputWithContext(ctx context.Context) JobSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o JobSecretOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSecretOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Id of the secret override.
@@ -15855,6 +16534,8 @@ func (o JobSourcePtrOutput) Image() JobSourceImagePtrOutput {
 type JobSourceDocker struct {
 	// Job's docker source dockerfile path.
 	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Inline Dockerfile to inject for building the image
+	DockerfileRaw *string `pulumi:"dockerfileRaw"`
 	// Job's docker source git repository.
 	GitRepository JobSourceDockerGitRepository `pulumi:"gitRepository"`
 }
@@ -15873,6 +16554,8 @@ type JobSourceDockerInput interface {
 type JobSourceDockerArgs struct {
 	// Job's docker source dockerfile path.
 	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+	// Inline Dockerfile to inject for building the image
+	DockerfileRaw pulumi.StringPtrInput `pulumi:"dockerfileRaw"`
 	// Job's docker source git repository.
 	GitRepository JobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
 }
@@ -15959,6 +16642,11 @@ func (o JobSourceDockerOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceDocker) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
 }
 
+// Inline Dockerfile to inject for building the image
+func (o JobSourceDockerOutput) DockerfileRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceDocker) *string { return v.DockerfileRaw }).(pulumi.StringPtrOutput)
+}
+
 // Job's docker source git repository.
 func (o JobSourceDockerOutput) GitRepository() JobSourceDockerGitRepositoryOutput {
 	return o.ApplyT(func(v JobSourceDocker) JobSourceDockerGitRepository { return v.GitRepository }).(JobSourceDockerGitRepositoryOutput)
@@ -15995,6 +16683,16 @@ func (o JobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.DockerfilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Inline Dockerfile to inject for building the image
+func (o JobSourceDockerPtrOutput) DockerfileRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceDocker) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DockerfileRaw
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16377,7 +17075,115 @@ func (o JobSourceImagePtrOutput) Tag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LabelsGroupLabel struct {
+	Key                      string `pulumi:"key"`
+	PropagateToCloudProvider bool   `pulumi:"propagateToCloudProvider"`
+	Value                    string `pulumi:"value"`
+}
+
+// LabelsGroupLabelInput is an input type that accepts LabelsGroupLabelArgs and LabelsGroupLabelOutput values.
+// You can construct a concrete instance of `LabelsGroupLabelInput` via:
+//
+//	LabelsGroupLabelArgs{...}
+type LabelsGroupLabelInput interface {
+	pulumi.Input
+
+	ToLabelsGroupLabelOutput() LabelsGroupLabelOutput
+	ToLabelsGroupLabelOutputWithContext(context.Context) LabelsGroupLabelOutput
+}
+
+type LabelsGroupLabelArgs struct {
+	Key                      pulumi.StringInput `pulumi:"key"`
+	PropagateToCloudProvider pulumi.BoolInput   `pulumi:"propagateToCloudProvider"`
+	Value                    pulumi.StringInput `pulumi:"value"`
+}
+
+func (LabelsGroupLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelsGroupLabel)(nil)).Elem()
+}
+
+func (i LabelsGroupLabelArgs) ToLabelsGroupLabelOutput() LabelsGroupLabelOutput {
+	return i.ToLabelsGroupLabelOutputWithContext(context.Background())
+}
+
+func (i LabelsGroupLabelArgs) ToLabelsGroupLabelOutputWithContext(ctx context.Context) LabelsGroupLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelsGroupLabelOutput)
+}
+
+// LabelsGroupLabelArrayInput is an input type that accepts LabelsGroupLabelArray and LabelsGroupLabelArrayOutput values.
+// You can construct a concrete instance of `LabelsGroupLabelArrayInput` via:
+//
+//	LabelsGroupLabelArray{ LabelsGroupLabelArgs{...} }
+type LabelsGroupLabelArrayInput interface {
+	pulumi.Input
+
+	ToLabelsGroupLabelArrayOutput() LabelsGroupLabelArrayOutput
+	ToLabelsGroupLabelArrayOutputWithContext(context.Context) LabelsGroupLabelArrayOutput
+}
+
+type LabelsGroupLabelArray []LabelsGroupLabelInput
+
+func (LabelsGroupLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelsGroupLabel)(nil)).Elem()
+}
+
+func (i LabelsGroupLabelArray) ToLabelsGroupLabelArrayOutput() LabelsGroupLabelArrayOutput {
+	return i.ToLabelsGroupLabelArrayOutputWithContext(context.Background())
+}
+
+func (i LabelsGroupLabelArray) ToLabelsGroupLabelArrayOutputWithContext(ctx context.Context) LabelsGroupLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelsGroupLabelArrayOutput)
+}
+
+type LabelsGroupLabelOutput struct{ *pulumi.OutputState }
+
+func (LabelsGroupLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelsGroupLabel)(nil)).Elem()
+}
+
+func (o LabelsGroupLabelOutput) ToLabelsGroupLabelOutput() LabelsGroupLabelOutput {
+	return o
+}
+
+func (o LabelsGroupLabelOutput) ToLabelsGroupLabelOutputWithContext(ctx context.Context) LabelsGroupLabelOutput {
+	return o
+}
+
+func (o LabelsGroupLabelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelsGroupLabel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o LabelsGroupLabelOutput) PropagateToCloudProvider() pulumi.BoolOutput {
+	return o.ApplyT(func(v LabelsGroupLabel) bool { return v.PropagateToCloudProvider }).(pulumi.BoolOutput)
+}
+
+func (o LabelsGroupLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelsGroupLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LabelsGroupLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (LabelsGroupLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelsGroupLabel)(nil)).Elem()
+}
+
+func (o LabelsGroupLabelArrayOutput) ToLabelsGroupLabelArrayOutput() LabelsGroupLabelArrayOutput {
+	return o
+}
+
+func (o LabelsGroupLabelArrayOutput) ToLabelsGroupLabelArrayOutputWithContext(ctx context.Context) LabelsGroupLabelArrayOutput {
+	return o
+}
+
+func (o LabelsGroupLabelArrayOutput) Index(i pulumi.IntInput) LabelsGroupLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabelsGroupLabel {
+		return vs[0].([]LabelsGroupLabel)[vs[1].(int)]
+	}).(LabelsGroupLabelOutput)
+}
+
 type ProjectBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -16398,6 +17204,8 @@ type ProjectBuiltInEnvironmentVariableInput interface {
 }
 
 type ProjectBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -16457,6 +17265,11 @@ func (o ProjectBuiltInEnvironmentVariableOutput) ToProjectBuiltInEnvironmentVari
 	return o
 }
 
+// Description of the environment variable.
+func (o ProjectBuiltInEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuiltInEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ProjectBuiltInEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectBuiltInEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -16493,6 +17306,8 @@ func (o ProjectBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type ProjectEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable.
 	Id *string `pulumi:"id"`
 	// Key of the environment variable.
@@ -16513,6 +17328,8 @@ type ProjectEnvironmentVariableInput interface {
 }
 
 type ProjectEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -16572,6 +17389,11 @@ func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutputWith
 	return o
 }
 
+// Description of the environment variable.
+func (o ProjectEnvironmentVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable.
 func (o ProjectEnvironmentVariableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -16608,6 +17430,8 @@ func (o ProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ProjectE
 }
 
 type ProjectEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description *string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id *string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -16628,6 +17452,8 @@ type ProjectEnvironmentVariableAliasInput interface {
 }
 
 type ProjectEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -16687,6 +17513,11 @@ func (o ProjectEnvironmentVariableAliasOutput) ToProjectEnvironmentVariableAlias
 	return o
 }
 
+// Description of the environment variable alias.
+func (o ProjectEnvironmentVariableAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariableAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the environment variable alias.
 func (o ProjectEnvironmentVariableAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentVariableAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -16723,6 +17554,8 @@ func (o ProjectEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) Pro
 }
 
 type ProjectSecret struct {
+	// Description of the secret.
+	Description *string `pulumi:"description"`
 	// Id of the secret.
 	Id *string `pulumi:"id"`
 	// Key of the secret.
@@ -16743,6 +17576,8 @@ type ProjectSecretInput interface {
 }
 
 type ProjectSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Key of the secret.
@@ -16802,6 +17637,11 @@ func (o ProjectSecretOutput) ToProjectSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Description of the secret.
+func (o ProjectSecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSecret) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret.
 func (o ProjectSecretOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecret) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -16838,6 +17678,8 @@ func (o ProjectSecretArrayOutput) Index(i pulumi.IntInput) ProjectSecretOutput {
 }
 
 type ProjectSecretAlias struct {
+	// Description of the secret alias.
+	Description *string `pulumi:"description"`
 	// Id of the secret alias.
 	Id *string `pulumi:"id"`
 	// Name of the secret alias.
@@ -16858,6 +17700,8 @@ type ProjectSecretAliasInput interface {
 }
 
 type ProjectSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -16917,6 +17761,11 @@ func (o ProjectSecretAliasOutput) ToProjectSecretAliasOutputWithContext(ctx cont
 	return o
 }
 
+// Description of the secret alias.
+func (o ProjectSecretAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSecretAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Id of the secret alias.
 func (o ProjectSecretAliasOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecretAlias) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -16953,6 +17802,8 @@ func (o ProjectSecretAliasArrayOutput) Index(i pulumi.IntInput) ProjectSecretAli
 }
 
 type GetApplicationBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -16973,6 +17824,8 @@ type GetApplicationBuiltInEnvironmentVariableInput interface {
 }
 
 type GetApplicationBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -17032,6 +17885,11 @@ func (o GetApplicationBuiltInEnvironmentVariableOutput) ToGetApplicationBuiltInE
 	return o
 }
 
+// Description of the environment variable.
+func (o GetApplicationBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetApplicationBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -17070,6 +17928,8 @@ func (o GetApplicationBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntI
 type GetApplicationCustomDomain struct {
 	// Your custom domain.
 	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate *bool `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id string `pulumi:"id"`
 	// Status of the custom domain.
@@ -17092,6 +17952,8 @@ type GetApplicationCustomDomainInput interface {
 type GetApplicationCustomDomainArgs struct {
 	// Your custom domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolPtrInput `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Status of the custom domain.
@@ -17154,6 +18016,11 @@ func (o GetApplicationCustomDomainOutput) ToGetApplicationCustomDomainOutputWith
 // Your custom domain.
 func (o GetApplicationCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Qovery will generate and manage the certificate for this domain.
+func (o GetApplicationCustomDomainOutput) GenerateCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetApplicationCustomDomain) *bool { return v.GenerateCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the custom domain.
@@ -17316,6 +18183,8 @@ func (o GetApplicationDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetApplicationEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -17336,6 +18205,8 @@ type GetApplicationEnvironmentVariableInput interface {
 }
 
 type GetApplicationEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -17395,6 +18266,11 @@ func (o GetApplicationEnvironmentVariableOutput) ToGetApplicationEnvironmentVari
 	return o
 }
 
+// Description of the environment variable.
+func (o GetApplicationEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetApplicationEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -17431,6 +18307,8 @@ func (o GetApplicationEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetApplicationEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -17451,6 +18329,8 @@ type GetApplicationEnvironmentVariableAliasInput interface {
 }
 
 type GetApplicationEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -17510,6 +18390,11 @@ func (o GetApplicationEnvironmentVariableAliasOutput) ToGetApplicationEnvironmen
 	return o
 }
 
+// Description of the environment variable alias.
+func (o GetApplicationEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetApplicationEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -17546,6 +18431,8 @@ func (o GetApplicationEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetApplicationEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -17566,6 +18453,8 @@ type GetApplicationEnvironmentVariableOverrideInput interface {
 }
 
 type GetApplicationEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -17623,6 +18512,11 @@ func (o GetApplicationEnvironmentVariableOverrideOutput) ToGetApplicationEnviron
 
 func (o GetApplicationEnvironmentVariableOverrideOutput) ToGetApplicationEnvironmentVariableOverrideOutputWithContext(ctx context.Context) GetApplicationEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o GetApplicationEnvironmentVariableOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationEnvironmentVariableOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the environment variable override.
@@ -20188,6 +21082,8 @@ func (o GetApplicationPortArrayOutput) Index(i pulumi.IntInput) GetApplicationPo
 }
 
 type GetApplicationSecret struct {
+	// Description of the secret.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -20208,6 +21104,8 @@ type GetApplicationSecretInput interface {
 }
 
 type GetApplicationSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -20267,6 +21165,11 @@ func (o GetApplicationSecretOutput) ToGetApplicationSecretOutputWithContext(ctx 
 	return o
 }
 
+// Description of the secret.
+func (o GetApplicationSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetApplicationSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -20303,6 +21206,8 @@ func (o GetApplicationSecretArrayOutput) Index(i pulumi.IntInput) GetApplication
 }
 
 type GetApplicationSecretAlias struct {
+	// Description of the secret alias.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -20323,6 +21228,8 @@ type GetApplicationSecretAliasInput interface {
 }
 
 type GetApplicationSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -20382,6 +21289,11 @@ func (o GetApplicationSecretAliasOutput) ToGetApplicationSecretAliasOutputWithCo
 	return o
 }
 
+// Description of the secret alias.
+func (o GetApplicationSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSecretAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret alias.
 func (o GetApplicationSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationSecretAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -20418,6 +21330,8 @@ func (o GetApplicationSecretAliasArrayOutput) Index(i pulumi.IntInput) GetApplic
 }
 
 type GetApplicationSecretOverride struct {
+	// Description of the secret override.
+	Description string `pulumi:"description"`
 	// Id of the secret override.
 	Id string `pulumi:"id"`
 	// Name of the secret override.
@@ -20438,6 +21352,8 @@ type GetApplicationSecretOverrideInput interface {
 }
 
 type GetApplicationSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret override.
@@ -20495,6 +21411,11 @@ func (o GetApplicationSecretOverrideOutput) ToGetApplicationSecretOverrideOutput
 
 func (o GetApplicationSecretOverrideOutput) ToGetApplicationSecretOverrideOutputWithContext(ctx context.Context) GetApplicationSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o GetApplicationSecretOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSecretOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the secret override.
@@ -20665,6 +21586,8 @@ func (o GetApplicationStorageArrayOutput) Index(i pulumi.IntInput) GetApplicatio
 type GetClusterFeatures struct {
 	// Network configuration if you want to install qovery on an existing VPC
 	ExistingVpc *GetClusterFeaturesExistingVpc `pulumi:"existingVpc"`
+	// Karpenter parameters if you want to use Karpenter on an EKS cluster
+	Karpenter *GetClusterFeaturesKarpenter `pulumi:"karpenter"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp bool `pulumi:"staticIp"`
@@ -20687,6 +21610,8 @@ type GetClusterFeaturesInput interface {
 type GetClusterFeaturesArgs struct {
 	// Network configuration if you want to install qovery on an existing VPC
 	ExistingVpc GetClusterFeaturesExistingVpcPtrInput `pulumi:"existingVpc"`
+	// Karpenter parameters if you want to use Karpenter on an EKS cluster
+	Karpenter GetClusterFeaturesKarpenterPtrInput `pulumi:"karpenter"`
 	// Static IP (AWS only) [NOTE: can't be updated after creation].
 	// 	- Default: `false`.
 	StaticIp pulumi.BoolInput `pulumi:"staticIp"`
@@ -20777,6 +21702,11 @@ func (o GetClusterFeaturesOutput) ExistingVpc() GetClusterFeaturesExistingVpcPtr
 	return o.ApplyT(func(v GetClusterFeatures) *GetClusterFeaturesExistingVpc { return v.ExistingVpc }).(GetClusterFeaturesExistingVpcPtrOutput)
 }
 
+// Karpenter parameters if you want to use Karpenter on an EKS cluster
+func (o GetClusterFeaturesOutput) Karpenter() GetClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyT(func(v GetClusterFeatures) *GetClusterFeaturesKarpenter { return v.Karpenter }).(GetClusterFeaturesKarpenterPtrOutput)
+}
+
 // Static IP (AWS only) [NOTE: can't be updated after creation].
 //   - Default: `false`.
 func (o GetClusterFeaturesOutput) StaticIp() pulumi.BoolOutput {
@@ -20821,6 +21751,16 @@ func (o GetClusterFeaturesPtrOutput) ExistingVpc() GetClusterFeaturesExistingVpc
 		}
 		return v.ExistingVpc
 	}).(GetClusterFeaturesExistingVpcPtrOutput)
+}
+
+// Karpenter parameters if you want to use Karpenter on an EKS cluster
+func (o GetClusterFeaturesPtrOutput) Karpenter() GetClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeatures) *GetClusterFeaturesKarpenter {
+		if v == nil {
+			return nil
+		}
+		return v.Karpenter
+	}).(GetClusterFeaturesKarpenterPtrOutput)
 }
 
 // Static IP (AWS only) [NOTE: can't be updated after creation].
@@ -21210,6 +22150,177 @@ func (o GetClusterFeaturesExistingVpcPtrOutput) RdsSubnetsZoneCIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetClusterFeaturesKarpenter struct {
+	// The default architecture of service
+	DefaultServiceArchitecture string `pulumi:"defaultServiceArchitecture"`
+	DiskSizeInGib              int    `pulumi:"diskSizeInGib"`
+	// Enable spot instances
+	SpotEnabled bool `pulumi:"spotEnabled"`
+}
+
+// GetClusterFeaturesKarpenterInput is an input type that accepts GetClusterFeaturesKarpenterArgs and GetClusterFeaturesKarpenterOutput values.
+// You can construct a concrete instance of `GetClusterFeaturesKarpenterInput` via:
+//
+//	GetClusterFeaturesKarpenterArgs{...}
+type GetClusterFeaturesKarpenterInput interface {
+	pulumi.Input
+
+	ToGetClusterFeaturesKarpenterOutput() GetClusterFeaturesKarpenterOutput
+	ToGetClusterFeaturesKarpenterOutputWithContext(context.Context) GetClusterFeaturesKarpenterOutput
+}
+
+type GetClusterFeaturesKarpenterArgs struct {
+	// The default architecture of service
+	DefaultServiceArchitecture pulumi.StringInput `pulumi:"defaultServiceArchitecture"`
+	DiskSizeInGib              pulumi.IntInput    `pulumi:"diskSizeInGib"`
+	// Enable spot instances
+	SpotEnabled pulumi.BoolInput `pulumi:"spotEnabled"`
+}
+
+func (GetClusterFeaturesKarpenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (i GetClusterFeaturesKarpenterArgs) ToGetClusterFeaturesKarpenterOutput() GetClusterFeaturesKarpenterOutput {
+	return i.ToGetClusterFeaturesKarpenterOutputWithContext(context.Background())
+}
+
+func (i GetClusterFeaturesKarpenterArgs) ToGetClusterFeaturesKarpenterOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesKarpenterOutput)
+}
+
+func (i GetClusterFeaturesKarpenterArgs) ToGetClusterFeaturesKarpenterPtrOutput() GetClusterFeaturesKarpenterPtrOutput {
+	return i.ToGetClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (i GetClusterFeaturesKarpenterArgs) ToGetClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesKarpenterOutput).ToGetClusterFeaturesKarpenterPtrOutputWithContext(ctx)
+}
+
+// GetClusterFeaturesKarpenterPtrInput is an input type that accepts GetClusterFeaturesKarpenterArgs, GetClusterFeaturesKarpenterPtr and GetClusterFeaturesKarpenterPtrOutput values.
+// You can construct a concrete instance of `GetClusterFeaturesKarpenterPtrInput` via:
+//
+//	        GetClusterFeaturesKarpenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetClusterFeaturesKarpenterPtrInput interface {
+	pulumi.Input
+
+	ToGetClusterFeaturesKarpenterPtrOutput() GetClusterFeaturesKarpenterPtrOutput
+	ToGetClusterFeaturesKarpenterPtrOutputWithContext(context.Context) GetClusterFeaturesKarpenterPtrOutput
+}
+
+type getClusterFeaturesKarpenterPtrType GetClusterFeaturesKarpenterArgs
+
+func GetClusterFeaturesKarpenterPtr(v *GetClusterFeaturesKarpenterArgs) GetClusterFeaturesKarpenterPtrInput {
+	return (*getClusterFeaturesKarpenterPtrType)(v)
+}
+
+func (*getClusterFeaturesKarpenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (i *getClusterFeaturesKarpenterPtrType) ToGetClusterFeaturesKarpenterPtrOutput() GetClusterFeaturesKarpenterPtrOutput {
+	return i.ToGetClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (i *getClusterFeaturesKarpenterPtrType) ToGetClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterFeaturesKarpenterPtrOutput)
+}
+
+type GetClusterFeaturesKarpenterOutput struct{ *pulumi.OutputState }
+
+func (GetClusterFeaturesKarpenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (o GetClusterFeaturesKarpenterOutput) ToGetClusterFeaturesKarpenterOutput() GetClusterFeaturesKarpenterOutput {
+	return o
+}
+
+func (o GetClusterFeaturesKarpenterOutput) ToGetClusterFeaturesKarpenterOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterOutput {
+	return o
+}
+
+func (o GetClusterFeaturesKarpenterOutput) ToGetClusterFeaturesKarpenterPtrOutput() GetClusterFeaturesKarpenterPtrOutput {
+	return o.ToGetClusterFeaturesKarpenterPtrOutputWithContext(context.Background())
+}
+
+func (o GetClusterFeaturesKarpenterOutput) ToGetClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetClusterFeaturesKarpenter) *GetClusterFeaturesKarpenter {
+		return &v
+	}).(GetClusterFeaturesKarpenterPtrOutput)
+}
+
+// The default architecture of service
+func (o GetClusterFeaturesKarpenterOutput) DefaultServiceArchitecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterFeaturesKarpenter) string { return v.DefaultServiceArchitecture }).(pulumi.StringOutput)
+}
+
+func (o GetClusterFeaturesKarpenterOutput) DiskSizeInGib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterFeaturesKarpenter) int { return v.DiskSizeInGib }).(pulumi.IntOutput)
+}
+
+// Enable spot instances
+func (o GetClusterFeaturesKarpenterOutput) SpotEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterFeaturesKarpenter) bool { return v.SpotEnabled }).(pulumi.BoolOutput)
+}
+
+type GetClusterFeaturesKarpenterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetClusterFeaturesKarpenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterFeaturesKarpenter)(nil)).Elem()
+}
+
+func (o GetClusterFeaturesKarpenterPtrOutput) ToGetClusterFeaturesKarpenterPtrOutput() GetClusterFeaturesKarpenterPtrOutput {
+	return o
+}
+
+func (o GetClusterFeaturesKarpenterPtrOutput) ToGetClusterFeaturesKarpenterPtrOutputWithContext(ctx context.Context) GetClusterFeaturesKarpenterPtrOutput {
+	return o
+}
+
+func (o GetClusterFeaturesKarpenterPtrOutput) Elem() GetClusterFeaturesKarpenterOutput {
+	return o.ApplyT(func(v *GetClusterFeaturesKarpenter) GetClusterFeaturesKarpenter {
+		if v != nil {
+			return *v
+		}
+		var ret GetClusterFeaturesKarpenter
+		return ret
+	}).(GetClusterFeaturesKarpenterOutput)
+}
+
+// The default architecture of service
+func (o GetClusterFeaturesKarpenterPtrOutput) DefaultServiceArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeaturesKarpenter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultServiceArchitecture
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetClusterFeaturesKarpenterPtrOutput) DiskSizeInGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeaturesKarpenter) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskSizeInGib
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enable spot instances
+func (o GetClusterFeaturesKarpenterPtrOutput) SpotEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetClusterFeaturesKarpenter) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SpotEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetClusterRoutingTable struct {
 	// Description of the route.
 	Description string `pulumi:"description"`
@@ -21326,6 +22437,8 @@ func (o GetClusterRoutingTableArrayOutput) Index(i pulumi.IntInput) GetClusterRo
 }
 
 type GetContainerBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -21346,6 +22459,8 @@ type GetContainerBuiltInEnvironmentVariableInput interface {
 }
 
 type GetContainerBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -21405,6 +22520,11 @@ func (o GetContainerBuiltInEnvironmentVariableOutput) ToGetContainerBuiltInEnvir
 	return o
 }
 
+// Description of the environment variable.
+func (o GetContainerBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetContainerBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -21443,6 +22563,8 @@ func (o GetContainerBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInp
 type GetContainerCustomDomain struct {
 	// Your custom domain.
 	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate *bool `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id string `pulumi:"id"`
 	// Status of the custom domain.
@@ -21465,6 +22587,8 @@ type GetContainerCustomDomainInput interface {
 type GetContainerCustomDomainArgs struct {
 	// Your custom domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolPtrInput `pulumi:"generateCertificate"`
 	// Id of the custom domain.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Status of the custom domain.
@@ -21529,6 +22653,11 @@ func (o GetContainerCustomDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Qovery will generate and manage the certificate for this domain.
+func (o GetContainerCustomDomainOutput) GenerateCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetContainerCustomDomain) *bool { return v.GenerateCertificate }).(pulumi.BoolPtrOutput)
+}
+
 // Id of the custom domain.
 func (o GetContainerCustomDomainOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Id }).(pulumi.StringOutput)
@@ -21565,6 +22694,8 @@ func (o GetContainerCustomDomainArrayOutput) Index(i pulumi.IntInput) GetContain
 }
 
 type GetContainerEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -21585,6 +22716,8 @@ type GetContainerEnvironmentVariableInput interface {
 }
 
 type GetContainerEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -21644,6 +22777,11 @@ func (o GetContainerEnvironmentVariableOutput) ToGetContainerEnvironmentVariable
 	return o
 }
 
+// Description of the environment variable.
+func (o GetContainerEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetContainerEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -21680,6 +22818,8 @@ func (o GetContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetContainerEnvironmentVariableAlias struct {
+	// Description of the environment variable alias.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -21700,6 +22840,8 @@ type GetContainerEnvironmentVariableAliasInput interface {
 }
 
 type GetContainerEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable alias.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -21759,6 +22901,11 @@ func (o GetContainerEnvironmentVariableAliasOutput) ToGetContainerEnvironmentVar
 	return o
 }
 
+// Description of the environment variable alias.
+func (o GetContainerEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetContainerEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -21795,6 +22942,8 @@ func (o GetContainerEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetContainerEnvironmentVariableOverride struct {
+	// Description of the environment variable override.
+	Description string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -21815,6 +22964,8 @@ type GetContainerEnvironmentVariableOverrideInput interface {
 }
 
 type GetContainerEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable override.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -21872,6 +23023,11 @@ func (o GetContainerEnvironmentVariableOverrideOutput) ToGetContainerEnvironment
 
 func (o GetContainerEnvironmentVariableOverrideOutput) ToGetContainerEnvironmentVariableOverrideOutputWithContext(ctx context.Context) GetContainerEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable override.
+func (o GetContainerEnvironmentVariableOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerEnvironmentVariableOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the environment variable override.
@@ -24350,6 +25506,8 @@ func (o GetContainerPortArrayOutput) Index(i pulumi.IntInput) GetContainerPortOu
 }
 
 type GetContainerSecret struct {
+	// Description of the secret.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -24370,6 +25528,8 @@ type GetContainerSecretInput interface {
 }
 
 type GetContainerSecretArgs struct {
+	// Description of the secret.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -24429,6 +25589,11 @@ func (o GetContainerSecretOutput) ToGetContainerSecretOutputWithContext(ctx cont
 	return o
 }
 
+// Description of the secret.
+func (o GetContainerSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetContainerSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -24465,6 +25630,8 @@ func (o GetContainerSecretArrayOutput) Index(i pulumi.IntInput) GetContainerSecr
 }
 
 type GetContainerSecretAlias struct {
+	// Description of the secret alias.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -24485,6 +25652,8 @@ type GetContainerSecretAliasInput interface {
 }
 
 type GetContainerSecretAliasArgs struct {
+	// Description of the secret alias.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -24544,6 +25713,11 @@ func (o GetContainerSecretAliasOutput) ToGetContainerSecretAliasOutputWithContex
 	return o
 }
 
+// Description of the secret alias.
+func (o GetContainerSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerSecretAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret alias.
 func (o GetContainerSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerSecretAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -24580,6 +25754,8 @@ func (o GetContainerSecretAliasArrayOutput) Index(i pulumi.IntInput) GetContaine
 }
 
 type GetContainerSecretOverride struct {
+	// Description of the secret override.
+	Description string `pulumi:"description"`
 	// Id of the secret override.
 	Id string `pulumi:"id"`
 	// Name of the secret override.
@@ -24600,6 +25776,8 @@ type GetContainerSecretOverrideInput interface {
 }
 
 type GetContainerSecretOverrideArgs struct {
+	// Description of the secret override.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret override.
@@ -24657,6 +25835,11 @@ func (o GetContainerSecretOverrideOutput) ToGetContainerSecretOverrideOutput() G
 
 func (o GetContainerSecretOverrideOutput) ToGetContainerSecretOverrideOutputWithContext(ctx context.Context) GetContainerSecretOverrideOutput {
 	return o
+}
+
+// Description of the secret override.
+func (o GetContainerSecretOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerSecretOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the secret override.
@@ -24825,6 +26008,8 @@ func (o GetContainerStorageArrayOutput) Index(i pulumi.IntInput) GetContainerSto
 }
 
 type GetEnvironmentBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -24845,6 +26030,8 @@ type GetEnvironmentBuiltInEnvironmentVariableInput interface {
 }
 
 type GetEnvironmentBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -24904,6 +26091,11 @@ func (o GetEnvironmentBuiltInEnvironmentVariableOutput) ToGetEnvironmentBuiltInE
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetEnvironmentBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -24940,6 +26132,8 @@ func (o GetEnvironmentBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntI
 }
 
 type GetEnvironmentEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -24960,6 +26154,8 @@ type GetEnvironmentEnvironmentVariableInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -25019,6 +26215,11 @@ func (o GetEnvironmentEnvironmentVariableOutput) ToGetEnvironmentEnvironmentVari
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetEnvironmentEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -25055,6 +26256,8 @@ func (o GetEnvironmentEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetEnvironmentEnvironmentVariableAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -25075,6 +26278,8 @@ type GetEnvironmentEnvironmentVariableAliasInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -25134,6 +26339,11 @@ func (o GetEnvironmentEnvironmentVariableAliasOutput) ToGetEnvironmentEnvironmen
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetEnvironmentEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -25170,6 +26380,8 @@ func (o GetEnvironmentEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetEnvironmentEnvironmentVariableOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -25190,6 +26402,8 @@ type GetEnvironmentEnvironmentVariableOverrideInput interface {
 }
 
 type GetEnvironmentEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -25249,6 +26463,11 @@ func (o GetEnvironmentEnvironmentVariableOverrideOutput) ToGetEnvironmentEnviron
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentEnvironmentVariableOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableOverride) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable override.
 func (o GetEnvironmentEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
@@ -25285,6 +26504,8 @@ func (o GetEnvironmentEnvironmentVariableOverrideArrayOutput) Index(i pulumi.Int
 }
 
 type GetEnvironmentSecret struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -25305,6 +26526,8 @@ type GetEnvironmentSecretInput interface {
 }
 
 type GetEnvironmentSecretArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -25364,6 +26587,11 @@ func (o GetEnvironmentSecretOutput) ToGetEnvironmentSecretOutputWithContext(ctx 
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetEnvironmentSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -25400,6 +26628,8 @@ func (o GetEnvironmentSecretArrayOutput) Index(i pulumi.IntInput) GetEnvironment
 }
 
 type GetEnvironmentSecretAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -25420,6 +26650,8 @@ type GetEnvironmentSecretAliasInput interface {
 }
 
 type GetEnvironmentSecretAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -25479,6 +26711,11 @@ func (o GetEnvironmentSecretAliasOutput) ToGetEnvironmentSecretAliasOutputWithCo
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentSecretAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret alias.
 func (o GetEnvironmentSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -25515,6 +26752,8 @@ func (o GetEnvironmentSecretAliasArrayOutput) Index(i pulumi.IntInput) GetEnviro
 }
 
 type GetEnvironmentSecretOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret override.
 	Id string `pulumi:"id"`
 	// Name of the secret override.
@@ -25535,6 +26774,8 @@ type GetEnvironmentSecretOverrideInput interface {
 }
 
 type GetEnvironmentSecretOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret override.
@@ -25594,6 +26835,11 @@ func (o GetEnvironmentSecretOverrideOutput) ToGetEnvironmentSecretOverrideOutput
 	return o
 }
 
+// Description of the environment variable.
+func (o GetEnvironmentSecretOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentSecretOverride) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret override.
 func (o GetEnvironmentSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentSecretOverride) string { return v.Id }).(pulumi.StringOutput)
@@ -25630,6 +26876,8 @@ func (o GetEnvironmentSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetEnv
 }
 
 type GetHelmBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -25650,6 +26898,8 @@ type GetHelmBuiltInEnvironmentVariableInput interface {
 }
 
 type GetHelmBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -25709,6 +26959,11 @@ func (o GetHelmBuiltInEnvironmentVariableOutput) ToGetHelmBuiltInEnvironmentVari
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetHelmBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -25742,6 +26997,139 @@ func (o GetHelmBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmBuiltInEnvironmentVariable {
 		return vs[0].([]GetHelmBuiltInEnvironmentVariable)[vs[1].(int)]
 	}).(GetHelmBuiltInEnvironmentVariableOutput)
+}
+
+type GetHelmCustomDomain struct {
+	// Your custom domain.
+	Domain string `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate *bool `pulumi:"generateCertificate"`
+	// Id of the custom domain.
+	Id string `pulumi:"id"`
+	// Status of the custom domain.
+	Status string `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+	ValidationDomain string `pulumi:"validationDomain"`
+}
+
+// GetHelmCustomDomainInput is an input type that accepts GetHelmCustomDomainArgs and GetHelmCustomDomainOutput values.
+// You can construct a concrete instance of `GetHelmCustomDomainInput` via:
+//
+//	GetHelmCustomDomainArgs{...}
+type GetHelmCustomDomainInput interface {
+	pulumi.Input
+
+	ToGetHelmCustomDomainOutput() GetHelmCustomDomainOutput
+	ToGetHelmCustomDomainOutputWithContext(context.Context) GetHelmCustomDomainOutput
+}
+
+type GetHelmCustomDomainArgs struct {
+	// Your custom domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Qovery will generate and manage the certificate for this domain.
+	GenerateCertificate pulumi.BoolPtrInput `pulumi:"generateCertificate"`
+	// Id of the custom domain.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Status of the custom domain.
+	Status pulumi.StringInput `pulumi:"status"`
+	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
+}
+
+func (GetHelmCustomDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmCustomDomain)(nil)).Elem()
+}
+
+func (i GetHelmCustomDomainArgs) ToGetHelmCustomDomainOutput() GetHelmCustomDomainOutput {
+	return i.ToGetHelmCustomDomainOutputWithContext(context.Background())
+}
+
+func (i GetHelmCustomDomainArgs) ToGetHelmCustomDomainOutputWithContext(ctx context.Context) GetHelmCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmCustomDomainOutput)
+}
+
+// GetHelmCustomDomainArrayInput is an input type that accepts GetHelmCustomDomainArray and GetHelmCustomDomainArrayOutput values.
+// You can construct a concrete instance of `GetHelmCustomDomainArrayInput` via:
+//
+//	GetHelmCustomDomainArray{ GetHelmCustomDomainArgs{...} }
+type GetHelmCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetHelmCustomDomainArrayOutput() GetHelmCustomDomainArrayOutput
+	ToGetHelmCustomDomainArrayOutputWithContext(context.Context) GetHelmCustomDomainArrayOutput
+}
+
+type GetHelmCustomDomainArray []GetHelmCustomDomainInput
+
+func (GetHelmCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmCustomDomain)(nil)).Elem()
+}
+
+func (i GetHelmCustomDomainArray) ToGetHelmCustomDomainArrayOutput() GetHelmCustomDomainArrayOutput {
+	return i.ToGetHelmCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetHelmCustomDomainArray) ToGetHelmCustomDomainArrayOutputWithContext(ctx context.Context) GetHelmCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmCustomDomainArrayOutput)
+}
+
+type GetHelmCustomDomainOutput struct{ *pulumi.OutputState }
+
+func (GetHelmCustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmCustomDomain)(nil)).Elem()
+}
+
+func (o GetHelmCustomDomainOutput) ToGetHelmCustomDomainOutput() GetHelmCustomDomainOutput {
+	return o
+}
+
+func (o GetHelmCustomDomainOutput) ToGetHelmCustomDomainOutputWithContext(ctx context.Context) GetHelmCustomDomainOutput {
+	return o
+}
+
+// Your custom domain.
+func (o GetHelmCustomDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Qovery will generate and manage the certificate for this domain.
+func (o GetHelmCustomDomainOutput) GenerateCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) *bool { return v.GenerateCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// Id of the custom domain.
+func (o GetHelmCustomDomainOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Status of the custom domain.
+func (o GetHelmCustomDomainOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+func (o GetHelmCustomDomainOutput) ValidationDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) string { return v.ValidationDomain }).(pulumi.StringOutput)
+}
+
+type GetHelmCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHelmCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHelmCustomDomain)(nil)).Elem()
+}
+
+func (o GetHelmCustomDomainArrayOutput) ToGetHelmCustomDomainArrayOutput() GetHelmCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetHelmCustomDomainArrayOutput) ToGetHelmCustomDomainArrayOutputWithContext(ctx context.Context) GetHelmCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetHelmCustomDomainArrayOutput) Index(i pulumi.IntInput) GetHelmCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHelmCustomDomain {
+		return vs[0].([]GetHelmCustomDomain)[vs[1].(int)]
+	}).(GetHelmCustomDomainOutput)
 }
 
 type GetHelmDeploymentRestriction struct {
@@ -25869,6 +27257,8 @@ func (o GetHelmDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) GetHel
 }
 
 type GetHelmEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -25889,6 +27279,8 @@ type GetHelmEnvironmentVariableInput interface {
 }
 
 type GetHelmEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -25948,6 +27340,11 @@ func (o GetHelmEnvironmentVariableOutput) ToGetHelmEnvironmentVariableOutputWith
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetHelmEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -25984,6 +27381,8 @@ func (o GetHelmEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetHelmE
 }
 
 type GetHelmEnvironmentVariableAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -26004,6 +27403,8 @@ type GetHelmEnvironmentVariableAliasInput interface {
 }
 
 type GetHelmEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -26063,6 +27464,11 @@ func (o GetHelmEnvironmentVariableAliasOutput) ToGetHelmEnvironmentVariableAlias
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetHelmEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -26099,6 +27505,8 @@ func (o GetHelmEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetHelmEnvironmentVariableOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -26119,6 +27527,8 @@ type GetHelmEnvironmentVariableOverrideInput interface {
 }
 
 type GetHelmEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -26178,6 +27588,11 @@ func (o GetHelmEnvironmentVariableOverrideOutput) ToGetHelmEnvironmentVariableOv
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmEnvironmentVariableOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable override.
 func (o GetHelmEnvironmentVariableOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmEnvironmentVariableOverride) string { return v.Id }).(pulumi.StringOutput)
@@ -26213,7 +27628,160 @@ func (o GetHelmEnvironmentVariableOverrideArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetHelmEnvironmentVariableOverrideOutput)
 }
 
+type GetHelmPorts struct {
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort int `pulumi:"externalPort"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort int `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault bool    `pulumi:"isDefault"`
+	Namespace *string `pulumi:"namespace"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`.
+	// 	- Default: `HTTP`.
+	Protocol    string `pulumi:"protocol"`
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// GetHelmPortsInput is an input type that accepts GetHelmPortsArgs and GetHelmPortsOutput values.
+// You can construct a concrete instance of `GetHelmPortsInput` via:
+//
+//	GetHelmPortsArgs{...}
+type GetHelmPortsInput interface {
+	pulumi.Input
+
+	ToGetHelmPortsOutput() GetHelmPortsOutput
+	ToGetHelmPortsOutputWithContext(context.Context) GetHelmPortsOutput
+}
+
+type GetHelmPortsArgs struct {
+	// External port of the container.
+	// 	- Required if: `ports.publicly_accessible=true`.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	ExternalPort pulumi.IntInput `pulumi:"externalPort"`
+	// Internal port of the container.
+	// 	- Must be: `>= 1` and `<= 65535`.
+	InternalPort pulumi.IntInput `pulumi:"internalPort"`
+	// If this port will be used for the root domain
+	IsDefault pulumi.BoolInput      `pulumi:"isDefault"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Protocol used for the port of the container.
+	// 	- Can be: `GRPC`, `HTTP`.
+	// 	- Default: `HTTP`.
+	Protocol    pulumi.StringInput `pulumi:"protocol"`
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (GetHelmPortsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmPorts)(nil)).Elem()
+}
+
+func (i GetHelmPortsArgs) ToGetHelmPortsOutput() GetHelmPortsOutput {
+	return i.ToGetHelmPortsOutputWithContext(context.Background())
+}
+
+func (i GetHelmPortsArgs) ToGetHelmPortsOutputWithContext(ctx context.Context) GetHelmPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmPortsOutput)
+}
+
+// GetHelmPortsMapInput is an input type that accepts GetHelmPortsMap and GetHelmPortsMapOutput values.
+// You can construct a concrete instance of `GetHelmPortsMapInput` via:
+//
+//	GetHelmPortsMap{ "key": GetHelmPortsArgs{...} }
+type GetHelmPortsMapInput interface {
+	pulumi.Input
+
+	ToGetHelmPortsMapOutput() GetHelmPortsMapOutput
+	ToGetHelmPortsMapOutputWithContext(context.Context) GetHelmPortsMapOutput
+}
+
+type GetHelmPortsMap map[string]GetHelmPortsInput
+
+func (GetHelmPortsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GetHelmPorts)(nil)).Elem()
+}
+
+func (i GetHelmPortsMap) ToGetHelmPortsMapOutput() GetHelmPortsMapOutput {
+	return i.ToGetHelmPortsMapOutputWithContext(context.Background())
+}
+
+func (i GetHelmPortsMap) ToGetHelmPortsMapOutputWithContext(ctx context.Context) GetHelmPortsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmPortsMapOutput)
+}
+
+type GetHelmPortsOutput struct{ *pulumi.OutputState }
+
+func (GetHelmPortsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmPorts)(nil)).Elem()
+}
+
+func (o GetHelmPortsOutput) ToGetHelmPortsOutput() GetHelmPortsOutput {
+	return o
+}
+
+func (o GetHelmPortsOutput) ToGetHelmPortsOutputWithContext(ctx context.Context) GetHelmPortsOutput {
+	return o
+}
+
+// External port of the container.
+//   - Required if: `ports.publicly_accessible=true`.
+//   - Must be: `>= 1` and `<= 65535`.
+func (o GetHelmPortsOutput) ExternalPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHelmPorts) int { return v.ExternalPort }).(pulumi.IntOutput)
+}
+
+// Internal port of the container.
+//   - Must be: `>= 1` and `<= 65535`.
+func (o GetHelmPortsOutput) InternalPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHelmPorts) int { return v.InternalPort }).(pulumi.IntOutput)
+}
+
+// If this port will be used for the root domain
+func (o GetHelmPortsOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHelmPorts) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o GetHelmPortsOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHelmPorts) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Protocol used for the port of the container.
+//   - Can be: `GRPC`, `HTTP`.
+//   - Default: `HTTP`.
+func (o GetHelmPortsOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmPorts) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetHelmPortsOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmPorts) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type GetHelmPortsMapOutput struct{ *pulumi.OutputState }
+
+func (GetHelmPortsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GetHelmPorts)(nil)).Elem()
+}
+
+func (o GetHelmPortsMapOutput) ToGetHelmPortsMapOutput() GetHelmPortsMapOutput {
+	return o
+}
+
+func (o GetHelmPortsMapOutput) ToGetHelmPortsMapOutputWithContext(ctx context.Context) GetHelmPortsMapOutput {
+	return o
+}
+
+func (o GetHelmPortsMapOutput) MapIndex(k pulumi.StringInput) GetHelmPortsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetHelmPorts {
+		return vs[0].(map[string]GetHelmPorts)[vs[1].(string)]
+	}).(GetHelmPortsOutput)
+}
+
 type GetHelmSecret struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -26234,6 +27802,8 @@ type GetHelmSecretInput interface {
 }
 
 type GetHelmSecretArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -26293,6 +27863,11 @@ func (o GetHelmSecretOutput) ToGetHelmSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetHelmSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -26329,6 +27904,8 @@ func (o GetHelmSecretArrayOutput) Index(i pulumi.IntInput) GetHelmSecretOutput {
 }
 
 type GetHelmSecretAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -26349,6 +27926,8 @@ type GetHelmSecretAliasInput interface {
 }
 
 type GetHelmSecretAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -26408,6 +27987,11 @@ func (o GetHelmSecretAliasOutput) ToGetHelmSecretAliasOutputWithContext(ctx cont
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret alias.
 func (o GetHelmSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -26444,6 +28028,8 @@ func (o GetHelmSecretAliasArrayOutput) Index(i pulumi.IntInput) GetHelmSecretAli
 }
 
 type GetHelmSecretOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret override.
 	Id string `pulumi:"id"`
 	// Name of the secret override.
@@ -26464,6 +28050,8 @@ type GetHelmSecretOverrideInput interface {
 }
 
 type GetHelmSecretOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret override.
@@ -26523,6 +28111,11 @@ func (o GetHelmSecretOverrideOutput) ToGetHelmSecretOverrideOutputWithContext(ct
 	return o
 }
 
+// Description of the environment variable.
+func (o GetHelmSecretOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret override.
 func (o GetHelmSecretOverrideOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmSecretOverride) string { return v.Id }).(pulumi.StringOutput)
@@ -26558,7 +28151,956 @@ func (o GetHelmSecretOverrideArrayOutput) Index(i pulumi.IntInput) GetHelmSecret
 	}).(GetHelmSecretOverrideOutput)
 }
 
+type GetHelmSource struct {
+	// Git repository
+	GitRepository *GetHelmSourceGitRepository `pulumi:"gitRepository"`
+	// Helm repositories can be private or public
+	HelmRepository *GetHelmSourceHelmRepository `pulumi:"helmRepository"`
+}
+
+// GetHelmSourceInput is an input type that accepts GetHelmSourceArgs and GetHelmSourceOutput values.
+// You can construct a concrete instance of `GetHelmSourceInput` via:
+//
+//	GetHelmSourceArgs{...}
+type GetHelmSourceInput interface {
+	pulumi.Input
+
+	ToGetHelmSourceOutput() GetHelmSourceOutput
+	ToGetHelmSourceOutputWithContext(context.Context) GetHelmSourceOutput
+}
+
+type GetHelmSourceArgs struct {
+	// Git repository
+	GitRepository GetHelmSourceGitRepositoryPtrInput `pulumi:"gitRepository"`
+	// Helm repositories can be private or public
+	HelmRepository GetHelmSourceHelmRepositoryPtrInput `pulumi:"helmRepository"`
+}
+
+func (GetHelmSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSource)(nil)).Elem()
+}
+
+func (i GetHelmSourceArgs) ToGetHelmSourceOutput() GetHelmSourceOutput {
+	return i.ToGetHelmSourceOutputWithContext(context.Background())
+}
+
+func (i GetHelmSourceArgs) ToGetHelmSourceOutputWithContext(ctx context.Context) GetHelmSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceOutput)
+}
+
+type GetHelmSourceOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSource)(nil)).Elem()
+}
+
+func (o GetHelmSourceOutput) ToGetHelmSourceOutput() GetHelmSourceOutput {
+	return o
+}
+
+func (o GetHelmSourceOutput) ToGetHelmSourceOutputWithContext(ctx context.Context) GetHelmSourceOutput {
+	return o
+}
+
+// Git repository
+func (o GetHelmSourceOutput) GitRepository() GetHelmSourceGitRepositoryPtrOutput {
+	return o.ApplyT(func(v GetHelmSource) *GetHelmSourceGitRepository { return v.GitRepository }).(GetHelmSourceGitRepositoryPtrOutput)
+}
+
+// Helm repositories can be private or public
+func (o GetHelmSourceOutput) HelmRepository() GetHelmSourceHelmRepositoryPtrOutput {
+	return o.ApplyT(func(v GetHelmSource) *GetHelmSourceHelmRepository { return v.HelmRepository }).(GetHelmSourceHelmRepositoryPtrOutput)
+}
+
+type GetHelmSourceGitRepository struct {
+	// Helm's source git repository branch
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId string `pulumi:"gitTokenId"`
+	// Helm's source git repository root path
+	RootPath string `pulumi:"rootPath"`
+	// Helm's source git repository URL
+	Url string `pulumi:"url"`
+}
+
+// GetHelmSourceGitRepositoryInput is an input type that accepts GetHelmSourceGitRepositoryArgs and GetHelmSourceGitRepositoryOutput values.
+// You can construct a concrete instance of `GetHelmSourceGitRepositoryInput` via:
+//
+//	GetHelmSourceGitRepositoryArgs{...}
+type GetHelmSourceGitRepositoryInput interface {
+	pulumi.Input
+
+	ToGetHelmSourceGitRepositoryOutput() GetHelmSourceGitRepositoryOutput
+	ToGetHelmSourceGitRepositoryOutputWithContext(context.Context) GetHelmSourceGitRepositoryOutput
+}
+
+type GetHelmSourceGitRepositoryArgs struct {
+	// Helm's source git repository branch
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId pulumi.StringInput `pulumi:"gitTokenId"`
+	// Helm's source git repository root path
+	RootPath pulumi.StringInput `pulumi:"rootPath"`
+	// Helm's source git repository URL
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetHelmSourceGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSourceGitRepository)(nil)).Elem()
+}
+
+func (i GetHelmSourceGitRepositoryArgs) ToGetHelmSourceGitRepositoryOutput() GetHelmSourceGitRepositoryOutput {
+	return i.ToGetHelmSourceGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i GetHelmSourceGitRepositoryArgs) ToGetHelmSourceGitRepositoryOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceGitRepositoryOutput)
+}
+
+func (i GetHelmSourceGitRepositoryArgs) ToGetHelmSourceGitRepositoryPtrOutput() GetHelmSourceGitRepositoryPtrOutput {
+	return i.ToGetHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i GetHelmSourceGitRepositoryArgs) ToGetHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceGitRepositoryOutput).ToGetHelmSourceGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// GetHelmSourceGitRepositoryPtrInput is an input type that accepts GetHelmSourceGitRepositoryArgs, GetHelmSourceGitRepositoryPtr and GetHelmSourceGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `GetHelmSourceGitRepositoryPtrInput` via:
+//
+//	        GetHelmSourceGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHelmSourceGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToGetHelmSourceGitRepositoryPtrOutput() GetHelmSourceGitRepositoryPtrOutput
+	ToGetHelmSourceGitRepositoryPtrOutputWithContext(context.Context) GetHelmSourceGitRepositoryPtrOutput
+}
+
+type getHelmSourceGitRepositoryPtrType GetHelmSourceGitRepositoryArgs
+
+func GetHelmSourceGitRepositoryPtr(v *GetHelmSourceGitRepositoryArgs) GetHelmSourceGitRepositoryPtrInput {
+	return (*getHelmSourceGitRepositoryPtrType)(v)
+}
+
+func (*getHelmSourceGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmSourceGitRepository)(nil)).Elem()
+}
+
+func (i *getHelmSourceGitRepositoryPtrType) ToGetHelmSourceGitRepositoryPtrOutput() GetHelmSourceGitRepositoryPtrOutput {
+	return i.ToGetHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *getHelmSourceGitRepositoryPtrType) ToGetHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceGitRepositoryPtrOutput)
+}
+
+type GetHelmSourceGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSourceGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSourceGitRepository)(nil)).Elem()
+}
+
+func (o GetHelmSourceGitRepositoryOutput) ToGetHelmSourceGitRepositoryOutput() GetHelmSourceGitRepositoryOutput {
+	return o
+}
+
+func (o GetHelmSourceGitRepositoryOutput) ToGetHelmSourceGitRepositoryOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryOutput {
+	return o
+}
+
+func (o GetHelmSourceGitRepositoryOutput) ToGetHelmSourceGitRepositoryPtrOutput() GetHelmSourceGitRepositoryPtrOutput {
+	return o.ToGetHelmSourceGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o GetHelmSourceGitRepositoryOutput) ToGetHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHelmSourceGitRepository) *GetHelmSourceGitRepository {
+		return &v
+	}).(GetHelmSourceGitRepositoryPtrOutput)
+}
+
+// Helm's source git repository branch
+func (o GetHelmSourceGitRepositoryOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceGitRepository) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// The git token ID to be used
+func (o GetHelmSourceGitRepositoryOutput) GitTokenId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceGitRepository) string { return v.GitTokenId }).(pulumi.StringOutput)
+}
+
+// Helm's source git repository root path
+func (o GetHelmSourceGitRepositoryOutput) RootPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceGitRepository) string { return v.RootPath }).(pulumi.StringOutput)
+}
+
+// Helm's source git repository URL
+func (o GetHelmSourceGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetHelmSourceGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSourceGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmSourceGitRepository)(nil)).Elem()
+}
+
+func (o GetHelmSourceGitRepositoryPtrOutput) ToGetHelmSourceGitRepositoryPtrOutput() GetHelmSourceGitRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmSourceGitRepositoryPtrOutput) ToGetHelmSourceGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceGitRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmSourceGitRepositoryPtrOutput) Elem() GetHelmSourceGitRepositoryOutput {
+	return o.ApplyT(func(v *GetHelmSourceGitRepository) GetHelmSourceGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret GetHelmSourceGitRepository
+		return ret
+	}).(GetHelmSourceGitRepositoryOutput)
+}
+
+// Helm's source git repository branch
+func (o GetHelmSourceGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// The git token ID to be used
+func (o GetHelmSourceGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GitTokenId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Helm's source git repository root path
+func (o GetHelmSourceGitRepositoryPtrOutput) RootPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Helm's source git repository URL
+func (o GetHelmSourceGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetHelmSourceHelmRepository struct {
+	// Chart name
+	ChartName string `pulumi:"chartName"`
+	// Chart version
+	ChartVersion string `pulumi:"chartVersion"`
+	// helm repository id
+	HelmRepositoryId string `pulumi:"helmRepositoryId"`
+}
+
+// GetHelmSourceHelmRepositoryInput is an input type that accepts GetHelmSourceHelmRepositoryArgs and GetHelmSourceHelmRepositoryOutput values.
+// You can construct a concrete instance of `GetHelmSourceHelmRepositoryInput` via:
+//
+//	GetHelmSourceHelmRepositoryArgs{...}
+type GetHelmSourceHelmRepositoryInput interface {
+	pulumi.Input
+
+	ToGetHelmSourceHelmRepositoryOutput() GetHelmSourceHelmRepositoryOutput
+	ToGetHelmSourceHelmRepositoryOutputWithContext(context.Context) GetHelmSourceHelmRepositoryOutput
+}
+
+type GetHelmSourceHelmRepositoryArgs struct {
+	// Chart name
+	ChartName pulumi.StringInput `pulumi:"chartName"`
+	// Chart version
+	ChartVersion pulumi.StringInput `pulumi:"chartVersion"`
+	// helm repository id
+	HelmRepositoryId pulumi.StringInput `pulumi:"helmRepositoryId"`
+}
+
+func (GetHelmSourceHelmRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (i GetHelmSourceHelmRepositoryArgs) ToGetHelmSourceHelmRepositoryOutput() GetHelmSourceHelmRepositoryOutput {
+	return i.ToGetHelmSourceHelmRepositoryOutputWithContext(context.Background())
+}
+
+func (i GetHelmSourceHelmRepositoryArgs) ToGetHelmSourceHelmRepositoryOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceHelmRepositoryOutput)
+}
+
+func (i GetHelmSourceHelmRepositoryArgs) ToGetHelmSourceHelmRepositoryPtrOutput() GetHelmSourceHelmRepositoryPtrOutput {
+	return i.ToGetHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i GetHelmSourceHelmRepositoryArgs) ToGetHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceHelmRepositoryOutput).ToGetHelmSourceHelmRepositoryPtrOutputWithContext(ctx)
+}
+
+// GetHelmSourceHelmRepositoryPtrInput is an input type that accepts GetHelmSourceHelmRepositoryArgs, GetHelmSourceHelmRepositoryPtr and GetHelmSourceHelmRepositoryPtrOutput values.
+// You can construct a concrete instance of `GetHelmSourceHelmRepositoryPtrInput` via:
+//
+//	        GetHelmSourceHelmRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHelmSourceHelmRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToGetHelmSourceHelmRepositoryPtrOutput() GetHelmSourceHelmRepositoryPtrOutput
+	ToGetHelmSourceHelmRepositoryPtrOutputWithContext(context.Context) GetHelmSourceHelmRepositoryPtrOutput
+}
+
+type getHelmSourceHelmRepositoryPtrType GetHelmSourceHelmRepositoryArgs
+
+func GetHelmSourceHelmRepositoryPtr(v *GetHelmSourceHelmRepositoryArgs) GetHelmSourceHelmRepositoryPtrInput {
+	return (*getHelmSourceHelmRepositoryPtrType)(v)
+}
+
+func (*getHelmSourceHelmRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (i *getHelmSourceHelmRepositoryPtrType) ToGetHelmSourceHelmRepositoryPtrOutput() GetHelmSourceHelmRepositoryPtrOutput {
+	return i.ToGetHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *getHelmSourceHelmRepositoryPtrType) ToGetHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmSourceHelmRepositoryPtrOutput)
+}
+
+type GetHelmSourceHelmRepositoryOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSourceHelmRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (o GetHelmSourceHelmRepositoryOutput) ToGetHelmSourceHelmRepositoryOutput() GetHelmSourceHelmRepositoryOutput {
+	return o
+}
+
+func (o GetHelmSourceHelmRepositoryOutput) ToGetHelmSourceHelmRepositoryOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryOutput {
+	return o
+}
+
+func (o GetHelmSourceHelmRepositoryOutput) ToGetHelmSourceHelmRepositoryPtrOutput() GetHelmSourceHelmRepositoryPtrOutput {
+	return o.ToGetHelmSourceHelmRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o GetHelmSourceHelmRepositoryOutput) ToGetHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHelmSourceHelmRepository) *GetHelmSourceHelmRepository {
+		return &v
+	}).(GetHelmSourceHelmRepositoryPtrOutput)
+}
+
+// Chart name
+func (o GetHelmSourceHelmRepositoryOutput) ChartName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceHelmRepository) string { return v.ChartName }).(pulumi.StringOutput)
+}
+
+// Chart version
+func (o GetHelmSourceHelmRepositoryOutput) ChartVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceHelmRepository) string { return v.ChartVersion }).(pulumi.StringOutput)
+}
+
+// helm repository id
+func (o GetHelmSourceHelmRepositoryOutput) HelmRepositoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmSourceHelmRepository) string { return v.HelmRepositoryId }).(pulumi.StringOutput)
+}
+
+type GetHelmSourceHelmRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetHelmSourceHelmRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmSourceHelmRepository)(nil)).Elem()
+}
+
+func (o GetHelmSourceHelmRepositoryPtrOutput) ToGetHelmSourceHelmRepositoryPtrOutput() GetHelmSourceHelmRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmSourceHelmRepositoryPtrOutput) ToGetHelmSourceHelmRepositoryPtrOutputWithContext(ctx context.Context) GetHelmSourceHelmRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmSourceHelmRepositoryPtrOutput) Elem() GetHelmSourceHelmRepositoryOutput {
+	return o.ApplyT(func(v *GetHelmSourceHelmRepository) GetHelmSourceHelmRepository {
+		if v != nil {
+			return *v
+		}
+		var ret GetHelmSourceHelmRepository
+		return ret
+	}).(GetHelmSourceHelmRepositoryOutput)
+}
+
+// Chart name
+func (o GetHelmSourceHelmRepositoryPtrOutput) ChartName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ChartName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Chart version
+func (o GetHelmSourceHelmRepositoryPtrOutput) ChartVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ChartVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// helm repository id
+func (o GetHelmSourceHelmRepositoryPtrOutput) HelmRepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmSourceHelmRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HelmRepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetHelmValuesOverride struct {
+	// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+	File      *GetHelmValuesOverrideFile `pulumi:"file"`
+	Set       map[string]string          `pulumi:"set"`
+	SetJson   map[string]string          `pulumi:"setJson"`
+	SetString map[string]string          `pulumi:"setString"`
+}
+
+// GetHelmValuesOverrideInput is an input type that accepts GetHelmValuesOverrideArgs and GetHelmValuesOverrideOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideInput` via:
+//
+//	GetHelmValuesOverrideArgs{...}
+type GetHelmValuesOverrideInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideOutput() GetHelmValuesOverrideOutput
+	ToGetHelmValuesOverrideOutputWithContext(context.Context) GetHelmValuesOverrideOutput
+}
+
+type GetHelmValuesOverrideArgs struct {
+	// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+	File      GetHelmValuesOverrideFilePtrInput `pulumi:"file"`
+	Set       pulumi.StringMapInput             `pulumi:"set"`
+	SetJson   pulumi.StringMapInput             `pulumi:"setJson"`
+	SetString pulumi.StringMapInput             `pulumi:"setString"`
+}
+
+func (GetHelmValuesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverride)(nil)).Elem()
+}
+
+func (i GetHelmValuesOverrideArgs) ToGetHelmValuesOverrideOutput() GetHelmValuesOverrideOutput {
+	return i.ToGetHelmValuesOverrideOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideArgs) ToGetHelmValuesOverrideOutputWithContext(ctx context.Context) GetHelmValuesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideOutput)
+}
+
+type GetHelmValuesOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverride)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideOutput) ToGetHelmValuesOverrideOutput() GetHelmValuesOverrideOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideOutput) ToGetHelmValuesOverrideOutputWithContext(ctx context.Context) GetHelmValuesOverrideOutput {
+	return o
+}
+
+// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+func (o GetHelmValuesOverrideOutput) File() GetHelmValuesOverrideFilePtrOutput {
+	return o.ApplyT(func(v GetHelmValuesOverride) *GetHelmValuesOverrideFile { return v.File }).(GetHelmValuesOverrideFilePtrOutput)
+}
+
+func (o GetHelmValuesOverrideOutput) Set() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetHelmValuesOverride) map[string]string { return v.Set }).(pulumi.StringMapOutput)
+}
+
+func (o GetHelmValuesOverrideOutput) SetJson() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetHelmValuesOverride) map[string]string { return v.SetJson }).(pulumi.StringMapOutput)
+}
+
+func (o GetHelmValuesOverrideOutput) SetString() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetHelmValuesOverride) map[string]string { return v.SetString }).(pulumi.StringMapOutput)
+}
+
+type GetHelmValuesOverrideFile struct {
+	// YAML file from a git repository
+	GitRepository *GetHelmValuesOverrideFileGitRepository `pulumi:"gitRepository"`
+	// Raw YAML files
+	Raw map[string]GetHelmValuesOverrideFileRaw `pulumi:"raw"`
+}
+
+// GetHelmValuesOverrideFileInput is an input type that accepts GetHelmValuesOverrideFileArgs and GetHelmValuesOverrideFileOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFileInput` via:
+//
+//	GetHelmValuesOverrideFileArgs{...}
+type GetHelmValuesOverrideFileInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFileOutput() GetHelmValuesOverrideFileOutput
+	ToGetHelmValuesOverrideFileOutputWithContext(context.Context) GetHelmValuesOverrideFileOutput
+}
+
+type GetHelmValuesOverrideFileArgs struct {
+	// YAML file from a git repository
+	GitRepository GetHelmValuesOverrideFileGitRepositoryPtrInput `pulumi:"gitRepository"`
+	// Raw YAML files
+	Raw GetHelmValuesOverrideFileRawMapInput `pulumi:"raw"`
+}
+
+func (GetHelmValuesOverrideFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (i GetHelmValuesOverrideFileArgs) ToGetHelmValuesOverrideFileOutput() GetHelmValuesOverrideFileOutput {
+	return i.ToGetHelmValuesOverrideFileOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileArgs) ToGetHelmValuesOverrideFileOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileOutput)
+}
+
+func (i GetHelmValuesOverrideFileArgs) ToGetHelmValuesOverrideFilePtrOutput() GetHelmValuesOverrideFilePtrOutput {
+	return i.ToGetHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileArgs) ToGetHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileOutput).ToGetHelmValuesOverrideFilePtrOutputWithContext(ctx)
+}
+
+// GetHelmValuesOverrideFilePtrInput is an input type that accepts GetHelmValuesOverrideFileArgs, GetHelmValuesOverrideFilePtr and GetHelmValuesOverrideFilePtrOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFilePtrInput` via:
+//
+//	        GetHelmValuesOverrideFileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHelmValuesOverrideFilePtrInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFilePtrOutput() GetHelmValuesOverrideFilePtrOutput
+	ToGetHelmValuesOverrideFilePtrOutputWithContext(context.Context) GetHelmValuesOverrideFilePtrOutput
+}
+
+type getHelmValuesOverrideFilePtrType GetHelmValuesOverrideFileArgs
+
+func GetHelmValuesOverrideFilePtr(v *GetHelmValuesOverrideFileArgs) GetHelmValuesOverrideFilePtrInput {
+	return (*getHelmValuesOverrideFilePtrType)(v)
+}
+
+func (*getHelmValuesOverrideFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (i *getHelmValuesOverrideFilePtrType) ToGetHelmValuesOverrideFilePtrOutput() GetHelmValuesOverrideFilePtrOutput {
+	return i.ToGetHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (i *getHelmValuesOverrideFilePtrType) ToGetHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFilePtrOutput)
+}
+
+type GetHelmValuesOverrideFileOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFileOutput) ToGetHelmValuesOverrideFileOutput() GetHelmValuesOverrideFileOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileOutput) ToGetHelmValuesOverrideFileOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileOutput) ToGetHelmValuesOverrideFilePtrOutput() GetHelmValuesOverrideFilePtrOutput {
+	return o.ToGetHelmValuesOverrideFilePtrOutputWithContext(context.Background())
+}
+
+func (o GetHelmValuesOverrideFileOutput) ToGetHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHelmValuesOverrideFile) *GetHelmValuesOverrideFile {
+		return &v
+	}).(GetHelmValuesOverrideFilePtrOutput)
+}
+
+// YAML file from a git repository
+func (o GetHelmValuesOverrideFileOutput) GitRepository() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFile) *GetHelmValuesOverrideFileGitRepository { return v.GitRepository }).(GetHelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+// Raw YAML files
+func (o GetHelmValuesOverrideFileOutput) Raw() GetHelmValuesOverrideFileRawMapOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFile) map[string]GetHelmValuesOverrideFileRaw { return v.Raw }).(GetHelmValuesOverrideFileRawMapOutput)
+}
+
+type GetHelmValuesOverrideFilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmValuesOverrideFile)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFilePtrOutput) ToGetHelmValuesOverrideFilePtrOutput() GetHelmValuesOverrideFilePtrOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFilePtrOutput) ToGetHelmValuesOverrideFilePtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFilePtrOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFilePtrOutput) Elem() GetHelmValuesOverrideFileOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFile) GetHelmValuesOverrideFile {
+		if v != nil {
+			return *v
+		}
+		var ret GetHelmValuesOverrideFile
+		return ret
+	}).(GetHelmValuesOverrideFileOutput)
+}
+
+// YAML file from a git repository
+func (o GetHelmValuesOverrideFilePtrOutput) GitRepository() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFile) *GetHelmValuesOverrideFileGitRepository {
+		if v == nil {
+			return nil
+		}
+		return v.GitRepository
+	}).(GetHelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+// Raw YAML files
+func (o GetHelmValuesOverrideFilePtrOutput) Raw() GetHelmValuesOverrideFileRawMapOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFile) map[string]GetHelmValuesOverrideFileRaw {
+		if v == nil {
+			return nil
+		}
+		return v.Raw
+	}).(GetHelmValuesOverrideFileRawMapOutput)
+}
+
+type GetHelmValuesOverrideFileGitRepository struct {
+	// YAML file git repository branch
+	Branch string `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId string `pulumi:"gitTokenId"`
+	// YAML files git repository paths
+	Paths []string `pulumi:"paths"`
+	// YAML file git repository URL
+	Url string `pulumi:"url"`
+}
+
+// GetHelmValuesOverrideFileGitRepositoryInput is an input type that accepts GetHelmValuesOverrideFileGitRepositoryArgs and GetHelmValuesOverrideFileGitRepositoryOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFileGitRepositoryInput` via:
+//
+//	GetHelmValuesOverrideFileGitRepositoryArgs{...}
+type GetHelmValuesOverrideFileGitRepositoryInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFileGitRepositoryOutput() GetHelmValuesOverrideFileGitRepositoryOutput
+	ToGetHelmValuesOverrideFileGitRepositoryOutputWithContext(context.Context) GetHelmValuesOverrideFileGitRepositoryOutput
+}
+
+type GetHelmValuesOverrideFileGitRepositoryArgs struct {
+	// YAML file git repository branch
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The git token ID to be used
+	GitTokenId pulumi.StringInput `pulumi:"gitTokenId"`
+	// YAML files git repository paths
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// YAML file git repository URL
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetHelmValuesOverrideFileGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (i GetHelmValuesOverrideFileGitRepositoryArgs) ToGetHelmValuesOverrideFileGitRepositoryOutput() GetHelmValuesOverrideFileGitRepositoryOutput {
+	return i.ToGetHelmValuesOverrideFileGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileGitRepositoryArgs) ToGetHelmValuesOverrideFileGitRepositoryOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileGitRepositoryOutput)
+}
+
+func (i GetHelmValuesOverrideFileGitRepositoryArgs) ToGetHelmValuesOverrideFileGitRepositoryPtrOutput() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return i.ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileGitRepositoryArgs) ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileGitRepositoryOutput).ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// GetHelmValuesOverrideFileGitRepositoryPtrInput is an input type that accepts GetHelmValuesOverrideFileGitRepositoryArgs, GetHelmValuesOverrideFileGitRepositoryPtr and GetHelmValuesOverrideFileGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFileGitRepositoryPtrInput` via:
+//
+//	        GetHelmValuesOverrideFileGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHelmValuesOverrideFileGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFileGitRepositoryPtrOutput() GetHelmValuesOverrideFileGitRepositoryPtrOutput
+	ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Context) GetHelmValuesOverrideFileGitRepositoryPtrOutput
+}
+
+type getHelmValuesOverrideFileGitRepositoryPtrType GetHelmValuesOverrideFileGitRepositoryArgs
+
+func GetHelmValuesOverrideFileGitRepositoryPtr(v *GetHelmValuesOverrideFileGitRepositoryArgs) GetHelmValuesOverrideFileGitRepositoryPtrInput {
+	return (*getHelmValuesOverrideFileGitRepositoryPtrType)(v)
+}
+
+func (*getHelmValuesOverrideFileGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (i *getHelmValuesOverrideFileGitRepositoryPtrType) ToGetHelmValuesOverrideFileGitRepositoryPtrOutput() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return i.ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *getHelmValuesOverrideFileGitRepositoryPtrType) ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+type GetHelmValuesOverrideFileGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFileGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) ToGetHelmValuesOverrideFileGitRepositoryOutput() GetHelmValuesOverrideFileGitRepositoryOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) ToGetHelmValuesOverrideFileGitRepositoryOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) ToGetHelmValuesOverrideFileGitRepositoryPtrOutput() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHelmValuesOverrideFileGitRepository) *GetHelmValuesOverrideFileGitRepository {
+		return &v
+	}).(GetHelmValuesOverrideFileGitRepositoryPtrOutput)
+}
+
+// YAML file git repository branch
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFileGitRepository) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// The git token ID to be used
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) GitTokenId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFileGitRepository) string { return v.GitTokenId }).(pulumi.StringOutput)
+}
+
+// YAML files git repository paths
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFileGitRepository) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// YAML file git repository URL
+func (o GetHelmValuesOverrideFileGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFileGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetHelmValuesOverrideFileGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFileGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHelmValuesOverrideFileGitRepository)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) ToGetHelmValuesOverrideFileGitRepositoryPtrOutput() GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) ToGetHelmValuesOverrideFileGitRepositoryPtrOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileGitRepositoryPtrOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) Elem() GetHelmValuesOverrideFileGitRepositoryOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFileGitRepository) GetHelmValuesOverrideFileGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret GetHelmValuesOverrideFileGitRepository
+		return ret
+	}).(GetHelmValuesOverrideFileGitRepositoryOutput)
+}
+
+// YAML file git repository branch
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// The git token ID to be used
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) GitTokenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GitTokenId
+	}).(pulumi.StringPtrOutput)
+}
+
+// YAML files git repository paths
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFileGitRepository) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+// YAML file git repository URL
+func (o GetHelmValuesOverrideFileGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHelmValuesOverrideFileGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetHelmValuesOverrideFileRaw struct {
+	// content of the file
+	Content string `pulumi:"content"`
+}
+
+// GetHelmValuesOverrideFileRawInput is an input type that accepts GetHelmValuesOverrideFileRawArgs and GetHelmValuesOverrideFileRawOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFileRawInput` via:
+//
+//	GetHelmValuesOverrideFileRawArgs{...}
+type GetHelmValuesOverrideFileRawInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFileRawOutput() GetHelmValuesOverrideFileRawOutput
+	ToGetHelmValuesOverrideFileRawOutputWithContext(context.Context) GetHelmValuesOverrideFileRawOutput
+}
+
+type GetHelmValuesOverrideFileRawArgs struct {
+	// content of the file
+	Content pulumi.StringInput `pulumi:"content"`
+}
+
+func (GetHelmValuesOverrideFileRawArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (i GetHelmValuesOverrideFileRawArgs) ToGetHelmValuesOverrideFileRawOutput() GetHelmValuesOverrideFileRawOutput {
+	return i.ToGetHelmValuesOverrideFileRawOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileRawArgs) ToGetHelmValuesOverrideFileRawOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileRawOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileRawOutput)
+}
+
+// GetHelmValuesOverrideFileRawMapInput is an input type that accepts GetHelmValuesOverrideFileRawMap and GetHelmValuesOverrideFileRawMapOutput values.
+// You can construct a concrete instance of `GetHelmValuesOverrideFileRawMapInput` via:
+//
+//	GetHelmValuesOverrideFileRawMap{ "key": GetHelmValuesOverrideFileRawArgs{...} }
+type GetHelmValuesOverrideFileRawMapInput interface {
+	pulumi.Input
+
+	ToGetHelmValuesOverrideFileRawMapOutput() GetHelmValuesOverrideFileRawMapOutput
+	ToGetHelmValuesOverrideFileRawMapOutputWithContext(context.Context) GetHelmValuesOverrideFileRawMapOutput
+}
+
+type GetHelmValuesOverrideFileRawMap map[string]GetHelmValuesOverrideFileRawInput
+
+func (GetHelmValuesOverrideFileRawMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GetHelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (i GetHelmValuesOverrideFileRawMap) ToGetHelmValuesOverrideFileRawMapOutput() GetHelmValuesOverrideFileRawMapOutput {
+	return i.ToGetHelmValuesOverrideFileRawMapOutputWithContext(context.Background())
+}
+
+func (i GetHelmValuesOverrideFileRawMap) ToGetHelmValuesOverrideFileRawMapOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileRawMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHelmValuesOverrideFileRawMapOutput)
+}
+
+type GetHelmValuesOverrideFileRawOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFileRawOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFileRawOutput) ToGetHelmValuesOverrideFileRawOutput() GetHelmValuesOverrideFileRawOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileRawOutput) ToGetHelmValuesOverrideFileRawOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileRawOutput {
+	return o
+}
+
+// content of the file
+func (o GetHelmValuesOverrideFileRawOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHelmValuesOverrideFileRaw) string { return v.Content }).(pulumi.StringOutput)
+}
+
+type GetHelmValuesOverrideFileRawMapOutput struct{ *pulumi.OutputState }
+
+func (GetHelmValuesOverrideFileRawMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GetHelmValuesOverrideFileRaw)(nil)).Elem()
+}
+
+func (o GetHelmValuesOverrideFileRawMapOutput) ToGetHelmValuesOverrideFileRawMapOutput() GetHelmValuesOverrideFileRawMapOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileRawMapOutput) ToGetHelmValuesOverrideFileRawMapOutputWithContext(ctx context.Context) GetHelmValuesOverrideFileRawMapOutput {
+	return o
+}
+
+func (o GetHelmValuesOverrideFileRawMapOutput) MapIndex(k pulumi.StringInput) GetHelmValuesOverrideFileRawOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetHelmValuesOverrideFileRaw {
+		return vs[0].(map[string]GetHelmValuesOverrideFileRaw)[vs[1].(string)]
+	}).(GetHelmValuesOverrideFileRawOutput)
+}
+
 type GetJobBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -26579,6 +29121,8 @@ type GetJobBuiltInEnvironmentVariableInput interface {
 }
 
 type GetJobBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -26636,6 +29180,11 @@ func (o GetJobBuiltInEnvironmentVariableOutput) ToGetJobBuiltInEnvironmentVariab
 
 func (o GetJobBuiltInEnvironmentVariableOutput) ToGetJobBuiltInEnvironmentVariableOutputWithContext(ctx context.Context) GetJobBuiltInEnvironmentVariableOutput {
 	return o
+}
+
+// Description of the environment variable.
+func (o GetJobBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the environment variable.
@@ -26798,6 +29347,8 @@ func (o GetJobDeploymentRestrictionArrayOutput) Index(i pulumi.IntInput) GetJobD
 }
 
 type GetJobEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -26818,6 +29369,8 @@ type GetJobEnvironmentVariableInput interface {
 }
 
 type GetJobEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -26877,6 +29430,11 @@ func (o GetJobEnvironmentVariableOutput) ToGetJobEnvironmentVariableOutputWithCo
 	return o
 }
 
+// Description of the environment variable.
+func (o GetJobEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetJobEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -26913,6 +29471,8 @@ func (o GetJobEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetJobEnv
 }
 
 type GetJobEnvironmentVariableAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -26933,6 +29493,8 @@ type GetJobEnvironmentVariableAliasInput interface {
 }
 
 type GetJobEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -26992,6 +29554,11 @@ func (o GetJobEnvironmentVariableAliasOutput) ToGetJobEnvironmentVariableAliasOu
 	return o
 }
 
+// Description of the environment variable.
+func (o GetJobEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetJobEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -27028,6 +29595,8 @@ func (o GetJobEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) GetJ
 }
 
 type GetJobEnvironmentVariableOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable override.
 	Id string `pulumi:"id"`
 	// Name of the environment variable override.
@@ -27048,6 +29617,8 @@ type GetJobEnvironmentVariableOverrideInput interface {
 }
 
 type GetJobEnvironmentVariableOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable override.
@@ -27105,6 +29676,11 @@ func (o GetJobEnvironmentVariableOverrideOutput) ToGetJobEnvironmentVariableOver
 
 func (o GetJobEnvironmentVariableOverrideOutput) ToGetJobEnvironmentVariableOverrideOutputWithContext(ctx context.Context) GetJobEnvironmentVariableOverrideOutput {
 	return o
+}
+
+// Description of the environment variable.
+func (o GetJobEnvironmentVariableOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobEnvironmentVariableOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the environment variable override.
@@ -29401,6 +31977,9 @@ func (o GetJobHealthchecksReadinessProbeTypeTcpPtrOutput) Port() pulumi.IntPtrOu
 type GetJobSchedule struct {
 	// Job's cron.
 	Cronjob GetJobScheduleCronjob `pulumi:"cronjob"`
+	// Type of the lifecycle job.
+	// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+	LifecycleType string `pulumi:"lifecycleType"`
 	// Job's schedule on delete.
 	OnDelete GetJobScheduleOnDelete `pulumi:"onDelete"`
 	// Job's schedule on start.
@@ -29423,6 +32002,9 @@ type GetJobScheduleInput interface {
 type GetJobScheduleArgs struct {
 	// Job's cron.
 	Cronjob GetJobScheduleCronjobInput `pulumi:"cronjob"`
+	// Type of the lifecycle job.
+	// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+	LifecycleType pulumi.StringInput `pulumi:"lifecycleType"`
 	// Job's schedule on delete.
 	OnDelete GetJobScheduleOnDeleteInput `pulumi:"onDelete"`
 	// Job's schedule on start.
@@ -29460,6 +32042,12 @@ func (o GetJobScheduleOutput) ToGetJobScheduleOutputWithContext(ctx context.Cont
 // Job's cron.
 func (o GetJobScheduleOutput) Cronjob() GetJobScheduleCronjobOutput {
 	return o.ApplyT(func(v GetJobSchedule) GetJobScheduleCronjob { return v.Cronjob }).(GetJobScheduleCronjobOutput)
+}
+
+// Type of the lifecycle job.
+//   - Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+func (o GetJobScheduleOutput) LifecycleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobSchedule) string { return v.LifecycleType }).(pulumi.StringOutput)
 }
 
 // Job's schedule on delete.
@@ -29783,6 +32371,8 @@ func (o GetJobScheduleOnStopOutput) Entrypoint() pulumi.StringOutput {
 }
 
 type GetJobSecret struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -29803,6 +32393,8 @@ type GetJobSecretInput interface {
 }
 
 type GetJobSecretArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -29862,6 +32454,11 @@ func (o GetJobSecretOutput) ToGetJobSecretOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Description of the environment variable.
+func (o GetJobSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetJobSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -29898,6 +32495,8 @@ func (o GetJobSecretArrayOutput) Index(i pulumi.IntInput) GetJobSecretOutput {
 }
 
 type GetJobSecretAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -29918,6 +32517,8 @@ type GetJobSecretAliasInput interface {
 }
 
 type GetJobSecretAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -29977,6 +32578,11 @@ func (o GetJobSecretAliasOutput) ToGetJobSecretAliasOutputWithContext(ctx contex
 	return o
 }
 
+// Description of the environment variable.
+func (o GetJobSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobSecretAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret alias.
 func (o GetJobSecretAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobSecretAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -30013,6 +32619,8 @@ func (o GetJobSecretAliasArrayOutput) Index(i pulumi.IntInput) GetJobSecretAlias
 }
 
 type GetJobSecretOverride struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret override.
 	Id string `pulumi:"id"`
 	// Name of the secret override.
@@ -30033,6 +32641,8 @@ type GetJobSecretOverrideInput interface {
 }
 
 type GetJobSecretOverrideArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret override.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret override.
@@ -30090,6 +32700,11 @@ func (o GetJobSecretOverrideOutput) ToGetJobSecretOverrideOutput() GetJobSecretO
 
 func (o GetJobSecretOverrideOutput) ToGetJobSecretOverrideOutputWithContext(ctx context.Context) GetJobSecretOverrideOutput {
 	return o
+}
+
+// Description of the environment variable.
+func (o GetJobSecretOverrideOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobSecretOverride) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the secret override.
@@ -30286,6 +32901,8 @@ func (o GetJobSourcePtrOutput) Image() GetJobSourceImagePtrOutput {
 type GetJobSourceDocker struct {
 	// Job's docker source dockerfile path.
 	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Inline Dockerfile to inject for building the image
+	DockerfileRaw *string `pulumi:"dockerfileRaw"`
 	// Job's docker source git repository.
 	GitRepository GetJobSourceDockerGitRepository `pulumi:"gitRepository"`
 }
@@ -30304,6 +32921,8 @@ type GetJobSourceDockerInput interface {
 type GetJobSourceDockerArgs struct {
 	// Job's docker source dockerfile path.
 	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+	// Inline Dockerfile to inject for building the image
+	DockerfileRaw pulumi.StringPtrInput `pulumi:"dockerfileRaw"`
 	// Job's docker source git repository.
 	GitRepository GetJobSourceDockerGitRepositoryInput `pulumi:"gitRepository"`
 }
@@ -30390,6 +33009,11 @@ func (o GetJobSourceDockerOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetJobSourceDocker) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
 }
 
+// Inline Dockerfile to inject for building the image
+func (o GetJobSourceDockerOutput) DockerfileRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetJobSourceDocker) *string { return v.DockerfileRaw }).(pulumi.StringPtrOutput)
+}
+
 // Job's docker source git repository.
 func (o GetJobSourceDockerOutput) GitRepository() GetJobSourceDockerGitRepositoryOutput {
 	return o.ApplyT(func(v GetJobSourceDocker) GetJobSourceDockerGitRepository { return v.GitRepository }).(GetJobSourceDockerGitRepositoryOutput)
@@ -30426,6 +33050,16 @@ func (o GetJobSourceDockerPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.DockerfilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Inline Dockerfile to inject for building the image
+func (o GetJobSourceDockerPtrOutput) DockerfileRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetJobSourceDocker) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DockerfileRaw
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -30808,7 +33442,115 @@ func (o GetJobSourceImagePtrOutput) Tag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetLabelsGroupLabel struct {
+	Key                      string `pulumi:"key"`
+	PropagateToCloudProvider bool   `pulumi:"propagateToCloudProvider"`
+	Value                    string `pulumi:"value"`
+}
+
+// GetLabelsGroupLabelInput is an input type that accepts GetLabelsGroupLabelArgs and GetLabelsGroupLabelOutput values.
+// You can construct a concrete instance of `GetLabelsGroupLabelInput` via:
+//
+//	GetLabelsGroupLabelArgs{...}
+type GetLabelsGroupLabelInput interface {
+	pulumi.Input
+
+	ToGetLabelsGroupLabelOutput() GetLabelsGroupLabelOutput
+	ToGetLabelsGroupLabelOutputWithContext(context.Context) GetLabelsGroupLabelOutput
+}
+
+type GetLabelsGroupLabelArgs struct {
+	Key                      pulumi.StringInput `pulumi:"key"`
+	PropagateToCloudProvider pulumi.BoolInput   `pulumi:"propagateToCloudProvider"`
+	Value                    pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetLabelsGroupLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelsGroupLabel)(nil)).Elem()
+}
+
+func (i GetLabelsGroupLabelArgs) ToGetLabelsGroupLabelOutput() GetLabelsGroupLabelOutput {
+	return i.ToGetLabelsGroupLabelOutputWithContext(context.Background())
+}
+
+func (i GetLabelsGroupLabelArgs) ToGetLabelsGroupLabelOutputWithContext(ctx context.Context) GetLabelsGroupLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelsGroupLabelOutput)
+}
+
+// GetLabelsGroupLabelArrayInput is an input type that accepts GetLabelsGroupLabelArray and GetLabelsGroupLabelArrayOutput values.
+// You can construct a concrete instance of `GetLabelsGroupLabelArrayInput` via:
+//
+//	GetLabelsGroupLabelArray{ GetLabelsGroupLabelArgs{...} }
+type GetLabelsGroupLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetLabelsGroupLabelArrayOutput() GetLabelsGroupLabelArrayOutput
+	ToGetLabelsGroupLabelArrayOutputWithContext(context.Context) GetLabelsGroupLabelArrayOutput
+}
+
+type GetLabelsGroupLabelArray []GetLabelsGroupLabelInput
+
+func (GetLabelsGroupLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLabelsGroupLabel)(nil)).Elem()
+}
+
+func (i GetLabelsGroupLabelArray) ToGetLabelsGroupLabelArrayOutput() GetLabelsGroupLabelArrayOutput {
+	return i.ToGetLabelsGroupLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetLabelsGroupLabelArray) ToGetLabelsGroupLabelArrayOutputWithContext(ctx context.Context) GetLabelsGroupLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelsGroupLabelArrayOutput)
+}
+
+type GetLabelsGroupLabelOutput struct{ *pulumi.OutputState }
+
+func (GetLabelsGroupLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelsGroupLabel)(nil)).Elem()
+}
+
+func (o GetLabelsGroupLabelOutput) ToGetLabelsGroupLabelOutput() GetLabelsGroupLabelOutput {
+	return o
+}
+
+func (o GetLabelsGroupLabelOutput) ToGetLabelsGroupLabelOutputWithContext(ctx context.Context) GetLabelsGroupLabelOutput {
+	return o
+}
+
+func (o GetLabelsGroupLabelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLabelsGroupLabel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetLabelsGroupLabelOutput) PropagateToCloudProvider() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLabelsGroupLabel) bool { return v.PropagateToCloudProvider }).(pulumi.BoolOutput)
+}
+
+func (o GetLabelsGroupLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLabelsGroupLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetLabelsGroupLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLabelsGroupLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLabelsGroupLabel)(nil)).Elem()
+}
+
+func (o GetLabelsGroupLabelArrayOutput) ToGetLabelsGroupLabelArrayOutput() GetLabelsGroupLabelArrayOutput {
+	return o
+}
+
+func (o GetLabelsGroupLabelArrayOutput) ToGetLabelsGroupLabelArrayOutputWithContext(ctx context.Context) GetLabelsGroupLabelArrayOutput {
+	return o
+}
+
+func (o GetLabelsGroupLabelArrayOutput) Index(i pulumi.IntInput) GetLabelsGroupLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLabelsGroupLabel {
+		return vs[0].([]GetLabelsGroupLabel)[vs[1].(int)]
+	}).(GetLabelsGroupLabelOutput)
+}
+
 type GetProjectBuiltInEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -30829,6 +33571,8 @@ type GetProjectBuiltInEnvironmentVariableInput interface {
 }
 
 type GetProjectBuiltInEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -30888,6 +33632,11 @@ func (o GetProjectBuiltInEnvironmentVariableOutput) ToGetProjectBuiltInEnvironme
 	return o
 }
 
+// Description of the environment variable.
+func (o GetProjectBuiltInEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectBuiltInEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetProjectBuiltInEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectBuiltInEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -30924,6 +33673,8 @@ func (o GetProjectBuiltInEnvironmentVariableArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetProjectEnvironmentVariable struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable.
 	Id string `pulumi:"id"`
 	// Key of the environment variable.
@@ -30944,6 +33695,8 @@ type GetProjectEnvironmentVariableInput interface {
 }
 
 type GetProjectEnvironmentVariableArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the environment variable.
@@ -31003,6 +33756,11 @@ func (o GetProjectEnvironmentVariableOutput) ToGetProjectEnvironmentVariableOutp
 	return o
 }
 
+// Description of the environment variable.
+func (o GetProjectEnvironmentVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable.
 func (o GetProjectEnvironmentVariableOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectEnvironmentVariable) string { return v.Id }).(pulumi.StringOutput)
@@ -31039,6 +33797,8 @@ func (o GetProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) GetPr
 }
 
 type GetProjectEnvironmentVariableAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id string `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -31059,6 +33819,8 @@ type GetProjectEnvironmentVariableAliasInput interface {
 }
 
 type GetProjectEnvironmentVariableAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the environment variable alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the environment variable alias.
@@ -31118,6 +33880,11 @@ func (o GetProjectEnvironmentVariableAliasOutput) ToGetProjectEnvironmentVariabl
 	return o
 }
 
+// Description of the environment variable.
+func (o GetProjectEnvironmentVariableAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentVariableAlias) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the environment variable alias.
 func (o GetProjectEnvironmentVariableAliasOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectEnvironmentVariableAlias) string { return v.Id }).(pulumi.StringOutput)
@@ -31154,6 +33921,8 @@ func (o GetProjectEnvironmentVariableAliasArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetProjectSecret struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret.
 	Id string `pulumi:"id"`
 	// Key of the secret.
@@ -31174,6 +33943,8 @@ type GetProjectSecretInput interface {
 }
 
 type GetProjectSecretArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the secret.
@@ -31233,6 +34004,11 @@ func (o GetProjectSecretOutput) ToGetProjectSecretOutputWithContext(ctx context.
 	return o
 }
 
+// Description of the environment variable.
+func (o GetProjectSecretOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectSecret) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Id of the secret.
 func (o GetProjectSecretOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectSecret) string { return v.Id }).(pulumi.StringOutput)
@@ -31269,6 +34045,8 @@ func (o GetProjectSecretArrayOutput) Index(i pulumi.IntInput) GetProjectSecretOu
 }
 
 type GetProjectSecretAlias struct {
+	// Description of the environment variable.
+	Description string `pulumi:"description"`
 	// Id of the secret alias.
 	Id string `pulumi:"id"`
 	// Name of the secret alias.
@@ -31289,6 +34067,8 @@ type GetProjectSecretAliasInput interface {
 }
 
 type GetProjectSecretAliasArgs struct {
+	// Description of the environment variable.
+	Description pulumi.StringInput `pulumi:"description"`
 	// Id of the secret alias.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the secret alias.
@@ -31346,6 +34126,11 @@ func (o GetProjectSecretAliasOutput) ToGetProjectSecretAliasOutput() GetProjectS
 
 func (o GetProjectSecretAliasOutput) ToGetProjectSecretAliasOutputWithContext(ctx context.Context) GetProjectSecretAliasOutput {
 	return o
+}
+
+// Description of the environment variable.
+func (o GetProjectSecretAliasOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectSecretAlias) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Id of the secret alias.
@@ -31438,6 +34223,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesPtrInput)(nil)).Elem(), ClusterFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesExistingVpcInput)(nil)).Elem(), ClusterFeaturesExistingVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesExistingVpcPtrInput)(nil)).Elem(), ClusterFeaturesExistingVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesKarpenterInput)(nil)).Elem(), ClusterFeaturesKarpenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFeaturesKarpenterPtrInput)(nil)).Elem(), ClusterFeaturesKarpenterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoutingTableInput)(nil)).Elem(), ClusterRoutingTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoutingTableArrayInput)(nil)).Elem(), ClusterRoutingTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerBuiltInEnvironmentVariableInput)(nil)).Elem(), ContainerBuiltInEnvironmentVariableArgs{})
@@ -31504,6 +34291,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSecretOverrideArrayInput)(nil)).Elem(), EnvironmentSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), HelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmCustomDomainInput)(nil)).Elem(), HelmCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HelmCustomDomainArrayInput)(nil)).Elem(), HelmCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmDeploymentRestrictionInput)(nil)).Elem(), HelmDeploymentRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmDeploymentRestrictionArrayInput)(nil)).Elem(), HelmDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HelmEnvironmentVariableInput)(nil)).Elem(), HelmEnvironmentVariableArgs{})
@@ -31598,6 +34387,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobSourceDockerGitRepositoryPtrInput)(nil)).Elem(), JobSourceDockerGitRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobSourceImageInput)(nil)).Elem(), JobSourceImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobSourceImagePtrInput)(nil)).Elem(), JobSourceImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelsGroupLabelInput)(nil)).Elem(), LabelsGroupLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelsGroupLabelArrayInput)(nil)).Elem(), LabelsGroupLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuiltInEnvironmentVariableInput)(nil)).Elem(), ProjectBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), ProjectBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentVariableArgs{})
@@ -31661,6 +34452,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesPtrInput)(nil)).Elem(), GetClusterFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesExistingVpcInput)(nil)).Elem(), GetClusterFeaturesExistingVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesExistingVpcPtrInput)(nil)).Elem(), GetClusterFeaturesExistingVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesKarpenterInput)(nil)).Elem(), GetClusterFeaturesKarpenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterFeaturesKarpenterPtrInput)(nil)).Elem(), GetClusterFeaturesKarpenterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRoutingTableInput)(nil)).Elem(), GetClusterRoutingTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRoutingTableArrayInput)(nil)).Elem(), GetClusterRoutingTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerBuiltInEnvironmentVariableInput)(nil)).Elem(), GetContainerBuiltInEnvironmentVariableArgs{})
@@ -31725,6 +34518,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentSecretOverrideArrayInput)(nil)).Elem(), GetEnvironmentSecretOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetHelmBuiltInEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmCustomDomainInput)(nil)).Elem(), GetHelmCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmCustomDomainArrayInput)(nil)).Elem(), GetHelmCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmDeploymentRestrictionInput)(nil)).Elem(), GetHelmDeploymentRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmDeploymentRestrictionArrayInput)(nil)).Elem(), GetHelmDeploymentRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableInput)(nil)).Elem(), GetHelmEnvironmentVariableArgs{})
@@ -31733,12 +34528,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableAliasArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableOverrideInput)(nil)).Elem(), GetHelmEnvironmentVariableOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmEnvironmentVariableOverrideArrayInput)(nil)).Elem(), GetHelmEnvironmentVariableOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmPortsInput)(nil)).Elem(), GetHelmPortsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmPortsMapInput)(nil)).Elem(), GetHelmPortsMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretInput)(nil)).Elem(), GetHelmSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretArrayInput)(nil)).Elem(), GetHelmSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretAliasInput)(nil)).Elem(), GetHelmSecretAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretAliasArrayInput)(nil)).Elem(), GetHelmSecretAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretOverrideInput)(nil)).Elem(), GetHelmSecretOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSecretOverrideArrayInput)(nil)).Elem(), GetHelmSecretOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSourceInput)(nil)).Elem(), GetHelmSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSourceGitRepositoryInput)(nil)).Elem(), GetHelmSourceGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSourceGitRepositoryPtrInput)(nil)).Elem(), GetHelmSourceGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSourceHelmRepositoryInput)(nil)).Elem(), GetHelmSourceHelmRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmSourceHelmRepositoryPtrInput)(nil)).Elem(), GetHelmSourceHelmRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideInput)(nil)).Elem(), GetHelmValuesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFileInput)(nil)).Elem(), GetHelmValuesOverrideFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFilePtrInput)(nil)).Elem(), GetHelmValuesOverrideFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFileGitRepositoryInput)(nil)).Elem(), GetHelmValuesOverrideFileGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFileGitRepositoryPtrInput)(nil)).Elem(), GetHelmValuesOverrideFileGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFileRawInput)(nil)).Elem(), GetHelmValuesOverrideFileRawArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHelmValuesOverrideFileRawMapInput)(nil)).Elem(), GetHelmValuesOverrideFileRawMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetJobBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDeploymentRestrictionInput)(nil)).Elem(), GetJobDeploymentRestrictionArgs{})
@@ -31795,6 +34604,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobSourceDockerGitRepositoryPtrInput)(nil)).Elem(), GetJobSourceDockerGitRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobSourceImageInput)(nil)).Elem(), GetJobSourceImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobSourceImagePtrInput)(nil)).Elem(), GetJobSourceImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelsGroupLabelInput)(nil)).Elem(), GetLabelsGroupLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelsGroupLabelArrayInput)(nil)).Elem(), GetLabelsGroupLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectBuiltInEnvironmentVariableInput)(nil)).Elem(), GetProjectBuiltInEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectBuiltInEnvironmentVariableArrayInput)(nil)).Elem(), GetProjectBuiltInEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentVariableInput)(nil)).Elem(), GetProjectEnvironmentVariableArgs{})
@@ -31859,6 +34670,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterFeaturesExistingVpcOutput{})
 	pulumi.RegisterOutputType(ClusterFeaturesExistingVpcPtrOutput{})
+	pulumi.RegisterOutputType(ClusterFeaturesKarpenterOutput{})
+	pulumi.RegisterOutputType(ClusterFeaturesKarpenterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRoutingTableOutput{})
 	pulumi.RegisterOutputType(ClusterRoutingTableArrayOutput{})
 	pulumi.RegisterOutputType(ContainerBuiltInEnvironmentVariableOutput{})
@@ -31925,6 +34738,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(HelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(HelmCustomDomainOutput{})
+	pulumi.RegisterOutputType(HelmCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(HelmDeploymentRestrictionOutput{})
 	pulumi.RegisterOutputType(HelmDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(HelmEnvironmentVariableOutput{})
@@ -32019,6 +34834,8 @@ func init() {
 	pulumi.RegisterOutputType(JobSourceDockerGitRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(JobSourceImageOutput{})
 	pulumi.RegisterOutputType(JobSourceImagePtrOutput{})
+	pulumi.RegisterOutputType(LabelsGroupLabelOutput{})
+	pulumi.RegisterOutputType(LabelsGroupLabelArrayOutput{})
 	pulumi.RegisterOutputType(ProjectBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
@@ -32082,6 +34899,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterFeaturesExistingVpcOutput{})
 	pulumi.RegisterOutputType(GetClusterFeaturesExistingVpcPtrOutput{})
+	pulumi.RegisterOutputType(GetClusterFeaturesKarpenterOutput{})
+	pulumi.RegisterOutputType(GetClusterFeaturesKarpenterPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterRoutingTableOutput{})
 	pulumi.RegisterOutputType(GetClusterRoutingTableArrayOutput{})
 	pulumi.RegisterOutputType(GetContainerBuiltInEnvironmentVariableOutput{})
@@ -32146,6 +34965,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEnvironmentSecretOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetHelmBuiltInEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmCustomDomainOutput{})
+	pulumi.RegisterOutputType(GetHelmCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmDeploymentRestrictionOutput{})
 	pulumi.RegisterOutputType(GetHelmDeploymentRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOutput{})
@@ -32154,12 +34975,26 @@ func init() {
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableAliasArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOverrideOutput{})
 	pulumi.RegisterOutputType(GetHelmEnvironmentVariableOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmPortsOutput{})
+	pulumi.RegisterOutputType(GetHelmPortsMapOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretAliasOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretAliasArrayOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretOverrideOutput{})
 	pulumi.RegisterOutputType(GetHelmSecretOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetHelmSourceOutput{})
+	pulumi.RegisterOutputType(GetHelmSourceGitRepositoryOutput{})
+	pulumi.RegisterOutputType(GetHelmSourceGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(GetHelmSourceHelmRepositoryOutput{})
+	pulumi.RegisterOutputType(GetHelmSourceHelmRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFileOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFilePtrOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFileGitRepositoryOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFileGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFileRawOutput{})
+	pulumi.RegisterOutputType(GetHelmValuesOverrideFileRawMapOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetJobBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDeploymentRestrictionOutput{})
@@ -32216,6 +35051,8 @@ func init() {
 	pulumi.RegisterOutputType(GetJobSourceDockerGitRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(GetJobSourceImageOutput{})
 	pulumi.RegisterOutputType(GetJobSourceImagePtrOutput{})
+	pulumi.RegisterOutputType(GetLabelsGroupLabelOutput{})
+	pulumi.RegisterOutputType(GetLabelsGroupLabelArrayOutput{})
 	pulumi.RegisterOutputType(GetProjectBuiltInEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(GetProjectBuiltInEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetProjectEnvironmentVariableOutput{})

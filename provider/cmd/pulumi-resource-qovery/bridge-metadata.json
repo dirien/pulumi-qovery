@@ -1,9 +1,20 @@
 {
     "auto-aliasing": {
         "resources": {
+            "qovery_annotations_group": {
+                "current": "qovery:index/annotationsGroup:AnnotationsGroup",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "qovery_application": {
                 "current": "qovery:index/application:Application",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "arguments": {
                         "maxItemsOne": false
                     },
@@ -58,6 +69,9 @@
                                 }
                             }
                         }
+                    },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
                     },
                     "ports": {
                         "maxItemsOne": false
@@ -134,6 +148,9 @@
             "qovery_container": {
                 "current": "qovery:index/container:Container",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "arguments": {
                         "maxItemsOne": false
                     },
@@ -186,6 +203,9 @@
                             }
                         }
                     },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "ports": {
                         "maxItemsOne": false
                     },
@@ -207,7 +227,15 @@
                 "current": "qovery:index/containerRegistry:ContainerRegistry"
             },
             "qovery_database": {
-                "current": "qovery:index/database:Database"
+                "current": "qovery:index/database:Database",
+                "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "qovery_deployment": {
                 "current": "qovery:index/deployment:Deployment"
@@ -251,6 +279,9 @@
                         "maxItemsOne": false
                     },
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
                         "maxItemsOne": false
                     },
                     "deployment_restrictions": {
@@ -297,6 +328,9 @@
             "qovery_job": {
                 "current": "qovery:index/job:Job",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
@@ -345,6 +379,9 @@
                                 }
                             }
                         }
+                    },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
                     },
                     "schedule": {
                         "fields": {
@@ -393,6 +430,14 @@
                     }
                 }
             },
+            "qovery_labels_group": {
+                "current": "qovery:index/labelsGroup:LabelsGroup",
+                "fields": {
+                    "labels": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "qovery_organization": {
                 "current": "qovery:index/organization:Organization"
             },
@@ -421,9 +466,20 @@
             }
         },
         "datasources": {
+            "qovery_annotations_group": {
+                "current": "qovery:index/getAnnotationsGroup:getAnnotationsGroup",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "qovery_application": {
                 "current": "qovery:index/getApplication:getApplication",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "arguments": {
                         "maxItemsOne": false
                     },
@@ -478,6 +534,9 @@
                                 }
                             }
                         }
+                    },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
                     },
                     "ports": {
                         "maxItemsOne": false
@@ -554,6 +613,9 @@
             "qovery_container": {
                 "current": "qovery:index/getContainer:getContainer",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "arguments": {
                         "maxItemsOne": false
                     },
@@ -606,6 +668,9 @@
                             }
                         }
                     },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "ports": {
                         "maxItemsOne": false
                     },
@@ -627,7 +692,15 @@
                 "current": "qovery:index/getContainerRegistry:getContainerRegistry"
             },
             "qovery_database": {
-                "current": "qovery:index/getDatabase:getDatabase"
+                "current": "qovery:index/getDatabase:getDatabase",
+                "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "qovery_deployment": {
                 "current": "qovery:index/getDeployment:getDeployment"
@@ -667,7 +740,13 @@
             "qovery_helm": {
                 "current": "qovery:index/getHelm:getHelm",
                 "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
                     "built_in_environment_variables": {
+                        "maxItemsOne": false
+                    },
+                    "custom_domains": {
                         "maxItemsOne": false
                     },
                     "deployment_restrictions": {
@@ -690,6 +769,21 @@
                     },
                     "secrets": {
                         "maxItemsOne": false
+                    },
+                    "values_override": {
+                        "fields": {
+                            "file": {
+                                "fields": {
+                                    "git_repository": {
+                                        "fields": {
+                                            "paths": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -699,6 +793,9 @@
             "qovery_job": {
                 "current": "qovery:index/getJob:getJob",
                 "fields": {
+                    "annotations_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "built_in_environment_variables": {
                         "maxItemsOne": false
                     },
@@ -748,6 +845,9 @@
                             }
                         }
                     },
+                    "labels_group_ids": {
+                        "maxItemsOne": false
+                    },
                     "schedule": {
                         "fields": {
                             "cronjob": {
@@ -791,6 +891,14 @@
                         "maxItemsOne": false
                     },
                     "secrets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "qovery_labels_group": {
+                "current": "qovery:index/getLabelsGroup:getLabelsGroup",
+                "fields": {
+                    "labels": {
                         "maxItemsOne": false
                     }
                 }

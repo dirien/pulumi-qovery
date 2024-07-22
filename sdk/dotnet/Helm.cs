@@ -43,7 +43,7 @@ namespace ediri.Qovery
         public Output<ImmutableArray<string>> Arguments { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if the service will be automatically updated on every new commit on the branch.
+        /// Specify if service will be automatically updated on every new commit on the branch.
         /// </summary>
         [Output("autoDeploy")]
         public Output<bool> AutoDeploy { get; private set; } = null!;
@@ -59,6 +59,12 @@ namespace ediri.Qovery
         /// </summary>
         [Output("builtInEnvironmentVariables")]
         public Output<ImmutableArray<Outputs.HelmBuiltInEnvironmentVariable>> BuiltInEnvironmentVariables { get; private set; } = null!;
+
+        /// <summary>
+        /// List of custom domains linked to this helm.
+        /// </summary>
+        [Output("customDomains")]
+        public Output<ImmutableArray<Outputs.HelmCustomDomain>> CustomDomains { get; private set; } = null!;
 
         /// <summary>
         /// List of deployment restrictions
@@ -145,7 +151,7 @@ namespace ediri.Qovery
         public Output<Outputs.HelmSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Helm timeout in second
+        /// Helm timeout in seconds
         /// </summary>
         [Output("timeoutSec")]
         public Output<int> TimeoutSec { get; private set; } = null!;
@@ -228,7 +234,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Specify if the service will be automatically updated on every new commit on the branch.
+        /// Specify if service will be automatically updated on every new commit on the branch.
         /// </summary>
         [Input("autoDeploy")]
         public Input<bool>? AutoDeploy { get; set; }
@@ -238,6 +244,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("autoPreview")]
         public Input<bool>? AutoPreview { get; set; }
+
+        [Input("customDomains")]
+        private InputList<Inputs.HelmCustomDomainArgs>? _customDomains;
+
+        /// <summary>
+        /// List of custom domains linked to this helm.
+        /// </summary>
+        public InputList<Inputs.HelmCustomDomainArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.HelmCustomDomainArgs>());
+            set => _customDomains = value;
+        }
 
         [Input("deploymentRestrictions")]
         private InputList<Inputs.HelmDeploymentRestrictionArgs>? _deploymentRestrictions;
@@ -360,7 +378,7 @@ namespace ediri.Qovery
         public Input<Inputs.HelmSourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// Helm timeout in second
+        /// Helm timeout in seconds
         /// </summary>
         [Input("timeoutSec")]
         public Input<int>? TimeoutSec { get; set; }
@@ -404,7 +422,7 @@ namespace ediri.Qovery
         }
 
         /// <summary>
-        /// Specify if the service will be automatically updated on every new commit on the branch.
+        /// Specify if service will be automatically updated on every new commit on the branch.
         /// </summary>
         [Input("autoDeploy")]
         public Input<bool>? AutoDeploy { get; set; }
@@ -425,6 +443,18 @@ namespace ediri.Qovery
         {
             get => _builtInEnvironmentVariables ?? (_builtInEnvironmentVariables = new InputList<Inputs.HelmBuiltInEnvironmentVariableGetArgs>());
             set => _builtInEnvironmentVariables = value;
+        }
+
+        [Input("customDomains")]
+        private InputList<Inputs.HelmCustomDomainGetArgs>? _customDomains;
+
+        /// <summary>
+        /// List of custom domains linked to this helm.
+        /// </summary>
+        public InputList<Inputs.HelmCustomDomainGetArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.HelmCustomDomainGetArgs>());
+            set => _customDomains = value;
         }
 
         [Input("deploymentRestrictions")]
@@ -560,7 +590,7 @@ namespace ediri.Qovery
         public Input<Inputs.HelmSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// Helm timeout in second
+        /// Helm timeout in seconds
         /// </summary>
         [Input("timeoutSec")]
         public Input<int>? TimeoutSec { get; set; }

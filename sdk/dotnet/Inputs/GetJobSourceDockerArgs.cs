@@ -20,6 +20,12 @@ namespace ediri.Qovery.Inputs
         public Input<string>? DockerfilePath { get; set; }
 
         /// <summary>
+        /// Inline Dockerfile to inject for building the image
+        /// </summary>
+        [Input("dockerfileRaw")]
+        public Input<string>? DockerfileRaw { get; set; }
+
+        /// <summary>
         /// Job's docker source git repository.
         /// </summary>
         [Input("gitRepository", required: true)]

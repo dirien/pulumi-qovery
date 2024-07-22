@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "annotationsGroup.ts",
         "application.ts",
         "awsCredentials.ts",
         "cluster.ts",
@@ -24,6 +25,7 @@
         "deployment.ts",
         "deploymentStage.ts",
         "environment.ts",
+        "getAnnotationsGroup.ts",
         "getApplication.ts",
         "getAwsCredentials.ts",
         "getCluster.ts",
@@ -37,6 +39,7 @@
         "getHelm.ts",
         "getHelmRepository.ts",
         "getJob.ts",
+        "getLabelsGroup.ts",
         "getOrganization.ts",
         "getProject.ts",
         "getScalewayCredentials.ts",
@@ -45,6 +48,7 @@
         "helmRepository.ts",
         "index.ts",
         "job.ts",
+        "labelsGroup.ts",
         "organization.ts",
         "project.ts",
         "provider.ts",

@@ -26,6 +26,10 @@ export function getHelm(args: GetHelmArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getHelm:getHelm", {
         "advancedSettingsJson": args.advancedSettingsJson,
+        "arguments": args.arguments,
+        "autoDeploy": args.autoDeploy,
+        "autoPreview": args.autoPreview,
+        "customDomains": args.customDomains,
         "deploymentRestrictions": args.deploymentRestrictions,
         "deploymentStageId": args.deploymentStageId,
         "environmentVariableAliases": args.environmentVariableAliases,
@@ -35,6 +39,7 @@ export function getHelm(args: GetHelmArgs, opts?: pulumi.InvokeOptions): Promise
         "secretAliases": args.secretAliases,
         "secretOverrides": args.secretOverrides,
         "secrets": args.secrets,
+        "timeoutSec": args.timeoutSec,
     }, opts);
 }
 
@@ -42,112 +47,51 @@ export function getHelm(args: GetHelmArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getHelm.
  */
 export interface GetHelmArgs {
-    /**
-     * Advanced settings.
-     */
     advancedSettingsJson?: string;
-    /**
-     * List of deployment restrictions
-     */
+    arguments?: string[];
+    autoDeploy?: boolean;
+    autoPreview?: boolean;
+    customDomains?: inputs.GetHelmCustomDomain[];
     deploymentRestrictions?: inputs.GetHelmDeploymentRestriction[];
-    /**
-     * Id of the deployment stage.
-     */
     deploymentStageId?: string;
-    /**
-     * List of environment variable aliases linked to this helm.
-     */
     environmentVariableAliases?: inputs.GetHelmEnvironmentVariableAlias[];
-    /**
-     * List of environment variable overrides linked to this helm.
-     */
     environmentVariableOverrides?: inputs.GetHelmEnvironmentVariableOverride[];
-    /**
-     * List of environment variables linked to this helm.
-     */
     environmentVariables?: inputs.GetHelmEnvironmentVariable[];
-    /**
-     * Id of the helm.
-     */
     id: string;
-    /**
-     * List of secret aliases linked to this helm.
-     */
     secretAliases?: inputs.GetHelmSecretAlias[];
-    /**
-     * List of secret overrides linked to this helm.
-     */
     secretOverrides?: inputs.GetHelmSecretOverride[];
-    /**
-     * List of secrets linked to this helm.
-     */
     secrets?: inputs.GetHelmSecret[];
+    timeoutSec?: number;
 }
 
 /**
  * A collection of values returned by getHelm.
  */
 export interface GetHelmResult {
-    /**
-     * Advanced settings.
-     */
     readonly advancedSettingsJson: string;
-    /**
-     * List of built-in environment variables linked to this helm.
-     */
+    readonly allowClusterWideResources: boolean;
+    readonly arguments: string[];
+    readonly autoDeploy: boolean;
+    readonly autoPreview: boolean;
     readonly builtInEnvironmentVariables: outputs.GetHelmBuiltInEnvironmentVariable[];
-    /**
-     * List of deployment restrictions
-     */
+    readonly customDomains?: outputs.GetHelmCustomDomain[];
     readonly deploymentRestrictions?: outputs.GetHelmDeploymentRestriction[];
-    /**
-     * Id of the deployment stage.
-     */
     readonly deploymentStageId: string;
-    /**
-     * Id of the environment.
-     */
     readonly environmentId: string;
-    /**
-     * List of environment variable aliases linked to this helm.
-     */
     readonly environmentVariableAliases: outputs.GetHelmEnvironmentVariableAlias[];
-    /**
-     * List of environment variable overrides linked to this helm.
-     */
     readonly environmentVariableOverrides?: outputs.GetHelmEnvironmentVariableOverride[];
-    /**
-     * List of environment variables linked to this helm.
-     */
     readonly environmentVariables?: outputs.GetHelmEnvironmentVariable[];
-    /**
-     * The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
-     */
     readonly externalHost: string;
-    /**
-     * Id of the helm.
-     */
     readonly id: string;
-    /**
-     * The helm internal host.
-     */
     readonly internalHost: string;
-    /**
-     * Name of the helm.
-     */
     readonly name: string;
-    /**
-     * List of secret aliases linked to this helm.
-     */
+    readonly ports: {[key: string]: outputs.GetHelmPorts};
     readonly secretAliases?: outputs.GetHelmSecretAlias[];
-    /**
-     * List of secret overrides linked to this helm.
-     */
     readonly secretOverrides?: outputs.GetHelmSecretOverride[];
-    /**
-     * List of secrets linked to this helm.
-     */
     readonly secrets?: outputs.GetHelmSecret[];
+    readonly source: outputs.GetHelmSource;
+    readonly timeoutSec: number;
+    readonly valuesOverride: outputs.GetHelmValuesOverride;
 }
 /**
  * ## # qovery.Helm (Data Source)
@@ -172,44 +116,19 @@ export function getHelmOutput(args: GetHelmOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getHelm.
  */
 export interface GetHelmOutputArgs {
-    /**
-     * Advanced settings.
-     */
     advancedSettingsJson?: pulumi.Input<string>;
-    /**
-     * List of deployment restrictions
-     */
+    arguments?: pulumi.Input<pulumi.Input<string>[]>;
+    autoDeploy?: pulumi.Input<boolean>;
+    autoPreview?: pulumi.Input<boolean>;
+    customDomains?: pulumi.Input<pulumi.Input<inputs.GetHelmCustomDomainArgs>[]>;
     deploymentRestrictions?: pulumi.Input<pulumi.Input<inputs.GetHelmDeploymentRestrictionArgs>[]>;
-    /**
-     * Id of the deployment stage.
-     */
     deploymentStageId?: pulumi.Input<string>;
-    /**
-     * List of environment variable aliases linked to this helm.
-     */
     environmentVariableAliases?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableAliasArgs>[]>;
-    /**
-     * List of environment variable overrides linked to this helm.
-     */
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableOverrideArgs>[]>;
-    /**
-     * List of environment variables linked to this helm.
-     */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableArgs>[]>;
-    /**
-     * Id of the helm.
-     */
     id: pulumi.Input<string>;
-    /**
-     * List of secret aliases linked to this helm.
-     */
     secretAliases?: pulumi.Input<pulumi.Input<inputs.GetHelmSecretAliasArgs>[]>;
-    /**
-     * List of secret overrides linked to this helm.
-     */
     secretOverrides?: pulumi.Input<pulumi.Input<inputs.GetHelmSecretOverrideArgs>[]>;
-    /**
-     * List of secrets linked to this helm.
-     */
     secrets?: pulumi.Input<pulumi.Input<inputs.GetHelmSecretArgs>[]>;
+    timeoutSec?: pulumi.Input<number>;
 }

@@ -52,6 +52,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getJob.
 type LookupJobArgs struct {
 	AdvancedSettingsJson         *string                             `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                            `pulumi:"annotationsGroupIds"`
 	AutoDeploy                   *bool                               `pulumi:"autoDeploy"`
 	AutoPreview                  *bool                               `pulumi:"autoPreview"`
 	Cpu                          *int                                `pulumi:"cpu"`
@@ -62,6 +63,7 @@ type LookupJobArgs struct {
 	EnvironmentVariables         []GetJobEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetJobHealthchecks                 `pulumi:"healthchecks"`
 	Id                           string                              `pulumi:"id"`
+	LabelsGroupIds               []string                            `pulumi:"labelsGroupIds"`
 	MaxDurationSeconds           *int                                `pulumi:"maxDurationSeconds"`
 	MaxNbRestart                 *int                                `pulumi:"maxNbRestart"`
 	Memory                       *int                                `pulumi:"memory"`
@@ -75,6 +77,7 @@ type LookupJobArgs struct {
 // A collection of values returned by getJob.
 type LookupJobResult struct {
 	AdvancedSettingsJson         string                              `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                            `pulumi:"annotationsGroupIds"`
 	AutoDeploy                   bool                                `pulumi:"autoDeploy"`
 	AutoPreview                  bool                                `pulumi:"autoPreview"`
 	BuiltInEnvironmentVariables  []GetJobBuiltInEnvironmentVariable  `pulumi:"builtInEnvironmentVariables"`
@@ -89,6 +92,7 @@ type LookupJobResult struct {
 	Healthchecks                 *GetJobHealthchecks                 `pulumi:"healthchecks"`
 	Id                           string                              `pulumi:"id"`
 	InternalHost                 string                              `pulumi:"internalHost"`
+	LabelsGroupIds               []string                            `pulumi:"labelsGroupIds"`
 	MaxDurationSeconds           int                                 `pulumi:"maxDurationSeconds"`
 	MaxNbRestart                 int                                 `pulumi:"maxNbRestart"`
 	Memory                       *int                                `pulumi:"memory"`
@@ -117,6 +121,7 @@ func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulu
 // A collection of arguments for invoking getJob.
 type LookupJobOutputArgs struct {
 	AdvancedSettingsJson         pulumi.StringPtrInput                       `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          pulumi.StringArrayInput                     `pulumi:"annotationsGroupIds"`
 	AutoDeploy                   pulumi.BoolPtrInput                         `pulumi:"autoDeploy"`
 	AutoPreview                  pulumi.BoolPtrInput                         `pulumi:"autoPreview"`
 	Cpu                          pulumi.IntPtrInput                          `pulumi:"cpu"`
@@ -127,6 +132,7 @@ type LookupJobOutputArgs struct {
 	EnvironmentVariables         GetJobEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetJobHealthchecksPtrInput                  `pulumi:"healthchecks"`
 	Id                           pulumi.StringInput                          `pulumi:"id"`
+	LabelsGroupIds               pulumi.StringArrayInput                     `pulumi:"labelsGroupIds"`
 	MaxDurationSeconds           pulumi.IntPtrInput                          `pulumi:"maxDurationSeconds"`
 	MaxNbRestart                 pulumi.IntPtrInput                          `pulumi:"maxNbRestart"`
 	Memory                       pulumi.IntPtrInput                          `pulumi:"memory"`
@@ -158,6 +164,10 @@ func (o LookupJobResultOutput) ToLookupJobResultOutputWithContext(ctx context.Co
 
 func (o LookupJobResultOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
+}
+
+func (o LookupJobResultOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []string { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupJobResultOutput) AutoDeploy() pulumi.BoolOutput {
@@ -214,6 +224,10 @@ func (o LookupJobResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupJobResultOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupJobResultOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []string { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupJobResultOutput) MaxDurationSeconds() pulumi.IntOutput {

@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 
 export interface ApplicationBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -25,6 +29,10 @@ export interface ApplicationCustomDomain {
      * Your custom domain.
      */
     domain: string;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
     /**
      * Id of the custom domain.
      */
@@ -60,6 +68,10 @@ export interface ApplicationDeploymentRestriction {
 
 export interface ApplicationEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -75,6 +87,10 @@ export interface ApplicationEnvironmentVariable {
 
 export interface ApplicationEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -89,6 +105,10 @@ export interface ApplicationEnvironmentVariableAlias {
 }
 
 export interface ApplicationEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: string;
     /**
      * Id of the environment variable override.
      */
@@ -353,6 +373,10 @@ export interface ApplicationPort {
 
 export interface ApplicationSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -368,6 +392,10 @@ export interface ApplicationSecret {
 
 export interface ApplicationSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -382,6 +410,10 @@ export interface ApplicationSecretAlias {
 }
 
 export interface ApplicationSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: string;
     /**
      * Id of the secret override.
      */
@@ -422,6 +454,10 @@ export interface ClusterFeatures {
      * Network configuration if you want to install qovery on an existing VPC
      */
     existingVpc?: outputs.ClusterFeaturesExistingVpc;
+    /**
+     * Karpenter parameters if you want to use Karpenter on an EKS cluster
+     */
+    karpenter?: outputs.ClusterFeaturesKarpenter;
     /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
@@ -489,6 +525,18 @@ export interface ClusterFeaturesExistingVpc {
     rdsSubnetsZoneCIds: string[];
 }
 
+export interface ClusterFeaturesKarpenter {
+    /**
+     * The default architecture of service
+     */
+    defaultServiceArchitecture: string;
+    diskSizeInGib: number;
+    /**
+     * Enable spot instances
+     */
+    spotEnabled: boolean;
+}
+
 export interface ClusterRoutingTable {
     /**
      * Description of the route.
@@ -505,6 +553,10 @@ export interface ClusterRoutingTable {
 }
 
 export interface ContainerBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -525,6 +577,10 @@ export interface ContainerCustomDomain {
      */
     domain: string;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
      * Id of the custom domain.
      */
     id: string;
@@ -539,6 +595,10 @@ export interface ContainerCustomDomain {
 }
 
 export interface ContainerEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the environment variable.
      */
@@ -555,6 +615,10 @@ export interface ContainerEnvironmentVariable {
 
 export interface ContainerEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -569,6 +633,10 @@ export interface ContainerEnvironmentVariableAlias {
 }
 
 export interface ContainerEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: string;
     /**
      * Id of the environment variable override.
      */
@@ -843,6 +911,10 @@ export interface ContainerRegistryConfig {
 
 export interface ContainerSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -858,6 +930,10 @@ export interface ContainerSecret {
 
 export interface ContainerSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -872,6 +948,10 @@ export interface ContainerSecretAlias {
 }
 
 export interface ContainerSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: string;
     /**
      * Id of the secret override.
      */
@@ -909,6 +989,10 @@ export interface ContainerStorage {
 
 export interface EnvironmentBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -923,6 +1007,10 @@ export interface EnvironmentBuiltInEnvironmentVariable {
 }
 
 export interface EnvironmentEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description?: string;
     /**
      * Id of the environment variable.
      */
@@ -939,6 +1027,10 @@ export interface EnvironmentEnvironmentVariable {
 
 export interface EnvironmentEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -953,6 +1045,10 @@ export interface EnvironmentEnvironmentVariableAlias {
 }
 
 export interface EnvironmentEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: string;
     /**
      * Id of the environment variable override.
      */
@@ -969,6 +1065,10 @@ export interface EnvironmentEnvironmentVariableOverride {
 
 export interface EnvironmentSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -983,6 +1083,10 @@ export interface EnvironmentSecret {
 }
 
 export interface EnvironmentSecretAlias {
+    /**
+     * Description of the secret alias.
+     */
+    description?: string;
     /**
      * Id of the secret alias.
      */
@@ -999,6 +1103,10 @@ export interface EnvironmentSecretAlias {
 
 export interface EnvironmentSecretOverride {
     /**
+     * Description of the secret override.
+     */
+    description?: string;
+    /**
      * Id of the secret override.
      */
     id: string;
@@ -1013,6 +1121,10 @@ export interface EnvironmentSecretOverride {
 }
 
 export interface GetApplicationBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -1032,6 +1144,10 @@ export interface GetApplicationCustomDomain {
      * Your custom domain.
      */
     domain: string;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
     /**
      * Id of the custom domain.
      */
@@ -1067,6 +1183,10 @@ export interface GetApplicationDeploymentRestriction {
 
 export interface GetApplicationEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -1082,6 +1202,10 @@ export interface GetApplicationEnvironmentVariable {
 
 export interface GetApplicationEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -1096,6 +1220,10 @@ export interface GetApplicationEnvironmentVariableAlias {
 }
 
 export interface GetApplicationEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description: string;
     /**
      * Id of the environment variable override.
      */
@@ -1360,6 +1488,10 @@ export interface GetApplicationPort {
 
 export interface GetApplicationSecret {
     /**
+     * Description of the secret.
+     */
+    description: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -1375,6 +1507,10 @@ export interface GetApplicationSecret {
 
 export interface GetApplicationSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -1389,6 +1525,10 @@ export interface GetApplicationSecretAlias {
 }
 
 export interface GetApplicationSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description: string;
     /**
      * Id of the secret override.
      */
@@ -1429,6 +1569,10 @@ export interface GetClusterFeatures {
      * Network configuration if you want to install qovery on an existing VPC
      */
     existingVpc?: outputs.GetClusterFeaturesExistingVpc;
+    /**
+     * Karpenter parameters if you want to use Karpenter on an EKS cluster
+     */
+    karpenter?: outputs.GetClusterFeaturesKarpenter;
     /**
      * Static IP (AWS only) [NOTE: can't be updated after creation].
      * 	- Default: `false`.
@@ -1496,6 +1640,18 @@ export interface GetClusterFeaturesExistingVpc {
     rdsSubnetsZoneCIds: string[];
 }
 
+export interface GetClusterFeaturesKarpenter {
+    /**
+     * The default architecture of service
+     */
+    defaultServiceArchitecture: string;
+    diskSizeInGib: number;
+    /**
+     * Enable spot instances
+     */
+    spotEnabled: boolean;
+}
+
 export interface GetClusterRoutingTable {
     /**
      * Description of the route.
@@ -1512,6 +1668,10 @@ export interface GetClusterRoutingTable {
 }
 
 export interface GetContainerBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -1532,6 +1692,10 @@ export interface GetContainerCustomDomain {
      */
     domain: string;
     /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
      * Id of the custom domain.
      */
     id: string;
@@ -1546,6 +1710,10 @@ export interface GetContainerCustomDomain {
 }
 
 export interface GetContainerEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -1562,6 +1730,10 @@ export interface GetContainerEnvironmentVariable {
 
 export interface GetContainerEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -1576,6 +1748,10 @@ export interface GetContainerEnvironmentVariableAlias {
 }
 
 export interface GetContainerEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description: string;
     /**
      * Id of the environment variable override.
      */
@@ -1819,6 +1995,10 @@ export interface GetContainerPort {
 
 export interface GetContainerSecret {
     /**
+     * Description of the secret.
+     */
+    description: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -1834,6 +2014,10 @@ export interface GetContainerSecret {
 
 export interface GetContainerSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -1848,6 +2032,10 @@ export interface GetContainerSecretAlias {
 }
 
 export interface GetContainerSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description: string;
     /**
      * Id of the secret override.
      */
@@ -1885,6 +2073,10 @@ export interface GetContainerStorage {
 
 export interface GetEnvironmentBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -1899,6 +2091,10 @@ export interface GetEnvironmentBuiltInEnvironmentVariable {
 }
 
 export interface GetEnvironmentEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -1915,6 +2111,10 @@ export interface GetEnvironmentEnvironmentVariable {
 
 export interface GetEnvironmentEnvironmentVariableAlias {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -1929,6 +2129,10 @@ export interface GetEnvironmentEnvironmentVariableAlias {
 }
 
 export interface GetEnvironmentEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable override.
      */
@@ -1945,6 +2149,10 @@ export interface GetEnvironmentEnvironmentVariableOverride {
 
 export interface GetEnvironmentSecret {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -1959,6 +2167,10 @@ export interface GetEnvironmentSecret {
 }
 
 export interface GetEnvironmentSecretAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the secret alias.
      */
@@ -1975,6 +2187,10 @@ export interface GetEnvironmentSecretAlias {
 
 export interface GetEnvironmentSecretOverride {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret override.
      */
     id: string;
@@ -1990,6 +2206,10 @@ export interface GetEnvironmentSecretOverride {
 
 export interface GetHelmBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2001,6 +2221,29 @@ export interface GetHelmBuiltInEnvironmentVariable {
      * Value of the environment variable.
      */
     value: string;
+}
+
+export interface GetHelmCustomDomain {
+    /**
+     * Your custom domain.
+     */
+    domain: string;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate?: boolean;
+    /**
+     * Id of the custom domain.
+     */
+    id: string;
+    /**
+     * Status of the custom domain.
+     */
+    status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
+    validationDomain: string;
 }
 
 export interface GetHelmDeploymentRestriction {
@@ -2024,6 +2267,10 @@ export interface GetHelmDeploymentRestriction {
 
 export interface GetHelmEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2038,6 +2285,10 @@ export interface GetHelmEnvironmentVariable {
 }
 
 export interface GetHelmEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable alias.
      */
@@ -2054,6 +2305,10 @@ export interface GetHelmEnvironmentVariableAlias {
 
 export interface GetHelmEnvironmentVariableOverride {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable override.
      */
     id: string;
@@ -2067,7 +2322,37 @@ export interface GetHelmEnvironmentVariableOverride {
     value: string;
 }
 
+export interface GetHelmPorts {
+    /**
+     * External port of the container.
+     * 	- Required if: `ports.publicly_accessible=true`.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
+    externalPort: number;
+    /**
+     * Internal port of the container.
+     * 	- Must be: `>= 1` and `<= 65535`.
+     */
+    internalPort: number;
+    /**
+     * If this port will be used for the root domain
+     */
+    isDefault: boolean;
+    namespace?: string;
+    /**
+     * Protocol used for the port of the container.
+     * 	- Can be: `GRPC`, `HTTP`.
+     * 	- Default: `HTTP`.
+     */
+    protocol: string;
+    serviceName: string;
+}
+
 export interface GetHelmSecret {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the secret.
      */
@@ -2084,6 +2369,10 @@ export interface GetHelmSecret {
 
 export interface GetHelmSecretAlias {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -2099,6 +2388,10 @@ export interface GetHelmSecretAlias {
 
 export interface GetHelmSecretOverride {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret override.
      */
     id: string;
@@ -2112,7 +2405,103 @@ export interface GetHelmSecretOverride {
     value: string;
 }
 
+export interface GetHelmSource {
+    /**
+     * Git repository
+     */
+    gitRepository?: outputs.GetHelmSourceGitRepository;
+    /**
+     * Helm repositories can be private or public
+     */
+    helmRepository?: outputs.GetHelmSourceHelmRepository;
+}
+
+export interface GetHelmSourceGitRepository {
+    /**
+     * Helm's source git repository branch
+     */
+    branch: string;
+    /**
+     * The git token ID to be used
+     */
+    gitTokenId: string;
+    /**
+     * Helm's source git repository root path
+     */
+    rootPath: string;
+    /**
+     * Helm's source git repository URL
+     */
+    url: string;
+}
+
+export interface GetHelmSourceHelmRepository {
+    /**
+     * Chart name
+     */
+    chartName: string;
+    /**
+     * Chart version
+     */
+    chartVersion: string;
+    /**
+     * helm repository id
+     */
+    helmRepositoryId: string;
+}
+
+export interface GetHelmValuesOverride {
+    /**
+     * Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+     */
+    file?: outputs.GetHelmValuesOverrideFile;
+    set?: {[key: string]: string};
+    setJson?: {[key: string]: string};
+    setString?: {[key: string]: string};
+}
+
+export interface GetHelmValuesOverrideFile {
+    /**
+     * YAML file from a git repository
+     */
+    gitRepository?: outputs.GetHelmValuesOverrideFileGitRepository;
+    /**
+     * Raw YAML files
+     */
+    raw?: {[key: string]: outputs.GetHelmValuesOverrideFileRaw};
+}
+
+export interface GetHelmValuesOverrideFileGitRepository {
+    /**
+     * YAML file git repository branch
+     */
+    branch: string;
+    /**
+     * The git token ID to be used
+     */
+    gitTokenId: string;
+    /**
+     * YAML files git repository paths
+     */
+    paths: string[];
+    /**
+     * YAML file git repository URL
+     */
+    url: string;
+}
+
+export interface GetHelmValuesOverrideFileRaw {
+    /**
+     * content of the file
+     */
+    content: string;
+}
+
 export interface GetJobBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -2148,6 +2537,10 @@ export interface GetJobDeploymentRestriction {
 
 export interface GetJobEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2163,6 +2556,10 @@ export interface GetJobEnvironmentVariable {
 
 export interface GetJobEnvironmentVariableAlias {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -2177,6 +2574,10 @@ export interface GetJobEnvironmentVariableAlias {
 }
 
 export interface GetJobEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable override.
      */
@@ -2388,6 +2789,11 @@ export interface GetJobSchedule {
      */
     cronjob: outputs.GetJobScheduleCronjob;
     /**
+     * Type of the lifecycle job.
+     * 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+     */
+    lifecycleType: string;
+    /**
      * Job's schedule on delete.
      */
     onDelete: outputs.GetJobScheduleOnDelete;
@@ -2458,6 +2864,10 @@ export interface GetJobScheduleOnStop {
 
 export interface GetJobSecret {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -2473,6 +2883,10 @@ export interface GetJobSecret {
 
 export interface GetJobSecretAlias {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -2487,6 +2901,10 @@ export interface GetJobSecretAlias {
 }
 
 export interface GetJobSecretOverride {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the secret override.
      */
@@ -2517,6 +2935,10 @@ export interface GetJobSourceDocker {
      * Job's docker source dockerfile path.
      */
     dockerfilePath?: string;
+    /**
+     * Inline Dockerfile to inject for building the image
+     */
+    dockerfileRaw?: string;
     /**
      * Job's docker source git repository.
      */
@@ -2557,7 +2979,17 @@ export interface GetJobSourceImage {
     tag: string;
 }
 
+export interface GetLabelsGroupLabel {
+    key: string;
+    propagateToCloudProvider: boolean;
+    value: string;
+}
+
 export interface GetProjectBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -2574,6 +3006,10 @@ export interface GetProjectBuiltInEnvironmentVariable {
 
 export interface GetProjectEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2588,6 +3024,10 @@ export interface GetProjectEnvironmentVariable {
 }
 
 export interface GetProjectEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable alias.
      */
@@ -2604,6 +3044,10 @@ export interface GetProjectEnvironmentVariableAlias {
 
 export interface GetProjectSecret {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -2618,6 +3062,10 @@ export interface GetProjectSecret {
 }
 
 export interface GetProjectSecretAlias {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the secret alias.
      */
@@ -2634,6 +3082,10 @@ export interface GetProjectSecretAlias {
 
 export interface HelmBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2645,6 +3097,29 @@ export interface HelmBuiltInEnvironmentVariable {
      * Value of the environment variable.
      */
     value: string;
+}
+
+export interface HelmCustomDomain {
+    /**
+     * Your custom domain.
+     */
+    domain: string;
+    /**
+     * Qovery will generate and manage the certificate for this domain.
+     */
+    generateCertificate: boolean;
+    /**
+     * Id of the custom domain.
+     */
+    id: string;
+    /**
+     * Status of the custom domain.
+     */
+    status: string;
+    /**
+     * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
+     */
+    validationDomain: string;
 }
 
 export interface HelmDeploymentRestriction {
@@ -2668,6 +3143,10 @@ export interface HelmDeploymentRestriction {
 
 export interface HelmEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2683,6 +3162,10 @@ export interface HelmEnvironmentVariable {
 
 export interface HelmEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -2697,6 +3180,10 @@ export interface HelmEnvironmentVariableAlias {
 }
 
 export interface HelmEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: string;
     /**
      * Id of the environment variable override.
      */
@@ -2770,6 +3257,10 @@ export interface HelmRepositoryConfig {
 
 export interface HelmSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -2785,6 +3276,10 @@ export interface HelmSecret {
 
 export interface HelmSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -2799,6 +3294,10 @@ export interface HelmSecretAlias {
 }
 
 export interface HelmSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: string;
     /**
      * Id of the secret override.
      */
@@ -2860,12 +3359,12 @@ export interface HelmSourceHelmRepository {
 
 export interface HelmValuesOverride {
     /**
-     * Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+     * Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
      */
     file?: outputs.HelmValuesOverrideFile;
-    set: {[key: string]: string};
-    setJson: {[key: string]: string};
-    setString: {[key: string]: string};
+    set?: {[key: string]: string};
+    setJson?: {[key: string]: string};
+    setString?: {[key: string]: string};
 }
 
 export interface HelmValuesOverrideFile {
@@ -2907,6 +3406,10 @@ export interface HelmValuesOverrideFileRaw {
 
 export interface JobBuiltInEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2941,6 +3444,10 @@ export interface JobDeploymentRestriction {
 
 export interface JobEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -2956,6 +3463,10 @@ export interface JobEnvironmentVariable {
 
 export interface JobEnvironmentVariableAlias {
     /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
+    /**
      * Id of the environment variable alias.
      */
     id: string;
@@ -2970,6 +3481,10 @@ export interface JobEnvironmentVariableAlias {
 }
 
 export interface JobEnvironmentVariableOverride {
+    /**
+     * Description of the environment variable override.
+     */
+    description?: string;
     /**
      * Id of the environment variable override.
      */
@@ -3181,6 +3696,11 @@ export interface JobSchedule {
      */
     cronjob?: outputs.JobScheduleCronjob;
     /**
+     * Type of the lifecycle job.
+     * 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+     */
+    lifecycleType: string;
+    /**
      * Job's schedule on delete.
      */
     onDelete?: outputs.JobScheduleOnDelete;
@@ -3251,6 +3771,10 @@ export interface JobScheduleOnStop {
 
 export interface JobSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -3266,6 +3790,10 @@ export interface JobSecret {
 
 export interface JobSecretAlias {
     /**
+     * Description of the secret alias.
+     */
+    description?: string;
+    /**
      * Id of the secret alias.
      */
     id: string;
@@ -3280,6 +3808,10 @@ export interface JobSecretAlias {
 }
 
 export interface JobSecretOverride {
+    /**
+     * Description of the secret override.
+     */
+    description?: string;
     /**
      * Id of the secret override.
      */
@@ -3310,6 +3842,10 @@ export interface JobSourceDocker {
      * Job's docker source dockerfile path.
      */
     dockerfilePath?: string;
+    /**
+     * Inline Dockerfile to inject for building the image
+     */
+    dockerfileRaw?: string;
     /**
      * Job's docker source git repository.
      */
@@ -3350,7 +3886,17 @@ export interface JobSourceImage {
     tag: string;
 }
 
+export interface LabelsGroupLabel {
+    key: string;
+    propagateToCloudProvider: boolean;
+    value: string;
+}
+
 export interface ProjectBuiltInEnvironmentVariable {
+    /**
+     * Description of the environment variable.
+     */
+    description: string;
     /**
      * Id of the environment variable.
      */
@@ -3367,6 +3913,10 @@ export interface ProjectBuiltInEnvironmentVariable {
 
 export interface ProjectEnvironmentVariable {
     /**
+     * Description of the environment variable.
+     */
+    description?: string;
+    /**
      * Id of the environment variable.
      */
     id: string;
@@ -3381,6 +3931,10 @@ export interface ProjectEnvironmentVariable {
 }
 
 export interface ProjectEnvironmentVariableAlias {
+    /**
+     * Description of the environment variable alias.
+     */
+    description?: string;
     /**
      * Id of the environment variable alias.
      */
@@ -3397,6 +3951,10 @@ export interface ProjectEnvironmentVariableAlias {
 
 export interface ProjectSecret {
     /**
+     * Description of the secret.
+     */
+    description?: string;
+    /**
      * Id of the secret.
      */
     id: string;
@@ -3411,6 +3969,10 @@ export interface ProjectSecret {
 }
 
 export interface ProjectSecretAlias {
+    /**
+     * Description of the secret alias.
+     */
+    description?: string;
     /**
      * Id of the secret alias.
      */

@@ -19,6 +19,11 @@ namespace ediri.Qovery.Outputs
         /// </summary>
         public readonly Outputs.GetJobScheduleCronjobResult Cronjob;
         /// <summary>
+        /// Type of the lifecycle job.
+        /// 	- Can be: `CLOUDFORMATION`, `GENERIC`, `TERRAFORM`.
+        /// </summary>
+        public readonly string LifecycleType;
+        /// <summary>
         /// Job's schedule on delete.
         /// </summary>
         public readonly Outputs.GetJobScheduleOnDeleteResult OnDelete;
@@ -35,6 +40,8 @@ namespace ediri.Qovery.Outputs
         private GetJobScheduleResult(
             Outputs.GetJobScheduleCronjobResult cronjob,
 
+            string lifecycleType,
+
             Outputs.GetJobScheduleOnDeleteResult onDelete,
 
             Outputs.GetJobScheduleOnStartResult onStart,
@@ -42,6 +49,7 @@ namespace ediri.Qovery.Outputs
             Outputs.GetJobScheduleOnStopResult onStop)
         {
             Cronjob = cronjob;
+            LifecycleType = lifecycleType;
             OnDelete = onDelete;
             OnStart = onStart;
             OnStop = onStop;

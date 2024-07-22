@@ -14,12 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class HelmValuesOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        /// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
         /// </summary>
         [Input("file")]
         public Input<Inputs.HelmValuesOverrideFileGetArgs>? File { get; set; }
 
-        [Input("set", required: true)]
+        [Input("set")]
         private InputMap<string>? _set;
         public InputMap<string> Set
         {
@@ -27,7 +27,7 @@ namespace ediri.Qovery.Inputs
             set => _set = value;
         }
 
-        [Input("setJson", required: true)]
+        [Input("setJson")]
         private InputMap<string>? _setJson;
         public InputMap<string> SetJson
         {
@@ -35,7 +35,7 @@ namespace ediri.Qovery.Inputs
             set => _setJson = value;
         }
 
-        [Input("setString", required: true)]
+        [Input("setString")]
         private InputMap<string>? _setString;
         public InputMap<string> SetString
         {

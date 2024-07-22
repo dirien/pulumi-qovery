@@ -79,6 +79,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly accessibility!: pulumi.Output<string>;
     /**
+     * List of annotations group ids
+     */
+    public readonly annotationsGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
      */
     public readonly cpu!: pulumi.Output<number>;
@@ -102,6 +106,10 @@ export class Database extends pulumi.CustomResource {
      * The database internal host (Recommended for your application)
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
+    /**
+     * List of labels group ids
+     */
+    public readonly labelsGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * The login to connect to your database
      */
@@ -154,12 +162,14 @@ export class Database extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
             resourceInputs["accessibility"] = state ? state.accessibility : undefined;
+            resourceInputs["annotationsGroupIds"] = state ? state.annotationsGroupIds : undefined;
             resourceInputs["cpu"] = state ? state.cpu : undefined;
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
+            resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
             resourceInputs["login"] = state ? state.login : undefined;
             resourceInputs["memory"] = state ? state.memory : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
@@ -184,10 +194,12 @@ export class Database extends pulumi.CustomResource {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["accessibility"] = args ? args.accessibility : undefined;
+            resourceInputs["annotationsGroupIds"] = args ? args.annotationsGroupIds : undefined;
             resourceInputs["cpu"] = args ? args.cpu : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -214,6 +226,10 @@ export interface DatabaseState {
      */
     accessibility?: pulumi.Input<string>;
     /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
      */
     cpu?: pulumi.Input<number>;
@@ -237,6 +253,10 @@ export interface DatabaseState {
      * The database internal host (Recommended for your application)
      */
     internalHost?: pulumi.Input<string>;
+    /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The login to connect to your database
      */
@@ -285,6 +305,10 @@ export interface DatabaseArgs {
      */
     accessibility?: pulumi.Input<string>;
     /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * CPU of the database in millicores (m) [1000m = 1 CPU]. - Must be: `>= 250`. - Default: `250`.
      */
     cpu?: pulumi.Input<number>;
@@ -300,6 +324,10 @@ export interface DatabaseArgs {
      * Instance type of the database.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * RAM of the database in MB [1024MB = 1GB]. - Must be: `>= 100`. - Default: `256`.
      */

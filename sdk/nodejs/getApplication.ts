@@ -26,6 +26,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getApplication:getApplication", {
         "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
         "arguments": args.arguments,
         "autoDeploy": args.autoDeploy,
         "autoPreview": args.autoPreview,
@@ -41,6 +42,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
         "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
         "memory": args.memory,
         "minRunningInstances": args.minRunningInstances,
@@ -56,6 +58,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetApplicationArgs {
     advancedSettingsJson?: string;
+    annotationsGroupIds?: string[];
     arguments?: string[];
     autoDeploy?: boolean;
     autoPreview?: boolean;
@@ -71,6 +74,7 @@ export interface GetApplicationArgs {
     environmentVariables?: inputs.GetApplicationEnvironmentVariable[];
     healthchecks?: inputs.GetApplicationHealthchecks;
     id: string;
+    labelsGroupIds?: string[];
     maxRunningInstances?: number;
     memory?: number;
     minRunningInstances?: number;
@@ -85,6 +89,7 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     readonly advancedSettingsJson: string;
+    readonly annotationsGroupIds?: string[];
     readonly arguments: string[];
     readonly autoDeploy: boolean;
     readonly autoPreview: boolean;
@@ -106,6 +111,7 @@ export interface GetApplicationResult {
     readonly healthchecks?: outputs.GetApplicationHealthchecks;
     readonly id: string;
     readonly internalHost: string;
+    readonly labelsGroupIds?: string[];
     readonly maxRunningInstances: number;
     readonly memory: number;
     readonly minRunningInstances: number;
@@ -140,6 +146,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  */
 export interface GetApplicationOutputArgs {
     advancedSettingsJson?: pulumi.Input<string>;
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     arguments?: pulumi.Input<pulumi.Input<string>[]>;
     autoDeploy?: pulumi.Input<boolean>;
     autoPreview?: pulumi.Input<boolean>;
@@ -155,6 +162,7 @@ export interface GetApplicationOutputArgs {
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetApplicationEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetApplicationHealthchecksArgs>;
     id: pulumi.Input<string>;
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;
     memory?: pulumi.Input<number>;
     minRunningInstances?: pulumi.Input<number>;

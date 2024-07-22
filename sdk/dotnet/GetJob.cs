@@ -69,6 +69,14 @@ namespace ediri.Qovery
         [Input("advancedSettingsJson")]
         public string? AdvancedSettingsJson { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private List<string>? _annotationsGroupIds;
+        public List<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new List<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         [Input("autoDeploy")]
         public bool? AutoDeploy { get; set; }
 
@@ -118,6 +126,14 @@ namespace ediri.Qovery
 
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
+
+        [Input("labelsGroupIds")]
+        private List<string>? _labelsGroupIds;
+        public List<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new List<string>());
+            set => _labelsGroupIds = value;
+        }
 
         [Input("maxDurationSeconds")]
         public int? MaxDurationSeconds { get; set; }
@@ -169,6 +185,14 @@ namespace ediri.Qovery
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         [Input("autoDeploy")]
         public Input<bool>? AutoDeploy { get; set; }
 
@@ -218,6 +242,14 @@ namespace ediri.Qovery
 
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
 
         [Input("maxDurationSeconds")]
         public Input<int>? MaxDurationSeconds { get; set; }
@@ -269,6 +301,7 @@ namespace ediri.Qovery
     public sealed class GetJobResult
     {
         public readonly string AdvancedSettingsJson;
+        public readonly ImmutableArray<string> AnnotationsGroupIds;
         public readonly bool AutoDeploy;
         public readonly bool AutoPreview;
         public readonly ImmutableArray<Outputs.GetJobBuiltInEnvironmentVariableResult> BuiltInEnvironmentVariables;
@@ -283,6 +316,7 @@ namespace ediri.Qovery
         public readonly Outputs.GetJobHealthchecksResult? Healthchecks;
         public readonly string Id;
         public readonly string InternalHost;
+        public readonly ImmutableArray<string> LabelsGroupIds;
         public readonly int MaxDurationSeconds;
         public readonly int MaxNbRestart;
         public readonly int? Memory;
@@ -297,6 +331,8 @@ namespace ediri.Qovery
         [OutputConstructor]
         private GetJobResult(
             string advancedSettingsJson,
+
+            ImmutableArray<string> annotationsGroupIds,
 
             bool autoDeploy,
 
@@ -326,6 +362,8 @@ namespace ediri.Qovery
 
             string internalHost,
 
+            ImmutableArray<string> labelsGroupIds,
+
             int maxDurationSeconds,
 
             int maxNbRestart,
@@ -347,6 +385,7 @@ namespace ediri.Qovery
             Outputs.GetJobSourceResult source)
         {
             AdvancedSettingsJson = advancedSettingsJson;
+            AnnotationsGroupIds = annotationsGroupIds;
             AutoDeploy = autoDeploy;
             AutoPreview = autoPreview;
             BuiltInEnvironmentVariables = builtInEnvironmentVariables;
@@ -361,6 +400,7 @@ namespace ediri.Qovery
             Healthchecks = healthchecks;
             Id = id;
             InternalHost = internalHost;
+            LabelsGroupIds = labelsGroupIds;
             MaxDurationSeconds = maxDurationSeconds;
             MaxNbRestart = maxNbRestart;
             Memory = memory;

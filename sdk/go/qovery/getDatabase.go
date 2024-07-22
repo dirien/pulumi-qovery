@@ -51,34 +51,38 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
-	Accessibility     *string `pulumi:"accessibility"`
-	Cpu               *int    `pulumi:"cpu"`
-	DeploymentStageId *string `pulumi:"deploymentStageId"`
-	Id                string  `pulumi:"id"`
-	InstanceType      *string `pulumi:"instanceType"`
-	Memory            *int    `pulumi:"memory"`
-	Storage           *int    `pulumi:"storage"`
+	Accessibility       *string  `pulumi:"accessibility"`
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
+	Cpu                 *int     `pulumi:"cpu"`
+	DeploymentStageId   *string  `pulumi:"deploymentStageId"`
+	Id                  string   `pulumi:"id"`
+	InstanceType        *string  `pulumi:"instanceType"`
+	LabelsGroupIds      []string `pulumi:"labelsGroupIds"`
+	Memory              *int     `pulumi:"memory"`
+	Storage             *int     `pulumi:"storage"`
 }
 
 // A collection of values returned by getDatabase.
 type LookupDatabaseResult struct {
-	Accessibility     *string `pulumi:"accessibility"`
-	Cpu               *int    `pulumi:"cpu"`
-	DeploymentStageId string  `pulumi:"deploymentStageId"`
-	EnvironmentId     string  `pulumi:"environmentId"`
-	ExternalHost      string  `pulumi:"externalHost"`
-	Id                string  `pulumi:"id"`
-	InstanceType      string  `pulumi:"instanceType"`
-	InternalHost      string  `pulumi:"internalHost"`
-	Login             string  `pulumi:"login"`
-	Memory            *int    `pulumi:"memory"`
-	Mode              string  `pulumi:"mode"`
-	Name              string  `pulumi:"name"`
-	Password          string  `pulumi:"password"`
-	Port              int     `pulumi:"port"`
-	Storage           *int    `pulumi:"storage"`
-	Type              string  `pulumi:"type"`
-	Version           string  `pulumi:"version"`
+	Accessibility       *string  `pulumi:"accessibility"`
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
+	Cpu                 *int     `pulumi:"cpu"`
+	DeploymentStageId   string   `pulumi:"deploymentStageId"`
+	EnvironmentId       string   `pulumi:"environmentId"`
+	ExternalHost        string   `pulumi:"externalHost"`
+	Id                  string   `pulumi:"id"`
+	InstanceType        string   `pulumi:"instanceType"`
+	InternalHost        string   `pulumi:"internalHost"`
+	LabelsGroupIds      []string `pulumi:"labelsGroupIds"`
+	Login               string   `pulumi:"login"`
+	Memory              *int     `pulumi:"memory"`
+	Mode                string   `pulumi:"mode"`
+	Name                string   `pulumi:"name"`
+	Password            string   `pulumi:"password"`
+	Port                int      `pulumi:"port"`
+	Storage             *int     `pulumi:"storage"`
+	Type                string   `pulumi:"type"`
+	Version             string   `pulumi:"version"`
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
@@ -96,13 +100,15 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
-	Accessibility     pulumi.StringPtrInput `pulumi:"accessibility"`
-	Cpu               pulumi.IntPtrInput    `pulumi:"cpu"`
-	DeploymentStageId pulumi.StringPtrInput `pulumi:"deploymentStageId"`
-	Id                pulumi.StringInput    `pulumi:"id"`
-	InstanceType      pulumi.StringPtrInput `pulumi:"instanceType"`
-	Memory            pulumi.IntPtrInput    `pulumi:"memory"`
-	Storage           pulumi.IntPtrInput    `pulumi:"storage"`
+	Accessibility       pulumi.StringPtrInput   `pulumi:"accessibility"`
+	AnnotationsGroupIds pulumi.StringArrayInput `pulumi:"annotationsGroupIds"`
+	Cpu                 pulumi.IntPtrInput      `pulumi:"cpu"`
+	DeploymentStageId   pulumi.StringPtrInput   `pulumi:"deploymentStageId"`
+	Id                  pulumi.StringInput      `pulumi:"id"`
+	InstanceType        pulumi.StringPtrInput   `pulumi:"instanceType"`
+	LabelsGroupIds      pulumi.StringArrayInput `pulumi:"labelsGroupIds"`
+	Memory              pulumi.IntPtrInput      `pulumi:"memory"`
+	Storage             pulumi.IntPtrInput      `pulumi:"storage"`
 }
 
 func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
@@ -126,6 +132,10 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx 
 
 func (o LookupDatabaseResultOutput) Accessibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.Accessibility }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDatabaseResultOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []string { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupDatabaseResultOutput) Cpu() pulumi.IntPtrOutput {
@@ -154,6 +164,10 @@ func (o LookupDatabaseResultOutput) InstanceType() pulumi.StringOutput {
 
 func (o LookupDatabaseResultOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupDatabaseResultOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []string { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupDatabaseResultOutput) Login() pulumi.StringOutput {

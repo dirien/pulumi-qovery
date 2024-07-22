@@ -52,6 +52,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
 	AdvancedSettingsJson         *string                                     `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                                    `pulumi:"annotationsGroupIds"`
 	Arguments                    []string                                    `pulumi:"arguments"`
 	AutoDeploy                   *bool                                       `pulumi:"autoDeploy"`
 	AutoPreview                  *bool                                       `pulumi:"autoPreview"`
@@ -67,6 +68,7 @@ type LookupApplicationArgs struct {
 	EnvironmentVariables         []GetApplicationEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
 	Id                           string                                      `pulumi:"id"`
+	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                        `pulumi:"maxRunningInstances"`
 	Memory                       *int                                        `pulumi:"memory"`
 	MinRunningInstances          *int                                        `pulumi:"minRunningInstances"`
@@ -79,6 +81,7 @@ type LookupApplicationArgs struct {
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
 	AdvancedSettingsJson         string                                      `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          []string                                    `pulumi:"annotationsGroupIds"`
 	Arguments                    []string                                    `pulumi:"arguments"`
 	AutoDeploy                   bool                                        `pulumi:"autoDeploy"`
 	AutoPreview                  bool                                        `pulumi:"autoPreview"`
@@ -100,6 +103,7 @@ type LookupApplicationResult struct {
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
 	Id                           string                                      `pulumi:"id"`
 	InternalHost                 string                                      `pulumi:"internalHost"`
+	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          int                                         `pulumi:"maxRunningInstances"`
 	Memory                       int                                         `pulumi:"memory"`
 	MinRunningInstances          int                                         `pulumi:"minRunningInstances"`
@@ -127,6 +131,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
 	AdvancedSettingsJson         pulumi.StringPtrInput                               `pulumi:"advancedSettingsJson"`
+	AnnotationsGroupIds          pulumi.StringArrayInput                             `pulumi:"annotationsGroupIds"`
 	Arguments                    pulumi.StringArrayInput                             `pulumi:"arguments"`
 	AutoDeploy                   pulumi.BoolPtrInput                                 `pulumi:"autoDeploy"`
 	AutoPreview                  pulumi.BoolPtrInput                                 `pulumi:"autoPreview"`
@@ -142,6 +147,7 @@ type LookupApplicationOutputArgs struct {
 	EnvironmentVariables         GetApplicationEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetApplicationHealthchecksPtrInput                  `pulumi:"healthchecks"`
 	Id                           pulumi.StringInput                                  `pulumi:"id"`
+	LabelsGroupIds               pulumi.StringArrayInput                             `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                  `pulumi:"maxRunningInstances"`
 	Memory                       pulumi.IntPtrInput                                  `pulumi:"memory"`
 	MinRunningInstances          pulumi.IntPtrInput                                  `pulumi:"minRunningInstances"`
@@ -172,6 +178,10 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 
 func (o LookupApplicationResultOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationResultOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []string { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupApplicationResultOutput) Arguments() pulumi.StringArrayOutput {
@@ -262,6 +272,10 @@ func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupApplicationResultOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationResultOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []string { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupApplicationResultOutput) MaxRunningInstances() pulumi.IntOutput {

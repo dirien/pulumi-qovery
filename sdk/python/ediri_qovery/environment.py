@@ -418,7 +418,7 @@ class Environment(pulumi.CustomResource):
                 key="SOME_PROJECT_SECRET",
                 value="OVERRIDDEN_VALUE",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
         ```
 
         You can find complete examples within these repositories:
@@ -489,7 +489,7 @@ class Environment(pulumi.CustomResource):
                 key="SOME_PROJECT_SECRET",
                 value="OVERRIDDEN_VALUE",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
         ```
 
         You can find complete examples within these repositories:

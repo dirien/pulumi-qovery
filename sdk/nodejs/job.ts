@@ -50,6 +50,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly advancedSettingsJson!: pulumi.Output<string>;
     /**
+     * List of annotations group ids
+     */
+    public readonly annotationsGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Specify if the job will be automatically updated after receiving a new image tag.
      */
     public readonly autoDeploy!: pulumi.Output<boolean>;
@@ -101,6 +105,10 @@ export class Job extends pulumi.CustomResource {
      * The job internal host.
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
+    /**
+     * List of labels group ids
+     */
+    public readonly labelsGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
      */
@@ -156,6 +164,7 @@ export class Job extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
             resourceInputs["advancedSettingsJson"] = state ? state.advancedSettingsJson : undefined;
+            resourceInputs["annotationsGroupIds"] = state ? state.annotationsGroupIds : undefined;
             resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
             resourceInputs["autoPreview"] = state ? state.autoPreview : undefined;
             resourceInputs["builtInEnvironmentVariables"] = state ? state.builtInEnvironmentVariables : undefined;
@@ -169,6 +178,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
             resourceInputs["healthchecks"] = state ? state.healthchecks : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
+            resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
             resourceInputs["maxDurationSeconds"] = state ? state.maxDurationSeconds : undefined;
             resourceInputs["maxNbRestart"] = state ? state.maxNbRestart : undefined;
             resourceInputs["memory"] = state ? state.memory : undefined;
@@ -191,6 +201,7 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'schedule'");
             }
             resourceInputs["advancedSettingsJson"] = args ? args.advancedSettingsJson : undefined;
+            resourceInputs["annotationsGroupIds"] = args ? args.annotationsGroupIds : undefined;
             resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
             resourceInputs["autoPreview"] = args ? args.autoPreview : undefined;
             resourceInputs["cpu"] = args ? args.cpu : undefined;
@@ -201,6 +212,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["environmentVariableOverrides"] = args ? args.environmentVariableOverrides : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["healthchecks"] = args ? args.healthchecks : undefined;
+            resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["maxDurationSeconds"] = args ? args.maxDurationSeconds : undefined;
             resourceInputs["maxNbRestart"] = args ? args.maxNbRestart : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
@@ -228,6 +240,10 @@ export interface JobState {
      * Advanced settings.
      */
     advancedSettingsJson?: pulumi.Input<string>;
+    /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify if the job will be automatically updated after receiving a new image tag.
      */
@@ -281,6 +297,10 @@ export interface JobState {
      */
     internalHost?: pulumi.Input<string>;
     /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
      */
     maxDurationSeconds?: pulumi.Input<number>;
@@ -331,6 +351,10 @@ export interface JobArgs {
      */
     advancedSettingsJson?: pulumi.Input<string>;
     /**
+     * List of annotations group ids
+     */
+    annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specify if the job will be automatically updated after receiving a new image tag.
      */
     autoDeploy?: pulumi.Input<boolean>;
@@ -370,6 +394,10 @@ export interface JobArgs {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks: pulumi.Input<inputs.JobHealthchecks>;
+    /**
+     * List of labels group ids
+     */
+    labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
      */

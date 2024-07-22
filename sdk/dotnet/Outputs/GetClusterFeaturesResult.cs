@@ -19,6 +19,10 @@ namespace ediri.Qovery.Outputs
         /// </summary>
         public readonly Outputs.GetClusterFeaturesExistingVpcResult? ExistingVpc;
         /// <summary>
+        /// Karpenter parameters if you want to use Karpenter on an EKS cluster
+        /// </summary>
+        public readonly Outputs.GetClusterFeaturesKarpenterResult? Karpenter;
+        /// <summary>
         /// Static IP (AWS only) [NOTE: can't be updated after creation].
         /// 	- Default: `false`.
         /// </summary>
@@ -33,11 +37,14 @@ namespace ediri.Qovery.Outputs
         private GetClusterFeaturesResult(
             Outputs.GetClusterFeaturesExistingVpcResult? existingVpc,
 
+            Outputs.GetClusterFeaturesKarpenterResult? karpenter,
+
             bool staticIp,
 
             string vpcSubnet)
         {
             ExistingVpc = existingVpc;
+            Karpenter = karpenter;
             StaticIp = staticIp;
             VpcSubnet = vpcSubnet;
         }

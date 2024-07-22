@@ -23,10 +23,13 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, advanced_settings_json=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, id=None, internal_host=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
+    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, id=None, internal_host=None, labels_group_ids=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids and not isinstance(annotations_group_ids, list):
+            raise TypeError("Expected argument 'annotations_group_ids' to be a list")
+        pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if arguments and not isinstance(arguments, list):
             raise TypeError("Expected argument 'arguments' to be a list")
         pulumi.set(__self__, "arguments", arguments)
@@ -90,6 +93,9 @@ class GetApplicationResult:
         if internal_host and not isinstance(internal_host, str):
             raise TypeError("Expected argument 'internal_host' to be a str")
         pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids and not isinstance(labels_group_ids, list):
+            raise TypeError("Expected argument 'labels_group_ids' to be a list")
+        pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances and not isinstance(max_running_instances, int):
             raise TypeError("Expected argument 'max_running_instances' to be a int")
         pulumi.set(__self__, "max_running_instances", max_running_instances)
@@ -122,6 +128,11 @@ class GetApplicationResult:
     @pulumi.getter(name="advancedSettingsJson")
     def advanced_settings_json(self) -> str:
         return pulumi.get(self, "advanced_settings_json")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter
@@ -229,6 +240,11 @@ class GetApplicationResult:
         return pulumi.get(self, "internal_host")
 
     @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "labels_group_ids")
+
+    @property
     @pulumi.getter(name="maxRunningInstances")
     def max_running_instances(self) -> int:
         return pulumi.get(self, "max_running_instances")
@@ -281,6 +297,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             advanced_settings_json=self.advanced_settings_json,
+            annotations_group_ids=self.annotations_group_ids,
             arguments=self.arguments,
             auto_deploy=self.auto_deploy,
             auto_preview=self.auto_preview,
@@ -302,6 +319,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             healthchecks=self.healthchecks,
             id=self.id,
             internal_host=self.internal_host,
+            labels_group_ids=self.labels_group_ids,
             max_running_instances=self.max_running_instances,
             memory=self.memory,
             min_running_instances=self.min_running_instances,
@@ -314,6 +332,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 
 def get_application(advanced_settings_json: Optional[str] = None,
+                    annotations_group_ids: Optional[Sequence[str]] = None,
                     arguments: Optional[Sequence[str]] = None,
                     auto_deploy: Optional[bool] = None,
                     auto_preview: Optional[bool] = None,
@@ -329,6 +348,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
                     environment_variables: Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableArgs']]] = None,
                     healthchecks: Optional[pulumi.InputType['GetApplicationHealthchecksArgs']] = None,
                     id: Optional[str] = None,
+                    labels_group_ids: Optional[Sequence[str]] = None,
                     max_running_instances: Optional[int] = None,
                     memory: Optional[int] = None,
                     min_running_instances: Optional[int] = None,
@@ -352,6 +372,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
     """
     __args__ = dict()
     __args__['advancedSettingsJson'] = advanced_settings_json
+    __args__['annotationsGroupIds'] = annotations_group_ids
     __args__['arguments'] = arguments
     __args__['autoDeploy'] = auto_deploy
     __args__['autoPreview'] = auto_preview
@@ -367,6 +388,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariables'] = environment_variables
     __args__['healthchecks'] = healthchecks
     __args__['id'] = id
+    __args__['labelsGroupIds'] = labels_group_ids
     __args__['maxRunningInstances'] = max_running_instances
     __args__['memory'] = memory
     __args__['minRunningInstances'] = min_running_instances
@@ -379,6 +401,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         advanced_settings_json=pulumi.get(__ret__, 'advanced_settings_json'),
+        annotations_group_ids=pulumi.get(__ret__, 'annotations_group_ids'),
         arguments=pulumi.get(__ret__, 'arguments'),
         auto_deploy=pulumi.get(__ret__, 'auto_deploy'),
         auto_preview=pulumi.get(__ret__, 'auto_preview'),
@@ -400,6 +423,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
         healthchecks=pulumi.get(__ret__, 'healthchecks'),
         id=pulumi.get(__ret__, 'id'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
+        labels_group_ids=pulumi.get(__ret__, 'labels_group_ids'),
         max_running_instances=pulumi.get(__ret__, 'max_running_instances'),
         memory=pulumi.get(__ret__, 'memory'),
         min_running_instances=pulumi.get(__ret__, 'min_running_instances'),
@@ -413,6 +437,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
 
 @_utilities.lift_output_func(get_application)
 def get_application_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
+                           annotations_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            arguments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            auto_deploy: Optional[pulumi.Input[Optional[bool]]] = None,
                            auto_preview: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -428,6 +453,7 @@ def get_application_output(advanced_settings_json: Optional[pulumi.Input[Optiona
                            environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableArgs']]]]] = None,
                            healthchecks: Optional[pulumi.Input[Optional[pulumi.InputType['GetApplicationHealthchecksArgs']]]] = None,
                            id: Optional[pulumi.Input[str]] = None,
+                           labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            max_running_instances: Optional[pulumi.Input[Optional[int]]] = None,
                            memory: Optional[pulumi.Input[Optional[int]]] = None,
                            min_running_instances: Optional[pulumi.Input[Optional[int]]] = None,

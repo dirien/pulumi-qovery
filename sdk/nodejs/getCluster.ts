@@ -31,6 +31,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         "diskSize": args.diskSize,
         "features": args.features,
         "id": args.id,
+        "instanceType": args.instanceType,
         "kubernetesMode": args.kubernetesMode,
         "maxRunningNodes": args.maxRunningNodes,
         "minRunningNodes": args.minRunningNodes,
@@ -49,6 +50,7 @@ export interface GetClusterArgs {
     diskSize?: number;
     features?: inputs.GetClusterFeatures;
     id: string;
+    instanceType?: string;
     kubernetesMode?: string;
     maxRunningNodes?: number;
     minRunningNodes?: number;
@@ -107,6 +109,7 @@ export interface GetClusterOutputArgs {
     diskSize?: pulumi.Input<number>;
     features?: pulumi.Input<inputs.GetClusterFeaturesArgs>;
     id: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
     kubernetesMode?: pulumi.Input<string>;
     maxRunningNodes?: pulumi.Input<number>;
     minRunningNodes?: pulumi.Input<number>;

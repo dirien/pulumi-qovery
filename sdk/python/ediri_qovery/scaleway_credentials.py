@@ -242,7 +242,7 @@ class ScalewayCredentials(pulumi.CustomResource):
             scaleway_access_key="<your-scaleway-access-key>",
             scaleway_secret_key="<your-scaleway-secret-key>",
             scaleway_project_id="<your-scaleway-project-id>",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class ScalewayCredentials(pulumi.CustomResource):
             scaleway_access_key="<your-scaleway-access-key>",
             scaleway_secret_key="<your-scaleway-secret-key>",
             scaleway_project_id="<your-scaleway-project-id>",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import

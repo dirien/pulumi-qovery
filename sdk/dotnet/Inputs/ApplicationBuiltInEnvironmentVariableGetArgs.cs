@@ -14,6 +14,12 @@ namespace ediri.Qovery.Inputs
     public sealed class ApplicationBuiltInEnvironmentVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of the environment variable.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Id of the environment variable.
         /// </summary>
         [Input("id")]

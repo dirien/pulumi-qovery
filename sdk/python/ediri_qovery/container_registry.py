@@ -254,7 +254,7 @@ class ContainerRegistry(pulumi.CustomResource):
                 password="<my_password>",
             ),
             description="My Docker Hub Registry",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import
@@ -299,7 +299,7 @@ class ContainerRegistry(pulumi.CustomResource):
                 password="<my_password>",
             ),
             description="My Docker Hub Registry",
-            opts=pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
         ## Import

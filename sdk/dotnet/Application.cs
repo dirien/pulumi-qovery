@@ -31,6 +31,12 @@ namespace ediri.Qovery
         public Output<string> AdvancedSettingsJson { get; private set; } = null!;
 
         /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        [Output("annotationsGroupIds")]
+        public Output<ImmutableArray<string>> AnnotationsGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// List of arguments of this application.
         /// </summary>
         [Output("arguments")]
@@ -152,6 +158,12 @@ namespace ediri.Qovery
         public Output<string> InternalHost { get; private set; } = null!;
 
         /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        [Output("labelsGroupIds")]
+        public Output<ImmutableArray<string>> LabelsGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Maximum number of instances running for the application. - Must be: `&gt;= -1`. - Default: `1`.
         /// </summary>
         [Output("maxRunningInstances")]
@@ -257,6 +269,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
+
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+
+        /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
 
         [Input("arguments")]
         private InputList<string>? _arguments;
@@ -397,6 +421,18 @@ namespace ediri.Qovery
         [Input("healthchecks", required: true)]
         public Input<Inputs.ApplicationHealthchecksArgs> Healthchecks { get; set; } = null!;
 
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+
+        /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
+
         /// <summary>
         /// Maximum number of instances running for the application. - Must be: `&gt;= -1`. - Default: `1`.
         /// </summary>
@@ -494,6 +530,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
+
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+
+        /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
 
         [Input("arguments")]
         private InputList<string>? _arguments;
@@ -657,6 +705,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("internalHost")]
         public Input<string>? InternalHost { get; set; }
+
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+
+        /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
 
         /// <summary>
         /// Maximum number of instances running for the application. - Must be: `&gt;= -1`. - Default: `1`.

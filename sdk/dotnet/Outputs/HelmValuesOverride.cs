@@ -15,22 +15,22 @@ namespace ediri.Qovery.Outputs
     public sealed class HelmValuesOverride
     {
         /// <summary>
-        /// Define the overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
+        /// Define overrides by selecting a YAML file from a git repository (preferred) or by passing raw YAML files.
         /// </summary>
         public readonly Outputs.HelmValuesOverrideFile? File;
-        public readonly ImmutableDictionary<string, string> Set;
-        public readonly ImmutableDictionary<string, string> SetJson;
-        public readonly ImmutableDictionary<string, string> SetString;
+        public readonly ImmutableDictionary<string, string>? Set;
+        public readonly ImmutableDictionary<string, string>? SetJson;
+        public readonly ImmutableDictionary<string, string>? SetString;
 
         [OutputConstructor]
         private HelmValuesOverride(
             Outputs.HelmValuesOverrideFile? file,
 
-            ImmutableDictionary<string, string> set,
+            ImmutableDictionary<string, string>? set,
 
-            ImmutableDictionary<string, string> setJson,
+            ImmutableDictionary<string, string>? setJson,
 
-            ImmutableDictionary<string, string> setString)
+            ImmutableDictionary<string, string>? setString)
         {
             File = file;
             Set = set;

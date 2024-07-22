@@ -20,6 +20,7 @@ class JobArgs:
                  healthchecks: pulumi.Input['JobHealthchecksArgs'],
                  schedule: pulumi.Input['JobScheduleArgs'],
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
@@ -28,6 +29,7 @@ class JobArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -43,6 +45,7 @@ class JobArgs:
         :param pulumi.Input['JobHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input['JobScheduleArgs'] schedule: Job's schedule.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
@@ -51,6 +54,7 @@ class JobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -66,6 +70,8 @@ class JobArgs:
         pulumi.set(__self__, "schedule", schedule)
         if advanced_settings_json is not None:
             pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if auto_deploy is not None:
             pulumi.set(__self__, "auto_deploy", auto_deploy)
         if auto_preview is not None:
@@ -82,6 +88,8 @@ class JobArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_duration_seconds is not None:
             pulumi.set(__self__, "max_duration_seconds", max_duration_seconds)
         if max_nb_restart is not None:
@@ -148,6 +156,18 @@ class JobArgs:
     @advanced_settings_json.setter
     def advanced_settings_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "advanced_settings_json", value)
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
 
     @property
     @pulumi.getter(name="autoDeploy")
@@ -244,6 +264,18 @@ class JobArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
 
     @property
     @pulumi.getter(name="maxDurationSeconds")
@@ -358,6 +390,7 @@ class JobArgs:
 class _JobState:
     def __init__(__self__, *,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobBuiltInEnvironmentVariableArgs']]]] = None,
@@ -371,6 +404,7 @@ class _JobState:
                  external_host: Optional[pulumi.Input[str]] = None,
                  healthchecks: Optional[pulumi.Input['JobHealthchecksArgs']] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -384,6 +418,7 @@ class _JobState:
         """
         Input properties used for looking up and filtering Job resources.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobBuiltInEnvironmentVariableArgs']]] built_in_environment_variables: List of built-in environment variables linked to this job.
@@ -397,6 +432,7 @@ class _JobState:
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
         :param pulumi.Input['JobHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] internal_host: The job internal host.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -410,6 +446,8 @@ class _JobState:
         """
         if advanced_settings_json is not None:
             pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if auto_deploy is not None:
             pulumi.set(__self__, "auto_deploy", auto_deploy)
         if auto_preview is not None:
@@ -436,6 +474,8 @@ class _JobState:
             pulumi.set(__self__, "healthchecks", healthchecks)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_duration_seconds is not None:
             pulumi.set(__self__, "max_duration_seconds", max_duration_seconds)
         if max_nb_restart is not None:
@@ -468,6 +508,18 @@ class _JobState:
     @advanced_settings_json.setter
     def advanced_settings_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "advanced_settings_json", value)
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
 
     @property
     @pulumi.getter(name="autoDeploy")
@@ -626,6 +678,18 @@ class _JobState:
         pulumi.set(self, "internal_host", value)
 
     @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
+
+    @property
     @pulumi.getter(name="maxDurationSeconds")
     def max_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -752,6 +816,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
@@ -762,6 +827,7 @@ class Job(pulumi.CustomResource):
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -787,6 +853,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
@@ -797,6 +864,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -841,6 +909,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
@@ -851,6 +920,7 @@ class Job(pulumi.CustomResource):
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -871,6 +941,7 @@ class Job(pulumi.CustomResource):
             __props__ = JobArgs.__new__(JobArgs)
 
             __props__.__dict__["advanced_settings_json"] = advanced_settings_json
+            __props__.__dict__["annotations_group_ids"] = annotations_group_ids
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["auto_preview"] = auto_preview
             __props__.__dict__["cpu"] = cpu
@@ -885,6 +956,7 @@ class Job(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_duration_seconds"] = max_duration_seconds
             __props__.__dict__["max_nb_restart"] = max_nb_restart
             __props__.__dict__["memory"] = memory
@@ -911,6 +983,7 @@ class Job(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             advanced_settings_json: Optional[pulumi.Input[str]] = None,
+            annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
             built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]]] = None,
@@ -924,6 +997,7 @@ class Job(pulumi.CustomResource):
             external_host: Optional[pulumi.Input[str]] = None,
             healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
+            labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_duration_seconds: Optional[pulumi.Input[int]] = None,
             max_nb_restart: Optional[pulumi.Input[int]] = None,
             memory: Optional[pulumi.Input[int]] = None,
@@ -942,6 +1016,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this job.
@@ -955,6 +1030,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
         :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] internal_host: The job internal host.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -971,6 +1047,7 @@ class Job(pulumi.CustomResource):
         __props__ = _JobState.__new__(_JobState)
 
         __props__.__dict__["advanced_settings_json"] = advanced_settings_json
+        __props__.__dict__["annotations_group_ids"] = annotations_group_ids
         __props__.__dict__["auto_deploy"] = auto_deploy
         __props__.__dict__["auto_preview"] = auto_preview
         __props__.__dict__["built_in_environment_variables"] = built_in_environment_variables
@@ -984,6 +1061,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["healthchecks"] = healthchecks
         __props__.__dict__["internal_host"] = internal_host
+        __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_duration_seconds"] = max_duration_seconds
         __props__.__dict__["max_nb_restart"] = max_nb_restart
         __props__.__dict__["memory"] = memory
@@ -1003,6 +1081,14 @@ class Job(pulumi.CustomResource):
         Advanced settings.
         """
         return pulumi.get(self, "advanced_settings_json")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter(name="autoDeploy")
@@ -1107,6 +1193,14 @@ class Job(pulumi.CustomResource):
         The job internal host.
         """
         return pulumi.get(self, "internal_host")
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
 
     @property
     @pulumi.getter(name="maxDurationSeconds")

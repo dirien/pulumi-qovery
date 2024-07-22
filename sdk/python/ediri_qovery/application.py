@@ -20,6 +20,7 @@ class ApplicationArgs:
                  git_repository: pulumi.Input['ApplicationGitRepositoryArgs'],
                  healthchecks: pulumi.Input['ApplicationHealthchecksArgs'],
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
@@ -34,6 +35,7 @@ class ApplicationArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -49,6 +51,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationGitRepositoryArgs'] git_repository: Git repository of the application.
         :param pulumi.Input['ApplicationHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this application.
         :param pulumi.Input[bool] auto_deploy: Specify if the application will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this application. - Default: `false`.
@@ -64,6 +67,7 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
@@ -79,6 +83,8 @@ class ApplicationArgs:
         pulumi.set(__self__, "healthchecks", healthchecks)
         if advanced_settings_json is not None:
             pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if auto_deploy is not None:
@@ -107,6 +113,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances is not None:
             pulumi.set(__self__, "max_running_instances", max_running_instances)
         if memory is not None:
@@ -173,6 +181,18 @@ class ApplicationArgs:
     @advanced_settings_json.setter
     def advanced_settings_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "advanced_settings_json", value)
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
 
     @property
     @pulumi.getter
@@ -344,6 +364,18 @@ class ApplicationArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
+
+    @property
     @pulumi.getter(name="maxRunningInstances")
     def max_running_instances(self) -> Optional[pulumi.Input[int]]:
         """
@@ -456,6 +488,7 @@ class ApplicationArgs:
 class _ApplicationState:
     def __init__(__self__, *,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
@@ -476,6 +509,7 @@ class _ApplicationState:
                  git_repository: Optional[pulumi.Input['ApplicationGitRepositoryArgs']] = None,
                  healthchecks: Optional[pulumi.Input['ApplicationHealthchecksArgs']] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -488,6 +522,7 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this application.
         :param pulumi.Input[bool] auto_deploy: Specify if the application will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this application. - Default: `false`.
@@ -509,6 +544,7 @@ class _ApplicationState:
         :param pulumi.Input['ApplicationGitRepositoryArgs'] git_repository: Git repository of the application.
         :param pulumi.Input['ApplicationHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] internal_host: The application internal host.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
@@ -521,6 +557,8 @@ class _ApplicationState:
         """
         if advanced_settings_json is not None:
             pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
+        if annotations_group_ids is not None:
+            pulumi.set(__self__, "annotations_group_ids", annotations_group_ids)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if auto_deploy is not None:
@@ -561,6 +599,8 @@ class _ApplicationState:
             pulumi.set(__self__, "healthchecks", healthchecks)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
+        if labels_group_ids is not None:
+            pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances is not None:
             pulumi.set(__self__, "max_running_instances", max_running_instances)
         if memory is not None:
@@ -591,6 +631,18 @@ class _ApplicationState:
     @advanced_settings_json.setter
     def advanced_settings_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "advanced_settings_json", value)
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
+
+    @annotations_group_ids.setter
+    def annotations_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations_group_ids", value)
 
     @property
     @pulumi.getter
@@ -834,6 +886,18 @@ class _ApplicationState:
         pulumi.set(self, "internal_host", value)
 
     @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
+
+    @labels_group_ids.setter
+    def labels_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels_group_ids", value)
+
+    @property
     @pulumi.getter(name="maxRunningInstances")
     def max_running_instances(self) -> Optional[pulumi.Input[int]]:
         """
@@ -948,6 +1012,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
@@ -965,6 +1030,7 @@ class Application(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
                  git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -989,6 +1055,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this application.
         :param pulumi.Input[bool] auto_deploy: Specify if the application will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this application. - Default: `false`.
@@ -1007,6 +1074,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this application.
         :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
         :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
@@ -1050,6 +1118,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_settings_json: Optional[pulumi.Input[str]] = None,
+                 annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
@@ -1067,6 +1136,7 @@ class Application(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
                  git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -1086,6 +1156,7 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["advanced_settings_json"] = advanced_settings_json
+            __props__.__dict__["annotations_group_ids"] = annotations_group_ids
             __props__.__dict__["arguments"] = arguments
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["auto_preview"] = auto_preview
@@ -1109,6 +1180,7 @@ class Application(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_running_instances"] = max_running_instances
             __props__.__dict__["memory"] = memory
             __props__.__dict__["min_running_instances"] = min_running_instances
@@ -1132,6 +1204,7 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             advanced_settings_json: Optional[pulumi.Input[str]] = None,
+            annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
@@ -1152,6 +1225,7 @@ class Application(pulumi.CustomResource):
             git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
             healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
+            labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_running_instances: Optional[pulumi.Input[int]] = None,
             memory: Optional[pulumi.Input[int]] = None,
             min_running_instances: Optional[pulumi.Input[int]] = None,
@@ -1169,6 +1243,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advanced_settings_json: Advanced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this application.
         :param pulumi.Input[bool] auto_deploy: Specify if the application will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this application. - Default: `false`.
@@ -1190,6 +1265,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
         :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
         :param pulumi.Input[str] internal_host: The application internal host.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
@@ -1205,6 +1281,7 @@ class Application(pulumi.CustomResource):
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
         __props__.__dict__["advanced_settings_json"] = advanced_settings_json
+        __props__.__dict__["annotations_group_ids"] = annotations_group_ids
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["auto_deploy"] = auto_deploy
         __props__.__dict__["auto_preview"] = auto_preview
@@ -1225,6 +1302,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["git_repository"] = git_repository
         __props__.__dict__["healthchecks"] = healthchecks
         __props__.__dict__["internal_host"] = internal_host
+        __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_running_instances"] = max_running_instances
         __props__.__dict__["memory"] = memory
         __props__.__dict__["min_running_instances"] = min_running_instances
@@ -1243,6 +1321,14 @@ class Application(pulumi.CustomResource):
         Advanced settings.
         """
         return pulumi.get(self, "advanced_settings_json")
+
+    @property
+    @pulumi.getter(name="annotationsGroupIds")
+    def annotations_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of annotations group ids
+        """
+        return pulumi.get(self, "annotations_group_ids")
 
     @property
     @pulumi.getter
@@ -1404,6 +1490,14 @@ class Application(pulumi.CustomResource):
         The application internal host.
         """
         return pulumi.get(self, "internal_host")
+
+    @property
+    @pulumi.getter(name="labelsGroupIds")
+    def labels_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of labels group ids
+        """
+        return pulumi.get(self, "labels_group_ids")
 
     @property
     @pulumi.getter(name="maxRunningInstances")

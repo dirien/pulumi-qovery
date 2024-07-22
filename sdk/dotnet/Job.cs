@@ -31,6 +31,12 @@ namespace ediri.Qovery
         public Output<string> AdvancedSettingsJson { get; private set; } = null!;
 
         /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        [Output("annotationsGroupIds")]
+        public Output<ImmutableArray<string>> AnnotationsGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specify if the job will be automatically updated after receiving a new image tag.
         /// </summary>
         [Output("autoDeploy")]
@@ -107,6 +113,12 @@ namespace ediri.Qovery
         /// </summary>
         [Output("internalHost")]
         public Output<string> InternalHost { get; private set; } = null!;
+
+        /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        [Output("labelsGroupIds")]
+        public Output<ImmutableArray<string>> LabelsGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// Job's max duration in seconds. - Must be: `&gt;= 0`. - Default: `300`.
@@ -221,6 +233,18 @@ namespace ediri.Qovery
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
 
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+
+        /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
+
         /// <summary>
         /// Specify if the job will be automatically updated after receiving a new image tag.
         /// </summary>
@@ -304,6 +328,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks", required: true)]
         public Input<Inputs.JobHealthchecksArgs> Healthchecks { get; set; } = null!;
+
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+
+        /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
 
         /// <summary>
         /// Job's max duration in seconds. - Must be: `&gt;= 0`. - Default: `300`.
@@ -396,6 +432,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("advancedSettingsJson")]
         public Input<string>? AdvancedSettingsJson { get; set; }
+
+        [Input("annotationsGroupIds")]
+        private InputList<string>? _annotationsGroupIds;
+
+        /// <summary>
+        /// List of annotations group ids
+        /// </summary>
+        public InputList<string> AnnotationsGroupIds
+        {
+            get => _annotationsGroupIds ?? (_annotationsGroupIds = new InputList<string>());
+            set => _annotationsGroupIds = value;
+        }
 
         /// <summary>
         /// Specify if the job will be automatically updated after receiving a new image tag.
@@ -504,6 +552,18 @@ namespace ediri.Qovery
         /// </summary>
         [Input("internalHost")]
         public Input<string>? InternalHost { get; set; }
+
+        [Input("labelsGroupIds")]
+        private InputList<string>? _labelsGroupIds;
+
+        /// <summary>
+        /// List of labels group ids
+        /// </summary>
+        public InputList<string> LabelsGroupIds
+        {
+            get => _labelsGroupIds ?? (_labelsGroupIds = new InputList<string>());
+            set => _labelsGroupIds = value;
+        }
 
         /// <summary>
         /// Job's max duration in seconds. - Must be: `&gt;= 0`. - Default: `300`.

@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .annotations_group import *
 from .application import *
 from .aws_credentials import *
 from .cluster import *
@@ -14,6 +15,7 @@ from .database import *
 from .deployment import *
 from .deployment_stage import *
 from .environment import *
+from .get_annotations_group import *
 from .get_application import *
 from .get_aws_credentials import *
 from .get_cluster import *
@@ -27,6 +29,7 @@ from .get_git_token import *
 from .get_helm import *
 from .get_helm_repository import *
 from .get_job import *
+from .get_labels_group import *
 from .get_organization import *
 from .get_project import *
 from .get_scaleway_credentials import *
@@ -34,6 +37,7 @@ from .git_token import *
 from .helm import *
 from .helm_repository import *
 from .job import *
+from .labels_group import *
 from .organization import *
 from .project import *
 from .provider import *
@@ -51,6 +55,14 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "qovery",
+  "mod": "index/annotationsGroup",
+  "fqn": "ediri_qovery",
+  "classes": {
+   "qovery:index/annotationsGroup:AnnotationsGroup": "AnnotationsGroup"
+  }
+ },
  {
   "pkg": "qovery",
   "mod": "index/application",
@@ -153,6 +165,14 @@ _utilities.register(
   "fqn": "ediri_qovery",
   "classes": {
    "qovery:index/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "qovery",
+  "mod": "index/labelsGroup",
+  "fqn": "ediri_qovery",
+  "classes": {
+   "qovery:index/labelsGroup:LabelsGroup": "LabelsGroup"
   }
  },
  {

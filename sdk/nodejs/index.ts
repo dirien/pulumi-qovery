@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { AnnotationsGroupArgs, AnnotationsGroupState } from "./annotationsGroup";
+export type AnnotationsGroup = import("./annotationsGroup").AnnotationsGroup;
+export const AnnotationsGroup: typeof import("./annotationsGroup").AnnotationsGroup = null as any;
+utilities.lazyLoad(exports, ["AnnotationsGroup"], () => require("./annotationsGroup"));
+
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
@@ -49,6 +54,11 @@ export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
+export { GetAnnotationsGroupArgs, GetAnnotationsGroupResult, GetAnnotationsGroupOutputArgs } from "./getAnnotationsGroup";
+export const getAnnotationsGroup: typeof import("./getAnnotationsGroup").getAnnotationsGroup = null as any;
+export const getAnnotationsGroupOutput: typeof import("./getAnnotationsGroup").getAnnotationsGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAnnotationsGroup","getAnnotationsGroupOutput"], () => require("./getAnnotationsGroup"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
@@ -115,6 +125,11 @@ export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
 utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
 
+export { GetLabelsGroupArgs, GetLabelsGroupResult, GetLabelsGroupOutputArgs } from "./getLabelsGroup";
+export const getLabelsGroup: typeof import("./getLabelsGroup").getLabelsGroup = null as any;
+export const getLabelsGroupOutput: typeof import("./getLabelsGroup").getLabelsGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getLabelsGroup","getLabelsGroupOutput"], () => require("./getLabelsGroup"));
+
 export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
@@ -150,6 +165,11 @@ export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
+export { LabelsGroupArgs, LabelsGroupState } from "./labelsGroup";
+export type LabelsGroup = import("./labelsGroup").LabelsGroup;
+export const LabelsGroup: typeof import("./labelsGroup").LabelsGroup = null as any;
+utilities.lazyLoad(exports, ["LabelsGroup"], () => require("./labelsGroup"));
+
 export { OrganizationArgs, OrganizationState } from "./organization";
 export type Organization = import("./organization").Organization;
 export const Organization: typeof import("./organization").Organization = null as any;
@@ -184,6 +204,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "qovery:index/annotationsGroup:AnnotationsGroup":
+                return new AnnotationsGroup(name, <any>undefined, { urn })
             case "qovery:index/application:Application":
                 return new Application(name, <any>undefined, { urn })
             case "qovery:index/awsCredentials:AwsCredentials":
@@ -210,6 +232,8 @@ const _module = {
                 return new HelmRepository(name, <any>undefined, { urn })
             case "qovery:index/job:Job":
                 return new Job(name, <any>undefined, { urn })
+            case "qovery:index/labelsGroup:LabelsGroup":
+                return new LabelsGroup(name, <any>undefined, { urn })
             case "qovery:index/organization:Organization":
                 return new Organization(name, <any>undefined, { urn })
             case "qovery:index/project:Project":
@@ -221,6 +245,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("qovery", "index/annotationsGroup", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/application", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/awsCredentials", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/cluster", _module)
@@ -234,6 +259,7 @@ pulumi.runtime.registerResourceModule("qovery", "index/gitToken", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/helm", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/helmRepository", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/job", _module)
+pulumi.runtime.registerResourceModule("qovery", "index/labelsGroup", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/organization", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/project", _module)
 pulumi.runtime.registerResourceModule("qovery", "index/scalewayCredentials", _module)

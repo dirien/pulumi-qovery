@@ -26,6 +26,8 @@ type Container struct {
 
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringOutput `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayOutput `pulumi:"annotationsGroupIds"`
 	// List of arguments of this container.
 	Arguments pulumi.StringArrayOutput `pulumi:"arguments"`
 	// Specify if the container will be automatically updated after receiving a new image tag.
@@ -58,6 +60,8 @@ type Container struct {
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// The container internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayOutput `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntOutput `pulumi:"maxRunningInstances"`
 	// RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -129,6 +133,8 @@ func GetContainer(ctx *pulumi.Context,
 type containerState struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// List of arguments of this container.
 	Arguments []string `pulumi:"arguments"`
 	// Specify if the container will be automatically updated after receiving a new image tag.
@@ -161,6 +167,8 @@ type containerState struct {
 	ImageName *string `pulumi:"imageName"`
 	// The container internal host.
 	InternalHost *string `pulumi:"internalHost"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances *int `pulumi:"maxRunningInstances"`
 	// RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -188,6 +196,8 @@ type containerState struct {
 type ContainerState struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// List of arguments of this container.
 	Arguments pulumi.StringArrayInput
 	// Specify if the container will be automatically updated after receiving a new image tag.
@@ -220,6 +230,8 @@ type ContainerState struct {
 	ImageName pulumi.StringPtrInput
 	// The container internal host.
 	InternalHost pulumi.StringPtrInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntPtrInput
 	// RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -251,6 +263,8 @@ func (ContainerState) ElementType() reflect.Type {
 type containerArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson *string `pulumi:"advancedSettingsJson"`
+	// List of annotations group ids
+	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	// List of arguments of this container.
 	Arguments []string `pulumi:"arguments"`
 	// Specify if the container will be automatically updated after receiving a new image tag.
@@ -277,6 +291,8 @@ type containerArgs struct {
 	Healthchecks ContainerHealthchecks `pulumi:"healthchecks"`
 	// Name of the container image.
 	ImageName string `pulumi:"imageName"`
+	// List of labels group ids
+	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances *int `pulumi:"maxRunningInstances"`
 	// RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -305,6 +321,8 @@ type containerArgs struct {
 type ContainerArgs struct {
 	// Advanced settings.
 	AdvancedSettingsJson pulumi.StringPtrInput
+	// List of annotations group ids
+	AnnotationsGroupIds pulumi.StringArrayInput
 	// List of arguments of this container.
 	Arguments pulumi.StringArrayInput
 	// Specify if the container will be automatically updated after receiving a new image tag.
@@ -331,6 +349,8 @@ type ContainerArgs struct {
 	Healthchecks ContainerHealthchecksInput
 	// Name of the container image.
 	ImageName pulumi.StringInput
+	// List of labels group ids
+	LabelsGroupIds pulumi.StringArrayInput
 	// Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
 	MaxRunningInstances pulumi.IntPtrInput
 	// RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -447,6 +467,11 @@ func (o ContainerOutput) AdvancedSettingsJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.AdvancedSettingsJson }).(pulumi.StringOutput)
 }
 
+// List of annotations group ids
+func (o ContainerOutput) AnnotationsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringArrayOutput { return v.AnnotationsGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // List of arguments of this container.
 func (o ContainerOutput) Arguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringArrayOutput { return v.Arguments }).(pulumi.StringArrayOutput)
@@ -529,6 +554,11 @@ func (o ContainerOutput) ImageName() pulumi.StringOutput {
 // The container internal host.
 func (o ContainerOutput) InternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.InternalHost }).(pulumi.StringOutput)
+}
+
+// List of labels group ids
+func (o ContainerOutput) LabelsGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringArrayOutput { return v.LabelsGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
