@@ -271,6 +271,25 @@ class HelmRepository(pulumi.CustomResource):
 
         Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
 
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_helm_repository = qovery.HelmRepository("myHelmRepository",
+            organization_id=qovery_organization["my_organization"]["id"],
+            kind="OCI_DOCKER_HUB",
+            url="https://docker.io",
+            skip_tls_verification=False,
+            description="My Helm repository",
+            config=qovery.HelmRepositoryConfigArgs(
+                username="<my_username>",
+                password="<my_password>",
+            ),
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+        ```
+
         ## Import
 
         ```sh
@@ -298,6 +317,25 @@ class HelmRepository(pulumi.CustomResource):
         ## # HelmRepository (Resource)
 
         Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_helm_repository = qovery.HelmRepository("myHelmRepository",
+            organization_id=qovery_organization["my_organization"]["id"],
+            kind="OCI_DOCKER_HUB",
+            url="https://docker.io",
+            skip_tls_verification=False,
+            description="My Helm repository",
+            config=qovery.HelmRepositoryConfigArgs(
+                username="<my_username>",
+                password="<my_password>",
+            ),
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+        ```
 
         ## Import
 

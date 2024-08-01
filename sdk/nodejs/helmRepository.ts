@@ -11,6 +11,27 @@ import * as utilities from "./utilities";
  *
  * Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
  *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as qovery from "@ediri/qovery";
+ *
+ * const myHelmRepository = new qovery.HelmRepository("myHelmRepository", {
+ *     organizationId: qovery_organization.my_organization.id,
+ *     kind: "OCI_DOCKER_HUB",
+ *     url: "https://docker.io",
+ *     skipTlsVerification: false,
+ *     description: "My Helm repository",
+ *     config: {
+ *         username: "<my_username>",
+ *         password: "<my_password>",
+ *     },
+ * }, {
+ *     dependsOn: [qovery_organization.my_organization],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
