@@ -102,6 +102,10 @@ export class Helm extends pulumi.CustomResource {
      */
     public /*out*/ readonly externalHost!: pulumi.Output<string>;
     /**
+     * Icon URI representing the helm service.
+     */
+    public readonly iconUri!: pulumi.Output<string>;
+    /**
      * The helm internal host.
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["environmentVariableOverrides"] = state ? state.environmentVariableOverrides : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
+            resourceInputs["iconUri"] = state ? state.iconUri : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ports"] = state ? state.ports : undefined;
@@ -200,6 +205,7 @@ export class Helm extends pulumi.CustomResource {
             resourceInputs["environmentVariableAliases"] = args ? args.environmentVariableAliases : undefined;
             resourceInputs["environmentVariableOverrides"] = args ? args.environmentVariableOverrides : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["iconUri"] = args ? args.iconUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ports"] = args ? args.ports : undefined;
             resourceInputs["secretAliases"] = args ? args.secretAliases : undefined;
@@ -277,6 +283,10 @@ export interface HelmState {
      * The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
      */
     externalHost?: pulumi.Input<string>;
+    /**
+     * Icon URI representing the helm service.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * The helm internal host.
      */
@@ -367,6 +377,10 @@ export interface HelmArgs {
      * List of environment variables linked to this helm.
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.HelmEnvironmentVariable>[]>;
+    /**
+     * Icon URI representing the helm service.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * Name of the helm.
      */

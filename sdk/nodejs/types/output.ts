@@ -42,6 +42,13 @@ export interface ApplicationCustomDomain {
      */
     status: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain: string;
@@ -588,6 +595,13 @@ export interface ContainerCustomDomain {
      * Status of the custom domain.
      */
     status: string;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -1157,6 +1171,13 @@ export interface GetApplicationCustomDomain {
      */
     status: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain: string;
@@ -1704,6 +1725,13 @@ export interface GetContainerCustomDomain {
      */
     status: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain: string;
@@ -2240,6 +2268,13 @@ export interface GetHelmCustomDomain {
      * Status of the custom domain.
      */
     status: string;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -3116,6 +3151,13 @@ export interface HelmCustomDomain {
      * Status of the custom domain.
      */
     status: string;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */

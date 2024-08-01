@@ -121,6 +121,12 @@ namespace ediri.Qovery
         public Output<Outputs.ContainerHealthchecks> Healthchecks { get; private set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the container.
+        /// </summary>
+        [Output("iconUri")]
+        public Output<string> IconUri { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the container image.
         /// </summary>
         [Output("imageName")]
@@ -370,6 +376,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks", required: true)]
         public Input<Inputs.ContainerHealthchecksArgs> Healthchecks { get; set; } = null!;
+
+        /// <summary>
+        /// Icon URI representing the container.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// Name of the container image.
@@ -630,6 +642,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks")]
         public Input<Inputs.ContainerHealthchecksGetArgs>? Healthchecks { get; set; }
+
+        /// <summary>
+        /// Icon URI representing the container.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// Name of the container image.

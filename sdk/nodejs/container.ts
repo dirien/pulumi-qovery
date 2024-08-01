@@ -110,6 +110,10 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly healthchecks!: pulumi.Output<outputs.ContainerHealthchecks>;
     /**
+     * Icon URI representing the container.
+     */
+    public readonly iconUri!: pulumi.Output<string>;
+    /**
      * Name of the container image.
      */
     public readonly imageName!: pulumi.Output<string>;
@@ -195,6 +199,7 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
             resourceInputs["healthchecks"] = state ? state.healthchecks : undefined;
+            resourceInputs["iconUri"] = state ? state.iconUri : undefined;
             resourceInputs["imageName"] = state ? state.imageName : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
             resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
@@ -240,6 +245,7 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["environmentVariableOverrides"] = args ? args.environmentVariableOverrides : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["healthchecks"] = args ? args.healthchecks : undefined;
+            resourceInputs["iconUri"] = args ? args.iconUri : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
             resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["maxRunningInstances"] = args ? args.maxRunningInstances : undefined;
@@ -330,6 +336,10 @@ export interface ContainerState {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks?: pulumi.Input<inputs.ContainerHealthchecks>;
+    /**
+     * Icon URI representing the container.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * Name of the container image.
      */
@@ -448,6 +458,10 @@ export interface ContainerArgs {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks: pulumi.Input<inputs.ContainerHealthchecks>;
+    /**
+     * Icon URI representing the container.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * Name of the container image.
      */

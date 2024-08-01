@@ -131,6 +131,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly healthchecks!: pulumi.Output<outputs.ApplicationHealthchecks>;
     /**
+     * Icon URI representing the application.
+     */
+    public readonly iconUri!: pulumi.Output<string>;
+    /**
      * The application internal host.
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
@@ -209,6 +213,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
             resourceInputs["gitRepository"] = state ? state.gitRepository : undefined;
             resourceInputs["healthchecks"] = state ? state.healthchecks : undefined;
+            resourceInputs["iconUri"] = state ? state.iconUri : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
             resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
             resourceInputs["maxRunningInstances"] = state ? state.maxRunningInstances : undefined;
@@ -250,6 +255,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["gitRepository"] = args ? args.gitRepository : undefined;
             resourceInputs["healthchecks"] = args ? args.healthchecks : undefined;
+            resourceInputs["iconUri"] = args ? args.iconUri : undefined;
             resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["maxRunningInstances"] = args ? args.maxRunningInstances : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
@@ -358,6 +364,10 @@ export interface ApplicationState {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks?: pulumi.Input<inputs.ApplicationHealthchecks>;
+    /**
+     * Icon URI representing the application.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * The application internal host.
      */
@@ -485,6 +495,10 @@ export interface ApplicationArgs {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks: pulumi.Input<inputs.ApplicationHealthchecks>;
+    /**
+     * Icon URI representing the application.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * List of labels group ids
      */

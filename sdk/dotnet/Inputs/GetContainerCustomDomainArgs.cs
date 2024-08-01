@@ -38,6 +38,15 @@ namespace ediri.Qovery.Inputs
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
+        /// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        /// This will condition the way we are checking CNAME before &amp; during a deployment:
+        ///  * If `true` then we only check the domain points to an IP
+        ///  * If `false` then we check that the domain resolves to the correct service Load Balancer
+        /// </summary>
+        [Input("useCdn")]
+        public Input<bool>? UseCdn { get; set; }
+
+        /// <summary>
         /// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         /// </summary>
         [Input("validationDomain", required: true)]

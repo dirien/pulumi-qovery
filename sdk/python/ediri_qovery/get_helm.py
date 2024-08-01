@@ -23,7 +23,7 @@ class GetHelmResult:
     """
     A collection of values returned by getHelm.
     """
-    def __init__(__self__, advanced_settings_json=None, allow_cluster_wide_resources=None, arguments=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, id=None, internal_host=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None, timeout_sec=None, values_override=None):
+    def __init__(__self__, advanced_settings_json=None, allow_cluster_wide_resources=None, arguments=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, icon_uri=None, id=None, internal_host=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None, timeout_sec=None, values_override=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -66,6 +66,9 @@ class GetHelmResult:
         if external_host and not isinstance(external_host, str):
             raise TypeError("Expected argument 'external_host' to be a str")
         pulumi.set(__self__, "external_host", external_host)
+        if icon_uri and not isinstance(icon_uri, str):
+            raise TypeError("Expected argument 'icon_uri' to be a str")
+        pulumi.set(__self__, "icon_uri", icon_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -168,6 +171,11 @@ class GetHelmResult:
         return pulumi.get(self, "external_host")
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> str:
+        return pulumi.get(self, "icon_uri")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -238,6 +246,7 @@ class AwaitableGetHelmResult(GetHelmResult):
             environment_variable_overrides=self.environment_variable_overrides,
             environment_variables=self.environment_variables,
             external_host=self.external_host,
+            icon_uri=self.icon_uri,
             id=self.id,
             internal_host=self.internal_host,
             name=self.name,
@@ -260,6 +269,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
              environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']]] = None,
              environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']]] = None,
              environment_variables: Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']]] = None,
+             icon_uri: Optional[str] = None,
              id: Optional[str] = None,
              secret_aliases: Optional[Sequence[pulumi.InputType['GetHelmSecretAliasArgs']]] = None,
              secret_overrides: Optional[Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']]] = None,
@@ -290,6 +300,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariableAliases'] = environment_variable_aliases
     __args__['environmentVariableOverrides'] = environment_variable_overrides
     __args__['environmentVariables'] = environment_variables
+    __args__['iconUri'] = icon_uri
     __args__['id'] = id
     __args__['secretAliases'] = secret_aliases
     __args__['secretOverrides'] = secret_overrides
@@ -313,6 +324,7 @@ def get_helm(advanced_settings_json: Optional[str] = None,
         environment_variable_overrides=pulumi.get(__ret__, 'environment_variable_overrides'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         external_host=pulumi.get(__ret__, 'external_host'),
+        icon_uri=pulumi.get(__ret__, 'icon_uri'),
         id=pulumi.get(__ret__, 'id'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
         name=pulumi.get(__ret__, 'name'),
@@ -336,6 +348,7 @@ def get_helm_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]
                     environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableAliasArgs']]]]] = None,
                     environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableOverrideArgs']]]]] = None,
                     environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmEnvironmentVariableArgs']]]]] = None,
+                    icon_uri: Optional[pulumi.Input[Optional[str]]] = None,
                     id: Optional[pulumi.Input[str]] = None,
                     secret_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmSecretAliasArgs']]]]] = None,
                     secret_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetHelmSecretOverrideArgs']]]]] = None,

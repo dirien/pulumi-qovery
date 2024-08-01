@@ -296,12 +296,17 @@ class ApplicationCustomDomainArgs:
                  generate_certificate: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 use_cdn: Optional[pulumi.Input[bool]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: Your custom domain.
         :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
         :param pulumi.Input[str] id: Id of the custom domain.
         :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[bool] use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         pulumi.set(__self__, "domain", domain)
@@ -311,6 +316,8 @@ class ApplicationCustomDomainArgs:
             pulumi.set(__self__, "id", id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
         if validation_domain is not None:
             pulumi.set(__self__, "validation_domain", validation_domain)
 
@@ -361,6 +368,21 @@ class ApplicationCustomDomainArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_cdn", value)
 
     @property
     @pulumi.getter(name="validationDomain")
@@ -2270,12 +2292,17 @@ class ContainerCustomDomainArgs:
                  generate_certificate: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 use_cdn: Optional[pulumi.Input[bool]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: Your custom domain.
         :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
         :param pulumi.Input[str] id: Id of the custom domain.
         :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[bool] use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         pulumi.set(__self__, "domain", domain)
@@ -2285,6 +2312,8 @@ class ContainerCustomDomainArgs:
             pulumi.set(__self__, "id", id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
         if validation_domain is not None:
             pulumi.set(__self__, "validation_domain", validation_domain)
 
@@ -2335,6 +2364,21 @@ class ContainerCustomDomainArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_cdn", value)
 
     @property
     @pulumi.getter(name="validationDomain")
@@ -4320,12 +4364,17 @@ class HelmCustomDomainArgs:
                  generate_certificate: pulumi.Input[bool],
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 use_cdn: Optional[pulumi.Input[bool]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: Your custom domain.
         :param pulumi.Input[bool] generate_certificate: Qovery will generate and manage the certificate for this domain.
         :param pulumi.Input[str] id: Id of the custom domain.
         :param pulumi.Input[str] status: Status of the custom domain.
+        :param pulumi.Input[bool] use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         :param pulumi.Input[str] validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         """
         pulumi.set(__self__, "domain", domain)
@@ -4334,6 +4383,8 @@ class HelmCustomDomainArgs:
             pulumi.set(__self__, "id", id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
         if validation_domain is not None:
             pulumi.set(__self__, "validation_domain", validation_domain)
 
@@ -4384,6 +4435,21 @@ class HelmCustomDomainArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_cdn", value)
 
     @property
     @pulumi.getter(name="validationDomain")
@@ -7567,13 +7633,18 @@ class GetApplicationCustomDomainArgs:
                  id: str,
                  status: str,
                  validation_domain: str,
-                 generate_certificate: Optional[bool] = None):
+                 generate_certificate: Optional[bool] = None,
+                 use_cdn: Optional[bool] = None):
         """
         :param str domain: Your custom domain.
         :param str id: Id of the custom domain.
         :param str status: Status of the custom domain.
         :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
+        :param bool use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
@@ -7581,6 +7652,8 @@ class GetApplicationCustomDomainArgs:
         pulumi.set(__self__, "validation_domain", validation_domain)
         if generate_certificate is not None:
             pulumi.set(__self__, "generate_certificate", generate_certificate)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
 
     @property
     @pulumi.getter
@@ -7641,6 +7714,21 @@ class GetApplicationCustomDomainArgs:
     @generate_certificate.setter
     def generate_certificate(self, value: Optional[bool]):
         pulumi.set(self, "generate_certificate", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[bool]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[bool]):
+        pulumi.set(self, "use_cdn", value)
 
 
 @pulumi.input_type
@@ -9242,13 +9330,18 @@ class GetContainerCustomDomainArgs:
                  id: str,
                  status: str,
                  validation_domain: str,
-                 generate_certificate: Optional[bool] = None):
+                 generate_certificate: Optional[bool] = None,
+                 use_cdn: Optional[bool] = None):
         """
         :param str domain: Your custom domain.
         :param str id: Id of the custom domain.
         :param str status: Status of the custom domain.
         :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
+        :param bool use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
@@ -9256,6 +9349,8 @@ class GetContainerCustomDomainArgs:
         pulumi.set(__self__, "validation_domain", validation_domain)
         if generate_certificate is not None:
             pulumi.set(__self__, "generate_certificate", generate_certificate)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
 
     @property
     @pulumi.getter
@@ -9316,6 +9411,21 @@ class GetContainerCustomDomainArgs:
     @generate_certificate.setter
     def generate_certificate(self, value: Optional[bool]):
         pulumi.set(self, "generate_certificate", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[bool]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[bool]):
+        pulumi.set(self, "use_cdn", value)
 
 
 @pulumi.input_type
@@ -10999,13 +11109,18 @@ class GetHelmCustomDomainArgs:
                  id: str,
                  status: str,
                  validation_domain: str,
-                 generate_certificate: Optional[bool] = None):
+                 generate_certificate: Optional[bool] = None,
+                 use_cdn: Optional[bool] = None):
         """
         :param str domain: Your custom domain.
         :param str id: Id of the custom domain.
         :param str status: Status of the custom domain.
         :param str validation_domain: URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
         :param bool generate_certificate: Qovery will generate and manage the certificate for this domain.
+        :param bool use_cdn: Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+               This will condition the way we are checking CNAME before & during a deployment:
+                * If `true` then we only check the domain points to an IP
+                * If `false` then we check that the domain resolves to the correct service Load Balancer
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "id", id)
@@ -11013,6 +11128,8 @@ class GetHelmCustomDomainArgs:
         pulumi.set(__self__, "validation_domain", validation_domain)
         if generate_certificate is not None:
             pulumi.set(__self__, "generate_certificate", generate_certificate)
+        if use_cdn is not None:
+            pulumi.set(__self__, "use_cdn", use_cdn)
 
     @property
     @pulumi.getter
@@ -11073,6 +11190,21 @@ class GetHelmCustomDomainArgs:
     @generate_certificate.setter
     def generate_certificate(self, value: Optional[bool]):
         pulumi.set(self, "generate_certificate", value)
+
+    @property
+    @pulumi.getter(name="useCdn")
+    def use_cdn(self) -> Optional[bool]:
+        """
+        Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+        This will condition the way we are checking CNAME before & during a deployment:
+         * If `true` then we only check the domain points to an IP
+         * If `false` then we check that the domain resolves to the correct service Load Balancer
+        """
+        return pulumi.get(self, "use_cdn")
+
+    @use_cdn.setter
+    def use_cdn(self, value: Optional[bool]):
+        pulumi.set(self, "use_cdn", value)
 
 
 @pulumi.input_type

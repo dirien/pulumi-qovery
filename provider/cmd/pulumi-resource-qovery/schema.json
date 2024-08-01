@@ -123,6 +123,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -1007,6 +1011,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -1903,6 +1911,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -3417,6 +3429,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -4283,6 +4299,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -5114,6 +5134,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -6755,6 +6779,10 @@
                     "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the application.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The application internal host.\n"
@@ -6831,6 +6859,7 @@
                 "externalHost",
                 "gitRepository",
                 "healthchecks",
+                "iconUri",
                 "internalHost",
                 "maxRunningInstances",
                 "memory",
@@ -6934,6 +6963,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the application.\n"
                 },
                 "labelsGroupIds": {
                     "type": "array",
@@ -7109,6 +7142,10 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the application.\n"
                     },
                     "internalHost": {
                         "type": "string",
@@ -7564,6 +7601,10 @@
                     "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the container.\n"
+                },
                 "imageName": {
                     "type": "string",
                     "description": "Name of the container image.\n"
@@ -7650,6 +7691,7 @@
                 "environmentId",
                 "externalHost",
                 "healthchecks",
+                "iconUri",
                 "imageName",
                 "internalHost",
                 "maxRunningInstances",
@@ -7733,6 +7775,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the container.\n"
                 },
                 "imageName": {
                     "type": "string",
@@ -7899,6 +7945,10 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the container.\n"
                     },
                     "imageName": {
                         "type": "string",
@@ -8105,6 +8155,10 @@
                     "type": "string",
                     "description": "The database external FQDN host [NOTE: only if your container is using a publicly accessible port].\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the database.\n"
+                },
                 "instanceType": {
                     "type": "string",
                     "description": "Instance type of the database.\n"
@@ -8163,6 +8217,7 @@
                 "deploymentStageId",
                 "environmentId",
                 "externalHost",
+                "iconUri",
                 "instanceType",
                 "internalHost",
                 "login",
@@ -8198,6 +8253,10 @@
                 "environmentId": {
                     "type": "string",
                     "description": "Id of the environment.\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the database.\n"
                 },
                 "instanceType": {
                     "type": "string",
@@ -8270,6 +8329,10 @@
                     "externalHost": {
                         "type": "string",
                         "description": "The database external FQDN host [NOTE: only if your container is using a publicly accessible port].\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the database.\n"
                     },
                     "instanceType": {
                         "type": "string",
@@ -8856,6 +8919,10 @@
                     "type": "string",
                     "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the helm service.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The helm internal host.\n"
@@ -8915,6 +8982,7 @@
                 "deploymentStageId",
                 "environmentId",
                 "externalHost",
+                "iconUri",
                 "internalHost",
                 "name",
                 "source",
@@ -8987,6 +9055,10 @@
                         "$ref": "#/types/qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable"
                     },
                     "description": "List of environment variables linked to this helm.\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the helm service.\n"
                 },
                 "name": {
                     "type": "string",
@@ -9119,6 +9191,10 @@
                         "type": "string",
                         "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
                     },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the helm service.\n"
+                    },
                     "internalHost": {
                         "type": "string",
                         "description": "The helm internal host.\n"
@@ -9172,7 +9248,7 @@
             }
         },
         "qovery:index/helmRepository:HelmRepository": {
-            "description": "## # qovery.HelmRepository (Resource)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  myHelmRepository:\n    type: qovery:HelmRepository\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: OCI_DOCKER_HUB\n      url: https://docker.io\n      skipTlsCertificate: false\n      # Optional\n      description: My Helm repository\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository \"\u003corganization_id\u003e,\u003chelm_repository_id\u003e\"\n```\n\n",
+            "description": "## # qovery.HelmRepository (Resource)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myHelmRepository = new qovery.HelmRepository(\"myHelmRepository\", {\n    organizationId: qovery_organization.my_organization.id,\n    kind: \"OCI_DOCKER_HUB\",\n    url: \"https://docker.io\",\n    skipTlsVerification: false,\n    description: \"My Helm repository\",\n    config: {\n        username: \"\u003cmy_username\u003e\",\n        password: \"\u003cmy_password\u003e\",\n    },\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_helm_repository = qovery.HelmRepository(\"myHelmRepository\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    kind=\"OCI_DOCKER_HUB\",\n    url=\"https://docker.io\",\n    skip_tls_verification=False,\n    description=\"My Helm repository\",\n    config=qovery.HelmRepositoryConfigArgs(\n        username=\"\u003cmy_username\u003e\",\n        password=\"\u003cmy_password\u003e\",\n    ),\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myHelmRepository = new Qovery.HelmRepository(\"myHelmRepository\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Kind = \"OCI_DOCKER_HUB\",\n        Url = \"https://docker.io\",\n        SkipTlsVerification = false,\n        Description = \"My Helm repository\",\n        Config = new Qovery.Inputs.HelmRepositoryConfigArgs\n        {\n            Username = \"\u003cmy_username\u003e\",\n            Password = \"\u003cmy_password\u003e\",\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewHelmRepository(ctx, \"myHelmRepository\", \u0026qovery.HelmRepositoryArgs{\n\t\t\tOrganizationId:      pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tKind:                pulumi.String(\"OCI_DOCKER_HUB\"),\n\t\t\tUrl:                 pulumi.String(\"https://docker.io\"),\n\t\t\tSkipTlsVerification: pulumi.Bool(false),\n\t\t\tDescription:         pulumi.String(\"My Helm repository\"),\n\t\t\tConfig: \u0026qovery.HelmRepositoryConfigArgs{\n\t\t\t\tUsername: pulumi.String(\"\u003cmy_username\u003e\"),\n\t\t\t\tPassword: pulumi.String(\"\u003cmy_password\u003e\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.HelmRepository;\nimport com.pulumi.qovery.HelmRepositoryArgs;\nimport com.pulumi.qovery.inputs.HelmRepositoryConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myHelmRepository = new HelmRepository(\"myHelmRepository\", HelmRepositoryArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .kind(\"OCI_DOCKER_HUB\")\n            .url(\"https://docker.io\")\n            .skipTlsVerification(false)\n            .description(\"My Helm repository\")\n            .config(HelmRepositoryConfigArgs.builder()\n                .username(\"\u003cmy_username\u003e\")\n                .password(\"\u003cmy_password\u003e\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myHelmRepository:\n    type: qovery:HelmRepository\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: OCI_DOCKER_HUB\n      url: https://docker.io\n      skipTlsVerification: false\n      # Optional\n      description: My Helm repository\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository \"\u003corganization_id\u003e,\u003chelm_repository_id\u003e\"\n```\n\n",
             "properties": {
                 "config": {
                     "$ref": "#/types/qovery:index/HelmRepositoryConfig:HelmRepositoryConfig",
@@ -9359,6 +9435,10 @@
                     "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the job.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The job internal host.\n"
@@ -9430,6 +9510,7 @@
                 "environmentId",
                 "externalHost",
                 "healthchecks",
+                "iconUri",
                 "internalHost",
                 "maxDurationSeconds",
                 "maxNbRestart",
@@ -9500,6 +9581,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the job.\n"
                 },
                 "labelsGroupIds": {
                     "type": "array",
@@ -9639,6 +9724,10 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the job.\n"
                     },
                     "internalHost": {
                         "type": "string",
@@ -10238,6 +10327,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getApplicationHealthchecks:getApplicationHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10376,6 +10468,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getApplicationHealthchecks:getApplicationHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10447,6 +10542,7 @@
                     "environmentId",
                     "externalHost",
                     "gitRepository",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "maxRunningInstances",
@@ -10691,6 +10787,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getContainerHealthchecks:getContainerHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10817,6 +10916,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getContainerHealthchecks:getContainerHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10892,6 +10994,7 @@
                     "entrypoint",
                     "environmentId",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "imageName",
                     "internalHost",
@@ -10980,6 +11083,9 @@
                     "deploymentStageId": {
                         "type": "string"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11026,6 +11132,9 @@
                         "type": "string"
                     },
                     "externalHost": {
+                        "type": "string"
+                    },
+                    "iconUri": {
                         "type": "string"
                     },
                     "id": {
@@ -11076,6 +11185,7 @@
                     "deploymentStageId",
                     "environmentId",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "instanceType",
                     "internalHost",
@@ -11427,6 +11537,9 @@
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
                         }
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11523,6 +11636,9 @@
                     "externalHost": {
                         "type": "string"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11578,6 +11694,7 @@
                     "environmentId",
                     "environmentVariableAliases",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "name",
@@ -11711,6 +11828,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getJobHealthchecks:getJobHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11822,6 +11942,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getJobHealthchecks:getJobHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11884,6 +12007,7 @@
                     "environmentId",
                     "environmentVariableAliases",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "maxDurationSeconds",

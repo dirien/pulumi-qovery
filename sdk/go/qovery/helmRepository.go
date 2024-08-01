@@ -16,6 +16,42 @@ import (
 //
 // Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
 //
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/dirien/pulumi-qovery/sdk/go/qovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qovery.NewHelmRepository(ctx, "myHelmRepository", &qovery.HelmRepositoryArgs{
+//				OrganizationId:      pulumi.Any(qovery_organization.My_organization.Id),
+//				Kind:                pulumi.String("OCI_DOCKER_HUB"),
+//				Url:                 pulumi.String("https://docker.io"),
+//				SkipTlsVerification: pulumi.Bool(false),
+//				Description:         pulumi.String("My Helm repository"),
+//				Config: &qovery.HelmRepositoryConfigArgs{
+//					Username: pulumi.String("<my_username>"),
+//					Password: pulumi.String("<my_password>"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				qovery_organization.My_organization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -152,6 +152,12 @@ namespace ediri.Qovery
         public Output<Outputs.ApplicationHealthchecks> Healthchecks { get; private set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the application.
+        /// </summary>
+        [Output("iconUri")]
+        public Output<string> IconUri { get; private set; } = null!;
+
+        /// <summary>
         /// The application internal host.
         /// </summary>
         [Output("internalHost")]
@@ -420,6 +426,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks", required: true)]
         public Input<Inputs.ApplicationHealthchecksArgs> Healthchecks { get; set; } = null!;
+
+        /// <summary>
+        /// Icon URI representing the application.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         [Input("labelsGroupIds")]
         private InputList<string>? _labelsGroupIds;
@@ -699,6 +711,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks")]
         public Input<Inputs.ApplicationHealthchecksGetArgs>? Healthchecks { get; set; }
+
+        /// <summary>
+        /// Icon URI representing the application.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// The application internal host.

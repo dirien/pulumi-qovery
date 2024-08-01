@@ -124,6 +124,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Inputs.GetJobHealthchecksArgs? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public string? IconUri { get; set; }
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -240,6 +243,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Input<Inputs.GetJobHealthchecksInputArgs>? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -314,6 +320,7 @@ namespace ediri.Qovery
         public readonly ImmutableArray<Outputs.GetJobEnvironmentVariableResult> EnvironmentVariables;
         public readonly string ExternalHost;
         public readonly Outputs.GetJobHealthchecksResult? Healthchecks;
+        public readonly string IconUri;
         public readonly string Id;
         public readonly string InternalHost;
         public readonly ImmutableArray<string> LabelsGroupIds;
@@ -358,6 +365,8 @@ namespace ediri.Qovery
 
             Outputs.GetJobHealthchecksResult? healthchecks,
 
+            string iconUri,
+
             string id,
 
             string internalHost,
@@ -398,6 +407,7 @@ namespace ediri.Qovery
             EnvironmentVariables = environmentVariables;
             ExternalHost = externalHost;
             Healthchecks = healthchecks;
+            IconUri = iconUri;
             Id = id;
             InternalHost = internalHost;
             LabelsGroupIds = labelsGroupIds;
