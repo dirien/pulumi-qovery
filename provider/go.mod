@@ -5,9 +5,9 @@ go 1.21.12
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.0
-	github.com/pulumi/pulumi/sdk/v3 v3.125.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.41.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.0
+	github.com/pulumi/pulumi/sdk/v3 v3.126.0
 	github.com/qovery/terraform-provider-qovery v0.37.0
 )
 
@@ -178,7 +178,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.124.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.126.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/qovery/qovery-client-go v0.0.0-20240708130510-b92d479def66 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
