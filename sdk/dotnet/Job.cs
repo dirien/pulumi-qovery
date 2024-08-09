@@ -109,6 +109,12 @@ namespace ediri.Qovery
         public Output<Outputs.JobHealthchecks> Healthchecks { get; private set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the job.
+        /// </summary>
+        [Output("iconUri")]
+        public Output<string> IconUri { get; private set; } = null!;
+
+        /// <summary>
         /// The job internal host.
         /// </summary>
         [Output("internalHost")]
@@ -329,6 +335,12 @@ namespace ediri.Qovery
         [Input("healthchecks", required: true)]
         public Input<Inputs.JobHealthchecksArgs> Healthchecks { get; set; } = null!;
 
+        /// <summary>
+        /// Icon URI representing the job.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("labelsGroupIds")]
         private InputList<string>? _labelsGroupIds;
 
@@ -546,6 +558,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("healthchecks")]
         public Input<Inputs.JobHealthchecksGetArgs>? Healthchecks { get; set; }
+
+        /// <summary>
+        /// Icon URI representing the job.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// The job internal host.

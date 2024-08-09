@@ -67,6 +67,7 @@ type LookupApplicationArgs struct {
 	EnvironmentVariableOverrides []GetApplicationEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetApplicationEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      *string                                     `pulumi:"iconUri"`
 	Id                           string                                      `pulumi:"id"`
 	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                        `pulumi:"maxRunningInstances"`
@@ -101,6 +102,7 @@ type LookupApplicationResult struct {
 	ExternalHost                 string                                      `pulumi:"externalHost"`
 	GitRepository                GetApplicationGitRepository                 `pulumi:"gitRepository"`
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      string                                      `pulumi:"iconUri"`
 	Id                           string                                      `pulumi:"id"`
 	InternalHost                 string                                      `pulumi:"internalHost"`
 	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
@@ -146,6 +148,7 @@ type LookupApplicationOutputArgs struct {
 	EnvironmentVariableOverrides GetApplicationEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetApplicationEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetApplicationHealthchecksPtrInput                  `pulumi:"healthchecks"`
+	IconUri                      pulumi.StringPtrInput                               `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                                  `pulumi:"id"`
 	LabelsGroupIds               pulumi.StringArrayInput                             `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                  `pulumi:"maxRunningInstances"`
@@ -264,6 +267,10 @@ func (o LookupApplicationResultOutput) GitRepository() GetApplicationGitReposito
 
 func (o LookupApplicationResultOutput) Healthchecks() GetApplicationHealthchecksPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *GetApplicationHealthchecks { return v.Healthchecks }).(GetApplicationHealthchecksPtrOutput)
+}
+
+func (o LookupApplicationResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {

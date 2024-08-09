@@ -35,6 +35,7 @@ class ApplicationArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -67,6 +68,7 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this application.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -113,6 +115,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if labels_group_ids is not None:
             pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances is not None:
@@ -364,6 +368,18 @@ class ApplicationArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="labelsGroupIds")
     def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -508,6 +524,7 @@ class _ApplicationState:
                  external_host: Optional[pulumi.Input[str]] = None,
                  git_repository: Optional[pulumi.Input['ApplicationGitRepositoryArgs']] = None,
                  healthchecks: Optional[pulumi.Input['ApplicationHealthchecksArgs']] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
@@ -543,6 +560,7 @@ class _ApplicationState:
         :param pulumi.Input[str] external_host: The application external FQDN host [NOTE: only if your application is using a publicly accessible port].
         :param pulumi.Input['ApplicationGitRepositoryArgs'] git_repository: Git repository of the application.
         :param pulumi.Input['ApplicationHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[str] internal_host: The application internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
@@ -597,6 +615,8 @@ class _ApplicationState:
             pulumi.set(__self__, "git_repository", git_repository)
         if healthchecks is not None:
             pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
         if labels_group_ids is not None:
@@ -874,6 +894,18 @@ class _ApplicationState:
         pulumi.set(self, "healthchecks", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1030,6 +1062,7 @@ class Application(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
                  git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -1074,6 +1107,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this application.
         :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
         :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -1136,6 +1170,7 @@ class Application(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
                  git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -1180,6 +1215,7 @@ class Application(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["icon_uri"] = icon_uri
             __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_running_instances"] = max_running_instances
             __props__.__dict__["memory"] = memory
@@ -1224,6 +1260,7 @@ class Application(pulumi.CustomResource):
             external_host: Optional[pulumi.Input[str]] = None,
             git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
             healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_running_instances: Optional[pulumi.Input[int]] = None,
@@ -1264,6 +1301,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] external_host: The application external FQDN host [NOTE: only if your application is using a publicly accessible port].
         :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
         :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[str] internal_host: The application internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
@@ -1301,6 +1339,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["git_repository"] = git_repository
         __props__.__dict__["healthchecks"] = healthchecks
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_running_instances"] = max_running_instances
@@ -1482,6 +1521,14 @@ class Application(pulumi.CustomResource):
         Configuration for the healthchecks that are going to be executed against your service
         """
         return pulumi.get(self, "healthchecks")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="internalHost")
