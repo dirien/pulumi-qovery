@@ -109,6 +109,12 @@ namespace ediri.Qovery
         public Output<string> ExternalHost { get; private set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the helm service.
+        /// </summary>
+        [Output("iconUri")]
+        public Output<string> IconUri { get; private set; } = null!;
+
+        /// <summary>
         /// The helm internal host.
         /// </summary>
         [Output("internalHost")]
@@ -318,6 +324,12 @@ namespace ediri.Qovery
         }
 
         /// <summary>
+        /// Icon URI representing the helm service.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
+        /// <summary>
         /// Name of the helm.
         /// </summary>
         [Input("name")]
@@ -522,6 +534,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("externalHost")]
         public Input<string>? ExternalHost { get; set; }
+
+        /// <summary>
+        /// Icon URI representing the helm service.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// The helm internal host.

@@ -146,6 +146,11 @@ type ApplicationCustomDomain struct {
 	Id *string `pulumi:"id"`
 	// Status of the custom domain.
 	Status *string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain *string `pulumi:"validationDomain"`
 }
@@ -170,6 +175,11 @@ type ApplicationCustomDomainArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
 }
@@ -243,6 +253,14 @@ func (o ApplicationCustomDomainOutput) Id() pulumi.StringPtrOutput {
 // Status of the custom domain.
 func (o ApplicationCustomDomainOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o ApplicationCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
@@ -4894,6 +4912,11 @@ type ContainerCustomDomain struct {
 	Id *string `pulumi:"id"`
 	// Status of the custom domain.
 	Status *string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain *string `pulumi:"validationDomain"`
 }
@@ -4918,6 +4941,11 @@ type ContainerCustomDomainArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
 }
@@ -4991,6 +5019,14 @@ func (o ContainerCustomDomainOutput) Id() pulumi.StringPtrOutput {
 // Status of the custom domain.
 func (o ContainerCustomDomainOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o ContainerCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
@@ -9582,6 +9618,11 @@ type HelmCustomDomain struct {
 	Id *string `pulumi:"id"`
 	// Status of the custom domain.
 	Status *string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain *string `pulumi:"validationDomain"`
 }
@@ -9606,6 +9647,11 @@ type HelmCustomDomainArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
 }
@@ -9679,6 +9725,14 @@ func (o HelmCustomDomainOutput) Id() pulumi.StringPtrOutput {
 // Status of the custom domain.
 func (o HelmCustomDomainOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmCustomDomain) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o HelmCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HelmCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
@@ -17934,6 +17988,11 @@ type GetApplicationCustomDomain struct {
 	Id string `pulumi:"id"`
 	// Status of the custom domain.
 	Status string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
@@ -17958,6 +18017,11 @@ type GetApplicationCustomDomainArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
@@ -18031,6 +18095,14 @@ func (o GetApplicationCustomDomainOutput) Id() pulumi.StringOutput {
 // Status of the custom domain.
 func (o GetApplicationCustomDomainOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationCustomDomain) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o GetApplicationCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetApplicationCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
@@ -22569,6 +22641,11 @@ type GetContainerCustomDomain struct {
 	Id string `pulumi:"id"`
 	// Status of the custom domain.
 	Status string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
@@ -22593,6 +22670,11 @@ type GetContainerCustomDomainArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
@@ -22666,6 +22748,14 @@ func (o GetContainerCustomDomainOutput) Id() pulumi.StringOutput {
 // Status of the custom domain.
 func (o GetContainerCustomDomainOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerCustomDomain) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o GetContainerCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetContainerCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
@@ -27008,6 +27098,11 @@ type GetHelmCustomDomain struct {
 	Id string `pulumi:"id"`
 	// Status of the custom domain.
 	Status string `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn *bool `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
@@ -27032,6 +27127,11 @@ type GetHelmCustomDomainArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Status of the custom domain.
 	Status pulumi.StringInput `pulumi:"status"`
+	// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+	// This will condition the way we are checking CNAME before & during a deployment:
+	//  * If `true` then we only check the domain points to an IP
+	//  * If `false` then we check that the domain resolves to the correct service Load Balancer
+	UseCdn pulumi.BoolPtrInput `pulumi:"useCdn"`
 	// URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
@@ -27105,6 +27205,14 @@ func (o GetHelmCustomDomainOutput) Id() pulumi.StringOutput {
 // Status of the custom domain.
 func (o GetHelmCustomDomainOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHelmCustomDomain) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+// This will condition the way we are checking CNAME before & during a deployment:
+//   - If `true` then we only check the domain points to an IP
+//   - If `false` then we check that the domain resolves to the correct service Load Balancer
+func (o GetHelmCustomDomainOutput) UseCdn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetHelmCustomDomain) *bool { return v.UseCdn }).(pulumi.BoolPtrOutput)
 }
 
 // URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.

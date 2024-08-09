@@ -109,6 +109,12 @@ namespace ediri.Qovery
         public Output<string> ExternalHost { get; private set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the database.
+        /// </summary>
+        [Output("iconUri")]
+        public Output<string> IconUri { get; private set; } = null!;
+
+        /// <summary>
         /// Instance type of the database.
         /// </summary>
         [Output("instanceType")]
@@ -265,6 +271,12 @@ namespace ediri.Qovery
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
+        /// Icon URI representing the database.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
+        /// <summary>
         /// Instance type of the database.
         /// </summary>
         [Input("instanceType")]
@@ -368,6 +380,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("externalHost")]
         public Input<string>? ExternalHost { get; set; }
+
+        /// <summary>
+        /// Icon URI representing the database.
+        /// </summary>
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
 
         /// <summary>
         /// Instance type of the database.

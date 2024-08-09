@@ -83,6 +83,9 @@ namespace ediri.Qovery
         [Input("deploymentStageId")]
         public string? DeploymentStageId { get; set; }
 
+        [Input("iconUri")]
+        public string? IconUri { get; set; }
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -128,6 +131,9 @@ namespace ediri.Qovery
         [Input("deploymentStageId")]
         public Input<string>? DeploymentStageId { get; set; }
 
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -164,6 +170,7 @@ namespace ediri.Qovery
         public readonly string DeploymentStageId;
         public readonly string EnvironmentId;
         public readonly string ExternalHost;
+        public readonly string IconUri;
         public readonly string Id;
         public readonly string InstanceType;
         public readonly string InternalHost;
@@ -191,6 +198,8 @@ namespace ediri.Qovery
             string environmentId,
 
             string externalHost,
+
+            string iconUri,
 
             string id,
 
@@ -224,6 +233,7 @@ namespace ediri.Qovery
             DeploymentStageId = deploymentStageId;
             EnvironmentId = environmentId;
             ExternalHost = externalHost;
+            IconUri = iconUri;
             Id = id;
             InstanceType = instanceType;
             InternalHost = internalHost;

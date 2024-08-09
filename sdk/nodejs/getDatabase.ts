@@ -27,6 +27,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
         "annotationsGroupIds": args.annotationsGroupIds,
         "cpu": args.cpu,
         "deploymentStageId": args.deploymentStageId,
+        "iconUri": args.iconUri,
         "id": args.id,
         "instanceType": args.instanceType,
         "labelsGroupIds": args.labelsGroupIds,
@@ -43,6 +44,7 @@ export interface GetDatabaseArgs {
     annotationsGroupIds?: string[];
     cpu?: number;
     deploymentStageId?: string;
+    iconUri?: string;
     id: string;
     instanceType?: string;
     labelsGroupIds?: string[];
@@ -60,6 +62,7 @@ export interface GetDatabaseResult {
     readonly deploymentStageId: string;
     readonly environmentId: string;
     readonly externalHost: string;
+    readonly iconUri: string;
     readonly id: string;
     readonly instanceType: string;
     readonly internalHost: string;
@@ -101,6 +104,7 @@ export interface GetDatabaseOutputArgs {
     annotationsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     cpu?: pulumi.Input<number>;
     deploymentStageId?: pulumi.Input<string>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     instanceType?: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;

@@ -23,7 +23,7 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, id=None, internal_host=None, labels_group_ids=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
+    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, arguments=None, auto_deploy=None, auto_preview=None, build_mode=None, buildpack_language=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_restrictions=None, deployment_stage_id=None, dockerfile_path=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, git_repository=None, healthchecks=None, icon_uri=None, id=None, internal_host=None, labels_group_ids=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -87,6 +87,9 @@ class GetApplicationResult:
         if healthchecks and not isinstance(healthchecks, dict):
             raise TypeError("Expected argument 'healthchecks' to be a dict")
         pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri and not isinstance(icon_uri, str):
+            raise TypeError("Expected argument 'icon_uri' to be a str")
+        pulumi.set(__self__, "icon_uri", icon_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -230,6 +233,11 @@ class GetApplicationResult:
         return pulumi.get(self, "healthchecks")
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> str:
+        return pulumi.get(self, "icon_uri")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -317,6 +325,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             external_host=self.external_host,
             git_repository=self.git_repository,
             healthchecks=self.healthchecks,
+            icon_uri=self.icon_uri,
             id=self.id,
             internal_host=self.internal_host,
             labels_group_ids=self.labels_group_ids,
@@ -347,6 +356,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
                     environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableOverrideArgs']]] = None,
                     environment_variables: Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableArgs']]] = None,
                     healthchecks: Optional[pulumi.InputType['GetApplicationHealthchecksArgs']] = None,
+                    icon_uri: Optional[str] = None,
                     id: Optional[str] = None,
                     labels_group_ids: Optional[Sequence[str]] = None,
                     max_running_instances: Optional[int] = None,
@@ -387,6 +397,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariableOverrides'] = environment_variable_overrides
     __args__['environmentVariables'] = environment_variables
     __args__['healthchecks'] = healthchecks
+    __args__['iconUri'] = icon_uri
     __args__['id'] = id
     __args__['labelsGroupIds'] = labels_group_ids
     __args__['maxRunningInstances'] = max_running_instances
@@ -421,6 +432,7 @@ def get_application(advanced_settings_json: Optional[str] = None,
         external_host=pulumi.get(__ret__, 'external_host'),
         git_repository=pulumi.get(__ret__, 'git_repository'),
         healthchecks=pulumi.get(__ret__, 'healthchecks'),
+        icon_uri=pulumi.get(__ret__, 'icon_uri'),
         id=pulumi.get(__ret__, 'id'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
         labels_group_ids=pulumi.get(__ret__, 'labels_group_ids'),
@@ -452,6 +464,7 @@ def get_application_output(advanced_settings_json: Optional[pulumi.Input[Optiona
                            environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableOverrideArgs']]]]] = None,
                            environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationEnvironmentVariableArgs']]]]] = None,
                            healthchecks: Optional[pulumi.Input[Optional[pulumi.InputType['GetApplicationHealthchecksArgs']]]] = None,
+                           icon_uri: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[str]] = None,
                            labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            max_running_instances: Optional[pulumi.Input[Optional[int]]] = None,

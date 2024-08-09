@@ -149,6 +149,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Inputs.GetApplicationHealthchecksArgs? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public string? IconUri { get; set; }
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -292,6 +295,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Input<Inputs.GetApplicationHealthchecksInputArgs>? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -375,6 +381,7 @@ namespace ediri.Qovery
         public readonly string ExternalHost;
         public readonly Outputs.GetApplicationGitRepositoryResult GitRepository;
         public readonly Outputs.GetApplicationHealthchecksResult? Healthchecks;
+        public readonly string IconUri;
         public readonly string Id;
         public readonly string InternalHost;
         public readonly ImmutableArray<string> LabelsGroupIds;
@@ -432,6 +439,8 @@ namespace ediri.Qovery
 
             Outputs.GetApplicationHealthchecksResult? healthchecks,
 
+            string iconUri,
+
             string id,
 
             string internalHost,
@@ -477,6 +486,7 @@ namespace ediri.Qovery
             ExternalHost = externalHost;
             GitRepository = gitRepository;
             Healthchecks = healthchecks;
+            IconUri = iconUri;
             Id = id;
             InternalHost = internalHost;
             LabelsGroupIds = labelsGroupIds;

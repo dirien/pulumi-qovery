@@ -99,6 +99,10 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly externalHost!: pulumi.Output<string>;
     /**
+     * Icon URI representing the database.
+     */
+    public readonly iconUri!: pulumi.Output<string>;
+    /**
      * Instance type of the database.
      */
     public readonly instanceType!: pulumi.Output<string>;
@@ -167,6 +171,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["deploymentStageId"] = state ? state.deploymentStageId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
+            resourceInputs["iconUri"] = state ? state.iconUri : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
             resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
@@ -198,6 +203,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["cpu"] = args ? args.cpu : undefined;
             resourceInputs["deploymentStageId"] = args ? args.deploymentStageId : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["iconUri"] = args ? args.iconUri : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
@@ -245,6 +251,10 @@ export interface DatabaseState {
      * The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
      */
     externalHost?: pulumi.Input<string>;
+    /**
+     * Icon URI representing the database.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * Instance type of the database.
      */
@@ -320,6 +330,10 @@ export interface DatabaseArgs {
      * Id of the environment.
      */
     environmentId: pulumi.Input<string>;
+    /**
+     * Icon URI representing the database.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * Instance type of the database.
      */

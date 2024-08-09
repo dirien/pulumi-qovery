@@ -29,6 +29,7 @@ class JobArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
@@ -54,6 +55,7 @@ class JobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this job.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -88,6 +90,8 @@ class JobArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if labels_group_ids is not None:
             pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_duration_seconds is not None:
@@ -266,6 +270,18 @@ class JobArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="labelsGroupIds")
     def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -403,6 +419,7 @@ class _JobState:
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]] = None,
                  external_host: Optional[pulumi.Input[str]] = None,
                  healthchecks: Optional[pulumi.Input['JobHealthchecksArgs']] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -431,6 +448,7 @@ class _JobState:
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
         :param pulumi.Input['JobHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[str] internal_host: The job internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -472,6 +490,8 @@ class _JobState:
             pulumi.set(__self__, "external_host", external_host)
         if healthchecks is not None:
             pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
         if labels_group_ids is not None:
@@ -666,6 +686,18 @@ class _JobState:
         pulumi.set(self, "healthchecks", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -827,6 +859,7 @@ class Job(pulumi.CustomResource):
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
@@ -864,6 +897,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -920,6 +954,7 @@ class Job(pulumi.CustomResource):
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
                  healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
@@ -956,6 +991,7 @@ class Job(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["icon_uri"] = icon_uri
             __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_duration_seconds"] = max_duration_seconds
             __props__.__dict__["max_nb_restart"] = max_nb_restart
@@ -996,6 +1032,7 @@ class Job(pulumi.CustomResource):
             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
             healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -1029,6 +1066,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
         :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[str] internal_host: The job internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -1060,6 +1098,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["healthchecks"] = healthchecks
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_duration_seconds"] = max_duration_seconds
@@ -1185,6 +1224,14 @@ class Job(pulumi.CustomResource):
         Configuration for the healthchecks that are going to be executed against your service
         """
         return pulumi.get(self, "healthchecks")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="internalHost")

@@ -41,6 +41,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
@@ -73,6 +74,7 @@ export interface GetApplicationArgs {
     environmentVariableOverrides?: inputs.GetApplicationEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetApplicationEnvironmentVariable[];
     healthchecks?: inputs.GetApplicationHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxRunningInstances?: number;
@@ -109,6 +111,7 @@ export interface GetApplicationResult {
     readonly externalHost: string;
     readonly gitRepository: outputs.GetApplicationGitRepository;
     readonly healthchecks?: outputs.GetApplicationHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly internalHost: string;
     readonly labelsGroupIds?: string[];
@@ -161,6 +164,7 @@ export interface GetApplicationOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetApplicationEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetApplicationEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetApplicationHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;

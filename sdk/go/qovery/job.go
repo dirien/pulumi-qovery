@@ -52,6 +52,8 @@ type Job struct {
 	ExternalHost pulumi.StringOutput `pulumi:"externalHost"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecksOutput `pulumi:"healthchecks"`
+	// Icon URI representing the job.
+	IconUri pulumi.StringOutput `pulumi:"iconUri"`
 	// The job internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
 	// List of labels group ids
@@ -145,6 +147,8 @@ type jobState struct {
 	ExternalHost *string `pulumi:"externalHost"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks *JobHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the job.
+	IconUri *string `pulumi:"iconUri"`
 	// The job internal host.
 	InternalHost *string `pulumi:"internalHost"`
 	// List of labels group ids
@@ -200,6 +204,8 @@ type JobState struct {
 	ExternalHost pulumi.StringPtrInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecksPtrInput
+	// Icon URI representing the job.
+	IconUri pulumi.StringPtrInput
 	// The job internal host.
 	InternalHost pulumi.StringPtrInput
 	// List of labels group ids
@@ -255,6 +261,8 @@ type jobArgs struct {
 	EnvironmentVariables []JobEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the job.
+	IconUri *string `pulumi:"iconUri"`
 	// List of labels group ids
 	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -305,6 +313,8 @@ type JobArgs struct {
 	EnvironmentVariables JobEnvironmentVariableArrayInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks JobHealthchecksInput
+	// Icon URI representing the job.
+	IconUri pulumi.StringPtrInput
 	// List of labels group ids
 	LabelsGroupIds pulumi.StringArrayInput
 	// Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -484,6 +494,11 @@ func (o JobOutput) ExternalHost() pulumi.StringOutput {
 // Configuration for the healthchecks that are going to be executed against your service
 func (o JobOutput) Healthchecks() JobHealthchecksOutput {
 	return o.ApplyT(func(v *Job) JobHealthchecksOutput { return v.Healthchecks }).(JobHealthchecksOutput)
+}
+
+// Icon URI representing the job.
+func (o JobOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.IconUri }).(pulumi.StringOutput)
 }
 
 // The job internal host.

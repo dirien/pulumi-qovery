@@ -61,6 +61,7 @@ type LookupHelmArgs struct {
 	EnvironmentVariableAliases   []GetHelmEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
+	IconUri                      *string                              `pulumi:"iconUri"`
 	Id                           string                               `pulumi:"id"`
 	SecretAliases                []GetHelmSecretAlias                 `pulumi:"secretAliases"`
 	SecretOverrides              []GetHelmSecretOverride              `pulumi:"secretOverrides"`
@@ -84,6 +85,7 @@ type LookupHelmResult struct {
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
 	ExternalHost                 string                               `pulumi:"externalHost"`
+	IconUri                      string                               `pulumi:"iconUri"`
 	Id                           string                               `pulumi:"id"`
 	InternalHost                 string                               `pulumi:"internalHost"`
 	Name                         string                               `pulumi:"name"`
@@ -121,6 +123,7 @@ type LookupHelmOutputArgs struct {
 	EnvironmentVariableAliases   GetHelmEnvironmentVariableAliasArrayInput    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides GetHelmEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetHelmEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
+	IconUri                      pulumi.StringPtrInput                        `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                           `pulumi:"id"`
 	SecretAliases                GetHelmSecretAliasArrayInput                 `pulumi:"secretAliases"`
 	SecretOverrides              GetHelmSecretOverrideArrayInput              `pulumi:"secretOverrides"`
@@ -201,6 +204,10 @@ func (o LookupHelmResultOutput) EnvironmentVariables() GetHelmEnvironmentVariabl
 
 func (o LookupHelmResultOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.ExternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupHelmResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHelmResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupHelmResultOutput) Id() pulumi.StringOutput {

@@ -15,6 +15,39 @@ namespace ediri.Qovery
     /// 
     /// Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
     /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Qovery = ediri.Qovery;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myHelmRepository = new Qovery.HelmRepository("myHelmRepository", new()
+    ///     {
+    ///         OrganizationId = qovery_organization.My_organization.Id,
+    ///         Kind = "OCI_DOCKER_HUB",
+    ///         Url = "https://docker.io",
+    ///         SkipTlsVerification = false,
+    ///         Description = "My Helm repository",
+    ///         Config = new Qovery.Inputs.HelmRepositoryConfigArgs
+    ///         {
+    ///             Username = "&lt;my_username&gt;",
+    ///             Password = "&lt;my_password&gt;",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             qovery_organization.My_organization,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

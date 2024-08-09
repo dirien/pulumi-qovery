@@ -21,7 +21,7 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, accessibility=None, annotations_group_ids=None, cpu=None, deployment_stage_id=None, environment_id=None, external_host=None, id=None, instance_type=None, internal_host=None, labels_group_ids=None, login=None, memory=None, mode=None, name=None, password=None, port=None, storage=None, type=None, version=None):
+    def __init__(__self__, accessibility=None, annotations_group_ids=None, cpu=None, deployment_stage_id=None, environment_id=None, external_host=None, icon_uri=None, id=None, instance_type=None, internal_host=None, labels_group_ids=None, login=None, memory=None, mode=None, name=None, password=None, port=None, storage=None, type=None, version=None):
         if accessibility and not isinstance(accessibility, str):
             raise TypeError("Expected argument 'accessibility' to be a str")
         pulumi.set(__self__, "accessibility", accessibility)
@@ -40,6 +40,9 @@ class GetDatabaseResult:
         if external_host and not isinstance(external_host, str):
             raise TypeError("Expected argument 'external_host' to be a str")
         pulumi.set(__self__, "external_host", external_host)
+        if icon_uri and not isinstance(icon_uri, str):
+            raise TypeError("Expected argument 'icon_uri' to be a str")
+        pulumi.set(__self__, "icon_uri", icon_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -109,6 +112,11 @@ class GetDatabaseResult:
     @pulumi.getter(name="externalHost")
     def external_host(self) -> str:
         return pulumi.get(self, "external_host")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> str:
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter
@@ -188,6 +196,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             deployment_stage_id=self.deployment_stage_id,
             environment_id=self.environment_id,
             external_host=self.external_host,
+            icon_uri=self.icon_uri,
             id=self.id,
             instance_type=self.instance_type,
             internal_host=self.internal_host,
@@ -207,6 +216,7 @@ def get_database(accessibility: Optional[str] = None,
                  annotations_group_ids: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
                  deployment_stage_id: Optional[str] = None,
+                 icon_uri: Optional[str] = None,
                  id: Optional[str] = None,
                  instance_type: Optional[str] = None,
                  labels_group_ids: Optional[Sequence[str]] = None,
@@ -231,6 +241,7 @@ def get_database(accessibility: Optional[str] = None,
     __args__['annotationsGroupIds'] = annotations_group_ids
     __args__['cpu'] = cpu
     __args__['deploymentStageId'] = deployment_stage_id
+    __args__['iconUri'] = icon_uri
     __args__['id'] = id
     __args__['instanceType'] = instance_type
     __args__['labelsGroupIds'] = labels_group_ids
@@ -246,6 +257,7 @@ def get_database(accessibility: Optional[str] = None,
         deployment_stage_id=pulumi.get(__ret__, 'deployment_stage_id'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         external_host=pulumi.get(__ret__, 'external_host'),
+        icon_uri=pulumi.get(__ret__, 'icon_uri'),
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
@@ -266,6 +278,7 @@ def get_database_output(accessibility: Optional[pulumi.Input[Optional[str]]] = N
                         annotations_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         cpu: Optional[pulumi.Input[Optional[int]]] = None,
                         deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        icon_uri: Optional[pulumi.Input[Optional[str]]] = None,
                         id: Optional[pulumi.Input[str]] = None,
                         instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                         labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,

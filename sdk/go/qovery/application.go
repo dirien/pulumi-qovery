@@ -67,6 +67,8 @@ type Application struct {
 	GitRepository ApplicationGitRepositoryOutput `pulumi:"gitRepository"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecksOutput `pulumi:"healthchecks"`
+	// Icon URI representing the application.
+	IconUri pulumi.StringOutput `pulumi:"iconUri"`
 	// The application internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
 	// List of labels group ids
@@ -173,6 +175,8 @@ type applicationState struct {
 	GitRepository *ApplicationGitRepository `pulumi:"gitRepository"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks *ApplicationHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the application.
+	IconUri *string `pulumi:"iconUri"`
 	// The application internal host.
 	InternalHost *string `pulumi:"internalHost"`
 	// List of labels group ids
@@ -241,6 +245,8 @@ type ApplicationState struct {
 	GitRepository ApplicationGitRepositoryPtrInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecksPtrInput
+	// Icon URI representing the application.
+	IconUri pulumi.StringPtrInput
 	// The application internal host.
 	InternalHost pulumi.StringPtrInput
 	// List of labels group ids
@@ -309,6 +315,8 @@ type applicationArgs struct {
 	GitRepository ApplicationGitRepository `pulumi:"gitRepository"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the application.
+	IconUri *string `pulumi:"iconUri"`
 	// List of labels group ids
 	LabelsGroupIds []string `pulumi:"labelsGroupIds"`
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
@@ -372,6 +380,8 @@ type ApplicationArgs struct {
 	GitRepository ApplicationGitRepositoryInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ApplicationHealthchecksInput
+	// Icon URI representing the application.
+	IconUri pulumi.StringPtrInput
 	// List of labels group ids
 	LabelsGroupIds pulumi.StringArrayInput
 	// Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
@@ -591,6 +601,11 @@ func (o ApplicationOutput) GitRepository() ApplicationGitRepositoryOutput {
 // Configuration for the healthchecks that are going to be executed against your service
 func (o ApplicationOutput) Healthchecks() ApplicationHealthchecksOutput {
 	return o.ApplyT(func(v *Application) ApplicationHealthchecksOutput { return v.Healthchecks }).(ApplicationHealthchecksOutput)
+}
+
+// Icon URI representing the application.
+func (o ApplicationOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IconUri }).(pulumi.StringOutput)
 }
 
 // The application internal host.

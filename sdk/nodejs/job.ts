@@ -102,6 +102,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly healthchecks!: pulumi.Output<outputs.JobHealthchecks>;
     /**
+     * Icon URI representing the job.
+     */
+    public readonly iconUri!: pulumi.Output<string>;
+    /**
      * The job internal host.
      */
     public /*out*/ readonly internalHost!: pulumi.Output<string>;
@@ -177,6 +181,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["externalHost"] = state ? state.externalHost : undefined;
             resourceInputs["healthchecks"] = state ? state.healthchecks : undefined;
+            resourceInputs["iconUri"] = state ? state.iconUri : undefined;
             resourceInputs["internalHost"] = state ? state.internalHost : undefined;
             resourceInputs["labelsGroupIds"] = state ? state.labelsGroupIds : undefined;
             resourceInputs["maxDurationSeconds"] = state ? state.maxDurationSeconds : undefined;
@@ -212,6 +217,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["environmentVariableOverrides"] = args ? args.environmentVariableOverrides : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["healthchecks"] = args ? args.healthchecks : undefined;
+            resourceInputs["iconUri"] = args ? args.iconUri : undefined;
             resourceInputs["labelsGroupIds"] = args ? args.labelsGroupIds : undefined;
             resourceInputs["maxDurationSeconds"] = args ? args.maxDurationSeconds : undefined;
             resourceInputs["maxNbRestart"] = args ? args.maxNbRestart : undefined;
@@ -292,6 +298,10 @@ export interface JobState {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks?: pulumi.Input<inputs.JobHealthchecks>;
+    /**
+     * Icon URI representing the job.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * The job internal host.
      */
@@ -394,6 +404,10 @@ export interface JobArgs {
      * Configuration for the healthchecks that are going to be executed against your service
      */
     healthchecks: pulumi.Input<inputs.JobHealthchecks>;
+    /**
+     * Icon URI representing the job.
+     */
+    iconUri?: pulumi.Input<string>;
     /**
      * List of labels group ids
      */

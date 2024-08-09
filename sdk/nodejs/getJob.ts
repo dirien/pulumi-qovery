@@ -36,6 +36,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxDurationSeconds": args.maxDurationSeconds,
@@ -64,6 +65,7 @@ export interface GetJobArgs {
     environmentVariableOverrides?: inputs.GetJobEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetJobEnvironmentVariable[];
     healthchecks?: inputs.GetJobHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxDurationSeconds?: number;
@@ -94,6 +96,7 @@ export interface GetJobResult {
     readonly environmentVariables?: outputs.GetJobEnvironmentVariable[];
     readonly externalHost: string;
     readonly healthchecks?: outputs.GetJobHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly internalHost: string;
     readonly labelsGroupIds?: string[];
@@ -142,6 +145,7 @@ export interface GetJobOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetJobHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxDurationSeconds?: pulumi.Input<number>;

@@ -85,6 +85,8 @@ type Database struct {
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
 	ExternalHost pulumi.StringOutput `pulumi:"externalHost"`
+	// Icon URI representing the database.
+	IconUri pulumi.StringOutput `pulumi:"iconUri"`
 	// Instance type of the database.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The database internal host (Recommended for your application)
@@ -166,6 +168,8 @@ type databaseState struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
 	ExternalHost *string `pulumi:"externalHost"`
+	// Icon URI representing the database.
+	IconUri *string `pulumi:"iconUri"`
 	// Instance type of the database.
 	InstanceType *string `pulumi:"instanceType"`
 	// The database internal host (Recommended for your application)
@@ -206,6 +210,8 @@ type DatabaseState struct {
 	EnvironmentId pulumi.StringPtrInput
 	// The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
 	ExternalHost pulumi.StringPtrInput
+	// Icon URI representing the database.
+	IconUri pulumi.StringPtrInput
 	// Instance type of the database.
 	InstanceType pulumi.StringPtrInput
 	// The database internal host (Recommended for your application)
@@ -248,6 +254,8 @@ type databaseArgs struct {
 	DeploymentStageId *string `pulumi:"deploymentStageId"`
 	// Id of the environment.
 	EnvironmentId string `pulumi:"environmentId"`
+	// Icon URI representing the database.
+	IconUri *string `pulumi:"iconUri"`
 	// Instance type of the database.
 	InstanceType *string `pulumi:"instanceType"`
 	// List of labels group ids
@@ -279,6 +287,8 @@ type DatabaseArgs struct {
 	DeploymentStageId pulumi.StringPtrInput
 	// Id of the environment.
 	EnvironmentId pulumi.StringInput
+	// Icon URI representing the database.
+	IconUri pulumi.StringPtrInput
 	// Instance type of the database.
 	InstanceType pulumi.StringPtrInput
 	// List of labels group ids
@@ -413,6 +423,11 @@ func (o DatabaseOutput) EnvironmentId() pulumi.StringOutput {
 // The database external FQDN host [NOTE: only if your container is using a publicly accessible port].
 func (o DatabaseOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ExternalHost }).(pulumi.StringOutput)
+}
+
+// Icon URI representing the database.
+func (o DatabaseOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.IconUri }).(pulumi.StringOutput)
 }
 
 // Instance type of the database.
