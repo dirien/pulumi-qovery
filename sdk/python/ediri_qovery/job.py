@@ -29,6 +29,7 @@ class JobArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
@@ -54,6 +55,7 @@ class JobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this job.
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this job.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
@@ -88,6 +90,8 @@ class JobArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if labels_group_ids is not None:
             pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_duration_seconds is not None:
@@ -266,6 +270,18 @@ class JobArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="labelsGroupIds")
     def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -403,6 +419,7 @@ class _JobState:
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]]] = None,
                  external_host: Optional[pulumi.Input[str]] = None,
                  healthchecks: Optional[pulumi.Input['JobHealthchecksArgs']] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -431,6 +448,7 @@ class _JobState:
         :param pulumi.Input[Sequence[pulumi.Input['JobEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
         :param pulumi.Input['JobHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[str] internal_host: The job internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -472,6 +490,8 @@ class _JobState:
             pulumi.set(__self__, "external_host", external_host)
         if healthchecks is not None:
             pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
         if labels_group_ids is not None:
@@ -666,6 +686,18 @@ class _JobState:
         pulumi.set(self, "healthchecks", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -820,24 +852,25 @@ class Job(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDeploymentRestrictionArgs', 'JobDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableAliasArgs', 'JobEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableOverrideArgs', 'JobEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableArgs', 'JobEnvironmentVariableArgsDict']]]]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['JobHealthchecksArgs', 'JobHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['JobScheduleArgs']]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['JobSourceArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['JobScheduleArgs', 'JobScheduleArgsDict']]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretAliasArgs', 'JobSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretOverrideArgs', 'JobSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['JobSourceArgs', 'JobSourceArgsDict']]] = None,
                  __props__=None):
         """
         ## # Job (Resource)
@@ -857,24 +890,25 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobDeploymentRestrictionArgs', 'JobDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this job.
-        :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableAliasArgs', 'JobEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableOverrideArgs', 'JobEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableArgs', 'JobEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this job.
+        :param pulumi.Input[Union['JobHealthchecksArgs', 'JobHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
         :param pulumi.Input[int] max_nb_restart: Job's max number of restarts. - Must be: `>= 0`. - Default: `0`.
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[str] name: Name of the job.
         :param pulumi.Input[int] port: Job's probes port. - Must be: `>= 1` and `<= 65535`.
-        :param pulumi.Input[pulumi.InputType['JobScheduleArgs']] schedule: Job's schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secrets: List of secrets linked to this job.
-        :param pulumi.Input[pulumi.InputType['JobSourceArgs']] source: Job's source.
+        :param pulumi.Input[Union['JobScheduleArgs', 'JobScheduleArgsDict']] schedule: Job's schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretAliasArgs', 'JobSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretOverrideArgs', 'JobSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]] secrets: List of secrets linked to this job.
+        :param pulumi.Input[Union['JobSourceArgs', 'JobSourceArgsDict']] source: Job's source.
         """
         ...
     @overload
@@ -913,24 +947,25 @@ class Job(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDeploymentRestrictionArgs', 'JobDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableAliasArgs', 'JobEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableOverrideArgs', 'JobEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableArgs', 'JobEnvironmentVariableArgsDict']]]]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['JobHealthchecksArgs', 'JobHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_duration_seconds: Optional[pulumi.Input[int]] = None,
                  max_nb_restart: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['JobScheduleArgs']]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['JobSourceArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['JobScheduleArgs', 'JobScheduleArgsDict']]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretAliasArgs', 'JobSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretOverrideArgs', 'JobSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['JobSourceArgs', 'JobSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -956,6 +991,7 @@ class Job(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["icon_uri"] = icon_uri
             __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_duration_seconds"] = max_duration_seconds
             __props__.__dict__["max_nb_restart"] = max_nb_restart
@@ -986,16 +1022,17 @@ class Job(pulumi.CustomResource):
             annotations_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobBuiltInEnvironmentVariableArgs', 'JobBuiltInEnvironmentVariableArgsDict']]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
-            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDeploymentRestrictionArgs', 'JobDeploymentRestrictionArgsDict']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableAliasArgs', 'JobEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableOverrideArgs', 'JobEnvironmentVariableOverrideArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableArgs', 'JobEnvironmentVariableArgsDict']]]]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
-            healthchecks: Optional[pulumi.Input[pulumi.InputType['JobHealthchecksArgs']]] = None,
+            healthchecks: Optional[pulumi.Input[Union['JobHealthchecksArgs', 'JobHealthchecksArgsDict']]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -1003,11 +1040,11 @@ class Job(pulumi.CustomResource):
             memory: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['JobScheduleArgs']]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretAliasArgs']]]]] = None,
-            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretOverrideArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['JobSourceArgs']]] = None) -> 'Job':
+            schedule: Optional[pulumi.Input[Union['JobScheduleArgs', 'JobScheduleArgsDict']]] = None,
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretAliasArgs', 'JobSecretAliasArgsDict']]]]] = None,
+            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretOverrideArgs', 'JobSecretOverrideArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]]] = None,
+            source: Optional[pulumi.Input[Union['JobSourceArgs', 'JobSourceArgsDict']]] = None) -> 'Job':
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1019,16 +1056,17 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations_group_ids: List of annotations group ids
         :param pulumi.Input[bool] auto_deploy: Specify if the job will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobBuiltInEnvironmentVariableArgs', 'JobBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this job.
         :param pulumi.Input[int] cpu: CPU of the job in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobDeploymentRestrictionArgs', 'JobDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableAliasArgs', 'JobEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableOverrideArgs', 'JobEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobEnvironmentVariableArgs', 'JobEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this job.
         :param pulumi.Input[str] external_host: The job external FQDN host [NOTE: only if your job is using a publicly accessible port].
-        :param pulumi.Input[pulumi.InputType['JobHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Union['JobHealthchecksArgs', 'JobHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the job.
         :param pulumi.Input[str] internal_host: The job internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_duration_seconds: Job's max duration in seconds. - Must be: `>= 0`. - Default: `300`.
@@ -1036,11 +1074,11 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] memory: RAM of the job in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[str] name: Name of the job.
         :param pulumi.Input[int] port: Job's probes port. - Must be: `>= 1` and `<= 65535`.
-        :param pulumi.Input[pulumi.InputType['JobScheduleArgs']] schedule: Job's schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobSecretArgs']]]] secrets: List of secrets linked to this job.
-        :param pulumi.Input[pulumi.InputType['JobSourceArgs']] source: Job's source.
+        :param pulumi.Input[Union['JobScheduleArgs', 'JobScheduleArgsDict']] schedule: Job's schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretAliasArgs', 'JobSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretOverrideArgs', 'JobSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]] secrets: List of secrets linked to this job.
+        :param pulumi.Input[Union['JobSourceArgs', 'JobSourceArgsDict']] source: Job's source.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1060,6 +1098,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["healthchecks"] = healthchecks
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_duration_seconds"] = max_duration_seconds
@@ -1185,6 +1224,14 @@ class Job(pulumi.CustomResource):
         Configuration for the healthchecks that are going to be executed against your service
         """
         return pulumi.get(self, "healthchecks")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the job.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="internalHost")

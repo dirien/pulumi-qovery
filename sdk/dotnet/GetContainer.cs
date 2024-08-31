@@ -135,6 +135,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Inputs.GetContainerHealthchecksArgs? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public string? IconUri { get; set; }
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -272,6 +275,9 @@ namespace ediri.Qovery
         [Input("healthchecks")]
         public Input<Inputs.GetContainerHealthchecksInputArgs>? Healthchecks { get; set; }
 
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -358,6 +364,7 @@ namespace ediri.Qovery
         public readonly ImmutableArray<Outputs.GetContainerEnvironmentVariableResult> EnvironmentVariables;
         public readonly string ExternalHost;
         public readonly Outputs.GetContainerHealthchecksResult? Healthchecks;
+        public readonly string IconUri;
         public readonly string Id;
         public readonly string ImageName;
         public readonly string InternalHost;
@@ -408,6 +415,8 @@ namespace ediri.Qovery
 
             Outputs.GetContainerHealthchecksResult? healthchecks,
 
+            string iconUri,
+
             string id,
 
             string imageName,
@@ -454,6 +463,7 @@ namespace ediri.Qovery
             EnvironmentVariables = environmentVariables;
             ExternalHost = externalHost;
             Healthchecks = healthchecks;
+            IconUri = iconUri;
             Id = id;
             ImageName = imageName;
             InternalHost = internalHost;

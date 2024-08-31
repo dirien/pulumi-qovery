@@ -35,6 +35,7 @@ class ApplicationArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -67,6 +68,7 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this application.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
@@ -113,6 +115,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if labels_group_ids is not None:
             pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances is not None:
@@ -364,6 +368,18 @@ class ApplicationArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="labelsGroupIds")
     def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -508,6 +524,7 @@ class _ApplicationState:
                  external_host: Optional[pulumi.Input[str]] = None,
                  git_repository: Optional[pulumi.Input['ApplicationGitRepositoryArgs']] = None,
                  healthchecks: Optional[pulumi.Input['ApplicationHealthchecksArgs']] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
@@ -543,6 +560,7 @@ class _ApplicationState:
         :param pulumi.Input[str] external_host: The application external FQDN host [NOTE: only if your application is using a publicly accessible port].
         :param pulumi.Input['ApplicationGitRepositoryArgs'] git_repository: Git repository of the application.
         :param pulumi.Input['ApplicationHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[str] internal_host: The application internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
@@ -597,6 +615,8 @@ class _ApplicationState:
             pulumi.set(__self__, "git_repository", git_repository)
         if healthchecks is not None:
             pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
         if labels_group_ids is not None:
@@ -874,6 +894,18 @@ class _ApplicationState:
         pulumi.set(self, "healthchecks", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1019,27 +1051,28 @@ class Application(pulumi.CustomResource):
                  build_mode: Optional[pulumi.Input[str]] = None,
                  buildpack_language: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomDomainArgs', 'ApplicationCustomDomainArgsDict']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDeploymentRestrictionArgs', 'ApplicationDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableAliasArgs', 'ApplicationEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableOverrideArgs', 'ApplicationEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableArgs', 'ApplicationEnvironmentVariableArgsDict']]]]] = None,
+                 git_repository: Optional[pulumi.Input[Union['ApplicationGitRepositoryArgs', 'ApplicationGitRepositoryArgsDict']]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['ApplicationHealthchecksArgs', 'ApplicationHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPortArgs']]]]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretArgs']]]]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPortArgs', 'ApplicationPortArgsDict']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretAliasArgs', 'ApplicationSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretOverrideArgs', 'ApplicationSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretArgs', 'ApplicationSecretArgsDict']]]]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStorageArgs', 'ApplicationStorageArgsDict']]]]] = None,
                  __props__=None):
         """
         ## # Application (Resource)
@@ -1063,27 +1096,28 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] buildpack_language: Buildpack Language framework. - Required if: `build_mode="BUILDPACKS"`. - Can be: `CLOJURE`, `GO`, `GRADLE`, `GRAILS`,
                `JAVA`, `JVM`, `NODE_JS`, `PHP`, `PLAY`, `PYTHON`, `SCALA`.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]] custom_domains: List of custom domains linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomDomainArgs', 'ApplicationCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDeploymentRestrictionArgs', 'ApplicationDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this application.
-        :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableAliasArgs', 'ApplicationEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableOverrideArgs', 'ApplicationEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableArgs', 'ApplicationEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this application.
+        :param pulumi.Input[Union['ApplicationGitRepositoryArgs', 'ApplicationGitRepositoryArgsDict']] git_repository: Git repository of the application.
+        :param pulumi.Input[Union['ApplicationHealthchecksArgs', 'ApplicationHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
         :param pulumi.Input[str] name: Name of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPortArgs']]]] ports: List of ports linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretArgs']]]] secrets: List of secrets linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]] storages: List of storages linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPortArgs', 'ApplicationPortArgsDict']]]] ports: List of ports linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretAliasArgs', 'ApplicationSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretOverrideArgs', 'ApplicationSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretArgs', 'ApplicationSecretArgsDict']]]] secrets: List of secrets linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStorageArgs', 'ApplicationStorageArgsDict']]]] storages: List of storages linked to this application.
         """
         ...
     @overload
@@ -1125,27 +1159,28 @@ class Application(pulumi.CustomResource):
                  build_mode: Optional[pulumi.Input[str]] = None,
                  buildpack_language: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomDomainArgs', 'ApplicationCustomDomainArgsDict']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDeploymentRestrictionArgs', 'ApplicationDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  dockerfile_path: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableAliasArgs', 'ApplicationEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableOverrideArgs', 'ApplicationEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableArgs', 'ApplicationEnvironmentVariableArgsDict']]]]] = None,
+                 git_repository: Optional[pulumi.Input[Union['ApplicationGitRepositoryArgs', 'ApplicationGitRepositoryArgsDict']]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['ApplicationHealthchecksArgs', 'ApplicationHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPortArgs']]]]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretArgs']]]]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPortArgs', 'ApplicationPortArgsDict']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretAliasArgs', 'ApplicationSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretOverrideArgs', 'ApplicationSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretArgs', 'ApplicationSecretArgsDict']]]]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStorageArgs', 'ApplicationStorageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1180,6 +1215,7 @@ class Application(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["icon_uri"] = icon_uri
             __props__.__dict__["labels_group_ids"] = labels_group_ids
             __props__.__dict__["max_running_instances"] = max_running_instances
             __props__.__dict__["memory"] = memory
@@ -1210,31 +1246,32 @@ class Application(pulumi.CustomResource):
             auto_preview: Optional[pulumi.Input[bool]] = None,
             build_mode: Optional[pulumi.Input[str]] = None,
             buildpack_language: Optional[pulumi.Input[str]] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationBuiltInEnvironmentVariableArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationBuiltInEnvironmentVariableArgs', 'ApplicationBuiltInEnvironmentVariableArgsDict']]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
-            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]]] = None,
-            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]]] = None,
+            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomDomainArgs', 'ApplicationCustomDomainArgsDict']]]]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDeploymentRestrictionArgs', 'ApplicationDeploymentRestrictionArgsDict']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             dockerfile_path: Optional[pulumi.Input[str]] = None,
             entrypoint: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableOverrideArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableAliasArgs', 'ApplicationEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableOverrideArgs', 'ApplicationEnvironmentVariableOverrideArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableArgs', 'ApplicationEnvironmentVariableArgsDict']]]]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
-            git_repository: Optional[pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']]] = None,
-            healthchecks: Optional[pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']]] = None,
+            git_repository: Optional[pulumi.Input[Union['ApplicationGitRepositoryArgs', 'ApplicationGitRepositoryArgsDict']]] = None,
+            healthchecks: Optional[pulumi.Input[Union['ApplicationHealthchecksArgs', 'ApplicationHealthchecksArgsDict']]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_running_instances: Optional[pulumi.Input[int]] = None,
             memory: Optional[pulumi.Input[int]] = None,
             min_running_instances: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPortArgs']]]]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretAliasArgs']]]]] = None,
-            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretOverrideArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretArgs']]]]] = None,
-            storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]]] = None) -> 'Application':
+            ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPortArgs', 'ApplicationPortArgsDict']]]]] = None,
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretAliasArgs', 'ApplicationSecretAliasArgsDict']]]]] = None,
+            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretOverrideArgs', 'ApplicationSecretOverrideArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretArgs', 'ApplicationSecretArgsDict']]]]] = None,
+            storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStorageArgs', 'ApplicationStorageArgsDict']]]]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1250,31 +1287,32 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] build_mode: Build Mode of the application. - Can be: `BUILDPACKS`, `DOCKER`. - Default: `BUILDPACKS`.
         :param pulumi.Input[str] buildpack_language: Buildpack Language framework. - Required if: `build_mode="BUILDPACKS"`. - Can be: `CLOJURE`, `GO`, `GRADLE`, `GRAILS`,
                `JAVA`, `JVM`, `NODE_JS`, `PHP`, `PLAY`, `PYTHON`, `SCALA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationBuiltInEnvironmentVariableArgs', 'ApplicationBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this application.
         :param pulumi.Input[int] cpu: CPU of the application in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomDomainArgs']]]] custom_domains: List of custom domains linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomDomainArgs', 'ApplicationCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDeploymentRestrictionArgs', 'ApplicationDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] dockerfile_path: Dockerfile Path of the application. - Required if: `build_mode="DOCKER"`.
         :param pulumi.Input[str] entrypoint: Entrypoint of the application.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableAliasArgs', 'ApplicationEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableOverrideArgs', 'ApplicationEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationEnvironmentVariableArgs', 'ApplicationEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this application.
         :param pulumi.Input[str] external_host: The application external FQDN host [NOTE: only if your application is using a publicly accessible port].
-        :param pulumi.Input[pulumi.InputType['ApplicationGitRepositoryArgs']] git_repository: Git repository of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Union['ApplicationGitRepositoryArgs', 'ApplicationGitRepositoryArgsDict']] git_repository: Git repository of the application.
+        :param pulumi.Input[Union['ApplicationHealthchecksArgs', 'ApplicationHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the application.
         :param pulumi.Input[str] internal_host: The application internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the application. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the application in MB [1024MB = 1GB]. - Must be: `>= 1`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the application. - Must be: `>= 0`. - Default: `1`.
         :param pulumi.Input[str] name: Name of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPortArgs']]]] ports: List of ports linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecretArgs']]]] secrets: List of secrets linked to this application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationStorageArgs']]]] storages: List of storages linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPortArgs', 'ApplicationPortArgsDict']]]] ports: List of ports linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretAliasArgs', 'ApplicationSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretOverrideArgs', 'ApplicationSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSecretArgs', 'ApplicationSecretArgsDict']]]] secrets: List of secrets linked to this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStorageArgs', 'ApplicationStorageArgsDict']]]] storages: List of storages linked to this application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1301,6 +1339,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["git_repository"] = git_repository
         __props__.__dict__["healthchecks"] = healthchecks
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["labels_group_ids"] = labels_group_ids
         __props__.__dict__["max_running_instances"] = max_running_instances
@@ -1482,6 +1521,14 @@ class Application(pulumi.CustomResource):
         Configuration for the healthchecks that are going to be executed against your service
         """
         return pulumi.get(self, "healthchecks")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the application.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="internalHost")

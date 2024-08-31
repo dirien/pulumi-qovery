@@ -64,6 +64,7 @@ type LookupContainerArgs struct {
 	EnvironmentVariableOverrides []GetContainerEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetContainerEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetContainerHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      *string                                   `pulumi:"iconUri"`
 	Id                           string                                    `pulumi:"id"`
 	LabelsGroupIds               []string                                  `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                      `pulumi:"maxRunningInstances"`
@@ -94,6 +95,7 @@ type LookupContainerResult struct {
 	EnvironmentVariables         []GetContainerEnvironmentVariable         `pulumi:"environmentVariables"`
 	ExternalHost                 string                                    `pulumi:"externalHost"`
 	Healthchecks                 *GetContainerHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      string                                    `pulumi:"iconUri"`
 	Id                           string                                    `pulumi:"id"`
 	ImageName                    string                                    `pulumi:"imageName"`
 	InternalHost                 string                                    `pulumi:"internalHost"`
@@ -139,6 +141,7 @@ type LookupContainerOutputArgs struct {
 	EnvironmentVariableOverrides GetContainerEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetContainerEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetContainerHealthchecksPtrInput                  `pulumi:"healthchecks"`
+	IconUri                      pulumi.StringPtrInput                             `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                                `pulumi:"id"`
 	LabelsGroupIds               pulumi.StringArrayInput                           `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                `pulumi:"maxRunningInstances"`
@@ -238,6 +241,10 @@ func (o LookupContainerResultOutput) ExternalHost() pulumi.StringOutput {
 
 func (o LookupContainerResultOutput) Healthchecks() GetContainerHealthchecksPtrOutput {
 	return o.ApplyT(func(v LookupContainerResult) *GetContainerHealthchecks { return v.Healthchecks }).(GetContainerHealthchecksPtrOutput)
+}
+
+func (o LookupContainerResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupContainerResultOutput) Id() pulumi.StringOutput {

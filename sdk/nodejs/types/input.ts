@@ -42,6 +42,13 @@ export interface ApplicationCustomDomain {
      */
     status?: pulumi.Input<string>;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: pulumi.Input<string>;
@@ -588,6 +595,13 @@ export interface ContainerCustomDomain {
      * Status of the custom domain.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -1138,6 +1152,13 @@ export interface GetApplicationCustomDomain {
      */
     status?: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: string;
@@ -1160,6 +1181,13 @@ export interface GetApplicationCustomDomainArgs {
      * Status of the custom domain.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -2080,6 +2108,13 @@ export interface GetContainerCustomDomain {
      */
     status?: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: string;
@@ -2102,6 +2137,13 @@ export interface GetContainerCustomDomainArgs {
      * Status of the custom domain.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -3078,6 +3120,13 @@ export interface GetHelmCustomDomain {
      */
     status?: string;
     /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: boolean;
+    /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
     validationDomain?: string;
@@ -3100,6 +3149,13 @@ export interface GetHelmCustomDomainArgs {
      * Status of the custom domain.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */
@@ -4340,6 +4396,13 @@ export interface HelmCustomDomain {
      * Status of the custom domain.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates if the custom domain is behind a CDN (i.e Cloudflare).
+     * This will condition the way we are checking CNAME before & during a deployment:
+     *  * If `true` then we only check the domain points to an IP
+     *  * If `false` then we check that the domain resolves to the correct service Load Balancer
+     */
+    useCdn?: pulumi.Input<boolean>;
     /**
      * URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.
      */

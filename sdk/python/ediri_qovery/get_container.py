@@ -23,7 +23,7 @@ class GetContainerResult:
     """
     A collection of values returned by getContainer.
     """
-    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, arguments=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_stage_id=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, image_name=None, internal_host=None, labels_group_ids=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, registry_id=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None, tag=None):
+    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, arguments=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, custom_domains=None, deployment_stage_id=None, entrypoint=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, icon_uri=None, id=None, image_name=None, internal_host=None, labels_group_ids=None, max_running_instances=None, memory=None, min_running_instances=None, name=None, ports=None, registry_id=None, secret_aliases=None, secret_overrides=None, secrets=None, storages=None, tag=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -72,6 +72,9 @@ class GetContainerResult:
         if healthchecks and not isinstance(healthchecks, dict):
             raise TypeError("Expected argument 'healthchecks' to be a dict")
         pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri and not isinstance(icon_uri, str):
+            raise TypeError("Expected argument 'icon_uri' to be a str")
+        pulumi.set(__self__, "icon_uri", icon_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -199,6 +202,11 @@ class GetContainerResult:
         return pulumi.get(self, "healthchecks")
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> str:
+        return pulumi.get(self, "icon_uri")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -296,6 +304,7 @@ class AwaitableGetContainerResult(GetContainerResult):
             environment_variables=self.environment_variables,
             external_host=self.external_host,
             healthchecks=self.healthchecks,
+            icon_uri=self.icon_uri,
             id=self.id,
             image_name=self.image_name,
             internal_host=self.internal_host,
@@ -319,23 +328,24 @@ def get_container(advanced_settings_json: Optional[str] = None,
                   auto_deploy: Optional[bool] = None,
                   auto_preview: Optional[bool] = None,
                   cpu: Optional[int] = None,
-                  custom_domains: Optional[Sequence[pulumi.InputType['GetContainerCustomDomainArgs']]] = None,
+                  custom_domains: Optional[Sequence[Union['GetContainerCustomDomainArgs', 'GetContainerCustomDomainArgsDict']]] = None,
                   deployment_stage_id: Optional[str] = None,
                   entrypoint: Optional[str] = None,
-                  environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableAliasArgs']]] = None,
-                  environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableOverrideArgs']]] = None,
-                  environment_variables: Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableArgs']]] = None,
-                  healthchecks: Optional[pulumi.InputType['GetContainerHealthchecksArgs']] = None,
+                  environment_variable_aliases: Optional[Sequence[Union['GetContainerEnvironmentVariableAliasArgs', 'GetContainerEnvironmentVariableAliasArgsDict']]] = None,
+                  environment_variable_overrides: Optional[Sequence[Union['GetContainerEnvironmentVariableOverrideArgs', 'GetContainerEnvironmentVariableOverrideArgsDict']]] = None,
+                  environment_variables: Optional[Sequence[Union['GetContainerEnvironmentVariableArgs', 'GetContainerEnvironmentVariableArgsDict']]] = None,
+                  healthchecks: Optional[Union['GetContainerHealthchecksArgs', 'GetContainerHealthchecksArgsDict']] = None,
+                  icon_uri: Optional[str] = None,
                   id: Optional[str] = None,
                   labels_group_ids: Optional[Sequence[str]] = None,
                   max_running_instances: Optional[int] = None,
                   memory: Optional[int] = None,
                   min_running_instances: Optional[int] = None,
-                  ports: Optional[Sequence[pulumi.InputType['GetContainerPortArgs']]] = None,
-                  secret_aliases: Optional[Sequence[pulumi.InputType['GetContainerSecretAliasArgs']]] = None,
-                  secret_overrides: Optional[Sequence[pulumi.InputType['GetContainerSecretOverrideArgs']]] = None,
-                  secrets: Optional[Sequence[pulumi.InputType['GetContainerSecretArgs']]] = None,
-                  storages: Optional[Sequence[pulumi.InputType['GetContainerStorageArgs']]] = None,
+                  ports: Optional[Sequence[Union['GetContainerPortArgs', 'GetContainerPortArgsDict']]] = None,
+                  secret_aliases: Optional[Sequence[Union['GetContainerSecretAliasArgs', 'GetContainerSecretAliasArgsDict']]] = None,
+                  secret_overrides: Optional[Sequence[Union['GetContainerSecretOverrideArgs', 'GetContainerSecretOverrideArgsDict']]] = None,
+                  secrets: Optional[Sequence[Union['GetContainerSecretArgs', 'GetContainerSecretArgsDict']]] = None,
+                  storages: Optional[Sequence[Union['GetContainerStorageArgs', 'GetContainerStorageArgsDict']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
     ## # Container (Data Source)
@@ -364,6 +374,7 @@ def get_container(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariableOverrides'] = environment_variable_overrides
     __args__['environmentVariables'] = environment_variables
     __args__['healthchecks'] = healthchecks
+    __args__['iconUri'] = icon_uri
     __args__['id'] = id
     __args__['labelsGroupIds'] = labels_group_ids
     __args__['maxRunningInstances'] = max_running_instances
@@ -394,6 +405,7 @@ def get_container(advanced_settings_json: Optional[str] = None,
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         external_host=pulumi.get(__ret__, 'external_host'),
         healthchecks=pulumi.get(__ret__, 'healthchecks'),
+        icon_uri=pulumi.get(__ret__, 'icon_uri'),
         id=pulumi.get(__ret__, 'id'),
         image_name=pulumi.get(__ret__, 'image_name'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
@@ -418,23 +430,24 @@ def get_container_output(advanced_settings_json: Optional[pulumi.Input[Optional[
                          auto_deploy: Optional[pulumi.Input[Optional[bool]]] = None,
                          auto_preview: Optional[pulumi.Input[Optional[bool]]] = None,
                          cpu: Optional[pulumi.Input[Optional[int]]] = None,
-                         custom_domains: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerCustomDomainArgs']]]]] = None,
+                         custom_domains: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerCustomDomainArgs', 'GetContainerCustomDomainArgsDict']]]]] = None,
                          deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
                          entrypoint: Optional[pulumi.Input[Optional[str]]] = None,
-                         environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableAliasArgs']]]]] = None,
-                         environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableOverrideArgs']]]]] = None,
-                         environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerEnvironmentVariableArgs']]]]] = None,
-                         healthchecks: Optional[pulumi.Input[Optional[pulumi.InputType['GetContainerHealthchecksArgs']]]] = None,
+                         environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerEnvironmentVariableAliasArgs', 'GetContainerEnvironmentVariableAliasArgsDict']]]]] = None,
+                         environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerEnvironmentVariableOverrideArgs', 'GetContainerEnvironmentVariableOverrideArgsDict']]]]] = None,
+                         environment_variables: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerEnvironmentVariableArgs', 'GetContainerEnvironmentVariableArgsDict']]]]] = None,
+                         healthchecks: Optional[pulumi.Input[Optional[Union['GetContainerHealthchecksArgs', 'GetContainerHealthchecksArgsDict']]]] = None,
+                         icon_uri: Optional[pulumi.Input[Optional[str]]] = None,
                          id: Optional[pulumi.Input[str]] = None,
                          labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          max_running_instances: Optional[pulumi.Input[Optional[int]]] = None,
                          memory: Optional[pulumi.Input[Optional[int]]] = None,
                          min_running_instances: Optional[pulumi.Input[Optional[int]]] = None,
-                         ports: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerPortArgs']]]]] = None,
-                         secret_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerSecretAliasArgs']]]]] = None,
-                         secret_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerSecretOverrideArgs']]]]] = None,
-                         secrets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerSecretArgs']]]]] = None,
-                         storages: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerStorageArgs']]]]] = None,
+                         ports: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerPortArgs', 'GetContainerPortArgsDict']]]]] = None,
+                         secret_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerSecretAliasArgs', 'GetContainerSecretAliasArgsDict']]]]] = None,
+                         secret_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerSecretOverrideArgs', 'GetContainerSecretOverrideArgsDict']]]]] = None,
+                         secrets: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerSecretArgs', 'GetContainerSecretArgsDict']]]]] = None,
+                         storages: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerStorageArgs', 'GetContainerStorageArgsDict']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerResult]:
     """
     ## # Container (Data Source)

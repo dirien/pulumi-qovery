@@ -519,7 +519,7 @@ class Cluster(pulumi.CustomResource):
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_size: Optional[pulumi.Input[int]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
@@ -527,7 +527,7 @@ class Cluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -547,7 +547,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
-        :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
+        :param pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']] features: Features of the cluster.
         :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
                clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
@@ -558,7 +558,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]] routing_tables: List of routes of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
         ...
@@ -598,7 +598,7 @@ class Cluster(pulumi.CustomResource):
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_size: Optional[pulumi.Input[int]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
@@ -606,7 +606,7 @@ class Cluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -655,7 +655,7 @@ class Cluster(pulumi.CustomResource):
             credentials_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disk_size: Optional[pulumi.Input[int]] = None,
-            features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+            features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kubernetes_mode: Optional[pulumi.Input[str]] = None,
             max_running_nodes: Optional[pulumi.Input[int]] = None,
@@ -663,7 +663,7 @@ class Cluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
-            routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+            routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
             state: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -676,7 +676,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
-        :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
+        :param pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']] features: Features of the cluster.
         :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
                clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
@@ -687,7 +687,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
         :param pulumi.Input[str] region: Region of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]] routing_tables: List of routes of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
