@@ -123,6 +123,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -1007,6 +1011,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -1903,6 +1911,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -3417,6 +3429,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -4283,6 +4299,10 @@
                     "type": "string",
                     "description": "Status of the custom domain.\n"
                 },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
+                },
                 "validationDomain": {
                     "type": "string",
                     "description": "URL provided by Qovery. You must create a CNAME on your DNS provider using that URL.\n"
@@ -5114,6 +5134,10 @@
                 "status": {
                     "type": "string",
                     "description": "Status of the custom domain.\n"
+                },
+                "useCdn": {
+                    "type": "boolean",
+                    "description": "Indicates if the custom domain is behind a CDN (i.e Cloudflare).\nThis will condition the way we are checking CNAME before \u0026 during a deployment:\n * If `true` then we only check the domain points to an IP\n * If `false` then we check that the domain resolves to the correct service Load Balancer\n"
                 },
                 "validationDomain": {
                     "type": "string",
@@ -6755,6 +6779,10 @@
                     "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the application.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The application internal host.\n"
@@ -6831,6 +6859,7 @@
                 "externalHost",
                 "gitRepository",
                 "healthchecks",
+                "iconUri",
                 "internalHost",
                 "maxRunningInstances",
                 "memory",
@@ -6934,6 +6963,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the application.\n"
                 },
                 "labelsGroupIds": {
                     "type": "array",
@@ -7109,6 +7142,10 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/ApplicationHealthchecks:ApplicationHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the application.\n"
                     },
                     "internalHost": {
                         "type": "string",
@@ -7564,6 +7601,10 @@
                     "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the container.\n"
+                },
                 "imageName": {
                     "type": "string",
                     "description": "Name of the container image.\n"
@@ -7650,6 +7691,7 @@
                 "environmentId",
                 "externalHost",
                 "healthchecks",
+                "iconUri",
                 "imageName",
                 "internalHost",
                 "maxRunningInstances",
@@ -7733,6 +7775,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the container.\n"
                 },
                 "imageName": {
                     "type": "string",
@@ -7900,6 +7946,10 @@
                         "$ref": "#/types/qovery:index/ContainerHealthchecks:ContainerHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                     },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the container.\n"
+                    },
                     "imageName": {
                         "type": "string",
                         "description": "Name of the container image.\n"
@@ -7979,7 +8029,7 @@
             }
         },
         "qovery:index/containerRegistry:ContainerRegistry": {
-            "description": "## # qovery.ContainerRegistry (Resource)\n\nProvides a Qovery container registry resource. This can be used to create and manage Qovery container registry.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myContainerRegistry = new qovery.ContainerRegistry(\"myContainerRegistry\", {\n    organizationId: qovery_organization.my_organization.id,\n    kind: \"DOCKER_HUB\",\n    url: \"https://docker.io\",\n    config: {\n        username: \"\u003cmy_username\u003e\",\n        password: \"\u003cmy_password\u003e\",\n    },\n    description: \"My Docker Hub Registry\",\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_container_registry = qovery.ContainerRegistry(\"myContainerRegistry\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    kind=\"DOCKER_HUB\",\n    url=\"https://docker.io\",\n    config=qovery.ContainerRegistryConfigArgs(\n        username=\"\u003cmy_username\u003e\",\n        password=\"\u003cmy_password\u003e\",\n    ),\n    description=\"My Docker Hub Registry\",\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myContainerRegistry = new Qovery.ContainerRegistry(\"myContainerRegistry\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Kind = \"DOCKER_HUB\",\n        Url = \"https://docker.io\",\n        Config = new Qovery.Inputs.ContainerRegistryConfigArgs\n        {\n            Username = \"\u003cmy_username\u003e\",\n            Password = \"\u003cmy_password\u003e\",\n        },\n        Description = \"My Docker Hub Registry\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewContainerRegistry(ctx, \"myContainerRegistry\", \u0026qovery.ContainerRegistryArgs{\n\t\t\tOrganizationId: pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tKind:           pulumi.String(\"DOCKER_HUB\"),\n\t\t\tUrl:            pulumi.String(\"https://docker.io\"),\n\t\t\tConfig: \u0026qovery.ContainerRegistryConfigArgs{\n\t\t\t\tUsername: pulumi.String(\"\u003cmy_username\u003e\"),\n\t\t\t\tPassword: pulumi.String(\"\u003cmy_password\u003e\"),\n\t\t\t},\n\t\t\tDescription: pulumi.String(\"My Docker Hub Registry\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.ContainerRegistry;\nimport com.pulumi.qovery.ContainerRegistryArgs;\nimport com.pulumi.qovery.inputs.ContainerRegistryConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myContainerRegistry = new ContainerRegistry(\"myContainerRegistry\", ContainerRegistryArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .kind(\"DOCKER_HUB\")\n            .url(\"https://docker.io\")\n            .config(ContainerRegistryConfigArgs.builder()\n                .username(\"\u003cmy_username\u003e\")\n                .password(\"\u003cmy_password\u003e\")\n                .build())\n            .description(\"My Docker Hub Registry\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myContainerRegistry:\n    type: qovery:ContainerRegistry\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: DOCKER_HUB\n      url: https://docker.io\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n      # Optional\n      description: My Docker Hub Registry\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry \"\u003corganization_id\u003e,\u003ccontainer_registry_id\u003e\"\n```\n\n",
+            "description": "## # qovery.ContainerRegistry (Resource)\n\nProvides a Qovery container registry resource. This can be used to create and manage Qovery container registry.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myContainerRegistry = new qovery.ContainerRegistry(\"myContainerRegistry\", {\n    organizationId: qovery_organization.my_organization.id,\n    kind: \"DOCKER_HUB\",\n    url: \"https://docker.io\",\n    config: {\n        username: \"\u003cmy_username\u003e\",\n        password: \"\u003cmy_password\u003e\",\n    },\n    description: \"My Docker Hub Registry\",\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_container_registry = qovery.ContainerRegistry(\"myContainerRegistry\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    kind=\"DOCKER_HUB\",\n    url=\"https://docker.io\",\n    config={\n        \"username\": \"\u003cmy_username\u003e\",\n        \"password\": \"\u003cmy_password\u003e\",\n    },\n    description=\"My Docker Hub Registry\",\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myContainerRegistry = new Qovery.ContainerRegistry(\"myContainerRegistry\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Kind = \"DOCKER_HUB\",\n        Url = \"https://docker.io\",\n        Config = new Qovery.Inputs.ContainerRegistryConfigArgs\n        {\n            Username = \"\u003cmy_username\u003e\",\n            Password = \"\u003cmy_password\u003e\",\n        },\n        Description = \"My Docker Hub Registry\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewContainerRegistry(ctx, \"myContainerRegistry\", \u0026qovery.ContainerRegistryArgs{\n\t\t\tOrganizationId: pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tKind:           pulumi.String(\"DOCKER_HUB\"),\n\t\t\tUrl:            pulumi.String(\"https://docker.io\"),\n\t\t\tConfig: \u0026qovery.ContainerRegistryConfigArgs{\n\t\t\t\tUsername: pulumi.String(\"\u003cmy_username\u003e\"),\n\t\t\t\tPassword: pulumi.String(\"\u003cmy_password\u003e\"),\n\t\t\t},\n\t\t\tDescription: pulumi.String(\"My Docker Hub Registry\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.ContainerRegistry;\nimport com.pulumi.qovery.ContainerRegistryArgs;\nimport com.pulumi.qovery.inputs.ContainerRegistryConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myContainerRegistry = new ContainerRegistry(\"myContainerRegistry\", ContainerRegistryArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .kind(\"DOCKER_HUB\")\n            .url(\"https://docker.io\")\n            .config(ContainerRegistryConfigArgs.builder()\n                .username(\"\u003cmy_username\u003e\")\n                .password(\"\u003cmy_password\u003e\")\n                .build())\n            .description(\"My Docker Hub Registry\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myContainerRegistry:\n    type: qovery:ContainerRegistry\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: DOCKER_HUB\n      url: https://docker.io\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n      # Optional\n      description: My Docker Hub Registry\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/containerRegistry:ContainerRegistry my_container_registry \"\u003corganization_id\u003e,\u003ccontainer_registry_id\u003e\"\n```\n\n",
             "properties": {
                 "config": {
                     "$ref": "#/types/qovery:index/ContainerRegistryConfig:ContainerRegistryConfig",
@@ -8105,6 +8155,10 @@
                     "type": "string",
                     "description": "The database external FQDN host [NOTE: only if your container is using a publicly accessible port].\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the database.\n"
+                },
                 "instanceType": {
                     "type": "string",
                     "description": "Instance type of the database.\n"
@@ -8163,6 +8217,7 @@
                 "deploymentStageId",
                 "environmentId",
                 "externalHost",
+                "iconUri",
                 "instanceType",
                 "internalHost",
                 "login",
@@ -8198,6 +8253,10 @@
                 "environmentId": {
                     "type": "string",
                     "description": "Id of the environment.\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the database.\n"
                 },
                 "instanceType": {
                     "type": "string",
@@ -8270,6 +8329,10 @@
                     "externalHost": {
                         "type": "string",
                         "description": "The database external FQDN host [NOTE: only if your container is using a publicly accessible port].\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the database.\n"
                     },
                     "instanceType": {
                         "type": "string",
@@ -8464,7 +8527,7 @@
             }
         },
         "qovery:index/environment:Environment": {
-            "description": "## # qovery.Environment (Resource)\n\nProvides a Qovery environment resource. This can be used to create and manage Qovery environments.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myEnvironment = new qovery.Environment(\"myEnvironment\", {\n    projectId: qovery_project.my_project.id,\n    clusterId: qovery_cluster.my_cluster.id,\n    mode: \"DEVELOPMENT\",\n    environmentVariables: [{\n        key: \"ENV_VAR_KEY\",\n        value: \"ENV_VAR_VALUE\",\n    }],\n    environmentVariableAliases: [{\n        key: \"ENV_VAR_KEY_ALIAS\",\n        value: \"ENV_VAR_KEY\",\n    }],\n    environmentVariableOverrides: [{\n        key: \"SOME_PROJECT_VARIABLE\",\n        value: \"OVERRIDDEN_VALUE\",\n    }],\n    secrets: [{\n        key: \"SECRET_KEY\",\n        value: \"SECRET_VALUE\",\n    }],\n    secretAliases: [{\n        key: \"SECRET_KEY_ALIAS\",\n        value: \"SECRET_KEY\",\n    }],\n    secretOverrides: [{\n        key: \"SOME_PROJECT_SECRET\",\n        value: \"OVERRIDDEN_VALUE\",\n    }],\n}, {\n    dependsOn: [qovery_project.my_project],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_environment = qovery.Environment(\"myEnvironment\",\n    project_id=qovery_project[\"my_project\"][\"id\"],\n    cluster_id=qovery_cluster[\"my_cluster\"][\"id\"],\n    mode=\"DEVELOPMENT\",\n    environment_variables=[qovery.EnvironmentEnvironmentVariableArgs(\n        key=\"ENV_VAR_KEY\",\n        value=\"ENV_VAR_VALUE\",\n    )],\n    environment_variable_aliases=[qovery.EnvironmentEnvironmentVariableAliasArgs(\n        key=\"ENV_VAR_KEY_ALIAS\",\n        value=\"ENV_VAR_KEY\",\n    )],\n    environment_variable_overrides=[qovery.EnvironmentEnvironmentVariableOverrideArgs(\n        key=\"SOME_PROJECT_VARIABLE\",\n        value=\"OVERRIDDEN_VALUE\",\n    )],\n    secrets=[qovery.EnvironmentSecretArgs(\n        key=\"SECRET_KEY\",\n        value=\"SECRET_VALUE\",\n    )],\n    secret_aliases=[qovery.EnvironmentSecretAliasArgs(\n        key=\"SECRET_KEY_ALIAS\",\n        value=\"SECRET_KEY\",\n    )],\n    secret_overrides=[qovery.EnvironmentSecretOverrideArgs(\n        key=\"SOME_PROJECT_SECRET\",\n        value=\"OVERRIDDEN_VALUE\",\n    )],\n    opts = pulumi.ResourceOptions(depends_on=[qovery_project[\"my_project\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myEnvironment = new Qovery.Environment(\"myEnvironment\", new()\n    {\n        ProjectId = qovery_project.My_project.Id,\n        ClusterId = qovery_cluster.My_cluster.Id,\n        Mode = \"DEVELOPMENT\",\n        EnvironmentVariables = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableArgs\n            {\n                Key = \"ENV_VAR_KEY\",\n                Value = \"ENV_VAR_VALUE\",\n            },\n        },\n        EnvironmentVariableAliases = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableAliasArgs\n            {\n                Key = \"ENV_VAR_KEY_ALIAS\",\n                Value = \"ENV_VAR_KEY\",\n            },\n        },\n        EnvironmentVariableOverrides = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableOverrideArgs\n            {\n                Key = \"SOME_PROJECT_VARIABLE\",\n                Value = \"OVERRIDDEN_VALUE\",\n            },\n        },\n        Secrets = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretArgs\n            {\n                Key = \"SECRET_KEY\",\n                Value = \"SECRET_VALUE\",\n            },\n        },\n        SecretAliases = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretAliasArgs\n            {\n                Key = \"SECRET_KEY_ALIAS\",\n                Value = \"SECRET_KEY\",\n            },\n        },\n        SecretOverrides = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretOverrideArgs\n            {\n                Key = \"SOME_PROJECT_SECRET\",\n                Value = \"OVERRIDDEN_VALUE\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_project.My_project,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewEnvironment(ctx, \"myEnvironment\", \u0026qovery.EnvironmentArgs{\n\t\t\tProjectId: pulumi.Any(qovery_project.My_project.Id),\n\t\t\tClusterId: pulumi.Any(qovery_cluster.My_cluster.Id),\n\t\t\tMode:      pulumi.String(\"DEVELOPMENT\"),\n\t\t\tEnvironmentVariables: qovery.EnvironmentEnvironmentVariableArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableAliases: qovery.EnvironmentEnvironmentVariableAliasArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableOverrides: qovery.EnvironmentEnvironmentVariableOverrideArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableOverrideArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SOME_PROJECT_VARIABLE\"),\n\t\t\t\t\tValue: pulumi.String(\"OVERRIDDEN_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecrets: qovery.EnvironmentSecretArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretAliases: qovery.EnvironmentSecretAliasArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretOverrides: qovery.EnvironmentSecretOverrideArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretOverrideArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SOME_PROJECT_SECRET\"),\n\t\t\t\t\tValue: pulumi.String(\"OVERRIDDEN_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_project.My_project,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Environment;\nimport com.pulumi.qovery.EnvironmentArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretAliasArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretOverrideArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myEnvironment = new Environment(\"myEnvironment\", EnvironmentArgs.builder()\n            .projectId(qovery_project.my_project().id())\n            .clusterId(qovery_cluster.my_cluster().id())\n            .mode(\"DEVELOPMENT\")\n            .environmentVariables(EnvironmentEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(EnvironmentEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(EnvironmentEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(EnvironmentSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(EnvironmentSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(EnvironmentSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_project.my_project())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myEnvironment:\n    type: qovery:Environment\n    properties:\n      # Required\n      projectId: ${qovery_project.my_project.id}\n      # Optional\n      clusterId: ${qovery_cluster.my_cluster.id}\n      mode: DEVELOPMENT\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n    options:\n      dependson:\n        - ${qovery_project.my_project}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nYou can find complete examples within these repositories:\n\n* Deploy an Application and Database within 3 environments\n\n## Import\n\n```sh\n$ pulumi import qovery:index/environment:Environment my_environment \"\u003cenvironment_id\u003e\"\n```\n\n",
+            "description": "## # qovery.Environment (Resource)\n\nProvides a Qovery environment resource. This can be used to create and manage Qovery environments.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myEnvironment = new qovery.Environment(\"myEnvironment\", {\n    projectId: qovery_project.my_project.id,\n    clusterId: qovery_cluster.my_cluster.id,\n    mode: \"DEVELOPMENT\",\n    environmentVariables: [{\n        key: \"ENV_VAR_KEY\",\n        value: \"ENV_VAR_VALUE\",\n    }],\n    environmentVariableAliases: [{\n        key: \"ENV_VAR_KEY_ALIAS\",\n        value: \"ENV_VAR_KEY\",\n    }],\n    environmentVariableOverrides: [{\n        key: \"SOME_PROJECT_VARIABLE\",\n        value: \"OVERRIDDEN_VALUE\",\n    }],\n    secrets: [{\n        key: \"SECRET_KEY\",\n        value: \"SECRET_VALUE\",\n    }],\n    secretAliases: [{\n        key: \"SECRET_KEY_ALIAS\",\n        value: \"SECRET_KEY\",\n    }],\n    secretOverrides: [{\n        key: \"SOME_PROJECT_SECRET\",\n        value: \"OVERRIDDEN_VALUE\",\n    }],\n}, {\n    dependsOn: [qovery_project.my_project],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_environment = qovery.Environment(\"myEnvironment\",\n    project_id=qovery_project[\"my_project\"][\"id\"],\n    cluster_id=qovery_cluster[\"my_cluster\"][\"id\"],\n    mode=\"DEVELOPMENT\",\n    environment_variables=[{\n        \"key\": \"ENV_VAR_KEY\",\n        \"value\": \"ENV_VAR_VALUE\",\n    }],\n    environment_variable_aliases=[{\n        \"key\": \"ENV_VAR_KEY_ALIAS\",\n        \"value\": \"ENV_VAR_KEY\",\n    }],\n    environment_variable_overrides=[{\n        \"key\": \"SOME_PROJECT_VARIABLE\",\n        \"value\": \"OVERRIDDEN_VALUE\",\n    }],\n    secrets=[{\n        \"key\": \"SECRET_KEY\",\n        \"value\": \"SECRET_VALUE\",\n    }],\n    secret_aliases=[{\n        \"key\": \"SECRET_KEY_ALIAS\",\n        \"value\": \"SECRET_KEY\",\n    }],\n    secret_overrides=[{\n        \"key\": \"SOME_PROJECT_SECRET\",\n        \"value\": \"OVERRIDDEN_VALUE\",\n    }],\n    opts = pulumi.ResourceOptions(depends_on=[qovery_project[\"my_project\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myEnvironment = new Qovery.Environment(\"myEnvironment\", new()\n    {\n        ProjectId = qovery_project.My_project.Id,\n        ClusterId = qovery_cluster.My_cluster.Id,\n        Mode = \"DEVELOPMENT\",\n        EnvironmentVariables = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableArgs\n            {\n                Key = \"ENV_VAR_KEY\",\n                Value = \"ENV_VAR_VALUE\",\n            },\n        },\n        EnvironmentVariableAliases = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableAliasArgs\n            {\n                Key = \"ENV_VAR_KEY_ALIAS\",\n                Value = \"ENV_VAR_KEY\",\n            },\n        },\n        EnvironmentVariableOverrides = new[]\n        {\n            new Qovery.Inputs.EnvironmentEnvironmentVariableOverrideArgs\n            {\n                Key = \"SOME_PROJECT_VARIABLE\",\n                Value = \"OVERRIDDEN_VALUE\",\n            },\n        },\n        Secrets = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretArgs\n            {\n                Key = \"SECRET_KEY\",\n                Value = \"SECRET_VALUE\",\n            },\n        },\n        SecretAliases = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretAliasArgs\n            {\n                Key = \"SECRET_KEY_ALIAS\",\n                Value = \"SECRET_KEY\",\n            },\n        },\n        SecretOverrides = new[]\n        {\n            new Qovery.Inputs.EnvironmentSecretOverrideArgs\n            {\n                Key = \"SOME_PROJECT_SECRET\",\n                Value = \"OVERRIDDEN_VALUE\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_project.My_project,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewEnvironment(ctx, \"myEnvironment\", \u0026qovery.EnvironmentArgs{\n\t\t\tProjectId: pulumi.Any(qovery_project.My_project.Id),\n\t\t\tClusterId: pulumi.Any(qovery_cluster.My_cluster.Id),\n\t\t\tMode:      pulumi.String(\"DEVELOPMENT\"),\n\t\t\tEnvironmentVariables: qovery.EnvironmentEnvironmentVariableArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableAliases: qovery.EnvironmentEnvironmentVariableAliasArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableOverrides: qovery.EnvironmentEnvironmentVariableOverrideArray{\n\t\t\t\t\u0026qovery.EnvironmentEnvironmentVariableOverrideArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SOME_PROJECT_VARIABLE\"),\n\t\t\t\t\tValue: pulumi.String(\"OVERRIDDEN_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecrets: qovery.EnvironmentSecretArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretAliases: qovery.EnvironmentSecretAliasArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretOverrides: qovery.EnvironmentSecretOverrideArray{\n\t\t\t\t\u0026qovery.EnvironmentSecretOverrideArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SOME_PROJECT_SECRET\"),\n\t\t\t\t\tValue: pulumi.String(\"OVERRIDDEN_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_project.My_project,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Environment;\nimport com.pulumi.qovery.EnvironmentArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.EnvironmentEnvironmentVariableOverrideArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretAliasArgs;\nimport com.pulumi.qovery.inputs.EnvironmentSecretOverrideArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myEnvironment = new Environment(\"myEnvironment\", EnvironmentArgs.builder()\n            .projectId(qovery_project.my_project().id())\n            .clusterId(qovery_cluster.my_cluster().id())\n            .mode(\"DEVELOPMENT\")\n            .environmentVariables(EnvironmentEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(EnvironmentEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .environmentVariableOverrides(EnvironmentEnvironmentVariableOverrideArgs.builder()\n                .key(\"SOME_PROJECT_VARIABLE\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .secrets(EnvironmentSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(EnvironmentSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .secretOverrides(EnvironmentSecretOverrideArgs.builder()\n                .key(\"SOME_PROJECT_SECRET\")\n                .value(\"OVERRIDDEN_VALUE\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_project.my_project())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myEnvironment:\n    type: qovery:Environment\n    properties:\n      # Required\n      projectId: ${qovery_project.my_project.id}\n      # Optional\n      clusterId: ${qovery_cluster.my_cluster.id}\n      mode: DEVELOPMENT\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      environmentVariableOverrides:\n        - key: SOME_PROJECT_VARIABLE\n          value: OVERRIDDEN_VALUE\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n      secretOverrides:\n        - key: SOME_PROJECT_SECRET\n          value: OVERRIDDEN_VALUE\n    options:\n      dependson:\n        - ${qovery_project.my_project}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nYou can find complete examples within these repositories:\n\n* Deploy an Application and Database within 3 environments\n\n## Import\n\n```sh\n$ pulumi import qovery:index/environment:Environment my_environment \"\u003cenvironment_id\u003e\"\n```\n\n",
             "properties": {
                 "builtInEnvironmentVariables": {
                     "type": "array",
@@ -8856,6 +8919,10 @@
                     "type": "string",
                     "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the helm service.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The helm internal host.\n"
@@ -8915,6 +8982,7 @@
                 "deploymentStageId",
                 "environmentId",
                 "externalHost",
+                "iconUri",
                 "internalHost",
                 "name",
                 "source",
@@ -8987,6 +9055,10 @@
                         "$ref": "#/types/qovery:index/HelmEnvironmentVariable:HelmEnvironmentVariable"
                     },
                     "description": "List of environment variables linked to this helm.\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the helm service.\n"
                 },
                 "name": {
                     "type": "string",
@@ -9119,6 +9191,10 @@
                         "type": "string",
                         "description": "The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].\n"
                     },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the helm service.\n"
+                    },
                     "internalHost": {
                         "type": "string",
                         "description": "The helm internal host.\n"
@@ -9172,7 +9248,7 @@
             }
         },
         "qovery:index/helmRepository:HelmRepository": {
-            "description": "## # qovery.HelmRepository (Resource)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  myHelmRepository:\n    type: qovery:HelmRepository\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: OCI_DOCKER_HUB\n      url: https://docker.io\n      skipTlsCertificate: false\n      # Optional\n      description: My Helm repository\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository \"\u003corganization_id\u003e,\u003chelm_repository_id\u003e\"\n```\n\n",
+            "description": "## # qovery.HelmRepository (Resource)\n\nProvides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myHelmRepository = new qovery.HelmRepository(\"myHelmRepository\", {\n    organizationId: qovery_organization.my_organization.id,\n    kind: \"OCI_DOCKER_HUB\",\n    url: \"https://docker.io\",\n    skipTlsVerification: false,\n    description: \"My Helm repository\",\n    config: {\n        username: \"\u003cmy_username\u003e\",\n        password: \"\u003cmy_password\u003e\",\n    },\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_helm_repository = qovery.HelmRepository(\"myHelmRepository\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    kind=\"OCI_DOCKER_HUB\",\n    url=\"https://docker.io\",\n    skip_tls_verification=False,\n    description=\"My Helm repository\",\n    config={\n        \"username\": \"\u003cmy_username\u003e\",\n        \"password\": \"\u003cmy_password\u003e\",\n    },\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myHelmRepository = new Qovery.HelmRepository(\"myHelmRepository\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Kind = \"OCI_DOCKER_HUB\",\n        Url = \"https://docker.io\",\n        SkipTlsVerification = false,\n        Description = \"My Helm repository\",\n        Config = new Qovery.Inputs.HelmRepositoryConfigArgs\n        {\n            Username = \"\u003cmy_username\u003e\",\n            Password = \"\u003cmy_password\u003e\",\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewHelmRepository(ctx, \"myHelmRepository\", \u0026qovery.HelmRepositoryArgs{\n\t\t\tOrganizationId:      pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tKind:                pulumi.String(\"OCI_DOCKER_HUB\"),\n\t\t\tUrl:                 pulumi.String(\"https://docker.io\"),\n\t\t\tSkipTlsVerification: pulumi.Bool(false),\n\t\t\tDescription:         pulumi.String(\"My Helm repository\"),\n\t\t\tConfig: \u0026qovery.HelmRepositoryConfigArgs{\n\t\t\t\tUsername: pulumi.String(\"\u003cmy_username\u003e\"),\n\t\t\t\tPassword: pulumi.String(\"\u003cmy_password\u003e\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.HelmRepository;\nimport com.pulumi.qovery.HelmRepositoryArgs;\nimport com.pulumi.qovery.inputs.HelmRepositoryConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myHelmRepository = new HelmRepository(\"myHelmRepository\", HelmRepositoryArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .kind(\"OCI_DOCKER_HUB\")\n            .url(\"https://docker.io\")\n            .skipTlsVerification(false)\n            .description(\"My Helm repository\")\n            .config(HelmRepositoryConfigArgs.builder()\n                .username(\"\u003cmy_username\u003e\")\n                .password(\"\u003cmy_password\u003e\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myHelmRepository:\n    type: qovery:HelmRepository\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      kind: OCI_DOCKER_HUB\n      url: https://docker.io\n      skipTlsVerification: false\n      # Optional\n      description: My Helm repository\n      config:\n        username: \u003cmy_username\u003e\n        password: \u003cmy_password\u003e\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/helmRepository:HelmRepository my_helm_repository \"\u003corganization_id\u003e,\u003chelm_repository_id\u003e\"\n```\n\n",
             "properties": {
                 "config": {
                     "$ref": "#/types/qovery:index/HelmRepositoryConfig:HelmRepositoryConfig",
@@ -9359,6 +9435,10 @@
                     "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
                 },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the job.\n"
+                },
                 "internalHost": {
                     "type": "string",
                     "description": "The job internal host.\n"
@@ -9430,6 +9510,7 @@
                 "environmentId",
                 "externalHost",
                 "healthchecks",
+                "iconUri",
                 "internalHost",
                 "maxDurationSeconds",
                 "maxNbRestart",
@@ -9500,6 +9581,10 @@
                 "healthchecks": {
                     "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                     "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                },
+                "iconUri": {
+                    "type": "string",
+                    "description": "Icon URI representing the job.\n"
                 },
                 "labelsGroupIds": {
                     "type": "array",
@@ -9639,6 +9724,10 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/JobHealthchecks:JobHealthchecks",
                         "description": "Configuration for the healthchecks that are going to be executed against your service\n"
+                    },
+                    "iconUri": {
+                        "type": "string",
+                        "description": "Icon URI representing the job.\n"
                     },
                     "internalHost": {
                         "type": "string",
@@ -9829,7 +9918,7 @@
             }
         },
         "qovery:index/project:Project": {
-            "description": "## # qovery.Project (Resource)\n\nProvides a Qovery project resource. This can be used to create and manage Qovery projects.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myProject = new qovery.Project(\"myProject\", {\n    organizationId: qovery_organization.my_organization.id,\n    description: \"My project description\",\n    environmentVariables: [{\n        key: \"ENV_VAR_KEY\",\n        value: \"ENV_VAR_VALUE\",\n    }],\n    environmentVariableAliases: [{\n        key: \"ENV_VAR_KEY_ALIAS\",\n        value: \"ENV_VAR_KEY\",\n    }],\n    secrets: [{\n        key: \"SECRET_KEY\",\n        value: \"SECRET_VALUE\",\n    }],\n    secretAliases: [{\n        key: \"SECRET_KEY_ALIAS\",\n        value: \"SECRET_KEY\",\n    }],\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_project = qovery.Project(\"myProject\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    description=\"My project description\",\n    environment_variables=[qovery.ProjectEnvironmentVariableArgs(\n        key=\"ENV_VAR_KEY\",\n        value=\"ENV_VAR_VALUE\",\n    )],\n    environment_variable_aliases=[qovery.ProjectEnvironmentVariableAliasArgs(\n        key=\"ENV_VAR_KEY_ALIAS\",\n        value=\"ENV_VAR_KEY\",\n    )],\n    secrets=[qovery.ProjectSecretArgs(\n        key=\"SECRET_KEY\",\n        value=\"SECRET_VALUE\",\n    )],\n    secret_aliases=[qovery.ProjectSecretAliasArgs(\n        key=\"SECRET_KEY_ALIAS\",\n        value=\"SECRET_KEY\",\n    )],\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myProject = new Qovery.Project(\"myProject\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Description = \"My project description\",\n        EnvironmentVariables = new[]\n        {\n            new Qovery.Inputs.ProjectEnvironmentVariableArgs\n            {\n                Key = \"ENV_VAR_KEY\",\n                Value = \"ENV_VAR_VALUE\",\n            },\n        },\n        EnvironmentVariableAliases = new[]\n        {\n            new Qovery.Inputs.ProjectEnvironmentVariableAliasArgs\n            {\n                Key = \"ENV_VAR_KEY_ALIAS\",\n                Value = \"ENV_VAR_KEY\",\n            },\n        },\n        Secrets = new[]\n        {\n            new Qovery.Inputs.ProjectSecretArgs\n            {\n                Key = \"SECRET_KEY\",\n                Value = \"SECRET_VALUE\",\n            },\n        },\n        SecretAliases = new[]\n        {\n            new Qovery.Inputs.ProjectSecretAliasArgs\n            {\n                Key = \"SECRET_KEY_ALIAS\",\n                Value = \"SECRET_KEY\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewProject(ctx, \"myProject\", \u0026qovery.ProjectArgs{\n\t\t\tOrganizationId: pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tDescription:    pulumi.String(\"My project description\"),\n\t\t\tEnvironmentVariables: qovery.ProjectEnvironmentVariableArray{\n\t\t\t\t\u0026qovery.ProjectEnvironmentVariableArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableAliases: qovery.ProjectEnvironmentVariableAliasArray{\n\t\t\t\t\u0026qovery.ProjectEnvironmentVariableAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecrets: qovery.ProjectSecretArray{\n\t\t\t\t\u0026qovery.ProjectSecretArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretAliases: qovery.ProjectSecretAliasArray{\n\t\t\t\t\u0026qovery.ProjectSecretAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Project;\nimport com.pulumi.qovery.ProjectArgs;\nimport com.pulumi.qovery.inputs.ProjectEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.ProjectEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.ProjectSecretArgs;\nimport com.pulumi.qovery.inputs.ProjectSecretAliasArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myProject = new Project(\"myProject\", ProjectArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .description(\"My project description\")\n            .environmentVariables(ProjectEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(ProjectEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .secrets(ProjectSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(ProjectSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myProject:\n    type: qovery:Project\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      # Optional\n      description: My project description\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/project:Project my_project \"\u003cproject_id\u003e\"\n```\n\n",
+            "description": "## # qovery.Project (Resource)\n\nProvides a Qovery project resource. This can be used to create and manage Qovery projects.\n\n\n## Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as qovery from \"@ediri/qovery\";\n\nconst myProject = new qovery.Project(\"myProject\", {\n    organizationId: qovery_organization.my_organization.id,\n    description: \"My project description\",\n    environmentVariables: [{\n        key: \"ENV_VAR_KEY\",\n        value: \"ENV_VAR_VALUE\",\n    }],\n    environmentVariableAliases: [{\n        key: \"ENV_VAR_KEY_ALIAS\",\n        value: \"ENV_VAR_KEY\",\n    }],\n    secrets: [{\n        key: \"SECRET_KEY\",\n        value: \"SECRET_VALUE\",\n    }],\n    secretAliases: [{\n        key: \"SECRET_KEY_ALIAS\",\n        value: \"SECRET_KEY\",\n    }],\n}, {\n    dependsOn: [qovery_organization.my_organization],\n});\n```\n```python\nimport pulumi\nimport ediri_qovery as qovery\n\nmy_project = qovery.Project(\"myProject\",\n    organization_id=qovery_organization[\"my_organization\"][\"id\"],\n    description=\"My project description\",\n    environment_variables=[{\n        \"key\": \"ENV_VAR_KEY\",\n        \"value\": \"ENV_VAR_VALUE\",\n    }],\n    environment_variable_aliases=[{\n        \"key\": \"ENV_VAR_KEY_ALIAS\",\n        \"value\": \"ENV_VAR_KEY\",\n    }],\n    secrets=[{\n        \"key\": \"SECRET_KEY\",\n        \"value\": \"SECRET_VALUE\",\n    }],\n    secret_aliases=[{\n        \"key\": \"SECRET_KEY_ALIAS\",\n        \"value\": \"SECRET_KEY\",\n    }],\n    opts = pulumi.ResourceOptions(depends_on=[qovery_organization[\"my_organization\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Qovery = ediri.Qovery;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myProject = new Qovery.Project(\"myProject\", new()\n    {\n        OrganizationId = qovery_organization.My_organization.Id,\n        Description = \"My project description\",\n        EnvironmentVariables = new[]\n        {\n            new Qovery.Inputs.ProjectEnvironmentVariableArgs\n            {\n                Key = \"ENV_VAR_KEY\",\n                Value = \"ENV_VAR_VALUE\",\n            },\n        },\n        EnvironmentVariableAliases = new[]\n        {\n            new Qovery.Inputs.ProjectEnvironmentVariableAliasArgs\n            {\n                Key = \"ENV_VAR_KEY_ALIAS\",\n                Value = \"ENV_VAR_KEY\",\n            },\n        },\n        Secrets = new[]\n        {\n            new Qovery.Inputs.ProjectSecretArgs\n            {\n                Key = \"SECRET_KEY\",\n                Value = \"SECRET_VALUE\",\n            },\n        },\n        SecretAliases = new[]\n        {\n            new Qovery.Inputs.ProjectSecretAliasArgs\n            {\n                Key = \"SECRET_KEY_ALIAS\",\n                Value = \"SECRET_KEY\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            qovery_organization.My_organization,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/dirien/pulumi-qovery/sdk/go/qovery\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := qovery.NewProject(ctx, \"myProject\", \u0026qovery.ProjectArgs{\n\t\t\tOrganizationId: pulumi.Any(qovery_organization.My_organization.Id),\n\t\t\tDescription:    pulumi.String(\"My project description\"),\n\t\t\tEnvironmentVariables: qovery.ProjectEnvironmentVariableArray{\n\t\t\t\t\u0026qovery.ProjectEnvironmentVariableArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentVariableAliases: qovery.ProjectEnvironmentVariableAliasArray{\n\t\t\t\t\u0026qovery.ProjectEnvironmentVariableAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"ENV_VAR_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"ENV_VAR_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecrets: qovery.ProjectSecretArray{\n\t\t\t\t\u0026qovery.ProjectSecretArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_VALUE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSecretAliases: qovery.ProjectSecretAliasArray{\n\t\t\t\t\u0026qovery.ProjectSecretAliasArgs{\n\t\t\t\t\tKey:   pulumi.String(\"SECRET_KEY_ALIAS\"),\n\t\t\t\t\tValue: pulumi.String(\"SECRET_KEY\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tqovery_organization.My_organization,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.qovery.Project;\nimport com.pulumi.qovery.ProjectArgs;\nimport com.pulumi.qovery.inputs.ProjectEnvironmentVariableArgs;\nimport com.pulumi.qovery.inputs.ProjectEnvironmentVariableAliasArgs;\nimport com.pulumi.qovery.inputs.ProjectSecretArgs;\nimport com.pulumi.qovery.inputs.ProjectSecretAliasArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myProject = new Project(\"myProject\", ProjectArgs.builder()\n            .organizationId(qovery_organization.my_organization().id())\n            .description(\"My project description\")\n            .environmentVariables(ProjectEnvironmentVariableArgs.builder()\n                .key(\"ENV_VAR_KEY\")\n                .value(\"ENV_VAR_VALUE\")\n                .build())\n            .environmentVariableAliases(ProjectEnvironmentVariableAliasArgs.builder()\n                .key(\"ENV_VAR_KEY_ALIAS\")\n                .value(\"ENV_VAR_KEY\")\n                .build())\n            .secrets(ProjectSecretArgs.builder()\n                .key(\"SECRET_KEY\")\n                .value(\"SECRET_VALUE\")\n                .build())\n            .secretAliases(ProjectSecretAliasArgs.builder()\n                .key(\"SECRET_KEY_ALIAS\")\n                .value(\"SECRET_KEY\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(qovery_organization.my_organization())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myProject:\n    type: qovery:Project\n    properties:\n      # Required\n      organizationId: ${qovery_organization.my_organization.id}\n      # Optional\n      description: My project description\n      environmentVariables:\n        - key: ENV_VAR_KEY\n          value: ENV_VAR_VALUE\n      environmentVariableAliases:\n        - key: ENV_VAR_KEY_ALIAS\n          value: ENV_VAR_KEY\n      secrets:\n        - key: SECRET_KEY\n          value: SECRET_VALUE\n      secretAliases:\n        - key: SECRET_KEY_ALIAS\n          value: SECRET_KEY\n    options:\n      dependson:\n        - ${qovery_organization.my_organization}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import qovery:index/project:Project my_project \"\u003cproject_id\u003e\"\n```\n\n",
             "properties": {
                 "builtInEnvironmentVariables": {
                     "type": "array",
@@ -10238,6 +10327,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getApplicationHealthchecks:getApplicationHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10376,6 +10468,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getApplicationHealthchecks:getApplicationHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10447,6 +10542,7 @@
                     "environmentId",
                     "externalHost",
                     "gitRepository",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "maxRunningInstances",
@@ -10691,6 +10787,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getContainerHealthchecks:getContainerHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10817,6 +10916,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getContainerHealthchecks:getContainerHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -10892,6 +10994,7 @@
                     "entrypoint",
                     "environmentId",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "imageName",
                     "internalHost",
@@ -10980,6 +11083,9 @@
                     "deploymentStageId": {
                         "type": "string"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11026,6 +11132,9 @@
                         "type": "string"
                     },
                     "externalHost": {
+                        "type": "string"
+                    },
+                    "iconUri": {
                         "type": "string"
                     },
                     "id": {
@@ -11076,6 +11185,7 @@
                     "deploymentStageId",
                     "environmentId",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "instanceType",
                     "internalHost",
@@ -11427,6 +11537,9 @@
                             "$ref": "#/types/qovery:index/getHelmEnvironmentVariable:getHelmEnvironmentVariable"
                         }
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11523,6 +11636,9 @@
                     "externalHost": {
                         "type": "string"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11578,6 +11694,7 @@
                     "environmentId",
                     "environmentVariableAliases",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "name",
@@ -11711,6 +11828,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getJobHealthchecks:getJobHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11822,6 +11942,9 @@
                     "healthchecks": {
                         "$ref": "#/types/qovery:index/getJobHealthchecks:getJobHealthchecks"
                     },
+                    "iconUri": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -11884,6 +12007,7 @@
                     "environmentId",
                     "environmentVariableAliases",
                     "externalHost",
+                    "iconUri",
                     "id",
                     "internalHost",
                     "maxDurationSeconds",
