@@ -227,7 +227,7 @@ class ContainerRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['ContainerRegistryConfigArgs', 'ContainerRegistryConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -249,10 +249,10 @@ class ContainerRegistry(pulumi.CustomResource):
             organization_id=qovery_organization["my_organization"]["id"],
             kind="DOCKER_HUB",
             url="https://docker.io",
-            config=qovery.ContainerRegistryConfigArgs(
-                username="<my_username>",
-                password="<my_password>",
-            ),
+            config={
+                "username": "<my_username>",
+                "password": "<my_password>",
+            },
             description="My Docker Hub Registry",
             opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
@@ -265,7 +265,7 @@ class ContainerRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']] config: Configuration needed to authenticate the container registry.
+        :param pulumi.Input[Union['ContainerRegistryConfigArgs', 'ContainerRegistryConfigArgsDict']] config: Configuration needed to authenticate the container registry.
         :param pulumi.Input[str] description: Description of the container registry.
         :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
                `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.
@@ -294,10 +294,10 @@ class ContainerRegistry(pulumi.CustomResource):
             organization_id=qovery_organization["my_organization"]["id"],
             kind="DOCKER_HUB",
             url="https://docker.io",
-            config=qovery.ContainerRegistryConfigArgs(
-                username="<my_username>",
-                password="<my_password>",
-            ),
+            config={
+                "username": "<my_username>",
+                "password": "<my_password>",
+            },
             description="My Docker Hub Registry",
             opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
@@ -323,7 +323,7 @@ class ContainerRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['ContainerRegistryConfigArgs', 'ContainerRegistryConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -360,7 +360,7 @@ class ContainerRegistry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['ContainerRegistryConfigArgs', 'ContainerRegistryConfigArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class ContainerRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ContainerRegistryConfigArgs']] config: Configuration needed to authenticate the container registry.
+        :param pulumi.Input[Union['ContainerRegistryConfigArgs', 'ContainerRegistryConfigArgsDict']] config: Configuration needed to authenticate the container registry.
         :param pulumi.Input[str] description: Description of the container registry.
         :param pulumi.Input[str] kind: Kind of the container registry. - Can be: `DOCKER_HUB`, `DOCR`, `ECR`, `GCP_ARTIFACT_REGISTRY`, `GENERIC_CR`,
                `GITHUB_CR`, `GITLAB_CR`, `PUBLIC_ECR`, `SCALEWAY_CR`.

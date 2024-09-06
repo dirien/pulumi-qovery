@@ -56,6 +56,8 @@ type Container struct {
 	ExternalHost pulumi.StringOutput `pulumi:"externalHost"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ContainerHealthchecksOutput `pulumi:"healthchecks"`
+	// Icon URI representing the container.
+	IconUri pulumi.StringOutput `pulumi:"iconUri"`
 	// Name of the container image.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// The container internal host.
@@ -163,6 +165,8 @@ type containerState struct {
 	ExternalHost *string `pulumi:"externalHost"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks *ContainerHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the container.
+	IconUri *string `pulumi:"iconUri"`
 	// Name of the container image.
 	ImageName *string `pulumi:"imageName"`
 	// The container internal host.
@@ -226,6 +230,8 @@ type ContainerState struct {
 	ExternalHost pulumi.StringPtrInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ContainerHealthchecksPtrInput
+	// Icon URI representing the container.
+	IconUri pulumi.StringPtrInput
 	// Name of the container image.
 	ImageName pulumi.StringPtrInput
 	// The container internal host.
@@ -289,6 +295,8 @@ type containerArgs struct {
 	EnvironmentVariables []ContainerEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ContainerHealthchecks `pulumi:"healthchecks"`
+	// Icon URI representing the container.
+	IconUri *string `pulumi:"iconUri"`
 	// Name of the container image.
 	ImageName string `pulumi:"imageName"`
 	// List of labels group ids
@@ -347,6 +355,8 @@ type ContainerArgs struct {
 	EnvironmentVariables ContainerEnvironmentVariableArrayInput
 	// Configuration for the healthchecks that are going to be executed against your service
 	Healthchecks ContainerHealthchecksInput
+	// Icon URI representing the container.
+	IconUri pulumi.StringPtrInput
 	// Name of the container image.
 	ImageName pulumi.StringInput
 	// List of labels group ids
@@ -544,6 +554,11 @@ func (o ContainerOutput) ExternalHost() pulumi.StringOutput {
 // Configuration for the healthchecks that are going to be executed against your service
 func (o ContainerOutput) Healthchecks() ContainerHealthchecksOutput {
 	return o.ApplyT(func(v *Container) ContainerHealthchecksOutput { return v.Healthchecks }).(ContainerHealthchecksOutput)
+}
+
+// Icon URI representing the container.
+func (o ContainerOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.IconUri }).(pulumi.StringOutput)
 }
 
 // Name of the container image.

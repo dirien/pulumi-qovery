@@ -369,15 +369,15 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableAliasArgs', 'EnvironmentEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableOverrideArgs', 'EnvironmentEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableArgs', 'EnvironmentEnvironmentVariableArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretAliasArgs', 'EnvironmentSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretOverrideArgs', 'EnvironmentSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretArgs', 'EnvironmentSecretArgsDict']]]]] = None,
                  __props__=None):
         """
         ## # Environment (Resource)
@@ -394,30 +394,30 @@ class Environment(pulumi.CustomResource):
             project_id=qovery_project["my_project"]["id"],
             cluster_id=qovery_cluster["my_cluster"]["id"],
             mode="DEVELOPMENT",
-            environment_variables=[qovery.EnvironmentEnvironmentVariableArgs(
-                key="ENV_VAR_KEY",
-                value="ENV_VAR_VALUE",
-            )],
-            environment_variable_aliases=[qovery.EnvironmentEnvironmentVariableAliasArgs(
-                key="ENV_VAR_KEY_ALIAS",
-                value="ENV_VAR_KEY",
-            )],
-            environment_variable_overrides=[qovery.EnvironmentEnvironmentVariableOverrideArgs(
-                key="SOME_PROJECT_VARIABLE",
-                value="OVERRIDDEN_VALUE",
-            )],
-            secrets=[qovery.EnvironmentSecretArgs(
-                key="SECRET_KEY",
-                value="SECRET_VALUE",
-            )],
-            secret_aliases=[qovery.EnvironmentSecretAliasArgs(
-                key="SECRET_KEY_ALIAS",
-                value="SECRET_KEY",
-            )],
-            secret_overrides=[qovery.EnvironmentSecretOverrideArgs(
-                key="SOME_PROJECT_SECRET",
-                value="OVERRIDDEN_VALUE",
-            )],
+            environment_variables=[{
+                "key": "ENV_VAR_KEY",
+                "value": "ENV_VAR_VALUE",
+            }],
+            environment_variable_aliases=[{
+                "key": "ENV_VAR_KEY_ALIAS",
+                "value": "ENV_VAR_KEY",
+            }],
+            environment_variable_overrides=[{
+                "key": "SOME_PROJECT_VARIABLE",
+                "value": "OVERRIDDEN_VALUE",
+            }],
+            secrets=[{
+                "key": "SECRET_KEY",
+                "value": "SECRET_VALUE",
+            }],
+            secret_aliases=[{
+                "key": "SECRET_KEY_ALIAS",
+                "value": "SECRET_KEY",
+            }],
+            secret_overrides=[{
+                "key": "SOME_PROJECT_SECRET",
+                "value": "OVERRIDDEN_VALUE",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
         ```
 
@@ -434,15 +434,15 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: Id of the cluster [NOTE: can't be updated after creation].
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableAliasArgs', 'EnvironmentEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableOverrideArgs', 'EnvironmentEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableArgs', 'EnvironmentEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this environment.
         :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[str] project_id: Id of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]] secrets: List of secrets linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretAliasArgs', 'EnvironmentSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretOverrideArgs', 'EnvironmentSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretArgs', 'EnvironmentSecretArgsDict']]]] secrets: List of secrets linked to this environment.
         """
         ...
     @overload
@@ -465,30 +465,30 @@ class Environment(pulumi.CustomResource):
             project_id=qovery_project["my_project"]["id"],
             cluster_id=qovery_cluster["my_cluster"]["id"],
             mode="DEVELOPMENT",
-            environment_variables=[qovery.EnvironmentEnvironmentVariableArgs(
-                key="ENV_VAR_KEY",
-                value="ENV_VAR_VALUE",
-            )],
-            environment_variable_aliases=[qovery.EnvironmentEnvironmentVariableAliasArgs(
-                key="ENV_VAR_KEY_ALIAS",
-                value="ENV_VAR_KEY",
-            )],
-            environment_variable_overrides=[qovery.EnvironmentEnvironmentVariableOverrideArgs(
-                key="SOME_PROJECT_VARIABLE",
-                value="OVERRIDDEN_VALUE",
-            )],
-            secrets=[qovery.EnvironmentSecretArgs(
-                key="SECRET_KEY",
-                value="SECRET_VALUE",
-            )],
-            secret_aliases=[qovery.EnvironmentSecretAliasArgs(
-                key="SECRET_KEY_ALIAS",
-                value="SECRET_KEY",
-            )],
-            secret_overrides=[qovery.EnvironmentSecretOverrideArgs(
-                key="SOME_PROJECT_SECRET",
-                value="OVERRIDDEN_VALUE",
-            )],
+            environment_variables=[{
+                "key": "ENV_VAR_KEY",
+                "value": "ENV_VAR_VALUE",
+            }],
+            environment_variable_aliases=[{
+                "key": "ENV_VAR_KEY_ALIAS",
+                "value": "ENV_VAR_KEY",
+            }],
+            environment_variable_overrides=[{
+                "key": "SOME_PROJECT_VARIABLE",
+                "value": "OVERRIDDEN_VALUE",
+            }],
+            secrets=[{
+                "key": "SECRET_KEY",
+                "value": "SECRET_VALUE",
+            }],
+            secret_aliases=[{
+                "key": "SECRET_KEY_ALIAS",
+                "value": "SECRET_KEY",
+            }],
+            secret_overrides=[{
+                "key": "SOME_PROJECT_SECRET",
+                "value": "OVERRIDDEN_VALUE",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[qovery_project["my_project"]]))
         ```
 
@@ -518,15 +518,15 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableAliasArgs', 'EnvironmentEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableOverrideArgs', 'EnvironmentEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableArgs', 'EnvironmentEnvironmentVariableArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretAliasArgs', 'EnvironmentSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretOverrideArgs', 'EnvironmentSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretArgs', 'EnvironmentSecretArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -561,17 +561,17 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBuiltInEnvironmentVariableArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBuiltInEnvironmentVariableArgs', 'EnvironmentBuiltInEnvironmentVariableArgsDict']]]]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableAliasArgs', 'EnvironmentEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableOverrideArgs', 'EnvironmentEnvironmentVariableOverrideArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableArgs', 'EnvironmentEnvironmentVariableArgsDict']]]]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]]] = None,
-            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretOverrideArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]]] = None) -> 'Environment':
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretAliasArgs', 'EnvironmentSecretAliasArgsDict']]]]] = None,
+            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretOverrideArgs', 'EnvironmentSecretOverrideArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretArgs', 'EnvironmentSecretArgsDict']]]]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -579,17 +579,17 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBuiltInEnvironmentVariableArgs', 'EnvironmentBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this environment.
         :param pulumi.Input[str] cluster_id: Id of the cluster [NOTE: can't be updated after creation].
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableAliasArgs', 'EnvironmentEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableOverrideArgs', 'EnvironmentEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEnvironmentVariableArgs', 'EnvironmentEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this environment.
         :param pulumi.Input[str] mode: Mode of the environment. - Can be: `DEVELOPMENT`, `PREVIEW`, `PRODUCTION`, `STAGING`. - Default: `DEVELOPMENT`.
         :param pulumi.Input[str] name: Name of the environment.
         :param pulumi.Input[str] project_id: Id of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSecretArgs']]]] secrets: List of secrets linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretAliasArgs', 'EnvironmentSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretOverrideArgs', 'EnvironmentSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSecretArgs', 'EnvironmentSecretArgsDict']]]] secrets: List of secrets linked to this environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

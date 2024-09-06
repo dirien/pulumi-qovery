@@ -38,6 +38,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
@@ -68,6 +69,7 @@ export interface GetContainerArgs {
     environmentVariableOverrides?: inputs.GetContainerEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetContainerEnvironmentVariable[];
     healthchecks?: inputs.GetContainerHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxRunningInstances?: number;
@@ -100,6 +102,7 @@ export interface GetContainerResult {
     readonly environmentVariables?: outputs.GetContainerEnvironmentVariable[];
     readonly externalHost: string;
     readonly healthchecks?: outputs.GetContainerHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly imageName: string;
     readonly internalHost: string;
@@ -152,6 +155,7 @@ export interface GetContainerOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetContainerEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetContainerEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetContainerHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;

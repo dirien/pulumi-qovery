@@ -23,7 +23,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, id=None, internal_host=None, labels_group_ids=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
+    def __init__(__self__, advanced_settings_json=None, annotations_group_ids=None, auto_deploy=None, auto_preview=None, built_in_environment_variables=None, cpu=None, deployment_restrictions=None, deployment_stage_id=None, environment_id=None, environment_variable_aliases=None, environment_variable_overrides=None, environment_variables=None, external_host=None, healthchecks=None, icon_uri=None, id=None, internal_host=None, labels_group_ids=None, max_duration_seconds=None, max_nb_restart=None, memory=None, name=None, port=None, schedule=None, secret_aliases=None, secret_overrides=None, secrets=None, source=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -66,6 +66,9 @@ class GetJobResult:
         if healthchecks and not isinstance(healthchecks, dict):
             raise TypeError("Expected argument 'healthchecks' to be a dict")
         pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri and not isinstance(icon_uri, str):
+            raise TypeError("Expected argument 'icon_uri' to be a str")
+        pulumi.set(__self__, "icon_uri", icon_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -177,6 +180,11 @@ class GetJobResult:
         return pulumi.get(self, "healthchecks")
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> str:
+        return pulumi.get(self, "icon_uri")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -262,6 +270,7 @@ class AwaitableGetJobResult(GetJobResult):
             environment_variables=self.environment_variables,
             external_host=self.external_host,
             healthchecks=self.healthchecks,
+            icon_uri=self.icon_uri,
             id=self.id,
             internal_host=self.internal_host,
             labels_group_ids=self.labels_group_ids,
@@ -282,22 +291,23 @@ def get_job(advanced_settings_json: Optional[str] = None,
             auto_deploy: Optional[bool] = None,
             auto_preview: Optional[bool] = None,
             cpu: Optional[int] = None,
-            deployment_restrictions: Optional[Sequence[pulumi.InputType['GetJobDeploymentRestrictionArgs']]] = None,
+            deployment_restrictions: Optional[Sequence[Union['GetJobDeploymentRestrictionArgs', 'GetJobDeploymentRestrictionArgsDict']]] = None,
             deployment_stage_id: Optional[str] = None,
-            environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableAliasArgs']]] = None,
-            environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableOverrideArgs']]] = None,
-            environment_variables: Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableArgs']]] = None,
-            healthchecks: Optional[pulumi.InputType['GetJobHealthchecksArgs']] = None,
+            environment_variable_aliases: Optional[Sequence[Union['GetJobEnvironmentVariableAliasArgs', 'GetJobEnvironmentVariableAliasArgsDict']]] = None,
+            environment_variable_overrides: Optional[Sequence[Union['GetJobEnvironmentVariableOverrideArgs', 'GetJobEnvironmentVariableOverrideArgsDict']]] = None,
+            environment_variables: Optional[Sequence[Union['GetJobEnvironmentVariableArgs', 'GetJobEnvironmentVariableArgsDict']]] = None,
+            healthchecks: Optional[Union['GetJobHealthchecksArgs', 'GetJobHealthchecksArgsDict']] = None,
+            icon_uri: Optional[str] = None,
             id: Optional[str] = None,
             labels_group_ids: Optional[Sequence[str]] = None,
             max_duration_seconds: Optional[int] = None,
             max_nb_restart: Optional[int] = None,
             memory: Optional[int] = None,
             port: Optional[int] = None,
-            secret_aliases: Optional[Sequence[pulumi.InputType['GetJobSecretAliasArgs']]] = None,
-            secret_overrides: Optional[Sequence[pulumi.InputType['GetJobSecretOverrideArgs']]] = None,
-            secrets: Optional[Sequence[pulumi.InputType['GetJobSecretArgs']]] = None,
-            source: Optional[pulumi.InputType['GetJobSourceArgs']] = None,
+            secret_aliases: Optional[Sequence[Union['GetJobSecretAliasArgs', 'GetJobSecretAliasArgsDict']]] = None,
+            secret_overrides: Optional[Sequence[Union['GetJobSecretOverrideArgs', 'GetJobSecretOverrideArgsDict']]] = None,
+            secrets: Optional[Sequence[Union['GetJobSecretArgs', 'GetJobSecretArgsDict']]] = None,
+            source: Optional[Union['GetJobSourceArgs', 'GetJobSourceArgsDict']] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     ## # Job (Data Source)
@@ -324,6 +334,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
     __args__['environmentVariableOverrides'] = environment_variable_overrides
     __args__['environmentVariables'] = environment_variables
     __args__['healthchecks'] = healthchecks
+    __args__['iconUri'] = icon_uri
     __args__['id'] = id
     __args__['labelsGroupIds'] = labels_group_ids
     __args__['maxDurationSeconds'] = max_duration_seconds
@@ -352,6 +363,7 @@ def get_job(advanced_settings_json: Optional[str] = None,
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         external_host=pulumi.get(__ret__, 'external_host'),
         healthchecks=pulumi.get(__ret__, 'healthchecks'),
+        icon_uri=pulumi.get(__ret__, 'icon_uri'),
         id=pulumi.get(__ret__, 'id'),
         internal_host=pulumi.get(__ret__, 'internal_host'),
         labels_group_ids=pulumi.get(__ret__, 'labels_group_ids'),
@@ -373,22 +385,23 @@ def get_job_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]]
                    auto_deploy: Optional[pulumi.Input[Optional[bool]]] = None,
                    auto_preview: Optional[pulumi.Input[Optional[bool]]] = None,
                    cpu: Optional[pulumi.Input[Optional[int]]] = None,
-                   deployment_restrictions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobDeploymentRestrictionArgs']]]]] = None,
+                   deployment_restrictions: Optional[pulumi.Input[Optional[Sequence[Union['GetJobDeploymentRestrictionArgs', 'GetJobDeploymentRestrictionArgsDict']]]]] = None,
                    deployment_stage_id: Optional[pulumi.Input[Optional[str]]] = None,
-                   environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableAliasArgs']]]]] = None,
-                   environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableOverrideArgs']]]]] = None,
-                   environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobEnvironmentVariableArgs']]]]] = None,
-                   healthchecks: Optional[pulumi.Input[Optional[pulumi.InputType['GetJobHealthchecksArgs']]]] = None,
+                   environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetJobEnvironmentVariableAliasArgs', 'GetJobEnvironmentVariableAliasArgsDict']]]]] = None,
+                   environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetJobEnvironmentVariableOverrideArgs', 'GetJobEnvironmentVariableOverrideArgsDict']]]]] = None,
+                   environment_variables: Optional[pulumi.Input[Optional[Sequence[Union['GetJobEnvironmentVariableArgs', 'GetJobEnvironmentVariableArgsDict']]]]] = None,
+                   healthchecks: Optional[pulumi.Input[Optional[Union['GetJobHealthchecksArgs', 'GetJobHealthchecksArgsDict']]]] = None,
+                   icon_uri: Optional[pulumi.Input[Optional[str]]] = None,
                    id: Optional[pulumi.Input[str]] = None,
                    labels_group_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    max_duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                    max_nb_restart: Optional[pulumi.Input[Optional[int]]] = None,
                    memory: Optional[pulumi.Input[Optional[int]]] = None,
                    port: Optional[pulumi.Input[Optional[int]]] = None,
-                   secret_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobSecretAliasArgs']]]]] = None,
-                   secret_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobSecretOverrideArgs']]]]] = None,
-                   secrets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetJobSecretArgs']]]]] = None,
-                   source: Optional[pulumi.Input[Optional[pulumi.InputType['GetJobSourceArgs']]]] = None,
+                   secret_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetJobSecretAliasArgs', 'GetJobSecretAliasArgsDict']]]]] = None,
+                   secret_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetJobSecretOverrideArgs', 'GetJobSecretOverrideArgsDict']]]]] = None,
+                   secrets: Optional[pulumi.Input[Optional[Sequence[Union['GetJobSecretArgs', 'GetJobSecretArgsDict']]]]] = None,
+                   source: Optional[pulumi.Input[Optional[Union['GetJobSourceArgs', 'GetJobSourceArgsDict']]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     ## # Job (Data Source)

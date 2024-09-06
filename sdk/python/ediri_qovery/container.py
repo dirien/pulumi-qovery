@@ -33,6 +33,7 @@ class ContainerArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
@@ -62,6 +63,7 @@ class ContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this container.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this container.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this container.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the container.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
@@ -102,6 +104,8 @@ class ContainerArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if labels_group_ids is not None:
             pulumi.set(__self__, "labels_group_ids", labels_group_ids)
         if max_running_instances is not None:
@@ -328,6 +332,18 @@ class ContainerArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the container.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="labelsGroupIds")
     def labels_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -467,6 +483,7 @@ class _ContainerState:
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]] = None,
                  external_host: Optional[pulumi.Input[str]] = None,
                  healthchecks: Optional[pulumi.Input['ContainerHealthchecksArgs']] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -499,6 +516,7 @@ class _ContainerState:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this container.
         :param pulumi.Input[str] external_host: The container external FQDN host [NOTE: only if your container is using a publicly accessible port].
         :param pulumi.Input['ContainerHealthchecksArgs'] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the container.
         :param pulumi.Input[str] image_name: Name of the container image.
         :param pulumi.Input[str] internal_host: The container internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
@@ -546,6 +564,8 @@ class _ContainerState:
             pulumi.set(__self__, "external_host", external_host)
         if healthchecks is not None:
             pulumi.set(__self__, "healthchecks", healthchecks)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if image_name is not None:
             pulumi.set(__self__, "image_name", image_name)
         if internal_host is not None:
@@ -768,6 +788,18 @@ class _ContainerState:
         pulumi.set(self, "healthchecks", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the container.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -947,26 +979,27 @@ class Container(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerCustomDomainArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerCustomDomainArgs', 'ContainerCustomDomainArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableArgs']]]]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['ContainerHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableAliasArgs', 'ContainerEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableOverrideArgs', 'ContainerEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableArgs', 'ContainerEnvironmentVariableArgsDict']]]]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['ContainerHealthchecksArgs', 'ContainerHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPortArgs']]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerPortArgs', 'ContainerPortArgsDict']]]]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretArgs']]]]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerStorageArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretAliasArgs', 'ContainerSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretOverrideArgs', 'ContainerSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretArgs', 'ContainerSecretArgsDict']]]]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerStorageArgs', 'ContainerStorageArgsDict']]]]] = None,
                  tag: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -988,26 +1021,27 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_deploy: Specify if the container will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this container.
         :param pulumi.Input[int] cpu: CPU of the container in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerCustomDomainArgs']]]] custom_domains: List of custom domains linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerCustomDomainArgs', 'ContainerCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this container.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] entrypoint: Entrypoint of the container.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this container.
-        :param pulumi.Input[pulumi.InputType['ContainerHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableAliasArgs', 'ContainerEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableOverrideArgs', 'ContainerEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableArgs', 'ContainerEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this container.
+        :param pulumi.Input[Union['ContainerHealthchecksArgs', 'ContainerHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the container.
         :param pulumi.Input[str] image_name: Name of the container image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
         :param pulumi.Input[int] max_running_instances: Maximum number of instances running for the container. - Must be: `>= -1`. - Default: `1`.
         :param pulumi.Input[int] memory: RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the container. - Must be: `>= 1`. - Default: `1`.
         :param pulumi.Input[str] name: Name of the container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPortArgs']]]] ports: List of ports linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerPortArgs', 'ContainerPortArgsDict']]]] ports: List of ports linked to this container.
         :param pulumi.Input[str] registry_id: Id of the registry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretArgs']]]] secrets: List of secrets linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerStorageArgs']]]] storages: List of storages linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretAliasArgs', 'ContainerSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretOverrideArgs', 'ContainerSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretArgs', 'ContainerSecretArgsDict']]]] secrets: List of secrets linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerStorageArgs', 'ContainerStorageArgsDict']]]] storages: List of storages linked to this container.
         :param pulumi.Input[str] tag: Tag of the container image.
         """
         ...
@@ -1048,26 +1082,27 @@ class Container(pulumi.CustomResource):
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerCustomDomainArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerCustomDomainArgs', 'ContainerCustomDomainArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableArgs']]]]] = None,
-                 healthchecks: Optional[pulumi.Input[pulumi.InputType['ContainerHealthchecksArgs']]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableAliasArgs', 'ContainerEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableOverrideArgs', 'ContainerEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableArgs', 'ContainerEnvironmentVariableArgsDict']]]]] = None,
+                 healthchecks: Optional[pulumi.Input[Union['ContainerHealthchecksArgs', 'ContainerHealthchecksArgsDict']]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_running_instances: Optional[pulumi.Input[int]] = None,
                  memory: Optional[pulumi.Input[int]] = None,
                  min_running_instances: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPortArgs']]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerPortArgs', 'ContainerPortArgsDict']]]]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretArgs']]]]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerStorageArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretAliasArgs', 'ContainerSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretOverrideArgs', 'ContainerSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretArgs', 'ContainerSecretArgsDict']]]]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerStorageArgs', 'ContainerStorageArgsDict']]]]] = None,
                  tag: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1096,6 +1131,7 @@ class Container(pulumi.CustomResource):
             if healthchecks is None and not opts.urn:
                 raise TypeError("Missing required property 'healthchecks'")
             __props__.__dict__["healthchecks"] = healthchecks
+            __props__.__dict__["icon_uri"] = icon_uri
             if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
             __props__.__dict__["image_name"] = image_name
@@ -1133,17 +1169,18 @@ class Container(pulumi.CustomResource):
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerBuiltInEnvironmentVariableArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerBuiltInEnvironmentVariableArgs', 'ContainerBuiltInEnvironmentVariableArgsDict']]]]] = None,
             cpu: Optional[pulumi.Input[int]] = None,
-            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerCustomDomainArgs']]]]] = None,
+            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerCustomDomainArgs', 'ContainerCustomDomainArgsDict']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             entrypoint: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableOverrideArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableAliasArgs', 'ContainerEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableOverrideArgs', 'ContainerEnvironmentVariableOverrideArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableArgs', 'ContainerEnvironmentVariableArgsDict']]]]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
-            healthchecks: Optional[pulumi.Input[pulumi.InputType['ContainerHealthchecksArgs']]] = None,
+            healthchecks: Optional[pulumi.Input[Union['ContainerHealthchecksArgs', 'ContainerHealthchecksArgsDict']]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             image_name: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             labels_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1151,12 +1188,12 @@ class Container(pulumi.CustomResource):
             memory: Optional[pulumi.Input[int]] = None,
             min_running_instances: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPortArgs']]]]] = None,
+            ports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerPortArgs', 'ContainerPortArgsDict']]]]] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretAliasArgs']]]]] = None,
-            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretOverrideArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretArgs']]]]] = None,
-            storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerStorageArgs']]]]] = None,
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretAliasArgs', 'ContainerSecretAliasArgsDict']]]]] = None,
+            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretOverrideArgs', 'ContainerSecretOverrideArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretArgs', 'ContainerSecretArgsDict']]]]] = None,
+            storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerStorageArgs', 'ContainerStorageArgsDict']]]]] = None,
             tag: Optional[pulumi.Input[str]] = None) -> 'Container':
         """
         Get an existing Container resource's state with the given name, id, and optional extra
@@ -1170,17 +1207,18 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: List of arguments of this container.
         :param pulumi.Input[bool] auto_deploy: Specify if the container will be automatically updated after receiving a new image tag.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerBuiltInEnvironmentVariableArgs', 'ContainerBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this container.
         :param pulumi.Input[int] cpu: CPU of the container in millicores (m) [1000m = 1 CPU]. - Must be: `>= 10`. - Default: `500`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerCustomDomainArgs']]]] custom_domains: List of custom domains linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerCustomDomainArgs', 'ContainerCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this container.
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] entrypoint: Entrypoint of the container.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableAliasArgs', 'ContainerEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableOverrideArgs', 'ContainerEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerEnvironmentVariableArgs', 'ContainerEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this container.
         :param pulumi.Input[str] external_host: The container external FQDN host [NOTE: only if your container is using a publicly accessible port].
-        :param pulumi.Input[pulumi.InputType['ContainerHealthchecksArgs']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[Union['ContainerHealthchecksArgs', 'ContainerHealthchecksArgsDict']] healthchecks: Configuration for the healthchecks that are going to be executed against your service
+        :param pulumi.Input[str] icon_uri: Icon URI representing the container.
         :param pulumi.Input[str] image_name: Name of the container image.
         :param pulumi.Input[str] internal_host: The container internal host.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels_group_ids: List of labels group ids
@@ -1188,12 +1226,12 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[int] memory: RAM of the container in MB [1024MB = 1GB]. - Must be: `>= 10`. - Default: `512`.
         :param pulumi.Input[int] min_running_instances: Minimum number of instances running for the container. - Must be: `>= 1`. - Default: `1`.
         :param pulumi.Input[str] name: Name of the container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerPortArgs']]]] ports: List of ports linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerPortArgs', 'ContainerPortArgsDict']]]] ports: List of ports linked to this container.
         :param pulumi.Input[str] registry_id: Id of the registry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerSecretArgs']]]] secrets: List of secrets linked to this container.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerStorageArgs']]]] storages: List of storages linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretAliasArgs', 'ContainerSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretOverrideArgs', 'ContainerSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerSecretArgs', 'ContainerSecretArgsDict']]]] secrets: List of secrets linked to this container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerStorageArgs', 'ContainerStorageArgsDict']]]] storages: List of storages linked to this container.
         :param pulumi.Input[str] tag: Tag of the container image.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1216,6 +1254,7 @@ class Container(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["external_host"] = external_host
         __props__.__dict__["healthchecks"] = healthchecks
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["image_name"] = image_name
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["labels_group_ids"] = labels_group_ids
@@ -1359,6 +1398,14 @@ class Container(pulumi.CustomResource):
         Configuration for the healthchecks that are going to be executed against your service
         """
         return pulumi.get(self, "healthchecks")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the container.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="imageName")
