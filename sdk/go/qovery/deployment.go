@@ -50,6 +50,8 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
+	// Id of the deployment
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringOutput `pulumi:"desiredState"`
 	// Id of the environment.
@@ -95,6 +97,8 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// Id of the deployment
+	DeploymentId *string `pulumi:"deploymentId"`
 	// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
 	DesiredState *string `pulumi:"desiredState"`
 	// Id of the environment.
@@ -105,6 +109,8 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
+	// Id of the deployment
+	DeploymentId pulumi.StringPtrInput
 	// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringPtrInput
 	// Id of the environment.
@@ -119,6 +125,8 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// Id of the deployment
+	DeploymentId *string `pulumi:"deploymentId"`
 	// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
 	DesiredState string `pulumi:"desiredState"`
 	// Id of the environment.
@@ -130,6 +138,8 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// Id of the deployment
+	DeploymentId pulumi.StringPtrInput
 	// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringInput
 	// Id of the environment.
@@ -224,6 +234,11 @@ func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {
 
 func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
 	return o
+}
+
+// Id of the deployment
+func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
 // Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.

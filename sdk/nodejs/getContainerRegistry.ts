@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getContainerRegistry(args: GetContainerRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRegistryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getContainerRegistry:getContainerRegistry", {
         "description": args.description,
@@ -65,7 +64,12 @@ export interface GetContainerRegistryResult {
  * ```
  */
 export function getContainerRegistryOutput(args: GetContainerRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRegistryResult> {
-    return pulumi.output(args).apply((a: any) => getContainerRegistry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getContainerRegistry:getContainerRegistry", {
+        "description": args.description,
+        "id": args.id,
+        "organizationId": args.organizationId,
+    }, opts);
 }
 
 /**

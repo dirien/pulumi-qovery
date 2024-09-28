@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
  */
 export function getDeploymentStage(args: GetDeploymentStageArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getDeploymentStage:getDeploymentStage", {
         "description": args.description,
@@ -47,7 +46,13 @@ export interface GetDeploymentStageResult {
  * Provides a Qovery deployment stage resource. This can be used to create and manage Qovery deployment stages.
  */
 export function getDeploymentStageOutput(args: GetDeploymentStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStageResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentStage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getDeploymentStage:getDeploymentStage", {
+        "description": args.description,
+        "id": args.id,
+        "isAfter": args.isAfter,
+        "isBefore": args.isBefore,
+    }, opts);
 }
 
 /**

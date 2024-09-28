@@ -44,14 +44,20 @@ type LookupGitTokenResult struct {
 
 func LookupGitTokenOutput(ctx *pulumi.Context, args LookupGitTokenOutputArgs, opts ...pulumi.InvokeOption) LookupGitTokenResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGitTokenResult, error) {
+		ApplyT(func(v interface{}) (LookupGitTokenResultOutput, error) {
 			args := v.(LookupGitTokenArgs)
-			r, err := LookupGitToken(ctx, &args, opts...)
-			var s LookupGitTokenResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGitTokenResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getGitToken:getGitToken", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGitTokenResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGitTokenResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGitTokenResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGitTokenResultOutput)
 }
 

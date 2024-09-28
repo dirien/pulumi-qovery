@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getCluster:getCluster", {
         "advancedSettingsJson": args.advancedSettingsJson,
@@ -36,6 +35,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         "maxRunningNodes": args.maxRunningNodes,
         "minRunningNodes": args.minRunningNodes,
         "organizationId": args.organizationId,
+        "production": args.production,
         "routingTables": args.routingTables,
         "state": args.state,
     }, opts);
@@ -55,6 +55,7 @@ export interface GetClusterArgs {
     maxRunningNodes?: number;
     minRunningNodes?: number;
     organizationId: string;
+    production?: boolean;
     routingTables?: inputs.GetClusterRoutingTable[];
     state?: string;
 }
@@ -76,6 +77,7 @@ export interface GetClusterResult {
     readonly minRunningNodes: number;
     readonly name: string;
     readonly organizationId: string;
+    readonly production: boolean;
     readonly region: string;
     readonly routingTables: outputs.GetClusterRoutingTable[];
     readonly state: string;
@@ -97,7 +99,22 @@ export interface GetClusterResult {
  * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getCluster:getCluster", {
+        "advancedSettingsJson": args.advancedSettingsJson,
+        "description": args.description,
+        "diskSize": args.diskSize,
+        "features": args.features,
+        "id": args.id,
+        "instanceType": args.instanceType,
+        "kubernetesMode": args.kubernetesMode,
+        "maxRunningNodes": args.maxRunningNodes,
+        "minRunningNodes": args.minRunningNodes,
+        "organizationId": args.organizationId,
+        "production": args.production,
+        "routingTables": args.routingTables,
+        "state": args.state,
+    }, opts);
 }
 
 /**
@@ -114,6 +131,7 @@ export interface GetClusterOutputArgs {
     maxRunningNodes?: pulumi.Input<number>;
     minRunningNodes?: pulumi.Input<number>;
     organizationId: pulumi.Input<string>;
+    production?: pulumi.Input<boolean>;
     routingTables?: pulumi.Input<pulumi.Input<inputs.GetClusterRoutingTableArgs>[]>;
     state?: pulumi.Input<string>;
 }

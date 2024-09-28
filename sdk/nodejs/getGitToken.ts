@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
  */
 export function getGitToken(args: GetGitTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetGitTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getGitToken:getGitToken", {
         "bitbucketWorkspace": args.bitbucketWorkspace,
@@ -46,7 +45,12 @@ export interface GetGitTokenResult {
  * Provides a Qovery git token resource. This can be used to create and manage Qovery git token.
  */
 export function getGitTokenOutput(args: GetGitTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitTokenResult> {
-    return pulumi.output(args).apply((a: any) => getGitToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getGitToken:getGitToken", {
+        "bitbucketWorkspace": args.bitbucketWorkspace,
+        "description": args.description,
+        "id": args.id,
+    }, opts);
 }
 
 /**

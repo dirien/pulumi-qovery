@@ -61,6 +61,7 @@ type LookupHelmArgs struct {
 	EnvironmentVariableAliases   []GetHelmEnvironmentVariableAlias    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
+	IconUri                      *string                              `pulumi:"iconUri"`
 	Id                           string                               `pulumi:"id"`
 	SecretAliases                []GetHelmSecretAlias                 `pulumi:"secretAliases"`
 	SecretOverrides              []GetHelmSecretOverride              `pulumi:"secretOverrides"`
@@ -84,6 +85,7 @@ type LookupHelmResult struct {
 	EnvironmentVariableOverrides []GetHelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetHelmEnvironmentVariable         `pulumi:"environmentVariables"`
 	ExternalHost                 string                               `pulumi:"externalHost"`
+	IconUri                      string                               `pulumi:"iconUri"`
 	Id                           string                               `pulumi:"id"`
 	InternalHost                 string                               `pulumi:"internalHost"`
 	Name                         string                               `pulumi:"name"`
@@ -98,14 +100,20 @@ type LookupHelmResult struct {
 
 func LookupHelmOutput(ctx *pulumi.Context, args LookupHelmOutputArgs, opts ...pulumi.InvokeOption) LookupHelmResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHelmResult, error) {
+		ApplyT(func(v interface{}) (LookupHelmResultOutput, error) {
 			args := v.(LookupHelmArgs)
-			r, err := LookupHelm(ctx, &args, opts...)
-			var s LookupHelmResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHelmResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getHelm:getHelm", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHelmResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHelmResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHelmResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHelmResultOutput)
 }
 
@@ -121,6 +129,7 @@ type LookupHelmOutputArgs struct {
 	EnvironmentVariableAliases   GetHelmEnvironmentVariableAliasArrayInput    `pulumi:"environmentVariableAliases"`
 	EnvironmentVariableOverrides GetHelmEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetHelmEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
+	IconUri                      pulumi.StringPtrInput                        `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                           `pulumi:"id"`
 	SecretAliases                GetHelmSecretAliasArrayInput                 `pulumi:"secretAliases"`
 	SecretOverrides              GetHelmSecretOverrideArrayInput              `pulumi:"secretOverrides"`
@@ -201,6 +210,10 @@ func (o LookupHelmResultOutput) EnvironmentVariables() GetHelmEnvironmentVariabl
 
 func (o LookupHelmResultOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHelmResult) string { return v.ExternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupHelmResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHelmResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupHelmResultOutput) Id() pulumi.StringOutput {

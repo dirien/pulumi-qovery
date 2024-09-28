@@ -23,7 +23,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, disk_size=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, organization_id=None, region=None, routing_tables=None, state=None):
+    def __init__(__self__, advanced_settings_json=None, cloud_provider=None, credentials_id=None, description=None, disk_size=None, features=None, id=None, instance_type=None, kubernetes_mode=None, max_running_nodes=None, min_running_nodes=None, name=None, organization_id=None, production=None, region=None, routing_tables=None, state=None):
         if advanced_settings_json and not isinstance(advanced_settings_json, str):
             raise TypeError("Expected argument 'advanced_settings_json' to be a str")
         pulumi.set(__self__, "advanced_settings_json", advanced_settings_json)
@@ -63,6 +63,9 @@ class GetClusterResult:
         if organization_id and not isinstance(organization_id, str):
             raise TypeError("Expected argument 'organization_id' to be a str")
         pulumi.set(__self__, "organization_id", organization_id)
+        if production and not isinstance(production, bool):
+            raise TypeError("Expected argument 'production' to be a bool")
+        pulumi.set(__self__, "production", production)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -140,6 +143,11 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
+    def production(self) -> bool:
+        return pulumi.get(self, "production")
+
+    @property
+    @pulumi.getter
     def region(self) -> str:
         return pulumi.get(self, "region")
 
@@ -173,6 +181,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             min_running_nodes=self.min_running_nodes,
             name=self.name,
             organization_id=self.organization_id,
+            production=self.production,
             region=self.region,
             routing_tables=self.routing_tables,
             state=self.state)
@@ -181,14 +190,15 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(advanced_settings_json: Optional[str] = None,
                 description: Optional[str] = None,
                 disk_size: Optional[int] = None,
-                features: Optional[pulumi.InputType['GetClusterFeaturesArgs']] = None,
+                features: Optional[Union['GetClusterFeaturesArgs', 'GetClusterFeaturesArgsDict']] = None,
                 id: Optional[str] = None,
                 instance_type: Optional[str] = None,
                 kubernetes_mode: Optional[str] = None,
                 max_running_nodes: Optional[int] = None,
                 min_running_nodes: Optional[int] = None,
                 organization_id: Optional[str] = None,
-                routing_tables: Optional[Sequence[pulumi.InputType['GetClusterRoutingTableArgs']]] = None,
+                production: Optional[bool] = None,
+                routing_tables: Optional[Sequence[Union['GetClusterRoutingTableArgs', 'GetClusterRoutingTableArgsDict']]] = None,
                 state: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -216,6 +226,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
     __args__['maxRunningNodes'] = max_running_nodes
     __args__['minRunningNodes'] = min_running_nodes
     __args__['organizationId'] = organization_id
+    __args__['production'] = production
     __args__['routingTables'] = routing_tables
     __args__['state'] = state
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -235,6 +246,7 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
         min_running_nodes=pulumi.get(__ret__, 'min_running_nodes'),
         name=pulumi.get(__ret__, 'name'),
         organization_id=pulumi.get(__ret__, 'organization_id'),
+        production=pulumi.get(__ret__, 'production'),
         region=pulumi.get(__ret__, 'region'),
         routing_tables=pulumi.get(__ret__, 'routing_tables'),
         state=pulumi.get(__ret__, 'state'))
@@ -244,14 +256,15 @@ def get_cluster(advanced_settings_json: Optional[str] = None,
 def get_cluster_output(advanced_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
                        description: Optional[pulumi.Input[Optional[str]]] = None,
                        disk_size: Optional[pulumi.Input[Optional[int]]] = None,
-                       features: Optional[pulumi.Input[Optional[pulumi.InputType['GetClusterFeaturesArgs']]]] = None,
+                       features: Optional[pulumi.Input[Optional[Union['GetClusterFeaturesArgs', 'GetClusterFeaturesArgsDict']]]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                        kubernetes_mode: Optional[pulumi.Input[Optional[str]]] = None,
                        max_running_nodes: Optional[pulumi.Input[Optional[int]]] = None,
                        min_running_nodes: Optional[pulumi.Input[Optional[int]]] = None,
                        organization_id: Optional[pulumi.Input[str]] = None,
-                       routing_tables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClusterRoutingTableArgs']]]]] = None,
+                       production: Optional[pulumi.Input[Optional[bool]]] = None,
+                       routing_tables: Optional[pulumi.Input[Optional[Sequence[Union['GetClusterRoutingTableArgs', 'GetClusterRoutingTableArgsDict']]]]] = None,
                        state: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """

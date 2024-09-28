@@ -16,16 +16,20 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  desired_state: pulumi.Input[str],
                  environment_id: pulumi.Input[str],
+                 deployment_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] desired_state: Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] environment_id: Id of the environment.
+        :param pulumi.Input[str] deployment_id: Id of the deployment
         :param pulumi.Input[str] version: Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
                state)
         """
         pulumi.set(__self__, "desired_state", desired_state)
         pulumi.set(__self__, "environment_id", environment_id)
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -54,6 +58,18 @@ class DeploymentArgs:
         pulumi.set(self, "environment_id", value)
 
     @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -70,22 +86,38 @@ class DeploymentArgs:
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
+                 deployment_id: Optional[pulumi.Input[str]] = None,
                  desired_state: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input[str] deployment_id: Id of the deployment
         :param pulumi.Input[str] desired_state: Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] version: Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
                state)
         """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
         if desired_state is not None:
             pulumi.set(__self__, "desired_state", desired_state)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the deployment
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_id", value)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -130,6 +162,7 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_id: Optional[pulumi.Input[str]] = None,
                  desired_state: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -158,6 +191,7 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deployment_id: Id of the deployment
         :param pulumi.Input[str] desired_state: Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] version: Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
@@ -206,6 +240,7 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_id: Optional[pulumi.Input[str]] = None,
                  desired_state: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -218,6 +253,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            __props__.__dict__["deployment_id"] = deployment_id
             if desired_state is None and not opts.urn:
                 raise TypeError("Missing required property 'desired_state'")
             __props__.__dict__["desired_state"] = desired_state
@@ -235,6 +271,7 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            deployment_id: Optional[pulumi.Input[str]] = None,
             desired_state: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Deployment':
@@ -245,6 +282,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deployment_id: Id of the deployment
         :param pulumi.Input[str] desired_state: Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] environment_id: Id of the environment.
         :param pulumi.Input[str] version: Version to force trigger a deployment when desired_state doesn't change (e.g redeploy a deployment having the 'RUNNING'
@@ -254,10 +292,19 @@ class Deployment(pulumi.CustomResource):
 
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
+        __props__.__dict__["deployment_id"] = deployment_id
         __props__.__dict__["desired_state"] = desired_state
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["version"] = version
         return Deployment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[str]:
+        """
+        Id of the deployment
+        """
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter(name="desiredState")

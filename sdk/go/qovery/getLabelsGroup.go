@@ -76,14 +76,20 @@ type LookupLabelsGroupResult struct {
 
 func LookupLabelsGroupOutput(ctx *pulumi.Context, args LookupLabelsGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLabelsGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLabelsGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupLabelsGroupResultOutput, error) {
 			args := v.(LookupLabelsGroupArgs)
-			r, err := LookupLabelsGroup(ctx, &args, opts...)
-			var s LookupLabelsGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLabelsGroupResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getLabelsGroup:getLabelsGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLabelsGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLabelsGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLabelsGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLabelsGroupResultOutput)
 }
 

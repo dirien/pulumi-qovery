@@ -62,6 +62,7 @@ type LookupClusterArgs struct {
 	MaxRunningNodes      *int                     `pulumi:"maxRunningNodes"`
 	MinRunningNodes      *int                     `pulumi:"minRunningNodes"`
 	OrganizationId       string                   `pulumi:"organizationId"`
+	Production           *bool                    `pulumi:"production"`
 	RoutingTables        []GetClusterRoutingTable `pulumi:"routingTables"`
 	State                *string                  `pulumi:"state"`
 }
@@ -81,6 +82,7 @@ type LookupClusterResult struct {
 	MinRunningNodes      int                      `pulumi:"minRunningNodes"`
 	Name                 string                   `pulumi:"name"`
 	OrganizationId       string                   `pulumi:"organizationId"`
+	Production           bool                     `pulumi:"production"`
 	Region               string                   `pulumi:"region"`
 	RoutingTables        []GetClusterRoutingTable `pulumi:"routingTables"`
 	State                string                   `pulumi:"state"`
@@ -88,14 +90,20 @@ type LookupClusterResult struct {
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
 			args := v.(LookupClusterArgs)
-			r, err := LookupCluster(ctx, &args, opts...)
-			var s LookupClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupClusterResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getCluster:getCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupClusterResultOutput)
 }
 
@@ -111,6 +119,7 @@ type LookupClusterOutputArgs struct {
 	MaxRunningNodes      pulumi.IntPtrInput               `pulumi:"maxRunningNodes"`
 	MinRunningNodes      pulumi.IntPtrInput               `pulumi:"minRunningNodes"`
 	OrganizationId       pulumi.StringInput               `pulumi:"organizationId"`
+	Production           pulumi.BoolPtrInput              `pulumi:"production"`
 	RoutingTables        GetClusterRoutingTableArrayInput `pulumi:"routingTables"`
 	State                pulumi.StringPtrInput            `pulumi:"state"`
 }
@@ -184,6 +193,10 @@ func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Production() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.Production }).(pulumi.BoolOutput)
 }
 
 func (o LookupClusterResultOutput) Region() pulumi.StringOutput {

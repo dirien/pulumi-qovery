@@ -44,14 +44,20 @@ type LookupDeploymentStageResult struct {
 
 func LookupDeploymentStageOutput(ctx *pulumi.Context, args LookupDeploymentStageOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentStageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDeploymentStageResult, error) {
+		ApplyT(func(v interface{}) (LookupDeploymentStageResultOutput, error) {
 			args := v.(LookupDeploymentStageArgs)
-			r, err := LookupDeploymentStage(ctx, &args, opts...)
-			var s LookupDeploymentStageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDeploymentStageResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getDeploymentStage:getDeploymentStage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDeploymentStageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDeploymentStageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDeploymentStageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDeploymentStageResultOutput)
 }
 

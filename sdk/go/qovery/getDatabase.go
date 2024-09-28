@@ -55,6 +55,7 @@ type LookupDatabaseArgs struct {
 	AnnotationsGroupIds []string `pulumi:"annotationsGroupIds"`
 	Cpu                 *int     `pulumi:"cpu"`
 	DeploymentStageId   *string  `pulumi:"deploymentStageId"`
+	IconUri             *string  `pulumi:"iconUri"`
 	Id                  string   `pulumi:"id"`
 	InstanceType        *string  `pulumi:"instanceType"`
 	LabelsGroupIds      []string `pulumi:"labelsGroupIds"`
@@ -70,6 +71,7 @@ type LookupDatabaseResult struct {
 	DeploymentStageId   string   `pulumi:"deploymentStageId"`
 	EnvironmentId       string   `pulumi:"environmentId"`
 	ExternalHost        string   `pulumi:"externalHost"`
+	IconUri             string   `pulumi:"iconUri"`
 	Id                  string   `pulumi:"id"`
 	InstanceType        string   `pulumi:"instanceType"`
 	InternalHost        string   `pulumi:"internalHost"`
@@ -87,14 +89,20 @@ type LookupDatabaseResult struct {
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+		ApplyT(func(v interface{}) (LookupDatabaseResultOutput, error) {
 			args := v.(LookupDatabaseArgs)
-			r, err := LookupDatabase(ctx, &args, opts...)
-			var s LookupDatabaseResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDatabaseResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getDatabase:getDatabase", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDatabaseResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDatabaseResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDatabaseResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDatabaseResultOutput)
 }
 
@@ -104,6 +112,7 @@ type LookupDatabaseOutputArgs struct {
 	AnnotationsGroupIds pulumi.StringArrayInput `pulumi:"annotationsGroupIds"`
 	Cpu                 pulumi.IntPtrInput      `pulumi:"cpu"`
 	DeploymentStageId   pulumi.StringPtrInput   `pulumi:"deploymentStageId"`
+	IconUri             pulumi.StringPtrInput   `pulumi:"iconUri"`
 	Id                  pulumi.StringInput      `pulumi:"id"`
 	InstanceType        pulumi.StringPtrInput   `pulumi:"instanceType"`
 	LabelsGroupIds      pulumi.StringArrayInput `pulumi:"labelsGroupIds"`
@@ -152,6 +161,10 @@ func (o LookupDatabaseResultOutput) EnvironmentId() pulumi.StringOutput {
 
 func (o LookupDatabaseResultOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ExternalHost }).(pulumi.StringOutput)
+}
+
+func (o LookupDatabaseResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {

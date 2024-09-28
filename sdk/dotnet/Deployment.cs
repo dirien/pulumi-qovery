@@ -47,6 +47,12 @@ namespace ediri.Qovery
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
+
+        /// <summary>
         /// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         /// </summary>
         [Output("desiredState")]
@@ -113,6 +119,12 @@ namespace ediri.Qovery
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("deploymentId")]
+        public Input<string>? DeploymentId { get; set; }
+
+        /// <summary>
         /// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         /// </summary>
         [Input("desiredState", required: true)]
@@ -139,6 +151,12 @@ namespace ediri.Qovery
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("deploymentId")]
+        public Input<string>? DeploymentId { get; set; }
+
         /// <summary>
         /// Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
         /// </summary>

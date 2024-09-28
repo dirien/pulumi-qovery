@@ -126,6 +126,9 @@ namespace ediri.Qovery
             set => _environmentVariables = value;
         }
 
+        [Input("iconUri")]
+        public string? IconUri { get; set; }
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -224,6 +227,9 @@ namespace ediri.Qovery
             set => _environmentVariables = value;
         }
 
+        [Input("iconUri")]
+        public Input<string>? IconUri { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -278,6 +284,7 @@ namespace ediri.Qovery
         public readonly ImmutableArray<Outputs.GetHelmEnvironmentVariableOverrideResult> EnvironmentVariableOverrides;
         public readonly ImmutableArray<Outputs.GetHelmEnvironmentVariableResult> EnvironmentVariables;
         public readonly string ExternalHost;
+        public readonly string IconUri;
         public readonly string Id;
         public readonly string InternalHost;
         public readonly string Name;
@@ -319,6 +326,8 @@ namespace ediri.Qovery
 
             string externalHost,
 
+            string iconUri,
+
             string id,
 
             string internalHost,
@@ -353,6 +362,7 @@ namespace ediri.Qovery
             EnvironmentVariableOverrides = environmentVariableOverrides;
             EnvironmentVariables = environmentVariables;
             ExternalHost = externalHost;
+            IconUri = iconUri;
             Id = id;
             InternalHost = internalHost;
             Name = name;

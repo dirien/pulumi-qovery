@@ -274,12 +274,12 @@ class Project(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableAliasArgs', 'ProjectEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretAliasArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretAliasArgs', 'ProjectSecretAliasArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretArgs', 'ProjectSecretArgsDict']]]]] = None,
                  __props__=None):
         """
         ## # Project (Resource)
@@ -295,22 +295,22 @@ class Project(pulumi.CustomResource):
         my_project = qovery.Project("myProject",
             organization_id=qovery_organization["my_organization"]["id"],
             description="My project description",
-            environment_variables=[qovery.ProjectEnvironmentVariableArgs(
-                key="ENV_VAR_KEY",
-                value="ENV_VAR_VALUE",
-            )],
-            environment_variable_aliases=[qovery.ProjectEnvironmentVariableAliasArgs(
-                key="ENV_VAR_KEY_ALIAS",
-                value="ENV_VAR_KEY",
-            )],
-            secrets=[qovery.ProjectSecretArgs(
-                key="SECRET_KEY",
-                value="SECRET_VALUE",
-            )],
-            secret_aliases=[qovery.ProjectSecretAliasArgs(
-                key="SECRET_KEY_ALIAS",
-                value="SECRET_KEY",
-            )],
+            environment_variables=[{
+                "key": "ENV_VAR_KEY",
+                "value": "ENV_VAR_VALUE",
+            }],
+            environment_variable_aliases=[{
+                "key": "ENV_VAR_KEY_ALIAS",
+                "value": "ENV_VAR_KEY",
+            }],
+            secrets=[{
+                "key": "SECRET_KEY",
+                "value": "SECRET_VALUE",
+            }],
+            secret_aliases=[{
+                "key": "SECRET_KEY_ALIAS",
+                "value": "SECRET_KEY",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
@@ -323,12 +323,12 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableAliasArgs', 'ProjectEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this project.
         :param pulumi.Input[str] name: Name of the project.
         :param pulumi.Input[str] organization_id: Id of the organization.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretArgs']]]] secrets: List of secrets linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretAliasArgs', 'ProjectSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretArgs', 'ProjectSecretArgsDict']]]] secrets: List of secrets linked to this project.
         """
         ...
     @overload
@@ -350,22 +350,22 @@ class Project(pulumi.CustomResource):
         my_project = qovery.Project("myProject",
             organization_id=qovery_organization["my_organization"]["id"],
             description="My project description",
-            environment_variables=[qovery.ProjectEnvironmentVariableArgs(
-                key="ENV_VAR_KEY",
-                value="ENV_VAR_VALUE",
-            )],
-            environment_variable_aliases=[qovery.ProjectEnvironmentVariableAliasArgs(
-                key="ENV_VAR_KEY_ALIAS",
-                value="ENV_VAR_KEY",
-            )],
-            secrets=[qovery.ProjectSecretArgs(
-                key="SECRET_KEY",
-                value="SECRET_VALUE",
-            )],
-            secret_aliases=[qovery.ProjectSecretAliasArgs(
-                key="SECRET_KEY_ALIAS",
-                value="SECRET_KEY",
-            )],
+            environment_variables=[{
+                "key": "ENV_VAR_KEY",
+                "value": "ENV_VAR_VALUE",
+            }],
+            environment_variable_aliases=[{
+                "key": "ENV_VAR_KEY_ALIAS",
+                "value": "ENV_VAR_KEY",
+            }],
+            secrets=[{
+                "key": "SECRET_KEY",
+                "value": "SECRET_VALUE",
+            }],
+            secret_aliases=[{
+                "key": "SECRET_KEY_ALIAS",
+                "value": "SECRET_KEY",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
         ```
 
@@ -391,12 +391,12 @@ class Project(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableAliasArgs', 'ProjectEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretAliasArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretArgs']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretAliasArgs', 'ProjectSecretAliasArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretArgs', 'ProjectSecretArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -426,14 +426,14 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectBuiltInEnvironmentVariableArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectBuiltInEnvironmentVariableArgs', 'ProjectBuiltInEnvironmentVariableArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableAliasArgs', 'ProjectEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretAliasArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretArgs']]]]] = None) -> 'Project':
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretAliasArgs', 'ProjectSecretAliasArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretArgs', 'ProjectSecretArgsDict']]]]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -441,14 +441,14 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectBuiltInEnvironmentVariableArgs', 'ProjectBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this project.
         :param pulumi.Input[str] description: Description of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableAliasArgs', 'ProjectEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this project.
         :param pulumi.Input[str] name: Name of the project.
         :param pulumi.Input[str] organization_id: Id of the organization.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecretArgs']]]] secrets: List of secrets linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretAliasArgs', 'ProjectSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecretArgs', 'ProjectSecretArgsDict']]]] secrets: List of secrets linked to this project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

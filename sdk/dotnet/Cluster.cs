@@ -97,6 +97,12 @@ namespace ediri.Qovery
         public Output<string> OrganizationId { get; private set; } = null!;
 
         /// <summary>
+        /// Specific flag to indicate that this cluster is a production one.
+        /// </summary>
+        [Output("production")]
+        public Output<bool> Production { get; private set; } = null!;
+
+        /// <summary>
         /// Region of the cluster.
         /// </summary>
         [Output("region")]
@@ -234,6 +240,12 @@ namespace ediri.Qovery
         public Input<string> OrganizationId { get; set; } = null!;
 
         /// <summary>
+        /// Specific flag to indicate that this cluster is a production one.
+        /// </summary>
+        [Input("production")]
+        public Input<bool>? Production { get; set; }
+
+        /// <summary>
         /// Region of the cluster.
         /// </summary>
         [Input("region", required: true)]
@@ -336,6 +348,12 @@ namespace ediri.Qovery
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
+
+        /// <summary>
+        /// Specific flag to indicate that this cluster is a production one.
+        /// </summary>
+        [Input("production")]
+        public Input<bool>? Production { get; set; }
 
         /// <summary>
         /// Region of the cluster.

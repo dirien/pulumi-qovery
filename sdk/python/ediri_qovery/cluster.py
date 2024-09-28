@@ -29,6 +29,7 @@ class ClusterArgs:
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
                  min_running_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 production: Optional[pulumi.Input[bool]] = None,
                  routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]]] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
@@ -48,6 +49,7 @@ class ClusterArgs:
         :param pulumi.Input[int] min_running_nodes: Minimum number of nodes running for the cluster. [NOTE: have to be set to 1 in case of K3S clusters, and not set for
                Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[bool] production: Specific flag to indicate that this cluster is a production one.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
@@ -73,6 +75,8 @@ class ClusterArgs:
             pulumi.set(__self__, "min_running_nodes", min_running_nodes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if production is not None:
+            pulumi.set(__self__, "production", production)
         if routing_tables is not None:
             pulumi.set(__self__, "routing_tables", routing_tables)
         if state is not None:
@@ -235,6 +239,18 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def production(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specific flag to indicate that this cluster is a production one.
+        """
+        return pulumi.get(self, "production")
+
+    @production.setter
+    def production(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "production", value)
+
+    @property
     @pulumi.getter(name="routingTables")
     def routing_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]]]:
         """
@@ -274,6 +290,7 @@ class _ClusterState:
                  min_running_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
+                 production: Optional[pulumi.Input[bool]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]]] = None,
                  state: Optional[pulumi.Input[str]] = None):
@@ -293,6 +310,7 @@ class _ClusterState:
                Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
+        :param pulumi.Input[bool] production: Specific flag to indicate that this cluster is a production one.
         :param pulumi.Input[str] region: Region of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRoutingTableArgs']]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
@@ -321,6 +339,8 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
+        if production is not None:
+            pulumi.set(__self__, "production", production)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if routing_tables is not None:
@@ -474,6 +494,18 @@ class _ClusterState:
 
     @property
     @pulumi.getter
+    def production(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specific flag to indicate that this cluster is a production one.
+        """
+        return pulumi.get(self, "production")
+
+    @production.setter
+    def production(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "production", value)
+
+    @property
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
         Region of the cluster.
@@ -519,15 +551,16 @@ class Cluster(pulumi.CustomResource):
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_size: Optional[pulumi.Input[int]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
                  min_running_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
+                 production: Optional[pulumi.Input[bool]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -547,7 +580,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
-        :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
+        :param pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']] features: Features of the cluster.
         :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
                clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
@@ -557,8 +590,9 @@ class Cluster(pulumi.CustomResource):
                Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
+        :param pulumi.Input[bool] production: Specific flag to indicate that this cluster is a production one.
         :param pulumi.Input[str] region: Region of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]] routing_tables: List of routes of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
         ...
@@ -598,15 +632,16 @@ class Cluster(pulumi.CustomResource):
                  credentials_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_size: Optional[pulumi.Input[int]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_mode: Optional[pulumi.Input[str]] = None,
                  max_running_nodes: Optional[pulumi.Input[int]] = None,
                  min_running_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
+                 production: Optional[pulumi.Input[bool]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+                 routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -635,6 +670,7 @@ class Cluster(pulumi.CustomResource):
             if organization_id is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_id'")
             __props__.__dict__["organization_id"] = organization_id
+            __props__.__dict__["production"] = production
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
@@ -655,15 +691,16 @@ class Cluster(pulumi.CustomResource):
             credentials_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disk_size: Optional[pulumi.Input[int]] = None,
-            features: Optional[pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']]] = None,
+            features: Optional[pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kubernetes_mode: Optional[pulumi.Input[str]] = None,
             max_running_nodes: Optional[pulumi.Input[int]] = None,
             min_running_nodes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None,
+            production: Optional[pulumi.Input[bool]] = None,
             region: Optional[pulumi.Input[str]] = None,
-            routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]]] = None,
+            routing_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]]] = None,
             state: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -676,7 +713,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_provider: Cloud provider of the cluster. - Can be: `AWS`, `GCP`, `ON_PREMISE`, `SCW`.
         :param pulumi.Input[str] credentials_id: Id of the credentials.
         :param pulumi.Input[str] description: Description of the cluster. - Default: ``.
-        :param pulumi.Input[pulumi.InputType['ClusterFeaturesArgs']] features: Features of the cluster.
+        :param pulumi.Input[Union['ClusterFeaturesArgs', 'ClusterFeaturesArgsDict']] features: Features of the cluster.
         :param pulumi.Input[str] instance_type: Instance type of the cluster. I.e: For Aws `t3a.xlarge`, for Scaleway `DEV-L`, and not set for Karpenter-enabled
                clusters
         :param pulumi.Input[str] kubernetes_mode: Kubernetes mode of the cluster. - Can be: `K3S`, `MANAGED`. - Default: `MANAGED`.
@@ -686,8 +723,9 @@ class Cluster(pulumi.CustomResource):
                Karpenter-enabled clusters]. - Must be: `>= 1`. - Default: `3`.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] organization_id: Id of the organization.
+        :param pulumi.Input[bool] production: Specific flag to indicate that this cluster is a production one.
         :param pulumi.Input[str] region: Region of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterRoutingTableArgs']]]] routing_tables: List of routes of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterRoutingTableArgs', 'ClusterRoutingTableArgsDict']]]] routing_tables: List of routes of the cluster.
         :param pulumi.Input[str] state: State of the cluster. - Can be: `DEPLOYED`, `STOPPED`. - Default: `DEPLOYED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -706,6 +744,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["min_running_nodes"] = min_running_nodes
         __props__.__dict__["name"] = name
         __props__.__dict__["organization_id"] = organization_id
+        __props__.__dict__["production"] = production
         __props__.__dict__["region"] = region
         __props__.__dict__["routing_tables"] = routing_tables
         __props__.__dict__["state"] = state
@@ -806,6 +845,14 @@ class Cluster(pulumi.CustomResource):
         Id of the organization.
         """
         return pulumi.get(self, "organization_id")
+
+    @property
+    @pulumi.getter
+    def production(self) -> pulumi.Output[bool]:
+        """
+        Specific flag to indicate that this cluster is a production one.
+        """
+        return pulumi.get(self, "production")
 
     @property
     @pulumi.getter

@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getJob:getJob", {
         "advancedSettingsJson": args.advancedSettingsJson,
@@ -36,6 +35,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxDurationSeconds": args.maxDurationSeconds,
@@ -64,6 +64,7 @@ export interface GetJobArgs {
     environmentVariableOverrides?: inputs.GetJobEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetJobEnvironmentVariable[];
     healthchecks?: inputs.GetJobHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxDurationSeconds?: number;
@@ -94,6 +95,7 @@ export interface GetJobResult {
     readonly environmentVariables?: outputs.GetJobEnvironmentVariable[];
     readonly externalHost: string;
     readonly healthchecks?: outputs.GetJobHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly internalHost: string;
     readonly labelsGroupIds?: string[];
@@ -124,7 +126,31 @@ export interface GetJobResult {
  * ```
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    return pulumi.output(args).apply((a: any) => getJob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getJob:getJob", {
+        "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
+        "autoDeploy": args.autoDeploy,
+        "autoPreview": args.autoPreview,
+        "cpu": args.cpu,
+        "deploymentRestrictions": args.deploymentRestrictions,
+        "deploymentStageId": args.deploymentStageId,
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariableOverrides": args.environmentVariableOverrides,
+        "environmentVariables": args.environmentVariables,
+        "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
+        "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
+        "maxDurationSeconds": args.maxDurationSeconds,
+        "maxNbRestart": args.maxNbRestart,
+        "memory": args.memory,
+        "port": args.port,
+        "secretAliases": args.secretAliases,
+        "secretOverrides": args.secretOverrides,
+        "secrets": args.secrets,
+        "source": args.source,
+    }, opts);
 }
 
 /**
@@ -142,6 +168,7 @@ export interface GetJobOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetJobEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetJobHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxDurationSeconds?: pulumi.Input<number>;

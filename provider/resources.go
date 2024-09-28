@@ -17,10 +17,11 @@ package qovery
 import (
 	_ "embed"
 	"fmt"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/qovery/terraform-provider-qovery/qovery"
 	"path/filepath"
 	"unicode"
+
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/qovery/terraform-provider-qovery/qovery"
 
 	"github.com/dirien/pulumi-qovery/provider/pkg/version"
 	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
@@ -132,13 +133,15 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: tfbridge.MakeType(mainPkg, "Tags")},
 			// 	},
 			// },
-			"qovery_application":          {Tok: qoveryResource(mainMod, "Application")},
-			"qovery_aws_credentials":      {Tok: qoveryResource(mainMod, "AwsCredentials")},
-			"qovery_cluster":              {Tok: qoveryResource(mainMod, "Cluster")},
-			"qovery_container":            {Tok: qoveryResource(mainMod, "Container")},
-			"qovery_container_registry":   {Tok: qoveryResource(mainMod, "ContainerRegistry")},
-			"qovery_database":             {Tok: qoveryResource(mainMod, "Database")},
-			"qovery_deployment":           {Tok: qoveryResource(mainMod, "Deployment")},
+			"qovery_application":        {Tok: qoveryResource(mainMod, "Application")},
+			"qovery_aws_credentials":    {Tok: qoveryResource(mainMod, "AwsCredentials")},
+			"qovery_cluster":            {Tok: qoveryResource(mainMod, "Cluster")},
+			"qovery_container":          {Tok: qoveryResource(mainMod, "Container")},
+			"qovery_container_registry": {Tok: qoveryResource(mainMod, "ContainerRegistry")},
+			"qovery_database":           {Tok: qoveryResource(mainMod, "Database")},
+			"qovery_deployment": {Tok: qoveryResource(mainMod, "Deployment"),
+				Fields:    map[string]*tfbridge.SchemaInfo{"id": {Name: "deploymentId"}},
+				ComputeID: tfbridge.DelegateIDField("deploymentId", "qovery", "https://github.com/dirien/pulumi-qovery")},
 			"qovery_deployment_stage":     {Tok: qoveryResource(mainMod, "DeploymentStage")},
 			"qovery_environment":          {Tok: qoveryResource(mainMod, "Environment")},
 			"qovery_git_token":            {Tok: qoveryResource(mainMod, "GitToken")},

@@ -67,6 +67,7 @@ type LookupApplicationArgs struct {
 	EnvironmentVariableOverrides []GetApplicationEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetApplicationEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      *string                                     `pulumi:"iconUri"`
 	Id                           string                                      `pulumi:"id"`
 	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                        `pulumi:"maxRunningInstances"`
@@ -101,6 +102,7 @@ type LookupApplicationResult struct {
 	ExternalHost                 string                                      `pulumi:"externalHost"`
 	GitRepository                GetApplicationGitRepository                 `pulumi:"gitRepository"`
 	Healthchecks                 *GetApplicationHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      string                                      `pulumi:"iconUri"`
 	Id                           string                                      `pulumi:"id"`
 	InternalHost                 string                                      `pulumi:"internalHost"`
 	LabelsGroupIds               []string                                    `pulumi:"labelsGroupIds"`
@@ -117,14 +119,20 @@ type LookupApplicationResult struct {
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupApplicationResult, error) {
+		ApplyT(func(v interface{}) (LookupApplicationResultOutput, error) {
 			args := v.(LookupApplicationArgs)
-			r, err := LookupApplication(ctx, &args, opts...)
-			var s LookupApplicationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupApplicationResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getApplication:getApplication", args, &rv, "", opts...)
+			if err != nil {
+				return LookupApplicationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupApplicationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupApplicationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupApplicationResultOutput)
 }
 
@@ -146,6 +154,7 @@ type LookupApplicationOutputArgs struct {
 	EnvironmentVariableOverrides GetApplicationEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetApplicationEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetApplicationHealthchecksPtrInput                  `pulumi:"healthchecks"`
+	IconUri                      pulumi.StringPtrInput                               `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                                  `pulumi:"id"`
 	LabelsGroupIds               pulumi.StringArrayInput                             `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                  `pulumi:"maxRunningInstances"`
@@ -264,6 +273,10 @@ func (o LookupApplicationResultOutput) GitRepository() GetApplicationGitReposito
 
 func (o LookupApplicationResultOutput) Healthchecks() GetApplicationHealthchecksPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *GetApplicationHealthchecks { return v.Healthchecks }).(GetApplicationHealthchecksPtrOutput)
+}
+
+func (o LookupApplicationResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {

@@ -70,14 +70,20 @@ type LookupAwsCredentialsResult struct {
 
 func LookupAwsCredentialsOutput(ctx *pulumi.Context, args LookupAwsCredentialsOutputArgs, opts ...pulumi.InvokeOption) LookupAwsCredentialsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAwsCredentialsResult, error) {
+		ApplyT(func(v interface{}) (LookupAwsCredentialsResultOutput, error) {
 			args := v.(LookupAwsCredentialsArgs)
-			r, err := LookupAwsCredentials(ctx, &args, opts...)
-			var s LookupAwsCredentialsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAwsCredentialsResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getAwsCredentials:getAwsCredentials", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAwsCredentialsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAwsCredentialsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAwsCredentialsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAwsCredentialsResultOutput)
 }
 

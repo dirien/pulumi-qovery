@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAwsCredentials(args: GetAwsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getAwsCredentials:getAwsCredentials", {
         "id": args.id,
@@ -77,7 +76,11 @@ export interface GetAwsCredentialsResult {
  * ```
  */
 export function getAwsCredentialsOutput(args: GetAwsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => getAwsCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getAwsCredentials:getAwsCredentials", {
+        "id": args.id,
+        "organizationId": args.organizationId,
+    }, opts);
 }
 
 /**

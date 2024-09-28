@@ -57,6 +57,10 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
+     * Id of the deployment
+     */
+    public readonly deploymentId!: pulumi.Output<string>;
+    /**
      * Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
      */
     public readonly desiredState!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
+            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
             resourceInputs["desiredState"] = state ? state.desiredState : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -94,6 +99,7 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
+            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -107,6 +113,10 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
+    /**
+     * Id of the deployment
+     */
+    deploymentId?: pulumi.Input<string>;
     /**
      * Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
      */
@@ -126,6 +136,10 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * Id of the deployment
+     */
+    deploymentId?: pulumi.Input<string>;
     /**
      * Desired state of the deployment. - Can be: `RESTARTED`, `RUNNING`, `STOPPED`.
      */

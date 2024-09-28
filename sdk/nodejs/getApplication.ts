@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getApplication:getApplication", {
         "advancedSettingsJson": args.advancedSettingsJson,
@@ -41,6 +40,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
@@ -73,6 +73,7 @@ export interface GetApplicationArgs {
     environmentVariableOverrides?: inputs.GetApplicationEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetApplicationEnvironmentVariable[];
     healthchecks?: inputs.GetApplicationHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxRunningInstances?: number;
@@ -109,6 +110,7 @@ export interface GetApplicationResult {
     readonly externalHost: string;
     readonly gitRepository: outputs.GetApplicationGitRepository;
     readonly healthchecks?: outputs.GetApplicationHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly internalHost: string;
     readonly labelsGroupIds?: string[];
@@ -138,7 +140,35 @@ export interface GetApplicationResult {
  * ```
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getApplication:getApplication", {
+        "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
+        "arguments": args.arguments,
+        "autoDeploy": args.autoDeploy,
+        "autoPreview": args.autoPreview,
+        "buildpackLanguage": args.buildpackLanguage,
+        "cpu": args.cpu,
+        "customDomains": args.customDomains,
+        "deploymentRestrictions": args.deploymentRestrictions,
+        "deploymentStageId": args.deploymentStageId,
+        "dockerfilePath": args.dockerfilePath,
+        "entrypoint": args.entrypoint,
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariableOverrides": args.environmentVariableOverrides,
+        "environmentVariables": args.environmentVariables,
+        "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
+        "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
+        "maxRunningInstances": args.maxRunningInstances,
+        "memory": args.memory,
+        "minRunningInstances": args.minRunningInstances,
+        "secretAliases": args.secretAliases,
+        "secretOverrides": args.secretOverrides,
+        "secrets": args.secrets,
+        "storages": args.storages,
+    }, opts);
 }
 
 /**
@@ -161,6 +191,7 @@ export interface GetApplicationOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetApplicationEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetApplicationEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetApplicationHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;
