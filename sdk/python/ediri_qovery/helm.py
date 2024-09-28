@@ -30,6 +30,7 @@ class HelmArgs:
                  environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]]] = None,
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableArgs']]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmPortsArgs']]]] = None,
                  secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['HelmSecretAliasArgs']]]] = None,
@@ -52,6 +53,7 @@ class HelmArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableAliasArgs']]] environment_variable_aliases: List of environment variable aliases linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this helm.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the helm service.
         :param pulumi.Input[str] name: Name of the helm.
         :param pulumi.Input[Mapping[str, pulumi.Input['HelmPortsArgs']]] ports: List of ports linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmSecretAliasArgs']]] secret_aliases: List of secret aliases linked to this helm.
@@ -83,6 +85,8 @@ class HelmArgs:
             pulumi.set(__self__, "environment_variable_overrides", environment_variable_overrides)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if ports is not None:
@@ -265,6 +269,18 @@ class HelmArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the helm service.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -354,6 +370,7 @@ class _HelmState:
                  environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableArgs']]]] = None,
                  external_host: Optional[pulumi.Input[str]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  internal_host: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['HelmPortsArgs']]]] = None,
@@ -379,6 +396,7 @@ class _HelmState:
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableOverrideArgs']]] environment_variable_overrides: List of environment variable overrides linked to this helm.
         :param pulumi.Input[Sequence[pulumi.Input['HelmEnvironmentVariableArgs']]] environment_variables: List of environment variables linked to this helm.
         :param pulumi.Input[str] external_host: The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
+        :param pulumi.Input[str] icon_uri: Icon URI representing the helm service.
         :param pulumi.Input[str] internal_host: The helm internal host.
         :param pulumi.Input[str] name: Name of the helm.
         :param pulumi.Input[Mapping[str, pulumi.Input['HelmPortsArgs']]] ports: List of ports linked to this helm.
@@ -417,6 +435,8 @@ class _HelmState:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if external_host is not None:
             pulumi.set(__self__, "external_host", external_host)
+        if icon_uri is not None:
+            pulumi.set(__self__, "icon_uri", icon_uri)
         if internal_host is not None:
             pulumi.set(__self__, "internal_host", internal_host)
         if name is not None:
@@ -605,6 +625,18 @@ class _HelmState:
         pulumi.set(self, "external_host", value)
 
     @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Icon URI representing the helm service.
+        """
+        return pulumi.get(self, "icon_uri")
+
+    @icon_uri.setter
+    def icon_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_uri", value)
+
+    @property
     @pulumi.getter(name="internalHost")
     def internal_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -723,21 +755,22 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmCustomDomainArgs', 'HelmCustomDomainArgsDict']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmDeploymentRestrictionArgs', 'HelmDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableAliasArgs', 'HelmEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableOverrideArgs', 'HelmEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableArgs', 'HelmEnvironmentVariableArgsDict']]]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['HelmPortsArgs']]]]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['HelmSourceArgs']]] = None,
+                 ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['HelmPortsArgs', 'HelmPortsArgsDict']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretAliasArgs', 'HelmSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretOverrideArgs', 'HelmSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretArgs', 'HelmSecretArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['HelmSourceArgs', 'HelmSourceArgsDict']]] = None,
                  timeout_sec: Optional[pulumi.Input[int]] = None,
-                 values_override: Optional[pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']]] = None,
+                 values_override: Optional[pulumi.Input[Union['HelmValuesOverrideArgs', 'HelmValuesOverrideArgsDict']]] = None,
                  __props__=None):
         """
         ## # Helm (Resource)
@@ -757,21 +790,22 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
         :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]] custom_domains: List of custom domains linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmCustomDomainArgs', 'HelmCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmDeploymentRestrictionArgs', 'HelmDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableAliasArgs', 'HelmEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableOverrideArgs', 'HelmEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableArgs', 'HelmEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this helm.
+        :param pulumi.Input[str] icon_uri: Icon URI representing the helm service.
         :param pulumi.Input[str] name: Name of the helm.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['HelmPortsArgs']]]] ports: List of ports linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]] secrets: List of secrets linked to this helm.
-        :param pulumi.Input[pulumi.InputType['HelmSourceArgs']] source: Helm chart from a Helm repository or from a git repository
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['HelmPortsArgs', 'HelmPortsArgsDict']]]] ports: List of ports linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretAliasArgs', 'HelmSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretOverrideArgs', 'HelmSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretArgs', 'HelmSecretArgsDict']]]] secrets: List of secrets linked to this helm.
+        :param pulumi.Input[Union['HelmSourceArgs', 'HelmSourceArgsDict']] source: Helm chart from a Helm repository or from a git repository
         :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
-        :param pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']] values_override: Define your own overrides to customize the helm chart behaviour.
+        :param pulumi.Input[Union['HelmValuesOverrideArgs', 'HelmValuesOverrideArgsDict']] values_override: Define your own overrides to customize the helm chart behaviour.
         """
         ...
     @overload
@@ -810,21 +844,22 @@ class Helm(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  auto_preview: Optional[pulumi.Input[bool]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
-                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmCustomDomainArgs', 'HelmCustomDomainArgsDict']]]]] = None,
+                 deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmDeploymentRestrictionArgs', 'HelmDeploymentRestrictionArgsDict']]]]] = None,
                  deployment_stage_id: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
-                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableOverrideArgs']]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableArgs']]]]] = None,
+                 environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableAliasArgs', 'HelmEnvironmentVariableAliasArgsDict']]]]] = None,
+                 environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableOverrideArgs', 'HelmEnvironmentVariableOverrideArgsDict']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableArgs', 'HelmEnvironmentVariableArgsDict']]]]] = None,
+                 icon_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['HelmPortsArgs']]]]] = None,
-                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretAliasArgs']]]]] = None,
-                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['HelmSourceArgs']]] = None,
+                 ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['HelmPortsArgs', 'HelmPortsArgsDict']]]]] = None,
+                 secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretAliasArgs', 'HelmSecretAliasArgsDict']]]]] = None,
+                 secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretOverrideArgs', 'HelmSecretOverrideArgsDict']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretArgs', 'HelmSecretArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['HelmSourceArgs', 'HelmSourceArgsDict']]] = None,
                  timeout_sec: Optional[pulumi.Input[int]] = None,
-                 values_override: Optional[pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']]] = None,
+                 values_override: Optional[pulumi.Input[Union['HelmValuesOverrideArgs', 'HelmValuesOverrideArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -850,6 +885,7 @@ class Helm(pulumi.CustomResource):
             __props__.__dict__["environment_variable_aliases"] = environment_variable_aliases
             __props__.__dict__["environment_variable_overrides"] = environment_variable_overrides
             __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["icon_uri"] = icon_uri
             __props__.__dict__["name"] = name
             __props__.__dict__["ports"] = ports
             __props__.__dict__["secret_aliases"] = secret_aliases
@@ -880,24 +916,25 @@ class Helm(pulumi.CustomResource):
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             auto_preview: Optional[pulumi.Input[bool]] = None,
-            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]]] = None,
-            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]]] = None,
-            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]]] = None,
+            built_in_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmBuiltInEnvironmentVariableArgs', 'HelmBuiltInEnvironmentVariableArgsDict']]]]] = None,
+            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmCustomDomainArgs', 'HelmCustomDomainArgsDict']]]]] = None,
+            deployment_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmDeploymentRestrictionArgs', 'HelmDeploymentRestrictionArgsDict']]]]] = None,
             deployment_stage_id: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
-            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]]] = None,
-            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableOverrideArgs']]]]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableArgs']]]]] = None,
+            environment_variable_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableAliasArgs', 'HelmEnvironmentVariableAliasArgsDict']]]]] = None,
+            environment_variable_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableOverrideArgs', 'HelmEnvironmentVariableOverrideArgsDict']]]]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableArgs', 'HelmEnvironmentVariableArgsDict']]]]] = None,
             external_host: Optional[pulumi.Input[str]] = None,
+            icon_uri: Optional[pulumi.Input[str]] = None,
             internal_host: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['HelmPortsArgs']]]]] = None,
-            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretAliasArgs']]]]] = None,
-            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['HelmSourceArgs']]] = None,
+            ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['HelmPortsArgs', 'HelmPortsArgsDict']]]]] = None,
+            secret_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretAliasArgs', 'HelmSecretAliasArgsDict']]]]] = None,
+            secret_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretOverrideArgs', 'HelmSecretOverrideArgsDict']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretArgs', 'HelmSecretArgsDict']]]]] = None,
+            source: Optional[pulumi.Input[Union['HelmSourceArgs', 'HelmSourceArgsDict']]] = None,
             timeout_sec: Optional[pulumi.Input[int]] = None,
-            values_override: Optional[pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']]] = None) -> 'Helm':
+            values_override: Optional[pulumi.Input[Union['HelmValuesOverrideArgs', 'HelmValuesOverrideArgsDict']]] = None) -> 'Helm':
         """
         Get an existing Helm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -910,24 +947,25 @@ class Helm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Helm arguments
         :param pulumi.Input[bool] auto_deploy: Specify if service will be automatically updated on every new commit on the branch.
         :param pulumi.Input[bool] auto_preview: Specify if the environment preview option is activated or not for this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmBuiltInEnvironmentVariableArgs']]]] built_in_environment_variables: List of built-in environment variables linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmCustomDomainArgs']]]] custom_domains: List of custom domains linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmDeploymentRestrictionArgs']]]] deployment_restrictions: List of deployment restrictions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmBuiltInEnvironmentVariableArgs', 'HelmBuiltInEnvironmentVariableArgsDict']]]] built_in_environment_variables: List of built-in environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmCustomDomainArgs', 'HelmCustomDomainArgsDict']]]] custom_domains: List of custom domains linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmDeploymentRestrictionArgs', 'HelmDeploymentRestrictionArgsDict']]]] deployment_restrictions: List of deployment restrictions
         :param pulumi.Input[str] deployment_stage_id: Id of the deployment stage.
         :param pulumi.Input[str] environment_id: Id of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableAliasArgs']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableOverrideArgs']]]] environment_variable_overrides: List of environment variable overrides linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmEnvironmentVariableArgs']]]] environment_variables: List of environment variables linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableAliasArgs', 'HelmEnvironmentVariableAliasArgsDict']]]] environment_variable_aliases: List of environment variable aliases linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableOverrideArgs', 'HelmEnvironmentVariableOverrideArgsDict']]]] environment_variable_overrides: List of environment variable overrides linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmEnvironmentVariableArgs', 'HelmEnvironmentVariableArgsDict']]]] environment_variables: List of environment variables linked to this helm.
         :param pulumi.Input[str] external_host: The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
+        :param pulumi.Input[str] icon_uri: Icon URI representing the helm service.
         :param pulumi.Input[str] internal_host: The helm internal host.
         :param pulumi.Input[str] name: Name of the helm.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['HelmPortsArgs']]]] ports: List of ports linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretAliasArgs']]]] secret_aliases: List of secret aliases linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretOverrideArgs']]]] secret_overrides: List of secret overrides linked to this helm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HelmSecretArgs']]]] secrets: List of secrets linked to this helm.
-        :param pulumi.Input[pulumi.InputType['HelmSourceArgs']] source: Helm chart from a Helm repository or from a git repository
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['HelmPortsArgs', 'HelmPortsArgsDict']]]] ports: List of ports linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretAliasArgs', 'HelmSecretAliasArgsDict']]]] secret_aliases: List of secret aliases linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretOverrideArgs', 'HelmSecretOverrideArgsDict']]]] secret_overrides: List of secret overrides linked to this helm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HelmSecretArgs', 'HelmSecretArgsDict']]]] secrets: List of secrets linked to this helm.
+        :param pulumi.Input[Union['HelmSourceArgs', 'HelmSourceArgsDict']] source: Helm chart from a Helm repository or from a git repository
         :param pulumi.Input[int] timeout_sec: Helm timeout in seconds
-        :param pulumi.Input[pulumi.InputType['HelmValuesOverrideArgs']] values_override: Define your own overrides to customize the helm chart behaviour.
+        :param pulumi.Input[Union['HelmValuesOverrideArgs', 'HelmValuesOverrideArgsDict']] values_override: Define your own overrides to customize the helm chart behaviour.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -947,6 +985,7 @@ class Helm(pulumi.CustomResource):
         __props__.__dict__["environment_variable_overrides"] = environment_variable_overrides
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["external_host"] = external_host
+        __props__.__dict__["icon_uri"] = icon_uri
         __props__.__dict__["internal_host"] = internal_host
         __props__.__dict__["name"] = name
         __props__.__dict__["ports"] = ports
@@ -1069,6 +1108,14 @@ class Helm(pulumi.CustomResource):
         The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
         """
         return pulumi.get(self, "external_host")
+
+    @property
+    @pulumi.getter(name="iconUri")
+    def icon_uri(self) -> pulumi.Output[str]:
+        """
+        Icon URI representing the helm service.
+        """
+        return pulumi.get(self, "icon_uri")
 
     @property
     @pulumi.getter(name="internalHost")

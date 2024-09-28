@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getHelmRepository(args: GetHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetHelmRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getHelmRepository:getHelmRepository", {
         "description": args.description,
@@ -76,7 +75,16 @@ export interface GetHelmRepositoryResult {
  * ```
  */
 export function getHelmRepositoryOutput(args: GetHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHelmRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getHelmRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getHelmRepository:getHelmRepository", {
+        "description": args.description,
+        "id": args.id,
+        "kind": args.kind,
+        "name": args.name,
+        "organizationId": args.organizationId,
+        "skipTlsVerification": args.skipTlsVerification,
+        "url": args.url,
+    }, opts);
 }
 
 /**

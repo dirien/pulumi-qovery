@@ -80,14 +80,20 @@ type LookupAnnotationsGroupResult struct {
 
 func LookupAnnotationsGroupOutput(ctx *pulumi.Context, args LookupAnnotationsGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAnnotationsGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAnnotationsGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupAnnotationsGroupResultOutput, error) {
 			args := v.(LookupAnnotationsGroupArgs)
-			r, err := LookupAnnotationsGroup(ctx, &args, opts...)
-			var s LookupAnnotationsGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAnnotationsGroupResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getAnnotationsGroup:getAnnotationsGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAnnotationsGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAnnotationsGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAnnotationsGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAnnotationsGroupResultOutput)
 }
 

@@ -52,6 +52,8 @@ type Helm struct {
 	EnvironmentVariables HelmEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
 	// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
 	ExternalHost pulumi.StringOutput `pulumi:"externalHost"`
+	// Icon URI representing the helm service.
+	IconUri pulumi.StringOutput `pulumi:"iconUri"`
 	// The helm internal host.
 	InternalHost pulumi.StringOutput `pulumi:"internalHost"`
 	// Name of the helm.
@@ -142,6 +144,8 @@ type helmState struct {
 	EnvironmentVariables []HelmEnvironmentVariable `pulumi:"environmentVariables"`
 	// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
 	ExternalHost *string `pulumi:"externalHost"`
+	// Icon URI representing the helm service.
+	IconUri *string `pulumi:"iconUri"`
 	// The helm internal host.
 	InternalHost *string `pulumi:"internalHost"`
 	// Name of the helm.
@@ -191,6 +195,8 @@ type HelmState struct {
 	EnvironmentVariables HelmEnvironmentVariableArrayInput
 	// The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
 	ExternalHost pulumi.StringPtrInput
+	// Icon URI representing the helm service.
+	IconUri pulumi.StringPtrInput
 	// The helm internal host.
 	InternalHost pulumi.StringPtrInput
 	// Name of the helm.
@@ -240,6 +246,8 @@ type helmArgs struct {
 	EnvironmentVariableOverrides []HelmEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	// List of environment variables linked to this helm.
 	EnvironmentVariables []HelmEnvironmentVariable `pulumi:"environmentVariables"`
+	// Icon URI representing the helm service.
+	IconUri *string `pulumi:"iconUri"`
 	// Name of the helm.
 	Name *string `pulumi:"name"`
 	// List of ports linked to this helm.
@@ -284,6 +292,8 @@ type HelmArgs struct {
 	EnvironmentVariableOverrides HelmEnvironmentVariableOverrideArrayInput
 	// List of environment variables linked to this helm.
 	EnvironmentVariables HelmEnvironmentVariableArrayInput
+	// Icon URI representing the helm service.
+	IconUri pulumi.StringPtrInput
 	// Name of the helm.
 	Name pulumi.StringPtrInput
 	// List of ports linked to this helm.
@@ -457,6 +467,11 @@ func (o HelmOutput) EnvironmentVariables() HelmEnvironmentVariableArrayOutput {
 // The helm external FQDN host [NOTE: only if your helm is using a publicly accessible port].
 func (o HelmOutput) ExternalHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Helm) pulumi.StringOutput { return v.ExternalHost }).(pulumi.StringOutput)
+}
+
+// Icon URI representing the helm service.
+func (o HelmOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Helm) pulumi.StringOutput { return v.IconUri }).(pulumi.StringOutput)
 }
 
 // The helm internal host.

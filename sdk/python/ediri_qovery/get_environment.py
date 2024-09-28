@@ -142,14 +142,14 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             secrets=self.secrets)
 
 
-def get_environment(environment_variable_aliases: Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableAliasArgs']]] = None,
-                    environment_variable_overrides: Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableOverrideArgs']]] = None,
-                    environment_variables: Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableArgs']]] = None,
+def get_environment(environment_variable_aliases: Optional[Sequence[Union['GetEnvironmentEnvironmentVariableAliasArgs', 'GetEnvironmentEnvironmentVariableAliasArgsDict']]] = None,
+                    environment_variable_overrides: Optional[Sequence[Union['GetEnvironmentEnvironmentVariableOverrideArgs', 'GetEnvironmentEnvironmentVariableOverrideArgsDict']]] = None,
+                    environment_variables: Optional[Sequence[Union['GetEnvironmentEnvironmentVariableArgs', 'GetEnvironmentEnvironmentVariableArgsDict']]] = None,
                     id: Optional[str] = None,
                     mode: Optional[str] = None,
-                    secret_aliases: Optional[Sequence[pulumi.InputType['GetEnvironmentSecretAliasArgs']]] = None,
-                    secret_overrides: Optional[Sequence[pulumi.InputType['GetEnvironmentSecretOverrideArgs']]] = None,
-                    secrets: Optional[Sequence[pulumi.InputType['GetEnvironmentSecretArgs']]] = None,
+                    secret_aliases: Optional[Sequence[Union['GetEnvironmentSecretAliasArgs', 'GetEnvironmentSecretAliasArgsDict']]] = None,
+                    secret_overrides: Optional[Sequence[Union['GetEnvironmentSecretOverrideArgs', 'GetEnvironmentSecretOverrideArgsDict']]] = None,
+                    secrets: Optional[Sequence[Union['GetEnvironmentSecretArgs', 'GetEnvironmentSecretArgsDict']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     ## # Environment (Data Source)
@@ -192,14 +192,14 @@ def get_environment(environment_variable_aliases: Optional[Sequence[pulumi.Input
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableAliasArgs']]]]] = None,
-                           environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableOverrideArgs']]]]] = None,
-                           environment_variables: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentEnvironmentVariableArgs']]]]] = None,
+def get_environment_output(environment_variable_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentEnvironmentVariableAliasArgs', 'GetEnvironmentEnvironmentVariableAliasArgsDict']]]]] = None,
+                           environment_variable_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentEnvironmentVariableOverrideArgs', 'GetEnvironmentEnvironmentVariableOverrideArgsDict']]]]] = None,
+                           environment_variables: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentEnvironmentVariableArgs', 'GetEnvironmentEnvironmentVariableArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[str]] = None,
                            mode: Optional[pulumi.Input[Optional[str]]] = None,
-                           secret_aliases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentSecretAliasArgs']]]]] = None,
-                           secret_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentSecretOverrideArgs']]]]] = None,
-                           secrets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEnvironmentSecretArgs']]]]] = None,
+                           secret_aliases: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentSecretAliasArgs', 'GetEnvironmentSecretAliasArgsDict']]]]] = None,
+                           secret_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentSecretOverrideArgs', 'GetEnvironmentSecretOverrideArgsDict']]]]] = None,
+                           secrets: Optional[pulumi.Input[Optional[Sequence[Union['GetEnvironmentSecretArgs', 'GetEnvironmentSecretArgsDict']]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     ## # Environment (Data Source)

@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getDeployment:getDeployment", {
         "id": args.id,
@@ -41,7 +40,11 @@ export interface GetDeploymentResult {
  * Provides a Qovery deployment resource. This is used to trigger a service deployment at demand.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getDeployment:getDeployment", {
+        "id": args.id,
+        "version": args.version,
+    }, opts);
 }
 
 /**

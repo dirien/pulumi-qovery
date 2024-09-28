@@ -128,7 +128,7 @@ class LabelsGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LabelsGroupLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelsGroupLabelArgs', 'LabelsGroupLabelArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -145,7 +145,7 @@ class LabelsGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LabelsGroupLabelArgs']]]] labels: labels
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelsGroupLabelArgs', 'LabelsGroupLabelArgsDict']]]] labels: labels
         :param pulumi.Input[str] name: name of the labels group
         :param pulumi.Input[str] organization_id: Id of the organization.
         """
@@ -181,7 +181,7 @@ class LabelsGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LabelsGroupLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelsGroupLabelArgs', 'LabelsGroupLabelArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -210,7 +210,7 @@ class LabelsGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LabelsGroupLabelArgs']]]]] = None,
+            labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelsGroupLabelArgs', 'LabelsGroupLabelArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None) -> 'LabelsGroup':
         """
@@ -220,7 +220,7 @@ class LabelsGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LabelsGroupLabelArgs']]]] labels: labels
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelsGroupLabelArgs', 'LabelsGroupLabelArgsDict']]]] labels: labels
         :param pulumi.Input[str] name: name of the labels group
         :param pulumi.Input[str] organization_id: Id of the organization.
         """

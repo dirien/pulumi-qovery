@@ -62,6 +62,7 @@ type LookupJobArgs struct {
 	EnvironmentVariableOverrides []GetJobEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetJobEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetJobHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      *string                             `pulumi:"iconUri"`
 	Id                           string                              `pulumi:"id"`
 	LabelsGroupIds               []string                            `pulumi:"labelsGroupIds"`
 	MaxDurationSeconds           *int                                `pulumi:"maxDurationSeconds"`
@@ -90,6 +91,7 @@ type LookupJobResult struct {
 	EnvironmentVariables         []GetJobEnvironmentVariable         `pulumi:"environmentVariables"`
 	ExternalHost                 string                              `pulumi:"externalHost"`
 	Healthchecks                 *GetJobHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      string                              `pulumi:"iconUri"`
 	Id                           string                              `pulumi:"id"`
 	InternalHost                 string                              `pulumi:"internalHost"`
 	LabelsGroupIds               []string                            `pulumi:"labelsGroupIds"`
@@ -107,14 +109,20 @@ type LookupJobResult struct {
 
 func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupJobResult, error) {
+		ApplyT(func(v interface{}) (LookupJobResultOutput, error) {
 			args := v.(LookupJobArgs)
-			r, err := LookupJob(ctx, &args, opts...)
-			var s LookupJobResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupJobResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getJob:getJob", args, &rv, "", opts...)
+			if err != nil {
+				return LookupJobResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupJobResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupJobResultOutput), nil
+			}
+			return output, nil
 		}).(LookupJobResultOutput)
 }
 
@@ -131,6 +139,7 @@ type LookupJobOutputArgs struct {
 	EnvironmentVariableOverrides GetJobEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetJobEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetJobHealthchecksPtrInput                  `pulumi:"healthchecks"`
+	IconUri                      pulumi.StringPtrInput                       `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                          `pulumi:"id"`
 	LabelsGroupIds               pulumi.StringArrayInput                     `pulumi:"labelsGroupIds"`
 	MaxDurationSeconds           pulumi.IntPtrInput                          `pulumi:"maxDurationSeconds"`
@@ -216,6 +225,10 @@ func (o LookupJobResultOutput) ExternalHost() pulumi.StringOutput {
 
 func (o LookupJobResultOutput) Healthchecks() GetJobHealthchecksPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *GetJobHealthchecks { return v.Healthchecks }).(GetJobHealthchecksPtrOutput)
+}
+
+func (o LookupJobResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupJobResultOutput) Id() pulumi.StringOutput {

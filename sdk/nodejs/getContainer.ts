@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getContainer:getContainer", {
         "advancedSettingsJson": args.advancedSettingsJson,
@@ -38,6 +37,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
         "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
         "id": args.id,
         "labelsGroupIds": args.labelsGroupIds,
         "maxRunningInstances": args.maxRunningInstances,
@@ -68,6 +68,7 @@ export interface GetContainerArgs {
     environmentVariableOverrides?: inputs.GetContainerEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetContainerEnvironmentVariable[];
     healthchecks?: inputs.GetContainerHealthchecks;
+    iconUri?: string;
     id: string;
     labelsGroupIds?: string[];
     maxRunningInstances?: number;
@@ -100,6 +101,7 @@ export interface GetContainerResult {
     readonly environmentVariables?: outputs.GetContainerEnvironmentVariable[];
     readonly externalHost: string;
     readonly healthchecks?: outputs.GetContainerHealthchecks;
+    readonly iconUri: string;
     readonly id: string;
     readonly imageName: string;
     readonly internalHost: string;
@@ -132,7 +134,33 @@ export interface GetContainerResult {
  * ```
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getContainer:getContainer", {
+        "advancedSettingsJson": args.advancedSettingsJson,
+        "annotationsGroupIds": args.annotationsGroupIds,
+        "arguments": args.arguments,
+        "autoDeploy": args.autoDeploy,
+        "autoPreview": args.autoPreview,
+        "cpu": args.cpu,
+        "customDomains": args.customDomains,
+        "deploymentStageId": args.deploymentStageId,
+        "entrypoint": args.entrypoint,
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariableOverrides": args.environmentVariableOverrides,
+        "environmentVariables": args.environmentVariables,
+        "healthchecks": args.healthchecks,
+        "iconUri": args.iconUri,
+        "id": args.id,
+        "labelsGroupIds": args.labelsGroupIds,
+        "maxRunningInstances": args.maxRunningInstances,
+        "memory": args.memory,
+        "minRunningInstances": args.minRunningInstances,
+        "ports": args.ports,
+        "secretAliases": args.secretAliases,
+        "secretOverrides": args.secretOverrides,
+        "secrets": args.secrets,
+        "storages": args.storages,
+    }, opts);
 }
 
 /**
@@ -152,6 +180,7 @@ export interface GetContainerOutputArgs {
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetContainerEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetContainerEnvironmentVariableArgs>[]>;
     healthchecks?: pulumi.Input<inputs.GetContainerHealthchecksArgs>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     labelsGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     maxRunningInstances?: pulumi.Input<number>;

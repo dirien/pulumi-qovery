@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getEnvironment:getEnvironment", {
         "environmentVariableAliases": args.environmentVariableAliases,
@@ -83,7 +82,17 @@ export interface GetEnvironmentResult {
  * ```
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getEnvironment:getEnvironment", {
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariableOverrides": args.environmentVariableOverrides,
+        "environmentVariables": args.environmentVariables,
+        "id": args.id,
+        "mode": args.mode,
+        "secretAliases": args.secretAliases,
+        "secretOverrides": args.secretOverrides,
+        "secrets": args.secrets,
+    }, opts);
 }
 
 /**

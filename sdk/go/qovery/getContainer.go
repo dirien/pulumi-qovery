@@ -64,6 +64,7 @@ type LookupContainerArgs struct {
 	EnvironmentVariableOverrides []GetContainerEnvironmentVariableOverride `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         []GetContainerEnvironmentVariable         `pulumi:"environmentVariables"`
 	Healthchecks                 *GetContainerHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      *string                                   `pulumi:"iconUri"`
 	Id                           string                                    `pulumi:"id"`
 	LabelsGroupIds               []string                                  `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          *int                                      `pulumi:"maxRunningInstances"`
@@ -94,6 +95,7 @@ type LookupContainerResult struct {
 	EnvironmentVariables         []GetContainerEnvironmentVariable         `pulumi:"environmentVariables"`
 	ExternalHost                 string                                    `pulumi:"externalHost"`
 	Healthchecks                 *GetContainerHealthchecks                 `pulumi:"healthchecks"`
+	IconUri                      string                                    `pulumi:"iconUri"`
 	Id                           string                                    `pulumi:"id"`
 	ImageName                    string                                    `pulumi:"imageName"`
 	InternalHost                 string                                    `pulumi:"internalHost"`
@@ -113,14 +115,20 @@ type LookupContainerResult struct {
 
 func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, opts ...pulumi.InvokeOption) LookupContainerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupContainerResult, error) {
+		ApplyT(func(v interface{}) (LookupContainerResultOutput, error) {
 			args := v.(LookupContainerArgs)
-			r, err := LookupContainer(ctx, &args, opts...)
-			var s LookupContainerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupContainerResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getContainer:getContainer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupContainerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupContainerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupContainerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupContainerResultOutput)
 }
 
@@ -139,6 +147,7 @@ type LookupContainerOutputArgs struct {
 	EnvironmentVariableOverrides GetContainerEnvironmentVariableOverrideArrayInput `pulumi:"environmentVariableOverrides"`
 	EnvironmentVariables         GetContainerEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
 	Healthchecks                 GetContainerHealthchecksPtrInput                  `pulumi:"healthchecks"`
+	IconUri                      pulumi.StringPtrInput                             `pulumi:"iconUri"`
 	Id                           pulumi.StringInput                                `pulumi:"id"`
 	LabelsGroupIds               pulumi.StringArrayInput                           `pulumi:"labelsGroupIds"`
 	MaxRunningInstances          pulumi.IntPtrInput                                `pulumi:"maxRunningInstances"`
@@ -238,6 +247,10 @@ func (o LookupContainerResultOutput) ExternalHost() pulumi.StringOutput {
 
 func (o LookupContainerResultOutput) Healthchecks() GetContainerHealthchecksPtrOutput {
 	return o.ApplyT(func(v LookupContainerResult) *GetContainerHealthchecks { return v.Healthchecks }).(GetContainerHealthchecksPtrOutput)
+}
+
+func (o LookupContainerResultOutput) IconUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerResult) string { return v.IconUri }).(pulumi.StringOutput)
 }
 
 func (o LookupContainerResultOutput) Id() pulumi.StringOutput {

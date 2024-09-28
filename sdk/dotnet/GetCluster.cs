@@ -98,6 +98,9 @@ namespace ediri.Qovery
         [Input("organizationId", required: true)]
         public string OrganizationId { get; set; } = null!;
 
+        [Input("production")]
+        public bool? Production { get; set; }
+
         [Input("routingTables")]
         private List<Inputs.GetClusterRoutingTableArgs>? _routingTables;
         public List<Inputs.GetClusterRoutingTableArgs> RoutingTables
@@ -147,6 +150,9 @@ namespace ediri.Qovery
         [Input("organizationId", required: true)]
         public Input<string> OrganizationId { get; set; } = null!;
 
+        [Input("production")]
+        public Input<bool>? Production { get; set; }
+
         [Input("routingTables")]
         private InputList<Inputs.GetClusterRoutingTableInputArgs>? _routingTables;
         public InputList<Inputs.GetClusterRoutingTableInputArgs> RoutingTables
@@ -181,6 +187,7 @@ namespace ediri.Qovery
         public readonly int MinRunningNodes;
         public readonly string Name;
         public readonly string OrganizationId;
+        public readonly bool Production;
         public readonly string Region;
         public readonly ImmutableArray<Outputs.GetClusterRoutingTableResult> RoutingTables;
         public readonly string State;
@@ -213,6 +220,8 @@ namespace ediri.Qovery
 
             string organizationId,
 
+            bool production,
+
             string region,
 
             ImmutableArray<Outputs.GetClusterRoutingTableResult> routingTables,
@@ -232,6 +241,7 @@ namespace ediri.Qovery
             MinRunningNodes = minRunningNodes;
             Name = name;
             OrganizationId = organizationId;
+            Production = production;
             Region = region;
             RoutingTables = routingTables;
             State = state;

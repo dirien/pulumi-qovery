@@ -74,14 +74,20 @@ type LookupHelmRepositoryResult struct {
 
 func LookupHelmRepositoryOutput(ctx *pulumi.Context, args LookupHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupHelmRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHelmRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupHelmRepositoryResultOutput, error) {
 			args := v.(LookupHelmRepositoryArgs)
-			r, err := LookupHelmRepository(ctx, &args, opts...)
-			var s LookupHelmRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHelmRepositoryResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getHelmRepository:getHelmRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHelmRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHelmRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHelmRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHelmRepositoryResultOutput)
 }
 

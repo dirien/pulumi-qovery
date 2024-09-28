@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLabelsGroup(args: GetLabelsGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelsGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getLabelsGroup:getLabelsGroup", {
         "id": args.id,
@@ -93,7 +92,13 @@ export interface GetLabelsGroupResult {
  * ```
  */
 export function getLabelsGroupOutput(args: GetLabelsGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelsGroupResult> {
-    return pulumi.output(args).apply((a: any) => getLabelsGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getLabelsGroup:getLabelsGroup", {
+        "id": args.id,
+        "labels": args.labels,
+        "name": args.name,
+        "organizationId": args.organizationId,
+    }, opts);
 }
 
 /**

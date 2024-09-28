@@ -39,14 +39,20 @@ type LookupScalewayCredentialsResult struct {
 
 func LookupScalewayCredentialsOutput(ctx *pulumi.Context, args LookupScalewayCredentialsOutputArgs, opts ...pulumi.InvokeOption) LookupScalewayCredentialsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupScalewayCredentialsResult, error) {
+		ApplyT(func(v interface{}) (LookupScalewayCredentialsResultOutput, error) {
 			args := v.(LookupScalewayCredentialsArgs)
-			r, err := LookupScalewayCredentials(ctx, &args, opts...)
-			var s LookupScalewayCredentialsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupScalewayCredentialsResult
+			secret, err := ctx.InvokePackageRaw("qovery:index/getScalewayCredentials:getScalewayCredentials", args, &rv, "", opts...)
+			if err != nil {
+				return LookupScalewayCredentialsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupScalewayCredentialsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupScalewayCredentialsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupScalewayCredentialsResultOutput)
 }
 

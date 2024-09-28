@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getProject:getProject", {
         "description": args.description,
@@ -121,7 +120,15 @@ export interface GetProjectResult {
  * ```
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getProject:getProject", {
+        "description": args.description,
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariables": args.environmentVariables,
+        "id": args.id,
+        "secretAliases": args.secretAliases,
+        "secrets": args.secrets,
+    }, opts);
 }
 
 /**

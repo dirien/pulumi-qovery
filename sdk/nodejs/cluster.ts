@@ -94,6 +94,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly organizationId!: pulumi.Output<string>;
     /**
+     * Specific flag to indicate that this cluster is a production one.
+     */
+    public readonly production!: pulumi.Output<boolean>;
+    /**
      * Region of the cluster.
      */
     public readonly region!: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["minRunningNodes"] = state ? state.minRunningNodes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationId"] = state ? state.organizationId : undefined;
+            resourceInputs["production"] = state ? state.production : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingTables"] = state ? state.routingTables : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -160,6 +165,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["minRunningNodes"] = args ? args.minRunningNodes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationId"] = args ? args.organizationId : undefined;
+            resourceInputs["production"] = args ? args.production : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingTables"] = args ? args.routingTables : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
@@ -221,6 +227,10 @@ export interface ClusterState {
      * Id of the organization.
      */
     organizationId?: pulumi.Input<string>;
+    /**
+     * Specific flag to indicate that this cluster is a production one.
+     */
+    production?: pulumi.Input<boolean>;
     /**
      * Region of the cluster.
      */
@@ -287,6 +297,10 @@ export interface ClusterArgs {
      * Id of the organization.
      */
     organizationId: pulumi.Input<string>;
+    /**
+     * Specific flag to indicate that this cluster is a production one.
+     */
+    production?: pulumi.Input<boolean>;
     /**
      * Region of the cluster.
      */

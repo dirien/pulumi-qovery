@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about an existing Scaleway credentials.
  */
 export function getScalewayCredentials(args: GetScalewayCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetScalewayCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getScalewayCredentials:getScalewayCredentials", {
         "id": args.id,
@@ -40,7 +39,11 @@ export interface GetScalewayCredentialsResult {
  * Use this data source to retrieve information about an existing Scaleway credentials.
  */
 export function getScalewayCredentialsOutput(args: GetScalewayCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalewayCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => getScalewayCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getScalewayCredentials:getScalewayCredentials", {
+        "id": args.id,
+        "organizationId": args.organizationId,
+    }, opts);
 }
 
 /**

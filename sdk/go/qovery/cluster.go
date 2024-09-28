@@ -50,6 +50,8 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Id of the organization.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
+	// Specific flag to indicate that this cluster is a production one.
+	Production pulumi.BoolOutput `pulumi:"production"`
 	// Region of the cluster.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of routes of the cluster.
@@ -126,6 +128,8 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// Id of the organization.
 	OrganizationId *string `pulumi:"organizationId"`
+	// Specific flag to indicate that this cluster is a production one.
+	Production *bool `pulumi:"production"`
 	// Region of the cluster.
 	Region *string `pulumi:"region"`
 	// List of routes of the cluster.
@@ -161,6 +165,8 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// Id of the organization.
 	OrganizationId pulumi.StringPtrInput
+	// Specific flag to indicate that this cluster is a production one.
+	Production pulumi.BoolPtrInput
 	// Region of the cluster.
 	Region pulumi.StringPtrInput
 	// List of routes of the cluster.
@@ -200,6 +206,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Id of the organization.
 	OrganizationId string `pulumi:"organizationId"`
+	// Specific flag to indicate that this cluster is a production one.
+	Production *bool `pulumi:"production"`
 	// Region of the cluster.
 	Region string `pulumi:"region"`
 	// List of routes of the cluster.
@@ -236,6 +244,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Id of the organization.
 	OrganizationId pulumi.StringInput
+	// Specific flag to indicate that this cluster is a production one.
+	Production pulumi.BoolPtrInput
 	// Region of the cluster.
 	Region pulumi.StringInput
 	// List of routes of the cluster.
@@ -391,6 +401,11 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 // Id of the organization.
 func (o ClusterOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Specific flag to indicate that this cluster is a production one.
+func (o ClusterOutput) Production() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.Production }).(pulumi.BoolOutput)
 }
 
 // Region of the cluster.

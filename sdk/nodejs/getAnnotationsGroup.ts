@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAnnotationsGroup(args: GetAnnotationsGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAnnotationsGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getAnnotationsGroup:getAnnotationsGroup", {
         "annotations": args.annotations,
@@ -100,7 +99,14 @@ export interface GetAnnotationsGroupResult {
  * ```
  */
 export function getAnnotationsGroupOutput(args: GetAnnotationsGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnnotationsGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAnnotationsGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getAnnotationsGroup:getAnnotationsGroup", {
+        "annotations": args.annotations,
+        "id": args.id,
+        "name": args.name,
+        "organizationId": args.organizationId,
+        "scopes": args.scopes,
+    }, opts);
 }
 
 /**

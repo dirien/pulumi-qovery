@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getHelm(args: GetHelmArgs, opts?: pulumi.InvokeOptions): Promise<GetHelmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("qovery:index/getHelm:getHelm", {
         "advancedSettingsJson": args.advancedSettingsJson,
@@ -35,6 +34,7 @@ export function getHelm(args: GetHelmArgs, opts?: pulumi.InvokeOptions): Promise
         "environmentVariableAliases": args.environmentVariableAliases,
         "environmentVariableOverrides": args.environmentVariableOverrides,
         "environmentVariables": args.environmentVariables,
+        "iconUri": args.iconUri,
         "id": args.id,
         "secretAliases": args.secretAliases,
         "secretOverrides": args.secretOverrides,
@@ -57,6 +57,7 @@ export interface GetHelmArgs {
     environmentVariableAliases?: inputs.GetHelmEnvironmentVariableAlias[];
     environmentVariableOverrides?: inputs.GetHelmEnvironmentVariableOverride[];
     environmentVariables?: inputs.GetHelmEnvironmentVariable[];
+    iconUri?: string;
     id: string;
     secretAliases?: inputs.GetHelmSecretAlias[];
     secretOverrides?: inputs.GetHelmSecretOverride[];
@@ -82,6 +83,7 @@ export interface GetHelmResult {
     readonly environmentVariableOverrides?: outputs.GetHelmEnvironmentVariableOverride[];
     readonly environmentVariables?: outputs.GetHelmEnvironmentVariable[];
     readonly externalHost: string;
+    readonly iconUri: string;
     readonly id: string;
     readonly internalHost: string;
     readonly name: string;
@@ -109,7 +111,25 @@ export interface GetHelmResult {
  * ```
  */
 export function getHelmOutput(args: GetHelmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHelmResult> {
-    return pulumi.output(args).apply((a: any) => getHelm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("qovery:index/getHelm:getHelm", {
+        "advancedSettingsJson": args.advancedSettingsJson,
+        "arguments": args.arguments,
+        "autoDeploy": args.autoDeploy,
+        "autoPreview": args.autoPreview,
+        "customDomains": args.customDomains,
+        "deploymentRestrictions": args.deploymentRestrictions,
+        "deploymentStageId": args.deploymentStageId,
+        "environmentVariableAliases": args.environmentVariableAliases,
+        "environmentVariableOverrides": args.environmentVariableOverrides,
+        "environmentVariables": args.environmentVariables,
+        "iconUri": args.iconUri,
+        "id": args.id,
+        "secretAliases": args.secretAliases,
+        "secretOverrides": args.secretOverrides,
+        "secrets": args.secrets,
+        "timeoutSec": args.timeoutSec,
+    }, opts);
 }
 
 /**
@@ -126,6 +146,7 @@ export interface GetHelmOutputArgs {
     environmentVariableAliases?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableAliasArgs>[]>;
     environmentVariableOverrides?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableOverrideArgs>[]>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.GetHelmEnvironmentVariableArgs>[]>;
+    iconUri?: pulumi.Input<string>;
     id: pulumi.Input<string>;
     secretAliases?: pulumi.Input<pulumi.Input<inputs.GetHelmSecretAliasArgs>[]>;
     secretOverrides?: pulumi.Input<pulumi.Input<inputs.GetHelmSecretOverrideArgs>[]>;

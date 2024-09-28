@@ -83,7 +83,7 @@ class AwaitableGetLabelsGroupResult(GetLabelsGroupResult):
 
 
 def get_labels_group(id: Optional[str] = None,
-                     labels: Optional[Sequence[pulumi.InputType['GetLabelsGroupLabelArgs']]] = None,
+                     labels: Optional[Sequence[Union['GetLabelsGroupLabelArgs', 'GetLabelsGroupLabelArgsDict']]] = None,
                      name: Optional[str] = None,
                      organization_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelsGroupResult:
@@ -103,7 +103,7 @@ def get_labels_group(id: Optional[str] = None,
 
 
     :param str id: Id of the labels group
-    :param Sequence[pulumi.InputType['GetLabelsGroupLabelArgs']] labels: labels
+    :param Sequence[Union['GetLabelsGroupLabelArgs', 'GetLabelsGroupLabelArgsDict']] labels: labels
     :param str name: name of the labels group
     :param str organization_id: Id of the organization.
     """
@@ -124,7 +124,7 @@ def get_labels_group(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_labels_group)
 def get_labels_group_output(id: Optional[pulumi.Input[str]] = None,
-                            labels: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLabelsGroupLabelArgs']]]]] = None,
+                            labels: Optional[pulumi.Input[Optional[Sequence[Union['GetLabelsGroupLabelArgs', 'GetLabelsGroupLabelArgsDict']]]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             organization_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelsGroupResult]:
@@ -144,7 +144,7 @@ def get_labels_group_output(id: Optional[pulumi.Input[str]] = None,
 
 
     :param str id: Id of the labels group
-    :param Sequence[pulumi.InputType['GetLabelsGroupLabelArgs']] labels: labels
+    :param Sequence[Union['GetLabelsGroupLabelArgs', 'GetLabelsGroupLabelArgsDict']] labels: labels
     :param str name: name of the labels group
     :param str organization_id: Id of the organization.
     """

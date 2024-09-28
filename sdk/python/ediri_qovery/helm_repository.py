@@ -258,7 +258,7 @@ class HelmRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['HelmRepositoryConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['HelmRepositoryConfigArgs', 'HelmRepositoryConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -271,6 +271,25 @@ class HelmRepository(pulumi.CustomResource):
 
         Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
 
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_helm_repository = qovery.HelmRepository("myHelmRepository",
+            organization_id=qovery_organization["my_organization"]["id"],
+            kind="OCI_DOCKER_HUB",
+            url="https://docker.io",
+            skip_tls_verification=False,
+            description="My Helm repository",
+            config={
+                "username": "<my_username>",
+                "password": "<my_password>",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+        ```
+
         ## Import
 
         ```sh
@@ -279,7 +298,7 @@ class HelmRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HelmRepositoryConfigArgs']] config: Configuration needed to authenticate the helm repository.
+        :param pulumi.Input[Union['HelmRepositoryConfigArgs', 'HelmRepositoryConfigArgsDict']] config: Configuration needed to authenticate the helm repository.
         :param pulumi.Input[str] description: Description of the helm repository.
         :param pulumi.Input[str] kind: Kind of the helm repository. - Can be: `HTTPS`, `OCI_DOCKER_HUB`, `OCI_DOCR`, `OCI_ECR`, `OCI_GENERIC_CR`,
                `OCI_GITHUB_CR`, `OCI_GITLAB_CR`, `OCI_PUBLIC_ECR`, `OCI_SCALEWAY_CR`.
@@ -298,6 +317,25 @@ class HelmRepository(pulumi.CustomResource):
         ## # HelmRepository (Resource)
 
         Provides a Qovery helm repository resource. This can be used to create and manage Qovery helm repository.
+
+        ## Example
+
+        ```python
+        import pulumi
+        import ediri_qovery as qovery
+
+        my_helm_repository = qovery.HelmRepository("myHelmRepository",
+            organization_id=qovery_organization["my_organization"]["id"],
+            kind="OCI_DOCKER_HUB",
+            url="https://docker.io",
+            skip_tls_verification=False,
+            description="My Helm repository",
+            config={
+                "username": "<my_username>",
+                "password": "<my_password>",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[qovery_organization["my_organization"]]))
+        ```
 
         ## Import
 
@@ -320,7 +358,7 @@ class HelmRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['HelmRepositoryConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['HelmRepositoryConfigArgs', 'HelmRepositoryConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -361,7 +399,7 @@ class HelmRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['HelmRepositoryConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['HelmRepositoryConfigArgs', 'HelmRepositoryConfigArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -375,7 +413,7 @@ class HelmRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HelmRepositoryConfigArgs']] config: Configuration needed to authenticate the helm repository.
+        :param pulumi.Input[Union['HelmRepositoryConfigArgs', 'HelmRepositoryConfigArgsDict']] config: Configuration needed to authenticate the helm repository.
         :param pulumi.Input[str] description: Description of the helm repository.
         :param pulumi.Input[str] kind: Kind of the helm repository. - Can be: `HTTPS`, `OCI_DOCKER_HUB`, `OCI_DOCR`, `OCI_ECR`, `OCI_GENERIC_CR`,
                `OCI_GITHUB_CR`, `OCI_GITLAB_CR`, `OCI_PUBLIC_ECR`, `OCI_SCALEWAY_CR`.
